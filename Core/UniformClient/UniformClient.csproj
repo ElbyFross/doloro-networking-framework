@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj" />
+    <ProjectReference Include="..\..\Addons\ConsoleDraw\ConsoleDraw.csproj" />
     <ProjectReference Include="..\PipesProvider\PipesProvider.csproj" />
     <ProjectReference Include="..\UniformQueries\UniformQueries.csproj" />
   </ItemGroup>

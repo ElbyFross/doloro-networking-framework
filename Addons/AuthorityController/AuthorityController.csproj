@@ -61,22 +61,21 @@
     <Compile Include="API\Tokens.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj">
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformQueries\UniformQueries.csproj">
-      <Project>{b68e2d79-1e9b-436e-899c-930bf945b003}</Project>
+    <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
+      <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
       <Name>UniformQueries</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformServer\UniformServer.csproj">
-      <Project>{fa54f91c-5e34-47a6-af34-2cf0b9f90c32}</Project>
+    <ProjectReference Include="..\..\Core\UniformServer\UniformServer.csproj">
+      <Project>{9e8bf96b-7476-46ac-ac59-d9ecd4e8308c}</Project>
       <Name>UniformServer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

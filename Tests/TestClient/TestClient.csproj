@@ -88,20 +88,20 @@
     <None Include="TestClient_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj">
-      <Project>{f5a10f87-bcd8-4d29-8c7f-0ebeafe65a90}</Project>
+    <ProjectReference Include="..\..\Addons\ConsoleDraw\ConsoleDraw.csproj">
+      <Project>{415c2c26-d8e0-4201-9c02-5d77480e74af}</Project>
       <Name>ConsoleDraw</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj">
+    <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformClient\UniformClient.csproj">
-      <Project>{36a2c9b2-15b0-429c-b5c2-489a80bd4926}</Project>
+    <ProjectReference Include="..\..\Core\UniformClient\UniformClient.csproj">
+      <Project>{7b1fd360-4a04-4574-b15e-8fc2d7c4dbad}</Project>
       <Name>UniformClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformQueries\UniformQueries.csproj">
-      <Project>{b68e2d79-1e9b-436e-899c-930bf945b003}</Project>
+    <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
+      <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
       <Name>UniformQueries</Name>
     </ProjectReference>
   </ItemGroup>

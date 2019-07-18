@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EB9B28A4-91D4-487F-81BD-9B6DED35A901}</ProjectGuid>
+    <ProjectGuid>{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SessionProvider</RootNamespace>
-    <AssemblyName>SessionProvider</AssemblyName>
+    <RootNamespace>QueriesServer</RootNamespace>
+    <AssemblyName>QueriesServer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,24 +50,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthorityController\AuthorityController.csproj">
+    <ProjectReference Include="..\..\Addons\AuthorityController\AuthorityController.csproj">
       <Project>{a64e9d28-ba9c-43b8-b894-e73dd0e23970}</Project>
       <Name>AuthorityController</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj">
-      <Project>{f5a10f87-bcd8-4d29-8c7f-0ebeafe65a90}</Project>
+    <ProjectReference Include="..\..\Addons\ConsoleDraw\ConsoleDraw.csproj">
+      <Project>{415c2c26-d8e0-4201-9c02-5d77480e74af}</Project>
       <Name>ConsoleDraw</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj">
+    <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformClient\UniformClient.csproj">
-      <Project>{6695b55e-8994-475f-a112-6a4e8be019aa}</Project>
+    <ProjectReference Include="..\..\Core\UniformClient\UniformClient.csproj">
+      <Project>{7b1fd360-4a04-4574-b15e-8fc2d7c4dbad}</Project>
       <Name>UniformClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniformServer\UniformServer.csproj">
-      <Project>{e3156133-0296-4670-a961-726174860e1a}</Project>
+    <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
+      <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
+      <Name>UniformQueries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\UniformServer\UniformServer.csproj">
+      <Project>{9e8bf96b-7476-46ac-ac59-d9ecd4e8308c}</Project>
       <Name>UniformServer</Name>
     </ProjectReference>
   </ItemGroup>

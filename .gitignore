@@ -10,5 +10,6 @@
 *.pfx
 **/publish
 *.user
-**/packages
 **/.vs
+**/TestResults
+**/packages
