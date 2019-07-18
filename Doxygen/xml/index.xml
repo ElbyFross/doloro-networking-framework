@@ -1,0 +1,1087 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i" kind="class"><name>UniformClient::Plugins::API</name>
+    <member refid="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i_1a0f983601b51597ea8ab13f718c58f80c" kind="function"><name>SortByDomains</name></member>
+  </compound>
+  <compound refid="df/d75/class_uniform_queries_1_1_a_p_i" kind="class"><name>UniformQueries::API</name>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1aa906970223172f9f2068baa410b621d8" kind="variable"><name>SPLITTING_SYMBOL</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a759098e511956b9afaaaf3ab13af336e" kind="property"><name>QueryHandlers</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a8ec82d8dfe03f81379e43520e0b0abde" kind="variable"><name>queryHandlers</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a8dbe3d00dcf507ab3cea1dc58e1e154f" kind="function"><name>API</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a1a0ad73e1dad7f7ec61398cb33ec18a4" kind="function"><name>QueryParamExist</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a0f6c53ca64000015c8bf7bed30d9c57a" kind="function"><name>QueryParamExist</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1ac0f8c9faebdc4a69f2072c0bb9e955e1" kind="function"><name>QueryParamExist</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a987eb23a48b90e542001cc12fcbc1ddc" kind="function"><name>TryGetParamValue</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a5747ff73a111b583fa01c442ca2a2d78" kind="function"><name>TryGetParamValue</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a57f11d169fede8dc343e8fcce0af1c6a" kind="function"><name>TryGetParamValue</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1aa8a8215bbad2752c291803011dc49ff4" kind="function"><name>GetParamValues</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1ae481c9b7a800886a2b461a7456043494" kind="function"><name>GetParamValues</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a132ca74ba34302f216b61668dd32a207" kind="function"><name>MakeQuery</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a013ca0eff0e67d7f30a6be289312b859" kind="function"><name>DetectQueryParts</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1ab5875a3346878ba21ab331ba07889e92" kind="function"><name>DetectQueryParts</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a6b5e9796e2ed61c94fc49df8e6fec0d9" kind="function"><name>TryFindQueryHandler</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a0b929a433be6dc51a05718bd682317f9" kind="function"><name>TryFindQueryHandler</name></member>
+    <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a76acc6d6941a7a30d0ed87f69eab3434" kind="function"><name>IsSeemsValid</name></member>
+  </compound>
+  <compound refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information" kind="struct"><name>AuthorityController::Data::BanInformation</name>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a30799b8a5a9beb700177c66494927cb6" kind="enum"><name>Duration</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a30799b8a5a9beb700177c66494927cb6a10d85d7664a911bcaec89732098c269a" kind="enumvalue"><name>Temporary</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a30799b8a5a9beb700177c66494927cb6a23adaa457573eeb089c33214c90d3013" kind="enumvalue"><name>Permanent</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1aee645f20f1abb308cd54a640f94cbdf5" kind="property"><name>Permanent</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a4f5feca536c5a0004d14b0f620e5b373" kind="property"><name>IsExpired</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1afd9b25205b762ab78e319e6c5568a370" kind="variable"><name>active</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a462559f3def5024252cae059c7c96306" kind="variable"><name>duration</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1af579b3fb0849ed4f6b8302e2675628fa" kind="variable"><name>expiryTime</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1a2782944663a51100498280d44212adb0" kind="variable"><name>commentary</name></member>
+    <member refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information_1ae189ca37d8b49f5334008b17e96980ba" kind="variable"><name>blockedRights</name></member>
+  </compound>
+  <compound refid="d4/deb/class_uniform_client_1_1_base_client" kind="class"><name>UniformClient::BaseClient</name>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a2c4762c1be5eac42b8b5d189530d0952" kind="variable"><name>threadSleepTime</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a52dacc1af85cbab035a159e64e1417a0" kind="variable"><name>DuplexBackwardCallbacks</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a10f1c9dbb8d41719754b39344432497f" kind="property"><name>AppTerminated</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1ad99bcf3d1afeed6eadca7035c926d2b7" kind="variable"><name>token</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a33b34ea9a2d7b4b8e26af767ab2897cf" kind="variable"><name>routingTable</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a458271823ca5e21612c0947e1db695a0" kind="variable"><name>thread</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a6060f2eb1d44ec518f2dfc99c8b4f7aa" kind="variable"><name>SW_HIDE</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7545b9c72eef6cb7594a7001d3f558e4" kind="variable"><name>SW_SHOW</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8abbd1d46cc50556eeae8bbd55ce680f" kind="function"><name>LoadAssemblies</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" kind="function"><name>ArgsReactor</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a01e5a7ef4c760207cfa644ac2f6a407f" kind="function"><name>StartPPClientThreadAsync</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a194b46bb0e889d07cade81c0aeab7cea" kind="function"><name>StartClientThread</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a47b6d88848854c59fafefeeae3956699" kind="function"><name>ShowWindow</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1aafcfed25b79baed0db4448f2e30f2aa2" kind="function"><name>GetConsoleWindow</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" kind="function"><name>LoadPluginsEnumerable</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" kind="function"><name>LoadPluginsCollection</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" kind="function"><name>GetValidPublicKeyViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" kind="function"><name>HandlerInputTransmissionAsync</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" kind="function"><name>HandlerOutputTransmisssionAsync</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a56ba8d0360e3c65a69d2d69db878ec23" kind="function"><name>OpenOutTransmissionLineViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa6a13dcf0a4dbefd681cf7eb333813aa" kind="function"><name>ReceiveDelayedAnswerViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a4db768d7c09862ab9adc9d7b0638edc6" kind="function"><name>ReceiveDelayedAnswerViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a97a86c4f5931d39e09ce7c9d336a1636" kind="function"><name>ReciveAnonymousBroadcastMessage</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a964bd521f46fd99f64b10257c5d233ef" kind="function"><name>EnqueueDuplexQueryViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a82dbf660ec06b5c05730ff57b63b4f28" kind="function"><name>EnqueueDuplexQueryViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a5f8f22aa4ab8219fb5f1b6a358f68daf" kind="function"><name>LoadRoutingTables</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a851ce49c50011eb0ed2552663c7731ab" kind="function"><name>OpenTransmissionLineViaPP</name></member>
+    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a79c6e490b20b4b8c649af33926e20017" kind="function"><name>OpenTransmissionLineViaPP</name></member>
+  </compound>
+  <compound refid="d7/d32/class_uniform_server_1_1_base_server" kind="class"><name>UniformServer::BaseServer</name>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" kind="variable"><name>appTerminated</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a31cc7d436bb2dd344ec275fd0fa0061e" kind="property"><name>ThreadsCount</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a4dbe04636a763decfae22ddb2fe26c7a" kind="variable"><name>threadSleepTime</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa40c02a1eec7eda4c36a8ac08119b414" kind="variable"><name>threadsCount</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9c14e919da0c2b9b7f8e57a92c9b0742" kind="variable"><name>longTermServerThreads</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a051bdce3aec037df76d8efe3b9938198" kind="variable"><name>mutexObj</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaff91507b262d2a1b9021caa2d01640f" kind="variable"><name>SW_HIDE</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a494087cabc03c54c3dc0ac1cc1048860" kind="variable"><name>SW_SHOW</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a52485a2d70e615a5cbf720c952a8d62f" kind="variable"><name>thread</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaa318b3ed503dd8ccf381c9f3a81ecf2" kind="variable"><name>pipeName</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" kind="variable"><name>securityLevel</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a889c3aaa1cca7f4a9a4e32617516f4be" kind="event"><name>ThreadTerminateRequest</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a440a854a955ab7c5e563918c12e9b32c" kind="event"><name>ThreadStartRequest</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a16cf4f4f9de9d6d6586631640d3d867b" kind="function"><name>ShowWindow</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a1b7d5587de4974fad2ec366a571791e0" kind="function"><name>GetConsoleWindow</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa4a1412b217944e7f8d6ccae6ac68289" kind="function"><name>StartServerThread</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a22b92ad517cd1003fe4fe3c86d857169" kind="function"><name>LoadAssemblies</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" kind="function"><name>ArgsReactor</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a8e9e872bad891b2bc06a8caa6c09ebf9" kind="function"><name>ThreadingServerLoop_PP_Output</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a6cf6b8472de3925d465737a7fc9a8842" kind="function"><name>ThreadingServerLoop_PP_Input</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1ae3c371a7e7953333bb2aa5104fa8a72d" kind="function"><name>ThreadingServerLoop_PP_Broadcast</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1aefbb2a4287a7f995582b2abf41da8a89" kind="function"><name>SendAnswerViaPP</name></member>
+    <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" kind="function"><name>StartBroadcastingViaPP</name></member>
+  </compound>
+  <compound refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kind="class"><name>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</name>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1afc45a2287e6fef24892a0aee8aa86f56" kind="variable"><name>connectionMarker</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a632261255d8dfc87d93445180c6e2c9d" kind="variable"><name>connectionCallback</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a019f764411256a751f8a438076426a47" kind="variable"><name>pipeServer</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a4ce9911f1ad6814d3e5c9096d9ddde57" kind="variable"><name>pipeName</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad57a0420e71e3897e7e1b67c16b995f6" kind="property"><name>Expired</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ae159fdf4582f9419d9e3616d2aa2d37e" kind="property"><name>Stoped</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1af60aaebfbfe6988e008cedb18f32c759" kind="property"><name>None</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1acd8c41b70a2f0000c0e0b24e3b37ba07" kind="function"><name>BaseServerTransmissionController</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad3ffb9dd45062b59d88dd08f9df90c5f" kind="function"><name>BaseServerTransmissionController</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a6123ecf83e5ed7d39e8fe457681e3bfc" kind="function"><name>SetExpired</name></member>
+    <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a838c1d62567059bbe92e9be3eca971d5" kind="function"><name>SetStoped</name></member>
+  </compound>
+  <compound refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server" kind="class"><name>UniformServer::Standard::BroadcastingServer</name>
+    <member refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a0c09cadabd5e8c941979bc7b32185c79" kind="variable"><name>GetMessage</name></member>
+    <member refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a5a92bcc30f5de147b5603b409d7afa9b" kind="function"><name>BroadcastingServer</name></member>
+  </compound>
+  <compound refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller" kind="class"><name>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</name>
+    <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a1e4cce8f6139f3e325ef8b1bbae350e9" kind="property"><name>GetMessage</name></member>
+    <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1ace17cd03bcec52f8e9a7a980ccae25fb" kind="function"><name>MessageHandeler</name></member>
+    <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a571cf673b8b112d837bd069dfa83f58b" kind="function"><name>BroadcastingServerTransmissionController</name></member>
+    <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1aaa65501bc7934c782714b35247475c6d" kind="function"><name>ServerLoop</name></member>
+    <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a6abf38daa4d961cfee0e2551648afe37" kind="function"><name>ServerLoop</name></member>
+  </compound>
+  <compound refid="d6/dac/class_test_client_1_1_client" kind="class"><name>TestClient::Client</name>
+    <member refid="d6/dac/class_test_client_1_1_client_1ac5365a862c09065db31123126239a7ee" kind="variable"><name>routingInstruction</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a7fdac87931c97ce7fde6c4fc622bcfa6" kind="variable"><name>SERVER_NAME</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a58c70d565592caa15b99d9b145a133ea" kind="variable"><name>SERVER_PIPE_NAME</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a1c9bf7696f11d779b1cea41f919fd3c5" kind="variable"><name>questTokenRequired</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a236c6c2776f2ec6851c36a8714ef6e03" kind="function"><name>Main</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a7096d201835f0f2c3049fef72e89637c" kind="function"><name>TransmissionsBlock</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1af74ca9833b73440828e078c9c25a8026" kind="function"><name>SendOneWayQuery</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a0d6d95892249c5febdb5708995b7a987" kind="function"><name>RequestPublicRSAKey</name></member>
+    <member refid="d6/dac/class_test_client_1_1_client_1a727dec85daa92923e35fc5ae6fcb70ed" kind="function"><name>ServerAnswerHandler_RSAPublicKey</name></member>
+  </compound>
+  <compound refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i" kind="class"><name>PipesProvider::Client::ClientAPI</name>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1aafef8e556d18d889412c1f48451250c4" kind="variable"><name>openedClients</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a4c62796db87af40dc4c6b8eb578c6487" kind="function"><name>ConnectToServerAsync</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a8031df7ac05189a2459a110273c6fc37" kind="function"><name>ClientLoop</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a745ac6dce4a89785c4b9306af84871e7" kind="function"><name>TryGetTransmissionLineByGUID</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a70ffe69963e762ee828887856e119883" kind="function"><name>TryToRegisterTransmissionLine</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a20139222de5ce13aa336e7c4db174f91" kind="function"><name>TryToUnregisterTransmissionLine</name></member>
+    <member refid="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i_1a4c588f18a7e7ff618702a27681543889" kind="function"><name>CloseAllTransmissionLines</name></member>
+  </compound>
+  <compound refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller" kind="class"><name>PipesProvider::Server::TransmissionControllers::ClientToServerTransmissionController</name>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1a7f1552d5fea75a49edc81af944630f3e" kind="variable"><name>queryHandlerCallback</name></member>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1a74769635feb16e48b0885fac6ee29909" kind="function"><name>ClientToServerTransmissionController</name></member>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1a9e11d59cc7f44eee700d002df9d4f580" kind="function"><name>ServerLoop</name></member>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1ab52c0b0e04e34cd795847eef1e59d35b" kind="function"><name>ServerLoop</name></member>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1ae66dc95c0ec1e01f53bf5d0d7e0c3738" kind="function"><name>ServerLoop</name></member>
+    <member refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1abd4776718a269d7cab7ea154d94eba45" kind="function"><name>ServerLoop</name></member>
+  </compound>
+  <compound refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections" kind="class"><name>AuthorityController::API::Collections</name>
+    <member refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a7e292e3fb49b2b6f0fb1060a9beb2e9f" kind="function"><name>IsHasEnoughRigths</name></member>
+    <member refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a65e8bd3790cb8576d37938f20dd792f4" kind="function"><name>TyGetPropertyValue</name></member>
+  </compound>
+  <compound refid="d3/d12/class_uniform_server_1_1_commands" kind="class"><name>UniformServer::Commands</name>
+    <member refid="d3/d12/class_uniform_server_1_1_commands_1ad1bac97da40d03e97f9b5fe7ed152ef9" kind="function"><name>BaseCommands</name></member>
+  </compound>
+  <compound refid="db/d4a/class_authority_controller_1_1_data_1_1_config" kind="class"><name>AuthorityController::Data::Config</name>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a498509c50902acb12629f1f4110879cc" kind="variable"><name>DIRECTORY</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1adca90088250467f620512b7ac5ef028f" kind="variable"><name>CONFIG_FILE_NAME</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a7572d82972fd94d042784a220f3afef1" kind="variable"><name>UsersStorageDirectory</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1af6a0b4ee235de5375653b75b049a4ade" kind="variable"><name>LoginMinSize</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1aee789851ddd9ca2f541b74a00eb88e6d" kind="variable"><name>LoginMaxSize</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a224ad61312be50270d71e0d65633437c" kind="variable"><name>UserNameRegexPattern</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a084ad964d1a25e70e5a4e88cca031cbf" kind="variable"><name>UserDefaultRights</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a7f2f02b43ede6e98bbe1712f0a5689e2" kind="variable"><name>PasswordSaltFileName</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a01c8efd020aa29a69dcc145cd9dd8c1f" kind="variable"><name>PasswordSaltSize</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1aa78fc021207f80910a576da11c25b46b" kind="variable"><name>PasswordMinAllowedLength</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a591fba6f933cffc009424b65f6c20bfb" kind="variable"><name>PasswordMaxAllowedLength</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1ac5aa22d1b95ce7d4a0ceafa5667fde81" kind="variable"><name>PasswordRequireSpecialSymbol</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a0c8a26fd109adc0baaf06e13a2afaafd" kind="variable"><name>PasswordRequireUpperSymbol</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a9e5f99e4351d66b2fc56fdafbd4465b9" kind="variable"><name>PasswordRequireDigitSymbol</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1aa0988724b8c2413203508f2819689750" kind="variable"><name>TokenValidTimeMinutes</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a5dc14da938c0608904548a2e523dccd1" kind="variable"><name>QUERY_UserBan_RIGHTS</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1aebbde34b76e399e76781513058d1aeef" kind="variable"><name>QUERY_UserNewPassword_RIGHTS</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a0d0ef1e3b32d2ae1dfd97cff9b3e6db1" kind="variable"><name>QUERY_UserPasswordModeration_RIGHTS</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a8f6d78f62fe58dbfaaba5c16d6c420ae" kind="variable"><name>QUERY_SetTokenRights_RIGHTS</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a0cf8083d60c0876a83ecb79e32fc9ffc" kind="property"><name>Active</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1ad40500f15f27c829f86295c7cd40d68c" kind="property"><name>Salt</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1ad383f87102c61bc2cb19ba36860a20f4" kind="variable"><name>active</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a1cd19a4d5ffc9b876b1658759fcef8b5" kind="variable"><name>salt</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1aeec5dde5538253c035a4e0a36b1696fb" kind="function"><name>Config</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a96c731587b3eda94608691423dcc0d65" kind="function"><name>SaveAs&lt; T &gt;</name></member>
+    <member refid="db/d4a/class_authority_controller_1_1_data_1_1_config_1a71b175024423041ed094744021463342" kind="function"><name>TryToLoad&lt; T &gt;</name></member>
+  </compound>
+  <compound refid="d8/d05/class_authority_controller_tests_1_1_configurator" kind="class"><name>AuthorityControllerTests::Configurator</name>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1ab9ca617d4f63c060c5446b24628f2774" kind="property"><name>Active</name></member>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1a5f07aec045009437243f33e3cabc2fdd" kind="property"><name>TestSubfolder</name></member>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1ae69b7962744bff884636aa1d6fce8bcb" kind="variable"><name>active</name></member>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1af8f6fbba66b51ffcc2409215c9c4deaa" kind="variable"><name>_testSubFolder</name></member>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1adb64f36284f5f547543e07945a086f59" kind="variable"><name>CONFIG_FILE_GENERATED</name></member>
+    <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1a8bb7a4cb1f7bdba792b575a6e6772e39" kind="variable"><name>GUEST_TOKEN</name></member>
+  </compound>
+  <compound refid="d2/d62/class_uniform_client_1_1_plugins_1_1_constants" kind="class"><name>UniformClient::Plugins::Constants</name>
+    <member refid="d2/d62/class_uniform_client_1_1_plugins_1_1_constants_1a7005abdb0c3ee5ba9e841769a7ecd575" kind="variable"><name>PLUGINS_DIR</name></member>
+  </compound>
+  <compound refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto" kind="class"><name>PipesProvider::Security::Crypto</name>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596e" kind="enum"><name>SHATypes</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596ea9a9f4eb6d0036a164588b6ee74390442" kind="enumvalue"><name>SHA1</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eab505df5aa812b4f320420b8a952f20e5" kind="enumvalue"><name>SHA256</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eae446c175009b980a004574cb795388ab" kind="enumvalue"><name>SHA384</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eadb6c5a350bb792ef07a62a1750962737" kind="enumvalue"><name>SHA512</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a891868b922c2ce6a0f85a01c6bf684e5" kind="variable"><name>encoder</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a47ca964d3fea31884d730936a9be1c81" kind="variable"><name>DoOAEPPadding</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab1a4a6dad6ba4bad8e95587ae9c9ef28" kind="property"><name>CryptoServiceProvider_RSA</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a1813c1f43bdb164e4e023947e0cad08c" kind="property"><name>PublicKey</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1adcb692dbcece7db4e96f4bce92daabd0" kind="property"><name>PrivateKey</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aee1d631c98ae7aff552257befa32c37d" kind="property"><name>RSAKeyExpireTime</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a085f49881af05eb6029d21fa8aab4439" kind="variable"><name>_CryptoServiceProvider_RSA</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a3f5346401a457cde84339dcaf7f4ba21" kind="variable"><name>RSAProviderExpireTimer</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab931581ad69168a7d452ec2ed2a31609" kind="function"><name>SerializePublicKey</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a35b28e8676c9dea2c0b7991671fd78a6" kind="function"><name>TryDeserializeRSAKey</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a2a233d9860e9aee6b2bc49411a4e4917" kind="function"><name>DecryptString</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aeaf01f17d57b624fd4809ceb2836ebe0" kind="function"><name>RSADecrypt</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab43ab066a89134e4207ab0107f17a187" kind="function"><name>EncryptString</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a09f2c39c0c97bf871f3ab9df2f1a40fd" kind="function"><name>RSAEncrypt</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aa02bcc81446a930930bb43ff46981f60" kind="function"><name>StringToSHA</name></member>
+    <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1af652a2847acd1502625c5496c4887274" kind="function"><name>StringToSHA</name></member>
+  </compound>
+  <compound refid="d5/d06/class_authority_controller_1_1_tests_1_1_data" kind="class"><name>AuthorityController::Tests::Data</name>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1ac551d17113acad2ad5c7f800c4b7b95a" kind="function"><name>ConfigValidation</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1acb31a8516eb780890bd38685d5435208" kind="function"><name>Config_New</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1af561b8596539d402bc098808f879e17e" kind="function"><name>Config_Load_ValidData</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1ab2498d27006a8609210f5d814ca4126f" kind="function"><name>Config_Load_CoruptedData</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a388eaa4ae3a3a646054856f459eb225c" kind="function"><name>UsersPoolStressTest</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a770588d92222eb045fcd482646e44c9f" kind="function"><name>UsersPool_New</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1aa66213692c59f2aef176b51dc7df7972" kind="function"><name>UsersPoo_Load</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1ae113be915fe80272e4a44c1349055ef5" kind="function"><name>UserProfileValidation</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a4f32d71ba5cc02b5b97336890441908a" kind="function"><name>User_New</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1ad48945ccc2bf1ba76b3b4697c291f962" kind="function"><name>User_Update</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a722e102c8ac10de91863739d1f911ccc" kind="function"><name>User_Remove</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a9b3556784bcd8b19d95f501e25057c1a" kind="function"><name>SaltGeneration</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1aa13dc3c0c87d00ef411a7c131a3bd017" kind="function"><name>Salt_Init</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a9418850b889e54b13753fb41002f8953" kind="function"><name>Salt_Loading</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a63fd3771fbfaab1a8901b8b3a6349af3" kind="function"><name>Salt_Validation_ValidData</name></member>
+    <member refid="d5/d06/class_authority_controller_1_1_tests_1_1_data_1a0513557132acc1b9a94d893923ecc027" kind="function"><name>Salt_Validation_InvalidData</name></member>
+  </compound>
+  <compound refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s" kind="class"><name>PipesProvider::Handlers::DNS</name>
+    <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a974e13bf084c0284e4cfe5fecdeb99f7" kind="function"><name>ClientToServerAsync</name></member>
+    <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a8c278ec0c39ce0c76cb6ac9c92355aad" kind="function"><name>ServerToClientAsync</name></member>
+    <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1af052d964841594776956fc894642ef65" kind="function"><name>ServerBroadcasting</name></member>
+  </compound>
+  <compound refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general" kind="class"><name>PipesProvider::Security::General</name>
+    <member refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general_1a49b6c46c031ae200885fcababfdb32c3" kind="property"><name>DefaultInternalPipeScurity</name></member>
+    <member refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general_1a7b89c9d059851b68df31b78c1a2e021c" kind="function"><name>GetRulesForLevels</name></member>
+    <member refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general_1a9536a3073883f12e38979f54c6f389d1" kind="function"><name>SetLocalSecurityAuthority</name></member>
+    <member refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general_1ab72cbd58c62e331b7602c6f99ad7cf54" kind="function"><name>TryLogon</name></member>
+    <member refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general_1afd0b01ce4c3cdf3079e88d54cb6d655e" kind="function"><name>LogonUser</name></member>
+  </compound>
+  <compound refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n" kind="class"><name>AuthorityController::Queries::GET_GUEST_TOKEN</name>
+    <member refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1a72902cb3b94f31ec4f8e6cd0bb1f2ed8" kind="function"><name>Description</name></member>
+    <member refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1a99b0dddf4ff45771e546ec0fa14b0aae" kind="function"><name>Execute</name></member>
+    <member refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1a5606c5797e0a684a6bfbbd851f186268" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y" kind="class"><name>UniformServer::Queries::GET_PUBLIC_KEY</name>
+    <member refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_1aee414e6882494609ed576f061d662dc2" kind="function"><name>Description</name></member>
+    <member refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_1a63367fa9543a3fb4a1126373a833c317" kind="function"><name>Execute</name></member>
+    <member refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_1ae27d462fe9ccbbf22ac03c9ead9cbe8f" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info" kind="class"><name>PipesProvider::Networking::Info</name>
+    <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1af2fa3a471e2f6245bed859c86b6f0c0e" kind="function"><name>TryGetHostName</name></member>
+    <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1aa609196312941e05536dcb3526b9a2ce" kind="function"><name>PingHost</name></member>
+    <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a3bc757d31da1bf0759a252ee0f919917" kind="function"><name>ServerName</name></member>
+    <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1ac8097e6a6bccbeae15e309ce72dbac91" kind="function"><name>DisplayIPAddresses</name></member>
+  </compound>
+  <compound refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kind="class"><name>PipesProvider::Networking::Routing::Instruction</name>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a8681a89ae14ad25d11ee0c588231b772" kind="property"><name>PublicKey</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a60281a347236a1311c37743b90596d58" kind="property"><name>PublicKeyExpireTime</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a07dbb5b97b3d9a28e5a318815d954278" kind="property"><name>IsValid</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" kind="property"><name>Default</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aad2d50b60ddcdd0c7d0671ced01a5480" kind="property"><name>Empty</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abcd8b85ff0383ecd73b24befa9d69506" kind="variable"><name>_isValid</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1adb75f80ff34fab644305856ccf23d07b" kind="variable"><name>routingIP</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abe54e245df8dd26547b0c881b987202b" kind="variable"><name>pipeName</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a2a3325abd7537b7a961626272634e038" kind="variable"><name>logonConfig</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aa98823848a42831095f92b639121cc67" kind="variable"><name>queryPatterns</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a61ce6ffa8bb9cc44efc57bc51be3550b" kind="variable"><name>RSAEncryption</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a376135eac06c59b1df8d2f5d1617bed9" kind="function"><name>IsRoutingTarget</name></member>
+    <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" kind="function"><name>TryUpdatePublicKey</name></member>
+  </compound>
+  <compound refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kind="interface"><name>UniformClient::Plugins::IPlugin</name>
+    <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1aa49e267e66a3d697ded460d9281dcc3a" kind="property"><name>Meta</name></member>
+    <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1a1ca2220c7ce4a23f8f41af10efccf328" kind="function"><name>OnStart</name></member>
+  </compound>
+  <compound refid="da/d51/interface_uniform_queries_1_1_i_query_handler" kind="interface"><name>UniformQueries::IQueryHandler</name>
+    <member refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1a66d15db03bdd5b0caf6eef96f9b803c0" kind="function"><name>Execute</name></member>
+    <member refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abda1ccf47ad2889fbd015955965046e7" kind="function"><name>IsTarget</name></member>
+    <member refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abe2d1124630ca8d74b7398d11c873526" kind="function"><name>Description</name></member>
+  </compound>
+  <compound refid="d8/df8/class_authority_controller_1_1_locks" kind="class"><name>AuthorityController::Locks</name>
+    <member refid="d8/df8/class_authority_controller_1_1_locks_1a8e6aade829f803f9d8928834a6e59dc8" kind="variable"><name>CONFIG_LOCK</name></member>
+  </compound>
+  <compound refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kind="struct"><name>PipesProvider::Security::LogonConfig</name>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad9d68ef23dc614044127aaa54c901a05" kind="variable"><name>userName</name></member>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a897f10d6a83aa90807de0571d4f5a99d" kind="variable"><name>password</name></member>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a65f053075525de0b032d76a1ac733059" kind="variable"><name>domain</name></member>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a75522f37bf91bbd20f01fa4498d28dd1" kind="property"><name>IsAnonymous</name></member>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad09f6e3c892826dc5df995e02f7a5738" kind="property"><name>Anonymous</name></member>
+    <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a9a7976747dbec231bbb598bc69a84274" kind="function"><name>LogonConfig</name></member>
+  </compound>
+  <compound refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s" kind="struct"><name>PipesProvider::Security::LSA::LSA_OBJECT_ATTRIBUTES</name>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a47b2267f43c5ea4789053114b8a13f00" kind="variable"><name>Length</name></member>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a66b8ed917286d00eea70c66ca2af6d0a" kind="variable"><name>RootDirectory</name></member>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a78f427087b120de8a84afb5dddfc9e75" kind="variable"><name>ObjectName</name></member>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a7fb617bb90a83f5e040bd91eeafa495b" kind="variable"><name>Attributes</name></member>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a85b08b22b2105c4ccf9e73cf6b81fffb" kind="variable"><name>SecurityDescriptor</name></member>
+    <member refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a400ac67d06ed0dd89da96185b233a981" kind="variable"><name>SecurityQualityOfService</name></member>
+  </compound>
+  <compound refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kind="struct"><name>PipesProvider::Security::LSA::LSA_UNICODE_STRING</name>
+    <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a47a8222b4f1eb7be1b842c0499c61dde" kind="variable"><name>Length</name></member>
+    <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a7ab871d32b5cc7b523313d4b49ef24dd" kind="variable"><name>MaximumLength</name></member>
+    <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1ac1a1669b93a7749ef80d6508845233f9" kind="variable"><name>Buffer</name></member>
+  </compound>
+  <compound refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper" kind="class"><name>PipesProvider::Security::LSA::LsaSecurityWrapper</name>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778" kind="enum"><name>Access</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778a0cc6d93d350805a56153f9c6cd0df1ff" kind="enumvalue"><name>POLICY_READ</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778abe32715eb8e266792bebdc4bcb99f28a" kind="enumvalue"><name>POLICY_ALL_ACCESS</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778af9342c6f0f3ccd922c4899c733ee6a20" kind="enumvalue"><name>POLICY_EXECUTE</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778ac4441e264c294b1787239538889b54ea" kind="enumvalue"><name>POLICY_WRITE</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a773aa7b67cb9fc5616dc6bd1a619b225" kind="function"><name>LsaOpenPolicy</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adda333d87687ba6906a623db79a9adfa" kind="function"><name>LsaAddAccountRights</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adc48b947899763c20b59951bd7d4bf1e" kind="function"><name>LsaRemoveAccountRights</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a1e3a45dcb55bd6d339ccf426bc600022" kind="function"><name>LsaClose</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adac61a41a0472231a990f1274834ee4d" kind="function"><name>AddAccountRights</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ad14aaa2cffa5be534590d0ef30810117" kind="function"><name>RemoveAccountRights</name></member>
+    <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a13ce034059c39f7a1a93d06a45b07d94" kind="function"><name>AccountRightsController</name></member>
+  </compound>
+  <compound refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta" kind="class"><name>UniformClient::Plugins::MenuItemMeta</name>
+    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a5af82221a6390db0d98c7fe9ff1d1985" kind="variable"><name>domain</name></member>
+    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a7cd04fb564fa2bdd1ac3c0c3af3b9aab" kind="variable"><name>titleDictionaryCode</name></member>
+    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a3837afc599c411743bb08cd93b9937ad" kind="variable"><name>defaultTitle</name></member>
+    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1ab60d7d4920d6cbab2cea1ee9e8eb5955" kind="function"><name>MenuItemMeta</name></member>
+    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a46c285f5a810f09b9f23b2e33d0a27f1" kind="function"><name>MenuItemMeta</name></member>
+  </compound>
+  <compound refid="db/d7f/class_console_draw_1_1_primitives" kind="class"><name>ConsoleDraw::Primitives</name>
+    <member refid="db/d7f/class_console_draw_1_1_primitives_1ad4b6aaed88ef18e2926febca63abf667" kind="function"><name>DrawLine</name></member>
+    <member refid="db/d7f/class_console_draw_1_1_primitives_1a56f4fc0b28e3e0182208dccaf6944fdb" kind="function"><name>DrawSpacedLine</name></member>
+  </compound>
+  <compound refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries" kind="class"><name>AuthorityController::Tests::Queries</name>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8cf9d1089864d1bdea1a5ae54c321de3" kind="variable"><name>PIPE_NAME</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a6abe89b3f3e496805cd2499bfdbb41f3" kind="variable"><name>user_SuperAdmin</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1abd134bc218d67f9b4e6792f9212cb1de" kind="variable"><name>user_Admin</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a7e5bf8b80bc660fa128328babd36b3a2" kind="variable"><name>user_Moderator</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a379bff3a24288ed5b49ef8fd09e56dff" kind="variable"><name>user_PrivilegedUser</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a05c0bd84370836e36ff4b2da43098c03" kind="variable"><name>user_User</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1adf081fb1bd4b942144bbae304c6e923d" kind="variable"><name>user_Guest</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a1e0a184a21e8260f3483b3f9a8c816f5" kind="function"><name>StartPublicServer</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2e5cb3ec94045a037d0854d9aea11323" kind="function"><name>SetBaseUsersPool</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1af8f75f7ae081367f731cca0708cb1480" kind="function"><name>Setup</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a73aecfeff3ab2ef348cbecb67d60fe49" kind="function"><name>GetGuestToken</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a803981626447ef436d7461ee278eb052" kind="function"><name>SetTokenRights_NoRights</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa7fb783f7b670bc2daf142f97561cfae" kind="function"><name>SetTokenRights_HasRights</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a16f5db1a247a06e5b585b89d422f8ef5" kind="function"><name>UserBan_NoRights</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a07a7a3e3f8136203cbafe2334180ac46" kind="function"><name>UserBan_HighrankerBan</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a0d8db80983626e432963bf17eda12b98" kind="function"><name>UserBan_HasRights</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa12eafe223e2c48ace89a4dd2a8da7c0" kind="function"><name>UserBan_BanExpire</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a3cd254060908d25ee375be4c019a5bbc" kind="function"><name>Logon_ValidData</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2d9af2b69951d0498670248829c0e2ab" kind="function"><name>Logon_UserNotExist</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ac861fb620f063f0808c662d6a7eafeb2" kind="function"><name>Logon_InvalidData</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a4bae91492fae911ec7b5972e5f06e69a" kind="function"><name>Logoff_InvalidToken</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ed45de5483ce80be47a31751b582f6" kind="function"><name>Logoff_ValidToken</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8aa2995781a0353dbdf041871ab50458" kind="function"><name>NewUser_ValidData</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2ce7ef859f6c5b9441eb8b4aa5335a08" kind="function"><name>NewUser_InvalidPassword</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a17edb1eefd72cf95eb808d6c2fd888e2" kind="function"><name>NewUser_InvalidLogin</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa4bfd8884d421a8dfe58a5b7ede3c567" kind="function"><name>NewUser_UserExist</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ae3f994db2b80f9d5fe5251b7d8cacaff" kind="function"><name>NewUser_InvalidPersonal</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ad47988eb2a7c20fc51bf71ca3dced" kind="function"><name>NewPassword_Self</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ad767ebe267fd51e8df5f53c2f0b11f5d" kind="function"><name>NewPassword_ModeratorToAdmin</name></member>
+    <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ab04b5335b4b693f145631c1bc1d0ab3d" kind="function"><name>NewPassword_AdminToUser</name></member>
+  </compound>
+  <compound refid="d2/db8/class_pipes_provider_1_1_handlers_1_1_query" kind="class"><name>PipesProvider::Handlers::Query</name>
+    <member refid="d2/db8/class_pipes_provider_1_1_handlers_1_1_query_1a3f08c44bfaf5e720d6dfbd791227c8fe" kind="function"><name>ProcessingAsync</name></member>
+  </compound>
+  <compound refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kind="struct"><name>PipesProvider::Client::QueryContainer</name>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1ada0fa04c68e6aee41d3d811d699d01aa" kind="property"><name>Query</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1ab2ceeaac61f04d4ce7e41bc8ea931a0f" kind="property"><name>IsEmpty</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a565336905463066277e39b0dbe606112" kind="property"><name>Attempts</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0e1f91d0a990824b56170c3da5e5919c" kind="property"><name>Empty</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1acaaa09658d3bb75118670fbb90b77f33" kind="variable"><name>AnswerHandler</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a35009271933f6aebf60be2415b651067" kind="function"><name>QueryContainer</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0e78a9dc3d3fc971f9a1abb06dc836b4" kind="function"><name>QueryContainer</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a567d4d144909e8e480c30f1faacadbc3" kind="function"><name>ToString</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1acfcd11bf7f6b6c9cc4e6b2ff574437bd" kind="function"><name>Copy</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a9a97cf832c6736f14f5ed2661fbb3bce" kind="function"><name>operator++</name></member>
+    <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0d227c39b9ecec5d8b3e739e87e171a6" kind="function"><name>operator string</name></member>
+  </compound>
+  <compound refid="d5/d61/struct_uniform_queries_1_1_query_part" kind="struct"><name>UniformQueries::QueryPart</name>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1a941540a3d1489c7f32cb5e21910ba7ac" kind="variable"><name>propertyName</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1adb297c368ab4900f751d60ceffda0a99" kind="variable"><name>propertyValue</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1af380375ca82e9dc2eecf899b5933fe2b" kind="property"><name>IsNone</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1a5be54faa8b7723167257e930a71457a4" kind="property"><name>None</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1ae8a918635c52a837300ff3b1fdcdfd57" kind="function"><name>QueryPart</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1adabbcaa15ccf653f686d4f2bcd39ce09" kind="function"><name>QueryPart</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1acf5597530f693df3804fc2e638805245" kind="function"><name>ToString</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1af032469107805c1c71083666bb8548a9" kind="function"><name>ParamNameEqual</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1a5fb4475a72dcb6882fc860f7c0fcc50e" kind="function"><name>ParamValueEqual</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1a274b321f91ecbda08f01c23536a568b6" kind="function"><name>operator string</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1ab0c6ca9b91045a64286bf730ad97dc43" kind="function"><name>operator QueryPart</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1a053c8ba08ddd1a20d5b50128a524da09" kind="function"><name>QueryPartsArrayToString</name></member>
+    <member refid="d5/d61/struct_uniform_queries_1_1_query_part_1accd3b435809c426dd92456ffee0a996d" kind="function"><name>TryGetBackwardDomain</name></member>
+  </compound>
+  <compound refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex" kind="class"><name>AuthorityController::Tests::Regex</name>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a7ca12992eb32b151d7032331f9294807" kind="function"><name>SetBasePasswordConfig</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a1e29b97de1195b0683853c3ef03c6ff9" kind="function"><name>SetBasePersonalDataConfig</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a1cd8672005a3920c7e732faa90e7c277" kind="function"><name>ComplexNameValidation_ValidType1</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1ab708f31285d07735bed81112f9b99dbb" kind="function"><name>ComplexNameValidation_ValidType2</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1af0e2f15b85228c222e93f2e072f9c4cc" kind="function"><name>ComplexNameValidation_ValidType3</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1af58498eae51d6a356d0e5b980258919e" kind="function"><name>ComplexNameValidation_ValidType4</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a879692bffbbf9c13c7c6f400d6b38707" kind="function"><name>ComplexNameValidation_InvalidType1</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a49fb8ae2d529c308b77bd43e447dd9b2" kind="function"><name>ComplexNameValidation_InvalidType2</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a5282287c64ccd579ddc4055dc115fd8f" kind="function"><name>ComplexNameValidation_InvalidType3</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1aa214d85ea82735f3fe724d524a8b5b92" kind="function"><name>ComplexNameValidation_InvalidType4</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a80a3c6ee4af7f8435b52573afd3ae550" kind="function"><name>ComplexNameValidation_InvalidType5</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a36c6d878216653c9a9d3815d4232d02b" kind="function"><name>ComplexNameValidation_ValidType5</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a8b1cf784e9fc984364e7e1693112a248" kind="function"><name>ComplexNameValidation_ValidType6</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1abef1a8fdb77661b756a9a63ab096f0c3" kind="function"><name>ValidatePassord_BaseValid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a4a2cce934027f1cdd951fd4d5c09714f" kind="function"><name>ValidatePassord_BaseValid2</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a0b1f63c3941f89644380bcb6b729b389" kind="function"><name>ValidatePassord_BaseValid3</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a4fcbc4d36a79f9bacec8a9f0da0e14d5" kind="function"><name>ValidatePassord_BaseInvalid1</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a63ed9f83338aac11d026b0c1a72fac1b" kind="function"><name>ValidatePassord_BaseInvalid2</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1afa0becd3ee2a08a74ec582f27b63bedd" kind="function"><name>ValidatePassord_BaseInvalid3</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1af50420dae851df532abb87e5e9e12e81" kind="function"><name>ValidatePassord_BaseInvalid4</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a66cf48873a320e5d6d0a1e63b1abbb71" kind="function"><name>ValidatePassord_UpperCaseValid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a8cda73ecc7836a9b0801addcd34784c1" kind="function"><name>ValidatePassord_UpperCaseInvalid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a4638efee69d7d3d2bf072fa8dc9a82a3" kind="function"><name>ValidatePassord_SpecialSymbolValid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a8565a902ecf3f1abe0c2b25249d5ce6e" kind="function"><name>ValidatePassord_SpecialSymbolInvalid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1ab775e928b51f2cf90a705f50e7b6c2d8" kind="function"><name>ValidatePassord_DigitsValid</name></member>
+    <member refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex_1a14648a7fbcdfe4500d019d175d2e4b68" kind="function"><name>ValidatePassord_DigitsInvalid</name></member>
+  </compound>
+  <compound refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kind="class"><name>PipesProvider::Networking::Routing::RoutingTable</name>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a1a2c8459b4805d7ee1e81698a389f3f7" kind="variable"><name>intructions</name></member>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1af756c825762d5434f5b934a1c1b2d3eb" kind="property"><name>SourcePath</name></member>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1afa326622fc49d66bcd375c08b2f6ff8b" kind="function"><name>TryGetRoutingInstruction</name></member>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a13c2778abb1d14e7e8e4a2ae51d315ac" kind="function"><name>LoadRoutingTables</name></member>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a1fe9c42819cd5c5210b254c0d868b336" kind="function"><name>SaveRoutingTable</name></member>
+    <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a515b9ad19dc868afb6d47c762064fd96" kind="function"><name>operator+</name></member>
+  </compound>
+  <compound refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container" kind="class"><name>AuthorityController::Data::SaltContainer</name>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1acae5788a34706594948537b7e4c305b4" kind="variable"><name>key</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1aba6d56ea2dda89e430cc4049407bba73" kind="variable"><name>validationStamp</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1a8deb29d68246a9d1d7bea3c640963b7f" kind="function"><name>SaltContainer</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1ab4ddbf8061e1cb70a6f3c10c917ff4a7" kind="function"><name>SaltContainer</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1ab259742d170bcae0854203dfde5d82b4" kind="function"><name>GenerateNewKey</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1a8b63952d86071a1e418112dfd5c8fdb3" kind="function"><name>GetStamp</name></member>
+    <member refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container_1accd0f30ba3b0eddaa84046b6971079d9" kind="function"><name>Validate</name></member>
+  </compound>
+  <compound refid="d8/d17/class_session_provider_1_1_server" kind="class"><name>SessionProvider::Server</name>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a1738a442f750af35694a05d7cfdb4a71" kind="variable"><name>relatedServers</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a7ccb7c8e5465c2778d961034fcd6ac6f" kind="property"><name>UsersLoaded</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a78068e966b78f7579b01ba80f53b87ea" kind="function"><name>Main</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1ad75d498e5203fe80a725f54ec955ace2" kind="function"><name>Users_DirectoryLoadingUnlocked</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a79f535be5b1dd781de2982f0b34ea4f9" kind="function"><name>InformateRelatedServers</name></member>
+  </compound>
+  <compound refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server" kind="class"><name>AuthorityController::AuthorityTestServer::Server</name>
+    <member refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server_1ab6167aa4233c1cbdd42694d93827e9ac" kind="function"><name>StartQueryProcessing</name></member>
+  </compound>
+  <compound refid="d2/d9a/class_queries_server_1_1_server" kind="class"><name>QueriesServer::Server</name>
+    <member refid="d2/d9a/class_queries_server_1_1_server_1a5d7c4c9ababa7292ef7cac92005d3563" kind="variable"><name>OPEN_CHANEL</name></member>
+    <member refid="d2/d9a/class_queries_server_1_1_server_1ae294b75511557ef0701455c0e2ba785d" kind="function"><name>Main</name></member>
+    <member refid="d2/d9a/class_queries_server_1_1_server_1af78ec354d7f465d29800f812996dc91b" kind="function"><name>ThreadingServerLoop_Relay</name></member>
+    <member refid="d2/d9a/class_queries_server_1_1_server_1af23657bf1fbf254abb46ed80180b0cc3" kind="function"><name>QueryHandler_Relay</name></member>
+  </compound>
+  <compound refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i" kind="class"><name>PipesProvider::Server::ServerAPI</name>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1adf4c77f25cd481b8190240e4aca06e56" kind="event"><name>ServerTransmissionMeta_InProcessing</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1ac18f0fca4de6269edeb97379112e67ca" kind="variable"><name>openedServers</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1aaf9afb864cf452d3842f0a6546569a32" kind="function"><name>ServerLoop&lt; TransmissionControllerType &gt;</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a750e3c4f0e34e61724ab3914d0d0608e" kind="function"><name>SetExpired</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a9adcab99d6a6b7e4185203afb74dc575" kind="function"><name>SetExpired</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a6d6f42c39e7f5c8a63a026739fe0ea94" kind="function"><name>SetExpiredAll</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1af9c612e584b125b1fdc2c32490613bb1" kind="function"><name>StopServer</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a8a70cec80dfb54ff68d8c4924a8b4007" kind="function"><name>StopServer</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a44469667416cb072d8fd258b299a53cd" kind="function"><name>StopAllServers</name></member>
+    <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1a6fba1adf18ce5938c6edcb29f28adfe5" kind="function"><name>TryGetServerTransmissionController</name></member>
+  </compound>
+  <compound refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller" kind="class"><name>PipesProvider::Server::TransmissionControllers::ServerToClientTransmissionController</name>
+    <member refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_1abc1b9e3483f9e0f1fd83e72d9b87377d" kind="property"><name>ProcessingQuery</name></member>
+    <member refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_1afa5595e45959941c7d3e84e868a25223" kind="function"><name>ServerToClientTransmissionController</name></member>
+    <member refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_1a1315fe8071f9e83fdaae7d248cf822e2" kind="function"><name>ServerLoop</name></member>
+    <member refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_1a0b40f93950cbf37335373f6efec0a4f1" kind="function"><name>ServerLoop</name></member>
+  </compound>
+  <compound refid="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service" kind="class"><name>PipesProvider::Handlers::Service</name>
+    <member refid="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service_1af208afd61f2abcb7ff163e5c2c6d81c9" kind="function"><name>ConnectionEstablishedCallbackRetranslator</name></member>
+  </compound>
+  <compound refid="d9/ddb/class_authority_controller_1_1_tests_1_1_session" kind="class"><name>AuthorityController::Tests::Session</name>
+    <member refid="d9/ddb/class_authority_controller_1_1_tests_1_1_session_1ad4cb8f6d25fa80e9d64d174b45144331" kind="function"><name>UpdatedTokenRelativeServerCallback</name></member>
+    <member refid="d9/ddb/class_authority_controller_1_1_tests_1_1_session_1ac7fca191024ad023affcc13a9e380788" kind="function"><name>UserByToken</name></member>
+    <member refid="d9/ddb/class_authority_controller_1_1_tests_1_1_session_1a454260fa1b12b77664fcecea7b4c86aa" kind="function"><name>MultiDeviceLogon</name></member>
+  </compound>
+  <compound refid="d6/d4b/class_authority_controller_1_1_session" kind="class"><name>AuthorityController::Session</name>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1abbd978421ebd42315bde41126231ac18" kind="event"><name>InformateRelatedServers</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a20d84345a3843b7a1b340887bb961f7c" kind="property"><name>Current</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a774ff0a1fec6aae096af9ed744c7269d" kind="variable"><name>last</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a69364ca8d68ac74a7220bdabb1551799" kind="variable"><name>tokensRights</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a935fde7bbd4091cc33bf0e72b354b937" kind="function"><name>Session</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a798dbdfeeb3ce9156d99d8b7962d9528" kind="function"><name>AsignTokenToUser</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1ab164831d0a5fc909c200feba1ac882e4" kind="function"><name>AsignTokenToUser</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a481d888a9a2e90f1e43c60de7e1c7a71" kind="function"><name>SetTokenRights</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a37157e74e3aee082b7adfb906ec69511" kind="function"><name>TryGetTokenRights</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a811b23b70e61ac567ec8eeb54641ffcd" kind="function"><name>SetExpired</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1abdd6c48f989b28cc9b3838dbe569edc6" kind="function"><name>TryGetTokenInfo</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1a8422d53f01daff616c1588cb3d657882" kind="function"><name>RemoveToken</name></member>
+    <member refid="d6/d4b/class_authority_controller_1_1_session_1ae8e875b83d01b42f4623d2c81841ce62" kind="function"><name>ShareTokenRights</name></member>
+  </compound>
+  <compound refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s" kind="class"><name>AuthorityController::Queries::SET_TOKEN_RIGHTS</name>
+    <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a149fb8950cf0ebbcb47b6a238c6458d2" kind="function"><name>Description</name></member>
+    <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1aebb323c8033e3a027f59c55a95695360" kind="function"><name>Execute</name></member>
+    <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a605feed66d357dc93ccc825068d83c96" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client" kind="class"><name>UniformClient::Standard::SimpleClient</name>
+  </compound>
+  <compound refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server" kind="class"><name>UniformServer::Standard::SimpleServer</name>
+    <member refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server_1a540bb159fd3cd984aa7626243e03762b" kind="function"><name>SimpleServer</name></member>
+  </compound>
+  <compound refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info" kind="class"><name>AuthorityController::Data::TokenInfo</name>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1a9196edb674ec1b14ec98c8c86f4bbcda" kind="property"><name>Anonymous</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1a5039d141fce02bf9a1e4c28e8af24029" kind="variable"><name>token</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1a30eb024f5d8ba8c13dd53ff1540e84ed" kind="variable"><name>operationSystem</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1afbe13ef6a63b2a4cff326cfc6b5637b0" kind="variable"><name>machineMac</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1add082450b392251105bbed4327a7de4d" kind="variable"><name>userId</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1a2885b65bcc52dd621a1220ac26a22a4b" kind="variable"><name>allocationTime</name></member>
+    <member refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info_1adc68460cc2ff19c832e097e10694908c" kind="variable"><name>rights</name></member>
+  </compound>
+  <compound refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens" kind="class"><name>AuthorityController::API::Tokens</name>
+    <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a43a1d7e3b2fa6ed94a20dc7b1e36b27a" kind="property"><name>UnusedToken</name></member>
+    <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1acbc5a5df26ae29633d4424873676ece3" kind="function"><name>IsExpired</name></member>
+    <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a3077a786044bdd530ad50dbd615f8beb" kind="function"><name>IsHasEnoughRigths</name></member>
+    <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1ab1d580a971a86c8e5b3c7c189aa65381" kind="function"><name>IsHasEnoughRigths</name></member>
+    <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" kind="function"><name>AuthorizeNewGuestToken</name></member>
+  </compound>
+  <compound refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kind="class"><name>PipesProvider::Client::TransmissionLine</name>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5" kind="enum"><name>TransmissionDirection</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5aefeb369cccbd560588a756610865664c" kind="enumvalue"><name>In</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5a7c147cda9e49590f6abe83d118b7353b" kind="enumvalue"><name>Out</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a6959acebfbb30be2aa0149779bc6822c" kind="property"><name>GUID</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e8a85952e05718b1a0ff96b9874766" kind="property"><name>ServerPipeName</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3dc08ad974186de6b0439b052ea0d72a" kind="property"><name>ServerName</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a902851edce28b2ab7a7b9fc648a984d5" kind="property"><name>Closed</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af0385a70cb2f9dc29fb4e7040330aa4c" kind="property"><name>Processing</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac4b9855c5d9aa2a9f6289c2eb43f6996" kind="property"><name>LastQuery</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3e840e02a896759c61ed428e013bc1e2" kind="property"><name>RoutingInstruction</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a02c3eec4a1041d7b57ee5df00559d251" kind="property"><name>LogonFinished</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e1cb4797230b8dd9fcefdfe7dc5dca" kind="property"><name>Direction</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3f5625beace2f8ea5ec3cc46000b8cc3" kind="property"><name>HasQueries</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a894d0baadc896280da7c0861c2d06b5d" kind="variable"><name>guid</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adad9bc543ae01a23e792f46bf3b3092f" kind="variable"><name>accessToken</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a617db258fff1a28c80ff7d6241e8372e" kind="variable"><name>pipeClient</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a86f49118056ad8cb6fe383abb2a350e8" kind="variable"><name>queryProcessor</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac58ee721ec6876da25190b15d52530a3" kind="variable"><name>lastQuery</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af110134a03e1e046911970fff4774600" kind="variable"><name>queries</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a8fe76e563974e7380fe2f717e48d694e" kind="function"><name>TransmissionLine</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa75228335f18b62a772bd43db9587e42" kind="function"><name>TransmissionLine</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac7a9bbb2d71ae7080788b28449b216fc" kind="function"><name>EnqueueQuery</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a0adfc0db736cc9315a6e1c0ea04c42e6" kind="function"><name>EnqueueQuery</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a48c6395608b4d32a7d852c2fd6d911e2" kind="function"><name>TryDequeQuery</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a5d921e9d7b0dfb366d79c6397bec9179" kind="function"><name>Close</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ae2d45dea3d22625d81634a6eea3cd356" kind="function"><name>DropMeta</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a75c4a1aa309fbc60cccbe258a85a91b3" kind="function"><name>TryLogonAs</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a2741ab56f9eecbe0bcbd018232321205" kind="function"><name>SetInstructionAsKey</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ada994593c98fe9aa24abb0a3ab55e6e2" kind="function"><name>operator++</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aebf1f90d880307f803bdeb6e0020a95f" kind="function"><name>ThreadLoop</name></member>
+    <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a334cde78dd1b3cc6c3cb2a6bb7419a1d" kind="function"><name>GenerateGUID</name></member>
+  </compound>
+  <compound refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kind="class"><name>AuthorityController::Data::User</name>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1aa637a9c31ebd1d4f4a4fb769ba64b9ca" kind="variable"><name>id</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a22a8c2eecc03a53c091786bd65d24c90" kind="variable"><name>login</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a9b3069e679b5a654f9ef7293db65f41f" kind="variable"><name>password</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a94a2cbd0dc5fdc315f929c3711d0092b" kind="variable"><name>firstName</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a7e06ede3b1eb9d24537f530d84129931" kind="variable"><name>secondName</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a750e743023fd2e3b7d22cffd1729c4d3" kind="variable"><name>rights</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a2b446b542b04e20debd43d5107ded674" kind="variable"><name>bans</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a805641f7b51d9399c07f854ce1893def" kind="variable"><name>culturePreferences</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a881f9d9beaa89819daf95838bdc5a984" kind="variable"><name>tokens</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a503a867ba5d2a9a3b1ca1eec4308325c" kind="function"><name>ToQueryValue</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1adb8253e5d75b65467e42fcf243eeb991" kind="function"><name>TyToParseQueryValue</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1a654c513481e7cfbe36530c3cf6a908f7" kind="function"><name>IsOpenPasswordCorrect</name></member>
+    <member refid="d8/d02/class_authority_controller_1_1_data_1_1_user_1ab34b934bfdb2603010dd4f25f118c3b4" kind="function"><name>IsHashedPasswordCorrect</name></member>
+  </compound>
+  <compound refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n" kind="class"><name>AuthorityController::Queries::USER_BAN</name>
+    <member refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_1a0635966a71b389cbb4354e61e3c52513" kind="function"><name>Description</name></member>
+    <member refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_1a719795c950c9dedbc187c2c0cfca37a7" kind="function"><name>Execute</name></member>
+    <member refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_1a29c898b411adc3a0edbed31cf90e007b" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f" kind="class"><name>AuthorityController::Queries::USER_LOGOFF</name>
+    <member refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_1a2cb738d74699241341b691cc55b57e1d" kind="function"><name>Description</name></member>
+    <member refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_1a2e4d5a0f8ee93210522c41a38adbcce2" kind="function"><name>Execute</name></member>
+    <member refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_1afbfa78117d68ab2bd2728c78d31c1c58" kind="function"><name>IsTarget</name></member>
+    <member refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_1aee1aba51496e1412706f77c53650955a" kind="function"><name>LogoffToken</name></member>
+  </compound>
+  <compound refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n" kind="class"><name>AuthorityController::Queries::USER_LOGON</name>
+    <member refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1af448426be46032c3ae103cdf4ea5f40b" kind="function"><name>Description</name></member>
+    <member refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a001f81c71597259636be777078e50f7e" kind="function"><name>Execute</name></member>
+    <member refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a53261c6c60dc1a2324a67adf19f7547a" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w" kind="class"><name>AuthorityController::Queries::USER_NEW</name>
+    <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1ab0995d0559e0033ea963acaccb6e37bf" kind="function"><name>Description</name></member>
+    <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1afd715fb3d60e53ca7e3d55a4433f529c" kind="function"><name>Execute</name></member>
+    <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a6e26596b5a5ecc3d07591766b5d325ec" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d" kind="class"><name>AuthorityController::Queries::USER_NEW_PASSWORD</name>
+    <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a04d2af1732d4ac353076d489fe75c696" kind="function"><name>Description</name></member>
+    <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a63a5424c90f45f09f72a530ef0389416" kind="function"><name>Execute</name></member>
+    <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a48ff6874453caf45973ad386bfe5b513" kind="function"><name>IsTarget</name></member>
+  </compound>
+  <compound refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users" kind="class"><name>AuthorityController::API::Users</name>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1af7bf2041f53bc5910235a72778703786" kind="event"><name>DirectoryLoadingFinished</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a38d89296f7a63c029fe5873e12451ce3" kind="event"><name>UserProfileStored</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a1f3af72fd317a1786bcf89c4ab55e3a1" kind="event"><name>UserProfileNotStored</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1ac4f1b22cd4a3e351ba6f7e438abead57" kind="property"><name>HasAsyncLoadings</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a7e3706be7a0bf67293b57287db85c86f" kind="variable"><name>UsersByLogin</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a579a2f121cc7b767fbcd33279121e2ed" kind="variable"><name>UsersById</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1aed715cb6e26d7333f4ae338413460321" kind="variable"><name>LoadingLockedDirectories</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a5154a7787617e9c51c5519304ec89530" kind="function"><name>LoadProfilesAsync</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a5d8242dfe20d058ea78d9f50b3b3c3cd" kind="function"><name>SetProfile</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a3ed2ca9e5bb026c907894da4160b5e5e" kind="function"><name>SetProfileAsync</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a6896c020fbcaf19c54962c7c769502e4" kind="function"><name>SetProfile</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a7239ac583f20a03adc376681494b82bb" kind="function"><name>RemoveProfile</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1aa57a37410c6bc6a47ee79c0d3438b028" kind="function"><name>RemoveProfile</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1ae0fd30410e8632a3ee5d8dc24e722fac" kind="function"><name>GenerateID</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a9cdaba595a8b1d2e49690bebeca969d2" kind="function"><name>AddToLoadedData</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a4c078940968eaa39c6d9eff30f1f90dc" kind="function"><name>ClearUsersLoadedData</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1abd0e68d6f6f3c77682e995b939daaea9" kind="function"><name>TryToFindUser</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a3e152e5b11636c72e5e9610906de986a" kind="function"><name>TryToFindUser</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a7890ae58af943645c6b6cfc39f0d3e6f" kind="function"><name>TryToFindUserUniform</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1a9a1f211c403459ac15b312504444f0c2" kind="function"><name>GetHashedPassword</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1ab23c24d29e83e28d25452f7da05b427d" kind="function"><name>IsBanned</name></member>
+    <member refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users_1ac0cc8d945690970c7bac5432fb9baf11" kind="function"><name>GetUserFileName</name></member>
+  </compound>
+  <compound refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation" kind="class"><name>AuthorityController::API::Validation</name>
+    <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a9aceff242f489e5d63808e28b1506487" kind="function"><name>PasswordFormat</name></member>
+    <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a105196c0f8ec27b96594e2ac855b7db3" kind="function"><name>NameFormat</name></member>
+  </compound>
+  <compound refid="d4/d13/namespace_authority_controller" kind="namespace"><name>AuthorityController</name>
+  </compound>
+  <compound refid="d0/dac/namespace_authority_controller_1_1_a_p_i" kind="namespace"><name>AuthorityController::API</name>
+  </compound>
+  <compound refid="dd/dee/namespace_authority_controller_1_1_authority_test_server" kind="namespace"><name>AuthorityController::AuthorityTestServer</name>
+  </compound>
+  <compound refid="d6/dc2/namespace_authority_controller_1_1_data" kind="namespace"><name>AuthorityController::Data</name>
+  </compound>
+  <compound refid="dd/d74/namespace_authority_controller_1_1_queries" kind="namespace"><name>AuthorityController::Queries</name>
+  </compound>
+  <compound refid="d5/daa/namespace_authority_controller_1_1_tests" kind="namespace"><name>AuthorityController::Tests</name>
+  </compound>
+  <compound refid="d1/d91/namespace_authority_controller_tests" kind="namespace"><name>AuthorityControllerTests</name>
+  </compound>
+  <compound refid="d3/d29/namespace_console_draw" kind="namespace"><name>ConsoleDraw</name>
+  </compound>
+  <compound refid="da/d0a/namespace_l_s_a___h_a_n_d_l_e" kind="namespace"><name>LSA_HANDLE</name>
+  </compound>
+  <compound refid="da/d38/namespace_microsoft_1_1_visual_studio_1_1_test_tools_1_1_unit_testing" kind="namespace"><name>Microsoft::VisualStudio::TestTools::UnitTesting</name>
+  </compound>
+  <compound refid="df/d54/namespace_microsoft_1_1_win32_1_1_safe_handles" kind="namespace"><name>Microsoft::Win32::SafeHandles</name>
+  </compound>
+  <compound refid="d6/daa/namespace_pipes_provider" kind="namespace"><name>PipesProvider</name>
+  </compound>
+  <compound refid="d1/dc6/namespace_pipes_provider_1_1_client" kind="namespace"><name>PipesProvider::Client</name>
+  </compound>
+  <compound refid="db/d52/namespace_pipes_provider_1_1_handlers" kind="namespace"><name>PipesProvider::Handlers</name>
+  </compound>
+  <compound refid="d1/d4b/namespace_pipes_provider_1_1_networking" kind="namespace"><name>PipesProvider::Networking</name>
+  </compound>
+  <compound refid="d9/d1b/namespace_pipes_provider_1_1_networking_1_1_routing" kind="namespace"><name>PipesProvider::Networking::Routing</name>
+  </compound>
+  <compound refid="da/d2f/namespace_pipes_provider_1_1_security" kind="namespace"><name>PipesProvider::Security</name>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" kind="enum"><name>SecurityLevel</name></member>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea7079c72c21415131774625ba1d64f4b0" kind="enumvalue"><name>Anonymous</name></member>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7eafcf5df157549813b6c82862088249175" kind="enumvalue"><name>RemoteLogon</name></member>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea509820290d57f333403f490dde7316f4" kind="enumvalue"><name>Local</name></member>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea7b7bc2512ee1fedcd76bdc68926d4f7b" kind="enumvalue"><name>Administrator</name></member>
+    <member refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7eaafbf0897a5a83fdd873dfb032ec695d3" kind="enumvalue"><name>Internal</name></member>
+  </compound>
+  <compound refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kind="namespace"><name>PipesProvider::Security::LSA</name>
+    <member refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a_1aa8038141b4ccef48a4ada2ba706c8ef7" kind="typedef"><name>LSA_HANDLE</name></member>
+  </compound>
+  <compound refid="d2/d6a/namespace_pipes_provider_1_1_server" kind="namespace"><name>PipesProvider::Server</name>
+  </compound>
+  <compound refid="d3/d54/namespace_pipes_provider_1_1_server_1_1_transmission_controllers" kind="namespace"><name>PipesProvider::Server::TransmissionControllers</name>
+  </compound>
+  <compound refid="db/d5f/namespace_queries_server" kind="namespace"><name>QueriesServer</name>
+  </compound>
+  <compound refid="dc/d85/namespace_session_provider" kind="namespace"><name>SessionProvider</name>
+  </compound>
+  <compound refid="d8/dd0/namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="d5/da7/namespace_system_1_1_collections" kind="namespace"><name>System::Collections</name>
+  </compound>
+  <compound refid="d9/d1b/namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="d1/d58/namespace_system_1_1_component_model" kind="namespace"><name>System::ComponentModel</name>
+  </compound>
+  <compound refid="d3/d7c/namespace_system_1_1_diagnostics" kind="namespace"><name>System::Diagnostics</name>
+  </compound>
+  <compound refid="dc/d30/namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="d9/dd6/namespace_system_1_1_i_o_1_1_pipes" kind="namespace"><name>System::IO::Pipes</name>
+  </compound>
+  <compound refid="d5/de4/namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="d2/d79/namespace_system_1_1_management" kind="namespace"><name>System::Management</name>
+  </compound>
+  <compound refid="d7/d5b/namespace_system_1_1_net" kind="namespace"><name>System::Net</name>
+  </compound>
+  <compound refid="d7/d2d/namespace_system_1_1_net_1_1_network_information" kind="namespace"><name>System::Net::NetworkInformation</name>
+  </compound>
+  <compound refid="d0/ded/namespace_system_1_1_net_1_1_sockets" kind="namespace"><name>System::Net::Sockets</name>
+  </compound>
+  <compound refid="d0/d9d/namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="da/d54/namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="d1/dee/namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="d4/d8b/namespace_system_1_1_security" kind="namespace"><name>System::Security</name>
+  </compound>
+  <compound refid="d5/d63/namespace_system_1_1_security_1_1_access_control" kind="namespace"><name>System::Security::AccessControl</name>
+  </compound>
+  <compound refid="d5/df8/namespace_system_1_1_security_1_1_cryptography" kind="namespace"><name>System::Security::Cryptography</name>
+  </compound>
+  <compound refid="d0/d2b/namespace_system_1_1_security_1_1_permissions" kind="namespace"><name>System::Security::Permissions</name>
+  </compound>
+  <compound refid="d2/dd8/namespace_system_1_1_security_1_1_principal" kind="namespace"><name>System::Security::Principal</name>
+  </compound>
+  <compound refid="d8/d71/namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="d5/db7/namespace_system_1_1_text_1_1_regular_expressions" kind="namespace"><name>System::Text::RegularExpressions</name>
+  </compound>
+  <compound refid="d3/d81/namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="d7/d66/namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="de/df5/namespace_system_1_1_timers" kind="namespace"><name>System::Timers</name>
+  </compound>
+  <compound refid="d7/d10/namespace_system_1_1_windows" kind="namespace"><name>System::Windows</name>
+  </compound>
+  <compound refid="d9/d2f/namespace_system_1_1_xml" kind="namespace"><name>System::Xml</name>
+  </compound>
+  <compound refid="d1/de9/namespace_system_1_1_xml_1_1_serialization" kind="namespace"><name>System::Xml::Serialization</name>
+  </compound>
+  <compound refid="df/daf/namespace_test_client" kind="namespace"><name>TestClient</name>
+  </compound>
+  <compound refid="d0/d51/namespace_uniform_client" kind="namespace"><name>UniformClient</name>
+  </compound>
+  <compound refid="da/d8c/namespace_uniform_client_1_1_plugins" kind="namespace"><name>UniformClient::Plugins</name>
+  </compound>
+  <compound refid="da/d7a/namespace_uniform_client_1_1_standard" kind="namespace"><name>UniformClient::Standard</name>
+  </compound>
+  <compound refid="d4/daa/namespace_uniform_queries" kind="namespace"><name>UniformQueries</name>
+  </compound>
+  <compound refid="d8/d5b/namespace_uniform_server" kind="namespace"><name>UniformServer</name>
+  </compound>
+  <compound refid="d2/d3e/namespace_uniform_server_1_1_queries" kind="namespace"><name>UniformServer::Queries</name>
+  </compound>
+  <compound refid="d7/def/namespace_uniform_server_1_1_standard" kind="namespace"><name>UniformServer::Standard</name>
+  </compound>
+  <compound refid="dc/d2b/namespace_u_q_a_p_i" kind="namespace"><name>UQAPI</name>
+  </compound>
+  <compound refid="d1/d7c/_collections_8cs" kind="file"><name>Collections.cs</name>
+  </compound>
+  <compound refid="dd/d04/_tokens_8cs" kind="file"><name>Tokens.cs</name>
+  </compound>
+  <compound refid="d7/dc8/_users_8cs" kind="file"><name>Users.cs</name>
+  </compound>
+  <compound refid="d3/d75/_validation_8cs" kind="file"><name>Validation.cs</name>
+  </compound>
+  <compound refid="df/d95/_ban_information_8cs" kind="file"><name>BanInformation.cs</name>
+  </compound>
+  <compound refid="d0/df4/_config_8cs" kind="file"><name>Config.cs</name>
+  </compound>
+  <compound refid="d7/d46/_salt_container_8cs" kind="file"><name>SaltContainer.cs</name>
+  </compound>
+  <compound refid="da/d2f/_token_info_8cs" kind="file"><name>TokenInfo.cs</name>
+  </compound>
+  <compound refid="dc/da5/_user_8cs" kind="file"><name>User.cs</name>
+  </compound>
+  <compound refid="d6/d31/_authority_controller_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d9/d88/_authority_controller_tests_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d0/dcb/_pipes_provider_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dd/df1/_queries_server_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="db/d29/_session_provider_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="de/d96/_test_client_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dc/dfc/_g_e_t___g_u_e_s_t___t_o_k_e_n_8cs" kind="file"><name>GET_GUEST_TOKEN.cs</name>
+  </compound>
+  <compound refid="d2/d59/_s_e_t___t_o_k_e_n___r_i_g_h_t_s_8cs" kind="file"><name>SET_TOKEN_RIGHTS.cs</name>
+  </compound>
+  <compound refid="db/ddd/_u_s_e_r___b_a_n_8cs" kind="file"><name>USER_BAN.cs</name>
+  </compound>
+  <compound refid="d2/dae/_u_s_e_r___l_o_g_o_f_f_8cs" kind="file"><name>USER_LOGOFF.cs</name>
+  </compound>
+  <compound refid="d0/d58/_u_s_e_r___l_o_g_o_n_8cs" kind="file"><name>USER_LOGON.cs</name>
+  </compound>
+  <compound refid="df/d0c/_u_s_e_r___n_e_w_8cs" kind="file"><name>USER_NEW.cs</name>
+  </compound>
+  <compound refid="dc/df3/_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_8cs" kind="file"><name>USER_NEW_PASSWORD.cs</name>
+  </compound>
+  <compound refid="dc/dba/_session_8cs" kind="file"><name>Session.cs</name>
+  </compound>
+  <compound refid="d3/dd2/ests_2_authority_controller_2_session_8cs" kind="file"><name>Session.cs</name>
+  </compound>
+  <compound refid="d8/dec/_data_8cs" kind="file"><name>Data.cs</name>
+  </compound>
+  <compound refid="d6/dfa/_queries_8cs" kind="file"><name>Queries.cs</name>
+  </compound>
+  <compound refid="d0/d65/_regex_8cs" kind="file"><name>Regex.cs</name>
+  </compound>
+  <compound refid="d6/d9e/_authority_controller_tests_2_authority_test_server_2_server_8cs" kind="file"><name>Server.cs</name>
+  </compound>
+  <compound refid="d8/dba/_queries_server_2_server_8cs" kind="file"><name>Server.cs</name>
+  </compound>
+  <compound refid="dc/d54/_session_provider_2_server_8cs" kind="file"><name>Server.cs</name>
+  </compound>
+  <compound refid="d2/dec/_configurator_8cs" kind="file"><name>Configurator.cs</name>
+  </compound>
+  <compound refid="d4/dac/_locks_8cs" kind="file"><name>Locks.cs</name>
+  </compound>
+  <compound refid="dc/d15/_debug_2netstandard2_80_2_console_draw_8_assembly_info_8cs" kind="file"><name>ConsoleDraw.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d2/df9/_release_2netstandard2_80_2_console_draw_8_assembly_info_8cs" kind="file"><name>ConsoleDraw.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d5/d2f/_primitives_8cs" kind="file"><name>Primitives.cs</name>
+  </compound>
+  <compound refid="d7/da0/_client_a_p_i_8cs" kind="file"><name>ClientAPI.cs</name>
+  </compound>
+  <compound refid="d9/de2/_transmission_line_8cs" kind="file"><name>TransmissionLine.cs</name>
+  </compound>
+  <compound refid="d8/d2c/_d_n_s_8cs" kind="file"><name>DNS.cs</name>
+    <member refid="d8/d2c/_d_n_s_8cs_1aeb55e1cb265768a446461958949e2473" kind="typedef"><name>UQAPI</name></member>
+  </compound>
+  <compound refid="d8/d46/_query_8cs" kind="file"><name>Query.cs</name>
+    <member refid="d8/d46/_query_8cs_1aeb55e1cb265768a446461958949e2473" kind="typedef"><name>UQAPI</name></member>
+  </compound>
+  <compound refid="d2/df9/_service_8cs" kind="file"><name>Service.cs</name>
+    <member refid="d2/df9/_service_8cs_1aeb55e1cb265768a446461958949e2473" kind="typedef"><name>UQAPI</name></member>
+  </compound>
+  <compound refid="d1/d09/_info_8cs" kind="file"><name>Info.cs</name>
+  </compound>
+  <compound refid="d8/d91/_instruction_8cs" kind="file"><name>Instruction.cs</name>
+  </compound>
+  <compound refid="d8/d2a/_routing_table_8cs" kind="file"><name>RoutingTable.cs</name>
+  </compound>
+  <compound refid="d1/da3/_pipes_provider_2obj_2_debug_2_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="d6/d53/_queries_server_2obj_2_debug_2_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="d5/d86/_session_provider_2obj_2_debug_2_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="d8/d17/_test_client_2obj_2_debug_2_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="d2/d62/_pipes_provider_2obj_2_debug_2_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="d2/d1c/_queries_server_2obj_2_debug_2_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="d7/d55/_session_provider_2obj_2_debug_2_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="d0/d63/_test_client_2obj_2_debug_2_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="df/d8b/_pipes_provider_2obj_2_debug_2_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="d0/d7b/_queries_server_2obj_2_debug_2_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="de/d56/_session_provider_2obj_2_debug_2_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="d8/d2e/_test_client_2obj_2_debug_2_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="d1/d43/_crypto_8cs" kind="file"><name>Crypto.cs</name>
+  </compound>
+  <compound refid="d7/d33/_general_8cs" kind="file"><name>General.cs</name>
+  </compound>
+  <compound refid="d9/d50/_logon_config_8cs" kind="file"><name>LogonConfig.cs</name>
+  </compound>
+  <compound refid="d7/d47/_l_s_a_8cs" kind="file"><name>LSA.cs</name>
+  </compound>
+  <compound refid="d4/dce/_security_level_8cs" kind="file"><name>SecurityLevel.cs</name>
+  </compound>
+  <compound refid="d0/d20/_query_container_8cs" kind="file"><name>QueryContainer.cs</name>
+  </compound>
+  <compound refid="d4/d60/_server_a_p_i_8cs" kind="file"><name>ServerAPI.cs</name>
+    <member refid="d4/d60/_server_a_p_i_8cs_1aeb55e1cb265768a446461958949e2473" kind="typedef"><name>UQAPI</name></member>
+  </compound>
+  <compound refid="d8/dd6/_base_server_transmission_controller_8cs" kind="file"><name>BaseServerTransmissionController.cs</name>
+  </compound>
+  <compound refid="d1/d34/_broadcasting_server_transmission_controller_8cs" kind="file"><name>BroadcastingServerTransmissionController.cs</name>
+  </compound>
+  <compound refid="d0/d0e/_client_to_server_transmission_controller_8cs" kind="file"><name>ClientToServerTransmissionController.cs</name>
+  </compound>
+  <compound refid="d0/d2c/_server_to_client_transmission_controller_8cs" kind="file"><name>ServerToClientTransmissionController.cs</name>
+  </compound>
+  <compound refid="d9/dd6/_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="db/d43/_client_8cs" kind="file"><name>Client.cs</name>
+  </compound>
+  <compound refid="da/d6b/_debug_2net472_2_uniform_client_8_assembly_info_8cs" kind="file"><name>UniformClient.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d0/d0a/_debug_2netstandard2_80_2_uniform_client_8_assembly_info_8cs" kind="file"><name>UniformClient.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dc/dd4/_release_2netstandard2_80_2_uniform_client_8_assembly_info_8cs" kind="file"><name>UniformClient.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="de/d31/_a_p_i_8cs" kind="file"><name>API.cs</name>
+  </compound>
+  <compound refid="d1/d39/_constants_8cs" kind="file"><name>Constants.cs</name>
+  </compound>
+  <compound refid="d0/d6a/_i_plugin_8cs" kind="file"><name>IPlugin.cs</name>
+  </compound>
+  <compound refid="d2/df4/_menu_item_meta_8cs" kind="file"><name>MenuItemMeta.cs</name>
+  </compound>
+  <compound refid="d0/db0/_base_client_8cs" kind="file"><name>BaseClient.cs</name>
+  </compound>
+  <compound refid="d8/dce/_base_client_process_8cs" kind="file"><name>BaseClientProcess.cs</name>
+  </compound>
+  <compound refid="dc/d34/_base_client_p_p_core_8cs" kind="file"><name>BaseClientPPCore.cs</name>
+  </compound>
+  <compound refid="dc/def/_base_client_p_p_handlers_8cs" kind="file"><name>BaseClientPPHandlers.cs</name>
+  </compound>
+  <compound refid="d4/d4c/_base_client_p_p_helpers_8cs" kind="file"><name>BaseClientPPHelpers.cs</name>
+  </compound>
+  <compound refid="db/d8f/_base_client_p_p_routing_8cs" kind="file"><name>BaseClientPPRouting.cs</name>
+  </compound>
+  <compound refid="d2/dd5/_base_client_p_p_transmisssion_8cs" kind="file"><name>BaseClientPPTransmisssion.cs</name>
+  </compound>
+  <compound refid="d5/d8a/_simple_client_8cs" kind="file"><name>SimpleClient.cs</name>
+  </compound>
+  <compound refid="da/df3/_i_query_8cs" kind="file"><name>IQuery.cs</name>
+  </compound>
+  <compound refid="d1/d91/_debug_2netstandard2_80_2_uniform_queries_8_assembly_info_8cs" kind="file"><name>UniformQueries.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d7/d7b/_release_2netstandard2_80_2_uniform_queries_8_assembly_info_8cs" kind="file"><name>UniformQueries.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d0/db7/_queries_a_p_i_8cs" kind="file"><name>QueriesAPI.cs</name>
+  </compound>
+  <compound refid="d9/dc7/_query_part_8cs" kind="file"><name>QueryPart.cs</name>
+  </compound>
+  <compound refid="db/d2f/_commands_8cs" kind="file"><name>Commands.cs</name>
+  </compound>
+  <compound refid="d3/d9f/_debug_2net472_2_uniform_server_8_assembly_info_8cs" kind="file"><name>UniformServer.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d8/dad/_debug_2netstandard2_80_2_uniform_server_8_assembly_info_8cs" kind="file"><name>UniformServer.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="d7/da3/_release_2netstandard2_80_2_uniform_server_8_assembly_info_8cs" kind="file"><name>UniformServer.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dd/d0c/_base_server_8cs" kind="file"><name>BaseServer.cs</name>
+  </compound>
+  <compound refid="d3/d36/_base_server_p_p_threading_8cs" kind="file"><name>BaseServerPPThreading.cs</name>
+  </compound>
+  <compound refid="db/d9e/_base_server_p_p_transmission_8cs" kind="file"><name>BaseServerPPTransmission.cs</name>
+  </compound>
+  <compound refid="d3/d5c/_broadcasting_server_8cs" kind="file"><name>BroadcastingServer.cs</name>
+  </compound>
+  <compound refid="dc/d75/_simple_server_8cs" kind="file"><name>SimpleServer.cs</name>
+  </compound>
+  <compound refid="d9/d26/_g_e_t___p_u_b_l_i_c___k_e_y_8cs" kind="file"><name>GET_PUBLIC_KEY.cs</name>
+  </compound>
+  <compound refid="d0/d9c/md__d_1__work__git_hub_doloro-networking-framework__r_e_a_d_m_e" kind="page"><name>md_D:_Work_GitHub_doloro-networking-framework_README</name>
+  </compound>
+  <compound refid="dir_0b66d59c10c47f325963ac1d67518002" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityController/API</name>
+  </compound>
+  <compound refid="dir_3e8007ef581909d411068aeef8ff0a78" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/Application</name>
+  </compound>
+  <compound refid="dir_7d0a206843306077718797c6568115cc" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityController</name>
+  </compound>
+  <compound refid="dir_4ed09fcf9e737ce9e3747cd03cac3424" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController</name>
+  </compound>
+  <compound refid="dir_2c54c69fa412d7c6420b354f54d9584e" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests</name>
+  </compound>
+  <compound refid="dir_9835e21ee1b5ce9ea87ce98fc6818071" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer</name>
+  </compound>
+  <compound refid="dir_6f54db4cf2ac548062d0b015c078a9a3" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client</name>
+  </compound>
+  <compound refid="dir_b7cea0329e97046639886844689ab55f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw</name>
+  </compound>
+  <compound refid="dir_25a4e2800905d45e3aeb3cb2b2aa8a98" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityController/Data</name>
+  </compound>
+  <compound refid="dir_b311b39e3e9ff0cb758dc127a066e9c6" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/SessionProvider/obj/Debug</name>
+  </compound>
+  <compound refid="dir_5935df396248a9c1b145cf76597865ae" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/TestClient/obj/Debug</name>
+  </compound>
+  <compound refid="dir_e9d281b4c9eb33468802205d0039b07e" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/obj/Debug</name>
+  </compound>
+  <compound refid="dir_6a728db3f56d6f2eec8fa058cb2acb7d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj/Debug</name>
+  </compound>
+  <compound refid="dir_e8819e716131d4a58fb46e3b89aff41d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries/obj/Debug</name>
+  </compound>
+  <compound refid="dir_7f32bad50248a15e5ba6bef0a5767dbd" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/obj/Debug</name>
+  </compound>
+  <compound refid="dir_4207b18c95962da75919e0b504728ee7" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Debug</name>
+  </compound>
+  <compound refid="dir_080775cd30bd8ac2bebdc24e33f80d31" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/QueriesServer/obj/Debug</name>
+  </compound>
+  <compound refid="dir_8cd4b37242ad156ddb4adaa26b277c9b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers</name>
+  </compound>
+  <compound refid="dir_3be27e6cdd58582f190908f9f84587e0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj/Debug/net472</name>
+  </compound>
+  <compound refid="dir_a402cf7d3a8490ce1c129be0bcd4ca6d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Debug/net472</name>
+  </compound>
+  <compound refid="dir_c20275e4829025982a3e5db1b6f98347" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Debug/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_2220a8a1b82bc3bc804226ff30739afa" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/obj/Debug/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_c2a0efc6d82798c273f517c219da013d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj/Debug/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_560ba5d7878ebdb4ddcd8a6c29ebd354" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_e2b8a507684ccb75c526fbded5cc8587" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_0b7328284d6067fb761078703093655b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries/obj/Debug/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_7ace1c0a778109670c53c6179ab87cc6" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_25486d77afc81367f7e6b94c0dce3a19" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_6e83d03416a865b7217fd6f990452494" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking</name>
+  </compound>
+  <compound refid="dir_a06843cff716b427f84cb818fceef546" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/SessionProvider/obj</name>
+  </compound>
+  <compound refid="dir_b7fcf967c5dfb852b46c9134af61371e" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/QueriesServer/obj</name>
+  </compound>
+  <compound refid="dir_2976ca417209bb4945ecde1eb0b3a973" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/TestClient/obj</name>
+  </compound>
+  <compound refid="dir_2c6b89ec3c6938a1ac1949828f11dc22" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/obj</name>
+  </compound>
+  <compound refid="dir_9fbeb5beea3f6d8d7ea6ed31fd8281c7" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj</name>
+  </compound>
+  <compound refid="dir_e9d26fbe487b8b2ac249b0ede13cdf34" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries/obj</name>
+  </compound>
+  <compound refid="dir_e062684232e3cbed82fcc0c39122c72c" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/obj</name>
+  </compound>
+  <compound refid="dir_a4e6924cd21bf02677f87cbc84f7743f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj</name>
+  </compound>
+  <compound refid="dir_a5306ee2f3bb6317b06f5beba2d8c2c0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/PipesProvider</name>
+  </compound>
+  <compound refid="dir_25f154603857eabf42ab83cc66088ad7" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider</name>
+  </compound>
+  <compound refid="dir_1a4f1353ceaf7538d7af2a39d4ba448b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider</name>
+  </compound>
+  <compound refid="dir_afd1537ae19fcc45c67a4230f68cbaa8" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins</name>
+  </compound>
+  <compound refid="dir_858b2a8edff1bba11126bdb78eae7f84" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityController/Properties</name>
+  </compound>
+  <compound refid="dir_1709cc0a52d85b12de7e67f9368aee5f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/SessionProvider/Properties</name>
+  </compound>
+  <compound refid="dir_f4b8102414f518c88722cf7e80ff8428" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/TestClient/Properties</name>
+  </compound>
+  <compound refid="dir_8a771f3bf7186029b8fe86317b950f8b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/QueriesServer/Properties</name>
+  </compound>
+  <compound refid="dir_3f27bb01345470e3a88734532c7e3998" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Properties</name>
+  </compound>
+  <compound refid="dir_e935844b772cb28d6157bdd9ed403fe5" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Properties</name>
+  </compound>
+  <compound refid="dir_e615122421e96dc3903a7b5fd78a38a9" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers</name>
+  </compound>
+  <compound refid="dir_fa216c835f5e7bc71902537f3f37790f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers</name>
+  </compound>
+  <compound refid="dir_bf24c37169ec25b14201e2511d0f03b2" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/Queries</name>
+  </compound>
+  <compound refid="dir_71900d2ae271e5ab077a4bee2de7fc5a" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries</name>
+  </compound>
+  <compound refid="dir_d56b4e28c050ade72c78c7acb13d7ba0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/QueriesServer</name>
+  </compound>
+  <compound refid="dir_3130f36ebf54e29e160941e224062da4" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/obj/Release</name>
+  </compound>
+  <compound refid="dir_93e5e15907216a73923e375df5d16d14" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Release</name>
+  </compound>
+  <compound refid="dir_cadc141954fb8b1069efca4d7dc05532" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/obj/Release</name>
+  </compound>
+  <compound refid="dir_d84e5df8b75e15eeffd4f999e0f072d3" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries/obj/Release</name>
+  </compound>
+  <compound refid="dir_82ef6adabab8936cebed5370f11ca65a" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing</name>
+  </compound>
+  <compound refid="dir_adba3dd3234b123cdfa91c20fda1f001" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security</name>
+  </compound>
+  <compound refid="dir_ffb027e3e9b300ae3517eeea82f42dc8" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server</name>
+  </compound>
+  <compound refid="dir_42c985aae5ef3d9718f48bf4886e47f0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/SessionProvider</name>
+  </compound>
+  <compound refid="dir_965137a901aca562f28bc538ee29051d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard</name>
+  </compound>
+  <compound refid="dir_dfc447178cdbf92056ba4abc3b2dea0b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/Standard</name>
+  </compound>
+  <compound refid="dir_9c42ab6387923225329908d66b466c1f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/TestClient</name>
+  </compound>
+  <compound refid="dir_0fa3f931ec828ff4c56e8d91efa39b63" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers</name>
+  </compound>
+  <compound refid="dir_3e853eace1f7b091a03bb1d7f3c8991d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformClient</name>
+  </compound>
+  <compound refid="dir_b104d100dce2315a2967f52658ebdce0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformQueries</name>
+  </compound>
+  <compound refid="dir_5e43d290189f322157deba26ee711a56" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/UniformServer</name>
+  </compound>
+</doxygenindex>

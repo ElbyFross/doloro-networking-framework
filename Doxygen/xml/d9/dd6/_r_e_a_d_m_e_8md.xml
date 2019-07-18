@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d9/dd6/_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>doloro-networking-framework</highlight></codeline>
+<codeline><highlight class="normal">Framework<sp/>that<sp/>provide<sp/>fast<sp/>and<sp/>easy<sp/>way<sp/>for<sp/>creation<sp/>of<sp/>client<sp/>and<sp/>server<sp/>applications<sp/>powered<sp/>by<sp/>.Net<sp/>Framework.</highlight></codeline>
+    </programlisting>
+    <location file="D:/Work/GitHub/doloro-networking-framework/README.md"/>
+  </compounddef>
+</doxygen>

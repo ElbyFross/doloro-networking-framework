@@ -1,0 +1,110 @@
+\hypertarget{class_authority_controller_1_1_data_1_1_salt_container}{}\section{Authority\+Controller.\+Data.\+Salt\+Container Class Reference}
+\label{class_authority_controller_1_1_data_1_1_salt_container}\index{Authority\+Controller.\+Data.\+Salt\+Container@{Authority\+Controller.\+Data.\+Salt\+Container}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_ab4ddbf8061e1cb70a6f3c10c917ff4a7}{Salt\+Container}} (int key\+Size)
+\begin{DoxyCompactList}\small\item\em Create salt container with requested salt size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_ab259742d170bcae0854203dfde5d82b4}{Generate\+New\+Key}} (int key\+Size)
+\begin{DoxyCompactList}\small\item\em Generate new key for container with requiered size. \end{DoxyCompactList}\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_a8b63952d86071a1e418112dfd5c8fdb3}{Get\+Stamp}} ()
+\begin{DoxyCompactList}\small\item\em Create a stamp related to current salt. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_accd0f30ba3b0eddaa84046b6971079d9}{Validate}} ()
+\begin{DoxyCompactList}\small\item\em Call base operation and compare results. Relevant result must be equal to stamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_acae5788a34706594948537b7e4c305b4}{key}}
+\begin{DoxyCompactList}\small\item\em Bytes array that can be added to information before hashing to increase entropy. \end{DoxyCompactList}\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_salt_container_aba6d56ea2dda89e430cc4049407bba73}{validation\+Stamp}}
+\begin{DoxyCompactList}\small\item\em Stamp that provide confirmation that salt is valid. During loading salt will applied to test string and this stamp need to be the same as result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_ab4ddbf8061e1cb70a6f3c10c917ff4a7}\label{class_authority_controller_1_1_data_1_1_salt_container_ab4ddbf8061e1cb70a6f3c10c917ff4a7}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!Salt\+Container@{Salt\+Container}}
+\index{Salt\+Container@{Salt\+Container}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{Salt\+Container()}{SaltContainer()}}
+{\footnotesize\ttfamily Authority\+Controller.\+Data.\+Salt\+Container.\+Salt\+Container (\begin{DoxyParamCaption}\item[{int}]{key\+Size }\end{DoxyParamCaption})}
+
+
+
+Create salt container with requested salt size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_ab259742d170bcae0854203dfde5d82b4}\label{class_authority_controller_1_1_data_1_1_salt_container_ab259742d170bcae0854203dfde5d82b4}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!Generate\+New\+Key@{Generate\+New\+Key}}
+\index{Generate\+New\+Key@{Generate\+New\+Key}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{Generate\+New\+Key()}{GenerateNewKey()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Data.\+Salt\+Container.\+Generate\+New\+Key (\begin{DoxyParamCaption}\item[{int}]{key\+Size }\end{DoxyParamCaption})}
+
+
+
+Generate new key for container with requiered size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_a8b63952d86071a1e418112dfd5c8fdb3}\label{class_authority_controller_1_1_data_1_1_salt_container_a8b63952d86071a1e418112dfd5c8fdb3}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!Get\+Stamp@{Get\+Stamp}}
+\index{Get\+Stamp@{Get\+Stamp}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{Get\+Stamp()}{GetStamp()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} Authority\+Controller.\+Data.\+Salt\+Container.\+Get\+Stamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a stamp related to current salt. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_accd0f30ba3b0eddaa84046b6971079d9}\label{class_authority_controller_1_1_data_1_1_salt_container_accd0f30ba3b0eddaa84046b6971079d9}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!Validate@{Validate}}
+\index{Validate@{Validate}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily bool Authority\+Controller.\+Data.\+Salt\+Container.\+Validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Call base operation and compare results. Relevant result must be equal to stamp. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_acae5788a34706594948537b7e4c305b4}\label{class_authority_controller_1_1_data_1_1_salt_container_acae5788a34706594948537b7e4c305b4}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!key@{key}}
+\index{key@{key}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} Authority\+Controller.\+Data.\+Salt\+Container.\+key}
+
+
+
+Bytes array that can be added to information before hashing to increase entropy. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_salt_container_aba6d56ea2dda89e430cc4049407bba73}\label{class_authority_controller_1_1_data_1_1_salt_container_aba6d56ea2dda89e430cc4049407bba73}} 
+\index{Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}!validation\+Stamp@{validation\+Stamp}}
+\index{validation\+Stamp@{validation\+Stamp}!Authority\+Controller\+::\+Data\+::\+Salt\+Container@{Authority\+Controller\+::\+Data\+::\+Salt\+Container}}
+\subsubsection{\texorpdfstring{validation\+Stamp}{validationStamp}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} Authority\+Controller.\+Data.\+Salt\+Container.\+validation\+Stamp}
+
+
+
+Stamp that provide confirmation that salt is valid. During loading salt will applied to test string and this stamp need to be the same as result. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Authority\+Controller/\+Data/Salt\+Container.\+cs\end{DoxyCompactItemize}

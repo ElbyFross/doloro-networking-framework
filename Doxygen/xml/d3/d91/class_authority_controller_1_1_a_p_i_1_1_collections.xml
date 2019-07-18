@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::API::Collections</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a7e292e3fb49b2b6f0fb1060a9beb2e9f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Collections.IsHasEnoughRigths</definition>
+        <argsstring>(string[] providedRights, params string[] requiredRights)</argsstring>
+        <name>IsHasEnoughRigths</name>
+        <param>
+          <type>string []</type>
+          <declname>providedRights</declname>
+        </param>
+        <param>
+          <type>params string []</type>
+          <declname>requiredRights</declname>
+        </param>
+        <briefdescription>
+<para>Compare two arrays that contain rights code. Prefix &apos;!&apos; before rquired right will work like &quot;not contain this right.&quot; </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>providedRights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rights that provided to user.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requiredRights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rights that required to get permisssion.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" bodystart="35" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a65e8bd3790cb8576d37938f20dd792f4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Collections.TyGetPropertyValue</definition>
+        <argsstring>(string name, out string value, params string[] properties)</argsstring>
+        <name>TyGetPropertyValue</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>out string</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>params string []</type>
+          <declname>properties</declname>
+        </param>
+        <briefdescription>
+<para>Loging for propery value by requested name. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value that stored to that property by using &quot;PROP_NAME=PROP_VALUE&quot; format. NULL if empty.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>properties</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array that contain properties&apos; collection.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of the seeking.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" line="132" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" bodystart="132" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provide <ref refid="d0/dac/namespace_authority_controller_1_1_a_p_i" kindref="compound">API</ref> to work with collection situable to authority control. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Collections.cs" bodystart="26" bodyend="185"/>
+    <listofallmembers>
+      <member refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a7e292e3fb49b2b6f0fb1060a9beb2e9f" prot="public" virt="non-virtual"><scope>AuthorityController::API::Collections</scope><name>IsHasEnoughRigths</name></member>
+      <member refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections_1a65e8bd3790cb8576d37938f20dd792f4" prot="public" virt="non-virtual"><scope>AuthorityController::API::Collections</scope><name>TyGetPropertyValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

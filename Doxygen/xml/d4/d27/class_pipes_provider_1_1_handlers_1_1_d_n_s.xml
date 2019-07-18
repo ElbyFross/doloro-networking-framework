@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Handlers::DNS</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a974e13bf084c0284e4cfe5fecdeb99f7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void PipesProvider.Handlers.DNS.ClientToServerAsync</definition>
+        <argsstring>(BaseServerTransmissionController controller)</argsstring>
+        <name>ClientToServerAsync</name>
+        <param>
+          <type><ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref></type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+<para>Code that will work on server loop when connection will be established. Recoomended to using as default <ref refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s" kindref="compound">DNS</ref> Handler for queries reciving. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Avoid disconnectin error. </para>        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="37" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a8c278ec0c39ce0c76cb6ac9c92355aad" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void PipesProvider.Handlers.DNS.ServerToClientAsync</definition>
+        <argsstring>(BaseServerTransmissionController controller)</argsstring>
+        <name>ServerToClientAsync</name>
+        <param>
+          <type><ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref></type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+<para>Code that will work on server loop when connection will be established. Recoomended to using as default <ref refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s" kindref="compound">DNS</ref> Handler for message sending. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="127" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1af052d964841594776956fc894642ef65" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void PipesProvider.Handlers.DNS.ServerBroadcasting</definition>
+        <argsstring>(BaseServerTransmissionController controller)</argsstring>
+        <name>ServerBroadcasting</name>
+        <param>
+          <type><ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref></type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+<para>Code that will work on server loop when connection will be established. Recoomended to using as default <ref refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s" kindref="compound">DNS</ref> Handler for message sending. </para>        </briefdescription>
+        <detaileddescription>
+<para>Provide broadcasting to client by useing GetMessage delegate of BroadcastingServerTC controller. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="187" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="187" bodyend="228"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="db/d52/namespace_pipes_provider_1_1_handlers" kindref="compound">Handlers</ref> that provide transmission between serve and clients. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="31" bodyend="229"/>
+    <listofallmembers>
+      <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a974e13bf084c0284e4cfe5fecdeb99f7" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::DNS</scope><name>ClientToServerAsync</name></member>
+      <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1af052d964841594776956fc894642ef65" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::DNS</scope><name>ServerBroadcasting</name></member>
+      <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a8c278ec0c39ce0c76cb6ac9c92355aad" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::DNS</scope><name>ServerToClientAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

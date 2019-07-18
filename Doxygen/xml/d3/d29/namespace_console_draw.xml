@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d3/d29/namespace_console_draw" kind="namespace" language="C#">
+    <compoundname>ConsoleDraw</compoundname>
+    <innerclass refid="db/d7f/class_console_draw_1_1_primitives" prot="public">ConsoleDraw::Primitives</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" line="18" column="1"/>
+  </compounddef>
+</doxygen>

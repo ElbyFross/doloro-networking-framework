@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d3/d54/namespace_pipes_provider_1_1_server_1_1_transmission_controllers" kind="namespace" language="C#">
+    <compoundname>PipesProvider::Server::TransmissionControllers</compoundname>
+    <innerclass refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" prot="public">PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</innerclass>
+    <innerclass refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller" prot="public">PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</innerclass>
+    <innerclass refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller" prot="public">PipesProvider::Server::TransmissionControllers::ClientToServerTransmissionController</innerclass>
+    <innerclass refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller" prot="public">PipesProvider::Server::TransmissionControllers::ServerToClientTransmissionController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="19" column="1"/>
+  </compounddef>
+</doxygen>

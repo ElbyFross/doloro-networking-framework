@@ -1,0 +1,105 @@
+\hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller}{}\section{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller Class Reference}
+\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller}\index{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller}}
+
+
+Transmission controller that situable for broadcasting. Every connection will call Message handler that can share scripted or constant data.  
+
+
+Inheritance diagram for Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_ace17cd03bcec52f8e9a7a980ccae25fb}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_ace17cd03bcec52f8e9a7a980ccae25fb}} 
+delegate string {\bfseries Message\+Handeler} ()
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a571cf673b8b112d837bd069dfa83f58b}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a571cf673b8b112d837bd069dfa83f58b}} 
+{\bfseries Broadcasting\+Server\+Transmission\+Controller} (I\+Async\+Result \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_afc45a2287e6fef24892a0aee8aa86f56}{connection\+Marker}}, System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a632261255d8dfc87d93445180c6e2c9d}{connection\+Callback}}, Named\+Pipe\+Server\+Stream pipe, string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_aaa65501bc7934c782714b35247475c6d}{Server\+Loop}} (out string guid, string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}}, \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}} security\+Level, Broadcasting\+Server\+Transmission\+Controller.\+Message\+Handeler get\+Message\+Hanler)
+\begin{DoxyCompactList}\small\item\em Start server loop that provide server pipe. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a6abf38daa4d961cfee0e2551648afe37}{Server\+Loop}} (string guid, string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}}, \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}} security\+Level, Broadcasting\+Server\+Transmission\+Controller.\+Message\+Handeler get\+Message\+Hanler)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Message\+Handeler \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a1e4cce8f6139f3e325ef8b1bbae350e9}{Get\+Message}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Handler that contain delegate that generate message for every broadcasting session. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Transmission controller that situable for broadcasting. Every connection will call Message handler that can share scripted or constant data. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_aaa65501bc7934c782714b35247475c6d}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_aaa65501bc7934c782714b35247475c6d}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}!Server\+Loop@{Server\+Loop}}
+\index{Server\+Loop@{Server\+Loop}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Server\+Loop()}{ServerLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller.\+Server\+Loop (\begin{DoxyParamCaption}\item[{out string}]{guid,  }\item[{string}]{pipe\+Name,  }\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}}}]{security\+Level,  }\item[{Broadcasting\+Server\+Transmission\+Controller.\+Message\+Handeler}]{get\+Message\+Hanler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start server loop that provide server pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guid} & Id signed to connection. Will generated authomaticly and returned to \\
+\hline
+{\em pipe\+Name} & Name of the pipe that will be started.\\
+\hline
+{\em security\+Level} & Pipes security levels that will be applied to pipe.\\
+\hline
+{\em get\+Message\+Hanler} & Handler that generate brodcasting message for every connected client.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a6abf38daa4d961cfee0e2551648afe37}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a6abf38daa4d961cfee0e2551648afe37}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}!Server\+Loop@{Server\+Loop}}
+\index{Server\+Loop@{Server\+Loop}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Server\+Loop()}{ServerLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller.\+Server\+Loop (\begin{DoxyParamCaption}\item[{string}]{guid,  }\item[{string}]{pipe\+Name,  }\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}}}]{security\+Level,  }\item[{Broadcasting\+Server\+Transmission\+Controller.\+Message\+Handeler}]{get\+Message\+Hanler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+
+
+Start server loop that provide server pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guid} & Id signed to connection.\\
+\hline
+{\em pipe\+Name} & Name of the pipe that will be started.\\
+\hline
+{\em security\+Level} & Pipes security levels that will be applied to pipe.\\
+\hline
+{\em get\+Message\+Hanler} & Handler that generate brodcasting message for every connected client.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a1e4cce8f6139f3e325ef8b1bbae350e9}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_a1e4cce8f6139f3e325ef8b1bbae350e9}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}!Get\+Message@{Get\+Message}}
+\index{Get\+Message@{Get\+Message}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Broadcasting\+Server\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Get\+Message}{GetMessage}}
+{\footnotesize\ttfamily Message\+Handeler Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Broadcasting\+Server\+Transmission\+Controller.\+Get\+Message\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Handler that contain delegate that generate message for every broadcasting session. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Server/\+Transmisssion\+Controllers/Broadcasting\+Server\+Transmission\+Controller.\+cs\end{DoxyCompactItemize}

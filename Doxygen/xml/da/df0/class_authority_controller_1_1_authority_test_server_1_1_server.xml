@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::AuthorityTestServer::Server</compoundname>
+    <basecompoundref refid="d7/d32/class_uniform_server_1_1_base_server" prot="public" virt="non-virtual">UniformServer.BaseServer</basecompoundref>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server_1ab6167aa4233c1cbdd42694d93827e9ac" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server" kindref="compound">Server</ref></type>
+        <definition>static Server AuthorityController.AuthorityTestServer.Server.StartQueryProcessing</definition>
+        <argsstring>(string pipeName)</argsstring>
+        <name>StartQueryProcessing</name>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+<para>Starting server that would listen authority queries. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer/Server.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer/Server.cs" bodystart="31" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="135">
+        <label>BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+      </node>
+      <node id="134">
+        <label>AuthorityController.AuthorityTestServer.Server</label>
+        <link refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server"/>
+        <childnode refid="135" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="139">
+        <label>UniformServer.BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="138" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="139" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="137">
+        <label>BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="138" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="139" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="138">
+        <label>Security</label>
+      </node>
+      <node id="136">
+        <label>AuthorityController.AuthorityTestServer.Server</label>
+        <link refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server"/>
+        <childnode refid="137" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer/Server.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer/Server.cs" bodystart="24" bodyend="46"/>
+    <listofallmembers>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>appTerminated</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ArgsReactor</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a1b7d5587de4974fad2ec366a571791e0" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>GetConsoleWindow</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a22b92ad517cd1003fe4fe3c86d857169" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>LoadAssemblies</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9c14e919da0c2b9b7f8e57a92c9b0742" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>longTermServerThreads</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a051bdce3aec037df76d8efe3b9938198" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>mutexObj</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaa318b3ed503dd8ccf381c9f3a81ecf2" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>pipeName</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>securityLevel</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aefbb2a4287a7f995582b2abf41da8a89" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>SendAnswerViaPP</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a16cf4f4f9de9d6d6586631640d3d867b" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ShowWindow</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>StartBroadcastingViaPP</name></member>
+      <member refid="da/df0/class_authority_controller_1_1_authority_test_server_1_1_server_1ab6167aa4233c1cbdd42694d93827e9ac" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>StartQueryProcessing</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa4a1412b217944e7f8d6ccae6ac68289" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>StartServerThread</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaff91507b262d2a1b9021caa2d01640f" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>SW_HIDE</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a494087cabc03c54c3dc0ac1cc1048860" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>SW_SHOW</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a52485a2d70e615a5cbf720c952a8d62f" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>thread</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1ae3c371a7e7953333bb2aa5104fa8a72d" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadingServerLoop_PP_Broadcast</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a6cf6b8472de3925d465737a7fc9a8842" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadingServerLoop_PP_Input</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a8e9e872bad891b2bc06a8caa6c09ebf9" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadingServerLoop_PP_Output</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a31cc7d436bb2dd344ec275fd0fa0061e" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadsCount</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa40c02a1eec7eda4c36a8ac08119b414" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>threadsCount</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a4dbe04636a763decfae22ddb2fe26c7a" prot="protected" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>threadSleepTime</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a440a854a955ab7c5e563918c12e9b32c" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadStartRequest</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a889c3aaa1cca7f4a9a4e32617516f4be" prot="public" virt="non-virtual"><scope>AuthorityController::AuthorityTestServer::Server</scope><name>ThreadTerminateRequest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

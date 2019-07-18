@@ -1,0 +1,46 @@
+\hypertarget{namespace_pipes_provider_1_1_security}{}\section{Pipes\+Provider.\+Security Namespace Reference}
+\label{namespace_pipes_provider_1_1_security}\index{Pipes\+Provider.\+Security@{Pipes\+Provider.\+Security}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto}{Crypto}}
+\begin{DoxyCompactList}\small\item\em Class that provide metods for providing server transmission sequrity. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_general}{General}}
+\begin{DoxyCompactList}\small\item\em Class that contain methods for working with sequrity systems. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Logon\+Config}}
+\begin{DoxyCompactList}\small\item\em Contaier that contain logon data for remote machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security\+Level}} \{ \newline
+{\bfseries Anonymous} = 2, 
+{\bfseries Remote\+Logon} = 4, 
+{\bfseries Local} = 8, 
+{\bfseries Administrator} = 16, 
+\newline
+{\bfseries Internal} = 32
+ \}
+\begin{DoxyCompactList}\small\item\em Anonymous -\/ not require logon. Require Guest user on server. Require allownce to network access via Guest accounts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}\label{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}} 
+\index{Pipes\+Provider\+::\+Security@{Pipes\+Provider\+::\+Security}!Security\+Level@{Security\+Level}}
+\index{Security\+Level@{Security\+Level}!Pipes\+Provider\+::\+Security@{Pipes\+Provider\+::\+Security}}
+\subsubsection{\texorpdfstring{Security\+Level}{SecurityLevel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Pipes\+Provider.\+Security.\+Security\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Anonymous -\/ not require logon. Require Guest user on server. Require allownce to network access via Guest accounts. 
+
+Remote\+Logon -\/ Require authentication via one of the profile on server.
+
+Local -\/ Pipe will be accessed only on the local machine.
+
+Administrator -\/ access to pipe will provided only for administrators. By default allowed via remote authentication.
+
+Internal -\/ pipe will controlled only be server application and system. Any external coonection will be blocked. 

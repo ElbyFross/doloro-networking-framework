@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server" kind="class" language="C#" prot="public">
+    <compoundname>UniformServer::Standard::BroadcastingServer</compoundname>
+    <basecompoundref refid="d7/d32/class_uniform_server_1_1_base_server" prot="public" virt="non-virtual">UniformServer.BaseServer</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a0c09cadabd5e8c941979bc7b32185c79" prot="public" static="no" mutable="no">
+        <type>BroadcastingServerTransmissionController.MessageHandeler</type>
+        <definition>BroadcastingServerTransmissionController.MessageHandeler UniformServer.Standard.BroadcastingServer.GetMessage</definition>
+        <argsstring></argsstring>
+        <name>GetMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a5a92bcc30f5de147b5603b409d7afa9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UniformServer.Standard.BroadcastingServer.BroadcastingServer</definition>
+        <argsstring>()</argsstring>
+        <name>BroadcastingServer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Server that allow instiniate <ref refid="d7/d32/class_uniform_server_1_1_base_server" kindref="compound">BaseServer</ref>. Not contain any additive methods. </para>    </briefdescription>
+    <detaileddescription>
+<para>Case of using - simple operations like registing of server for answer. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="25">
+        <label>UniformServer.Standard.BroadcastingServer</label>
+        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="31">
+        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
+        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
+        <childnode refid="32" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>UniformServer.BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>UniformServer.Standard.BroadcastingServer</label>
+        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>GetMessage</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>System</label>
+      </node>
+      <node id="29">
+        <label>Security</label>
+      </node>
+      <node id="32">
+        <label>BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>connectionCallback</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" line="26" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" bodystart="25" bodyend="34"/>
+    <listofallmembers>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>appTerminated</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ArgsReactor</name></member>
+      <member refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a5a92bcc30f5de147b5603b409d7afa9b" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>BroadcastingServer</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a1b7d5587de4974fad2ec366a571791e0" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>GetConsoleWindow</name></member>
+      <member refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server_1a0c09cadabd5e8c941979bc7b32185c79" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>GetMessage</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a22b92ad517cd1003fe4fe3c86d857169" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>LoadAssemblies</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9c14e919da0c2b9b7f8e57a92c9b0742" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>longTermServerThreads</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a051bdce3aec037df76d8efe3b9938198" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>mutexObj</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaa318b3ed503dd8ccf381c9f3a81ecf2" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>pipeName</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>securityLevel</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aefbb2a4287a7f995582b2abf41da8a89" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>SendAnswerViaPP</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a16cf4f4f9de9d6d6586631640d3d867b" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ShowWindow</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>StartBroadcastingViaPP</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa4a1412b217944e7f8d6ccae6ac68289" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>StartServerThread</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaff91507b262d2a1b9021caa2d01640f" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>SW_HIDE</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a494087cabc03c54c3dc0ac1cc1048860" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>SW_SHOW</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a52485a2d70e615a5cbf720c952a8d62f" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>thread</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1ae3c371a7e7953333bb2aa5104fa8a72d" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadingServerLoop_PP_Broadcast</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a6cf6b8472de3925d465737a7fc9a8842" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadingServerLoop_PP_Input</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a8e9e872bad891b2bc06a8caa6c09ebf9" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadingServerLoop_PP_Output</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a31cc7d436bb2dd344ec275fd0fa0061e" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadsCount</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa40c02a1eec7eda4c36a8ac08119b414" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>threadsCount</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a4dbe04636a763decfae22ddb2fe26c7a" prot="protected" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>threadSleepTime</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a440a854a955ab7c5e563918c12e9b32c" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadStartRequest</name></member>
+      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a889c3aaa1cca7f4a9a4e32617516f4be" prot="public" virt="non-virtual"><scope>UniformServer::Standard::BroadcastingServer</scope><name>ThreadTerminateRequest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::Crypto</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SHATypes</name>
+        <enumvalue id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596ea9a9f4eb6d0036a164588b6ee74390442" prot="public">
+          <name>SHA1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eab505df5aa812b4f320420b8a952f20e5" prot="public">
+          <name>SHA256</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eae446c175009b980a004574cb795388ab" prot="public">
+          <name>SHA384</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596eadb6c5a350bb792ef07a62a1750962737" prot="public">
+          <name>SHA512</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum that describe type of SHA hash algorithm. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="45" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a891868b922c2ce6a0f85a01c6bf684e5" prot="public" static="yes" mutable="no">
+        <type>Encoding</type>
+        <definition>Encoding PipesProvider.Security.Crypto.encoder</definition>
+        <argsstring></argsstring>
+        <name>encoder</name>
+        <initializer>= Encoding.Default</initializer>
+        <briefdescription>
+<para>Encoder that provide concertation query from string to byte array. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a47ca964d3fea31884d730936a9be1c81" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Security.Crypto.DoOAEPPadding</definition>
+        <argsstring></argsstring>
+        <name>DoOAEPPadding</name>
+        <briefdescription>
+<para>Padding messages. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab1a4a6dad6ba4bad8e95587ae9c9ef28" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>RSACryptoServiceProvider</type>
+        <definition>RSACryptoServiceProvider PipesProvider.Security.Crypto.CryptoServiceProvider_RSA</definition>
+        <argsstring></argsstring>
+        <name>CryptoServiceProvider_RSA</name>
+        <briefdescription>
+<para>Current crypto service provider. Using RSA algortihm with 2048 bit key. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="60" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a1813c1f43bdb164e4e023947e0cad08c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>RSAParameters</type>
+        <definition>RSAParameters PipesProvider.Security.Crypto.PublicKey</definition>
+        <argsstring></argsstring>
+        <name>PublicKey</name>
+        <briefdescription>
+<para>Public RSA key that must b used to encrypt of message befor send. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="106" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1adcb692dbcece7db4e96f4bce92daabd0" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>RSAParameters</type>
+        <definition>RSAParameters PipesProvider.Security.Crypto.PrivateKey</definition>
+        <argsstring></argsstring>
+        <name>PrivateKey</name>
+        <briefdescription>
+<para>Return private RSA key that can be used to decode message. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="165" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="166" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aee1d631c98ae7aff552257befa32c37d" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime PipesProvider.Security.Crypto.RSAKeyExpireTime</definition>
+        <argsstring></argsstring>
+        <name>RSAKeyExpireTime</name>
+        <briefdescription>
+<para>Time when rsa keys will expired. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="176" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a085f49881af05eb6029d21fa8aab4439" prot="private" static="yes" mutable="no">
+        <type>RSACryptoServiceProvider</type>
+        <definition>RSACryptoServiceProvider PipesProvider.Security.Crypto._CryptoServiceProvider_RSA</definition>
+        <argsstring></argsstring>
+        <name>_CryptoServiceProvider_RSA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a3f5346401a457cde84339dcaf7f4ba21" prot="private" static="yes" mutable="no">
+        <type>Timer</type>
+        <definition>Timer PipesProvider.Security.Crypto.RSAProviderExpireTimer</definition>
+        <argsstring></argsstring>
+        <name>RSAProviderExpireTimer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="100" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab931581ad69168a7d452ec2ed2a31609" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Security.Crypto.SerializePublicKey</definition>
+        <argsstring>()</argsstring>
+        <name>SerializePublicKey</name>
+        <briefdescription>
+<para>Serialize public key to XML. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="117" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a35b28e8676c9dea2c0b7991671fd78a6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool PipesProvider.Security.Crypto.TryDeserializeRSAKey</definition>
+        <argsstring>(string xml, out RSAParameters result)</argsstring>
+        <name>TryDeserializeRSAKey</name>
+        <param>
+          <type>string</type>
+          <declname>xml</declname>
+        </param>
+        <param>
+          <type>out RSAParameters</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Trying to deserialize xml to RSAParameters. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xml</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of operation. Return false if was failed.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="139" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="139" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a2a233d9860e9aee6b2bc49411a4e4917" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Security.Crypto.DecryptString</definition>
+        <argsstring>(string message)</argsstring>
+        <name>DecryptString</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Decrypt string message that was recived from other source and was encrypted by local public key. In case of fail will return entry message. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message that will be decrypted.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="186" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="186" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aeaf01f17d57b624fd4809ceb2836ebe0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte []</type>
+        <definition>static byte [] PipesProvider.Security.Crypto.RSADecrypt</definition>
+        <argsstring>(byte[] DataToDecrypt, bool DoOAEPPadding)</argsstring>
+        <name>RSADecrypt</name>
+        <param>
+          <type>byte []</type>
+          <declname>DataToDecrypt</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>DoOAEPPadding</declname>
+        </param>
+        <briefdescription>
+<para>Decrypt byte array using private key. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>DataToDecrypt</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>DoOAEPPadding</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="220" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="220" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab43ab066a89134e4207ab0107f17a187" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Security.Crypto.EncryptString</definition>
+        <argsstring>(string message, RSAParameters serverPublicKey)</argsstring>
+        <name>EncryptString</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>RSAParameters</type>
+          <declname>serverPublicKey</declname>
+        </param>
+        <briefdescription>
+<para>Encrypt string message and make it ready to trasmition to the server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message that will be encrypted.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverPublicKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Public encrypt key that was shered by target server.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="256" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="256" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a09f2c39c0c97bf871f3ab9df2f1a40fd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte []</type>
+        <definition>static byte [] PipesProvider.Security.Crypto.RSAEncrypt</definition>
+        <argsstring>(byte[] DataToEncrypt, RSAParameters serverPublicKey, bool DoOAEPPadding)</argsstring>
+        <name>RSAEncrypt</name>
+        <param>
+          <type>byte []</type>
+          <declname>DataToEncrypt</declname>
+        </param>
+        <param>
+          <type>RSAParameters</type>
+          <declname>serverPublicKey</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>DoOAEPPadding</declname>
+        </param>
+        <briefdescription>
+<para>Encrypt byte array by public server RSA key. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>DataToEncrypt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data that will be encrypted.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverPublicKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Public encrypt key of target server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>DoOAEPPadding</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="280" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="280" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aa02bcc81446a930930bb43ff46981f60" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Security.Crypto.StringToSHA</definition>
+        <argsstring>(string input)</argsstring>
+        <name>StringToSHA</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Return the hash of the string. Use SHA256 as default. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="319" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="319" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1af652a2847acd1502625c5496c4887274" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Security.Crypto.StringToSHA</definition>
+        <argsstring>(string input, SHATypes type)</argsstring>
+        <name>StringToSHA</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596e" kindref="member">SHATypes</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Return hash of string. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="329" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="329" bodyend="372"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that provide metods for providing server transmission sequrity. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="27" bodyend="374"/>
+    <listofallmembers>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a085f49881af05eb6029d21fa8aab4439" prot="private" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>_CryptoServiceProvider_RSA</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab1a4a6dad6ba4bad8e95587ae9c9ef28" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>CryptoServiceProvider_RSA</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a2a233d9860e9aee6b2bc49411a4e4917" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>DecryptString</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a47ca964d3fea31884d730936a9be1c81" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>DoOAEPPadding</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a891868b922c2ce6a0f85a01c6bf684e5" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>encoder</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab43ab066a89134e4207ab0107f17a187" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>EncryptString</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1adcb692dbcece7db4e96f4bce92daabd0" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>PrivateKey</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a1813c1f43bdb164e4e023947e0cad08c" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>PublicKey</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aeaf01f17d57b624fd4809ceb2836ebe0" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>RSADecrypt</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a09f2c39c0c97bf871f3ab9df2f1a40fd" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>RSAEncrypt</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aee1d631c98ae7aff552257befa32c37d" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>RSAKeyExpireTime</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a3f5346401a457cde84339dcaf7f4ba21" prot="private" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>RSAProviderExpireTimer</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab931581ad69168a7d452ec2ed2a31609" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>SerializePublicKey</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596e" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>SHATypes</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aa02bcc81446a930930bb43ff46981f60" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>StringToSHA</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1af652a2847acd1502625c5496c4887274" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>StringToSHA</name></member>
+      <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a35b28e8676c9dea2c0b7991671fd78a6" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>TryDeserializeRSAKey</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Handlers::Service</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service_1af208afd61f2abcb7ff163e5c2c6d81c9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void PipesProvider.Handlers.Service.ConnectionEstablishedCallbackRetranslator</definition>
+        <argsstring>(IAsyncResult result)</argsstring>
+        <name>ConnectionEstablishedCallbackRetranslator</name>
+        <param>
+          <type>IAsyncResult</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Callback that will react on connection esstablishing. Will close waiting async operation and call shared delegate with server loop&apos;s code. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/Service.cs" line="39" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/Service.cs" bodystart="39" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service" kindref="compound">Service</ref> handlers that provide core processing and stability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/Service.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/Service.cs" bodystart="32" bodyend="91"/>
+    <listofallmembers>
+      <member refid="dd/d9c/class_pipes_provider_1_1_handlers_1_1_service_1af208afd61f2abcb7ff163e5c2c6d81c9" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::Service</scope><name>ConnectionEstablishedCallbackRetranslator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

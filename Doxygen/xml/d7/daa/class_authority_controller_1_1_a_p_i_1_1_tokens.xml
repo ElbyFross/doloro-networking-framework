@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::API::Tokens</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a43a1d7e3b2fa6ed94a20dc7b1e36b27a" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string AuthorityController.API.Tokens.UnusedToken</definition>
+        <argsstring></argsstring>
+        <name>UnusedToken</name>
+        <briefdescription>
+<para>Return free token. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="29" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1acbc5a5df26ae29633d4424873676ece3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Tokens.IsExpired</definition>
+        <argsstring>(string token)</argsstring>
+        <name>IsExpired</name>
+        <param>
+          <type>string</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Check if token expired based on encoded token data. Use it on <ref refid="dd/d74/namespace_authority_controller_1_1_queries" kindref="compound">Queries</ref> Server to avoid additive time spending on data servers and unnecessary connections. </para>        </briefdescription>
+        <detaileddescription>
+<para>If token have hacked allocate date this just will lead to passing of this check. Server wouldn&apos;t has has token so sequrity will not be passed. Also server will control expire time by him self. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="53" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="53" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a3077a786044bdd530ad50dbd615f8beb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Tokens.IsHasEnoughRigths</definition>
+        <argsstring>(string token, out string[] requesterRights, out string error, params string[] requiredRights)</argsstring>
+        <name>IsHasEnoughRigths</name>
+        <param>
+          <type>string</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>out string []</type>
+          <declname>requesterRights</declname>
+        </param>
+        <param>
+          <type>out string</type>
+          <declname>error</declname>
+        </param>
+        <param>
+          <type>params string []</type>
+          <declname>requiredRights</declname>
+        </param>
+        <briefdescription>
+<para>Check does this token has all requested rights. If token is not registred on this server then will throw UnauthorizedAccessException. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unitque token of the user.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error that describe a reasone of fail. Could be send backward to client.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requesterRights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rights detected to that token.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requiredRights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array that contain the rights that need to by existed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="82" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="82" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1ab1d580a971a86c8e5b3c7c189aa65381" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Tokens.IsHasEnoughRigths</definition>
+        <argsstring>(string token, out string[] requesterRights, params string[] requiredRights)</argsstring>
+        <name>IsHasEnoughRigths</name>
+        <param>
+          <type>string</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>out string []</type>
+          <declname>requesterRights</declname>
+        </param>
+        <param>
+          <type>params string []</type>
+          <declname>requiredRights</declname>
+        </param>
+        <briefdescription>
+<para>Check does this token has all requested rights. If token is not registred on this server then will throw UnauthorizedAccessException. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requiredRights</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requesterRights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rights detected to that token.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="125" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="125" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string AuthorityController.API.Tokens.AuthorizeNewGuestToken</definition>
+        <argsstring>()</argsstring>
+        <name>AuthorizeNewGuestToken</name>
+        <briefdescription>
+<para>Authorizing new token with guest&apos;s rights, and return information in query format. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Token that can be used by client in queries.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="142" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="142" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="23" bodyend="159"/>
+    <listofallmembers>
+      <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>AuthorizeNewGuestToken</name></member>
+      <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1acbc5a5df26ae29633d4424873676ece3" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>IsExpired</name></member>
+      <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a3077a786044bdd530ad50dbd615f8beb" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>IsHasEnoughRigths</name></member>
+      <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1ab1d580a971a86c8e5b3c7c189aa65381" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>IsHasEnoughRigths</name></member>
+      <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a43a1d7e3b2fa6ed94a20dc7b1e36b27a" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>UnusedToken</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

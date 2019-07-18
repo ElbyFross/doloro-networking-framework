@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d2/d6a/namespace_pipes_provider_1_1_server" kind="namespace" language="C#">
+    <compoundname>PipesProvider::Server</compoundname>
+    <innerclass refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i" prot="public">PipesProvider::Server::ServerAPI</innerclass>
+    <innernamespace refid="d3/d54/namespace_pipes_provider_1_1_server_1_1_transmission_controllers">PipesProvider::Server::TransmissionControllers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/ServerAPI.cs" line="26" column="1"/>
+  </compounddef>
+</doxygen>

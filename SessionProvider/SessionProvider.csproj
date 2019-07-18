@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB9B28A4-91D4-487F-81BD-9B6DED35A901}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SessionProvider</RootNamespace>
+    <AssemblyName>SessionProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Server.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthorityController\AuthorityController.csproj">
+      <Project>{a64e9d28-ba9c-43b8-b894-e73dd0e23970}</Project>
+      <Name>AuthorityController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj">
+      <Project>{f5a10f87-bcd8-4d29-8c7f-0ebeafe65a90}</Project>
+      <Name>ConsoleDraw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj">
+      <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
+      <Name>PipesProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniformClient\UniformClient.csproj">
+      <Project>{6695b55e-8994-475f-a112-6a4e8be019aa}</Project>
+      <Name>UniformClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniformServer\UniformServer.csproj">
+      <Project>{e3156133-0296-4670-a961-726174860e1a}</Project>
+      <Name>UniformServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

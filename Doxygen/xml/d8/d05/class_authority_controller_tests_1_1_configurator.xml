@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d8/d05/class_authority_controller_tests_1_1_configurator" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityControllerTests::Configurator</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d8/d05/class_authority_controller_tests_1_1_configurator_1ab9ca617d4f63c060c5446b24628f2774" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d8/d05/class_authority_controller_tests_1_1_configurator" kindref="compound">Configurator</ref></type>
+        <definition>Configurator AuthorityControllerTests.Configurator.Active</definition>
+        <argsstring></argsstring>
+        <name>Active</name>
+        <briefdescription>
+<para>Current active instqance of test configurator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="30" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d05/class_authority_controller_tests_1_1_configurator_1a5f07aec045009437243f33e3cabc2fdd" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string AuthorityControllerTests.Configurator.TestSubfolder</definition>
+        <argsstring></argsstring>
+        <name>TestSubfolder</name>
+        <briefdescription>
+<para>Return unique subfolder for the test. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="46" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d8/d05/class_authority_controller_tests_1_1_configurator_1ae69b7962744bff884636aa1d6fce8bcb" prot="private" static="yes" mutable="no">
+        <type><ref refid="d8/d05/class_authority_controller_tests_1_1_configurator" kindref="compound">Configurator</ref></type>
+        <definition>Configurator AuthorityControllerTests.Configurator.active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d05/class_authority_controller_tests_1_1_configurator_1af8f6fbba66b51ffcc2409215c9c4deaa" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityControllerTests.Configurator._testSubFolder</definition>
+        <argsstring></argsstring>
+        <name>_testSubFolder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="60" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d8/d05/class_authority_controller_tests_1_1_configurator_1adb64f36284f5f547543e07945a086f59" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool AuthorityControllerTests.Configurator.CONFIG_FILE_GENERATED</definition>
+        <argsstring></argsstring>
+        <name>CONFIG_FILE_GENERATED</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Marker that need to avoid tests conflicts. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="65" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d05/class_authority_controller_tests_1_1_configurator_1a8bb7a4cb1f7bdba792b575a6e6772e39" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityControllerTests.Configurator.GUEST_TOKEN</definition>
+        <argsstring></argsstring>
+        <name>GUEST_TOKEN</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Provided guest token. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="61">
+        <label>AuthorityControllerTests.Configurator</label>
+        <link refid="d8/d05/class_authority_controller_tests_1_1_configurator"/>
+        <childnode refid="61" relation="usage">
+          <edgelabel>active</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Configurator.cs" bodystart="24" bodyend="71"/>
+    <listofallmembers>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1af8f6fbba66b51ffcc2409215c9c4deaa" prot="private" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>_testSubFolder</name></member>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1ab9ca617d4f63c060c5446b24628f2774" prot="public" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>Active</name></member>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1ae69b7962744bff884636aa1d6fce8bcb" prot="private" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>active</name></member>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1adb64f36284f5f547543e07945a086f59" prot="public" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>CONFIG_FILE_GENERATED</name></member>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1a8bb7a4cb1f7bdba792b575a6e6772e39" prot="public" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>GUEST_TOKEN</name></member>
+      <member refid="d8/d05/class_authority_controller_tests_1_1_configurator_1a5f07aec045009437243f33e3cabc2fdd" prot="public" virt="non-virtual"><scope>AuthorityControllerTests::Configurator</scope><name>TestSubfolder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

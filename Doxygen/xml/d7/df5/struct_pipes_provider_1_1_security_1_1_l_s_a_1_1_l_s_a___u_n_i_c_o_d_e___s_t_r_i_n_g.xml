@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kind="struct" language="C#" prot="package">
+    <compoundname>PipesProvider::Security::LSA::LSA_UNICODE_STRING</compoundname>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a47a8222b4f1eb7be1b842c0499c61dde" prot="package" static="no" mutable="no">
+        <type>ushort</type>
+        <definition>ushort PipesProvider.Security.LSA.LSA_UNICODE_STRING.Length</definition>
+        <argsstring></argsstring>
+        <name>Length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a7ab871d32b5cc7b523313d4b49ef24dd" prot="package" static="no" mutable="no">
+        <type>ushort</type>
+        <definition>ushort PipesProvider.Security.LSA.LSA_UNICODE_STRING.MaximumLength</definition>
+        <argsstring></argsstring>
+        <name>MaximumLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1ac1a1669b93a7749ef80d6508845233f9" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Security.LSA.LSA_UNICODE_STRING.Buffer</definition>
+        <argsstring></argsstring>
+        <name>Buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LSA_UNICODE_STRING</ref> structure </para>    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="40" bodyend="45"/>
+    <listofallmembers>
+      <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1ac1a1669b93a7749ef80d6508845233f9" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LSA_UNICODE_STRING</scope><name>Buffer</name></member>
+      <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a47a8222b4f1eb7be1b842c0499c61dde" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LSA_UNICODE_STRING</scope><name>Length</name></member>
+      <member refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a7ab871d32b5cc7b523313d4b49ef24dd" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LSA_UNICODE_STRING</scope><name>MaximumLength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

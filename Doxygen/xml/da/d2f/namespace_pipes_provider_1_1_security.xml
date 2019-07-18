@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="da/d2f/namespace_pipes_provider_1_1_security" kind="namespace" language="C#">
+    <compoundname>PipesProvider::Security</compoundname>
+    <innerclass refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto" prot="public">PipesProvider::Security::Crypto</innerclass>
+    <innerclass refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general" prot="public">PipesProvider::Security::General</innerclass>
+    <innerclass refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" prot="public">PipesProvider::Security::LogonConfig</innerclass>
+    <innernamespace refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a">PipesProvider::Security::LSA</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SecurityLevel</name>
+        <enumvalue id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea7079c72c21415131774625ba1d64f4b0" prot="public">
+          <name>Anonymous</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7eafcf5df157549813b6c82862088249175" prot="public">
+          <name>RemoteLogon</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea509820290d57f333403f490dde7316f4" prot="public">
+          <name>Local</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7ea7b7bc2512ee1fedcd76bdc68926d4f7b" prot="public">
+          <name>Administrator</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7eaafbf0897a5a83fdd873dfb032ec695d3" prot="public">
+          <name>Internal</name>
+          <initializer>= 32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Anonymous - not require logon. Require Guest user on server. Require allownce to network access via Guest accounts. </para>        </briefdescription>
+        <detaileddescription>
+<para>RemoteLogon - Require authentication via one of the profile on server.</para><para>Local - Pipe will be accessed only on the local machine.</para><para>Administrator - access to pipe will provided only for administrators. By default allowed via remote authentication.</para><para>Internal - pipe will controlled only be server application and system. Any external coonection will be blocked. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/SecurityLevel.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/SecurityLevel.cs" bodystart="37" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="23" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_d56b4e28c050ade72c78c7acb13d7ba0" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/QueriesServer</compoundname>
+    <innerdir refid="dir_b7fcf967c5dfb852b46c9134af61371e">D:/Work/GitHub/doloro-networking-framework/QueriesServer/obj</innerdir>
+    <innerdir refid="dir_8a771f3bf7186029b8fe86317b950f8b">D:/Work/GitHub/doloro-networking-framework/QueriesServer/Properties</innerdir>
+    <innerfile refid="d8/dba/_queries_server_2_server_8cs">Server.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/"/>
+  </compounddef>
+</doxygen>

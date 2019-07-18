@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_3e853eace1f7b091a03bb1d7f3c8991d" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/UniformClient</compoundname>
+    <innerdir refid="dir_9fbeb5beea3f6d8d7ea6ed31fd8281c7">D:/Work/GitHub/doloro-networking-framework/UniformClient/obj</innerdir>
+    <innerdir refid="dir_afd1537ae19fcc45c67a4230f68cbaa8">D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins</innerdir>
+    <innerdir refid="dir_fa216c835f5e7bc71902537f3f37790f">D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+\hypertarget{class_queries_server_1_1_server}{}\section{Queries\+Server.\+Server Class Reference}
+\label{class_queries_server_1_1_server}\index{Queries\+Server.\+Server@{Queries\+Server.\+Server}}
+
+
+Public servers that allow anonimous connection. Reciving clients\textquotesingle{} queries and redirect in to target infrastructure servers by the comutation table. Reciving answer from servers and redirect it to target clients.  
+
+
+Inheritance diagram for Queries\+Server.\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/d9a/class_queries_server_1_1_server}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_queries_server_1_1_server_af23657bf1fbf254abb46ed80180b0cc3}{Query\+Handler\+\_\+\+Relay}} (\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} \+\_\+, string query)
+\begin{DoxyCompactList}\small\item\em Redirect recived query from current server to other. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_queries_server_1_1_server_a5d7c4c9ababa7292ef7cac92005d3563}{O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL}} = \char`\"{}T\+H\+B\+\_\+\+Q\+U\+E\+R\+Y\+\_\+\+S\+E\+R\+V\+ER\char`\"{}
+\begin{DoxyCompactList}\small\item\em Main public pipe that will listen queries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_queries_server_1_1_server_af78ec354d7f465d29800f812996dc91b}{Threading\+Server\+Loop\+\_\+\+Relay}} (object server)
+\begin{DoxyCompactList}\small\item\em Start the server loop that will condtol relay query handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_queries_server_1_1_server_ae294b75511557ef0701455c0e2ba785d}{Main}} (string\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Public servers that allow anonimous connection. Reciving clients\textquotesingle{} queries and redirect in to target infrastructure servers by the comutation table. Reciving answer from servers and redirect it to target clients. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_queries_server_1_1_server_ae294b75511557ef0701455c0e2ba785d}\label{class_queries_server_1_1_server_ae294b75511557ef0701455c0e2ba785d}} 
+\index{Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}!Main@{Main}}
+\index{Main@{Main}!Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Queries\+Server.\+Server.\+Main (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Draw line
+
+Show help. \mbox{\Hypertarget{class_queries_server_1_1_server_af23657bf1fbf254abb46ed80180b0cc3}\label{class_queries_server_1_1_server_af23657bf1fbf254abb46ed80180b0cc3}} 
+\index{Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}!Query\+Handler\+\_\+\+Relay@{Query\+Handler\+\_\+\+Relay}}
+\index{Query\+Handler\+\_\+\+Relay@{Query\+Handler\+\_\+\+Relay}!Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}}
+\subsubsection{\texorpdfstring{Query\+Handler\+\_\+\+Relay()}{QueryHandler\_Relay()}}
+{\footnotesize\ttfamily static void Queries\+Server.\+Server.\+Query\+Handler\+\_\+\+Relay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}}}]{\+\_\+,  }\item[{string}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Redirect recived query from current server to other. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+} & \\
+\hline
+{\em query} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_queries_server_1_1_server_af78ec354d7f465d29800f812996dc91b}\label{class_queries_server_1_1_server_af78ec354d7f465d29800f812996dc91b}} 
+\index{Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}!Threading\+Server\+Loop\+\_\+\+Relay@{Threading\+Server\+Loop\+\_\+\+Relay}}
+\index{Threading\+Server\+Loop\+\_\+\+Relay@{Threading\+Server\+Loop\+\_\+\+Relay}!Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}}
+\subsubsection{\texorpdfstring{Threading\+Server\+Loop\+\_\+\+Relay()}{ThreadingServerLoop\_Relay()}}
+{\footnotesize\ttfamily static void Queries\+Server.\+Server.\+Threading\+Server\+Loop\+\_\+\+Relay (\begin{DoxyParamCaption}\item[{object}]{server }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Start the server loop that will condtol relay query handler. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_queries_server_1_1_server_a5d7c4c9ababa7292ef7cac92005d3563}\label{class_queries_server_1_1_server_a5d7c4c9ababa7292ef7cac92005d3563}} 
+\index{Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}!O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL@{O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL}}
+\index{O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL@{O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL}!Queries\+Server\+::\+Server@{Queries\+Server\+::\+Server}}
+\subsubsection{\texorpdfstring{O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL}{OPEN\_CHANEL}}
+{\footnotesize\ttfamily string Queries\+Server.\+Server.\+O\+P\+E\+N\+\_\+\+C\+H\+A\+N\+EL = \char`\"{}T\+H\+B\+\_\+\+Q\+U\+E\+R\+Y\+\_\+\+S\+E\+R\+V\+ER\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Main public pipe that will listen queries. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Queries\+Server/Server.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Client::TransmissionLine</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TransmissionDirection</name>
+        <enumvalue id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5aefeb369cccbd560588a756610865664c" prot="public">
+          <name>In</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5a7c147cda9e49590f6abe83d118b7353b" prot="public">
+          <name>Out</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="35" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a6959acebfbb30be2aa0149779bc6822c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Client.TransmissionLine.GUID</definition>
+        <argsstring></argsstring>
+        <name>GUID</name>
+        <briefdescription>
+<para>Unique GUID for this pipe. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="47" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e8a85952e05718b1a0ff96b9874766" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>string</type>
+        <definition>string PipesProvider.Client.TransmissionLine.ServerPipeName</definition>
+        <argsstring></argsstring>
+        <name>ServerPipeName</name>
+        <briefdescription>
+<para>Name of server pipe that will be using for transmission via current processor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="61" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3dc08ad974186de6b0439b052ea0d72a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>string</type>
+        <definition>string PipesProvider.Client.TransmissionLine.ServerName</definition>
+        <argsstring></argsstring>
+        <name>ServerName</name>
+        <briefdescription>
+<para>Name of server pipe that will be using for transmission via current processor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a902851edce28b2ab7a7b9fc648a984d5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.Closed</definition>
+        <argsstring></argsstring>
+        <name>Closed</name>
+        <briefdescription>
+<para>If true then this line will be closed on the next client tick. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af0385a70cb2f9dc29fb4e7040330aa4c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.Processing</definition>
+        <argsstring></argsstring>
+        <name>Processing</name>
+        <briefdescription>
+<para>True if async operation started and not finished. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="88" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac4b9855c5d9aa2a9f6289c2eb43f6996" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
+        <definition>QueryContainer PipesProvider.Client.TransmissionLine.LastQuery</definition>
+        <argsstring></argsstring>
+        <name>LastQuery</name>
+        <briefdescription>
+<para>Return tthe query that was dequeue at last. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3e840e02a896759c61ed428e013bc1e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
+        <definition>Instruction PipesProvider.Client.TransmissionLine.RoutingInstruction</definition>
+        <argsstring></argsstring>
+        <name>RoutingInstruction</name>
+        <briefdescription>
+<para>Contain logon config to remote machine access. Contain RSA encryption keys data reklative to this line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="119" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a02c3eec4a1041d7b57ee5df00559d251" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.LogonFinished</definition>
+        <argsstring></argsstring>
+        <name>LogonFinished</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Marker that show does logon already finished. By default is true, cause default logon is anonymous. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e1cb4797230b8dd9fcefdfe7dc5dca" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TransmissionDirection</type>
+        <definition>TransmissionDirection PipesProvider.Client.TransmissionLine.Direction</definition>
+        <argsstring></argsstring>
+        <name>Direction</name>
+        <initializer>= TransmissionDirection.Out</initializer>
+        <briefdescription>
+<para>Define bihavior of the client loop. </para>        </briefdescription>
+        <detaileddescription>
+<para>In - will connect to target pipe as soon as possible. Out - will wait for query in queue. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3f5625beace2f8ea5ec3cc46000b8cc3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.HasQueries</definition>
+        <argsstring></argsstring>
+        <name>HasQueries</name>
+        <briefdescription>
+<para>Return true if queue contain queries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="299" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="300" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a894d0baadc896280da7c0861c2d06b5d" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Client.TransmissionLine.guid</definition>
+        <argsstring></argsstring>
+        <name>guid</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adad9bc543ae01a23e792f46bf3b3092f" prot="public" static="no" mutable="no">
+        <type>SafeAccessTokenHandle</type>
+        <definition>SafeAccessTokenHandle PipesProvider.Client.TransmissionLine.accessToken</definition>
+        <argsstring></argsstring>
+        <name>accessToken</name>
+        <briefdescription>
+<para>Token that will used to autorizing on the server. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="112" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a617db258fff1a28c80ff7d6241e8372e" prot="public" static="no" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream PipesProvider.Client.TransmissionLine.pipeClient</definition>
+        <argsstring></argsstring>
+        <name>pipeClient</name>
+        <briefdescription>
+<para>Reference to the current oppened pipe. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="146" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a86f49118056ad8cb6fe383abb2a350e8" prot="public" static="no" mutable="no">
+        <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
+        <definition>System.Action&lt;TransmissionLine&gt; PipesProvider.Client.TransmissionLine.queryProcessor</definition>
+        <argsstring></argsstring>
+        <name>queryProcessor</name>
+        <briefdescription>
+<para>This delegate will be callback when connection wfor qury will be established. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="151" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac58ee721ec6876da25190b15d52530a3" prot="protected" static="no" mutable="no">
+        <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
+        <definition>QueryContainer PipesProvider.Client.TransmissionLine.lastQuery</definition>
+        <argsstring></argsstring>
+        <name>lastQuery</name>
+        <initializer>= <ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0e1f91d0a990824b56170c3da5e5919c" kindref="member">QueryContainer.Empty</ref></initializer>
+        <briefdescription>
+<para>Field that contain last dequeued query. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="158" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af110134a03e1e046911970fff4774600" prot="protected" static="no" mutable="no">
+        <type>Queue&lt; <ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref> &gt;</type>
+        <definition>Queue&lt;QueryContainer&gt; PipesProvider.Client.TransmissionLine.queries</definition>
+        <argsstring></argsstring>
+        <name>queries</name>
+        <initializer>= new Queue&lt;<ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref>&gt;()</initializer>
+        <briefdescription>
+<para>List of queries that will wait its order to access transmission via this line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a8fe76e563974e7380fe2f717e48d694e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Client.TransmissionLine.TransmissionLine</definition>
+        <argsstring>(string serverName, string serverPipeName, System.Action&lt; TransmissionLine &gt; queryProcessor, ref SafeAccessTokenHandle token)</argsstring>
+        <name>TransmissionLine</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>serverPipeName</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
+          <declname>queryProcessor</declname>
+        </param>
+        <param>
+          <type>ref SafeAccessTokenHandle</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Create new instance of LineProcessor taht can be registread in static services. Contain information about transmission between client and server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>guid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unique value that will be used to access this prossor.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of server into the network. If local than place &quot;.&quot;</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverPipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the pipe that will be used for transmitiong.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queryProcessor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that will be called when connection will be established.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="176" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa75228335f18b62a772bd43db9587e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Client.TransmissionLine.TransmissionLine</definition>
+        <argsstring>(ref Instruction instruction, System.Action&lt; TransmissionLine &gt; queryProcessor)</argsstring>
+        <name>TransmissionLine</name>
+        <param>
+          <type>ref <ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
+          <declname>instruction</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
+          <declname>queryProcessor</declname>
+        </param>
+        <briefdescription>
+<para>Create instance using routing instruction. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instruction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Routing insturuction that contain all data about target srver.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queryProcessor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that will be called when connection will be established.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="193" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="193" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac7a9bbb2d71ae7080788b28449b216fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>TransmissionLine PipesProvider.Client.TransmissionLine.EnqueueQuery</definition>
+        <argsstring>(string query)</argsstring>
+        <name>EnqueueQuery</name>
+        <param>
+          <type>string</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Enqueue query to order. Query will be posted to server as soon as will possible. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="228" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="228" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a0adfc0db736cc9315a6e1c0ea04c42e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>TransmissionLine PipesProvider.Client.TransmissionLine.EnqueueQuery</definition>
+        <argsstring>(QueryContainer query)</argsstring>
+        <name>EnqueueQuery</name>
+        <param>
+          <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Enqueue query to order. Query will be posted to server as soon as will possible. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="238" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="238" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a48c6395608b4d32a7d852c2fd6d911e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.TryDequeQuery</definition>
+        <argsstring>(out QueryContainer query)</argsstring>
+        <name>TryDequeQuery</name>
+        <param>
+          <type>out <ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Try to get a new query in turn. </para>        </briefdescription>
+        <detaileddescription>
+<para>Will return false if query not found. Will return false in case if LineProccessor has status InProgress. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="252" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="252" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a5d921e9d7b0dfb366d79c6397bec9179" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PipesProvider.Client.TransmissionLine.Close</definition>
+        <argsstring>()</argsstring>
+        <name>Close</name>
+        <briefdescription>
+<para>Mark line as closed. Thread will be terminated on the next client tick. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="307" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="307" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ae2d45dea3d22625d81634a6eea3cd356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PipesProvider.Client.TransmissionLine.DropMeta</definition>
+        <argsstring>()</argsstring>
+        <name>DropMeta</name>
+        <briefdescription>
+<para>Drop meta data relative only per one session. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="322" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="322" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a75c4a1aa309fbc60cccbe258a85a91b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PipesProvider.Client.TransmissionLine.TryLogonAs</definition>
+        <argsstring>(Security.LogonConfig logonMeta)</argsstring>
+        <name>TryLogonAs</name>
+        <param>
+          <type><ref refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kindref="compound">Security.LogonConfig</ref></type>
+          <declname>logonMeta</declname>
+        </param>
+        <briefdescription>
+<para>Trying to logon using provided information. In case failed - close line. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>logonMeta</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of logon.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="336" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="336" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a2741ab56f9eecbe0bcbd018232321205" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>TransmissionLine PipesProvider.Client.TransmissionLine.SetInstructionAsKey</definition>
+        <argsstring>(ref Instruction instruction)</argsstring>
+        <name>SetInstructionAsKey</name>
+        <param>
+          <type>ref <ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
+          <declname>instruction</declname>
+        </param>
+        <briefdescription>
+<para>Set routing instruction to line. Provide access to auto messages encryption with control of keys expiring. </para>        </briefdescription>
+        <detaileddescription>
+<para>ATTENTION: Line will not change logon config or server data. If you want get full sync with routing instruction then user relative constructor. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instruction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instruction that will ocntain valid RSA key.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="383" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="383" bodyend="391"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ada994593c98fe9aa24abb0a3ab55e6e2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine PipesProvider.Client.TransmissionLine.operator++</definition>
+        <argsstring>(TransmissionLine line)</argsstring>
+        <name>operator++</name>
+        <param>
+          <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+<para>Incremet of attempts count. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>contaier</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="215" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="215" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aebf1f90d880307f803bdeb6e0020a95f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Client.TransmissionLine.ThreadLoop</definition>
+        <argsstring>(object lineProcessor)</argsstring>
+        <name>ThreadLoop</name>
+        <param>
+          <type>object</type>
+          <declname>lineProcessor</declname>
+        </param>
+        <briefdescription>
+<para>Method that can be started as thread. Will start client loop. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lineProcessor</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="400" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="400" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a334cde78dd1b3cc6c3cb2a6bb7419a1d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string PipesProvider.Client.TransmissionLine.GenerateGUID</definition>
+        <argsstring>(string serverName, string pipeName)</argsstring>
+        <name>GenerateGUID</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+<para>Generate GUID of this transmission line relative to pipe params. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="442" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="442" bodyend="457"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that provide information about line between client and server. Provide API to easy control. Provide automatic services. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="179">
+        <label>PipesProvider.Client.TransmissionLine</label>
+        <link refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line"/>
+        <childnode refid="180" relation="usage">
+          <edgelabel>lastQuery</edgelabel>
+        </childnode>
+        <childnode refid="181" relation="usage">
+          <edgelabel>queryProcessor</edgelabel>
+        </childnode>
+      </node>
+      <node id="181">
+        <label>System</label>
+      </node>
+      <node id="180">
+        <label>PipesProvider.Client.QueryContainer</label>
+        <link refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container"/>
+        <childnode refid="181" relation="usage">
+          <edgelabel>AnswerHandler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="32" bodyend="459"/>
+    <listofallmembers>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adad9bc543ae01a23e792f46bf3b3092f" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>accessToken</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a5d921e9d7b0dfb366d79c6397bec9179" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>Close</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a902851edce28b2ab7a7b9fc648a984d5" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>Closed</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e1cb4797230b8dd9fcefdfe7dc5dca" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>Direction</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ae2d45dea3d22625d81634a6eea3cd356" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>DropMeta</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac7a9bbb2d71ae7080788b28449b216fc" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>EnqueueQuery</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a0adfc0db736cc9315a6e1c0ea04c42e6" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>EnqueueQuery</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a334cde78dd1b3cc6c3cb2a6bb7419a1d" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>GenerateGUID</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a894d0baadc896280da7c0861c2d06b5d" prot="private" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>guid</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a6959acebfbb30be2aa0149779bc6822c" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>GUID</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3f5625beace2f8ea5ec3cc46000b8cc3" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>HasQueries</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac4b9855c5d9aa2a9f6289c2eb43f6996" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>LastQuery</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac58ee721ec6876da25190b15d52530a3" prot="protected" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>lastQuery</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a02c3eec4a1041d7b57ee5df00559d251" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>LogonFinished</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ada994593c98fe9aa24abb0a3ab55e6e2" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>operator++</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a617db258fff1a28c80ff7d6241e8372e" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>pipeClient</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af0385a70cb2f9dc29fb4e7040330aa4c" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>Processing</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af110134a03e1e046911970fff4774600" prot="protected" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>queries</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a86f49118056ad8cb6fe383abb2a350e8" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>queryProcessor</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3e840e02a896759c61ed428e013bc1e2" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>RoutingInstruction</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3dc08ad974186de6b0439b052ea0d72a" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>ServerName</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e8a85952e05718b1a0ff96b9874766" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>ServerPipeName</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a2741ab56f9eecbe0bcbd018232321205" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>SetInstructionAsKey</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aebf1f90d880307f803bdeb6e0020a95f" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>ThreadLoop</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>TransmissionDirection</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a8fe76e563974e7380fe2f717e48d694e" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>TransmissionLine</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa75228335f18b62a772bd43db9587e42" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>TransmissionLine</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a48c6395608b4d32a7d852c2fd6d911e2" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>TryDequeQuery</name></member>
+      <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a75c4a1aa309fbc60cccbe258a85a91b3" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>TryLogonAs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

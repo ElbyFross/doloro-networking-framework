@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d6/dc2/namespace_authority_controller_1_1_data" kind="namespace" language="C#">
+    <compoundname>AuthorityController::Data</compoundname>
+    <innerclass refid="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information" prot="public">AuthorityController::Data::BanInformation</innerclass>
+    <innerclass refid="db/d4a/class_authority_controller_1_1_data_1_1_config" prot="public">AuthorityController::Data::Config</innerclass>
+    <innerclass refid="d2/d57/class_authority_controller_1_1_data_1_1_salt_container" prot="public">AuthorityController::Data::SaltContainer</innerclass>
+    <innerclass refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info" prot="public">AuthorityController::Data::TokenInfo</innerclass>
+    <innerclass refid="d8/d02/class_authority_controller_1_1_data_1_1_user" prot="public">AuthorityController::Data::User</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Data/BanInformation.cs" line="22" column="1"/>
+  </compounddef>
+</doxygen>

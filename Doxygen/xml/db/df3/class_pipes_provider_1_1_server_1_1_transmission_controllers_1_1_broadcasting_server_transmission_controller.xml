@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</compoundname>
+    <basecompoundref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" prot="public" virt="non-virtual">PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a1e4cce8f6139f3e325ef8b1bbae350e9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>MessageHandeler</type>
+        <definition>MessageHandeler PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.GetMessage</definition>
+        <argsstring></argsstring>
+        <name>GetMessage</name>
+        <briefdescription>
+<para>Handler that contain delegate that generate message for every broadcasting session. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" bodystart="30" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1ace17cd03bcec52f8e9a7a980ccae25fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate string</type>
+        <definition>delegate string PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.MessageHandeler</definition>
+        <argsstring>()</argsstring>
+        <name>MessageHandeler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a571cf673b8b112d837bd069dfa83f58b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.BroadcastingServerTransmissionController</definition>
+        <argsstring>(IAsyncResult connectionMarker, System.Action&lt; BaseServerTransmissionController &gt; connectionCallback, NamedPipeServerStream pipe, string pipeName)</argsstring>
+        <name>BroadcastingServerTransmissionController</name>
+        <param>
+          <type>IAsyncResult</type>
+          <declname>connectionMarker</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref> &gt;</type>
+          <declname>connectionCallback</declname>
+        </param>
+        <param>
+          <type>NamedPipeServerStream</type>
+          <declname>pipe</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" bodystart="36" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1aaa65501bc7934c782714b35247475c6d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.ServerLoop</definition>
+        <argsstring>(out string guid, string pipeName, Security.SecurityLevel securityLevel, BroadcastingServerTransmissionController.MessageHandeler getMessageHanler)</argsstring>
+        <name>ServerLoop</name>
+        <param>
+          <type>out string</type>
+          <declname>guid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type><ref refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" kindref="member">Security.SecurityLevel</ref></type>
+          <declname>securityLevel</declname>
+        </param>
+        <param>
+          <type>BroadcastingServerTransmissionController.MessageHandeler</type>
+          <declname>getMessageHanler</declname>
+        </param>
+        <briefdescription>
+<para>Start server loop that provide server pipe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>guid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id signed to connection. Will generated authomaticly and returned to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the pipe that will be started.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>securityLevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pipes security levels that will be applied to pipe.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>getMessageHanler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handler that generate brodcasting message for every connected client.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="55" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a6abf38daa4d961cfee0e2551648afe37" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.ServerLoop</definition>
+        <argsstring>(string guid, string pipeName, Security.SecurityLevel securityLevel, BroadcastingServerTransmissionController.MessageHandeler getMessageHanler)</argsstring>
+        <name>ServerLoop</name>
+        <param>
+          <type>string</type>
+          <declname>guid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type><ref refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" kindref="member">Security.SecurityLevel</ref></type>
+          <declname>securityLevel</declname>
+        </param>
+        <param>
+          <type>BroadcastingServerTransmissionController.MessageHandeler</type>
+          <declname>getMessageHanler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start server loop that provide server pipe. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>guid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id signed to connection.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the pipe that will be started.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>securityLevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pipes security levels that will be applied to pipe.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>getMessageHanler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handler that generate brodcasting message for every connected client.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="76" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" bodystart="76" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Transmission controller that situable for broadcasting. Every connection will call Message handler that can share scripted or constant data. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="34">
+        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
+        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="36">
+        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
+        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>System</label>
+      </node>
+      <node id="37">
+        <label>BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+        <childnode refid="38" relation="usage">
+          <edgelabel>connectionCallback</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BroadcastingServerTransmissionController.cs" bodystart="24" bodyend="111"/>
+    <listofallmembers>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1acd8c41b70a2f0000c0e0b24e3b37ba07" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad3ffb9dd45062b59d88dd08f9df90c5f" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>
+      <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a571cf673b8b112d837bd069dfa83f58b" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>BroadcastingServerTransmissionController</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a632261255d8dfc87d93445180c6e2c9d" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>connectionCallback</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1afc45a2287e6fef24892a0aee8aa86f56" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>connectionMarker</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad57a0420e71e3897e7e1b67c16b995f6" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>Expired</name></member>
+      <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a1e4cce8f6139f3e325ef8b1bbae350e9" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>GetMessage</name></member>
+      <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1ace17cd03bcec52f8e9a7a980ccae25fb" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>MessageHandeler</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1af60aaebfbfe6988e008cedb18f32c759" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>None</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a4ce9911f1ad6814d3e5c9096d9ddde57" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>pipeName</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a019f764411256a751f8a438076426a47" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>pipeServer</name></member>
+      <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1aaa65501bc7934c782714b35247475c6d" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>ServerLoop</name></member>
+      <member refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller_1a6abf38daa4d961cfee0e2551648afe37" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>ServerLoop</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a6123ecf83e5ed7d39e8fe457681e3bfc" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>SetExpired</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a838c1d62567059bbe92e9be3eca971d5" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>SetStoped</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ae159fdf4582f9419d9e3616d2aa2d37e" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BroadcastingServerTransmissionController</scope><name>Stoped</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

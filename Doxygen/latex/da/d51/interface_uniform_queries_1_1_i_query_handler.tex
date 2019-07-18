@@ -1,0 +1,98 @@
+\hypertarget{interface_uniform_queries_1_1_i_query_handler}{}\section{Uniform\+Queries.\+I\+Query\+Handler Interface Reference}
+\label{interface_uniform_queries_1_1_i_query_handler}\index{Uniform\+Queries.\+I\+Query\+Handler@{Uniform\+Queries.\+I\+Query\+Handler}}
+
+
+All classes that implements this interface will automaticly detected by Queries\+A\+PI via first use and connected to queries processing.  
+
+
+Inheritance diagram for Uniform\+Queries.\+I\+Query\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=7.753846cm]{da/d51/interface_uniform_queries_1_1_i_query_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler_a66d15db03bdd5b0caf6eef96f9b803c0}{Execute}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+\begin{DoxyCompactList}\small\item\em Methods that process query. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler_abda1ccf47ad2889fbd015955965046e7}{Is\+Target}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+\begin{DoxyCompactList}\small\item\em Check by the entry params does it target Query Handler. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler_abe2d1124630ca8d74b7398d11c873526}{Description}} (string culture\+Key)
+\begin{DoxyCompactList}\small\item\em Return the description relative to the lenguage code or default if not found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+All classes that implements this interface will automaticly detected by Queries\+A\+PI via first use and connected to queries processing. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{interface_uniform_queries_1_1_i_query_handler_abe2d1124630ca8d74b7398d11c873526}\label{interface_uniform_queries_1_1_i_query_handler_abe2d1124630ca8d74b7398d11c873526}} 
+\index{Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}!Description@{Description}}
+\index{Description@{Description}!Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}}
+\subsubsection{\texorpdfstring{Description()}{Description()}}
+{\footnotesize\ttfamily string Uniform\+Queries.\+I\+Query\+Handler.\+Description (\begin{DoxyParamCaption}\item[{string}]{culture\+Key }\end{DoxyParamCaption})}
+
+
+
+Return the description relative to the lenguage code or default if not found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em culture\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_af448426be46032c3ae103cdf4ea5f40b}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+ON}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_a149fb8950cf0ebbcb47b6a238c6458d2}{Authority\+Controller.\+Queries.\+S\+E\+T\+\_\+\+T\+O\+K\+E\+N\+\_\+\+R\+I\+G\+H\+TS}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_a2cb738d74699241341b691cc55b57e1d}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+FF}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_a04d2af1732d4ac353076d489fe75c696}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+E\+W\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a72902cb3b94f31ec4f8e6cd0bb1f2ed8}{Authority\+Controller.\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_ab0995d0559e0033ea963acaccb6e37bf}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+EW}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a0635966a71b389cbb4354e61e3c52513}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+AN}}, and \mbox{\hyperlink{class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_aee414e6882494609ed576f061d662dc2}{Uniform\+Server.\+Queries.\+G\+E\+T\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+K\+EY}}.
+
+\mbox{\Hypertarget{interface_uniform_queries_1_1_i_query_handler_a66d15db03bdd5b0caf6eef96f9b803c0}\label{interface_uniform_queries_1_1_i_query_handler_a66d15db03bdd5b0caf6eef96f9b803c0}} 
+\index{Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}!Execute@{Execute}}
+\index{Execute@{Execute}!Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}}
+\subsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily void Uniform\+Queries.\+I\+Query\+Handler.\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+
+
+
+Methods that process query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Parts} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_a63a5424c90f45f09f72a530ef0389416}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+E\+W\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_afd715fb3d60e53ca7e3d55a4433f529c}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+EW}}, \mbox{\hyperlink{class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_a63367fa9543a3fb4a1126373a833c317}{Uniform\+Server.\+Queries.\+G\+E\+T\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+K\+EY}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_a001f81c71597259636be777078e50f7e}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+ON}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_aebb323c8033e3a027f59c55a95695360}{Authority\+Controller.\+Queries.\+S\+E\+T\+\_\+\+T\+O\+K\+E\+N\+\_\+\+R\+I\+G\+H\+TS}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_a2e4d5a0f8ee93210522c41a38adbcce2}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+FF}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a99b0dddf4ff45771e546ec0fa14b0aae}{Authority\+Controller.\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}, and \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a719795c950c9dedbc187c2c0cfca37a7}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+AN}}.
+
+\mbox{\Hypertarget{interface_uniform_queries_1_1_i_query_handler_abda1ccf47ad2889fbd015955965046e7}\label{interface_uniform_queries_1_1_i_query_handler_abda1ccf47ad2889fbd015955965046e7}} 
+\index{Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}!Is\+Target@{Is\+Target}}
+\index{Is\+Target@{Is\+Target}!Uniform\+Queries\+::\+I\+Query\+Handler@{Uniform\+Queries\+::\+I\+Query\+Handler}}
+\subsubsection{\texorpdfstring{Is\+Target()}{IsTarget()}}
+{\footnotesize\ttfamily bool Uniform\+Queries.\+I\+Query\+Handler.\+Is\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+
+
+
+Check by the entry params does it target Query Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Parts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_a6e26596b5a5ecc3d07591766b5d325ec}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+EW}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_a48ff6874453caf45973ad386bfe5b513}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+E\+W\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a29c898b411adc3a0edbed31cf90e007b}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+AN}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_a53261c6c60dc1a2324a67adf19f7547a}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+ON}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_a605feed66d357dc93ccc825068d83c96}{Authority\+Controller.\+Queries.\+S\+E\+T\+\_\+\+T\+O\+K\+E\+N\+\_\+\+R\+I\+G\+H\+TS}}, \mbox{\hyperlink{class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y_ae27d462fe9ccbbf22ac03c9ead9cbe8f}{Uniform\+Server.\+Queries.\+G\+E\+T\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+K\+EY}}, \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f_afbfa78117d68ab2bd2728c78d31c1c58}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+FF}}, and \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a5606c5797e0a684a6bfbbd851f186268}{Authority\+Controller.\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Uniform\+Queries/I\+Query.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d4/d13/namespace_authority_controller" kind="namespace" language="C#">
+    <compoundname>AuthorityController</compoundname>
+    <innerclass refid="d8/df8/class_authority_controller_1_1_locks" prot="public">AuthorityController::Locks</innerclass>
+    <innerclass refid="d6/d4b/class_authority_controller_1_1_session" prot="public">AuthorityController::Session</innerclass>
+    <innernamespace refid="d0/dac/namespace_authority_controller_1_1_a_p_i">AuthorityController::API</innernamespace>
+    <innernamespace refid="dd/dee/namespace_authority_controller_1_1_authority_test_server">AuthorityController::AuthorityTestServer</innernamespace>
+    <innernamespace refid="d6/dc2/namespace_authority_controller_1_1_data">AuthorityController::Data</innernamespace>
+    <innernamespace refid="dd/d74/namespace_authority_controller_1_1_queries">AuthorityController::Queries</innernamespace>
+    <innernamespace refid="d5/daa/namespace_authority_controller_1_1_tests">AuthorityController::Tests</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="[generated]" line="1" column="1"/>
+  </compounddef>
+</doxygen>

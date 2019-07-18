@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kind="struct" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::LogonConfig</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad9d68ef23dc614044127aaa54c901a05" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Security.LogonConfig.userName</definition>
+        <argsstring></argsstring>
+        <name>userName</name>
+        <briefdescription>
+<para>Name of user for remote logon. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a897f10d6a83aa90807de0571d4f5a99d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Security.LogonConfig.password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <briefdescription>
+<para>Password to remote user. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a65f053075525de0b032d76a1ac733059" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Security.LogonConfig.domain</definition>
+        <argsstring></argsstring>
+        <name>domain</name>
+        <briefdescription>
+<para>Domain name of target machine. &quot;Workgroup&quot; as example. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a75522f37bf91bbd20f01fa4498d28dd1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Security.LogonConfig.IsAnonymous</definition>
+        <argsstring></argsstring>
+        <name>IsAnonymous</name>
+        <briefdescription>
+<para>Validate data and decide is this user has enought information to impersonate. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="49" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="property" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad09f6e3c892826dc5df995e02f7a5738" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kindref="compound">LogonConfig</ref></type>
+        <definition>LogonConfig PipesProvider.Security.LogonConfig.Anonymous</definition>
+        <argsstring></argsstring>
+        <name>Anonymous</name>
+        <briefdescription>
+<para>Return anonymous logon params. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="68" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="69" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a9a7976747dbec231bbb598bc69a84274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Security.LogonConfig.LogonConfig</definition>
+        <argsstring>(string userName, string password, string domain)</argsstring>
+        <name>LogonConfig</name>
+        <param>
+          <type>string</type>
+          <declname>userName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="81" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="81" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contaier that contain logon data for remote machine. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LogonConfig.cs" bodystart="27" bodyend="87"/>
+    <listofallmembers>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad09f6e3c892826dc5df995e02f7a5738" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>Anonymous</name></member>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a65f053075525de0b032d76a1ac733059" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>domain</name></member>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a75522f37bf91bbd20f01fa4498d28dd1" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>IsAnonymous</name></member>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a9a7976747dbec231bbb598bc69a84274" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>LogonConfig</name></member>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1a897f10d6a83aa90807de0571d4f5a99d" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>password</name></member>
+      <member refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad9d68ef23dc614044127aaa54c901a05" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LogonConfig</scope><name>userName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

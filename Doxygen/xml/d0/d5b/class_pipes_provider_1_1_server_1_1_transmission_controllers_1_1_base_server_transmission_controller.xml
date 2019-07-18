@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</compoundname>
+    <derivedcompoundref refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller" prot="public" virt="non-virtual">PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</derivedcompoundref>
+    <derivedcompoundref refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller" prot="public" virt="non-virtual">PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController</derivedcompoundref>
+    <derivedcompoundref refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller" prot="public" virt="non-virtual">PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1afc45a2287e6fef24892a0aee8aa86f56" prot="public" static="no" mutable="no">
+        <type>IAsyncResult</type>
+        <definition>IAsyncResult PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.connectionMarker</definition>
+        <argsstring></argsstring>
+        <name>connectionMarker</name>
+        <briefdescription>
+<para>Object that provide access to async connection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a632261255d8dfc87d93445180c6e2c9d" prot="public" static="no" mutable="no">
+        <type>System.Action&lt; <ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref> &gt;</type>
+        <definition>System.Action&lt;BaseServerTransmissionController&gt; PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.connectionCallback</definition>
+        <argsstring></argsstring>
+        <name>connectionCallback</name>
+        <briefdescription>
+<para>Delegate that will be called when connection will be established. ServerTransmissionMeta - meta data of transmission. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a019f764411256a751f8a438076426a47" prot="public" static="no" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.pipeServer</definition>
+        <argsstring></argsstring>
+        <name>pipeServer</name>
+        <briefdescription>
+<para>Reference to created pipe. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a4ce9911f1ad6814d3e5c9096d9ddde57" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.pipeName</definition>
+        <argsstring></argsstring>
+        <name>pipeName</name>
+        <briefdescription>
+<para>Name of this connection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad57a0420e71e3897e7e1b67c16b995f6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.Expired</definition>
+        <argsstring></argsstring>
+        <name>Expired</name>
+        <briefdescription>
+<para>Marker that show does current transmission is relevant. When it&apos;ll become true this pipe connection will be desconected. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="property" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ae159fdf4582f9419d9e3616d2aa2d37e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.Stoped</definition>
+        <argsstring></argsstring>
+        <name>Stoped</name>
+        <briefdescription>
+<para>Marker that show does this transmition stoped. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="property" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1af60aaebfbfe6988e008cedb18f32c759" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref></type>
+        <definition>BaseServerTransmissionController PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.None</definition>
+        <argsstring></argsstring>
+        <name>None</name>
+        <briefdescription>
+<para>Return instance that not contain initialized fields. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="80" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1acd8c41b70a2f0000c0e0b24e3b37ba07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.BaseServerTransmissionController</definition>
+        <argsstring>()</argsstring>
+        <name>BaseServerTransmissionController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="61" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad3ffb9dd45062b59d88dd08f9df90c5f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.BaseServerTransmissionController</definition>
+        <argsstring>(IAsyncResult connectionMarker, System.Action&lt; BaseServerTransmissionController &gt; connectionCallback, NamedPipeServerStream pipe, string pipeName)</argsstring>
+        <name>BaseServerTransmissionController</name>
+        <param>
+          <type>IAsyncResult</type>
+          <declname>connectionMarker</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller" kindref="compound">BaseServerTransmissionController</ref> &gt;</type>
+          <declname>connectionCallback</declname>
+        </param>
+        <param>
+          <type>NamedPipeServerStream</type>
+          <declname>pipe</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="63" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="63" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a6123ecf83e5ed7d39e8fe457681e3bfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.SetExpired</definition>
+        <argsstring>()</argsstring>
+        <name>SetExpired</name>
+        <briefdescription>
+<para>Maeking transmission as expired. Line will be remaked. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="89" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="89" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a838c1d62567059bbe92e9be3eca971d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.SetStoped</definition>
+        <argsstring>()</argsstring>
+        <name>SetStoped</name>
+        <briefdescription>
+<para>Marking transmission as expired and stoped for full exclusion from automatic server operations. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="100" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="100" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Container that contain meta data about server instance. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="20">
+        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
+        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+      </node>
+      <node id="22">
+        <label>PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController</label>
+        <link refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController</label>
+        <link refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="23">
+        <label>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>connectionCallback</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>System</label>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs" bodystart="23" bodyend="108"/>
+    <listofallmembers>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1acd8c41b70a2f0000c0e0b24e3b37ba07" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad3ffb9dd45062b59d88dd08f9df90c5f" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a632261255d8dfc87d93445180c6e2c9d" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>connectionCallback</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1afc45a2287e6fef24892a0aee8aa86f56" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>connectionMarker</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad57a0420e71e3897e7e1b67c16b995f6" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>Expired</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1af60aaebfbfe6988e008cedb18f32c759" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>None</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a4ce9911f1ad6814d3e5c9096d9ddde57" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>pipeName</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a019f764411256a751f8a438076426a47" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>pipeServer</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a6123ecf83e5ed7d39e8fe457681e3bfc" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>SetExpired</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1a838c1d62567059bbe92e9be3eca971d5" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>SetStoped</name></member>
+      <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ae159fdf4582f9419d9e3616d2aa2d37e" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController</scope><name>Stoped</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

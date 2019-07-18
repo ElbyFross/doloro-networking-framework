@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A64E9D28-BA9C-43B8-B894-E73DD0E23970}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AuthorityController</RootNamespace>
+    <AssemblyName>AuthorityController</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\Collections.cs" />
+    <Compile Include="API\Users.cs" />
+    <Compile Include="API\Validation.cs" />
+    <Compile Include="Data\BanInformation.cs" />
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\SaltContainer.cs" />
+    <Compile Include="Data\TokenInfo.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GET_GUEST_TOKEN.cs" />
+    <Compile Include="Queries\SET_TOKEN_RIGHTS.cs" />
+    <Compile Include="Queries\USER_BAN.cs" />
+    <Compile Include="Queries\USER_LOGOFF.cs" />
+    <Compile Include="Queries\USER_LOGON.cs" />
+    <Compile Include="Queries\USER_NEW.cs" />
+    <Compile Include="Queries\USER_NEW_PASSWORD.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="API\Tokens.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj">
+      <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
+      <Name>PipesProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniformQueries\UniformQueries.csproj">
+      <Project>{b68e2d79-1e9b-436e-899c-930bf945b003}</Project>
+      <Name>UniformQueries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniformServer\UniformServer.csproj">
+      <Project>{fa54f91c-5e34-47a6-af34-2cf0b9f90c32}</Project>
+      <Name>UniformServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

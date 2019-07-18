@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta" kind="class" language="C#" prot="public">
+    <compoundname>UniformClient::Plugins::MenuItemMeta</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a5af82221a6390db0d98c7fe9ff1d1985" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UniformClient.Plugins.MenuItemMeta.domain</definition>
+        <argsstring></argsstring>
+        <name>domain</name>
+        <initializer>= &quot;0_main.0_new_plugin&quot;</initializer>
+        <briefdescription>
+<para>Path of item in menu hierarchy. </para>        </briefdescription>
+        <detaileddescription>
+<para>Domain fragment format: [prority]_domainPart. Priority will be used for sorting of plugins in menu. If not defined then will be auto changed to SUBDOMAIN.GetHashcode().</para><para>Attention: 0_DomainName != DomainName 0_DomainName.SubdomainName != 10_DomainName.SubdomainName</para><para>Example of plugins menu map: 0_main 0_main.0_plugin_1 0_main.1_plugin_2</para><para>big_plugin_3 big_plugin_3.10_plugin1 big_plugin_3.20_pl_2 big_plugin_3.20_pl_2.minor_plugin big_plugin_3.p_3</para><para>big_plugin_3 // Dublicated plugin&apos;s domain. Will be added to menu but all childs will applied to first entry plugin. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="52" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a7cd04fb564fa2bdd1ac3c0c3af3b9aab" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UniformClient.Plugins.MenuItemMeta.titleDictionaryCode</definition>
+        <argsstring></argsstring>
+        <name>titleDictionaryCode</name>
+        <initializer>= &quot;p_author_myPlugin_title&quot;</initializer>
+        <briefdescription>
+<para>Code of resource in language xaml dictionary that will contain translated title. For avoidance of conflicts recommended naming format is: &quot;p_&quot; + author + &quot;_&quot; + plugin_name + &quot;_&quot; + title. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="58" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a3837afc599c411743bb08cd93b9937ad" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UniformClient.Plugins.MenuItemMeta.defaultTitle</definition>
+        <argsstring></argsstring>
+        <name>defaultTitle</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Title that will be showed in case if dictionary not found. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="63" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1ab60d7d4920d6cbab2cea1ee9e8eb5955" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UniformClient.Plugins.MenuItemMeta.MenuItemMeta</definition>
+        <argsstring>()</argsstring>
+        <name>MenuItemMeta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="67" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a46c285f5a810f09b9f23b2e33d0a27f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UniformClient.Plugins.MenuItemMeta.MenuItemMeta</definition>
+        <argsstring>(string domain, string titleDictionaryCode)</argsstring>
+        <name>MenuItemMeta</name>
+        <param>
+          <type>string</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>titleDictionaryCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="69" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="69" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contain information that will be used for connection to the automatic navigation menu in client application </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/MenuItemMeta.cs" bodystart="26" bodyend="75"/>
+    <listofallmembers>
+      <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a3837afc599c411743bb08cd93b9937ad" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::MenuItemMeta</scope><name>defaultTitle</name></member>
+      <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a5af82221a6390db0d98c7fe9ff1d1985" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::MenuItemMeta</scope><name>domain</name></member>
+      <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1ab60d7d4920d6cbab2cea1ee9e8eb5955" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::MenuItemMeta</scope><name>MenuItemMeta</name></member>
+      <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a46c285f5a810f09b9f23b2e33d0a27f1" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::MenuItemMeta</scope><name>MenuItemMeta</name></member>
+      <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a7cd04fb564fa2bdd1ac3c0c3af3b9aab" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::MenuItemMeta</scope><name>titleDictionaryCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

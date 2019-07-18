@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Networking::Routing::Instruction</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a8681a89ae14ad25d11ee0c588231b772" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>RSAParameters</type>
+        <definition>RSAParameters PipesProvider.Networking.Routing.Instruction.PublicKey</definition>
+        <argsstring></argsstring>
+        <name>PublicKey</name>
+        <briefdescription>
+<para>RSA public key that was recived from this server. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a60281a347236a1311c37743b90596d58" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime PipesProvider.Networking.Routing.Instruction.PublicKeyExpireTime</definition>
+        <argsstring></argsstring>
+        <name>PublicKeyExpireTime</name>
+        <briefdescription>
+<para>Time when public key will become expired. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a07dbb5b97b3d9a28e5a318815d954278" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.Instruction.IsValid</definition>
+        <argsstring></argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+<para>Check does loading was failed or key was expired. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="50" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
+        <definition>Instruction PipesProvider.Networking.Routing.Instruction.Default</definition>
+        <argsstring></argsstring>
+        <name>Default</name>
+        <briefdescription>
+<para>Return default instruction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="118" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aad2d50b60ddcdd0c7d0671ced01a5480" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
+        <definition>Instruction PipesProvider.Networking.Routing.Instruction.Empty</definition>
+        <argsstring></argsstring>
+        <name>Empty</name>
+        <briefdescription>
+<para>Return empty instruction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="137" bodyend="145"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abcd8b85ff0383ecd73b24befa9d69506" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.Instruction._isValid</definition>
+        <argsstring></argsstring>
+        <name>_isValid</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="72" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1adb75f80ff34fab644305856ccf23d07b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Networking.Routing.Instruction.routingIP</definition>
+        <argsstring></argsstring>
+        <name>routingIP</name>
+        <briefdescription>
+<para>Address that will be ised for routing </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abe54e245df8dd26547b0c881b987202b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Networking.Routing.Instruction.pipeName</definition>
+        <argsstring></argsstring>
+        <name>pipeName</name>
+        <briefdescription>
+<para>neme of the named pipe for server access. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="84" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a2a3325abd7537b7a961626272634e038" prot="public" static="no" mutable="no">
+        <type><ref refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kindref="compound">Security.LogonConfig</ref></type>
+        <definition>Security.LogonConfig PipesProvider.Networking.Routing.Instruction.logonConfig</definition>
+        <argsstring></argsstring>
+        <name>logonConfig</name>
+        <briefdescription>
+<para>Logon config recuired to server connection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="89" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aa98823848a42831095f92b639121cc67" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] PipesProvider.Networking.Routing.Instruction.queryPatterns</definition>
+        <argsstring></argsstring>
+        <name>queryPatterns</name>
+        <briefdescription>
+<para>Array that contain querie&apos;s body that need to be routed by this instruction. </para>        </briefdescription>
+        <detaileddescription>
+<para>Format: property=value&amp;property=value&amp;... etc. - Encount all properties that need to be a part of query by splitting with <ref refid="df/d75/class_uniform_queries_1_1_a_p_i_1aa906970223172f9f2068baa410b621d8" kindref="member">UniformQueries.API.SPLITTING_SYMBOL</ref> (&apos;&amp;&apos; by default). !property - this property must be out of query. $property - this property must exist in query.</para><para>Example: targetQueries[0] = &quot;q=GET&amp;sq=&quot;PUBLICKEY&quot;;   // All queries that contain GET query and PUBLICKEY sub-query will routed.
+targetQueries[1] = &quot;q=GET&amp;!pk&quot;;             // All queries that request data from server but has no RSA public keys for backward encription will wouted.
+targetQueries[1] = &quot;$customProp&quot;;           // All queries that have &quot;customProp" property in query will be routed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="104" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a61ce6ffa8bb9cc44efc57bc51be3550b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.Instruction.RSAEncryption</definition>
+        <argsstring></argsstring>
+        <name>RSAEncryption</name>
+        <briefdescription>
+<para>Does this chanel has RSA encryption? If true then client can ask for server&apos;s Public Key and encrypt message before send. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="110" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a376135eac06c59b1df8d2f5d1617bed9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.Instruction.IsRoutingTarget</definition>
+        <argsstring>(string recivedQuery)</argsstring>
+        <name>IsRoutingTarget</name>
+        <param>
+          <type>string</type>
+          <declname>recivedQuery</declname>
+        </param>
+        <briefdescription>
+<para>Check doest this query must be routed using this server instruction. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recivedQuery</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="153" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="153" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.Instruction.TryUpdatePublicKey</definition>
+        <argsstring>(object recivedQuery)</argsstring>
+        <name>TryUpdatePublicKey</name>
+        <param>
+          <type>object</type>
+          <declname>recivedQuery</declname>
+        </param>
+        <briefdescription>
+<para>Try to update Public RSA key by query recived from server as reply to GET PUBLICKEY query. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recivedQuery</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="256" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="256" bodyend="333"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct that contain instruction about target adress by relative query params. Allow using of several servers via one public.</para><para>Example: &lt;<ndash/>&gt; Authification server <ref refid="d1/dc6/namespace_pipes_provider_1_1_client" kindref="compound">Client</ref> &lt;<ndash/>&gt; Query server &lt;<ndash/>&gt; Data server 1 &lt;<ndash/>&gt; Data server 2 </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="84">
+        <label>Security</label>
+      </node>
+      <node id="83">
+        <label>PipesProvider.Networking.Routing.Instruction</label>
+        <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>logonConfig</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="30" bodyend="334"/>
+    <listofallmembers>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abcd8b85ff0383ecd73b24befa9d69506" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>_isValid</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>Default</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aad2d50b60ddcdd0c7d0671ced01a5480" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>Empty</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a376135eac06c59b1df8d2f5d1617bed9" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>IsRoutingTarget</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a07dbb5b97b3d9a28e5a318815d954278" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>IsValid</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a2a3325abd7537b7a961626272634e038" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>logonConfig</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abe54e245df8dd26547b0c881b987202b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>pipeName</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a8681a89ae14ad25d11ee0c588231b772" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>PublicKey</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a60281a347236a1311c37743b90596d58" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>PublicKeyExpireTime</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aa98823848a42831095f92b639121cc67" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>queryPatterns</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1adb75f80ff34fab644305856ccf23d07b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>routingIP</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a61ce6ffa8bb9cc44efc57bc51be3550b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>RSAEncryption</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>TryUpdatePublicKey</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

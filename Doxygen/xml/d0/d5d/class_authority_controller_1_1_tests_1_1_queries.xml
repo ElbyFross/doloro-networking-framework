@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::Tests::Queries</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8cf9d1089864d1bdea1a5ae54c321de3" prot="private" static="no" mutable="no">
+        <type>readonly string</type>
+        <definition>readonly string AuthorityController.Tests.Queries.PIPE_NAME</definition>
+        <argsstring></argsstring>
+        <name>PIPE_NAME</name>
+        <initializer>= &quot;ACTestPublic&quot;</initializer>
+        <briefdescription>
+<para>Name of the pipe that would be started on server during tests. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a6abe89b3f3e496805cd2499bfdbb41f3" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_SuperAdmin</definition>
+        <argsstring></argsstring>
+        <name>user_SuperAdmin</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1abd134bc218d67f9b4e6792f9212cb1de" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_Admin</definition>
+        <argsstring></argsstring>
+        <name>user_Admin</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a7e5bf8b80bc660fa128328babd36b3a2" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_Moderator</definition>
+        <argsstring></argsstring>
+        <name>user_Moderator</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="39" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a379bff3a24288ed5b49ef8fd09e56dff" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_PrivilegedUser</definition>
+        <argsstring></argsstring>
+        <name>user_PrivilegedUser</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a05c0bd84370836e36ff4b2da43098c03" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_User</definition>
+        <argsstring></argsstring>
+        <name>user_User</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1adf081fb1bd4b942144bbae304c6e923d" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+        <definition>User AuthorityController.Tests.Queries.user_Guest</definition>
+        <argsstring></argsstring>
+        <name>user_Guest</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a1e0a184a21e8260f3483b3f9a8c816f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.StartPublicServer</definition>
+        <argsstring>()</argsstring>
+        <name>StartPublicServer</name>
+        <briefdescription>
+<para>Starting public server that would able to recive queries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2e5cb3ec94045a037d0854d9aea11323" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.SetBaseUsersPool</definition>
+        <argsstring>()</argsstring>
+        <name>SetBaseUsersPool</name>
+        <briefdescription>
+<para>Creating and apply base users pool: -Super admin -Admin -Moderator -Privileged user -User -Guest </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="66" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="66" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1af8f75f7ae081367f731cca0708cb1480" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Setup</definition>
+        <argsstring>()</argsstring>
+        <name>Setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="232" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="232" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a73aecfeff3ab2ef348cbecb67d60fe49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.GetGuestToken</definition>
+        <argsstring>()</argsstring>
+        <name>GetGuestToken</name>
+        <briefdescription>
+<para>Tryinging to get guest token using query. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="246" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="246" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a803981626447ef436d7461ee278eb052" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.SetTokenRights_NoRights</definition>
+        <argsstring>()</argsstring>
+        <name>SetTokenRights_NoRights</name>
+        <briefdescription>
+<para>Tryinging to update token rights without authority. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="308" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="308" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa7fb783f7b670bc2daf142f97561cfae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.SetTokenRights_HasRights</definition>
+        <argsstring>()</argsstring>
+        <name>SetTokenRights_HasRights</name>
+        <briefdescription>
+<para>Tryinging to update token rights with walid permition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="384" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="384" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a16f5db1a247a06e5b585b89d422f8ef5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.UserBan_NoRights</definition>
+        <argsstring>()</argsstring>
+        <name>UserBan_NoRights</name>
+        <briefdescription>
+<para>Trying to ban user but has no rights to this. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="460" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="460" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a07a7a3e3f8136203cbafe2334180ac46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.UserBan_HighrankerBan</definition>
+        <argsstring>()</argsstring>
+        <name>UserBan_HighrankerBan</name>
+        <briefdescription>
+<para>Trying to ban user that has a higher rank than requester. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="473" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="473" bodyend="480"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a0d8db80983626e432963bf17eda12b98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.UserBan_HasRights</definition>
+        <argsstring>()</argsstring>
+        <name>UserBan_HasRights</name>
+        <briefdescription>
+<para>Trying to ban user with enough rights to that. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="486" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="486" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa12eafe223e2c48ace89a4dd2a8da7c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.UserBan_BanExpire</definition>
+        <argsstring>()</argsstring>
+        <name>UserBan_BanExpire</name>
+        <briefdescription>
+<para>Check ban expiring. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="499" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="499" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a3cd254060908d25ee375be4c019a5bbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Logon_ValidData</definition>
+        <argsstring>()</argsstring>
+        <name>Logon_ValidData</name>
+        <briefdescription>
+<para>Trying to logon as existed user with corerct logon data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="509" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="509" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2d9af2b69951d0498670248829c0e2ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Logon_UserNotExist</definition>
+        <argsstring>()</argsstring>
+        <name>Logon_UserNotExist</name>
+        <briefdescription>
+<para>Trying to logon as existed user that not registred. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="594" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="594" bodyend="663"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ac861fb620f063f0808c662d6a7eafeb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Logon_InvalidData</definition>
+        <argsstring>()</argsstring>
+        <name>Logon_InvalidData</name>
+        <briefdescription>
+<para>Trying to logon with incorrrect password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="669" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="669" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a4bae91492fae911ec7b5972e5f06e69a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Logoff_InvalidToken</definition>
+        <argsstring>()</argsstring>
+        <name>Logoff_InvalidToken</name>
+        <briefdescription>
+<para>Trying to logoff user by invalid token. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="744" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="744" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ed45de5483ce80be47a31751b582f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.Logoff_ValidToken</definition>
+        <argsstring>()</argsstring>
+        <name>Logoff_ValidToken</name>
+        <briefdescription>
+<para>Trying to logoff user by valid token. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="767" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="767" bodyend="784"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8aa2995781a0353dbdf041871ab50458" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewUser_ValidData</definition>
+        <argsstring>()</argsstring>
+        <name>NewUser_ValidData</name>
+        <briefdescription>
+<para>Trying to create user with valid data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="790" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="790" bodyend="882"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2ce7ef859f6c5b9441eb8b4aa5335a08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewUser_InvalidPassword</definition>
+        <argsstring>()</argsstring>
+        <name>NewUser_InvalidPassword</name>
+        <briefdescription>
+<para>Trying to logoff invalid token. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="888" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="888" bodyend="980"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a17edb1eefd72cf95eb808d6c2fd888e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewUser_InvalidLogin</definition>
+        <argsstring>()</argsstring>
+        <name>NewUser_InvalidLogin</name>
+        <briefdescription>
+<para>Trying to create new user with invalid login. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="986" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="986" bodyend="1078"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa4bfd8884d421a8dfe58a5b7ede3c567" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewUser_UserExist</definition>
+        <argsstring>()</argsstring>
+        <name>NewUser_UserExist</name>
+        <briefdescription>
+<para>Trying to create new user that already exist. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="1084" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="1084" bodyend="1179"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ae3f994db2b80f9d5fe5251b7d8cacaff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewUser_InvalidPersonal</definition>
+        <argsstring>()</argsstring>
+        <name>NewUser_InvalidPersonal</name>
+        <briefdescription>
+<para>Trying to create user with invalid personal data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="1185" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="1185" bodyend="1277"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ad47988eb2a7c20fc51bf71ca3dced" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewPassword_Self</definition>
+        <argsstring>()</argsstring>
+        <name>NewPassword_Self</name>
+        <briefdescription>
+<para>Trying to change self password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="1283" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="1283" bodyend="1358"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ad767ebe267fd51e8df5f53c2f0b11f5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewPassword_ModeratorToAdmin</definition>
+        <argsstring>()</argsstring>
+        <name>NewPassword_ModeratorToAdmin</name>
+        <briefdescription>
+<para>Trying to change password of user with higher rank then requeter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="1364" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="1364" bodyend="1439"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ab04b5335b4b693f145631c1bc1d0ab3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Tests.Queries.NewPassword_AdminToUser</definition>
+        <argsstring>()</argsstring>
+        <name>NewPassword_AdminToUser</name>
+        <briefdescription>
+<para>Trying to change password of user with lower rank then requester. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="1446" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="1446" bodyend="1521"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="113">
+        <label>AuthorityController.Data.User</label>
+        <link refid="d8/d02/class_authority_controller_1_1_data_1_1_user"/>
+      </node>
+      <node id="112">
+        <label>AuthorityController.Tests.Queries</label>
+        <link refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries"/>
+        <childnode refid="113" relation="usage">
+          <edgelabel>user_Admin</edgelabel>
+          <edgelabel>user_PrivilegedUser</edgelabel>
+          <edgelabel>user_Guest</edgelabel>
+          <edgelabel>user_Moderator</edgelabel>
+          <edgelabel>user_SuperAdmin</edgelabel>
+          <edgelabel>user_User</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Queries.cs" bodystart="29" bodyend="1522"/>
+    <listofallmembers>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a73aecfeff3ab2ef348cbecb67d60fe49" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>GetGuestToken</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a4bae91492fae911ec7b5972e5f06e69a" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Logoff_InvalidToken</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ed45de5483ce80be47a31751b582f6" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Logoff_ValidToken</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ac861fb620f063f0808c662d6a7eafeb2" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Logon_InvalidData</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2d9af2b69951d0498670248829c0e2ab" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Logon_UserNotExist</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a3cd254060908d25ee375be4c019a5bbc" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Logon_ValidData</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ab04b5335b4b693f145631c1bc1d0ab3d" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewPassword_AdminToUser</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ad767ebe267fd51e8df5f53c2f0b11f5d" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewPassword_ModeratorToAdmin</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a55ad47988eb2a7c20fc51bf71ca3dced" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewPassword_Self</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a17edb1eefd72cf95eb808d6c2fd888e2" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewUser_InvalidLogin</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2ce7ef859f6c5b9441eb8b4aa5335a08" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewUser_InvalidPassword</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1ae3f994db2b80f9d5fe5251b7d8cacaff" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewUser_InvalidPersonal</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa4bfd8884d421a8dfe58a5b7ede3c567" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewUser_UserExist</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8aa2995781a0353dbdf041871ab50458" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>NewUser_ValidData</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a8cf9d1089864d1bdea1a5ae54c321de3" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>PIPE_NAME</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a2e5cb3ec94045a037d0854d9aea11323" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>SetBaseUsersPool</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa7fb783f7b670bc2daf142f97561cfae" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>SetTokenRights_HasRights</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a803981626447ef436d7461ee278eb052" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>SetTokenRights_NoRights</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1af8f75f7ae081367f731cca0708cb1480" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>Setup</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a1e0a184a21e8260f3483b3f9a8c816f5" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>StartPublicServer</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1abd134bc218d67f9b4e6792f9212cb1de" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_Admin</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1adf081fb1bd4b942144bbae304c6e923d" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_Guest</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a7e5bf8b80bc660fa128328babd36b3a2" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_Moderator</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a379bff3a24288ed5b49ef8fd09e56dff" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_PrivilegedUser</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a6abe89b3f3e496805cd2499bfdbb41f3" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_SuperAdmin</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a05c0bd84370836e36ff4b2da43098c03" prot="private" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>user_User</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1aa12eafe223e2c48ace89a4dd2a8da7c0" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>UserBan_BanExpire</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a0d8db80983626e432963bf17eda12b98" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>UserBan_HasRights</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a07a7a3e3f8136203cbafe2334180ac46" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>UserBan_HighrankerBan</name></member>
+      <member refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries_1a16f5db1a247a06e5b585b89d422f8ef5" prot="public" virt="non-virtual"><scope>AuthorityController::Tests::Queries</scope><name>UserBan_NoRights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/daa/namespace_authority_controller_1_1_tests" kind="namespace" language="C#">
+    <compoundname>AuthorityController::Tests</compoundname>
+    <innerclass refid="d5/d06/class_authority_controller_1_1_tests_1_1_data" prot="public">AuthorityController::Tests::Data</innerclass>
+    <innerclass refid="d0/d5d/class_authority_controller_1_1_tests_1_1_queries" prot="public">AuthorityController::Tests::Queries</innerclass>
+    <innerclass refid="d5/d33/class_authority_controller_1_1_tests_1_1_regex" prot="public">AuthorityController::Tests::Regex</innerclass>
+    <innerclass refid="d9/ddb/class_authority_controller_1_1_tests_1_1_session" prot="public">AuthorityController::Tests::Session</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/Data.cs" line="23" column="1"/>
+  </compounddef>
+</doxygen>

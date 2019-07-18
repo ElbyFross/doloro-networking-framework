@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d7/def/namespace_uniform_server_1_1_standard" kind="namespace" language="C#">
+    <compoundname>UniformServer::Standard</compoundname>
+    <innerclass refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server" prot="public">UniformServer::Standard::BroadcastingServer</innerclass>
+    <innerclass refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server" prot="public">UniformServer::Standard::SimpleServer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/Standard/BroadcastingServer.cs" line="18" column="1"/>
+  </compounddef>
+</doxygen>

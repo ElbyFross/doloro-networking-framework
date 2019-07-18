@@ -1,0 +1,92 @@
+\hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller}{}\section{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller Class Reference}
+\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller}\index{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller}}
+
+
+Controller that provide message\textquotesingle{}s transmisssion from server to client.  
+
+
+Inheritance diagram for Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_afa5595e45959941c7d3e84e868a25223}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_afa5595e45959941c7d3e84e868a25223}} 
+{\bfseries Server\+To\+Client\+Transmission\+Controller} (I\+Async\+Result \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_afc45a2287e6fef24892a0aee8aa86f56}{connection\+Marker}}, System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a632261255d8dfc87d93445180c6e2c9d}{connection\+Callback}}, Named\+Pipe\+Server\+Stream pipe, string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a1315fe8071f9e83fdaae7d248cf822e2}{Server\+Loop}} (string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}}, out string guid, \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}} security\+Level)
+\begin{DoxyCompactList}\small\item\em Automaticly create server\textquotesingle{}s pipe that will send message to client. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a0b40f93950cbf37335373f6efec0a4f1}{Server\+Loop}} (string guid, string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_a4ce9911f1ad6814d3e5c9096d9ddde57}{pipe\+Name}}, \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}} security\+Level)
+\begin{DoxyCompactList}\small\item\em Automaticly create server\textquotesingle{}s pipe that will send message to client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_abc1b9e3483f9e0f1fd83e72d9b87377d}{Processing\+Query}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Query that actualy in processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Controller that provide message\textquotesingle{}s transmisssion from server to client. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a1315fe8071f9e83fdaae7d248cf822e2}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a1315fe8071f9e83fdaae7d248cf822e2}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}!Server\+Loop@{Server\+Loop}}
+\index{Server\+Loop@{Server\+Loop}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Server\+Loop()}{ServerLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller.\+Server\+Loop (\begin{DoxyParamCaption}\item[{string}]{pipe\+Name,  }\item[{out string}]{guid,  }\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}}}]{security\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Automaticly create server\textquotesingle{}s pipe that will send message to client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Handler\+Callback} & Callback that will be called when server will recive query from clinet.\\
+\hline
+{\em pipe\+Name} & Name of pipe that will created. \mbox{\hyperlink{namespace_pipes_provider_1_1_client}{Client}} will access this server using that name.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a0b40f93950cbf37335373f6efec0a4f1}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_a0b40f93950cbf37335373f6efec0a4f1}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}!Server\+Loop@{Server\+Loop}}
+\index{Server\+Loop@{Server\+Loop}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Server\+Loop()}{ServerLoop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller.\+Server\+Loop (\begin{DoxyParamCaption}\item[{string}]{guid,  }\item[{string}]{pipe\+Name,  }\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}}}]{security\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Automaticly create server\textquotesingle{}s pipe that will send message to client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Handler\+Callback} & Callback that will be called when server will recive query from clinet.\\
+\hline
+{\em pipe\+Name} & Name of pipe that will created. \mbox{\hyperlink{namespace_pipes_provider_1_1_client}{Client}} will access this server using that name.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_abc1b9e3483f9e0f1fd83e72d9b87377d}\label{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller_abc1b9e3483f9e0f1fd83e72d9b87377d}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}!Processing\+Query@{Processing\+Query}}
+\index{Processing\+Query@{Processing\+Query}!Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller@{Pipes\+Provider\+::\+Server\+::\+Transmission\+Controllers\+::\+Server\+To\+Client\+Transmission\+Controller}}
+\subsubsection{\texorpdfstring{Processing\+Query}{ProcessingQuery}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Server\+To\+Client\+Transmission\+Controller.\+Processing\+Query\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Query that actualy in processing. 
+
+Attention\+: Value can be changed if some of handlers will call disconecction or transmission error. This situation will lead to establishing new connection that lead to changing of this value. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Server/\+Transmisssion\+Controllers/Server\+To\+Client\+Transmission\+Controller.\+cs\end{DoxyCompactItemize}

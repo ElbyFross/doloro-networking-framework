@@ -1,0 +1,303 @@
+\hypertarget{class_pipes_provider_1_1_security_1_1_crypto}{}\section{Pipes\+Provider.\+Security.\+Crypto Class Reference}
+\label{class_pipes_provider_1_1_security_1_1_crypto}\index{Pipes\+Provider.\+Security.\+Crypto@{Pipes\+Provider.\+Security.\+Crypto}}
+
+
+Class that provide metods for providing server transmission sequrity.  
+
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}{S\+H\+A\+Types}} \{ {\bfseries S\+H\+A1}, 
+{\bfseries S\+H\+A256}, 
+{\bfseries S\+H\+A384}, 
+{\bfseries S\+H\+A512}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that describe type of S\+HA hash algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_ab931581ad69168a7d452ec2ed2a31609}{Serialize\+Public\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Serialize public key to X\+ML. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a35b28e8676c9dea2c0b7991671fd78a6}{Try\+Deserialize\+R\+S\+A\+Key}} (string xml, out R\+S\+A\+Parameters result)
+\begin{DoxyCompactList}\small\item\em Trying to deserialize xml to R\+S\+A\+Parameters. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a2a233d9860e9aee6b2bc49411a4e4917}{Decrypt\+String}} (string message)
+\begin{DoxyCompactList}\small\item\em Decrypt string message that was recived from other source and was encrypted by local public key. In case of fail will return entry message. \end{DoxyCompactList}\item 
+static byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_aeaf01f17d57b624fd4809ceb2836ebe0}{R\+S\+A\+Decrypt}} (byte\mbox{[}$\,$\mbox{]} Data\+To\+Decrypt, bool \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a47ca964d3fea31884d730936a9be1c81}{Do\+O\+A\+E\+P\+Padding}})
+\begin{DoxyCompactList}\small\item\em Decrypt byte array using private key. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_ab43ab066a89134e4207ab0107f17a187}{Encrypt\+String}} (string message, R\+S\+A\+Parameters server\+Public\+Key)
+\begin{DoxyCompactList}\small\item\em Encrypt string message and make it ready to trasmition to the server. \end{DoxyCompactList}\item 
+static byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a09f2c39c0c97bf871f3ab9df2f1a40fd}{R\+S\+A\+Encrypt}} (byte\mbox{[}$\,$\mbox{]} Data\+To\+Encrypt, R\+S\+A\+Parameters server\+Public\+Key, bool \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a47ca964d3fea31884d730936a9be1c81}{Do\+O\+A\+E\+P\+Padding}})
+\begin{DoxyCompactList}\small\item\em Encrypt byte array by public server R\+SA key. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_aa02bcc81446a930930bb43ff46981f60}{String\+To\+S\+HA}} (string input)
+\begin{DoxyCompactList}\small\item\em Return the hash of the string. Use S\+H\+A256 as default. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_af652a2847acd1502625c5496c4887274}{String\+To\+S\+HA}} (string input, \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}{S\+H\+A\+Types}} type)
+\begin{DoxyCompactList}\small\item\em Return hash of string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Encoding \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a891868b922c2ce6a0f85a01c6bf684e5}{encoder}} = Encoding.\+Default
+\begin{DoxyCompactList}\small\item\em Encoder that provide concertation query from string to byte array. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a47ca964d3fea31884d730936a9be1c81}{Do\+O\+A\+E\+P\+Padding}}
+\begin{DoxyCompactList}\small\item\em Padding messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static R\+S\+A\+Crypto\+Service\+Provider \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_ab1a4a6dad6ba4bad8e95587ae9c9ef28}{Crypto\+Service\+Provider\+\_\+\+R\+SA}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Current crypto service provider. Using R\+SA algortihm with 2048 bit key. \end{DoxyCompactList}\item 
+static R\+S\+A\+Parameters \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a1813c1f43bdb164e4e023947e0cad08c}{Public\+Key}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public R\+SA key that must b used to encrypt of message befor send. \end{DoxyCompactList}\item 
+static R\+S\+A\+Parameters \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_adcb692dbcece7db4e96f4bce92daabd0}{Private\+Key}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return private R\+SA key that can be used to decode message. \end{DoxyCompactList}\item 
+static Date\+Time \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_aee1d631c98ae7aff552257befa32c37d}{R\+S\+A\+Key\+Expire\+Time}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Time when rsa keys will expired. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a085f49881af05eb6029d21fa8aab4439}\label{class_pipes_provider_1_1_security_1_1_crypto_a085f49881af05eb6029d21fa8aab4439}} 
+static R\+S\+A\+Crypto\+Service\+Provider {\bfseries \+\_\+\+Crypto\+Service\+Provider\+\_\+\+R\+SA}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a3f5346401a457cde84339dcaf7f4ba21}\label{class_pipes_provider_1_1_security_1_1_crypto_a3f5346401a457cde84339dcaf7f4ba21}} 
+static Timer {\bfseries R\+S\+A\+Provider\+Expire\+Timer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that provide metods for providing server transmission sequrity. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}\label{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!S\+H\+A\+Types@{S\+H\+A\+Types}}
+\index{S\+H\+A\+Types@{S\+H\+A\+Types}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{S\+H\+A\+Types}{SHATypes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}{Pipes\+Provider.\+Security.\+Crypto.\+S\+H\+A\+Types}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum that describe type of S\+HA hash algorithm. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a2a233d9860e9aee6b2bc49411a4e4917}\label{class_pipes_provider_1_1_security_1_1_crypto_a2a233d9860e9aee6b2bc49411a4e4917}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Decrypt\+String@{Decrypt\+String}}
+\index{Decrypt\+String@{Decrypt\+String}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Decrypt\+String()}{DecryptString()}}
+{\footnotesize\ttfamily static string Pipes\+Provider.\+Security.\+Crypto.\+Decrypt\+String (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrypt string message that was recived from other source and was encrypted by local public key. In case of fail will return entry message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message that will be decrypted.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_ab43ab066a89134e4207ab0107f17a187}\label{class_pipes_provider_1_1_security_1_1_crypto_ab43ab066a89134e4207ab0107f17a187}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Encrypt\+String@{Encrypt\+String}}
+\index{Encrypt\+String@{Encrypt\+String}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Encrypt\+String()}{EncryptString()}}
+{\footnotesize\ttfamily static string Pipes\+Provider.\+Security.\+Crypto.\+Encrypt\+String (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{R\+S\+A\+Parameters}]{server\+Public\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Encrypt string message and make it ready to trasmition to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message that will be encrypted.\\
+\hline
+{\em server\+Public\+Key} & Public encrypt key that was shered by target server.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_aeaf01f17d57b624fd4809ceb2836ebe0}\label{class_pipes_provider_1_1_security_1_1_crypto_aeaf01f17d57b624fd4809ceb2836ebe0}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!R\+S\+A\+Decrypt@{R\+S\+A\+Decrypt}}
+\index{R\+S\+A\+Decrypt@{R\+S\+A\+Decrypt}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{R\+S\+A\+Decrypt()}{RSADecrypt()}}
+{\footnotesize\ttfamily static byte \mbox{[}$\,$\mbox{]} Pipes\+Provider.\+Security.\+Crypto.\+R\+S\+A\+Decrypt (\begin{DoxyParamCaption}\item[{byte \mbox{[}$\,$\mbox{]}}]{Data\+To\+Decrypt,  }\item[{bool}]{Do\+O\+A\+E\+P\+Padding }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrypt byte array using private key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+To\+Decrypt} & \\
+\hline
+{\em Do\+O\+A\+E\+P\+Padding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a09f2c39c0c97bf871f3ab9df2f1a40fd}\label{class_pipes_provider_1_1_security_1_1_crypto_a09f2c39c0c97bf871f3ab9df2f1a40fd}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!R\+S\+A\+Encrypt@{R\+S\+A\+Encrypt}}
+\index{R\+S\+A\+Encrypt@{R\+S\+A\+Encrypt}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{R\+S\+A\+Encrypt()}{RSAEncrypt()}}
+{\footnotesize\ttfamily static byte \mbox{[}$\,$\mbox{]} Pipes\+Provider.\+Security.\+Crypto.\+R\+S\+A\+Encrypt (\begin{DoxyParamCaption}\item[{byte \mbox{[}$\,$\mbox{]}}]{Data\+To\+Encrypt,  }\item[{R\+S\+A\+Parameters}]{server\+Public\+Key,  }\item[{bool}]{Do\+O\+A\+E\+P\+Padding }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Encrypt byte array by public server R\+SA key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+To\+Encrypt} & Data that will be encrypted.\\
+\hline
+{\em server\+Public\+Key} & Public encrypt key of target server.\\
+\hline
+{\em Do\+O\+A\+E\+P\+Padding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_ab931581ad69168a7d452ec2ed2a31609}\label{class_pipes_provider_1_1_security_1_1_crypto_ab931581ad69168a7d452ec2ed2a31609}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Serialize\+Public\+Key@{Serialize\+Public\+Key}}
+\index{Serialize\+Public\+Key@{Serialize\+Public\+Key}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Serialize\+Public\+Key()}{SerializePublicKey()}}
+{\footnotesize\ttfamily static string Pipes\+Provider.\+Security.\+Crypto.\+Serialize\+Public\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Serialize public key to X\+ML. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_aa02bcc81446a930930bb43ff46981f60}\label{class_pipes_provider_1_1_security_1_1_crypto_aa02bcc81446a930930bb43ff46981f60}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!String\+To\+S\+HA@{String\+To\+S\+HA}}
+\index{String\+To\+S\+HA@{String\+To\+S\+HA}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{String\+To\+S\+H\+A()}{StringToSHA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static string Pipes\+Provider.\+Security.\+Crypto.\+String\+To\+S\+HA (\begin{DoxyParamCaption}\item[{string}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Return the hash of the string. Use S\+H\+A256 as default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_af652a2847acd1502625c5496c4887274}\label{class_pipes_provider_1_1_security_1_1_crypto_af652a2847acd1502625c5496c4887274}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!String\+To\+S\+HA@{String\+To\+S\+HA}}
+\index{String\+To\+S\+HA@{String\+To\+S\+HA}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{String\+To\+S\+H\+A()}{StringToSHA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static string Pipes\+Provider.\+Security.\+Crypto.\+String\+To\+S\+HA (\begin{DoxyParamCaption}\item[{string}]{input,  }\item[{\mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_crypto_a6956e9aac98864917946b750dee3596e}{S\+H\+A\+Types}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Return hash of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a35b28e8676c9dea2c0b7991671fd78a6}\label{class_pipes_provider_1_1_security_1_1_crypto_a35b28e8676c9dea2c0b7991671fd78a6}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Try\+Deserialize\+R\+S\+A\+Key@{Try\+Deserialize\+R\+S\+A\+Key}}
+\index{Try\+Deserialize\+R\+S\+A\+Key@{Try\+Deserialize\+R\+S\+A\+Key}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Try\+Deserialize\+R\+S\+A\+Key()}{TryDeserializeRSAKey()}}
+{\footnotesize\ttfamily static bool Pipes\+Provider.\+Security.\+Crypto.\+Try\+Deserialize\+R\+S\+A\+Key (\begin{DoxyParamCaption}\item[{string}]{xml,  }\item[{out R\+S\+A\+Parameters}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trying to deserialize xml to R\+S\+A\+Parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xml} & \\
+\hline
+{\em result} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of operation. Return false if was failed.
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a47ca964d3fea31884d730936a9be1c81}\label{class_pipes_provider_1_1_security_1_1_crypto_a47ca964d3fea31884d730936a9be1c81}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Do\+O\+A\+E\+P\+Padding@{Do\+O\+A\+E\+P\+Padding}}
+\index{Do\+O\+A\+E\+P\+Padding@{Do\+O\+A\+E\+P\+Padding}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Do\+O\+A\+E\+P\+Padding}{DoOAEPPadding}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Security.\+Crypto.\+Do\+O\+A\+E\+P\+Padding\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Padding messages. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a891868b922c2ce6a0f85a01c6bf684e5}\label{class_pipes_provider_1_1_security_1_1_crypto_a891868b922c2ce6a0f85a01c6bf684e5}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!encoder@{encoder}}
+\index{encoder@{encoder}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily Encoding Pipes\+Provider.\+Security.\+Crypto.\+encoder = Encoding.\+Default\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Encoder that provide concertation query from string to byte array. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_ab1a4a6dad6ba4bad8e95587ae9c9ef28}\label{class_pipes_provider_1_1_security_1_1_crypto_ab1a4a6dad6ba4bad8e95587ae9c9ef28}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Crypto\+Service\+Provider\+\_\+\+R\+SA@{Crypto\+Service\+Provider\+\_\+\+R\+SA}}
+\index{Crypto\+Service\+Provider\+\_\+\+R\+SA@{Crypto\+Service\+Provider\+\_\+\+R\+SA}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Crypto\+Service\+Provider\+\_\+\+R\+SA}{CryptoServiceProvider\_RSA}}
+{\footnotesize\ttfamily R\+S\+A\+Crypto\+Service\+Provider Pipes\+Provider.\+Security.\+Crypto.\+Crypto\+Service\+Provider\+\_\+\+R\+SA\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Current crypto service provider. Using R\+SA algortihm with 2048 bit key. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_adcb692dbcece7db4e96f4bce92daabd0}\label{class_pipes_provider_1_1_security_1_1_crypto_adcb692dbcece7db4e96f4bce92daabd0}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Private\+Key@{Private\+Key}}
+\index{Private\+Key@{Private\+Key}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Private\+Key}{PrivateKey}}
+{\footnotesize\ttfamily R\+S\+A\+Parameters Pipes\+Provider.\+Security.\+Crypto.\+Private\+Key\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Return private R\+SA key that can be used to decode message. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_a1813c1f43bdb164e4e023947e0cad08c}\label{class_pipes_provider_1_1_security_1_1_crypto_a1813c1f43bdb164e4e023947e0cad08c}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!Public\+Key@{Public\+Key}}
+\index{Public\+Key@{Public\+Key}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{Public\+Key}{PublicKey}}
+{\footnotesize\ttfamily R\+S\+A\+Parameters Pipes\+Provider.\+Security.\+Crypto.\+Public\+Key\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Public R\+SA key that must b used to encrypt of message befor send. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_crypto_aee1d631c98ae7aff552257befa32c37d}\label{class_pipes_provider_1_1_security_1_1_crypto_aee1d631c98ae7aff552257befa32c37d}} 
+\index{Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}!R\+S\+A\+Key\+Expire\+Time@{R\+S\+A\+Key\+Expire\+Time}}
+\index{R\+S\+A\+Key\+Expire\+Time@{R\+S\+A\+Key\+Expire\+Time}!Pipes\+Provider\+::\+Security\+::\+Crypto@{Pipes\+Provider\+::\+Security\+::\+Crypto}}
+\subsubsection{\texorpdfstring{R\+S\+A\+Key\+Expire\+Time}{RSAKeyExpireTime}}
+{\footnotesize\ttfamily Date\+Time Pipes\+Provider.\+Security.\+Crypto.\+R\+S\+A\+Key\+Expire\+Time\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Time when rsa keys will expired. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Security/Crypto.\+cs\end{DoxyCompactItemize}

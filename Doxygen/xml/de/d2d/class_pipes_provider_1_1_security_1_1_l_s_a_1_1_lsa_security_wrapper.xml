@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::LSA::LsaSecurityWrapper</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778" prot="private" static="no" strong="yes">
+        <type>int</type>
+        <name>Access</name>
+        <enumvalue id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778a0cc6d93d350805a56153f9c6cd0df1ff" prot="private">
+          <name>POLICY_READ</name>
+          <initializer>= 0x20006</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778abe32715eb8e266792bebdc4bcb99f28a" prot="private">
+          <name>POLICY_ALL_ACCESS</name>
+          <initializer>= 0x00F0FFF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778af9342c6f0f3ccd922c4899c733ee6a20" prot="private">
+          <name>POLICY_EXECUTE</name>
+          <initializer>= 0X20801</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778ac4441e264c294b1787239538889b54ea" prot="private">
+          <name>POLICY_WRITE</name>
+          <initializer>= 0X207F8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="87" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="86" bodyend="92"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a773aa7b67cb9fc5616dc6bd1a619b225" prot="package" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.LSA.LsaSecurityWrapper.LsaOpenPolicy</definition>
+        <argsstring>(LSA_UNICODE_STRING[] SystemName, ref LSA_OBJECT_ATTRIBUTES ObjectAttributes, int AccessMask, out IntPtr PolicyHandle)</argsstring>
+        <name>LsaOpenPolicy</name>
+        <param>
+          <type><ref refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LSA_UNICODE_STRING</ref> []</type>
+          <declname>SystemName</declname>
+        </param>
+        <param>
+          <type>ref <ref refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s" kindref="compound">LSA_OBJECT_ATTRIBUTES</ref></type>
+          <declname>ObjectAttributes</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>AccessMask</declname>
+        </param>
+        <param>
+          <type>out IntPtr</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adda333d87687ba6906a623db79a9adfa" prot="package" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.LSA.LsaSecurityWrapper.LsaAddAccountRights</definition>
+        <argsstring>(LSA_HANDLE PolicyHandle, IntPtr pSID, LSA_UNICODE_STRING[] UserRights, int CountOfRights)</argsstring>
+        <name>LsaAddAccountRights</name>
+        <param>
+          <type>LSA_HANDLE</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <param>
+          <type>IntPtr</type>
+          <declname>pSID</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LSA_UNICODE_STRING</ref> []</type>
+          <declname>UserRights</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>CountOfRights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adc48b947899763c20b59951bd7d4bf1e" prot="package" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.LSA.LsaSecurityWrapper.LsaRemoveAccountRights</definition>
+        <argsstring>(LSA_HANDLE PolicyHandle, IntPtr AccountSid, bool AllRights, LSA_UNICODE_STRING[] UserRights, int CountOfRights)</argsstring>
+        <name>LsaRemoveAccountRights</name>
+        <param>
+          <type>LSA_HANDLE</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <param>
+          <type>IntPtr</type>
+          <declname>AccountSid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>AllRights</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LSA_UNICODE_STRING</ref> []</type>
+          <declname>UserRights</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>CountOfRights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a1e3a45dcb55bd6d339ccf426bc600022" prot="package" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int PipesProvider.Security.LSA.LsaSecurityWrapper.LsaClose</definition>
+        <argsstring>(IntPtr PolicyHandle)</argsstring>
+        <name>LsaClose</name>
+        <param>
+          <type>IntPtr</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="83" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adac61a41a0472231a990f1274834ee4d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Security.LSA.LsaSecurityWrapper.AddAccountRights</definition>
+        <argsstring>(SecurityIdentifier sid, string rights)</argsstring>
+        <name>AddAccountRights</name>
+        <param>
+          <type>SecurityIdentifier</type>
+          <declname>sid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>rights</declname>
+        </param>
+        <briefdescription>
+<para>Add rights for requested user or group to <ref refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kindref="compound">LSA</ref>. <ulink url="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment">https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment</ulink> </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="101" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ad14aaa2cffa5be534590d0ef30810117" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Security.LSA.LsaSecurityWrapper.RemoveAccountRights</definition>
+        <argsstring>(SecurityIdentifier sid, string rights)</argsstring>
+        <name>RemoveAccountRights</name>
+        <param>
+          <type>SecurityIdentifier</type>
+          <declname>sid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>rights</declname>
+        </param>
+        <briefdescription>
+<para>Remove rights for requested user or group from <ref refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kindref="compound">LSA</ref>. <ulink url="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment">https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment</ulink> </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="112" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="112" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a13ce034059c39f7a1a93d06a45b07d94" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Security.LSA.LsaSecurityWrapper.AccountRightsController</definition>
+        <argsstring>(SecurityIdentifier sid, string rights, bool allow)</argsstring>
+        <name>AccountRightsController</name>
+        <param>
+          <type>SecurityIdentifier</type>
+          <declname>sid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>rights</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow</declname>
+        </param>
+        <briefdescription>
+<para>Provide access and overriding of accaunt rights in <ref refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kindref="compound">LSA</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="123" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="123" bodyend="188"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provide warped way to Add and Rmove rights for user from <ref refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kindref="compound">LSA</ref>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="52" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="51" bodyend="190"/>
+    <listofallmembers>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ac775fcd30d378c71ec29ebe3e8efe778" prot="private" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>Access</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a13ce034059c39f7a1a93d06a45b07d94" prot="private" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>AccountRightsController</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adac61a41a0472231a990f1274834ee4d" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>AddAccountRights</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adda333d87687ba6906a623db79a9adfa" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>LsaAddAccountRights</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a1e3a45dcb55bd6d339ccf426bc600022" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>LsaClose</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a773aa7b67cb9fc5616dc6bd1a619b225" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>LsaOpenPolicy</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1adc48b947899763c20b59951bd7d4bf1e" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>LsaRemoveAccountRights</name></member>
+      <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ad14aaa2cffa5be534590d0ef30810117" prot="public" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper</scope><name>RemoveAccountRights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

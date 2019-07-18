@@ -1,0 +1,935 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d4/deb/class_uniform_client_1_1_base_client" kind="class" language="C#" prot="public">
+    <compoundname>UniformClient::BaseClient</compoundname>
+    <derivedcompoundref refid="d6/dac/class_test_client_1_1_client" prot="public" virt="non-virtual">TestClient.Client</derivedcompoundref>
+    <derivedcompoundref refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client" prot="public" virt="non-virtual">UniformClient.Standard.SimpleClient</derivedcompoundref>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a2c4762c1be5eac42b8b5d189530d0952" prot="protected" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int UniformClient.BaseClient.threadSleepTime</definition>
+        <argsstring></argsstring>
+        <name>threadSleepTime</name>
+        <initializer>= 150</initializer>
+        <briefdescription>
+<para>How many milisseconds will sleep thread after tick. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a52dacc1af85cbab035a159e64e1417a0" prot="protected" static="yes" mutable="no">
+        <type>Hashtable</type>
+        <definition>Hashtable UniformClient.BaseClient.DuplexBackwardCallbacks</definition>
+        <argsstring></argsstring>
+        <name>DuplexBackwardCallbacks</name>
+        <initializer>= new Hashtable()</initializer>
+        <briefdescription>
+<para>Table that contain delegatds subscribed to beckward lines in duplex queries. </para>        </briefdescription>
+        <detaileddescription>
+<para>Key string - backward domain Value System.Action&lt;TransmissionLine, object&gt; - answer processing delegat. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d4/deb/class_uniform_client_1_1_base_client_1a10f1c9dbb8d41719754b39344432497f" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool UniformClient.BaseClient.AppTerminated</definition>
+        <argsstring></argsstring>
+        <name>AppTerminated</name>
+        <briefdescription>
+<para>If true then will stop main loop. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="45" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1ad99bcf3d1afeed6eadca7035c926d2b7" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UniformClient.BaseClient.token</definition>
+        <argsstring></argsstring>
+        <name>token</name>
+        <briefdescription>
+<para>Token that authorize client to data and commands access. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="50" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a33b34ea9a2d7b4b8e26af767ab2897cf" prot="public" static="yes" mutable="no">
+        <type><ref refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kindref="compound">RoutingTable</ref></type>
+        <definition>RoutingTable UniformClient.BaseClient.routingTable</definition>
+        <argsstring></argsstring>
+        <name>routingTable</name>
+        <briefdescription>
+<para>Table that contain instruction that allow to determine the server which is a target for recived query. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPRouting.cs" line="39" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPRouting.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a458271823ca5e21612c0947e1db695a0" prot="public" static="no" mutable="no">
+        <type>Thread</type>
+        <definition>Thread UniformClient.BaseClient.thread</definition>
+        <argsstring></argsstring>
+        <name>thread</name>
+        <briefdescription>
+<para>Reference to thread that host this server. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="55" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a6060f2eb1d44ec518f2dfc99c8b4f7aa" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int UniformClient.BaseClient.SW_HIDE</definition>
+        <argsstring></argsstring>
+        <name>SW_HIDE</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Argument that will hide console window. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" line="55" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/deb/class_uniform_client_1_1_base_client_1a7545b9c72eef6cb7594a7001d3f558e4" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int UniformClient.BaseClient.SW_SHOW</definition>
+        <argsstring></argsstring>
+        <name>SW_SHOW</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>Agrument that will show console window. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" line="60" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a8abbd1d46cc50556eeae8bbd55ce680f" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void UniformClient.BaseClient.LoadAssemblies</definition>
+        <argsstring>(string path)</argsstring>
+        <name>LoadAssemblies</name>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Loading assemblies from requested path. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="64" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="64" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void UniformClient.BaseClient.ArgsReactor</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>ArgsReactor</name>
+        <param>
+          <type>string []</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Method that will configurate application and server relative to the uniform arguments. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="108" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="108" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a01e5a7ef4c760207cfa644ac2f6a407f" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void UniformClient.BaseClient.StartPPClientThreadAsync</definition>
+        <argsstring>(BaseClient client, string guid, TransmissionLine trnsLine)</argsstring>
+        <name>StartPPClientThreadAsync</name>
+        <param>
+          <type><ref refid="d4/deb/class_uniform_client_1_1_base_client" kindref="compound">BaseClient</ref></type>
+          <declname>client</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>guid</declname>
+        </param>
+        <param>
+          <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+          <declname>trnsLine</declname>
+        </param>
+        <briefdescription>
+<para>Allow to start thread but previous return turn to current thread. Allow to use single line queries. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>client</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>guid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trnsLine</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPCore.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPCore.cs" bodystart="43" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a194b46bb0e889d07cade81c0aeab7cea" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>Thread</type>
+        <definition>virtual Thread UniformClient.BaseClient.StartClientThread</definition>
+        <argsstring>(string threadName, object sharebleParam, ParameterizedThreadStart clientLoop)</argsstring>
+        <name>StartClientThread</name>
+        <param>
+          <type>string</type>
+          <declname>threadName</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>sharebleParam</declname>
+        </param>
+        <param>
+          <type>ParameterizedThreadStart</type>
+          <declname>clientLoop</declname>
+        </param>
+        <briefdescription>
+<para>Method that starting client thread. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>threadName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sharebleParam</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clientLoop</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="135" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="135" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a47b6d88848854c59fafefeeae3956699" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool UniformClient.BaseClient.ShowWindow</definition>
+        <argsstring>(IntPtr hWnd, int nCmdShow)</argsstring>
+        <name>ShowWindow</name>
+        <param>
+          <type>IntPtr</type>
+          <declname>hWnd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCmdShow</declname>
+        </param>
+        <briefdescription>
+<para>Imported method that allo to controll console window state. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hWnd</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nCmdShow</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1aafcfed25b79baed0db4448f2e30f2aa2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IntPtr</type>
+        <definition>static IntPtr UniformClient.BaseClient.GetConsoleWindow</definition>
+        <argsstring>()</argsstring>
+        <name>GetConsoleWindow</name>
+        <briefdescription>
+<para>Inported method that allow acces to console window. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClientProcess.cs" line="50" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>System.Collections.Generic.IEnumerable&lt; <ref refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kindref="compound">Plugins.IPlugin</ref> &gt;</type>
+        <definition>static System.Collections.Generic.IEnumerable&lt;Plugins.IPlugin&gt; UniformClient.BaseClient.LoadPluginsEnumerable</definition>
+        <argsstring>()</argsstring>
+        <name>LoadPluginsEnumerable</name>
+        <briefdescription>
+<para>Load plugins from assembly and instiniate them to list. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="169" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="169" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>System.Collections.ObjectModel.ObservableCollection&lt; <ref refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kindref="compound">Plugins.IPlugin</ref> &gt;</type>
+        <definition>static System.Collections.ObjectModel.ObservableCollection&lt;Plugins.IPlugin&gt; UniformClient.BaseClient.LoadPluginsCollection</definition>
+        <argsstring>()</argsstring>
+        <name>LoadPluginsCollection</name>
+        <briefdescription>
+<para>Load plugins from assembly and instiniate them to list. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="196" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="196" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RSAParameters</type>
+        <definition>static RSAParameters UniformClient.BaseClient.GetValidPublicKeyViaPP</definition>
+        <argsstring>(PipesProvider.Networking.Routing.Instruction instruction)</argsstring>
+        <name>GetValidPublicKeyViaPP</name>
+        <param>
+          <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">PipesProvider.Networking.Routing.Instruction</ref></type>
+          <declname>instruction</declname>
+        </param>
+        <briefdescription>
+<para>Provide valid public key for target server encryption. Auto update key if was expired. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instruction</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPCore.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPCore.cs" bodystart="59" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void UniformClient.BaseClient.HandlerInputTransmissionAsync</definition>
+        <argsstring>(object sharedObject)</argsstring>
+        <name>HandlerInputTransmissionAsync</name>
+        <param>
+          <type>object</type>
+          <declname>sharedObject</declname>
+        </param>
+        <briefdescription>
+<para>Handler that will recive message from the server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sharedObject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Normaly is a TransmissionLine that contain information about actual transmission.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs" bodystart="41" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void UniformClient.BaseClient.HandlerOutputTransmisssionAsync</definition>
+        <argsstring>(object sharedObject)</argsstring>
+        <name>HandlerOutputTransmisssionAsync</name>
+        <param>
+          <type>object</type>
+          <declname>sharedObject</declname>
+        </param>
+        <briefdescription>
+<para>Handler that send last dequeued query to server when connection will be established. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sharedObject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Normaly is a TransmissionLine that contain information about actual transmission.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs" line="141" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs" bodystart="141" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a56ba8d0360e3c65a69d2d69db878ec23" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine UniformClient.BaseClient.OpenOutTransmissionLineViaPP</definition>
+        <argsstring>(string serverName, string pipeName)</argsstring>
+        <name>OpenOutTransmissionLineViaPP</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+<para>Oppening transmition line that will able to send querie to described server&apos;s pipe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="51" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1aa6a13dcf0a4dbefd681cf7eb333813aa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool UniformClient.BaseClient.ReceiveDelayedAnswerViaPP</definition>
+        <argsstring>(TransmissionLine line, string decodedQuery, System.Action&lt; TransmissionLine, object &gt; answerHandler)</argsstring>
+        <name>ReceiveDelayedAnswerViaPP</name>
+        <param>
+          <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>decodedQuery</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>, object &gt;</type>
+          <declname>answerHandler</declname>
+        </param>
+        <briefdescription>
+<para>Open a line that will be ready to recive server answer. New line will created related to params of requesting line and sended query. </para>        </briefdescription>
+        <detaileddescription>
+<para>Attention: Not work with broadcasting server. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line that was used to transmition</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answerHandler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that will be called as handler for answer processing. TransmissionLine contain data about actual transmission. object contain recived query (usualy string or byte[]).</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decodedQuery</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Query that sent to server and must recive answer. Must be not encoded.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="73" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a4db768d7c09862ab9adc9d7b0638edc6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool UniformClient.BaseClient.ReceiveDelayedAnswerViaPP</definition>
+        <argsstring>(TransmissionLine line, UniformQueries.QueryPart[] entryQueryParts, System.Action&lt; TransmissionLine, object &gt; answerHandler)</argsstring>
+        <name>ReceiveDelayedAnswerViaPP</name>
+        <param>
+          <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">UniformQueries.QueryPart</ref> []</type>
+          <declname>entryQueryParts</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>, object &gt;</type>
+          <declname>answerHandler</declname>
+        </param>
+        <briefdescription>
+<para>Open a line that will be ready to recive server answer. New line will created related to params of requesting line and sended query. </para>        </briefdescription>
+        <detaileddescription>
+<para>Attention: Not work with broadcasting server. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line that was used to transmition</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answerHandler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that will be called as handler for answer processing. TransmissionLine contain data about actual transmission. object contain recived query (usualy string or byte[]).</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entryQueryParts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parts of query that was recived from client. Method will detect core part and establish backward connection.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="97" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a97a86c4f5931d39e09ce7c9d336a1636" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine UniformClient.BaseClient.ReciveAnonymousBroadcastMessage</definition>
+        <argsstring>(string serverName, string pipeName, System.Action&lt; TransmissionLine, object &gt; answerHandler)</argsstring>
+        <name>ReciveAnonymousBroadcastMessage</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>, object &gt;</type>
+          <declname>answerHandler</declname>
+        </param>
+        <briefdescription>
+<para>Recive message from broadcasting server. ATTENTION: Eould connect to server as guest user. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Srver name or ip.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of pipe started on server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answerHandler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that would to call when message received.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Created line.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="155" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="155" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a964bd521f46fd99f64b10257c5d233ef" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void UniformClient.BaseClient.EnqueueDuplexQueryViaPP</definition>
+        <argsstring>(TransmissionLine line, string query, System.Action&lt; TransmissionLine, object &gt; answerHandler)</argsstring>
+        <name>EnqueueDuplexQueryViaPP</name>
+        <param>
+          <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>, object &gt;</type>
+          <declname>answerHandler</declname>
+        </param>
+        <briefdescription>
+<para>Add query to queue. Open backward line that will call answer handler. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line proccessor that control queries posting to target server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Query that will sent to server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answerHandler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that will recive answer.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="203" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="203" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a82dbf660ec06b5c05730ff57b63b4f28" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine UniformClient.BaseClient.EnqueueDuplexQueryViaPP</definition>
+        <argsstring>(string serverName, string serverPipeName, string query, System.Action&lt; TransmissionLine, object &gt; answerHandler)</argsstring>
+        <name>EnqueueDuplexQueryViaPP</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>serverPipeName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>, object &gt;</type>
+          <declname>answerHandler</declname>
+        </param>
+        <briefdescription>
+<para>Add query to queue. Open backward line that will call answer handler. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the server. &quot;.&quot; if local.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverPipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of pipe provided by server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Query that will sent to server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answerHandler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that will recive answer.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Established transmission line.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" line="224" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs" bodystart="224" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a5f8f22aa4ab8219fb5f1b6a358f68daf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void UniformClient.BaseClient.LoadRoutingTables</definition>
+        <argsstring>(params string[] directories)</argsstring>
+        <name>LoadRoutingTables</name>
+        <param>
+          <type>params string []</type>
+          <declname>directories</declname>
+        </param>
+        <briefdescription>
+<para>Update routing table by the files that will found be requested directory. Also auto loking for core routing table by &quot;resources\routing\&quot;. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case if tables not found then create new one to provide example. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>directories</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPRouting.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPRouting.cs" bodystart="48" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a851ce49c50011eb0ed2552663c7731ab" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine UniformClient.BaseClient.OpenTransmissionLineViaPP</definition>
+        <argsstring>(string serverName, string pipeName, System.Action&lt; TransmissionLine &gt; callback)</argsstring>
+        <name>OpenTransmissionLineViaPP</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Automaticly create Transmission line or lokking for previos one. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPTransmisssion.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPTransmisssion.cs" bodystart="43" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a79c6e490b20b4b8c649af33926e20017" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
+        <definition>static TransmissionLine UniformClient.BaseClient.OpenTransmissionLineViaPP</definition>
+        <argsstring>(BaseClient client, string serverName, string pipeName, ref SafeAccessTokenHandle token, System.Action&lt; TransmissionLine &gt; callback)</argsstring>
+        <name>OpenTransmissionLineViaPP</name>
+        <param>
+          <type><ref refid="d4/deb/class_uniform_client_1_1_base_client" kindref="compound">BaseClient</ref></type>
+          <declname>client</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type>ref SafeAccessTokenHandle</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Provide complex initalization of all relative systems. Build meta data, regitrate line in common table. Start new thread to avoid freezes. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>client</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Token that will be used for logon. on remote machine LSA. Sharing by ref to allow update in internal lines.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of IP adress of remote or local server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pipeName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the pipe started on the server.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Method that will be called when connection will be established.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Opened transmission line. Use line.Enqueue to add your query.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPTransmisssion.cs" line="65" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/PipesProvider/BaseClientPPTransmisssion.cs" bodystart="65" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that provide base client features and envirounment static API. </para>    </briefdescription>
+    <detaileddescription>
+<para>Part of class that provide API to oppening Client-Server transmisssion lines. </para><para>Part off class that provide API to work by routing tables. </para><para>Part of class that provide methods that simplify using of client. </para><para>Par of classs that profide transmisssion handlers. </para><para>Part of class that provide core methods and fields. </para><para>Part off class that provide controll under the process. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>TestClient.Client</label>
+        <link refid="d6/dac/class_test_client_1_1_client"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>UniformClient.Standard.SimpleClient</label>
+        <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>UniformClient.BaseClient</label>
+        <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>PipesProvider.Networking.Routing.RoutingTable</label>
+        <link refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table"/>
+      </node>
+      <node id="9">
+        <label>UniformClient.BaseClient</label>
+        <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>routingTable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/BaseClient.cs" bodystart="34" bodyend="222"/>
+    <listofallmembers>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a10f1c9dbb8d41719754b39344432497f" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>AppTerminated</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ArgsReactor</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a52dacc1af85cbab035a159e64e1417a0" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>DuplexBackwardCallbacks</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a964bd521f46fd99f64b10257c5d233ef" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>EnqueueDuplexQueryViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a82dbf660ec06b5c05730ff57b63b4f28" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>EnqueueDuplexQueryViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aafcfed25b79baed0db4448f2e30f2aa2" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>GetConsoleWindow</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>GetValidPublicKeyViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>HandlerInputTransmissionAsync</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>HandlerOutputTransmisssionAsync</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8abbd1d46cc50556eeae8bbd55ce680f" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadAssemblies</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadPluginsCollection</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadPluginsEnumerable</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a5f8f22aa4ab8219fb5f1b6a358f68daf" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadRoutingTables</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a56ba8d0360e3c65a69d2d69db878ec23" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>OpenOutTransmissionLineViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a851ce49c50011eb0ed2552663c7731ab" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>OpenTransmissionLineViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a79c6e490b20b4b8c649af33926e20017" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>OpenTransmissionLineViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa6a13dcf0a4dbefd681cf7eb333813aa" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ReceiveDelayedAnswerViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a4db768d7c09862ab9adc9d7b0638edc6" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ReceiveDelayedAnswerViaPP</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a97a86c4f5931d39e09ce7c9d336a1636" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ReciveAnonymousBroadcastMessage</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a33b34ea9a2d7b4b8e26af767ab2897cf" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>routingTable</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a47b6d88848854c59fafefeeae3956699" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ShowWindow</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a194b46bb0e889d07cade81c0aeab7cea" prot="protected" virt="virtual"><scope>UniformClient::BaseClient</scope><name>StartClientThread</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a01e5a7ef4c760207cfa644ac2f6a407f" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>StartPPClientThreadAsync</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a6060f2eb1d44ec518f2dfc99c8b4f7aa" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>SW_HIDE</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7545b9c72eef6cb7594a7001d3f558e4" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>SW_SHOW</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a458271823ca5e21612c0947e1db695a0" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>thread</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a2c4762c1be5eac42b8b5d189530d0952" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>threadSleepTime</name></member>
+      <member refid="d4/deb/class_uniform_client_1_1_base_client_1ad99bcf3d1afeed6eadca7035c926d2b7" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>token</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

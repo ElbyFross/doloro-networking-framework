@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d3/d12/class_uniform_server_1_1_commands" kind="class" language="C#" prot="public">
+    <compoundname>UniformServer::Commands</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d3/d12/class_uniform_server_1_1_commands_1ad1bac97da40d03e97f9b5fe7ed152ef9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool UniformServer.Commands.BaseCommands</definition>
+        <argsstring>(string command)</argsstring>
+        <name>BaseCommands</name>
+        <param>
+          <type>string</type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+<para>React to the base commands that can be applied to every server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Application/Commands.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformServer/Application/Commands.cs" bodystart="29" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Application/Commands.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformServer/Application/Commands.cs" bodystart="23" bodyend="121"/>
+    <listofallmembers>
+      <member refid="d3/d12/class_uniform_server_1_1_commands_1ad1bac97da40d03e97f9b5fe7ed152ef9" prot="public" virt="non-virtual"><scope>UniformServer::Commands</scope><name>BaseCommands</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

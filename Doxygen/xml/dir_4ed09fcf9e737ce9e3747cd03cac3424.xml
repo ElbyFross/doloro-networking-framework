@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_4ed09fcf9e737ce9e3747cd03cac3424" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController</compoundname>
+    <innerfile refid="d8/dec/_data_8cs">Data.cs</innerfile>
+    <innerfile refid="d6/dfa/_queries_8cs">Queries.cs</innerfile>
+    <innerfile refid="d0/d65/_regex_8cs">Regex.cs</innerfile>
+    <innerfile refid="d3/dd2/ests_2_authority_controller_2_session_8cs">Session.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController/"/>
+  </compounddef>
+</doxygen>

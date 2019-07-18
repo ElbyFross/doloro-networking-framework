@@ -1,0 +1,87 @@
+\hypertarget{class_session_provider_1_1_server}{}\section{Session\+Provider.\+Server Class Reference}
+\label{class_session_provider_1_1_server}\index{Session\+Provider.\+Server@{Session\+Provider.\+Server}}
+
+
+\mbox{\hyperlink{class_session_provider_1_1_server}{Server}} tasks\+:  
+
+
+Inheritance diagram for Session\+Provider.\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d8/d17/class_session_provider_1_1_server}
+\end{center}
+\end{figure}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} \mbox{\hyperlink{class_session_provider_1_1_server_a1738a442f750af35694a05d7cfdb4a71}{related\+Servers}}
+\begin{DoxyCompactList}\small\item\em Routing table that contain instructions to access reletive servers that need to be informed about token events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_session_provider_1_1_server_a7ccb7c8e5465c2778d961034fcd6ac6f}\label{class_session_provider_1_1_server_a7ccb7c8e5465c2778d961034fcd6ac6f}} 
+static bool {\bfseries Users\+Loaded}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_session_provider_1_1_server_a78068e966b78f7579b01ba80f53b87ea}{Main}} (string\mbox{[}$\,$\mbox{]} args)
+\item 
+\mbox{\Hypertarget{class_session_provider_1_1_server_ad75d498e5203fe80a725f54ec955ace2}\label{class_session_provider_1_1_server_ad75d498e5203fe80a725f54ec955ace2}} 
+static void {\bfseries Users\+\_\+\+Directory\+Loading\+Unlocked} (string unlocked\+Directory, int sucess, int failed)
+\item 
+static void \mbox{\hyperlink{class_session_provider_1_1_server_a79f535be5b1dd781de2982f0b34ea4f9}{Informate\+Related\+Servers}} (string message)
+\begin{DoxyCompactList}\small\item\em Transmit information to every related server that suitable for query format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_session_provider_1_1_server}{Server}} tasks\+: 
+
+
+\begin{DoxyItemize}
+\item Provide session token to clients.
+\item User data managment.
+\item Control rights. 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_session_provider_1_1_server_a79f535be5b1dd781de2982f0b34ea4f9}\label{class_session_provider_1_1_server_a79f535be5b1dd781de2982f0b34ea4f9}} 
+\index{Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}!Informate\+Related\+Servers@{Informate\+Related\+Servers}}
+\index{Informate\+Related\+Servers@{Informate\+Related\+Servers}!Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}}
+\subsubsection{\texorpdfstring{Informate\+Related\+Servers()}{InformateRelatedServers()}}
+{\footnotesize\ttfamily static void Session\+Provider.\+Server.\+Informate\+Related\+Servers (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Transmit information to every related server that suitable for query format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_session_provider_1_1_server_a78068e966b78f7579b01ba80f53b87ea}\label{class_session_provider_1_1_server_a78068e966b78f7579b01ba80f53b87ea}} 
+\index{Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}!Main@{Main}}
+\index{Main@{Main}!Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Session\+Provider.\+Server.\+Main (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Show help. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_session_provider_1_1_server_a1738a442f750af35694a05d7cfdb4a71}\label{class_session_provider_1_1_server_a1738a442f750af35694a05d7cfdb4a71}} 
+\index{Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}!related\+Servers@{related\+Servers}}
+\index{related\+Servers@{related\+Servers}!Session\+Provider\+::\+Server@{Session\+Provider\+::\+Server}}
+\subsubsection{\texorpdfstring{related\+Servers}{relatedServers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} Session\+Provider.\+Server.\+related\+Servers\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Routing table that contain instructions to access reletive servers that need to be informed about token events. 
+
+Before sharing query still will check is the query stituable for that routing instruction. If you no need any filtring then just leave query patterns empty. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Session\+Provider/Server.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,196 @@
+\hypertarget{class_authority_controller_1_1_tests_1_1_data}{}\section{Authority\+Controller.\+Tests.\+Data Class Reference}
+\label{class_authority_controller_1_1_tests_1_1_data}\index{Authority\+Controller.\+Tests.\+Data@{Authority\+Controller.\+Tests.\+Data}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_ac551d17113acad2ad5c7f800c4b7b95a}\label{class_authority_controller_1_1_tests_1_1_data_ac551d17113acad2ad5c7f800c4b7b95a}} 
+void {\bfseries Config\+Validation} ()
+\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_acb31a8516eb780890bd38685d5435208}{Config\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Create new config file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_af561b8596539d402bc098808f879e17e}{Config\+\_\+\+Load\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Try to load valid config data file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_ab2498d27006a8609210f5d814ca4126f}{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Trying to load corrupted config dile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a388eaa4ae3a3a646054856f459eb225c}{Users\+Pool\+Stress\+Test}} ()
+\begin{DoxyCompactList}\small\item\em Stress test in working with huge data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a770588d92222eb045fcd482646e44c9f}{Users\+Pool\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Create huge pool of users. Use for stress tests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_aa66213692c59f2aef176b51dc7df7972}{Users\+Poo\+\_\+\+Load}} ()
+\begin{DoxyCompactList}\small\item\em Try to load a huge pool of users. Some users can be corrupted. Need to finish operation without freezing of other threads and without crush due corupted data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_ae113be915fe80272e4a44c1349055ef5}{User\+Profile\+Validation}} ()
+\begin{DoxyCompactList}\small\item\em Validate full stack of fetaures related to user profile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a4f32d71ba5cc02b5b97336890441908a}{User\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Creating new user profile and saving to storage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_ad48945ccc2bf1ba76b3b4697c291f962}{User\+\_\+\+Update}} (\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} test\+User)
+\begin{DoxyCompactList}\small\item\em Update already existed profile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a722e102c8ac10de91863739d1f911ccc}{User\+\_\+\+Remove}} (\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} test\+User)
+\begin{DoxyCompactList}\small\item\em Remove profile from storage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a9b3556784bcd8b19d95f501e25057c1a}{Salt\+Generation}} ()
+\begin{DoxyCompactList}\small\item\em Start complex list of tests thet validate password salt feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_aa13dc3c0c87d00ef411a7c131a3bd017}{Salt\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Creating a new salt data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a9418850b889e54b13753fb41002f8953}{Salt\+\_\+\+Loading}} ()
+\begin{DoxyCompactList}\small\item\em Validate loading of already created salt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a63fd3771fbfaab1a8901b8b3a6349af3}{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Validate salt with correct stamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_data_a0513557132acc1b9a94d893923ecc027}{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Validate salt with incorrect salt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_ab2498d27006a8609210f5d814ca4126f}\label{class_authority_controller_1_1_tests_1_1_data_ab2498d27006a8609210f5d814ca4126f}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Config\+\_\+\+Load\+\_\+\+Corupted\+Data@{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}}
+\index{Config\+\_\+\+Load\+\_\+\+Corupted\+Data@{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+Load\+\_\+\+Corupted\+Data()}{Config\_Load\_CoruptedData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Config\+\_\+\+Load\+\_\+\+Corupted\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to load corrupted config dile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_af561b8596539d402bc098808f879e17e}\label{class_authority_controller_1_1_tests_1_1_data_af561b8596539d402bc098808f879e17e}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Config\+\_\+\+Load\+\_\+\+Valid\+Data@{Config\+\_\+\+Load\+\_\+\+Valid\+Data}}
+\index{Config\+\_\+\+Load\+\_\+\+Valid\+Data@{Config\+\_\+\+Load\+\_\+\+Valid\+Data}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+Load\+\_\+\+Valid\+Data()}{Config\_Load\_ValidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Config\+\_\+\+Load\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Try to load valid config data file. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_acb31a8516eb780890bd38685d5435208}\label{class_authority_controller_1_1_tests_1_1_data_acb31a8516eb780890bd38685d5435208}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Config\+\_\+\+New@{Config\+\_\+\+New}}
+\index{Config\+\_\+\+New@{Config\+\_\+\+New}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+New()}{Config\_New()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Config\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create new config file. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_aa13dc3c0c87d00ef411a7c131a3bd017}\label{class_authority_controller_1_1_tests_1_1_data_aa13dc3c0c87d00ef411a7c131a3bd017}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Salt\+\_\+\+Init@{Salt\+\_\+\+Init}}
+\index{Salt\+\_\+\+Init@{Salt\+\_\+\+Init}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Init()}{Salt\_Init()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Salt\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating a new salt data. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a9418850b889e54b13753fb41002f8953}\label{class_authority_controller_1_1_tests_1_1_data_a9418850b889e54b13753fb41002f8953}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Salt\+\_\+\+Loading@{Salt\+\_\+\+Loading}}
+\index{Salt\+\_\+\+Loading@{Salt\+\_\+\+Loading}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Loading()}{Salt\_Loading()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Salt\+\_\+\+Loading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate loading of already created salt 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a0513557132acc1b9a94d893923ecc027}\label{class_authority_controller_1_1_tests_1_1_data_a0513557132acc1b9a94d893923ecc027}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}}
+\index{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data()}{Salt\_Validation\_InvalidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate salt with incorrect salt. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a63fd3771fbfaab1a8901b8b3a6349af3}\label{class_authority_controller_1_1_tests_1_1_data_a63fd3771fbfaab1a8901b8b3a6349af3}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Salt\+\_\+\+Validation\+\_\+\+Valid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}}
+\index{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data()}{Salt\_Validation\_ValidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Salt\+\_\+\+Validation\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate salt with correct stamp. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a9b3556784bcd8b19d95f501e25057c1a}\label{class_authority_controller_1_1_tests_1_1_data_a9b3556784bcd8b19d95f501e25057c1a}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Salt\+Generation@{Salt\+Generation}}
+\index{Salt\+Generation@{Salt\+Generation}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+Generation()}{SaltGeneration()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Salt\+Generation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start complex list of tests thet validate password salt feature. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a4f32d71ba5cc02b5b97336890441908a}\label{class_authority_controller_1_1_tests_1_1_data_a4f32d71ba5cc02b5b97336890441908a}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!User\+\_\+\+New@{User\+\_\+\+New}}
+\index{User\+\_\+\+New@{User\+\_\+\+New}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+New()}{User\_New()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} Authority\+Controller.\+Tests.\+Data.\+User\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating new user profile and saving to storage. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a722e102c8ac10de91863739d1f911ccc}\label{class_authority_controller_1_1_tests_1_1_data_a722e102c8ac10de91863739d1f911ccc}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!User\+\_\+\+Remove@{User\+\_\+\+Remove}}
+\index{User\+\_\+\+Remove@{User\+\_\+\+Remove}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+Remove()}{User\_Remove()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+User\+\_\+\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}}}]{test\+User }\end{DoxyParamCaption})}
+
+
+
+Remove profile from storage. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_ad48945ccc2bf1ba76b3b4697c291f962}\label{class_authority_controller_1_1_tests_1_1_data_ad48945ccc2bf1ba76b3b4697c291f962}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!User\+\_\+\+Update@{User\+\_\+\+Update}}
+\index{User\+\_\+\+Update@{User\+\_\+\+Update}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+Update()}{User\_Update()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+User\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}}}]{test\+User }\end{DoxyParamCaption})}
+
+
+
+Update already existed profile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_ae113be915fe80272e4a44c1349055ef5}\label{class_authority_controller_1_1_tests_1_1_data_ae113be915fe80272e4a44c1349055ef5}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!User\+Profile\+Validation@{User\+Profile\+Validation}}
+\index{User\+Profile\+Validation@{User\+Profile\+Validation}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+Profile\+Validation()}{UserProfileValidation()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+User\+Profile\+Validation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate full stack of fetaures related to user profile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_aa66213692c59f2aef176b51dc7df7972}\label{class_authority_controller_1_1_tests_1_1_data_aa66213692c59f2aef176b51dc7df7972}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Users\+Poo\+\_\+\+Load@{Users\+Poo\+\_\+\+Load}}
+\index{Users\+Poo\+\_\+\+Load@{Users\+Poo\+\_\+\+Load}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Poo\+\_\+\+Load()}{UsersPoo\_Load()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Users\+Poo\+\_\+\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Try to load a huge pool of users. Some users can be corrupted. Need to finish operation without freezing of other threads and without crush due corupted data. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a770588d92222eb045fcd482646e44c9f}\label{class_authority_controller_1_1_tests_1_1_data_a770588d92222eb045fcd482646e44c9f}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Users\+Pool\+\_\+\+New@{Users\+Pool\+\_\+\+New}}
+\index{Users\+Pool\+\_\+\+New@{Users\+Pool\+\_\+\+New}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Pool\+\_\+\+New()}{UsersPool\_New()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Users\+Pool\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create huge pool of users. Use for stress tests. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_data_a388eaa4ae3a3a646054856f459eb225c}\label{class_authority_controller_1_1_tests_1_1_data_a388eaa4ae3a3a646054856f459eb225c}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}!Users\+Pool\+Stress\+Test@{Users\+Pool\+Stress\+Test}}
+\index{Users\+Pool\+Stress\+Test@{Users\+Pool\+Stress\+Test}!Authority\+Controller\+::\+Tests\+::\+Data@{Authority\+Controller\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Pool\+Stress\+Test()}{UsersPoolStressTest()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Data.\+Users\+Pool\+Stress\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stress test in working with huge data. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Authority\+Controller\+Tests/\+Authority\+Controller/Data.\+cs\end{DoxyCompactItemize}

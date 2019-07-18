@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_2c54c69fa412d7c6420b354f54d9584e" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests</compoundname>
+    <innerdir refid="dir_4ed09fcf9e737ce9e3747cd03cac3424">D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityController</innerdir>
+    <innerdir refid="dir_9835e21ee1b5ce9ea87ce98fc6818071">D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/AuthorityTestServer</innerdir>
+    <innerdir refid="dir_e935844b772cb28d6157bdd9ed403fe5">D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/Properties</innerdir>
+    <innerfile refid="d2/dec/_configurator_8cs">Configurator.cs</innerfile>
+    <innerfile refid="d4/dac/_locks_8cs">Locks.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityControllerTests/"/>
+  </compounddef>
+</doxygen>

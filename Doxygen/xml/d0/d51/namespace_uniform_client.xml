@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d0/d51/namespace_uniform_client" kind="namespace" language="C#">
+    <compoundname>UniformClient</compoundname>
+    <innerclass refid="d4/deb/class_uniform_client_1_1_base_client" prot="public">UniformClient::BaseClient</innerclass>
+    <innernamespace refid="da/d8c/namespace_uniform_client_1_1_plugins">UniformClient::Plugins</innernamespace>
+    <innernamespace refid="da/d7a/namespace_uniform_client_1_1_standard">UniformClient::Standard</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="[generated]" line="1" column="1"/>
+  </compounddef>
+</doxygen>

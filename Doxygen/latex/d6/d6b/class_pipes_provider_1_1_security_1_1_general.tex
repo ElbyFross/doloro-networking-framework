@@ -1,0 +1,108 @@
+\hypertarget{class_pipes_provider_1_1_security_1_1_general}{}\section{Pipes\+Provider.\+Security.\+General Class Reference}
+\label{class_pipes_provider_1_1_security_1_1_general}\index{Pipes\+Provider.\+Security.\+General@{Pipes\+Provider.\+Security.\+General}}
+
+
+Class that contain methods for working with sequrity systems.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_general_afd0b01ce4c3cdf3079e88d54cb6d655e}\label{class_pipes_provider_1_1_security_1_1_general_afd0b01ce4c3cdf3079e88d54cb6d655e}} 
+static bool {\bfseries Logon\+User} (String lpsz\+Username, String lpsz\+Domain, String lpsz\+Password, int dw\+Logon\+Type, int dw\+Logon\+Provider, out Safe\+Access\+Token\+Handle ph\+Token)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Pipe\+Security \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_general_a7b89c9d059851b68df31b78c1a2e021c}{Get\+Rules\+For\+Levels}} (\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security\+Level}} level)
+\begin{DoxyCompactList}\small\item\em Configurate pipe squrity relative to requested level. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_general_a9536a3073883f12e38979f54c6f389d1}{Set\+Local\+Security\+Authority}} (\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security\+Level}} level)
+\begin{DoxyCompactList}\small\item\em Change local security authority of machine to allow requested security level. Require admin rights. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_general_ab72cbd58c62e331b7602c6f99ad7cf54}{Try\+Logon}} (\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Logon\+Config}} config, out Safe\+Access\+Token\+Handle token)
+\begin{DoxyCompactList}\small\item\em Trying to get access token for remote user. In case if requested anonymous connection then return anonymous token without permission check. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Pipe\+Security \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_general_a49b6c46c031ae200885fcababfdb32c3}{Default\+Internal\+Pipe\+Scurity}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return pipe security situable for internal use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that contain methods for working with sequrity systems. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_general_a7b89c9d059851b68df31b78c1a2e021c}\label{class_pipes_provider_1_1_security_1_1_general_a7b89c9d059851b68df31b78c1a2e021c}} 
+\index{Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}!Get\+Rules\+For\+Levels@{Get\+Rules\+For\+Levels}}
+\index{Get\+Rules\+For\+Levels@{Get\+Rules\+For\+Levels}!Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}}
+\subsubsection{\texorpdfstring{Get\+Rules\+For\+Levels()}{GetRulesForLevels()}}
+{\footnotesize\ttfamily static Pipe\+Security Pipes\+Provider.\+Security.\+General.\+Get\+Rules\+For\+Levels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security\+Level}}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Configurate pipe squrity relative to requested level. 
+
+You can request more then one level via using format\+: Security\+Level $\vert$ Security\+Level $\vert$ ...
+
+Internal level will applyed by default to allow system and application control created pipes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_general_a9536a3073883f12e38979f54c6f389d1}\label{class_pipes_provider_1_1_security_1_1_general_a9536a3073883f12e38979f54c6f389d1}} 
+\index{Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}!Set\+Local\+Security\+Authority@{Set\+Local\+Security\+Authority}}
+\index{Set\+Local\+Security\+Authority@{Set\+Local\+Security\+Authority}!Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}}
+\subsubsection{\texorpdfstring{Set\+Local\+Security\+Authority()}{SetLocalSecurityAuthority()}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Security.\+General.\+Set\+Local\+Security\+Authority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security\+Level}}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Change local security authority of machine to allow requested security level. Require admin rights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_general_ab72cbd58c62e331b7602c6f99ad7cf54}\label{class_pipes_provider_1_1_security_1_1_general_ab72cbd58c62e331b7602c6f99ad7cf54}} 
+\index{Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}!Try\+Logon@{Try\+Logon}}
+\index{Try\+Logon@{Try\+Logon}!Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}}
+\subsubsection{\texorpdfstring{Try\+Logon()}{TryLogon()}}
+{\footnotesize\ttfamily static bool Pipes\+Provider.\+Security.\+General.\+Try\+Logon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Logon\+Config}}}]{config,  }\item[{out Safe\+Access\+Token\+Handle}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trying to get access token for remote user. In case if requested anonymous connection then return anonymous token without permission check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Fields required for remote logon with impersonation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_general_a49b6c46c031ae200885fcababfdb32c3}\label{class_pipes_provider_1_1_security_1_1_general_a49b6c46c031ae200885fcababfdb32c3}} 
+\index{Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}!Default\+Internal\+Pipe\+Scurity@{Default\+Internal\+Pipe\+Scurity}}
+\index{Default\+Internal\+Pipe\+Scurity@{Default\+Internal\+Pipe\+Scurity}!Pipes\+Provider\+::\+Security\+::\+General@{Pipes\+Provider\+::\+Security\+::\+General}}
+\subsubsection{\texorpdfstring{Default\+Internal\+Pipe\+Scurity}{DefaultInternalPipeScurity}}
+{\footnotesize\ttfamily Pipe\+Security Pipes\+Provider.\+Security.\+General.\+Default\+Internal\+Pipe\+Scurity\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Return pipe security situable for internal use. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Security/General.\+cs\end{DoxyCompactItemize}

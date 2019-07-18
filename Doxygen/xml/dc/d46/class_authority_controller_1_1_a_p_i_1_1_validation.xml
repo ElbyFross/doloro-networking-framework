@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::API::Validation</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a9aceff242f489e5d63808e28b1506487" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Validation.PasswordFormat</definition>
+        <argsstring>(string password, out string error)</argsstring>
+        <name>PasswordFormat</name>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>out string</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Validate password before converting to salted hash. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Open password.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error string that will be situable in case of validation fail.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of validation.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="30" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a105196c0f8ec27b96594e2ac855b7db3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.Validation.NameFormat</definition>
+        <argsstring>(ref string namePart, out string error)</argsstring>
+        <name>NameFormat</name>
+        <param>
+          <type>ref string</type>
+          <declname>namePart</declname>
+        </param>
+        <param>
+          <type>out string</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Validate name part format. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>namePart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First part of the name that need to be validated</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error string that will be situable in case of validation fail.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of validation.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="96" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="96" bodyend="111"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="23" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="22" bodyend="112"/>
+    <listofallmembers>
+      <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a105196c0f8ec27b96594e2ac855b7db3" prot="public" virt="non-virtual"><scope>AuthorityController::API::Validation</scope><name>NameFormat</name></member>
+      <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a9aceff242f489e5d63808e28b1506487" prot="public" virt="non-virtual"><scope>AuthorityController::API::Validation</scope><name>PasswordFormat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

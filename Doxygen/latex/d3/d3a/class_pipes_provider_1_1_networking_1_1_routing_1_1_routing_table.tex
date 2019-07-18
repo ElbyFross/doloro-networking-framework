@@ -1,0 +1,131 @@
+\hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{}\section{Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table Class Reference}
+\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}\index{Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table@{Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table}}
+
+
+Object that contain routing instgructions. Provide A\+PI to work with file system.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_afa326622fc49d66bcd375c08b2f6ff8b}{Try\+Get\+Routing\+Instruction}} (string query, out \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} instruction)
+\begin{DoxyCompactList}\small\item\em Trying to find target routing instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a13c2778abb1d14e7e8e4a2ae51d315ac}{Load\+Routing\+Tables}} (string directory, Search\+Option search\+Option)
+\begin{DoxyCompactList}\small\item\em Trying to load all routing tables from durectory. You could have several X\+ML serialized routing tables. This way allow to share it via plugins. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1fe9c42819cd5c5210b254c0d868b336}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1fe9c42819cd5c5210b254c0d868b336}} 
+static void {\bfseries Save\+Routing\+Table} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table, string directory, string name)
+\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a515b9ad19dc868afb6d47c762064fd96}{operator+}} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table0, \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table1)
+\begin{DoxyCompactList}\small\item\em Adding instruction from second table to first one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} $>$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1a2c8459b4805d7ee1e81698a389f3f7}{intructions}} = new List$<$\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}}$>$()
+\begin{DoxyCompactList}\small\item\em List that contain routing instructions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_af756c825762d5434f5b934a1c1b2d3eb}{Source\+Path}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Path from was loaded tis table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object that contain routing instgructions. Provide A\+PI to work with file system. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a13c2778abb1d14e7e8e4a2ae51d315ac}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a13c2778abb1d14e7e8e4a2ae51d315ac}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Load\+Routing\+Tables@{Load\+Routing\+Tables}}
+\index{Load\+Routing\+Tables@{Load\+Routing\+Tables}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{Load\+Routing\+Tables()}{LoadRoutingTables()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Load\+Routing\+Tables (\begin{DoxyParamCaption}\item[{string}]{directory,  }\item[{Search\+Option}]{search\+Option }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trying to load all routing tables from durectory. You could have several X\+ML serialized routing tables. This way allow to share it via plugins. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & Root folder.\\
+\hline
+{\em search\+Option} & Defind does search will applied to child foldeers.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a515b9ad19dc868afb6d47c762064fd96}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a515b9ad19dc868afb6d47c762064fd96}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!operator+@{operator+}}
+\index{operator+@{operator+}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}}}]{table0,  }\item[{\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}}}]{table1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adding instruction from second table to first one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table0} & \\
+\hline
+{\em table1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_afa326622fc49d66bcd375c08b2f6ff8b}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_afa326622fc49d66bcd375c08b2f6ff8b}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Try\+Get\+Routing\+Instruction@{Try\+Get\+Routing\+Instruction}}
+\index{Try\+Get\+Routing\+Instruction@{Try\+Get\+Routing\+Instruction}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{Try\+Get\+Routing\+Instruction()}{TryGetRoutingInstruction()}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Try\+Get\+Routing\+Instruction (\begin{DoxyParamCaption}\item[{string}]{query,  }\item[{out \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}}}]{instruction }\end{DoxyParamCaption})}
+
+
+
+Trying to find target routing instruction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & \\
+\hline
+{\em instruction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1a2c8459b4805d7ee1e81698a389f3f7}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1a2c8459b4805d7ee1e81698a389f3f7}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!intructions@{intructions}}
+\index{intructions@{intructions}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{intructions}{intructions}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}}$>$ Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+intructions = new List$<$\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}}$>$()}
+
+
+
+List that contain routing instructions. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_af756c825762d5434f5b934a1c1b2d3eb}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_af756c825762d5434f5b934a1c1b2d3eb}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Source\+Path@{Source\+Path}}
+\index{Source\+Path@{Source\+Path}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{Source\+Path}{SourcePath}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Source\+Path\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Path from was loaded tis table. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Networking/\+Routing/Routing\+Table.\+cs\end{DoxyCompactItemize}

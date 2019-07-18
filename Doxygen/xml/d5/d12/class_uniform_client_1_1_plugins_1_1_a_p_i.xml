@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i" kind="class" language="C#" prot="public">
+    <compoundname>UniformClient::Plugins::API</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i_1a0f983601b51597ea8ab13f718c58f80c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void UniformClient.Plugins.API.SortByDomains</definition>
+        <argsstring>(ICollection&lt; UniformClient.Plugins.IPlugin &gt; plugins)</argsstring>
+        <name>SortByDomains</name>
+        <param>
+          <type>ICollection&lt; <ref refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kindref="compound">UniformClient.Plugins.IPlugin</ref> &gt;</type>
+          <declname>plugins</declname>
+        </param>
+        <briefdescription>
+<para>Sorting items in collection by tomain recommended orders and hierarchy depth. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plugins</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/API.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/API.cs" bodystart="32" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that provide methods simplifying work with plugins. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/API.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/API.cs" bodystart="26" bodyend="85"/>
+    <listofallmembers>
+      <member refid="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i_1a0f983601b51597ea8ab13f718c58f80c" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::API</scope><name>SortByDomains</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

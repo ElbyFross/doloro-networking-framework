@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::Queries::SET_TOKEN_RIGHTS</compoundname>
+    <basecompoundref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" prot="public" virt="non-virtual">UniformQueries.IQueryHandler</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a149fb8950cf0ebbcb47b6a238c6458d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string AuthorityController.Queries.SET_TOKEN_RIGHTS.Description</definition>
+        <argsstring>(string cultureKey)</argsstring>
+        <name>Description</name>
+        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abe2d1124630ca8d74b7398d11c873526">Description</reimplements>
+        <param>
+          <type>string</type>
+          <declname>cultureKey</declname>
+        </param>
+        <briefdescription>
+<para>Return the description relative to the lenguage code or default if not found. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cultureKey</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1aebb323c8033e3a027f59c55a95695360" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Queries.SET_TOKEN_RIGHTS.Execute</definition>
+        <argsstring>(QueryPart[] queryParts)</argsstring>
+        <name>Execute</name>
+        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1a66d15db03bdd5b0caf6eef96f9b803c0">Execute</reimplements>
+        <param>
+          <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
+          <declname>queryParts</declname>
+        </param>
+        <briefdescription>
+<para>Methods that process query. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>queryParts</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" bodystart="35" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a605feed66d357dc93ccc825068d83c96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AuthorityController.Queries.SET_TOKEN_RIGHTS.IsTarget</definition>
+        <argsstring>(QueryPart[] queryParts)</argsstring>
+        <name>IsTarget</name>
+        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abda1ccf47ad2889fbd015955965046e7">IsTarget</reimplements>
+        <param>
+          <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
+          <declname>queryParts</declname>
+        </param>
+        <briefdescription>
+<para>Check by the entry params does it target Query Handler. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>queryParts</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" line="93" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" bodystart="93" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Change rights list to provided token. Require admin rights. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="160">
+        <label>IQueryHandler</label>
+        <link refid="da/d51/interface_uniform_queries_1_1_i_query_handler"/>
+      </node>
+      <node id="159">
+        <label>AuthorityController.Queries.SET_TOKEN_RIGHTS</label>
+        <link refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s"/>
+        <childnode refid="160" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="162">
+        <label>IQueryHandler</label>
+        <link refid="da/d51/interface_uniform_queries_1_1_i_query_handler"/>
+      </node>
+      <node id="161">
+        <label>AuthorityController.Queries.SET_TOKEN_RIGHTS</label>
+        <link refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s"/>
+        <childnode refid="162" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" bodystart="28" bodyend="109"/>
+    <listofallmembers>
+      <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a149fb8950cf0ebbcb47b6a238c6458d2" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::SET_TOKEN_RIGHTS</scope><name>Description</name></member>
+      <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1aebb323c8033e3a027f59c55a95695360" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::SET_TOKEN_RIGHTS</scope><name>Execute</name></member>
+      <member refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1a605feed66d357dc93ccc825068d83c96" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::SET_TOKEN_RIGHTS</scope><name>IsTarget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

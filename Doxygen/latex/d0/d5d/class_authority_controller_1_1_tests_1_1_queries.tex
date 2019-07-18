@@ -1,0 +1,316 @@
+\hypertarget{class_authority_controller_1_1_tests_1_1_queries}{}\section{Authority\+Controller.\+Tests.\+Queries Class Reference}
+\label{class_authority_controller_1_1_tests_1_1_queries}\index{Authority\+Controller.\+Tests.\+Queries@{Authority\+Controller.\+Tests.\+Queries}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a1e0a184a21e8260f3483b3f9a8c816f5}{Start\+Public\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Starting public server that would able to recive queries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a2e5cb3ec94045a037d0854d9aea11323}{Set\+Base\+Users\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em Creating and apply base users pool\+: -\/\+Super admin -\/\+Admin -\/\+Moderator -\/\+Privileged user -\/\+User -\/\+Guest \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_af8f75f7ae081367f731cca0708cb1480}\label{class_authority_controller_1_1_tests_1_1_queries_af8f75f7ae081367f731cca0708cb1480}} 
+void {\bfseries Setup} ()
+\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a73aecfeff3ab2ef348cbecb67d60fe49}{Get\+Guest\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Tryinging to get guest token using query. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a803981626447ef436d7461ee278eb052}{Set\+Token\+Rights\+\_\+\+No\+Rights}} ()
+\begin{DoxyCompactList}\small\item\em Tryinging to update token rights without authority. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_aa7fb783f7b670bc2daf142f97561cfae}{Set\+Token\+Rights\+\_\+\+Has\+Rights}} ()
+\begin{DoxyCompactList}\small\item\em Tryinging to update token rights with walid permition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a16f5db1a247a06e5b585b89d422f8ef5}{User\+Ban\+\_\+\+No\+Rights}} ()
+\begin{DoxyCompactList}\small\item\em Trying to ban user but has no rights to this. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a07a7a3e3f8136203cbafe2334180ac46}{User\+Ban\+\_\+\+Highranker\+Ban}} ()
+\begin{DoxyCompactList}\small\item\em Trying to ban user that has a higher rank than requester. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a0d8db80983626e432963bf17eda12b98}{User\+Ban\+\_\+\+Has\+Rights}} ()
+\begin{DoxyCompactList}\small\item\em Trying to ban user with enough rights to that. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_aa12eafe223e2c48ace89a4dd2a8da7c0}{User\+Ban\+\_\+\+Ban\+Expire}} ()
+\begin{DoxyCompactList}\small\item\em Check ban expiring. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a3cd254060908d25ee375be4c019a5bbc}{Logon\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logon as existed user with corerct logon data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a2d9af2b69951d0498670248829c0e2ab}{Logon\+\_\+\+User\+Not\+Exist}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logon as existed user that not registred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_ac861fb620f063f0808c662d6a7eafeb2}{Logon\+\_\+\+Invalid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logon with incorrrect password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a4bae91492fae911ec7b5972e5f06e69a}{Logoff\+\_\+\+Invalid\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logoff user by invalid token. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a55ed45de5483ce80be47a31751b582f6}{Logoff\+\_\+\+Valid\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logoff user by valid token. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a8aa2995781a0353dbdf041871ab50458}{New\+User\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Trying to create user with valid data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a2ce7ef859f6c5b9441eb8b4aa5335a08}{New\+User\+\_\+\+Invalid\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Trying to logoff invalid token. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a17edb1eefd72cf95eb808d6c2fd888e2}{New\+User\+\_\+\+Invalid\+Login}} ()
+\begin{DoxyCompactList}\small\item\em Trying to create new user with invalid login. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_aa4bfd8884d421a8dfe58a5b7ede3c567}{New\+User\+\_\+\+User\+Exist}} ()
+\begin{DoxyCompactList}\small\item\em Trying to create new user that already exist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_ae3f994db2b80f9d5fe5251b7d8cacaff}{New\+User\+\_\+\+Invalid\+Personal}} ()
+\begin{DoxyCompactList}\small\item\em Trying to create user with invalid personal data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a55ad47988eb2a7c20fc51bf71ca3dced}{New\+Password\+\_\+\+Self}} ()
+\begin{DoxyCompactList}\small\item\em Trying to change self password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_ad767ebe267fd51e8df5f53c2f0b11f5d}{New\+Password\+\_\+\+Moderator\+To\+Admin}} ()
+\begin{DoxyCompactList}\small\item\em Trying to change password of user with higher rank then requeter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_ab04b5335b4b693f145631c1bc1d0ab3d}{New\+Password\+\_\+\+Admin\+To\+User}} ()
+\begin{DoxyCompactList}\small\item\em Trying to change password of user with lower rank then requester. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly string \mbox{\hyperlink{class_authority_controller_1_1_tests_1_1_queries_a8cf9d1089864d1bdea1a5ae54c321de3}{P\+I\+P\+E\+\_\+\+N\+A\+ME}} = \char`\"{}A\+C\+Test\+Public\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of the pipe that would be started on server during tests. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a6abe89b3f3e496805cd2499bfdbb41f3}\label{class_authority_controller_1_1_tests_1_1_queries_a6abe89b3f3e496805cd2499bfdbb41f3}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+Super\+Admin} = null
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_abd134bc218d67f9b4e6792f9212cb1de}\label{class_authority_controller_1_1_tests_1_1_queries_abd134bc218d67f9b4e6792f9212cb1de}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+Admin} = null
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a7e5bf8b80bc660fa128328babd36b3a2}\label{class_authority_controller_1_1_tests_1_1_queries_a7e5bf8b80bc660fa128328babd36b3a2}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+Moderator} = null
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a379bff3a24288ed5b49ef8fd09e56dff}\label{class_authority_controller_1_1_tests_1_1_queries_a379bff3a24288ed5b49ef8fd09e56dff}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+Privileged\+User} = null
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a05c0bd84370836e36ff4b2da43098c03}\label{class_authority_controller_1_1_tests_1_1_queries_a05c0bd84370836e36ff4b2da43098c03}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+User} = null
+\item 
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_adf081fb1bd4b942144bbae304c6e923d}\label{class_authority_controller_1_1_tests_1_1_queries_adf081fb1bd4b942144bbae304c6e923d}} 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_user}{User}} {\bfseries user\+\_\+\+Guest} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a73aecfeff3ab2ef348cbecb67d60fe49}\label{class_authority_controller_1_1_tests_1_1_queries_a73aecfeff3ab2ef348cbecb67d60fe49}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Get\+Guest\+Token@{Get\+Guest\+Token}}
+\index{Get\+Guest\+Token@{Get\+Guest\+Token}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Get\+Guest\+Token()}{GetGuestToken()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Get\+Guest\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tryinging to get guest token using query. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a4bae91492fae911ec7b5972e5f06e69a}\label{class_authority_controller_1_1_tests_1_1_queries_a4bae91492fae911ec7b5972e5f06e69a}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Logoff\+\_\+\+Invalid\+Token@{Logoff\+\_\+\+Invalid\+Token}}
+\index{Logoff\+\_\+\+Invalid\+Token@{Logoff\+\_\+\+Invalid\+Token}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Logoff\+\_\+\+Invalid\+Token()}{Logoff\_InvalidToken()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Logoff\+\_\+\+Invalid\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logoff user by invalid token. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a55ed45de5483ce80be47a31751b582f6}\label{class_authority_controller_1_1_tests_1_1_queries_a55ed45de5483ce80be47a31751b582f6}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Logoff\+\_\+\+Valid\+Token@{Logoff\+\_\+\+Valid\+Token}}
+\index{Logoff\+\_\+\+Valid\+Token@{Logoff\+\_\+\+Valid\+Token}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Logoff\+\_\+\+Valid\+Token()}{Logoff\_ValidToken()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Logoff\+\_\+\+Valid\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logoff user by valid token. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_ac861fb620f063f0808c662d6a7eafeb2}\label{class_authority_controller_1_1_tests_1_1_queries_ac861fb620f063f0808c662d6a7eafeb2}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Logon\+\_\+\+Invalid\+Data@{Logon\+\_\+\+Invalid\+Data}}
+\index{Logon\+\_\+\+Invalid\+Data@{Logon\+\_\+\+Invalid\+Data}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Logon\+\_\+\+Invalid\+Data()}{Logon\_InvalidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Logon\+\_\+\+Invalid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logon with incorrrect password. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a2d9af2b69951d0498670248829c0e2ab}\label{class_authority_controller_1_1_tests_1_1_queries_a2d9af2b69951d0498670248829c0e2ab}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Logon\+\_\+\+User\+Not\+Exist@{Logon\+\_\+\+User\+Not\+Exist}}
+\index{Logon\+\_\+\+User\+Not\+Exist@{Logon\+\_\+\+User\+Not\+Exist}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Logon\+\_\+\+User\+Not\+Exist()}{Logon\_UserNotExist()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Logon\+\_\+\+User\+Not\+Exist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logon as existed user that not registred. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a3cd254060908d25ee375be4c019a5bbc}\label{class_authority_controller_1_1_tests_1_1_queries_a3cd254060908d25ee375be4c019a5bbc}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Logon\+\_\+\+Valid\+Data@{Logon\+\_\+\+Valid\+Data}}
+\index{Logon\+\_\+\+Valid\+Data@{Logon\+\_\+\+Valid\+Data}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Logon\+\_\+\+Valid\+Data()}{Logon\_ValidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Logon\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logon as existed user with corerct logon data. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_ab04b5335b4b693f145631c1bc1d0ab3d}\label{class_authority_controller_1_1_tests_1_1_queries_ab04b5335b4b693f145631c1bc1d0ab3d}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+Password\+\_\+\+Admin\+To\+User@{New\+Password\+\_\+\+Admin\+To\+User}}
+\index{New\+Password\+\_\+\+Admin\+To\+User@{New\+Password\+\_\+\+Admin\+To\+User}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+Password\+\_\+\+Admin\+To\+User()}{NewPassword\_AdminToUser()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+Password\+\_\+\+Admin\+To\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to change password of user with lower rank then requester. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_ad767ebe267fd51e8df5f53c2f0b11f5d}\label{class_authority_controller_1_1_tests_1_1_queries_ad767ebe267fd51e8df5f53c2f0b11f5d}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+Password\+\_\+\+Moderator\+To\+Admin@{New\+Password\+\_\+\+Moderator\+To\+Admin}}
+\index{New\+Password\+\_\+\+Moderator\+To\+Admin@{New\+Password\+\_\+\+Moderator\+To\+Admin}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+Password\+\_\+\+Moderator\+To\+Admin()}{NewPassword\_ModeratorToAdmin()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+Password\+\_\+\+Moderator\+To\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to change password of user with higher rank then requeter. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a55ad47988eb2a7c20fc51bf71ca3dced}\label{class_authority_controller_1_1_tests_1_1_queries_a55ad47988eb2a7c20fc51bf71ca3dced}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+Password\+\_\+\+Self@{New\+Password\+\_\+\+Self}}
+\index{New\+Password\+\_\+\+Self@{New\+Password\+\_\+\+Self}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+Password\+\_\+\+Self()}{NewPassword\_Self()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+Password\+\_\+\+Self (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to change self password. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a17edb1eefd72cf95eb808d6c2fd888e2}\label{class_authority_controller_1_1_tests_1_1_queries_a17edb1eefd72cf95eb808d6c2fd888e2}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+User\+\_\+\+Invalid\+Login@{New\+User\+\_\+\+Invalid\+Login}}
+\index{New\+User\+\_\+\+Invalid\+Login@{New\+User\+\_\+\+Invalid\+Login}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+User\+\_\+\+Invalid\+Login()}{NewUser\_InvalidLogin()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+User\+\_\+\+Invalid\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to create new user with invalid login. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a2ce7ef859f6c5b9441eb8b4aa5335a08}\label{class_authority_controller_1_1_tests_1_1_queries_a2ce7ef859f6c5b9441eb8b4aa5335a08}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+User\+\_\+\+Invalid\+Password@{New\+User\+\_\+\+Invalid\+Password}}
+\index{New\+User\+\_\+\+Invalid\+Password@{New\+User\+\_\+\+Invalid\+Password}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+User\+\_\+\+Invalid\+Password()}{NewUser\_InvalidPassword()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+User\+\_\+\+Invalid\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to logoff invalid token. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_ae3f994db2b80f9d5fe5251b7d8cacaff}\label{class_authority_controller_1_1_tests_1_1_queries_ae3f994db2b80f9d5fe5251b7d8cacaff}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+User\+\_\+\+Invalid\+Personal@{New\+User\+\_\+\+Invalid\+Personal}}
+\index{New\+User\+\_\+\+Invalid\+Personal@{New\+User\+\_\+\+Invalid\+Personal}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+User\+\_\+\+Invalid\+Personal()}{NewUser\_InvalidPersonal()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+User\+\_\+\+Invalid\+Personal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to create user with invalid personal data. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_aa4bfd8884d421a8dfe58a5b7ede3c567}\label{class_authority_controller_1_1_tests_1_1_queries_aa4bfd8884d421a8dfe58a5b7ede3c567}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+User\+\_\+\+User\+Exist@{New\+User\+\_\+\+User\+Exist}}
+\index{New\+User\+\_\+\+User\+Exist@{New\+User\+\_\+\+User\+Exist}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+User\+\_\+\+User\+Exist()}{NewUser\_UserExist()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+User\+\_\+\+User\+Exist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to create new user that already exist. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a8aa2995781a0353dbdf041871ab50458}\label{class_authority_controller_1_1_tests_1_1_queries_a8aa2995781a0353dbdf041871ab50458}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!New\+User\+\_\+\+Valid\+Data@{New\+User\+\_\+\+Valid\+Data}}
+\index{New\+User\+\_\+\+Valid\+Data@{New\+User\+\_\+\+Valid\+Data}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{New\+User\+\_\+\+Valid\+Data()}{NewUser\_ValidData()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+New\+User\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to create user with valid data. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a2e5cb3ec94045a037d0854d9aea11323}\label{class_authority_controller_1_1_tests_1_1_queries_a2e5cb3ec94045a037d0854d9aea11323}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Set\+Base\+Users\+Pool@{Set\+Base\+Users\+Pool}}
+\index{Set\+Base\+Users\+Pool@{Set\+Base\+Users\+Pool}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Set\+Base\+Users\+Pool()}{SetBaseUsersPool()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Set\+Base\+Users\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating and apply base users pool\+: -\/\+Super admin -\/\+Admin -\/\+Moderator -\/\+Privileged user -\/\+User -\/\+Guest 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_aa7fb783f7b670bc2daf142f97561cfae}\label{class_authority_controller_1_1_tests_1_1_queries_aa7fb783f7b670bc2daf142f97561cfae}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Set\+Token\+Rights\+\_\+\+Has\+Rights@{Set\+Token\+Rights\+\_\+\+Has\+Rights}}
+\index{Set\+Token\+Rights\+\_\+\+Has\+Rights@{Set\+Token\+Rights\+\_\+\+Has\+Rights}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Set\+Token\+Rights\+\_\+\+Has\+Rights()}{SetTokenRights\_HasRights()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Set\+Token\+Rights\+\_\+\+Has\+Rights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tryinging to update token rights with walid permition. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a803981626447ef436d7461ee278eb052}\label{class_authority_controller_1_1_tests_1_1_queries_a803981626447ef436d7461ee278eb052}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Set\+Token\+Rights\+\_\+\+No\+Rights@{Set\+Token\+Rights\+\_\+\+No\+Rights}}
+\index{Set\+Token\+Rights\+\_\+\+No\+Rights@{Set\+Token\+Rights\+\_\+\+No\+Rights}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Set\+Token\+Rights\+\_\+\+No\+Rights()}{SetTokenRights\_NoRights()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Set\+Token\+Rights\+\_\+\+No\+Rights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tryinging to update token rights without authority. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a1e0a184a21e8260f3483b3f9a8c816f5}\label{class_authority_controller_1_1_tests_1_1_queries_a1e0a184a21e8260f3483b3f9a8c816f5}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!Start\+Public\+Server@{Start\+Public\+Server}}
+\index{Start\+Public\+Server@{Start\+Public\+Server}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{Start\+Public\+Server()}{StartPublicServer()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+Start\+Public\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starting public server that would able to recive queries. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_aa12eafe223e2c48ace89a4dd2a8da7c0}\label{class_authority_controller_1_1_tests_1_1_queries_aa12eafe223e2c48ace89a4dd2a8da7c0}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!User\+Ban\+\_\+\+Ban\+Expire@{User\+Ban\+\_\+\+Ban\+Expire}}
+\index{User\+Ban\+\_\+\+Ban\+Expire@{User\+Ban\+\_\+\+Ban\+Expire}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{User\+Ban\+\_\+\+Ban\+Expire()}{UserBan\_BanExpire()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+User\+Ban\+\_\+\+Ban\+Expire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check ban expiring. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a0d8db80983626e432963bf17eda12b98}\label{class_authority_controller_1_1_tests_1_1_queries_a0d8db80983626e432963bf17eda12b98}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!User\+Ban\+\_\+\+Has\+Rights@{User\+Ban\+\_\+\+Has\+Rights}}
+\index{User\+Ban\+\_\+\+Has\+Rights@{User\+Ban\+\_\+\+Has\+Rights}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{User\+Ban\+\_\+\+Has\+Rights()}{UserBan\_HasRights()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+User\+Ban\+\_\+\+Has\+Rights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to ban user with enough rights to that. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a07a7a3e3f8136203cbafe2334180ac46}\label{class_authority_controller_1_1_tests_1_1_queries_a07a7a3e3f8136203cbafe2334180ac46}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!User\+Ban\+\_\+\+Highranker\+Ban@{User\+Ban\+\_\+\+Highranker\+Ban}}
+\index{User\+Ban\+\_\+\+Highranker\+Ban@{User\+Ban\+\_\+\+Highranker\+Ban}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{User\+Ban\+\_\+\+Highranker\+Ban()}{UserBan\_HighrankerBan()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+User\+Ban\+\_\+\+Highranker\+Ban (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to ban user that has a higher rank than requester. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a16f5db1a247a06e5b585b89d422f8ef5}\label{class_authority_controller_1_1_tests_1_1_queries_a16f5db1a247a06e5b585b89d422f8ef5}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!User\+Ban\+\_\+\+No\+Rights@{User\+Ban\+\_\+\+No\+Rights}}
+\index{User\+Ban\+\_\+\+No\+Rights@{User\+Ban\+\_\+\+No\+Rights}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{User\+Ban\+\_\+\+No\+Rights()}{UserBan\_NoRights()}}
+{\footnotesize\ttfamily void Authority\+Controller.\+Tests.\+Queries.\+User\+Ban\+\_\+\+No\+Rights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to ban user but has no rights to this. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_tests_1_1_queries_a8cf9d1089864d1bdea1a5ae54c321de3}\label{class_authority_controller_1_1_tests_1_1_queries_a8cf9d1089864d1bdea1a5ae54c321de3}} 
+\index{Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}!P\+I\+P\+E\+\_\+\+N\+A\+ME@{P\+I\+P\+E\+\_\+\+N\+A\+ME}}
+\index{P\+I\+P\+E\+\_\+\+N\+A\+ME@{P\+I\+P\+E\+\_\+\+N\+A\+ME}!Authority\+Controller\+::\+Tests\+::\+Queries@{Authority\+Controller\+::\+Tests\+::\+Queries}}
+\subsubsection{\texorpdfstring{P\+I\+P\+E\+\_\+\+N\+A\+ME}{PIPE\_NAME}}
+{\footnotesize\ttfamily readonly string Authority\+Controller.\+Tests.\+Queries.\+P\+I\+P\+E\+\_\+\+N\+A\+ME = \char`\"{}A\+C\+Test\+Public\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Name of the pipe that would be started on server during tests. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Authority\+Controller\+Tests/\+Authority\+Controller/Queries.\+cs\end{DoxyCompactItemize}

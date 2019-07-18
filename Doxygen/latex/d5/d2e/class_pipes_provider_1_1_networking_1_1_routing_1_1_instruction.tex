@@ -1,0 +1,207 @@
+\hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{}\section{Pipes\+Provider.\+Networking.\+Routing.\+Instruction Class Reference}
+\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}\index{Pipes\+Provider.\+Networking.\+Routing.\+Instruction@{Pipes\+Provider.\+Networking.\+Routing.\+Instruction}}
+
+
+ 
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a376135eac06c59b1df8d2f5d1617bed9}{Is\+Routing\+Target}} (string recived\+Query)
+\begin{DoxyCompactList}\small\item\em Check doest this query must be routed using this server instruction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a04ee08d3b41785e88679c6870c392266}{Try\+Update\+Public\+Key}} (object recived\+Query)
+\begin{DoxyCompactList}\small\item\em Try to update Public R\+SA key by query recived from server as reply to G\+ET P\+U\+B\+L\+I\+C\+K\+EY query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_adb75f80ff34fab644305856ccf23d07b}{routing\+IP}}
+\begin{DoxyCompactList}\small\item\em Address that will be ised for routing \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abe54e245df8dd26547b0c881b987202b}{pipe\+Name}}
+\begin{DoxyCompactList}\small\item\em neme of the named pipe for server access. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a2a3325abd7537b7a961626272634e038}{logon\+Config}}
+\begin{DoxyCompactList}\small\item\em Logon config recuired to server connection. \end{DoxyCompactList}\item 
+string \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aa98823848a42831095f92b639121cc67}{query\+Patterns}}
+\begin{DoxyCompactList}\small\item\em Array that contain querie\textquotesingle{}s body that need to be routed by this instruction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a61ce6ffa8bb9cc44efc57bc51be3550b}{R\+S\+A\+Encryption}}
+\begin{DoxyCompactList}\small\item\em Does this chanel has R\+SA encryption? If true then client can ask for server\textquotesingle{}s Public Key and encrypt message before send. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+R\+S\+A\+Parameters \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a8681a89ae14ad25d11ee0c588231b772}{Public\+Key}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em R\+SA public key that was recived from this server. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a60281a347236a1311c37743b90596d58}{Public\+Key\+Expire\+Time}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Time when public key will become expired. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a07dbb5b97b3d9a28e5a318815d954278}{Is\+Valid}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Check does loading was failed or key was expired. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a7b1790dc22b0fd1a11b447e207245e83}{Default}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return default instruction. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aad2d50b60ddcdd0c7d0671ced01a5480}{Empty}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return empty instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abcd8b85ff0383ecd73b24befa9d69506}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abcd8b85ff0383ecd73b24befa9d69506}} 
+bool {\bfseries \+\_\+is\+Valid} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Struct that contain instruction about target adress by relative query params. Allow using of several servers via one public.
+
+Example\+: $<$--$>$ Authification server \mbox{\hyperlink{namespace_pipes_provider_1_1_client}{Client}} $<$--$>$ Query server $<$--$>$ Data server 1 $<$--$>$ Data server 2 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a376135eac06c59b1df8d2f5d1617bed9}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a376135eac06c59b1df8d2f5d1617bed9}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Is\+Routing\+Target@{Is\+Routing\+Target}}
+\index{Is\+Routing\+Target@{Is\+Routing\+Target}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Is\+Routing\+Target()}{IsRoutingTarget()}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Is\+Routing\+Target (\begin{DoxyParamCaption}\item[{string}]{recived\+Query }\end{DoxyParamCaption})}
+
+
+
+Check doest this query must be routed using this server instruction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recived\+Query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a04ee08d3b41785e88679c6870c392266}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a04ee08d3b41785e88679c6870c392266}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Try\+Update\+Public\+Key@{Try\+Update\+Public\+Key}}
+\index{Try\+Update\+Public\+Key@{Try\+Update\+Public\+Key}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Try\+Update\+Public\+Key()}{TryUpdatePublicKey()}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Try\+Update\+Public\+Key (\begin{DoxyParamCaption}\item[{object}]{recived\+Query }\end{DoxyParamCaption})}
+
+
+
+Try to update Public R\+SA key by query recived from server as reply to G\+ET P\+U\+B\+L\+I\+C\+K\+EY query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recived\+Query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a2a3325abd7537b7a961626272634e038}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a2a3325abd7537b7a961626272634e038}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!logon\+Config@{logon\+Config}}
+\index{logon\+Config@{logon\+Config}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{logon\+Config}{logonConfig}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+logon\+Config}
+
+
+
+Logon config recuired to server connection. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abe54e245df8dd26547b0c881b987202b}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abe54e245df8dd26547b0c881b987202b}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!pipe\+Name@{pipe\+Name}}
+\index{pipe\+Name@{pipe\+Name}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{pipe\+Name}{pipeName}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+pipe\+Name}
+
+
+
+neme of the named pipe for server access. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aa98823848a42831095f92b639121cc67}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aa98823848a42831095f92b639121cc67}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!query\+Patterns@{query\+Patterns}}
+\index{query\+Patterns@{query\+Patterns}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{query\+Patterns}{queryPatterns}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+query\+Patterns}
+
+
+
+Array that contain querie\textquotesingle{}s body that need to be routed by this instruction. 
+
+Format\+: property=value\&property=value\&... etc. -\/ Encount all properties that need to be a part of query by splitting with \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_aa906970223172f9f2068baa410b621d8}{Uniform\+Queries.\+A\+P\+I.\+S\+P\+L\+I\+T\+T\+I\+N\+G\+\_\+\+S\+Y\+M\+B\+OL}} (\textquotesingle{}\&\textquotesingle{} by default). !property -\/ this property must be out of query. \$property -\/ this property must exist in query.
+
+Example\+: target\+Queries\mbox{[}0\mbox{]} = \char`\"{}q=\+G\+E\+T\&sq=\char`\"{}P\+U\+B\+L\+I\+C\+K\+EY\char`\"{};   // All queries that contain G\+E\+T query and P\+U\+B\+L\+I\+C\+K\+E\+Y sub-\/query will routed.
+target\+Queries\mbox{[}1\mbox{]} = \char`\"{}q=G\+ET\&!pk\char`\"{};             // All queries that request data from server but has no R\+S\+A public keys for backward encription will wouted.
+target\+Queries\mbox{[}1\mbox{]} = \char`\"{}\$custom\+Prop\char`\"{};           // All queries that have \char`\"{}custom\+Prop" property in query will be routed. \mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_adb75f80ff34fab644305856ccf23d07b}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_adb75f80ff34fab644305856ccf23d07b}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!routing\+IP@{routing\+IP}}
+\index{routing\+IP@{routing\+IP}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{routing\+IP}{routingIP}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+routing\+IP}
+
+
+
+Address that will be ised for routing 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a61ce6ffa8bb9cc44efc57bc51be3550b}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a61ce6ffa8bb9cc44efc57bc51be3550b}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!R\+S\+A\+Encryption@{R\+S\+A\+Encryption}}
+\index{R\+S\+A\+Encryption@{R\+S\+A\+Encryption}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{R\+S\+A\+Encryption}{RSAEncryption}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+R\+S\+A\+Encryption}
+
+
+
+Does this chanel has R\+SA encryption? If true then client can ask for server\textquotesingle{}s Public Key and encrypt message before send. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a7b1790dc22b0fd1a11b447e207245e83}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a7b1790dc22b0fd1a11b447e207245e83}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Default@{Default}}
+\index{Default@{Default}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Default}{Default}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Default\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Return default instruction. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aad2d50b60ddcdd0c7d0671ced01a5480}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aad2d50b60ddcdd0c7d0671ced01a5480}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Empty@{Empty}}
+\index{Empty@{Empty}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Empty}{Empty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Empty\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Return empty instruction. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a07dbb5b97b3d9a28e5a318815d954278}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a07dbb5b97b3d9a28e5a318815d954278}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Is\+Valid@{Is\+Valid}}
+\index{Is\+Valid@{Is\+Valid}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Is\+Valid}{IsValid}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Is\+Valid\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Check does loading was failed or key was expired. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a8681a89ae14ad25d11ee0c588231b772}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a8681a89ae14ad25d11ee0c588231b772}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Public\+Key@{Public\+Key}}
+\index{Public\+Key@{Public\+Key}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Public\+Key}{PublicKey}}
+{\footnotesize\ttfamily R\+S\+A\+Parameters Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Public\+Key\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+R\+SA public key that was recived from this server. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a60281a347236a1311c37743b90596d58}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a60281a347236a1311c37743b90596d58}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!Public\+Key\+Expire\+Time@{Public\+Key\+Expire\+Time}}
+\index{Public\+Key\+Expire\+Time@{Public\+Key\+Expire\+Time}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
+\subsubsection{\texorpdfstring{Public\+Key\+Expire\+Time}{PublicKeyExpireTime}}
+{\footnotesize\ttfamily Date\+Time Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+Public\+Key\+Expire\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Time when public key will become expired. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Networking/\+Routing/Instruction.\+cs\end{DoxyCompactItemize}

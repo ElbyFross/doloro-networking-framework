@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_1709cc0a52d85b12de7e67f9368aee5f" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/SessionProvider/Properties</compoundname>
+    <innerfile refid="db/d29/_session_provider_2_properties_2_assembly_info_8cs">AssemblyInfo.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/SessionProvider/Properties/"/>
+  </compounddef>
+</doxygen>

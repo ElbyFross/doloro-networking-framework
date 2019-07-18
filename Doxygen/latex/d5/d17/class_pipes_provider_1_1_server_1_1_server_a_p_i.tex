@@ -1,0 +1,208 @@
+\hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i}{}\section{Pipes\+Provider.\+Server.\+Server\+A\+PI Class Reference}
+\label{class_pipes_provider_1_1_server_1_1_server_a_p_i}\index{Pipes\+Provider.\+Server.\+Server\+A\+PI@{Pipes\+Provider.\+Server.\+Server\+A\+PI}}
+
+
+Class that provide common methods for easy work with pipes\textquotesingle{} tasks.  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_aaf9afb864cf452d3842f0a6546569a32}{Server\+Loop$<$ Transmission\+Controller\+Type $>$}} (string guid, System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$ connection\+Callback, string pipe\+Name, Pipe\+Direction pipe\+Direction, int allowed\+Server\+Instances, Pipe\+Transmission\+Mode transmission\+Mode, Pipe\+Options pipe\+Options, \mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}} security\+Level, System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$init\+Handler=null)
+\begin{DoxyCompactList}\small\item\em Provide base server loop that control pipe. Have ability to full controll all handlers. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a750e3c4f0e34e61724ab3914d0d0608e}{Set\+Expired}} (string pipe\+Name)
+\begin{DoxyCompactList}\small\item\em Marking pipe as expired. On the next loop tick connections will be disconnect and pipe will close. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a9adcab99d6a6b7e4185203afb74dc575}{Set\+Expired}} (\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} meta)
+\begin{DoxyCompactList}\small\item\em Marking pipe as expired. On the next loop tick connections will be disconnect and pipe will close. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6d6f42c39e7f5c8a63a026739fe0ea94}{Set\+Expired\+All}} ()
+\begin{DoxyCompactList}\small\item\em Markin all pipes as expired. Connection will be terminated. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_af9c612e584b125b1fdc2c32490613bb1}{Stop\+Server}} (string pipe\+Name)
+\begin{DoxyCompactList}\small\item\em Stop server by pipe name. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a8a70cec80dfb54ff68d8c4924a8b4007}{Stop\+Server}} (\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} meta)
+\begin{DoxyCompactList}\small\item\em Stop server by relative meta data. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a44469667416cb072d8fd258b299a53cd}{Stop\+All\+Servers}} ()
+\begin{DoxyCompactList}\small\item\em Stoping all regirated servers. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6fba1adf18ce5938c6edcb29f28adfe5}{Try\+Get\+Server\+Transmission\+Controller}} (string guid, out \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} meta)
+\begin{DoxyCompactList}\small\item\em Try to find opened servert to client transmisssion meta data in common table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+static System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_adf4c77f25cd481b8190240e4aca06e56}{Server\+Transmission\+Meta\+\_\+\+In\+Processing}}
+\begin{DoxyCompactList}\small\item\em Event that will be called when server transmission will be registred or updated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Hashtable \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_server_a_p_i_ac18f0fca4de6269edeb97379112e67ca}{opened\+Servers}} = new Hashtable()
+\begin{DoxyCompactList}\small\item\em Hashtable thast contain references to oppened pipes. Key (string) pipe\+\_\+name; Value (Server\+Transmission\+Meta) meta data about transmition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that provide common methods for easy work with pipes\textquotesingle{} tasks. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_aaf9afb864cf452d3842f0a6546569a32}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_aaf9afb864cf452d3842f0a6546569a32}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Server\+Loop$<$ Transmission\+Controller\+Type $>$@{Server\+Loop$<$ Transmission\+Controller\+Type $>$}}
+\index{Server\+Loop$<$ Transmission\+Controller\+Type $>$@{Server\+Loop$<$ Transmission\+Controller\+Type $>$}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Server\+Loop$<$ Transmission\+Controller\+Type $>$()}{ServerLoop< TransmissionControllerType >()}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Server\+Loop$<$ Transmission\+Controller\+Type $>$ (\begin{DoxyParamCaption}\item[{string}]{guid,  }\item[{System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$}]{connection\+Callback,  }\item[{string}]{pipe\+Name,  }\item[{Pipe\+Direction}]{pipe\+Direction,  }\item[{int}]{allowed\+Server\+Instances,  }\item[{Pipe\+Transmission\+Mode}]{transmission\+Mode,  }\item[{Pipe\+Options}]{pipe\+Options,  }\item[{\mbox{\hyperlink{namespace_pipes_provider_1_1_security_a1a6020eca1c661a6f7140e8260502d7e}{Security.\+Security\+Level}}}]{security\+Level,  }\item[{System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}} $>$}]{init\+Handler = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Provide base server loop that control pipe. Have ability to full controll all handlers. 
+
+Warrning\+: Use only if undersend how it work. Overwise use simplived Client\+To\+Server\+Loop or Server\+To\+Client\+Loop 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connection\+Callback} & Delegate that will be called when connection will be established.\\
+\hline
+{\em pipe\+Name} & Name of pipe that will be used to acces by client.\\
+\hline
+{\em pipe\+Direction} & Dirrection of the possible transmission.\\
+\hline
+{\em allowed\+Server\+Instances} & How many server pipes can be started with the same name.\\
+\hline
+{\em transmission\+Mode} & Type of transmission.\\
+\hline
+{\em pipe\+Options} & Configuration of the pipe.\\
+\hline
+{\em init\+Handler} & Handler that will be called in case if transmisssion still not registred. Provide possibility to castom initialization for every type of controller.\\
+\hline
+\end{DoxyParams}
+Update data. \begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em Transmission\+Controller\+Type} : {\em Base\+Server\+Transmission\+Controller}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a750e3c4f0e34e61724ab3914d0d0608e}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a750e3c4f0e34e61724ab3914d0d0608e}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Set\+Expired@{Set\+Expired}}
+\index{Set\+Expired@{Set\+Expired}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Set\+Expired()}{SetExpired()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Set\+Expired (\begin{DoxyParamCaption}\item[{string}]{pipe\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Marking pipe as expired. On the next loop tick connections will be disconnect and pipe will close. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a9adcab99d6a6b7e4185203afb74dc575}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a9adcab99d6a6b7e4185203afb74dc575}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Set\+Expired@{Set\+Expired}}
+\index{Set\+Expired@{Set\+Expired}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Set\+Expired()}{SetExpired()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Set\+Expired (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}}}]{meta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Marking pipe as expired. On the next loop tick connections will be disconnect and pipe will close. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6d6f42c39e7f5c8a63a026739fe0ea94}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6d6f42c39e7f5c8a63a026739fe0ea94}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Set\+Expired\+All@{Set\+Expired\+All}}
+\index{Set\+Expired\+All@{Set\+Expired\+All}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Set\+Expired\+All()}{SetExpiredAll()}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Set\+Expired\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Markin all pipes as expired. Connection will be terminated. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a44469667416cb072d8fd258b299a53cd}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a44469667416cb072d8fd258b299a53cd}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Stop\+All\+Servers@{Stop\+All\+Servers}}
+\index{Stop\+All\+Servers@{Stop\+All\+Servers}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Stop\+All\+Servers()}{StopAllServers()}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Stop\+All\+Servers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Stoping all regirated servers. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_af9c612e584b125b1fdc2c32490613bb1}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_af9c612e584b125b1fdc2c32490613bb1}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Stop\+Server@{Stop\+Server}}
+\index{Stop\+Server@{Stop\+Server}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Stop\+Server()}{StopServer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Stop\+Server (\begin{DoxyParamCaption}\item[{string}]{pipe\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Stop server by pipe name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a8a70cec80dfb54ff68d8c4924a8b4007}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a8a70cec80dfb54ff68d8c4924a8b4007}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Stop\+Server@{Stop\+Server}}
+\index{Stop\+Server@{Stop\+Server}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Stop\+Server()}{StopServer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Stop\+Server (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}}}]{meta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Stop server by relative meta data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meta} & \\
+\hline
+\end{DoxyParams}
+Log error. \mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6fba1adf18ce5938c6edcb29f28adfe5}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_a6fba1adf18ce5938c6edcb29f28adfe5}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Try\+Get\+Server\+Transmission\+Controller@{Try\+Get\+Server\+Transmission\+Controller}}
+\index{Try\+Get\+Server\+Transmission\+Controller@{Try\+Get\+Server\+Transmission\+Controller}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Try\+Get\+Server\+Transmission\+Controller()}{TryGetServerTransmissionController()}}
+{\footnotesize\ttfamily static bool Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Try\+Get\+Server\+Transmission\+Controller (\begin{DoxyParamCaption}\item[{string}]{guid,  }\item[{out \mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}}}]{meta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to find opened servert to client transmisssion meta data in common table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guid} & \\
+\hline
+{\em meta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_ac18f0fca4de6269edeb97379112e67ca}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_ac18f0fca4de6269edeb97379112e67ca}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!opened\+Servers@{opened\+Servers}}
+\index{opened\+Servers@{opened\+Servers}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{opened\+Servers}{openedServers}}
+{\footnotesize\ttfamily readonly Hashtable Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+opened\+Servers = new Hashtable()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Hashtable thast contain references to oppened pipes. Key (string) pipe\+\_\+name; Value (Server\+Transmission\+Meta) meta data about transmition. 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_server_1_1_server_a_p_i_adf4c77f25cd481b8190240e4aca06e56}\label{class_pipes_provider_1_1_server_1_1_server_a_p_i_adf4c77f25cd481b8190240e4aca06e56}} 
+\index{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}!Server\+Transmission\+Meta\+\_\+\+In\+Processing@{Server\+Transmission\+Meta\+\_\+\+In\+Processing}}
+\index{Server\+Transmission\+Meta\+\_\+\+In\+Processing@{Server\+Transmission\+Meta\+\_\+\+In\+Processing}!Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI@{Pipes\+Provider\+::\+Server\+::\+Server\+A\+PI}}
+\subsubsection{\texorpdfstring{Server\+Transmission\+Meta\+\_\+\+In\+Processing}{ServerTransmissionMeta\_InProcessing}}
+{\footnotesize\ttfamily System.\+Action$<$\mbox{\hyperlink{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}{Base\+Server\+Transmission\+Controller}}$>$ Pipes\+Provider.\+Server.\+Server\+A\+P\+I.\+Server\+Transmission\+Meta\+\_\+\+In\+Processing\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Event that will be called when server transmission will be registred or updated. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Server/Server\+A\+P\+I.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj" />
+    <ProjectReference Include="..\PipesProvider\PipesProvider.csproj" />
+    <ProjectReference Include="..\UniformClient\UniformClient.csproj" />
+    <ProjectReference Include="..\UniformQueries\UniformQueries.csproj" />
+  </ItemGroup>
+
+</Project>
