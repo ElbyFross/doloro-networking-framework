@@ -15,7 +15,6 @@
 using System;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AuthorityControllerTests;
 using Microsoft.Win32.SafeHandles;
 using UniformQueries;
 using UniformServer;
@@ -23,218 +22,23 @@ using UniformClient;
 using PipesProvider.Server.TransmissionControllers;
 using AuthorityController.Data;
 
-namespace AuthorityController.Tests
+namespace ACTests.Tests
 {
     [TestClass]
     public class Queries
     {
         /// <summary>
-        /// Name  of the pipe that would be started on server during tests.
+        /// Provided guest token.
         /// </summary>
-        readonly string PIPE_NAME = "ACTestPublic";
+        public static string GUEST_TOKEN = null;
 
-        #region Users
-        User user_SuperAdmin = null;
-        User user_Admin = null;
-        User user_Moderator = null;
-        User user_PrivilegedUser = null;
-        User user_User = null;
-        User user_Guest = null;
-        #endregion
-
-        #region Halpers
-        /// <summary>
-        /// Starting public server that would able to recive queries.
-        /// </summary>
-        public void StartPublicServer()
-        {
-            // Stop previos servers.
-            PipesProvider.Server.ServerAPI.StopAllServers();
-
-            // Start new server pipe.
-            AuthorityTestServer.Server.StartQueryProcessing(PIPE_NAME);
-        }
-
-        /// <summary>
-        /// Creating and apply base users pool:
-        /// -Super admin
-        /// -Admin
-        /// -Moderator
-        /// -Privileged user
-        /// -User
-        /// -Guest
-        /// </summary>
-        public void SetBaseUsersPool()
-        {
-            lock (Locks.CONFIG_LOCK)
-            {
-                // Set new test directory to avoid conflicts with users profiles.
-                Config.Active.UsersStorageDirectory = "Tests\\Queries\\Users\\" + Guid.NewGuid().ToString() + "\\";
-
-                // Clear current user pool.
-                AuthorityController.API.Users.ClearUsersLoadedData();
-
-                #region Create superadmin
-                user_SuperAdmin = new User()
-                {
-                    id = 1,
-                    login = "sadmin",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=16",
-                    "banhammer",
-                    "passwordManaging" }
-                };
-
-                // Generate ID.
-                user_SuperAdmin.id = API.Users.GenerateID(user_SuperAdmin);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_SuperAdmin, Config.Active.UsersStorageDirectory);
-
-                #endregion
-
-                #region Create admin
-                user_Admin = new User()
-                {
-                    login = "admin",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=8",
-                    "banhammer",
-                    "passwordManaging" }
-                };
-
-                // Generate ID.
-                user_Admin.id = API.Users.GenerateID(user_Admin);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_Admin, Config.Active.UsersStorageDirectory);
-                #endregion
-
-                #region Create moderator
-                user_Moderator = new User()
-                {
-                    login = "moderator",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=4",
-                    "banhammer",
-                    "passwordManaging" }
-                };
-
-                // Generate ID.
-                user_Moderator.id = API.Users.GenerateID(user_Moderator);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_Moderator, Config.Active.UsersStorageDirectory);
-                #endregion
-
-                #region Create privileged user
-                user_PrivilegedUser = new User()
-                {
-                    login = "puser",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=2",
-                    "passwordManaging" }
-                };
-
-                // Generate ID.
-                user_PrivilegedUser.id = API.Users.GenerateID(user_PrivilegedUser);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_PrivilegedUser, Config.Active.UsersStorageDirectory);
-                #endregion
-
-                #region Create user
-                user_User = new User()
-                {
-                    login = "user",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=1",
-                    "passwordManaging" }
-                };
-
-                // Generate ID.
-                user_User.id = API.Users.GenerateID(user_User);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_User, Config.Active.UsersStorageDirectory);
-                #endregion
-
-                #region Create guest
-                user_Guest = new User()
-                {
-                    login = "guest",
-                    password = API.Users.GetHashedPassword("password", Config.Active.Salt),
-                    tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AuthorityController.API.Tokens.UnusedToken }),
-                    rights = new string[]{
-                    "rank=0"}
-                };
-
-                // Generate ID.
-                user_Guest.id = API.Users.GenerateID(user_Guest);
-
-                // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user_Guest, Config.Active.UsersStorageDirectory);
-                #endregion
-
-                // Wait until loading.
-                while (API.Users.HasAsyncLoadings)
-                {
-                    Thread.Sleep(5);
-                }
-
-                #region Authorize tokens
-                // Super admin
-                AuthorityController.Session.Current.AsignTokenToUser(user_SuperAdmin, user_SuperAdmin.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_SuperAdmin.tokens[0], user_SuperAdmin.rights);
-
-                // Admin
-                AuthorityController.Session.Current.AsignTokenToUser(user_Admin, user_Admin.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Admin.tokens[0], user_Admin.rights);
-
-                // Moderator
-                AuthorityController.Session.Current.AsignTokenToUser(user_Moderator, user_Moderator.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Moderator.tokens[0], user_Moderator.rights);
-
-                // Privileged user
-                AuthorityController.Session.Current.AsignTokenToUser(user_PrivilegedUser, user_PrivilegedUser.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_PrivilegedUser.tokens[0], user_PrivilegedUser.rights);
-
-                // User
-                AuthorityController.Session.Current.AsignTokenToUser(user_User, user_User.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_User.tokens[0], user_User.rights);
-
-                // Guest
-                AuthorityController.Session.Current.AsignTokenToUser(user_Guest, user_Guest.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Guest.tokens[0], user_Guest.rights);
-                #endregion
-
-                // Start server that would manage that data.
-                StartPublicServer();
-            }
-        }
-
+        #region Helpers
         /// <summary>
         /// Return ban information data ready for test.
         /// </summary>
         /// <param name="banInfoXML"></param>
         /// <param name="expiryTime"></param>
-        public void GetBanInfo(out string banInfoXML, out long expiryTime)
+        public static void GetBanInfo(out string banInfoXML, out long expiryTime)
         {
             // Time when ban will expire.
             expiryTime = DateTime.Now.AddMilliseconds(500).ToBinary();
@@ -296,7 +100,7 @@ namespace AuthorityController.Tests
                         if(UniformQueries.API.TryGetParamValue("token", out QueryPart token, recivedQuery))
                         {
                             // Set token as GUEST to share between other tests.
-                            Configurator.GUEST_TOKEN = token.propertyValue;
+                            GUEST_TOKEN = token.propertyValue;
 
                             // Assert test result.
                             bool tokenProvided = !string.IsNullOrEmpty(token.propertyValue);
@@ -340,19 +144,22 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void SetTokenRights_NoRights()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_User.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("set"),
-                    new QueryPart("targetToken", user_Admin.tokens[0]),
+                    new QueryPart("targetToken", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("rights", "newRight"),
                 };
 
@@ -365,7 +172,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -416,19 +223,22 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void SetTokenRights_HasRights()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_Admin.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("set"),
-                    new QueryPart("targetToken", user_User.tokens[0]),
+                    new QueryPart("targetToken", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("rights", "newRight"),
                 };
 
@@ -441,7 +251,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -494,10 +304,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void UserBan_NoRights()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 //Get ban info
                 GetBanInfo(out string banInfoXML, out long expiryTime);
@@ -505,11 +318,11 @@ namespace AuthorityController.Tests
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_User.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", user_Guest.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_Guest.id.ToString()),
                 };
 
                 // Marker that avoid finishing of the test until receiving result.
@@ -521,7 +334,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -572,10 +385,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void UserBan_ModeratorToAdmin()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 //Get ban info
                 GetBanInfo(out string banInfoXML, out long expiryTime);
@@ -583,11 +399,11 @@ namespace AuthorityController.Tests
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_Moderator.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", user_Admin.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
                 };
 
                 // Marker that avoid finishing of the test until receiving result.
@@ -599,7 +415,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -652,10 +468,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void UserBan_FullCycle()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 //Get ban info
                 GetBanInfo(out string banInfoXML, out long expiryTime);
@@ -664,11 +483,11 @@ namespace AuthorityController.Tests
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_Admin.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", user_User.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_User.id.ToString()),
                 };
 
                 // Marker that avoid finishing of the test until receiving result.
@@ -680,7 +499,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -724,7 +543,7 @@ namespace AuthorityController.Tests
 
                 #region Ban validation
                 // Find banned user.
-                if (!API.Users.TryToFindUser(user_User.id, out User bannedUser))
+                if (!AuthorityController.API.Users.TryToFindUser(Helpers.Users.user_User.id, out User bannedUser))
                 {
                     Assert.Fail("Banned user lossed");
                     return;
@@ -739,7 +558,7 @@ namespace AuthorityController.Tests
                 }
 
                 // Check that still banned.
-                if (!API.Users.IsBanned(bannedUser, "logon"))
+                if (!AuthorityController.API.Users.IsBanned(bannedUser, "logon"))
                 {
                     Assert.Fail("User was not banned.");
                     return;
@@ -752,7 +571,7 @@ namespace AuthorityController.Tests
                 }
 
                 // Check that not banned.
-                if (API.Users.IsBanned(bannedUser, "logon"))
+                if (AuthorityController.API.Users.IsBanned(bannedUser, "logon"))
                 {
                     Assert.Fail("User still banned after ban's expiring.");
                     return;
@@ -771,10 +590,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void Logon_ValidData()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
@@ -799,7 +621,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -856,10 +678,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void Logon_UserNotExist()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
@@ -884,7 +709,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -931,10 +756,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void Logon_InvalidData()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
@@ -959,7 +787,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                     
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1008,10 +836,13 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void Logoff_InvalidToken()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Generate new token.
                 string newToken = AuthorityController.API.Tokens.UnusedToken;
@@ -1031,13 +862,16 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void Logoff_ValidToken()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Get token of registred user.
-                string userToken = user_User.tokens[0];
+                string userToken = Helpers.Users.user_User.tokens[0];
 
                 // Logoff unregistred token.
                 bool result = AuthorityController.Queries.USER_LOGOFF.LogoffToken(userToken);
@@ -1054,31 +888,31 @@ namespace AuthorityController.Tests
         /// Trying to create user with valid data.
         /// </summary>
         [TestMethod]
-        public void NewUser_ValidData()
+        public void User_ValidData()
         {
             #region Getting guest token to logon on server
-            if (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+            if (string.IsNullOrEmpty(GUEST_TOKEN))
             {
                 // Request guest token.
                 GetGuestToken();
 
                 // Wait until guest token would provided.
-                while (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+                while (string.IsNullOrEmpty(GUEST_TOKEN))
                 {
                     Thread.Sleep(5);
                 }
             }
             #endregion
 
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
-                StartPublicServer();
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", Configurator.GUEST_TOKEN),
+                    new QueryPart("token", GUEST_TOKEN),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("user"),
@@ -1103,7 +937,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1152,31 +986,31 @@ namespace AuthorityController.Tests
         /// Trying to logoff invalid token.
         /// </summary>
         [TestMethod]
-        public void NewUser_InvalidPassword()
+        public void User_InvalidPassword()
         {
             #region Getting guset token to logon on server
-            if (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+            if (string.IsNullOrEmpty(GUEST_TOKEN))
             {
                 // Request guest token.
                 GetGuestToken();
 
                 // Wait until guest token would provided.
-                while (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+                while (string.IsNullOrEmpty(GUEST_TOKEN))
                 {
                     Thread.Sleep(5);
                 }
             }
             #endregion
             
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
-                StartPublicServer();
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", Configurator.GUEST_TOKEN),
+                    new QueryPart("token", GUEST_TOKEN),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("user"),
@@ -1201,7 +1035,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1250,31 +1084,31 @@ namespace AuthorityController.Tests
         /// Trying to create new user with invalid login.
         /// </summary>
         [TestMethod]
-        public void NewUser_InvalidLogin()
+        public void User_InvalidLogin()
         {
             #region Getting guset token to logon on server
-            if (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+            if (string.IsNullOrEmpty(GUEST_TOKEN))
             {
                 // Request guest token.
                 GetGuestToken();
 
                 // Wait until guest token would provided.
-                while (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+                while (string.IsNullOrEmpty(GUEST_TOKEN))
                 {
                     Thread.Sleep(5);
                 }
             }
             #endregion
             
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
-                StartPublicServer();
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", Configurator.GUEST_TOKEN),
+                    new QueryPart("token", GUEST_TOKEN),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("user"),
@@ -1299,7 +1133,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1348,34 +1182,37 @@ namespace AuthorityController.Tests
         /// Trying to create new user that already exist.
         /// </summary>
         [TestMethod]
-        public void NewUser_UserExist()
+        public void User_UserExist()
         {
             #region Getting guset token to logon on server
-            if (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+            if (string.IsNullOrEmpty(GUEST_TOKEN))
             {
                 // Request guest token.
                 GetGuestToken();
 
                 // Wait until guest token would provided.
-                while (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+                while (string.IsNullOrEmpty(GUEST_TOKEN))
                 {
                     Thread.Sleep(5);
                 }
             }
             #endregion
 
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Start new server for thsi test to avoid conflicts.
-                StartPublicServer();
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", Configurator.GUEST_TOKEN),
+                    new QueryPart("token", GUEST_TOKEN),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("user"),
@@ -1400,7 +1237,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1449,31 +1286,31 @@ namespace AuthorityController.Tests
         /// Trying to create user with invalid personal data.
         /// </summary>
         [TestMethod]
-        public void NewUser_InvalidPersonal()
+        public void User_InvalidPersonal()
         {
             #region Getting guset token to logon on server
-            if (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+            if (string.IsNullOrEmpty(GUEST_TOKEN))
             {
                 // Request guest token.
                 GetGuestToken();
 
                 // Wait until guest token would provided.
-                while (string.IsNullOrEmpty(Configurator.GUEST_TOKEN))
+                while (string.IsNullOrEmpty(GUEST_TOKEN))
                 {
                     Thread.Sleep(5);
                 }
             }
             #endregion
             
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
-                StartPublicServer();
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", Configurator.GUEST_TOKEN),
+                    new QueryPart("token", GUEST_TOKEN),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
                     new QueryPart("user"),
@@ -1498,7 +1335,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1551,18 +1388,21 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void NewPassword_Self()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_User.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
-                    new QueryPart("user", user_User.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_User.id.ToString()),
                     new QueryPart("new", null),
 
                     new QueryPart("password", "newPassword!2"),
@@ -1581,7 +1421,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1632,18 +1472,21 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void NewPassword_ModeratorToAdmin()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_Moderator.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
-                    new QueryPart("user", user_Admin.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
                     new QueryPart("new", null),
 
                     new QueryPart("password", "newPassword!2"),
@@ -1662,7 +1505,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1713,18 +1556,21 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void NewPassword_AdminToUser()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create users for test.
-                SetBaseUsersPool();
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
-                    new QueryPart("token", user_Admin.tokens[0]),
+                    new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
 
-                    new QueryPart("user", user_User.id.ToString()),
+                    new QueryPart("user", Helpers.Users.user_User.id.ToString()),
                     new QueryPart("new", null),
 
                     new QueryPart("password", "newPassword!2"),
@@ -1743,7 +1589,7 @@ namespace AuthorityController.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", PIPE_NAME,
+                    "localhost", Helpers.Networking.PIPE_NAME,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),

@@ -17,17 +17,21 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AuthorityController.Data;
 using System.Threading;
-using AuthorityControllerTests;
 
-namespace AuthorityController.Tests
+namespace ACTests.Tests
 {
     [TestClass]
     public class Data
     {
+        /// <summary>
+        /// Marker that need to avoid tests conflicts.
+        /// </summary>
+        public static bool CONFIG_FILE_GENERATED = false;
+
         [TestMethod]
         public void ConfigValidation()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 Config_New();
                 Config_Load_ValidData();
@@ -41,7 +45,7 @@ namespace AuthorityController.Tests
         public void Config_New()
         {
             // Set new directory.
-            Config.DIRECTORY = Configurator.TestSubfolder + Config.DIRECTORY;
+            Config.DIRECTORY = Helpers.FileSystem.TestSubfolder + Config.DIRECTORY;
             string buferizedConfigDir = Config.DIRECTORY;
 
             // Init file.
@@ -49,7 +53,7 @@ namespace AuthorityController.Tests
             _ = Config.Active;
 
             // Mark result.
-            Configurator.CONFIG_FILE_GENERATED = true;
+            CONFIG_FILE_GENERATED = true;
 
             // Check existing.
             bool result = File.Exists(Config.DIRECTORY + Config.CONFIG_FILE_NAME);
@@ -134,7 +138,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void UsersPoolStressTest()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 UsersPool_New();
                 UsersPoo_Load();
@@ -154,12 +158,12 @@ namespace AuthorityController.Tests
             void FailHandler(User obj, string error)
             {
                 poolFailed = true;
-                API.Users.UserProfileNotStored -= FailHandler;
+                AuthorityController.API.Users.UserProfileNotStored -= FailHandler;
 
                 Assert.IsTrue(false, "Data storing failed.");
             }
-
-            API.Users.UserProfileNotStored += FailHandler;
+            
+            AuthorityController.API.Users.UserProfileNotStored += FailHandler;
 
             // Create all requested users.
             for (int i = 0; i < poolUsersCount; i++)
@@ -170,22 +174,22 @@ namespace AuthorityController.Tests
                     login = "user" + i
                 };
                 // Get GUID
-                user.id = API.Users.GenerateID(user);
+                user.id = AuthorityController.API.Users.GenerateID(user);
 
                 // Save profile.
-                API.Users.SetProfileAsync(user, Configurator.TestSubfolder + "\\USERS\\");
+                AuthorityController.API.Users.SetProfileAsync(user, Helpers.FileSystem.TestSubfolder + "\\USERS\\");
             }
 
             // Create users directory if notexist.
-            if (!Directory.Exists(Configurator.TestSubfolder + "\\USERS\\"))
+            if (!Directory.Exists(Helpers.FileSystem.TestSubfolder + "\\USERS\\"))
             {
-                Directory.CreateDirectory(Configurator.TestSubfolder + "\\USERS\\");
+                Directory.CreateDirectory(Helpers.FileSystem.TestSubfolder + "\\USERS\\");
             }
 
             // Wait until operation compleeting.
             while (!poolFailed)
             {
-                int profilesCount = Directory.GetFiles(Configurator.TestSubfolder + "\\USERS\\").Length;
+                int profilesCount = Directory.GetFiles(Helpers.FileSystem.TestSubfolder + "\\USERS\\").Length;
                 if (profilesCount == poolUsersCount)
                 {
                     break;
@@ -203,7 +207,7 @@ namespace AuthorityController.Tests
         public void UsersPoo_Load()
         {
             // Init
-            string loadDirectory = Configurator.TestSubfolder + "\\USERS\\";
+            string loadDirectory = Helpers.FileSystem.TestSubfolder + "\\USERS\\";
             bool loaded = false;
 
             #region Test finish handler.
@@ -214,7 +218,7 @@ namespace AuthorityController.Tests
                 if (dir.Equals(loadDirectory))
                 {
                     // Unsubscribe
-                    API.Users.DirectoryLoadingFinished -= FinishHandler;
+                    AuthorityController.API.Users.DirectoryLoadingFinished -= FinishHandler;
 
                     // Infrom waitnig loop about finish.
                     loaded = true;
@@ -228,10 +232,10 @@ namespace AuthorityController.Tests
                 }
             }
 
-            API.Users.DirectoryLoadingFinished += FinishHandler;
+            AuthorityController.API.Users.DirectoryLoadingFinished += FinishHandler;
             #endregion
 
-            API.Users.LoadProfilesAsync(loadDirectory);
+            AuthorityController.API.Users.LoadProfilesAsync(loadDirectory);
 
             // Wait until load.
             while (!loaded)
@@ -247,7 +251,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void UserProfileValidation()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 User testUser = User_New();
                 User_Update(testUser);
@@ -266,15 +270,15 @@ namespace AuthorityController.Tests
                 login = "userLogin"
             };
             // Get GUID
-            testUser.id = API.Users.GenerateID(testUser);
+            testUser.id = AuthorityController.API.Users.GenerateID(testUser);
 
             // Save profile.
-            API.Users.SetProfileAsync(testUser, Configurator.TestSubfolder + "\\USERS\\TEMP\\");
+            AuthorityController.API.Users.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
             bool userTestPaused = true;
 
             #region Wait for result
             // Failed
-            API.Users.UserProfileNotStored += (User u, string error) =>
+            AuthorityController.API.Users.UserProfileNotStored += (User u, string error) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -284,7 +288,7 @@ namespace AuthorityController.Tests
             };
 
             // Stored
-            API.Users.UserProfileStored += (User u) =>
+            AuthorityController.API.Users.UserProfileStored += (User u) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -312,13 +316,13 @@ namespace AuthorityController.Tests
             testUser.secondName = "Updated";
 
             // Save profile.
-            API.Users.SetProfileAsync(testUser, Configurator.TestSubfolder + "\\USERS\\TEMP\\");
+            AuthorityController.API.Users.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
 
             bool userTestPaused = true;
 
             #region Wait for result
             // Failed
-            API.Users.UserProfileNotStored += (User u, string error) =>
+            AuthorityController.API.Users.UserProfileNotStored += (User u, string error) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -328,7 +332,7 @@ namespace AuthorityController.Tests
             };
 
             // Stored
-            API.Users.UserProfileStored += (User u) =>
+            AuthorityController.API.Users.UserProfileStored += (User u) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -350,7 +354,7 @@ namespace AuthorityController.Tests
         /// </summary>
         public void User_Remove(User testUser)
         {
-            Assert.IsTrue(API.Users.RemoveProfile(testUser, Configurator.TestSubfolder + "\\USERS\\TEMP\\"));
+            Assert.IsTrue(AuthorityController.API.Users.RemoveProfile(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\"));
         }
 
 
@@ -360,10 +364,10 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void SaltGeneration()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Wait for config files.
-                while (!Configurator.CONFIG_FILE_GENERATED)
+                while (!CONFIG_FILE_GENERATED)
                 {
                     Thread.Sleep(5);
                 }

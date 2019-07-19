@@ -1,0 +1,184 @@
+﻿//Copyright 2019 Volodymyr Podshyvalov
+//
+//Licensed under the Apache License, Version 2.0 (the "License");
+//you may not use this file except in compliance with the License.
+//You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+//Unless required by applicable law or agreed to in writing, software
+//distributed under the License is distributed on an "AS IS" BASIS,
+//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//See the License for the specific language governing permissions and
+//limitations under the License.
+
+using System;
+using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UniformQueries;
+using UniformClient;
+using PipesProvider.Client;
+
+namespace ACTests.Tests
+{
+    [TestClass]
+    public class Session
+    {
+        /// <summary>
+        /// Test reciving query by related server when token on AC will be update status.
+        /// </summary>
+        [TestMethod]
+        public void UpdatedTokenRelativeServerCallback()
+        {
+        }
+
+        /// <summary>
+        /// Try to get user by token.
+        /// </summary>
+        [TestMethod]
+        public void UserByToken()
+        {
+        }
+
+        /// <summary>
+        /// Try to logon by the same device multiply times.
+        /// </summary>
+        [TestMethod]
+        public void MultiLogon_SameDevice()
+        {
+        }
+
+        /// <summary>
+        /// Try to logon by multiply devices.
+        /// </summary>
+        [TestMethod]
+        public void MultiLogon_MultiDevice()
+        {
+            // How many time will procceded logon.
+            int logonsCount = 10;
+
+            lock (Helpers.Locks.CONFIG_LOCK)
+            {
+                // Create users for test.
+                Helpers.Users.SetBaseUsersPool();
+
+                // Start server that would manage that data.
+                Helpers.Networking.StartPublicServer(logonsCount);
+
+                // Marker that avoid finishing of the test until receiving result.
+                bool operationCompete = false;
+                string operationError = null;
+
+                // Array that would contain recived tokens.
+                string[] tokens = new string[logonsCount];
+                // Counter that shows how many logons completed.
+                int logonsPassed = 0;
+
+                // Request every token.
+                for (int i = 0; i < logonsCount; i++)
+                {
+                    int indexBufer = i;
+
+                    #region Create logon query
+                    // Create the query that would simulate logon.
+                    QueryPart[] logonQuery = new QueryPart[]
+                    {
+                    new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+
+                    new QueryPart("user", null),
+                    new QueryPart("logon", null),
+
+                    new QueryPart("login", "sadmin"),
+                    new QueryPart("password", "password"),
+                    new QueryPart("os", Environment.OSVersion.VersionString),
+                    new QueryPart("mac", "anonymous" + i),
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
+                    };
+                    #endregion
+
+                    // Start reciving clent line.
+                    BaseClient.EnqueueDuplexQueryViaPP("localhost", Helpers.Networking.PIPE_NAME,
+                        QueryPart.QueryPartsArrayToString(logonQuery),
+                        (PipesProvider.Client.TransmissionLine line, object answer) =>
+                        {
+                            // Validate logon data.
+                            bool logonResult = LogonValidator(answer, out string message);
+
+                            // Break test with error.
+                            if(!logonResult)
+                            {
+                                operationError = message;
+                                operationCompete = true;
+                                return;
+                            }
+
+                            // Collect token.
+                            tokens[indexBufer] = message;
+
+                            // increment logons counter.
+                            logonsPassed++;
+                        });
+
+                    Thread.Sleep(5);
+                }
+
+                // Wait until operation would complete.
+                while (
+                    !operationCompete && 
+                    logonsPassed < logonsCount
+                    )
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Get result.
+                Assert.IsTrue(string.IsNullOrEmpty(operationError), operationError);
+            }           
+
+        }
+
+        /// <summary>
+        /// Validate recived logon information.
+        /// </summary>
+        /// <param name="serverAnswer">Message recived from server.</param>
+        /// <param name="message">Error message if is invalid. Toke if is valid.</param>
+        /// <returns></returns>
+        public static bool LogonValidator(object serverAnswer, out string message)
+        {
+            // Trying to convert answer to string
+            if (serverAnswer is string answerS)
+            {
+                // Is operation success?
+                if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Log error.
+                    message = "Recived error:\n" + answerS;
+                    return false;
+                }
+                else
+                {
+                    // Trying to get toekn from answer.
+                    if (UniformQueries.API.TryGetParamValue("token", out string value, answerS))
+                    {
+                        // Confirm logon.
+                        message = value;
+                        return true;
+                    }
+                    else
+                    {
+                        // Log error.
+                        message = "Answer not contain token:\nFull answer:" + answerS;
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                // Assert error.
+                message = "Incorrect format of answer. Required format is string. Type:" + serverAnswer.GetType();
+                return false;
+            }
+        }
+    }
+}

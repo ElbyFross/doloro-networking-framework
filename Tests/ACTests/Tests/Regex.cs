@@ -15,7 +15,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AuthorityController.Tests
+namespace ACTests.Tests
 {
     [TestClass]
     public class Regex
@@ -53,7 +53,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType1()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -74,7 +74,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType2()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -96,7 +96,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType3()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -117,7 +117,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType4()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -138,7 +138,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_InvalidType1()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -159,7 +159,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_InvalidType2()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -180,7 +180,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_InvalidType3()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -201,7 +201,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_InvalidType4()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -222,7 +222,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_InvalidType5()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -243,7 +243,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType5()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -264,7 +264,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ComplexNameValidation_ValidType6()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePersonalDataConfig();
@@ -285,7 +285,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseValid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -306,7 +306,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseValid2()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -327,7 +327,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseValid3()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -348,7 +348,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseInvalid1()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -369,7 +369,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseInvalid2()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -391,7 +391,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseInvalid3()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -412,7 +412,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_BaseInvalid4()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create default config file.
                 SetBasePasswordConfig();
@@ -433,7 +433,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_UpperCaseValid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireUpperSymbol = true;
@@ -454,7 +454,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_UpperCaseInvalid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireUpperSymbol = true;
@@ -475,7 +475,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_SpecialSymbolValid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireSpecialSymbol = true;
@@ -496,7 +496,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_SpecialSymbolInvalid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireSpecialSymbol = true;
@@ -517,7 +517,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_DigitsValid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireDigitSymbol = true;
@@ -538,7 +538,7 @@ namespace AuthorityController.Tests
         [TestMethod]
         public void ValidatePassord_DigitsInvalid()
         {
-            lock (Locks.CONFIG_LOCK)
+            lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
                 AuthorityController.Data.Config.Active.PasswordRequireDigitSymbol = true;

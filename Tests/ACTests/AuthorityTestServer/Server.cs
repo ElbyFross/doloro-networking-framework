@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UniformServer;
 
-namespace AuthorityController.AuthorityTestServer
+namespace ACTests.AuthorityTestServer
 {
     public class Server : BaseServer
     {

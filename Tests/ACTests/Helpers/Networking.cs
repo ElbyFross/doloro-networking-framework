@@ -18,16 +18,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthorityController
+namespace ACTests.Helpers
 {
     /// <summary>
-    /// While that contain objects that can be used for detect multy thread locks.
+    /// Providing methods that simplifing work with network.
     /// </summary>
-    public static class Locks
+    public static class Networking
     {
         /// <summary>
-        /// Show doest lock file is locked.
+        /// Name  of the pipe that would be started on server during tests.
         /// </summary>
-        public static object CONFIG_LOCK = new object();
+        public readonly static string PIPE_NAME = "ACTestPublic";
+
+        /// <summary>
+        /// Starting public server that would able to recive queries.
+        /// </summary>
+        public static void StartPublicServer(int chanels = 1)
+        {
+            // Stop previos servers.
+            PipesProvider.Server.ServerAPI.StopAllServers();
+
+            // Start new server pipes.
+            for (int i = 0; i < chanels; i++)
+            {
+                AuthorityTestServer.Server.StartQueryProcessing(PIPE_NAME);
+            }
+        }
     }
 }

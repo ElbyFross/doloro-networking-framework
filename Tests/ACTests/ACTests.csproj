@@ -49,12 +49,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorityController\Data.cs" />
-    <Compile Include="AuthorityController\Queries.cs" />
-    <Compile Include="AuthorityController\Regex.cs" />
-    <Compile Include="AuthorityController\Session.cs" />
+    <Compile Include="Tests\Data.cs" />
+    <Compile Include="Tests\Queries.cs" />
+    <Compile Include="Tests\Regex.cs" />
+    <Compile Include="Tests\Session.cs" />
     <Compile Include="AuthorityTestServer\Server.cs" />
     <Compile Include="Configurator.cs" />
+    <Compile Include="Handlers\Networking.cs" />
+    <Compile Include="Handlers\Users.cs" />
     <Compile Include="Locks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,6 +89,7 @@
       <Name>UniformServer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

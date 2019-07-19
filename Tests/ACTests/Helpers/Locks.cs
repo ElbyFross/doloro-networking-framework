@@ -13,35 +13,21 @@
 //limitations under the License.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AuthorityController.Tests
+namespace ACTests.Helpers
 {
-    [TestClass]
-    public class Session
+    /// <summary>
+    /// While that contain objects that can be used for detect multy thread locks.
+    /// </summary>
+    public static class Locks
     {
         /// <summary>
-        /// Test reciving query by related server when token on AC will be update status.
+        /// Show doest lock file is locked.
         /// </summary>
-        [TestMethod]
-        public void UpdatedTokenRelativeServerCallback()
-        {
-        }
-
-        /// <summary>
-        /// Try to get user by token.
-        /// </summary>
-        [TestMethod]
-        public void UserByToken()
-        {
-        }
-
-        /// <summary>
-        /// Try to logon by multiply devices.
-        /// </summary>
-        [TestMethod]
-        public void MultiDeviceLogon()
-        {
-        }
+        public static object CONFIG_LOCK = new object();
     }
 }
