@@ -54,10 +54,10 @@
     <Compile Include="Tests\Regex.cs" />
     <Compile Include="Tests\Session.cs" />
     <Compile Include="AuthorityTestServer\Server.cs" />
-    <Compile Include="Configurator.cs" />
-    <Compile Include="Handlers\Networking.cs" />
-    <Compile Include="Handlers\Users.cs" />
-    <Compile Include="Locks.cs" />
+    <Compile Include="Helpers\FileSystem.cs" />
+    <Compile Include="Helpers\Networking.cs" />
+    <Compile Include="Helpers\Users.cs" />
+    <Compile Include="Helpers\Locks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
