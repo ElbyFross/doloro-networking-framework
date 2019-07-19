@@ -187,13 +187,13 @@ namespace AuthorityController.Data
                 if (active == null)
                 {
                     // Try to load config from directory.
-                    if (!TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
+                    if (!Handler.TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
                     {
                         // Create new one if failed.
                         active = new Config();
 
                         // Save to resources.
-                        SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
+                        Handler.SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
                     }
                 }
                 return active;
@@ -217,7 +217,7 @@ namespace AuthorityController.Data
                 if (salt == null)
                 {
                     // Try to load from resources.
-                    if (!TryToLoad<SaltContainer>(DIRECTORY + PasswordSaltFileName, out salt))
+                    if (!Handler.TryToLoad<SaltContainer>(DIRECTORY + PasswordSaltFileName, out salt))
                     {
                         // Generate new salt.
                         salt = new SaltContainer(PasswordSaltSize);
@@ -225,7 +225,7 @@ namespace AuthorityController.Data
                         try
                         {
                             // Save to resources.
-                            SaveAs<SaltContainer>(salt, DIRECTORY, PasswordSaltFileName);
+                            Handler.SaveAs<SaltContainer>(salt, DIRECTORY, PasswordSaltFileName);
                         }
                         catch (Exception ex)
                         {
@@ -252,81 +252,6 @@ namespace AuthorityController.Data
         {
             // Set as active.
             active = this;
-        }
-        #endregion
-
-        #region API
-        /// <summary>
-        /// Saving config file to directory.
-        /// </summary>
-        /// <param name="directory"></param>
-        /// <param name="fileName"></param>
-        public static void SaveAs<T>(object obj, string directory, string fileName)
-        {
-            // Check directory exist.
-            if (!Directory.Exists(directory))
-            {
-                // Create new if not exist.
-                Directory.CreateDirectory(directory);
-            }
-
-            // Convert table to XML file.
-            try
-            {
-                XmlDocument xmlDocument = new XmlDocument();
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    serializer.Serialize(stream, obj);
-                    stream.Position = 0;
-                    xmlDocument.Load(stream);
-                    xmlDocument.Save(directory + fileName);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Auth control error (ACC 10): Not serialized. Reason:\n{0}", ex.Message);
-                throw ex;
-            }
-        }
-        
-        /// <summary>
-        /// Trying to deserialize object from XML file.
-        /// </summary>
-        /// <typeparam name="T">Required type</typeparam>
-        /// <param name="path">Full path to file.</param>
-        /// <param name="result">Deserizlised object.</param>
-        /// <returns></returns>
-        public static bool TryToLoad<T>(string path, out T result)
-        { 
-            // Check file exist.
-            if (!File.Exists(path))
-            {
-                result = default;
-                return false;
-            }
-
-            // Init encoder.
-            XmlSerializer xmlSer = new XmlSerializer(typeof(T));
-
-            // Open stream to XML file.
-            using (FileStream fs = new FileStream(path, FileMode.Open))
-            {
-                try
-                {
-                    // Try to deserialize object from file.
-                    result = (T)xmlSer.Deserialize(fs);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Auth control error (ACC 20): File reading failed. Reason:\n{0}\n", ex.Message);
-                    result = default;
-                    return false;
-                }
-            }
-
-            return true;
-
         }
         #endregion
     }

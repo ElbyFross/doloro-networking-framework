@@ -46,6 +46,7 @@
     <Compile Include="API\Validation.cs" />
     <Compile Include="Data\BanInformation.cs" />
     <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\Handler.cs" />
     <Compile Include="Data\SaltContainer.cs" />
     <Compile Include="Data\TokenInfo.cs" />
     <Compile Include="Data\User.cs" />

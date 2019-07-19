@@ -87,57 +87,6 @@ namespace AuthorityController.Data
 
         #region API
         /// <summary>
-        /// Convert user data to string format to allow sharing via query.
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public static string ToQueryValue(User user)
-        {
-            // Convert table to XML file.
-            try
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(User));
-                using (StringWriter stream = new StringWriter())
-                {
-                    serializer.Serialize(stream, user);
-                    return stream.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ROUTING TABLE ERROR: Not serialized. Reason:\n{0}", ex.Message);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Trying to convert user in string format of object instance.
-        /// </summary>
-        /// <param name="queryValue">String format of user recived from ToQueryValue method.</param>
-        /// <param name="user">Instiniated user with shared data.</param>
-        /// <returns>Does convertation passed success.</returns>
-        public static bool TyToParseQueryValue(string queryValue, out User user)
-        {
-            // Convert table to XML file.
-            try
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(User));
-                using (StringReader stream = new StringReader(queryValue))
-                {
-                    user = (User)serializer.Deserialize(stream);
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("USER DATA CORUPTED. Reason:\n{0}", ex.Message);
-                user = null;
-                return false; ;
-            }
-        }
-
-
-        /// <summary>
         /// Compare recived open password with stored to user.
         /// </summary>
         /// <param name="recivedPassword"></param>

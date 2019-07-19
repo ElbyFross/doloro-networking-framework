@@ -65,6 +65,11 @@ namespace AuthorityControllerTests
         public static bool CONFIG_FILE_GENERATED = false;
 
         /// <summary>
+        /// Marker tha would be activated when ban would activated.
+        /// </summary>
+        public static bool BAN_PLACED = false;
+
+        /// <summary>
         /// Provided guest token.
         /// </summary>
         public static string GUEST_TOKEN = null;

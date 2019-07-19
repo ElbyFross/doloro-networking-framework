@@ -64,7 +64,7 @@ namespace AuthorityController.Tests
         public void Config_Load_ValidData()
         {
             // Try to load config from directory.
-            bool result = Config.TryToLoad<Config>(
+            bool result = Handler.TryToLoad<Config>(
                 Config.DIRECTORY + Config.CONFIG_FILE_NAME, out Config _);
 
             Assert.IsTrue(result, "Loading failed.");
@@ -121,7 +121,7 @@ namespace AuthorityController.Tests
             #endregion
 
             // Try to load config from directory.
-            bool result = Config.TryToLoad<Config>(
+            bool result = Handler.TryToLoad<Config>(
             corruptedFileDirectory, out Config _);
 
             Assert.IsTrue(!result, "Corrupted file cause error.");

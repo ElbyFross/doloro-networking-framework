@@ -506,6 +506,9 @@ namespace AuthorityController.API
 
                     // Update profile.
                     API.Users.SetProfileAsync(user, Config.Active.UsersStorageDirectory);
+
+                    // Skip cause already expired.
+                    continue;
                 }
 
                 // Check every baned right.

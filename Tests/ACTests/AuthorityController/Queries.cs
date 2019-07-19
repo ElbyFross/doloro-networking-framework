@@ -42,6 +42,7 @@ namespace AuthorityController.Tests
         User user_Guest = null;
         #endregion
 
+        #region Halpers
         /// <summary>
         /// Starting public server that would able to recive queries.
         /// </summary>
@@ -83,7 +84,7 @@ namespace AuthorityController.Tests
                     (new string[] { AuthorityController.API.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=16",
-                    "bannhammer",
+                    "banhammer",
                     "passwordManaging" }
                 };
 
@@ -104,7 +105,7 @@ namespace AuthorityController.Tests
                     (new string[] { AuthorityController.API.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=8",
-                    "bannhammer",
+                    "banhammer",
                     "passwordManaging" }
                 };
 
@@ -124,7 +125,7 @@ namespace AuthorityController.Tests
                     (new string[] { AuthorityController.API.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=4",
-                    "bannhammer",
+                    "banhammer",
                     "passwordManaging" }
                 };
 
@@ -228,6 +229,36 @@ namespace AuthorityController.Tests
             }
         }
 
+        /// <summary>
+        /// Return ban information data ready for test.
+        /// </summary>
+        /// <param name="banInfoXML"></param>
+        /// <param name="expiryTime"></param>
+        public void GetBanInfo(out string banInfoXML, out long expiryTime)
+        {
+            // Time when ban will expire.
+            expiryTime = DateTime.Now.AddMilliseconds(500).ToBinary();
+
+            // Create ban information.
+            BanInformation banInfo = new BanInformation()
+            {
+                active = true,
+                blockedRights = new string[] { "logon" },
+                commentary = "Test ban",
+                duration = BanInformation.Duration.Temporary,
+                expiryTime = expiryTime
+            };
+
+            // Convert to string.
+            if (!Handler.TryXMLSerialize<BanInformation>(banInfo, out banInfoXML))
+            {
+                Assert.Fail("BanInformation can't be serialized");
+                return;
+            }
+        }
+        #endregion
+
+
         [TestInitialize]
         public void Setup()
         {
@@ -239,6 +270,8 @@ namespace AuthorityController.Tests
                 1);
         }
 
+
+        #region Token rights
         /// <summary>
         /// Tryinging to get guest token using query.
         /// </summary>
@@ -452,7 +485,9 @@ namespace AuthorityController.Tests
                 Assert.IsTrue(operationResult, operationError);
             }
         }
+        #endregion
 
+        #region Ban
         /// <summary>
         /// Trying to ban user but has no rights to this.
         /// </summary>
@@ -463,6 +498,71 @@ namespace AuthorityController.Tests
             {
                 // Create users for test.
                 SetBaseUsersPool();
+
+                //Get ban info
+                GetBanInfo(out string banInfoXML, out long expiryTime);
+
+                // Create the query that would contain user data.
+                QueryPart[] query = new QueryPart[]
+                {
+                    new QueryPart("token", user_User.tokens[0]),
+                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+
+                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("user", user_Guest.id.ToString()),
+                };
+
+                // Marker that avoid finishing of the test until receiving result.
+                bool operationCompete = false;
+                bool operationResult = false;
+                string operationError = null;
+
+                // Start reciving clent line.
+                UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                    // Request connection to localhost server via main pipe.
+                    "localhost", PIPE_NAME,
+
+                    // Convert query parts array to string view in correct format provided by UniformQueries API.
+                    QueryPart.QueryPartsArrayToString(query),
+
+                    // Handler that would recive ther ver answer.
+                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    {
+                        // Trying to convert answer to string
+                        if (answer is string answerS)
+                        {
+                            // Is operation success?
+                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // Log error.
+                                operationResult = true;
+                                operationCompete = true;
+                            }
+                            else
+                            {
+                                // Log error.
+                                operationResult = false;
+                                operationError = "Permited unatorized operation. Answer:" + answerS;
+                                operationCompete = true;
+                            }
+                        }
+                        else
+                        {
+                            // Log error.
+                            operationResult = false;
+                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationCompete = true;
+                        }
+                    });
+
+                // Wait until operation would complete.
+                while (!operationCompete)
+                {
+                    Thread.Sleep(5);
+                }
+
+                Assert.IsTrue(operationResult, operationError);
             }
         }
 
@@ -470,38 +570,201 @@ namespace AuthorityController.Tests
         /// Trying to ban user that has a higher rank than requester.
         /// </summary>
         [TestMethod]
-        public void UserBan_HighrankerBan()
+        public void UserBan_ModeratorToAdmin()
         {
             lock (Locks.CONFIG_LOCK)
             {
                 // Create users for test.
                 SetBaseUsersPool();
+
+                //Get ban info
+                GetBanInfo(out string banInfoXML, out long expiryTime);
+
+                // Create the query that would contain user data.
+                QueryPart[] query = new QueryPart[]
+                {
+                    new QueryPart("token", user_Moderator.tokens[0]),
+                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+
+                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("user", user_Admin.id.ToString()),
+                };
+
+                // Marker that avoid finishing of the test until receiving result.
+                bool operationCompete = false;
+                bool operationResult = false;
+                string operationError = null;
+
+                // Start reciving clent line.
+                UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                    // Request connection to localhost server via main pipe.
+                    "localhost", PIPE_NAME,
+
+                    // Convert query parts array to string view in correct format provided by UniformQueries API.
+                    QueryPart.QueryPartsArrayToString(query),
+
+                    // Handler that would recive ther ver answer.
+                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    {
+                        // Trying to convert answer to string
+                        if (answer is string answerS)
+                        {
+                            // Is operation success?
+                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // Log error.
+                                operationResult = true;
+                                operationCompete = true;
+                            }
+                            else
+                            {
+                                // Log error.
+                                operationResult = false;
+                                operationError = "Permited unatorized operation. Answer:" + answerS;
+                                operationCompete = true;
+                            }
+                        }
+                        else
+                        {
+                            // Log error.
+                            operationResult = false;
+                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationCompete = true;
+                        }
+                    });
+
+                // Wait until operation would complete.
+                while (!operationCompete)
+                {
+                    Thread.Sleep(5);
+                }
+
+                Assert.IsTrue(operationResult, operationError);
             }
         }
 
         /// <summary>
         /// Trying to ban user with enough rights to that.
+        /// Confirm ban.
+        /// Confirm ban expiring.
         /// </summary>
         [TestMethod]
-        public void UserBan_HasRights()
+        public void UserBan_FullCycle()
         {
             lock (Locks.CONFIG_LOCK)
             {
                 // Create users for test.
                 SetBaseUsersPool();
+
+                //Get ban info
+                GetBanInfo(out string banInfoXML, out long expiryTime);
+
+                #region Ban apply
+                // Create the query that would contain user data.
+                QueryPart[] query = new QueryPart[]
+                {
+                    new QueryPart("token", user_Admin.tokens[0]),
+                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+
+                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("user", user_User.id.ToString()),
+                };
+
+                // Marker that avoid finishing of the test until receiving result.
+                bool operationCompete = false;
+                bool operationResult = false;
+                string operationError = null;
+
+                // Start reciving clent line.
+                UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                    // Request connection to localhost server via main pipe.
+                    "localhost", PIPE_NAME,
+
+                    // Convert query parts array to string view in correct format provided by UniformQueries API.
+                    QueryPart.QueryPartsArrayToString(query),
+
+                    // Handler that would recive ther ver answer.
+                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    {
+                        // Trying to convert answer to string
+                        if (answer is string answerS)
+                        {
+                            // Is operation success?
+                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // Log error.
+                                operationResult = true;
+                                operationCompete = true;
+                            }
+                            else
+                            {
+                                // Log error.
+                                operationResult = false;
+                                operationError = "Operation failed with error: " + answerS;
+                                operationCompete = true;
+                            }
+                        }
+                        else
+                        {
+                            // Log error.
+                            operationResult = false;
+                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationCompete = true;
+                        }
+                    });
+                #endregion
+
+                // Wait until operation would complete.
+                while (!operationCompete)
+                {
+                    Thread.Sleep(5);
+                }
+
+                #region Ban validation
+                // Find banned user.
+                if (!API.Users.TryToFindUser(user_User.id, out User bannedUser))
+                {
+                    Assert.Fail("Banned user lossed");
+                    return;
+                }
+
+                // Increase ban time if expired before test passing.
+                if (DateTime.Compare(DateTime.FromBinary(expiryTime), DateTime.Now) < 0)
+                {
+                    BanInformation bib = bannedUser.bans[0];
+                    bib.expiryTime = expiryTime = DateTime.Now.AddSeconds(1).ToBinary();
+                    bannedUser.bans[0] = bib;
+                }
+
+                // Check that still banned.
+                if (!API.Users.IsBanned(bannedUser, "logon"))
+                {
+                    Assert.Fail("User was not banned.");
+                    return;
+                }
+
+                // Wait until epiry time.
+                while(DateTime.Compare(DateTime.FromBinary(expiryTime), DateTime.Now) > 0)
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Check that not banned.
+                if (API.Users.IsBanned(bannedUser, "logon"))
+                {
+                    Assert.Fail("User still banned after ban's expiring.");
+                    return;
+                }
+                #endregion
+
+                Assert.IsTrue(operationResult, operationError);
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Check ban expiring.
-        /// </summary>
-        [TestMethod]
-        public void UserBan_BanExpire()
-        {
-
-        }
-
-
+        #region Logon
         /// <summary>
         /// Trying to logon as existed user with corerct logon data.
         /// </summary>
@@ -736,7 +999,9 @@ namespace AuthorityController.Tests
                 }
             }
         }
+        #endregion
 
+        #region Logoff
         /// <summary>
         /// Trying to logoff user by invalid token.
         /// </summary>
@@ -782,7 +1047,9 @@ namespace AuthorityController.Tests
                 Assert.IsTrue(result, "Token not detected.");
             }
         }
+        #endregion
 
+        #region New user
         /// <summary>
         /// Trying to create user with valid data.
         /// </summary>
@@ -1275,7 +1542,9 @@ namespace AuthorityController.Tests
                 Assert.IsTrue(operationResult, operationError);
             }
         }
+        #endregion
 
+        #region New password
         /// <summary>
         /// Trying to change self password.
         /// </summary>
@@ -1438,7 +1707,6 @@ namespace AuthorityController.Tests
             }
         }
 
-
         /// <summary>
         /// Trying to change password of user with lower rank then requester.
         /// </summary>
@@ -1519,5 +1787,6 @@ namespace AuthorityController.Tests
                 Assert.IsTrue(operationResult, operationError);
             }
         }
+        #endregion
     }
 }
