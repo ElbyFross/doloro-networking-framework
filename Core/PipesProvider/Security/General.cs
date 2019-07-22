@@ -222,11 +222,7 @@ namespace PipesProvider.Security
                 }
             }
         }
-
-        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-        public static extern bool LogonUser(String lpszUsername, String lpszDomain, String lpszPassword,
-        int dwLogonType, int dwLogonProvider, out SafeAccessTokenHandle phToken);
-        
+                
         /// <summary>
         /// Trying to get access token for remote user.
         /// In case if requested anonymous connection then return anonymous token without permission check.
@@ -251,7 +247,7 @@ namespace PipesProvider.Security
             const int LOGON_TYPE_NEW_CREDENTIALS = 9;
 
             // Call LogonUser to obtain a handle to an access token.
-            bool returnValue = LogonUser(config.userName, config.domain, config.password,
+            bool returnValue = NativeMethods.LogonUser(config.userName, config.domain, config.password,
                 LOGON_TYPE_NEW_CREDENTIALS, LOGON32_PROVIDER_WINNT50,
                 out token);
 

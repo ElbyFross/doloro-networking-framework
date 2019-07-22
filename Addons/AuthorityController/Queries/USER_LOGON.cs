@@ -101,7 +101,7 @@ namespace AuthorityController.Queries
                 // Add every code splited by '+'.
                 query += "+" + rightsCode;
             }
-            
+
             // Send token to client.
             UniformServer.BaseServer.SendAnswerViaPP(query, queryParts);
             #endregion

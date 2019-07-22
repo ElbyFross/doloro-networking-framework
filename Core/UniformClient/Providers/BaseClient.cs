@@ -108,10 +108,10 @@ namespace UniformClient
         protected static void ArgsReactor(string[] args)
         {
             // Get a pointer to this console.
-            IntPtr hwnd = GetConsoleWindow();
+            IntPtr hwnd = NativeMethods.GetConsoleWindow();
 
             // Change window state.
-            ShowWindow(hwnd, SW_SHOW);
+            NativeMethods.ShowWindow(hwnd, SW_SHOW);
 
             // Check every argument.
             foreach (string s in args)
@@ -119,7 +119,7 @@ namespace UniformClient
                 // Hide application from tray.
                 if (s == "hide")
                 {
-                    ShowWindow(hwnd, SW_HIDE);
+                    NativeMethods.ShowWindow(hwnd, SW_HIDE);
                     continue;
                 }
             }

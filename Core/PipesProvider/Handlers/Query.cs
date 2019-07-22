@@ -53,8 +53,7 @@ namespace PipesProvider.Handlers
                 // Inform about error.
                 Console.WriteLine("POST ERROR: Token: {1} | Handler for query \"{0}\" not implemented.",
                     query, token);
-            }
-           
+            }           
         }
     }
 }

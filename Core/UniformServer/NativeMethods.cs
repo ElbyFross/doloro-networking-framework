@@ -13,34 +13,30 @@
 //limitations under the License.
 
 using System;
-using System.Collections;
 using System.Runtime.InteropServices;
-using System.Reflection;
-using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Security.Cryptography;
 
-using Microsoft.Win32.SafeHandles;
-
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
-
-namespace UniformClient
+namespace UniformServer
 {
-    /// <summary>
-    /// Part off class that provide controll under the process.
-    /// </summary>
-    public abstract partial class BaseClient
+    public static class NativeMethods
     {
         /// <summary>
-        /// Argument that will hide console window.
+        /// Imported method that allo to controll console window state.
         /// </summary>
-        protected const int SW_HIDE = 0;
+        /// <param name="hWnd"></param>
+        /// <param name="nCmdShow"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
         /// <summary>
-        /// Agrument that will show console window.
+        /// Inported method that allow acces to console window.
         /// </summary>
-        protected const int SW_SHOW = 5;
+        /// <returns></returns>
+        [DllImport("Kernel32")]
+        public static extern IntPtr GetConsoleWindow();
     }
 }

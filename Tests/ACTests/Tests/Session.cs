@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Collections;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UniformQueries;
@@ -38,24 +39,42 @@ namespace ACTests.Tests
         [TestMethod]
         public void UserByToken()
         {
-        }
+            lock (Helpers.Locks.CONFIG_LOCK)
+            {
+                // Create users for test.
+                Helpers.Users.SetBaseUsersPool();
 
-        /// <summary>
-        /// Try to logon by the same device multiply times.
-        /// </summary>
-        [TestMethod]
-        public void MultiLogon_SameDevice()
-        {
-        }
+                // Get token info.
+                if (!AuthorityController.Session.Current.TryGetTokenInfo(
+                    Helpers.Users.user_User.tokens[0],
+                    out AuthorityController.Data.TokenInfo info))
+                {
+                    Assert.Fail("User by token " + Helpers.Users.user_User.tokens[0] + " not found");
+                    return;
+                }
 
+                // Get user by registred id.
+                if(!AuthorityController.API.Users.TryToFindUser(
+                    info.userId, 
+                    out AuthorityController.Data.User user))
+                {
+                    Assert.Fail("User with id " + info.userId + " not exist");
+                    return;
+                }
+
+                // All passed as expected.
+                Assert.IsTrue(true);
+            }
+        }
+       
         /// <summary>
         /// Try to logon by multiply devices.
         /// </summary>
         [TestMethod]
-        public void MultiLogon_MultiDevice()
+        public void MultiLogon()
         {
             // How many time will procceded logon.
-            int logonsCount = 10;
+            int logonsCount = 30;
 
             lock (Helpers.Locks.CONFIG_LOCK)
             {
@@ -65,14 +84,22 @@ namespace ACTests.Tests
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer(logonsCount);
 
+                //int startedServers = PipesProvider.Server.ServerAPI.SeversThreadsCount;
+                //if (startedServers < logonsCount)
+                //{
+                //    Assert.Fail(
+                //        "Started servers' threads less than requested. " +
+                //        PipesProvider.Server.ServerAPI.SeversThreadsCount +
+                //        "/" + logonsCount);
+                //    return;
+                //}
+
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
                 string operationError = null;
 
                 // Array that would contain recived tokens.
-                string[] tokens = new string[logonsCount];
-                // Counter that shows how many logons completed.
-                int logonsPassed = 0;
+                Hashtable tokens = new Hashtable();
 
                 // Request every token.
                 for (int i = 0; i < logonsCount; i++)
@@ -97,27 +124,35 @@ namespace ACTests.Tests
                     };
                     #endregion
 
+                    int callbacks = 0;
                     // Start reciving clent line.
                     BaseClient.EnqueueDuplexQueryViaPP("localhost", Helpers.Networking.PIPE_NAME,
                         QueryPart.QueryPartsArrayToString(logonQuery),
                         (PipesProvider.Client.TransmissionLine line, object answer) =>
                         {
+                            callbacks++;
                             // Validate logon data.
                             bool logonResult = LogonValidator(answer, out string message);
 
                             // Break test with error.
-                            if(!logonResult)
+                            if (!logonResult)
                             {
                                 operationError = message;
                                 operationCompete = true;
                                 return;
                             }
 
-                            // Collect token.
-                            tokens[indexBufer] = message;
-
-                            // increment logons counter.
-                            logonsPassed++;
+                            // Chek token conflict.
+                            if (tokens.Contains(message))
+                            {
+                                operationError = "The same token already provided.";
+                                operationCompete = true;
+                            }
+                            else
+                            {
+                                // Save token.
+                                tokens.Add(message, message);
+                            }
                         });
 
                     Thread.Sleep(5);
@@ -125,8 +160,8 @@ namespace ACTests.Tests
 
                 // Wait until operation would complete.
                 while (
-                    !operationCompete && 
-                    logonsPassed < logonsCount
+                    !operationCompete &&
+                    tokens.Count < logonsCount
                     )
                 {
                     Thread.Sleep(5);
@@ -134,8 +169,7 @@ namespace ACTests.Tests
 
                 // Get result.
                 Assert.IsTrue(string.IsNullOrEmpty(operationError), operationError);
-            }           
-
+            }
         }
 
         /// <summary>

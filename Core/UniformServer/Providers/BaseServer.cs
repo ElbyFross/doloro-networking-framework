@@ -13,7 +13,6 @@
 //limitations under the License.
 
 using System;
-using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
 using System.IO;
@@ -30,23 +29,6 @@ namespace UniformServer
     public abstract partial class BaseServer
     {
         #region Static fields and properties
-        /// <summary>
-        /// Imported method that allo to controll console window state.
-        /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="nCmdShow"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll")]
-        protected static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-        /// <summary>
-        /// Inported method that allow acces to console window.
-        /// </summary>
-        /// <returns></returns>
-        [DllImport("Kernel32")]
-        protected static extern IntPtr GetConsoleWindow();
-
-
         /// <summary>
         /// If true then will stop main loop.
         /// </summary>
@@ -189,10 +171,10 @@ namespace UniformServer
         protected static void ArgsReactor(string[] args)
         {
             // Get a pointer to this console.
-            IntPtr hwnd = GetConsoleWindow();
+            IntPtr hwnd = NativeMethods.GetConsoleWindow();
 
             // Change window state.
-            ShowWindow(hwnd, SW_SHOW);
+            NativeMethods.ShowWindow(hwnd, SW_SHOW);
 
             // Check every argument.
             foreach (string s in args)
@@ -200,7 +182,7 @@ namespace UniformServer
                 // Hide application from tray.
                 if (s == "hide")
                 {
-                    ShowWindow(hwnd, SW_HIDE);
+                    NativeMethods.ShowWindow(hwnd, SW_HIDE);
                     continue;
                 }
 

@@ -73,7 +73,7 @@ namespace AuthorityController
         /// Key - string token
         /// Value - TokenInfo
         /// </summary>
-        private readonly Hashtable tokensRights = new Hashtable();
+        private readonly Hashtable tokensToInfo = new Hashtable();
         #endregion
 
         #region Public methods
@@ -107,7 +107,7 @@ namespace AuthorityController
         public bool AsignTokenToUser(User user, string token, string mac, string os, string stamp)
         {
             // Update rights if already exist.
-            if (tokensRights[token] is TokenInfo)
+            if (tokensToInfo[token] is TokenInfo)
             {
                 // Inform that token alredy asigned.
                 return false;
@@ -129,7 +129,7 @@ namespace AuthorityController
             }
 
             // Create token registration for this user id.
-            tokensRights.Add(
+            tokensToInfo.Add(
                 token,
                 info);
 
@@ -149,10 +149,10 @@ namespace AuthorityController
         public void SetTokenRights(string token, params string[] rights)
         {
             // Update rights if already exist.
-            if (tokensRights.ContainsKey(token))
+            if (tokensToInfo.ContainsKey(token))
             {
                 // Loading token info.
-                TokenInfo info = (TokenInfo)tokensRights[token];
+                TokenInfo info = (TokenInfo)tokensToInfo[token];
 
                 // If not anonymous user.
                 if (API.Users.TryToFindUser(info.userId, out User user))
@@ -161,7 +161,7 @@ namespace AuthorityController
                     foreach(string additiveTokens in user.tokens)
                     {
                         // Loading toking info.
-                        TokenInfo additiveInfo = (TokenInfo)tokensRights[additiveTokens];
+                        TokenInfo additiveInfo = (TokenInfo)tokensToInfo[additiveTokens];
 
                         // Update rights.
                         additiveInfo.rights = rights;
@@ -191,7 +191,7 @@ namespace AuthorityController
                 info.rights = rights;
 
                 // Set as new.
-                tokensRights.Add(token, info);
+                tokensToInfo.Add(token, info);
 
                 // Send info to relative servers.
                 ShareTokenRights(token, rights);
@@ -207,7 +207,7 @@ namespace AuthorityController
         public bool TryGetTokenRights(string token, out string[] rights)
         {
             // Try to get regustred rights.
-            if (tokensRights[token] is Data.TokenInfo rightsBufer)
+            if (tokensToInfo[token] is Data.TokenInfo rightsBufer)
             {
                 rights = rightsBufer.rights;
                 return true;
@@ -250,7 +250,7 @@ namespace AuthorityController
         /// <returns></returns>
         public bool TryGetTokenInfo(string token, out TokenInfo info)
         {
-            if(tokensRights[token] is TokenInfo bufer)
+            if(tokensToInfo[token] is TokenInfo bufer)
             {
                 info = bufer;
                 return true;
@@ -272,7 +272,7 @@ namespace AuthorityController
             try
             {
                 // If user not anonymous.
-                if (tokensRights[token] is TokenInfo info)
+                if (tokensToInfo[token] is TokenInfo info)
                 {
                     // Try to get user by id.
                     // Would found if server not anonymous and has registred data about user.
@@ -283,7 +283,7 @@ namespace AuthorityController
                     }
 
                     // Unregister token from table.
-                    tokensRights.Remove(token);
+                    tokensToInfo.Remove(token);
 
                     // Conclude success of operation.
                     return true;

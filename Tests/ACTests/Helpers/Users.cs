@@ -175,10 +175,11 @@ namespace ACTests.Helpers
                 #endregion
 
                 // Wait until loading.
-                while (AC_API.Users.HasAsyncLoadings)
+                do
                 {
                     Thread.Sleep(5);
                 }
+                while (AC_API.Users.HasAsyncLoadings);
 
                 #region Authorize tokens
                 // Super admin

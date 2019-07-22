@@ -364,14 +364,11 @@ namespace ACTests.Tests
         [TestMethod]
         public void SaltGeneration()
         {
+            // Generate config if not generated yet.
+            _ = Config.Active;
+
             lock (Helpers.Locks.CONFIG_LOCK)
             {
-                // Wait for config files.
-                while (!CONFIG_FILE_GENERATED)
-                {
-                    Thread.Sleep(5);
-                }
-
                 Salt_Init();
                 Salt_Loading();
                 Salt_Validation_ValidData();

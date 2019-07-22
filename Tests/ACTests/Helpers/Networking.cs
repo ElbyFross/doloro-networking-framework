@@ -41,6 +41,7 @@ namespace ACTests.Helpers
             // Start new server pipes.
             for (int i = 0; i < chanels; i++)
             {
+                // Open server.
                 AuthorityTestServer.Server.StartQueryProcessing(PIPE_NAME);
             }
         }

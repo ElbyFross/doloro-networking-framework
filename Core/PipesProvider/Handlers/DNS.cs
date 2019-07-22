@@ -69,7 +69,10 @@ namespace PipesProvider.Handlers
                         {
                             controller.pipeServer.Disconnect();
                         }
-                        catch { throw; }
+                        catch
+                        {
+                            // Exception caused by disconecction on client side.
+                        }
 
                         return;
                     }
@@ -80,7 +83,14 @@ namespace PipesProvider.Handlers
                 // Disconnect user if query recived.
                 if (controller.pipeServer.IsConnected)
                 {
-                    controller.pipeServer.Disconnect();
+                    try
+                    {
+                        controller.pipeServer.Disconnect();
+                    }
+                    catch
+                    {
+                        // Exception caused by disconecction on client side.
+                    }
                 }
 
                 // Remove temporal data.
@@ -134,11 +144,16 @@ namespace PipesProvider.Handlers
 
                 // Buferise query before calling of async operations.
                 string sharedQuery = outController.ProcessingQuery;
-
+                
                 // Read until trasmition exits not finished.
                 // Avoid an error caused to disconection of client.
                 try
                 {
+                    if (!outController.pipeServer.IsConnected)
+                    {
+                        Thread.Sleep(5);
+                    }
+
                     // Write message to stream.
                     Console.WriteLine("{0}: Start transmission to client.", outController.pipeName);
                     await sw.WriteAsync(sharedQuery);
@@ -165,7 +180,9 @@ namespace PipesProvider.Handlers
                     controller.pipeServer.Disconnect();
                 }
                 catch
-                { }
+                {
+                    // Exception caused by disconecction on client side.
+                }
             }
 
             // Remove temporal data.
@@ -220,7 +237,14 @@ namespace PipesProvider.Handlers
             // Disconnect user if query recived.
             if (controller.pipeServer.IsConnected)
             {
-                controller.pipeServer.Disconnect();
+                try
+                {
+                    controller.pipeServer.Disconnect();
+                }
+                catch
+                {
+                    // Exception caused by disconecction on client side.
+                }
             }
 
             // Log about transmission finish.
