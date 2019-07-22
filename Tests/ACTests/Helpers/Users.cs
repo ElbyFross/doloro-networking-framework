@@ -19,7 +19,8 @@ using Microsoft.Win32.SafeHandles;
 using UniformServer;
 using UniformClient;
 using PipesProvider.Server.TransmissionControllers;
-using AuthorityController.Data;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 using AuthorityController.API;
 using AC_API = AuthorityController.API;
 
@@ -184,27 +185,27 @@ namespace ACTests.Helpers
                 #region Authorize tokens
                 // Super admin
                 AuthorityController.Session.Current.AsignTokenToUser(user_SuperAdmin, user_SuperAdmin.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_SuperAdmin.tokens[0], user_SuperAdmin.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_SuperAdmin.tokens[0], user_SuperAdmin.rights);
 
                 // Admin
                 AuthorityController.Session.Current.AsignTokenToUser(user_Admin, user_Admin.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Admin.tokens[0], user_Admin.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_Admin.tokens[0], user_Admin.rights);
 
                 // Moderator
                 AuthorityController.Session.Current.AsignTokenToUser(user_Moderator, user_Moderator.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Moderator.tokens[0], user_Moderator.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_Moderator.tokens[0], user_Moderator.rights);
 
                 // Privileged user
                 AuthorityController.Session.Current.AsignTokenToUser(user_PrivilegedUser, user_PrivilegedUser.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_PrivilegedUser.tokens[0], user_PrivilegedUser.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_PrivilegedUser.tokens[0], user_PrivilegedUser.rights);
 
                 // User
                 AuthorityController.Session.Current.AsignTokenToUser(user_User, user_User.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_User.tokens[0], user_User.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_User.tokens[0], user_User.rights);
 
                 // Guest
                 AuthorityController.Session.Current.AsignTokenToUser(user_Guest, user_Guest.tokens[0]);
-                AuthorityController.Session.Current.SetTokenRights(user_Guest.tokens[0], user_Guest.rights);
+                AuthorityController.Session.Current.SetTokenRightsLocal(user_Guest.tokens[0], user_Guest.rights);
                 #endregion
             }
         }

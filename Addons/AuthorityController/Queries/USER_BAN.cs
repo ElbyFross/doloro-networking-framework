@@ -13,10 +13,10 @@
 //limitations under the License.
 
 using System;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -32,7 +32,6 @@ namespace AuthorityController.Queries
 
         public void Execute(QueryPart[] queryParts)
         {
-            string error;
 
             #region Get params
             // Get requestor token.
@@ -49,8 +48,8 @@ namespace AuthorityController.Queries
             if (!API.Tokens.IsHasEnoughRigths(
                 token.propertyValue,
                 out string[] requesterRights,
-                out error,
-                Data.Config.Active.QUERY_UserBan_RIGHTS))
+                out string error,
+                Config.Active.QUERY_UserBan_RIGHTS))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -60,7 +59,7 @@ namespace AuthorityController.Queries
 
             #region Detect target user
             // Find user for ban.
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out Data.User userProfile, out error))
+            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -86,11 +85,11 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Apply ban
-            Data.BanInformation banInfo;
+            BanInformation banInfo;
             if (!string.IsNullOrEmpty(ban.propertyValue))
             {
                 // Get ban information.
-                if (!Data.Handler.TryXMLDeserizlize<Data.BanInformation>
+                if (!Data.Handler.TryXMLDeserizlize<BanInformation>
                     (ban.propertyValue, out banInfo))
                 {
 
@@ -102,7 +101,7 @@ namespace AuthorityController.Queries
             else
             {
                 // Set auto configurated permanent ban if detail not described.
-                banInfo = Data.BanInformation.Permanent;
+                banInfo = BanInformation.Permanent;
             }
 
             // Add ban to user.

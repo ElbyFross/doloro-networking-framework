@@ -13,10 +13,8 @@
 //limitations under the License.
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.API
 {
@@ -59,7 +57,7 @@ namespace AuthorityController.API
             DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
 
             // Compare with allowed token time.
-            if (when < DateTime.UtcNow.AddMinutes(-Data.Config.Active.TokenValidTimeMinutes))
+            if (when < DateTime.UtcNow.AddMinutes(-Config.Active.TokenValidTimeMinutes))
             {
                 // Confirm expiration.
                 return true;
@@ -145,13 +143,13 @@ namespace AuthorityController.API
             string sessionToken = API.Tokens.UnusedToken;
 
             // Registrate token with guest rank.
-            Session.Current.SetTokenRights(sessionToken, new string[] { "rank=0" });
+            Session.Current.SetTokenRightsLocal(sessionToken, new string[] { "rank=0" });
 
             // Return session data to user.
             string query = string.Format("token={1}{0}expiryIn={2}{0}rights=rank=0",
                 UniformQueries.API.SPLITTING_SYMBOL,
                 sessionToken,
-                Data.Config.Active.TokenValidTimeMinutes);
+                Config.Active.TokenValidTimeMinutes);
 
             return query;
         }

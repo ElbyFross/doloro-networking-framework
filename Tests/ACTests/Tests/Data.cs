@@ -16,6 +16,9 @@ using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AuthorityController.Data;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Temporal;
+using AuthorityController.Data.Application;
 using System.Threading;
 
 namespace ACTests.Tests
@@ -384,7 +387,7 @@ namespace ACTests.Tests
             try
             {
                 // Init new salt file generation.
-                _ = AuthorityController.Data.Config.Active.Salt;
+                _ = Config.Active.Salt;
             }
             catch (Exception ex)
             {
@@ -395,7 +398,7 @@ namespace ACTests.Tests
 
             bool result = File.Exists(
                 Config.DIRECTORY +
-                AuthorityController.Data.Config.Active.PasswordSaltFileName);
+                Config.Active.PasswordSaltFileName);
 
             Assert.IsTrue(result, "Salt file not found");
         }
@@ -411,7 +414,7 @@ namespace ACTests.Tests
             try
             {
                 // Call existed salt.
-                _ = AuthorityController.Data.Config.Active.Salt;
+                _ = Config.Active.Salt;
 
                 Assert.IsTrue(true);
             }
@@ -427,7 +430,7 @@ namespace ACTests.Tests
         public void Salt_Validation_ValidData()
         {
             // Validate
-            bool result = AuthorityController.Data.Config.Active.Salt.Validate();
+            bool result = Config.Active.Salt.Validate();
 
             // Assert.
             Assert.IsTrue(result, "Stamp not pass validation");
@@ -439,10 +442,10 @@ namespace ACTests.Tests
         public void Salt_Validation_InvalidData()
         {
             // Reinit stamp with the same lenght but with default values.
-            AuthorityController.Data.Config.Active.Salt.validationStamp = new byte[AuthorityController.Data.Config.Active.Salt.validationStamp.Length];
+            Config.Active.Salt.validationStamp = new byte[Config.Active.Salt.validationStamp.Length];
 
             // Validate
-            bool result = AuthorityController.Data.Config.Active.Salt.Validate();
+            bool result = Config.Active.Salt.Validate();
 
             // Assert.
             Assert.IsTrue(!result, "Validator pass invalid stamp.");

@@ -14,6 +14,7 @@
 
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AuthorityController.Data.Application;
 
 namespace ACTests.Tests
 {
@@ -25,7 +26,7 @@ namespace ACTests.Tests
         /// </summary>
         private void SetBasePasswordConfig()
         {
-            new AuthorityController.Data.Config()
+            new Config()
             {
                 PasswordRequireUpperSymbol = false,
                 PasswordRequireDigitSymbol = false,
@@ -40,7 +41,7 @@ namespace ACTests.Tests
         /// </summary>
         private void SetBasePersonalDataConfig()
         {
-            new AuthorityController.Data.Config()
+            new Config()
             {
                 
             };
@@ -436,7 +437,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireUpperSymbol = true;
+                Config.Active.PasswordRequireUpperSymbol = true;
 
                 // Valid one
                 string passwordInvalid4 = "Qwerty";
@@ -457,7 +458,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireUpperSymbol = true;
+                Config.Active.PasswordRequireUpperSymbol = true;
 
                 // invalid one
                 string passwordInvalid4 = "qwerty";
@@ -478,7 +479,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireSpecialSymbol = true;
+                Config.Active.PasswordRequireSpecialSymbol = true;
 
                 // invalid one
                 string passwordInvalid4 = "qwerty!";
@@ -499,7 +500,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireSpecialSymbol = true;
+                Config.Active.PasswordRequireSpecialSymbol = true;
 
                 // invalid one
                 string passwordInvalid4 = "qwerty";
@@ -520,7 +521,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireDigitSymbol = true;
+                Config.Active.PasswordRequireDigitSymbol = true;
 
                 // invalid one
                 string passwordInvalid4 = "qwerty4";
@@ -541,7 +542,7 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 SetBasePasswordConfig();
-                AuthorityController.Data.Config.Active.PasswordRequireDigitSymbol = true;
+                Config.Active.PasswordRequireDigitSymbol = true;
 
                 // invalid one
                 string passwordInvalid4 = "qwerty";

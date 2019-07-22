@@ -14,7 +14,7 @@
 
 using System.Security.Cryptography;
 
-namespace AuthorityController.Data
+namespace AuthorityController.Data.Application
 {
     [System.Serializable]
     public class SaltContainer

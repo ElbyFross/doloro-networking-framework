@@ -18,7 +18,8 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UniformQueries;
 using UniformClient;
-using PipesProvider.Client;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Temporal;
 
 namespace ACTests.Tests
 {
@@ -31,6 +32,18 @@ namespace ACTests.Tests
         [TestMethod]
         public void UpdatedTokenRelativeServerCallback()
         {
+            lock (Helpers.Locks.CONFIG_LOCK)
+            {
+                // Create users for test.
+                Helpers.Users.SetBaseUsersPool();
+
+                // Set routing table.
+
+                // Start authority server
+
+
+                // Start followers.
+            }
         }
 
         /// <summary>
@@ -47,7 +60,7 @@ namespace ACTests.Tests
                 // Get token info.
                 if (!AuthorityController.Session.Current.TryGetTokenInfo(
                     Helpers.Users.user_User.tokens[0],
-                    out AuthorityController.Data.TokenInfo info))
+                    out TokenInfo info))
                 {
                     Assert.Fail("User by token " + Helpers.Users.user_User.tokens[0] + " not found");
                     return;
@@ -56,7 +69,7 @@ namespace ACTests.Tests
                 // Get user by registred id.
                 if(!AuthorityController.API.Users.TryToFindUser(
                     info.userId, 
-                    out AuthorityController.Data.User user))
+                    out User user))
                 {
                     Assert.Fail("User with id " + info.userId + " not exist");
                     return;
@@ -84,15 +97,15 @@ namespace ACTests.Tests
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer(logonsCount);
 
-                //int startedServers = PipesProvider.Server.ServerAPI.SeversThreadsCount;
-                //if (startedServers < logonsCount)
-                //{
-                //    Assert.Fail(
-                //        "Started servers' threads less than requested. " +
-                //        PipesProvider.Server.ServerAPI.SeversThreadsCount +
-                //        "/" + logonsCount);
-                //    return;
-                //}
+                int startedServers = PipesProvider.Server.ServerAPI.SeversThreadsCount;
+                if (startedServers < logonsCount)
+                {
+                    Assert.Fail(
+                        "Started servers' threads less than requested. " +
+                        PipesProvider.Server.ServerAPI.SeversThreadsCount +
+                        "/" + logonsCount);
+                    return;
+                }
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -110,17 +123,18 @@ namespace ACTests.Tests
                     // Create the query that would simulate logon.
                     QueryPart[] logonQuery = new QueryPart[]
                     {
-                    new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                        // TODO INVALID TOKEN
+                        new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                        new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("user", null),
-                    new QueryPart("logon", null),
+                        new QueryPart("user", null),
+                        new QueryPart("logon", null),
 
-                    new QueryPart("login", "sadmin"),
-                    new QueryPart("password", "password"),
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous" + i),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
+                        new QueryPart("login", "sadmin"),
+                        new QueryPart("password", "password"),
+                        new QueryPart("os", Environment.OSVersion.VersionString),
+                        new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
+                        new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                     };
                     #endregion
 

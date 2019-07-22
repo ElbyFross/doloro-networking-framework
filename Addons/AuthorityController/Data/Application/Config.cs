@@ -17,7 +17,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace AuthorityController.Data
+namespace AuthorityController.Data.Application
 {
     /// <summary>
     /// Object that contain data for setup of authority controller.

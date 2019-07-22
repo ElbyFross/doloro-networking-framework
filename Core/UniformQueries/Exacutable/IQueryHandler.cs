@@ -18,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniformQueries
+namespace UniformQueries.Executable
 {
     /// <summary>
     /// All classes that implements this interface 

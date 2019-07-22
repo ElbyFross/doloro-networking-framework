@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using UniformQueries;
+using UniformQueries.Executable;
 
 namespace UniformServer.Queries
 {

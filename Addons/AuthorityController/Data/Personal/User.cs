@@ -20,8 +20,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
+using AuthorityController.Data.Application;
 
-namespace AuthorityController.Data
+namespace AuthorityController.Data.Personal
 {
     /// <summary>
     /// Object that contain relevant data about user.
@@ -94,7 +95,7 @@ namespace AuthorityController.Data
         public bool IsOpenPasswordCorrect(string recivedPassword)
         {
             // Get hashed password from recived.
-            byte[] recivedHashedPassword = API.Users.GetHashedPassword(recivedPassword, Data.Config.Active.Salt);
+            byte[] recivedHashedPassword = API.Users.GetHashedPassword(recivedPassword, Config.Active.Salt);
 
             // Compare.
             return IsHashedPasswordCorrect(recivedHashedPassword);

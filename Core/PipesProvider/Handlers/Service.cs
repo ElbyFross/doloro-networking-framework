@@ -58,9 +58,11 @@ namespace PipesProvider.Handlers
                 {
                     Console.WriteLine("CONNECTION ERROR (CECR EWFC): {0} ", ex.Message);
                 }
-                // Connection failed. Drop.
-                // TODO Possible error?
-                //return;
+                else
+                {
+                    // Connection failed. Drop.
+                    return;
+                }
             }
 
             try

@@ -13,17 +13,12 @@
 //limitations under the License.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
-using PipesProvider.Security;
 using PipesProvider.Server;
-using PipesProvider.Client;
 using PipesProvider.Networking.Routing;
+using AuthorityController.Data.Application;
 
 namespace SessionProvider
 {
@@ -35,15 +30,6 @@ namespace SessionProvider
     /// </summary>
     class Server : UniformServer.BaseServer
     {
-        /// <summary>
-        /// Routing table that contain instructions to access reletive servers
-        /// that need to be informed about token events.
-        /// 
-        /// Before sharing query still will check is the query stituable for that routing instruction.
-        /// If you no need any filtring then just leave query patterns empty.
-        /// </summary>
-        public static RoutingTable relatedServers;
-
         public static bool UsersLoaded
         {
             get;
@@ -84,11 +70,11 @@ namespace SessionProvider
 
             #region Initialize authority controller
             // Subscribe to events.
-            AuthorityController.Session.InformateRelatedServers += InformateRelatedServers;
+            //AuthorityController.Session.InformateRelatedServers += InformateRelatedServers;
 
             // Load users.
             AuthorityController.API.Users.DirectoryLoadingFinished += Users_DirectoryLoadingUnlocked;
-            AuthorityController.API.Users.LoadProfilesAsync(AuthorityController.Data.Config.Active.UsersStorageDirectory);
+            AuthorityController.API.Users.LoadProfilesAsync(Config.Active.UsersStorageDirectory);
             #endregion
 
             #region Guest tokens broadcasting
@@ -130,7 +116,7 @@ namespace SessionProvider
             ServerAPI.StopAllServers();
 
             // Unsubscribe from events
-            AuthorityController.Session.InformateRelatedServers -= InformateRelatedServers;
+            //AuthorityController.Session.InformateRelatedServers -= InformateRelatedServers;
             AuthorityController.API.Users.DirectoryLoadingFinished -= Users_DirectoryLoadingUnlocked;
 
             // Whait until close.
@@ -142,44 +128,12 @@ namespace SessionProvider
         private static void Users_DirectoryLoadingUnlocked(string unlockedDirectory, int sucess, int failed)
         {
             // If users storage loaded.
-            if (unlockedDirectory.Equals(AuthorityController.Data.Config.Active.UsersStorageDirectory))
+            if (unlockedDirectory.Equals(Config.Active.UsersStorageDirectory))
             {
                 // Mark users like unlocked.
                 UsersLoaded = true;
 
                 // TODO Check super admin existing.
-            }
-        }
-
-
-        /// <summary>
-        /// Transmit information to every related server that suitable for query format.
-        /// </summary>
-        /// <param name="message"></param>
-        private static void InformateRelatedServers(string message)
-        {
-            // Inform relative servers.
-            if (relatedServers != null)
-            {
-                // Check every instruction.
-                for (int i = 0; i < relatedServers.intructions.Count; i++)
-                {
-                    // Get instruction.
-                    Instruction instruction = relatedServers.intructions[i];
-
-                    // Does instruction situable to query.
-                    if (!instruction.IsRoutingTarget(message))
-                    {
-                        // Skip if not.
-                        continue;
-                    }
-
-                    // Open transmission line to server.
-                    UniformClient.BaseClient.OpenOutTransmissionLineViaPP(instruction.routingIP, instruction.pipeName).
-                        EnqueueQuery(message).                  // Add query to queue.
-                        SetInstructionAsKey(ref instruction).   // Apply encryption if requested.
-                        TryLogonAs(instruction.logonConfig);    // Profide logon data to access remote machine.
-                }
             }
         }
     }

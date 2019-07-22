@@ -44,12 +44,14 @@
     <Compile Include="API\Collections.cs" />
     <Compile Include="API\Users.cs" />
     <Compile Include="API\Validation.cs" />
-    <Compile Include="Data\BanInformation.cs" />
-    <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\Personal\BanInformation.cs" />
+    <Compile Include="Data\Application\Config.cs" />
     <Compile Include="Data\Handler.cs" />
-    <Compile Include="Data\SaltContainer.cs" />
-    <Compile Include="Data\TokenInfo.cs" />
-    <Compile Include="Data\User.cs" />
+    <Compile Include="Data\Application\SaltContainer.cs" />
+    <Compile Include="Data\Temporal\TokenInfo.cs" />
+    <Compile Include="Data\Personal\User.cs" />
+    <Compile Include="Extensions\PipesProvider\AuthorizedInstruction.cs" />
+    <Compile Include="Extensions\UniformQueries\AuthQueryProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GET_GUEST_TOKEN.cs" />
     <Compile Include="Queries\SET_TOKEN_RIGHTS.cs" />
@@ -68,6 +70,10 @@
     <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\UniformClient\UniformClient.csproj">
+      <Project>{7b1fd360-4a04-4574-b15e-8fc2d7c4dbad}</Project>
+      <Name>UniformClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
       <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>

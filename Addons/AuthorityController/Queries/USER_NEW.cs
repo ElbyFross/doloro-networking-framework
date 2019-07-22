@@ -12,12 +12,11 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -60,14 +59,14 @@ namespace AuthorityController.Queries
 
             #region Validate login
             if (string.IsNullOrEmpty(login.propertyValue) ||
-               login.propertyValue.Length < Data.Config.Active.LoginMinSize ||
-               login.propertyValue.Length > Data.Config.Active.LoginMaxSize)
+               login.propertyValue.Length < Config.Active.LoginMinSize ||
+               login.propertyValue.Length > Config.Active.LoginMaxSize)
             {
                 // Inform about incorrect login size.
                 UniformServer.BaseServer.SendAnswerViaPP(
                     "ERROR 401: Invalid login size. Require " +
-                    Data.Config.Active.LoginMinSize + "-" +
-                    Data.Config.Active.LoginMaxSize + " caracters.",
+                    Config.Active.LoginMinSize + "-" +
+                    Config.Active.LoginMaxSize + " caracters.",
                     queryParts);
                 return;
             }
@@ -84,7 +83,7 @@ namespace AuthorityController.Queries
             }
 
             // Check login exist.
-            if (API.Users.TryToFindUser(login.propertyValue, out Data.User _))
+            if (API.Users.TryToFindUser(login.propertyValue, out User _))
             {
                 // Inform that target user has the same or heigher rank then requester.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Login occupied", queryParts);
@@ -132,10 +131,10 @@ namespace AuthorityController.Queries
 
             #region Create user profile data.
             // Create base data.
-            Data.User userProfile = new Data.User()
+            User userProfile = new User()
             {
                 login = login.propertyValue,
-                password = API.Users.GetHashedPassword(password.propertyValue, Data.Config.Active.Salt),
+                password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt),
                 firstName = firstName,
                 secondName = secondName
             };
@@ -144,11 +143,11 @@ namespace AuthorityController.Queries
             userProfile.id = API.Users.GenerateID(userProfile);
 
             // Set rights default rights.
-            userProfile.rights = Data.Config.Active.UserDefaultRights;
+            userProfile.rights = Config.Active.UserDefaultRights;
             #endregion
 
             // Save profile in storage.
-            API.Users.SetProfileAsync(userProfile, Data.Config.Active.UsersStorageDirectory);
+            API.Users.SetProfileAsync(userProfile, Config.Active.UsersStorageDirectory);
             API.Users.UserProfileStored += DataStoredCallback;
             API.Users.UserProfileNotStored += DataStroringFailed;
 
@@ -160,7 +159,7 @@ namespace AuthorityController.Queries
             string storingError = null;
 
 
-            void DataStoredCallback(Data.User target)
+            void DataStoredCallback(User target)
             {
                 // Check is that user is a target of this request.
                 if (target.id == userProfile.id)
@@ -177,7 +176,7 @@ namespace AuthorityController.Queries
 
             }
 
-            void DataStroringFailed(Data.User target, string operationError)
+            void DataStroringFailed(User target, string operationError)
             {
                 // Check is that user is a target of this request.
                 if (target.id == userProfile.id)
@@ -218,7 +217,7 @@ namespace AuthorityController.Queries
                     };
 
                     // Create logon subquery.
-                  foreach(UniformQueries.IQueryHandler processor in UniformQueries.API.QueryHandlers)
+                  foreach(IQueryHandler processor in UniformQueries.API.QueryHandlers)
                   {
                       // Fini logon query processor.
                       if(processor is USER_LOGON)

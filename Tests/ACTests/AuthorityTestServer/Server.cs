@@ -43,5 +43,26 @@ namespace ACTests.AuthorityTestServer
 
             return serverBufer;
         }
+
+        /// <summary>
+        /// Starting server that would listen for main server message.
+        /// </summary>
+        /// <param name="pipeName"></param>
+        /// <returns></returns>
+        public static Server StartRelativeServer(string pipeName)
+        {
+            // Instiniate server.
+            Server serverBufer = new Server
+            {
+                pipeName = pipeName
+            };
+
+            // Starting server loop.
+            serverBufer.StartServerThread(
+                Guid.NewGuid().ToString(), serverBufer,
+                ThreadingServerLoop_PP_Input);
+
+            return serverBufer;
+        }
     }
 }

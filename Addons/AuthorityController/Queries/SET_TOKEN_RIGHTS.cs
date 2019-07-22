@@ -18,6 +18,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -34,8 +36,6 @@ namespace AuthorityController.Queries
 
         public void Execute(QueryPart[] queryParts)
         {
-            string error;
-
             #region Get fields from query
             // Get params.
             UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);
@@ -47,8 +47,8 @@ namespace AuthorityController.Queries
             if (!API.Tokens.IsHasEnoughRigths(
                 token.propertyValue,
                 out string[] requesterRights,
-                out error,
-                Data.Config.Active.QUERY_SetTokenRights_RIGHTS))
+                out string error,
+                Config.Active.QUERY_SetTokenRights_RIGHTS))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -84,7 +84,7 @@ namespace AuthorityController.Queries
 
             // Apply new rights
             string[] rightsArray = rights.propertyValue.Split('+');
-            Session.Current.SetTokenRights(targetToken.propertyValue, rightsArray);
+            Session.Current.SetTokenRightsLocal(targetToken.propertyValue, rightsArray);
             
             // Inform about success.
             UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);

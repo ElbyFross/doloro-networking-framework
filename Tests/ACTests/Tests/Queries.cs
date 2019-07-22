@@ -15,12 +15,10 @@
 using System;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Win32.SafeHandles;
 using UniformQueries;
 using UniformServer;
-using UniformClient;
-using PipesProvider.Server.TransmissionControllers;
 using AuthorityController.Data;
+using AuthorityController.Data.Personal;
 
 namespace ACTests.Tests
 {
@@ -156,7 +154,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("set"),
                     new QueryPart("targetToken", Helpers.Users.user_Admin.tokens[0]),
@@ -235,7 +233,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("set"),
                     new QueryPart("targetToken", Helpers.Users.user_User.tokens[0]),
@@ -319,7 +317,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
                     new QueryPart("user", Helpers.Users.user_Guest.id.ToString()),
@@ -400,7 +398,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
@@ -484,7 +482,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
@@ -601,8 +599,9 @@ namespace ACTests.Tests
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
+                    // TODO INVALID TOKEN
                     new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
                     new QueryPart("logon", null),
@@ -610,7 +609,7 @@ namespace ACTests.Tests
                     new QueryPart("login", "sadmin"),
                     new QueryPart("password", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -689,8 +688,9 @@ namespace ACTests.Tests
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
+                    // TODO INVALID TOKEN
                     new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
                     new QueryPart("logon", null),
@@ -698,7 +698,7 @@ namespace ACTests.Tests
                     new QueryPart("login", "notExistedUser"),
                     new QueryPart("password", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -767,8 +767,9 @@ namespace ACTests.Tests
                 // Create the query that would simulate logon.
                 QueryPart[] query = new QueryPart[]
                 {
+                    // TODO INVALID TOKEN
                     new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
                     new QueryPart("logon", null),
@@ -776,7 +777,7 @@ namespace ACTests.Tests
                     new QueryPart("login", "user"),
                     new QueryPart("password", "invalidPassword"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -913,7 +914,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user"),
                     new QueryPart("new"),
@@ -924,7 +925,7 @@ namespace ACTests.Tests
                     new QueryPart("sn", "Sanders"),
 
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1011,7 +1012,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user"),
                     new QueryPart("new"),
@@ -1022,7 +1023,7 @@ namespace ACTests.Tests
                     new QueryPart("sn", "Sanders"),
 
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1109,7 +1110,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user"),
                     new QueryPart("new"),
@@ -1120,7 +1121,7 @@ namespace ACTests.Tests
                     new QueryPart("sn", "Sanders"),
 
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1213,7 +1214,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user"),
                     new QueryPart("new"),
@@ -1224,7 +1225,7 @@ namespace ACTests.Tests
                     new QueryPart("sn", "Sanders"),
 
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1311,7 +1312,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user"),
                     new QueryPart("new"),
@@ -1322,7 +1323,7 @@ namespace ACTests.Tests
                     new QueryPart("sn", "Sanders"),
 
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1400,7 +1401,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
                     new QueryPart("new", null),
@@ -1408,7 +1409,7 @@ namespace ACTests.Tests
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1484,7 +1485,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
                     new QueryPart("new", null),
@@ -1492,7 +1493,7 @@ namespace ACTests.Tests
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 
@@ -1568,7 +1569,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
-                    new QueryPart("guid", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
                     new QueryPart("new", null),
@@ -1576,7 +1577,7 @@ namespace ACTests.Tests
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", "anonymous"),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
                 };
 

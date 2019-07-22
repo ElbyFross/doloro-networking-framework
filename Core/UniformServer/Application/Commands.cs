@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using UniformQueries.Executable;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,7 @@ namespace UniformServer
                     Console.WriteLine();
                     Console.WriteLine("QUERIES LIST:");
                     Console.WriteLine();
-                    foreach (UniformQueries.IQueryHandler qp in UniformQueries.API.QueryHandlers)
+                    foreach (IQueryHandler qp in UniformQueries.API.QueryHandlers)
                     {
                         try
                         {

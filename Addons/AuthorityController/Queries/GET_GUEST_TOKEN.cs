@@ -16,8 +16,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using UniformQueries;
+using UniformQueries.Executable;
 
 namespace AuthorityController.Queries
 {
@@ -35,7 +37,7 @@ namespace AuthorityController.Queries
         {
             // Send token to client.
             UniformServer.BaseServer.SendAnswerViaPP(AuthorityController.API.Tokens.AuthorizeNewGuestToken(), queryParts);
-        }               
+        }
 
         public bool IsTarget(QueryPart[] queryParts)
         {
@@ -49,6 +51,46 @@ namespace AuthorityController.Queries
                 return false;
 
             return true;
+        }
+
+        /// <summary>
+        /// Handler that provide standartized way to recive guest token.
+        /// </summary>
+        public class GuestTokenProcessor : UniformQueries.AuthQueryProcessor
+        {
+            public async void TryToReciveTokenAsync(
+                  string serverIP,
+                  string pipeName)
+            {
+                #region Wait connection possibilities.
+                if (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
+                {
+                    await Task.Run(() =>
+                    {
+                        // Check server pipe existing.
+                        while (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
+                        {
+                            // Terminate task.
+                            if (IsTerminated)
+                            {
+                                // Disable in progress marker.
+                                IsInProgress = false;
+
+                                return;
+                            }
+
+                            // Wait if not found.
+                            Thread.Sleep(500);
+                        }
+                    });
+                }
+                #endregion
+
+                //Recive message.
+                UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
+                   serverIP, pipeName,
+                   ServerAnswerHandler);
+            }
         }
     }
 }

@@ -119,7 +119,8 @@ namespace UniformServer
             else
             {
                 // Throw error.
-                throw new InvalidCastException("Require Standard.BroadcastingServer server as shared object.");
+                throw new InvalidCastException(
+                    "Require Standard.BroadcastingServer server as shared object.");
             }
         }
     }
