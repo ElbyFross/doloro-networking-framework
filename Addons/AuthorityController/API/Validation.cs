@@ -12,10 +12,9 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using AuthorityController.Data.Application;
+
 
 namespace AuthorityController.API
 {
@@ -32,14 +31,14 @@ namespace AuthorityController.API
             error = null;
 
             if (string.IsNullOrEmpty(password) ||
-               password.Length < Data.Config.Active.PasswordMinAllowedLength ||
-               password.Length > Data.Config.Active.PasswordMaxAllowedLength)
+               password.Length < Config.Active.PasswordMinAllowedLength ||
+               password.Length > Config.Active.PasswordMaxAllowedLength)
             {
                 // Inform about incorrect login size.
                 error =
                     "ERROR 401: Invalid password size. Require " +
-                    Data.Config.Active.PasswordMinAllowedLength + "-" +
-                    Data.Config.Active.PasswordMaxAllowedLength + " caracters.";
+                    Config.Active.PasswordMinAllowedLength + "-" +
+                    Config.Active.PasswordMaxAllowedLength + " caracters.";
                 return false;
             }
 
@@ -52,7 +51,7 @@ namespace AuthorityController.API
             }
 
             // Special symbol required.
-            if (Data.Config.Active.PasswordRequireDigitSymbol)
+            if (Config.Active.PasswordRequireDigitSymbol)
             {
                 if (!Regex.IsMatch(password, @"^\S*[0-9]+\S*$"))
                 {
@@ -63,7 +62,7 @@ namespace AuthorityController.API
             }
 
             // Special symbol required.
-            if (Data.Config.Active.PasswordRequireSpecialSymbol)
+            if (Config.Active.PasswordRequireSpecialSymbol)
             {
                 if (!Regex.IsMatch(password, @"^\S*[@!#$%_]+\S*$"))
                 {
@@ -74,7 +73,7 @@ namespace AuthorityController.API
             }
 
             // Upper cse required.
-            if (Data.Config.Active.PasswordRequireUpperSymbol)
+            if (Config.Active.PasswordRequireUpperSymbol)
             {
                 if (!Regex.IsMatch(password, @"^\S*[A-Z]+\S*$"))
                 {
@@ -99,7 +98,7 @@ namespace AuthorityController.API
             namePart = namePart.Trim();
 
             // Validate name part (first\second\middle).
-            if (!Regex.IsMatch(namePart, Data.Config.Active.UserNameRegexPattern))
+            if (!Regex.IsMatch(namePart, Config.Active.UserNameRegexPattern))
             {
                 // Inform about incorrect login size.
                 error = "ERROR 401: Invalid name format.";

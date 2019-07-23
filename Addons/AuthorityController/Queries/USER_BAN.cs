@@ -13,10 +13,10 @@
 //limitations under the License.
 
 using System;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -32,7 +32,6 @@ namespace AuthorityController.Queries
 
         public void Execute(QueryPart[] queryParts)
         {
-            string error;
 
             #region Get params
             // Get requestor token.
@@ -46,11 +45,11 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Check token rights.
-            if(!API.Tokens.IsHasEnoughRigths(
+            if (!API.Tokens.IsHasEnoughRigths(
                 token.propertyValue,
                 out string[] requesterRights,
-                out error,
-                Data.Config.Active.QUERY_UserBan_RIGHTS))
+                out string error,
+                Config.Active.QUERY_UserBan_RIGHTS))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -60,7 +59,7 @@ namespace AuthorityController.Queries
 
             #region Detect target user
             // Find user for ban.
-            if(!API.Users.TryToFindUserUniform(user.propertyValue, out Data.User userProfile, out error))
+            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -86,35 +85,23 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Apply ban
-            // Get ban information.
-            Data.BanInformation banInfo;
-
-            // Deserialize ban information from shared xml data.
-            if (string.IsNullOrEmpty(ban.propertyValue))
+            BanInformation banInfo;
+            if (!string.IsNullOrEmpty(ban.propertyValue))
             {
-                // Init encoder.
-                XmlSerializer xmlSer = new XmlSerializer(typeof(Data.BanInformation));
-
-                // Open stream to XML file.
-                using (StringReader fs = new StringReader(ban.propertyValue))
+                // Get ban information.
+                if (!Data.Handler.TryXMLDeserizlize<BanInformation>
+                    (ban.propertyValue, out banInfo))
                 {
-                    try
-                    {
-                        // Try to deserialize value to ban information.
-                        banInfo = (Data.BanInformation)xmlSer.Deserialize(fs);
-                    }
-                    catch
-                    {
-                        // If also not found.
-                        UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", queryParts);
-                        return;
-                    }
+
+                    // If also not found.
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", queryParts);
+                    return;
                 }
             }
             else
             {
                 // Set auto configurated permanent ban if detail not described.
-                banInfo = Data.BanInformation.Permanent;
+                banInfo = BanInformation.Permanent;
             }
 
             // Add ban to user.
@@ -123,6 +110,9 @@ namespace AuthorityController.Queries
             // Update stored profile.
             // in other case ban will losed after session finishing.
             API.Users.SetProfile(userProfile);
+            
+            // Inform about success.
+            UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);
             #endregion
         }
 

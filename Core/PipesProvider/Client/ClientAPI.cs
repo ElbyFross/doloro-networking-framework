@@ -39,52 +39,28 @@ namespace PipesProvider.Client
         /// </summary>
         private static readonly Hashtable openedClients = new Hashtable();
         
-        /// <summary>
-        /// Start saftely async waiting connection operation.
-        /// </summary>
-        /// <param name="pipeClient"></param>
-        /// <param name="lineProcessor"></param>
-        async static void ConnectToServerAsync(
-            NamedPipeClientStream pipeClient,
-            TransmissionLine lineProcessor)
-        {
-            try
-            {
-                // Wait until connection.
-                await pipeClient.ConnectAsync();
-            }
-            catch (Exception ex)
-            {
-                Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
-                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-                Console.WriteLine("{0}/{1}: ERROR Connection not possible (CtSAsync0).\nFAILURE REASON: \n{2}",
-                    lineProcessor.ServerName, lineProcessor.ServerPipeName, ex.Message + "\n" + ex.StackTrace);
-            }
-        }
-
-
-        #region Public methods
+        #region Loops
         /// <summary>
         /// Provide stable client loop controlled by data of LineProcessor.
         /// </summary>
-        /// <param name="lineProcessor"></param>
+        /// <param name="line"></param>
         /// <param name="pipeDirection"></param>
         /// <param name="pipeOptions"></param>
         public static void ClientLoop(
-            TransmissionLine lineProcessor,
+            TransmissionLine line,
             PipeDirection pipeDirection,
             PipeOptions pipeOptions
             )
         {
             // Loop will work until this proceesor line not closed.
-            while (!lineProcessor.Closed)
+            while (!line.Closed)
             {
                 // In case if line in out transmission mode.
                 // If queries not placed then wait.
                 while 
                     (
-                    lineProcessor.Direction == TransmissionLine.TransmissionDirection.Out &&
-                    (!lineProcessor.HasQueries || !lineProcessor.TryDequeQuery(out _))
+                    line.Direction == TransmissionLine.TransmissionDirection.Out &&
+                    (!line.HasQueries || !line.TryDequeQuery(out _))
                     )
                 {
                     Thread.Sleep(50);
@@ -94,54 +70,56 @@ namespace PipesProvider.Client
                 // Open pipe.
                 using (NamedPipeClientStream pipeClient =
                     new NamedPipeClientStream(
-                        lineProcessor.ServerName,
-                        lineProcessor.ServerPipeName,
+                        line.ServerName,
+                        line.ServerPipeName,
                         pipeDirection, pipeOptions,
                         System.Security.Principal.TokenImpersonationLevel.Impersonation,
                         HandleInheritability.None))
                 {
                     // Update meta data.
-                    lineProcessor.pipeClient = pipeClient;
+                    line.pipeClient = pipeClient;
 
                     // Log.
-                    Console.WriteLine("{0}/{1} (CL0): Connection to server.", lineProcessor.ServerName, lineProcessor.ServerPipeName);
+                    Console.WriteLine("{0}/{1} (CL0): Connection to server.", line.ServerName, line.ServerPipeName);
 
-                    // Request connection.
-                    ConnectToServerAsync(pipeClient, lineProcessor);
-
-                    // Sleep until connection.
-                    while (!pipeClient.IsConnected)
+                    // Wait until named pipe server would become exit.
+                    while(!NativeMethods.DoesNamedPipeExist(
+                        line.ServerName, line.ServerPipeName))
                     {
+                        // Suspend thread if server not exist.
                         Thread.Sleep(50);
                     }
 
+                    // Connect to server. Would suspend moving forward until connect establishing.
+                    ConnectToServer(pipeClient);
+
                     // Log about establishing.
-                    Console.WriteLine("{0}/{1}: Connection established.", lineProcessor.ServerName, lineProcessor.ServerPipeName);
+                    Console.WriteLine("{0}/{1}: Connection established.", line.ServerName, line.ServerPipeName);
 
                     try
                     {
                         // Execute target query.
-                        lineProcessor.queryProcessor?.Invoke(lineProcessor);
+                        line.queryProcessor?.Invoke(line);
 
                         // Wait until processing finish.
-                        Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR FINISH HANDLER.", lineProcessor.ServerName, lineProcessor.ServerPipeName);
-                        while (lineProcessor.Processing)
+                        Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR FINISH HANDLER.", line.ServerName, line.ServerPipeName);
+                        while (line.Processing)
                         {
                             Thread.Sleep(50);
                         }
-                        Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR HANDLER FINISHED.", lineProcessor.ServerName, lineProcessor.ServerPipeName);
+                        Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR HANDLER FINISHED.", line.ServerName, line.ServerPipeName);
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("{0}/{1}: EXECUTION TIME ERROR. {2}", lineProcessor.ServerName, lineProcessor.ServerPipeName, ex.Message);
+                        Console.WriteLine("{0}/{1}: EXECUTION TIME ERROR. {2}", line.ServerName, line.ServerPipeName, ex.Message);
                     }
 
                     // Log about establishing.
-                    Console.WriteLine("{0}/{1}: Transmission finished at {2}.", lineProcessor.ServerName, lineProcessor.ServerPipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
+                    Console.WriteLine("{0}/{1}: Transmission finished at {2}.", line.ServerName, line.ServerPipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
 
                     // Remove not relevant meta data.
-                    lineProcessor.pipeClient.Dispose();
-                    lineProcessor.DropMeta();
+                    line.pipeClient.Dispose();
+                    line.DropMeta();
 
                     Console.WriteLine();
                 }
@@ -150,7 +128,9 @@ namespace PipesProvider.Client
                 Thread.Sleep(50);
             }
         }
+        #endregion
 
+        #region Transmisssion line
         /// <summary>
         /// Try to find out registred transmission line by GUID.
         /// If client not strted then return false.
@@ -226,6 +206,43 @@ namespace PipesProvider.Client
 
             // Clear garbage.
             openedClients.Clear();
+        }
+        #endregion
+
+        #region Connection
+        /// <summary>
+        /// Start saftely async waiting connection operation.
+        /// </summary>
+        /// <param name="pipeClient"></param>
+        public async static void ConnectToServerAsync(NamedPipeClientStream pipeClient)
+        {
+            await Task.Run(() =>
+            {
+                ConnectToServer(pipeClient);
+            });
+        }
+
+        /// <summary>
+        /// Connecting to server's pipe.
+        /// If connection failed them stop thread.
+        /// 
+        /// Suspend caller thread.
+        /// </summary>
+        /// <param name="pipeClient"></param>
+        public static void ConnectToServer(NamedPipeClientStream pipeClient)
+        {
+            while (!pipeClient.IsConnected)
+            {
+                try
+                {
+                    pipeClient.Connect(15);
+                }
+                catch
+                {
+                    pipeClient.Dispose();
+                    Thread.Sleep(2000);
+                }
+            }
         }
         #endregion
     }

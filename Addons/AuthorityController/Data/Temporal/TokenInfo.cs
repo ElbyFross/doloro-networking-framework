@@ -18,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthorityController.Data
+namespace AuthorityController.Data.Temporal
 {
     /// <summary>
     /// Container that contain data about token.

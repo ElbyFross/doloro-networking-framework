@@ -127,6 +127,12 @@ namespace PipesProvider.Networking.Routing
             return table;
         }
 
+        /// <summary>
+        /// Save routing table by directory.
+        /// </summary>
+        /// <param name="table">Table object,</param>
+        /// <param name="directory">Target directory.</param>
+        /// <param name="name">Name of the file.</param>
         public static void SaveRoutingTable(RoutingTable table, string directory, string name)
         {
             // Check directory exist.

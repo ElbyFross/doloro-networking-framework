@@ -43,6 +43,14 @@ namespace PipesProvider.Server
         /// Value (ServerTransmissionMeta) meta data about transmition.
         /// </summary>
         private static readonly Hashtable openedServers = new Hashtable();
+        
+        /// <summary>
+        /// Return count of started threads.
+        /// </summary>
+        public static int SeversThreadsCount
+        {
+            get { return openedServers.Count; }
+        }
         #endregion
         
         #region Core configurable loop
@@ -144,7 +152,9 @@ namespace PipesProvider.Server
                     {
                         // Start async waiting of connection.
                         connectionMarker = pipeServer.BeginWaitForConnection(
-                            Handlers.Service.ConnectionEstablishedCallbackRetranslator, transmisssionController);
+                            Handlers.Service.ConnectionEstablishedCallbackRetranslator, 
+                            transmisssionController);
+
                         /// Update data.
                         transmisssionController.connectionMarker = connectionMarker;
 

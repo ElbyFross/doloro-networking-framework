@@ -18,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthorityController.Data
+namespace AuthorityController.Data.Personal
 {
     /// <summary>
     /// Provide information about user bans.

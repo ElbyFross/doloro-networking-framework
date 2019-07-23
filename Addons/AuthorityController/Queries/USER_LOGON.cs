@@ -13,11 +13,12 @@
 //limitations under the License.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -29,6 +30,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_LOGON : IQueryHandler
     {
+        #region Query
         public string Description(string cultureKey)
         {
             throw new NotImplementedException();
@@ -44,7 +46,7 @@ namespace AuthorityController.Queries
             UniformQueries.API.TryGetParamValue("stamp", out QueryPart timeStamp, queryParts);
 
             // Find user.
-            if(!API.Users.TryToFindUser(login.propertyValue, out Data.User user))
+            if(!API.Users.TryToFindUser(login.propertyValue, out User user))
             {
                 // Inform that user not found.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", queryParts);
@@ -93,7 +95,7 @@ namespace AuthorityController.Queries
             string query = string.Format("token={1}{0}expiryIn={2}{0}rights=",
                 UniformQueries.API.SPLITTING_SYMBOL,
                 sessionToken,
-                Data.Config.Active.TokenValidTimeMinutes);
+                Config.Active.TokenValidTimeMinutes);
 
             // Add rights' codes.
             foreach(string rightsCode in user.rights)
@@ -101,7 +103,7 @@ namespace AuthorityController.Queries
                 // Add every code splited by '+'.
                 query += "+" + rightsCode;
             }
-            
+
             // Send token to client.
             UniformServer.BaseServer.SendAnswerViaPP(query, queryParts);
             #endregion
@@ -140,5 +142,99 @@ namespace AuthorityController.Queries
 
             return true;
         }
+        #endregion
+
+        #region Handler
+        /// <summary>
+        /// Handler that provide logogn process.
+        /// </summary>
+        public class LogonProcessor : UniformQueries.AuthQueryProcessor
+        {
+            /// <summary>
+            /// Logon on routing target server.
+            /// </summary>
+            /// <param name="guestToken">Token that would be able to get guest access on target server.</param>
+            /// <param name="login">User's login that would impersonate this server on related server.</param>
+            /// <param name="password">User's password.</param>
+            /// <param name="serverIP">IP address of name of server.</param>
+            /// <param name="pipeName">Named pipe that started on server.</param>
+            public async void TryToLogonAsync(
+                string guestToken,
+                string login,
+                string password,
+                string serverIP,
+                string pipeName)
+            {
+                #region Validate
+                // Drop if process already started to avoid conflicts.
+                if (IsInProgress)
+                {
+                    Console.WriteLine("Authorization process already started.");
+                    return;
+                }
+                #endregion
+
+                #region Set markers
+                // Drop previous autorization.
+                IsAutorized = false;
+                IsInProgress = true;
+                IsTerminated = false;
+                #endregion
+
+                #region Wait connection possibilities.
+                if (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
+                {
+                    await Task.Run(() =>
+                    {
+                        // Check server pipe existing.
+                        while (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
+                        {
+                            // Terminate task.
+                            if (IsTerminated)
+                            {
+                                // Disable in progress marker.
+                                IsInProgress = false;
+
+                                return;
+                            }
+
+                            // Wait if not found.
+                            Thread.Sleep(500);
+                        }
+                    });
+                }
+                #endregion
+
+                // Stop if terminated
+                if (IsTerminated) return;
+
+                #region Build query
+                // Create the query that would simulate logon.
+                QueryPart[] query = new QueryPart[]
+                {
+                    new QueryPart("token", guestToken),
+                    new QueryPart("guid", Guid.NewGuid().ToString()),
+
+                    new QueryPart("user", null),
+                    new QueryPart("logon", null),
+
+                    new QueryPart("login", login),
+                    new QueryPart("password", password),
+                    new QueryPart("os", Environment.OSVersion.VersionString),
+                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
+                };
+                #endregion
+
+                // Request logon.
+                UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+                    serverIP, pipeName,
+                    QueryPart.QueryPartsArrayToString(query),
+                    ServerAnswerHandler
+                    );
+            }
+
+        }
+        #endregion
     }
 }

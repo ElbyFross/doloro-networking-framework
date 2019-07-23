@@ -173,5 +173,28 @@ namespace PipesProvider.Networking
             }
             return s;
         }
+
+        /// <summary>
+        /// Mac adress of current device.
+        /// </summary>
+        public static string MacAdsress
+        {
+            get
+            {
+                // Get new address if not found.
+                if (string.IsNullOrEmpty(macAddress))
+                {
+                    macAddress =
+                    (
+                        from nic in NetworkInterface.GetAllNetworkInterfaces()
+                        where nic.OperationalStatus == OperationalStatus.Up
+                        select nic.GetPhysicalAddress().ToString()
+                    ).FirstOrDefault();
+                }
+                return macAddress;
+            }
+        }
+        private static string macAddress;
+
     }
 }

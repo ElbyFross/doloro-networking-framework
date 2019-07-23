@@ -13,21 +13,30 @@
 //limitations under the License.
 
 using System;
+using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthorityController
+namespace UniformServer
 {
-    /// <summary>
-    /// While that contain objects that can be used for detect multy thread locks.
-    /// </summary>
-    public static class Locks
+    public static class NativeMethods
     {
         /// <summary>
-        /// Show doest lock file is locked.
+        /// Imported method that allo to controll console window state.
         /// </summary>
-        public static object CONFIG_LOCK = new object();
+        /// <param name="hWnd"></param>
+        /// <param name="nCmdShow"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        /// <summary>
+        /// Inported method that allow acces to console window.
+        /// </summary>
+        /// <returns></returns>
+        [DllImport("Kernel32")]
+        public static extern IntPtr GetConsoleWindow();
     }
 }

@@ -19,6 +19,7 @@ using System.Threading;
 using System.IO;
 using System.IO.Pipes;
 using UniformQueries;
+using UniformQueries.Executable;
 using UQAPI = UniformQueries.API;
 using PipesProvider.Server.TransmissionControllers;
 
@@ -39,7 +40,7 @@ namespace PipesProvider.Handlers
             QueryPart token = QueryPart.None;
 
             // Try to detect target query processor.
-            if(API.TryFindQueryHandler(queryParts, out UniformQueries.IQueryHandler handler))
+            if(API.TryFindQueryHandler(queryParts, out IQueryHandler handler))
             {
                 // Log.
                 Console.WriteLine("Start execution: [{0}]\n for token: [{1}]",
@@ -53,8 +54,7 @@ namespace PipesProvider.Handlers
                 // Inform about error.
                 Console.WriteLine("POST ERROR: Token: {1} | Handler for query \"{0}\" not implemented.",
                     query, token);
-            }
-           
+            }           
         }
     }
 }

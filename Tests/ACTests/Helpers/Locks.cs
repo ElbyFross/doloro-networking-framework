@@ -13,34 +13,21 @@
 //limitations under the License.
 
 using System;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.Reflection;
-using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Security.Cryptography;
 
-using Microsoft.Win32.SafeHandles;
-
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
-
-namespace UniformClient
+namespace ACTests.Helpers
 {
     /// <summary>
-    /// Part off class that provide controll under the process.
+    /// While that contain objects that can be used for detect multy thread locks.
     /// </summary>
-    public abstract partial class BaseClient
+    public static class Locks
     {
         /// <summary>
-        /// Argument that will hide console window.
+        /// Show doest lock file is locked.
         /// </summary>
-        protected const int SW_HIDE = 0;
-
-        /// <summary>
-        /// Agrument that will show console window.
-        /// </summary>
-        protected const int SW_SHOW = 5;
+        public static object CONFIG_LOCK = new object();
     }
 }

@@ -12,12 +12,10 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UniformQueries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.Queries
 {
@@ -55,7 +53,7 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Detect target user
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out Data.User userProfile, out string error))
+            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out string error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -68,7 +66,7 @@ namespace AuthorityController.Queries
                 token.propertyValue,
                 out string[] requesterRights,
                 out error,
-                Data.Config.Active.QUERY_UserNewPassword_RIGHTS))
+                Config.Active.QUERY_UserNewPassword_RIGHTS))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -139,7 +137,7 @@ namespace AuthorityController.Queries
             #endregion
 
             // Update password.
-            userProfile.password = API.Users.GetHashedPassword(password.propertyValue, Data.Config.Active.Salt);
+            userProfile.password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt);
 
             // Update stored profile.
             API.Users.SetProfile(userProfile);

@@ -24,7 +24,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
-using AuthorityController.Data;
+using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace AuthorityController.API
 {
@@ -326,7 +327,7 @@ namespace AuthorityController.API
         public static void AddToLoadedData(User user)
         {
             #region Add user to ids table.
-            if (UsersById[user.id] is User idU)
+            if (UsersById[user.id] is User)
             {
                 // Override if already exist.
                 UsersById[user.id] = user;
@@ -339,7 +340,7 @@ namespace AuthorityController.API
             #endregion
 
             #region Add user to logins table.
-            if (UsersByLogin[user.login] is User loginU)
+            if (UsersByLogin[user.login] is User)
             {
                 // Override if already exist.
                 UsersByLogin[user.login] = user;
@@ -452,7 +453,7 @@ namespace AuthorityController.API
         /// </summary>
         /// <param name="input">Password recived from user.</param>
         /// <returns></returns>
-        public static byte[] GetHashedPassword(string input, Data.SaltContainer salt)
+        public static byte[] GetHashedPassword(string input, SaltContainer salt)
         {
             // Get recived password to byte array.
             byte[] plainText = Encoding.UTF8.GetBytes(input);
@@ -506,6 +507,9 @@ namespace AuthorityController.API
 
                     // Update profile.
                     API.Users.SetProfileAsync(user, Config.Active.UsersStorageDirectory);
+
+                    // Skip cause already expired.
+                    continue;
                 }
 
                 // Check every baned right.

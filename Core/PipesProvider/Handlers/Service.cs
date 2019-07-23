@@ -36,20 +36,20 @@ namespace PipesProvider.Handlers
         /// Will close waiting async operation and call shared delegate with server loop's code.
         /// </summary>
         /// <param name="result"></param>
-        public static async void ConnectionEstablishedCallbackRetranslator(IAsyncResult result)
+        public static void ConnectionEstablishedCallbackRetranslator(IAsyncResult result)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
             // Load transmission meta data.
             BaseServerTransmissionController meta = (BaseServerTransmissionController)result.AsyncState;
 
+            // Add tread name to simplify debuging.
+            Thread.CurrentThread.Name = "ConnectionCallback " + meta.GetHashCode();
+
             // Stop connection waiting.
             try
             {
-                // Close connection if not conplited.
-                //if (!meta.connectionMarker.IsCompleted)
-                {
-                    meta.pipeServer.EndWaitForConnection(meta.connectionMarker);
-                }
+                // Trying to close connection if not closed.
+                meta.pipeServer.EndWaitForConnection(meta.connectionMarker);
             }
             catch (Exception ex)
             {
@@ -58,14 +58,20 @@ namespace PipesProvider.Handlers
                 {
                     Console.WriteLine("CONNECTION ERROR (CECR EWFC): {0} ", ex.Message);
                 }
-                // Connection failed. Drop.
-                return;
+                else
+                {
+                    // Connection failed. Drop.
+                    return;
+                }
             }
 
             try
             {
-                if (!meta.pipeServer.IsConnected)
-                    await meta.pipeServer.WaitForConnectionAsync();
+                // Wait until connection.
+                while(!meta.pipeServer.IsConnected)
+                {
+                    Thread.Sleep(5);
+                }
             }
             catch (Exception ex)
             {
@@ -77,16 +83,16 @@ namespace PipesProvider.Handlers
             // Log about success.
             if (meta.pipeServer.IsConnected)
             {
+                // Log connection.
                 Console.WriteLine("\n{0}: Client connected.", meta.pipeName);
+
+                // Call connection handler.
+                meta.connectionCallback?.Invoke(meta);
             }
             else
             {
                 Console.WriteLine("\n{0}: Connection waiting was terminated", meta.pipeName);
             }
-
-            // Call handler.
-            //Console.WriteLine("Connected: {0}\tCallback valid: {1}", meta.pipe.IsConnected, meta.connectionCallback != null);
-            if (meta.pipeServer.IsConnected) meta.connectionCallback?.Invoke(meta);
         }
     }
 }

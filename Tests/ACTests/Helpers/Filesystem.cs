@@ -14,31 +14,25 @@
 
 using System;
 using System.IO;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthorityController.Data;
+using UniformQueries;
+using UniformServer;
+using UniformClient;
+using PipesProvider.Server.TransmissionControllers;
 
-namespace AuthorityControllerTests
+namespace ACTests.Helpers
 {
-    public class Configurator
+    /// <summary>
+    /// Profide ways to simplify fork with file system.
+    /// </summary>
+    public class FileSystem
     {
-        /// <summary>
-        /// Current active instqance of test configurator.
-        /// </summary>
-        public static Configurator Active
-        {
-            get
-            {
-                if(active == null)
-                {
-                    active = new Configurator();
-                }
-                return active;
-            }
-        }
-        private static Configurator active;
-
+        #region Public properties
         /// <summary>
         /// Return unique subfolder for the test.
         /// </summary>
@@ -58,15 +52,6 @@ namespace AuthorityControllerTests
             }
         }
         private static string _testSubFolder;
-
-        /// <summary>
-        /// Marker that need to avoid tests conflicts.
-        /// </summary>
-        public static bool CONFIG_FILE_GENERATED = false;
-
-        /// <summary>
-        /// Provided guest token.
-        /// </summary>
-        public static string GUEST_TOKEN = null;
+        #endregion
     }
 }

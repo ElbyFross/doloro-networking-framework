@@ -15,72 +15,37 @@
 using System;
 using System.Security.Principal;
 using System.Runtime.InteropServices;
-using System.Security;
 using System.ComponentModel;
 
 namespace PipesProvider.Security.LSA
 {
-    using LSA_HANDLE = IntPtr;
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct LSA_OBJECT_ATTRIBUTES
-    {
-        internal int Length;
-        internal IntPtr RootDirectory;
-        internal IntPtr ObjectName;
-        internal int Attributes;
-        internal IntPtr SecurityDescriptor;
-        internal IntPtr SecurityQualityOfService;
-    }
-
-    /// 
-    /// LSA_UNICODE_STRING structure
-    /// 
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    internal struct LSA_UNICODE_STRING
-    {
-        internal ushort Length;
-        internal ushort MaximumLength;
-        [MarshalAs(UnmanagedType.LPWStr)] internal string Buffer;
-    }
-
-    
     /// <summary>
     /// Provide warped way to Add and Rmove rights for user\groups\domains from LSA.
     /// </summary>
     public sealed class LsaSecurityWrapper
     {
-        #region DLL Import
-        [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
-         SuppressUnmanagedCodeSecurityAttribute]
-        internal static extern uint LsaOpenPolicy(
-            LSA_UNICODE_STRING[] SystemName,
-            ref LSA_OBJECT_ATTRIBUTES ObjectAttributes,
-            int AccessMask,
-            out IntPtr PolicyHandle
-            );
+        #region Structs
+        [StructLayout(LayoutKind.Sequential)]
+        public struct LSA_OBJECT_ATTRIBUTES
+        {
+            internal int Length;
+            internal IntPtr RootDirectory;
+            internal IntPtr ObjectName;
+            internal int Attributes;
+            internal IntPtr SecurityDescriptor;
+            internal IntPtr SecurityQualityOfService;
+        }
 
-        [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
-         SuppressUnmanagedCodeSecurityAttribute]
-        internal static extern uint LsaAddAccountRights(
-            LSA_HANDLE PolicyHandle,
-            IntPtr pSID,
-            LSA_UNICODE_STRING[] UserRights,
-            int CountOfRights
-            );
-
-        [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
-         SuppressUnmanagedCodeSecurityAttribute]
-        internal static extern uint LsaRemoveAccountRights(
-            LSA_HANDLE PolicyHandle,
-            IntPtr AccountSid,
-            bool AllRights,
-            LSA_UNICODE_STRING[] UserRights,
-            int CountOfRights
-            );
-
-        [DllImport("advapi32")]
-        internal static extern int LsaClose(IntPtr PolicyHandle);
+        /// 
+        /// LSA_UNICODE_STRING structure
+        /// 
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct LSA_UNICODE_STRING
+        {
+            internal ushort Length;
+            internal ushort MaximumLength;
+            [MarshalAs(UnmanagedType.LPWStr)] internal string Buffer;
+        }
         #endregion
 
         private enum Access : int
@@ -137,7 +102,7 @@ namespace PipesProvider.Security.LSA
             };
 
             // Open access to LSA with access to policy.
-            uint ret = LsaOpenPolicy(system, ref lsaAttr, (int)Access.POLICY_ALL_ACCESS, out IntPtr lsaHandle);
+            uint ret = NativeMethods.LsaOpenPolicy(system, ref lsaAttr, (int)Access.POLICY_ALL_ACCESS, out IntPtr lsaHandle);
             if (ret == 0)
             {
                 // Get SID.
@@ -162,16 +127,16 @@ namespace PipesProvider.Security.LSA
                 if (allow)
                 {
                     // Add rights.
-                    ret = LsaAddAccountRights(lsaHandle, pSid, privileges, 1);
+                    ret = NativeMethods.LsaAddAccountRights(lsaHandle, pSid, privileges, 1);
                 }
                 else
                 {
                     // Remove rights.
-                    ret = LsaRemoveAccountRights(lsaHandle, pSid, false, privileges, 1);
+                    ret = NativeMethods.LsaRemoveAccountRights(lsaHandle, pSid, false, privileges, 1);
                 }
 
                 // Close access to LSA.
-                LsaClose(lsaHandle);
+                NativeMethods.LsaClose(lsaHandle);
 
                 // Free unmanged memory.
                 Marshal.FreeHGlobal(pSid);

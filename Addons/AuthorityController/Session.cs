@@ -14,11 +14,13 @@
 
 using System;
 using System.Collections;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AuthorityController.Data;
+using AuthorityController.Data.Temporal;
+using AuthorityController.Data.Personal;
 using PipesProvider.Networking.Routing;
 
 namespace AuthorityController
@@ -29,29 +31,47 @@ namespace AuthorityController
     [System.Serializable]
     public class Session
     {
-        #region Events
-        /// <summary>
-        /// Event that would called when provider would need to informate related servers by new data.
-        /// </summary>
-        public static event System.Action<string> InformateRelatedServers;
-        #endregion
-
         #region Public properties and fields
         /// <summary>
-        /// Last created session.
+        /// Current active session.
         /// </summary>
         public static Session Current
         {
             get
             {
-                if(last == null)
+                if(_current == null)
                 {
-                    last = new Session();
+                    _current = new Session();
                 }
-                return last;
+                return _current;
             }
 
-            protected set { last = value; }
+            set { _current = value; }
+        }
+
+        /// <summary>
+        /// Routing table that contain instructions to access reletive servers
+        /// that need to be informed about token events.
+        /// 
+        /// Before sharing query still will check is the query stituable for that routing instruction.
+        /// If you no need any filtring then just leave query patterns empty.
+        /// </summary>
+        public static RoutingTable AuthorityFollowers { get; set; }
+
+        /// <summary>
+        /// Token that provide possibility to terminate all stated tasks in this session.
+        /// </summary>
+        public CancellationToken TerminationToken
+        {
+            get
+            {
+                if(_terminationToken == null)
+                {
+                    _terminationToken = new CancellationToken();
+                }
+
+                return _terminationToken;
+            }
         }
         #endregion
 
@@ -60,12 +80,17 @@ namespace AuthorityController
         {
             // Set this session as active.
             Current = this;
+
+            // Initialize Termination token.
+            _ = TerminationToken;
         }
         #endregion
 
         #region Private fields
         /// Object that contain current session.
-        private static Session last;
+        private static Session _current;
+
+        private CancellationToken _terminationToken;
 
         /// <summary>
         /// Table that contains rights provided to token.
@@ -73,7 +98,7 @@ namespace AuthorityController
         /// Key - string token
         /// Value - TokenInfo
         /// </summary>
-        private readonly Hashtable tokensRights = new Hashtable();
+        private readonly Hashtable tokensInfo = new Hashtable();
         #endregion
 
         #region Public methods
@@ -107,7 +132,7 @@ namespace AuthorityController
         public bool AsignTokenToUser(User user, string token, string mac, string os, string stamp)
         {
             // Update rights if already exist.
-            if (tokensRights[token] is TokenInfo)
+            if (tokensInfo[token] is TokenInfo)
             {
                 // Inform that token alredy asigned.
                 return false;
@@ -129,45 +154,44 @@ namespace AuthorityController
             }
 
             // Create token registration for this user id.
-            tokensRights.Add(
+            tokensInfo.Add(
                 token,
                 info);
 
             // Inform about success.
             return true;
         }
-
+        
         /// <summary>
         /// Set rights' codes array as relative to token.
         ///
-        /// In case if token infor not registred then will create anonimouse info with applied rights.
-        /// Applicable to purposes of servers that depends to session provider one,
-        /// but not require entire token information, cause not manage it.
+        /// Make and share SET TOKEN RIGHTS query to every related server.
+        /// Share only anonymous format of information. Personal data would be droped.
         /// </summary>
-        /// <param name="token">Session token.</param>
-        /// <param name="rights">Array og rights' codes.</param>
-        public void SetTokenRights(string token, params string[] rights)
+        /// <param name="targetToken">Token that need to change rights.</param>
+        /// <param name="rights">List of new rights allowed to target toekn.</param>
+        public void SetTokenRights(string targetToken, params string[] rights)
         {
             // Update rights if already exist.
-            if (tokensRights.ContainsKey(token))
+            if (tokensInfo.ContainsKey(targetToken))
             {
                 // Loading token info.
-                TokenInfo info = (TokenInfo)tokensRights[token];
+                TokenInfo info = (TokenInfo)tokensInfo[targetToken];
 
                 // If not anonymous user.
                 if (API.Users.TryToFindUser(info.userId, out User user))
                 {
                     // Update every token.
-                    foreach(string additiveTokens in user.tokens)
+                    foreach(string subTargetToken in user.tokens)
                     {
                         // Loading toking info.
-                        TokenInfo additiveInfo = (TokenInfo)tokensRights[additiveTokens];
+                        TokenInfo additiveInfo = (TokenInfo)tokensInfo[subTargetToken];
 
                         // Update rights.
                         additiveInfo.rights = rights;
 
                         // Send info to relative servers.
-                        ShareTokenRights(additiveTokens, rights);
+                        ShareTokenRights_MessageProcessor(subTargetToken, rights);
                     }
                 }
                 // if user not detected.
@@ -177,7 +201,7 @@ namespace AuthorityController
                     info.rights = rights;
 
                     // Send info to relative servers.
-                    ShareTokenRights(token, rights);
+                    ShareTokenRights_MessageProcessor(targetToken, rights);
                 }
             }
             // If user was not loaded.
@@ -187,14 +211,14 @@ namespace AuthorityController
                 TokenInfo info = TokenInfo.Anonymous;
 
                 // Apply fields.
-                info.token = token;
+                info.token = targetToken;
                 info.rights = rights;
 
                 // Set as new.
-                tokensRights.Add(token, info);
+                tokensInfo.Add(targetToken, info);
 
                 // Send info to relative servers.
-                ShareTokenRights(token, rights);
+                ShareTokenRights_MessageProcessor(targetToken, rights);
             }
         }
 
@@ -207,7 +231,7 @@ namespace AuthorityController
         public bool TryGetTokenRights(string token, out string[] rights)
         {
             // Try to get regustred rights.
-            if (tokensRights[token] is Data.TokenInfo rightsBufer)
+            if (tokensInfo[token] is TokenInfo rightsBufer)
             {
                 rights = rightsBufer.rights;
                 return true;
@@ -232,7 +256,7 @@ namespace AuthorityController
                     token);
 
                 // Send query to infrom related servers about event.
-                InformateRelatedServers?.Invoke(informQuery);
+                InformAuthorityFollowers(informQuery);
 
                 // Confirm token removing.
                 return true;
@@ -250,7 +274,7 @@ namespace AuthorityController
         /// <returns></returns>
         public bool TryGetTokenInfo(string token, out TokenInfo info)
         {
-            if(tokensRights[token] is TokenInfo bufer)
+            if(tokensInfo[token] is TokenInfo bufer)
             {
                 info = bufer;
                 return true;
@@ -258,6 +282,38 @@ namespace AuthorityController
 
             info = TokenInfo.Anonymous;
             return false;
+        }
+
+        /// <summary>
+        /// Sanding the message to all authority following servers descibed in 
+        /// AuthorityFollowers table.
+        /// </summary>
+        /// <param name="message">Message that would be shared.</param>
+        public void InformAuthorityFollowers(string message)
+        {
+            // Inform relative servers.
+            if (AuthorityFollowers != null)
+            {
+                // Check every instruction.
+                for (int i = 0; i < AuthorityFollowers.intructions.Count; i++)
+                {
+                    // Get instruction.
+                    Instruction instruction = AuthorityFollowers.intructions[i];
+
+                    // Does instruction situable to query.
+                    if (!instruction.IsRoutingTarget(message))
+                    {
+                        // Skip if not.
+                        continue;
+                    }
+
+                    // Open transmission line to server.
+                    UniformClient.BaseClient.OpenOutTransmissionLineViaPP(instruction.routingIP, instruction.pipeName).
+                        EnqueueQuery(message).                  // Add query to queue.
+                        SetInstructionAsKey(ref instruction).   // Apply encryption if requested.
+                        TryLogonAs(instruction.logonConfig);    // Profide logon data to access remote machine.
+                }
+            }
         }
         #endregion
 
@@ -272,7 +328,7 @@ namespace AuthorityController
             try
             {
                 // If user not anonymous.
-                if (tokensRights[token] is TokenInfo info)
+                if (tokensInfo[token] is TokenInfo info)
                 {
                     // Try to get user by id.
                     // Would found if server not anonymous and has registred data about user.
@@ -283,7 +339,7 @@ namespace AuthorityController
                     }
 
                     // Unregister token from table.
-                    tokensRights.Remove(token);
+                    tokensInfo.Remove(token);
 
                     // Conclude success of operation.
                     return true;
@@ -304,24 +360,62 @@ namespace AuthorityController
         /// <summary>
         /// Sending new rights of token to related servers.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="targetToken"></param>
         /// <param name="rights"></param>
-        private void ShareTokenRights(string token, string[] rights)
+        private void ShareTokenRights_MessageProcessor(string targetToken, string[] rights)
         {
+            // Drop invalid or unnecessary  routing.
+            if (AuthorityFollowers == null ||
+                AuthorityFollowers.intructions == null ||
+                AuthorityFollowers.intructions.Count == 0)
+            {
+                return;
+            }
+
             // Composing query that will shared to related servers for update them local data.
-            string informQuery = string.Format("set{0}token={1}{0}rights=",
+            string baseQuery = string.Format("set{0}targetToken={1}{0}rights=",
                 UniformQueries.API.SPLITTING_SYMBOL,
-                token);
+                targetToken);
 
             // Adding rights' codes.
             foreach (string rightsCode in rights)
             {
                 // Add every code splited by '+'.
-                informQuery += "+" + rightsCode;
+                baseQuery += "+" + rightsCode;
             }
+            
+            // Send query to every following server.
+            foreach (AuthorizedInstruction authInstr in AuthorityFollowers.intructions)
+            {
+                // Relogon if not logon or token exipred.
+                if (string.IsNullOrEmpty(authInstr.AuthorizedToken) ||
+                    AuthorityController.API.Tokens.IsExpired(authInstr.AuthorizedToken))
+                {
+                    authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _)
+                    {
+                        // Send query using current token.
+                        SendQuery(authInstr.AuthorizedToken);
+                    },
+                    TerminationToken);
+                }
+                else
+                {
+                    // Send query using current token.
+                    SendQuery(authInstr.AuthorizedToken);
+                }
 
-            // Sending query to inform related servers about event.
-            InformateRelatedServers?.Invoke(informQuery);
+
+                void SendQuery(string token)
+                {
+                    // Build personalized query.
+                    string informQuery =
+                        baseQuery + UniformQueries.API.SPLITTING_SYMBOL +
+                        "token=" + token;
+
+                    // Sending query to inform related servers about event.
+                    InformAuthorityFollowers(informQuery);
+                }
+            }
         }
         #endregion
     }

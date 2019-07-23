@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using UniformQueries.Executable;
 
 namespace UniformQueries
 {
@@ -66,10 +67,10 @@ namespace UniformQueries
                         try
                         {
                             // Check if this type is subclass of query.
-                            if (type.GetInterface(typeof(UniformQueries.IQueryHandler).FullName) != null)
+                            if (type.GetInterface(typeof(IQueryHandler).FullName) != null)
                             {
                                 // Instiniating querie processor.
-                                UniformQueries.IQueryHandler instance = (UniformQueries.IQueryHandler)Activator.CreateInstance(type);
+                                IQueryHandler instance = (IQueryHandler)Activator.CreateInstance(type);
                                 queryHandlers.Add(instance);
                                 Console.WriteLine("{0}", type.Name);
                             }
@@ -337,7 +338,7 @@ namespace UniformQueries
         /// <returns></returns>
         public static bool TryFindQueryHandler(QueryPart[] queryParts, out IQueryHandler handler)
         {
-            foreach (UniformQueries.IQueryHandler pb in UniformQueries.API.QueryHandlers)
+            foreach (IQueryHandler pb in UniformQueries.API.QueryHandlers)
             {
                 // Check header
                 if (pb.IsTarget(queryParts))

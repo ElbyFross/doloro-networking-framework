@@ -46,6 +46,7 @@
     <Compile Include="Handlers\DNS.cs" />
     <Compile Include="Handlers\Query.cs" />
     <Compile Include="Handlers\Service.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Networking\Info.cs" />
     <Compile Include="Networking\Routing\RoutingTable.cs" />
     <Compile Include="Networking\Routing\Instruction.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Security\General.cs" />
     <Compile Include="Security\LogonConfig.cs" />
     <Compile Include="Security\LSA.cs" />
+    <Compile Include="Security\NativeMethods.cs" />
     <Compile Include="Security\SecurityLevel.cs" />
     <Compile Include="Client\TransmissionLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

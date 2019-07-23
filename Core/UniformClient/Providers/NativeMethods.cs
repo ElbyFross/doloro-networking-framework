@@ -13,35 +13,26 @@
 //limitations under the License.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Runtime.InteropServices;
 
-namespace AuthorityController.Tests
+namespace UniformClient
 {
-    [TestClass]
-    public class Session
+    public static class NativeMethods
     {
         /// <summary>
-        /// Test reciving query by related server when token on AC will be update status.
+        /// Imported method that allo to controll console window state.
         /// </summary>
-        [TestMethod]
-        public void UpdatedTokenRelativeServerCallback()
-        {
-        }
+        /// <param name="hWnd"></param>
+        /// <param name="nCmdShow"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
         /// <summary>
-        /// Try to get user by token.
+        /// Inported method that allow acces to console window.
         /// </summary>
-        [TestMethod]
-        public void UserByToken()
-        {
-        }
-
-        /// <summary>
-        /// Try to logon by multiply devices.
-        /// </summary>
-        [TestMethod]
-        public void MultiDeviceLogon()
-        {
-        }
+        /// <returns></returns>
+        [DllImport("Kernel32")]
+        public static extern IntPtr GetConsoleWindow();
     }
 }
