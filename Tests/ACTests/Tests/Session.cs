@@ -14,36 +14,27 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UniformQueries;
 using UniformClient;
 using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 using AuthorityController.Data.Temporal;
+using PipesProvider.Networking.Routing;
+using AC_API = AuthorityController.API;
 
 namespace ACTests.Tests
 {
     [TestClass]
     public class Session
     {
-        /// <summary>
-        /// Test reciving query by related server when token on AC will be update status.
-        /// </summary>
-        [TestMethod]
-        public void UpdatedTokenRelativeServerCallback()
+        [TestCleanup]
+        public void Cleanup()
         {
-            lock (Helpers.Locks.CONFIG_LOCK)
-            {
-                // Create users for test.
-                Helpers.Users.SetBaseUsersPool();
-
-                // Set routing table.
-
-                // Start authority server
-
-
-                // Start followers.
-            }
+            // Stop all started servers.
+            PipesProvider.Server.ServerAPI.StopAllServers();
         }
 
         /// <summary>
@@ -140,7 +131,7 @@ namespace ACTests.Tests
 
                     int callbacks = 0;
                     // Start reciving clent line.
-                    BaseClient.EnqueueDuplexQueryViaPP("localhost", Helpers.Networking.PIPE_NAME,
+                    BaseClient.EnqueueDuplexQueryViaPP("localhost", Helpers.Networking.DefaultQueriesPipeName,
                         QueryPart.QueryPartsArrayToString(logonQuery),
                         (PipesProvider.Client.TransmissionLine line, object answer) =>
                         {

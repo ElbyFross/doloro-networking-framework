@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Xml.Serialization;
 using UniformQueries;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace PipesProvider.Networking.Routing
     /// </summary>
     public class AuthorizedInstruction : Instruction
     {
+        #region Public fields
         /// <summary>
         /// Login for user authentification in AuthorityController on instruction's target server.
         /// </summary>
@@ -35,33 +37,147 @@ namespace PipesProvider.Networking.Routing
         /// Password for user authentification in AuthorityController on instruction's target server.
         /// </summary>
         public string authPassword;
-        
+
         /// <summary>
         /// Name of the broadcasting pipe that providing guest tokens.
         /// </summary>
-        public string guestChanel = "guest";
+        public string guestChanel = "guests";
+        #endregion
+
+        #region Public properties
+        /// <summary>
+        /// Return token authorized on target server by using provided data.
+        /// </summary>
+        public string AuthorizedToken
+        {
+            get { return LogonHandler.Token; }
+        }
 
         /// <summary>
-        /// Requesting reciving token on target server with provided auth params.
+        /// Return token authorized on target server as guest.
         /// </summary>
-        public void RequestToken()
+        public string GuestToken
         {
-            string guestToken = null;
+            get { return GuestTokenHandler.Token; }
+        }
+        #endregion
+
+        #region API
+        /// <summary>
+        /// Tring to recive token authorized in authority controller of target server.
+        /// </summary>
+        /// <param name="callback">Delegate that will be called when logon operation would be finished.</param>
+        /// <param name="cancellationToken">Using this token you can terminate task.</param>
+        public async void TryToLogonAsync(
+            System.Action<AuthorizedInstruction> callback, 
+            CancellationToken cancellationToken)
+        {
+            // Start new logon task.
+            await Task.Run(() =>
+            {
+                // Request logon.
+                TryToLogon();
+
+                // Call callback.
+                callback?.Invoke(this);
+            },
+            cancellationToken);
+        }
+
+        /// <summary>
+        /// Tring to recive token authorized in authority controller of target server.
+        /// </summary>
+        public bool TryToLogon()
+        {
+            bool asyncOperationStarted = false;
+
+            #region Guest token processing
+            // Is the guest token is relevant.
+            bool guestTokenValid =
+                string.IsNullOrEmpty(GuestTokenHandler.Token) ||
+                AuthorityController.API.Tokens.IsExpired(GuestTokenHandler.Token);
+
+            if (!guestTokenValid)
+            {
+                // Lock thread.
+                asyncOperationStarted = true;
+
+                // Callback that will be call when guest token would be recived.
+                GuestTokenHandler.ProcessingFinished += GuestTokenRecivedCallback;
+                void GuestTokenRecivedCallback(QueryProcessor _, bool result, object message)
+                {
+                    // Unsubscribe from handler.
+                    GuestTokenHandler.ProcessingFinished -= GuestTokenRecivedCallback;
+
+                    // Unlock thread.
+                    asyncOperationStarted = false;
+                }
+
+                // Recive guest token to get access to server.
+                GuestTokenHandler.TryToReciveTokenAsync(
+                    routingIP,
+                    pipeName);
+            }
+
+            // Wait for guest token.
+            while (asyncOperationStarted)
+            {
+                Thread.Sleep(100);
+            }
+
+            // Drop if guest token not recived.
+            if (string.IsNullOrEmpty(GuestTokenHandler.Token))
+            {
+                return false;
+            }
+            #endregion
+
+            #region Logon processing
+            // Lock thread.
+            asyncOperationStarted = true;
+
+            // Callback that will be call whenlogon would be finished.
+            LogonHandler.ProcessingFinished += LogonFinishedCallback;
+            void LogonFinishedCallback(QueryProcessor _, bool result, object message)
+            {
+                // Unsubscribe from handler.
+                LogonHandler.ProcessingFinished -= LogonFinishedCallback;
+
+                // Unlock thread.
+                asyncOperationStarted = false;
+            }
 
             // Request logon.
             LogonHandler.TryToLogonAsync(
-                guestToken,
+                GuestTokenHandler.Token,
                 authLogin,
                 authPassword,
                 routingIP,
                 pipeName);
-        }
 
+            // Wait for guest token.
+            while (asyncOperationStarted)
+            {
+                Thread.Sleep(100);
+            }
+
+            // Drop if guest token not recived.
+            if (string.IsNullOrEmpty(LogonHandler.Token))
+            {
+                return false;
+            }
+            #endregion
+
+            return true;
+        }
+        #endregion
+
+        #region Handlers
         /// <summary>
-        /// Handler
+        /// Handler that take full control on logon process.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
-        public USER_LOGON.LogonProcessor LogonHandler
+        [XmlIgnore]
+        private USER_LOGON.LogonProcessor LogonHandler
         {
             get
             {
@@ -74,7 +190,30 @@ namespace PipesProvider.Networking.Routing
                 return _LogonHandler;
             }
         }
-        [System.Xml.Serialization.XmlIgnore]
+
+        [XmlIgnore]
         private USER_LOGON.LogonProcessor _LogonHandler;
+
+        /// <summary>
+        /// Handler that take full control on reciving of guest token.
+        /// </summary>
+        [XmlIgnore]
+        private GET_GUEST_TOKEN.GuestTokenProcessor GuestTokenHandler
+        {
+            get
+            {
+                // Create new if not started yet.
+                if (_GuestTokenHandler == null)
+                {
+                    _GuestTokenHandler = new GET_GUEST_TOKEN.GuestTokenProcessor();
+                }
+
+                return _GuestTokenHandler;
+            }
+        }
+
+        [XmlIgnore]
+        private GET_GUEST_TOKEN.GuestTokenProcessor _GuestTokenHandler;
+        #endregion
     }
 }

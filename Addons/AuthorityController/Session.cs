@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,29 +31,22 @@ namespace AuthorityController
     [System.Serializable]
     public class Session
     {
-        #region Events
-        /// <summary>
-        /// Event that would called when provider would need to informate related servers by new data.
-        /// </summary>
-        //public static event System.Action<string> InformateRelatedServers;
-        #endregion
-
         #region Public properties and fields
         /// <summary>
-        /// Last created session.
+        /// Current active session.
         /// </summary>
         public static Session Current
         {
             get
             {
-                if(last == null)
+                if(_current == null)
                 {
-                    last = new Session();
+                    _current = new Session();
                 }
-                return last;
+                return _current;
             }
 
-            protected set { last = value; }
+            set { _current = value; }
         }
 
         /// <summary>
@@ -62,7 +56,23 @@ namespace AuthorityController
         /// Before sharing query still will check is the query stituable for that routing instruction.
         /// If you no need any filtring then just leave query patterns empty.
         /// </summary>
-        public static RoutingTable RelatedServers { get; set; }
+        public static RoutingTable AuthorityFollowers { get; set; }
+
+        /// <summary>
+        /// Token that provide possibility to terminate all stated tasks in this session.
+        /// </summary>
+        public CancellationToken TerminationToken
+        {
+            get
+            {
+                if(_terminationToken == null)
+                {
+                    _terminationToken = new CancellationToken();
+                }
+
+                return _terminationToken;
+            }
+        }
         #endregion
 
         #region Constructors
@@ -70,12 +80,17 @@ namespace AuthorityController
         {
             // Set this session as active.
             Current = this;
+
+            // Initialize Termination token.
+            _ = TerminationToken;
         }
         #endregion
 
         #region Private fields
         /// Object that contain current session.
-        private static Session last;
+        private static Session _current;
+
+        private CancellationToken _terminationToken;
 
         /// <summary>
         /// Table that contains rights provided to token.
@@ -146,42 +161,16 @@ namespace AuthorityController
             // Inform about success.
             return true;
         }
-
-        /// <summary>
-        /// TODO Implement SetTokenRightsAuto
-        /// Set rights' codes array as relative to token.
-        /// 
-        /// Would automaticly share information to related servers if it posssible.
-        /// </summary>
-        /// <param name="targetToken"></param>
-        /// <param name="rights"></param>
-        public void SetTokenRightsAuto(string targetToken, params string[] rights)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Set rights' codes array as relative to token.
-        /// Update rights only on local authority controller.
-        /// </summary>
-        /// <param name="targetToken">Session token.</param>
-        /// <param name="rights">Array og rights' codes.</param>
-        public void SetTokenRightsLocal(string targetToken, params string[] rights)
-        {
-            SetTokenRightsPublic(null, targetToken, rights);
-        }
-
+        
         /// <summary>
         /// Set rights' codes array as relative to token.
         ///
         /// Make and share SET TOKEN RIGHTS query to every related server.
         /// Share only anonymous format of information. Personal data would be droped.
         /// </summary>
-        /// <param name="requesterToken">"Token that would be shared to other servers in query to confirm rights.
-        /// Attention: server need to be logined as autorized user on every related server."</param>
         /// <param name="targetToken">Token that need to change rights.</param>
         /// <param name="rights">List of new rights allowed to target toekn.</param>
-        public void SetTokenRightsPublic(string requesterToken, string targetToken, params string[] rights)
+        public void SetTokenRights(string targetToken, params string[] rights)
         {
             // Update rights if already exist.
             if (tokensInfo.ContainsKey(targetToken))
@@ -202,7 +191,7 @@ namespace AuthorityController
                         additiveInfo.rights = rights;
 
                         // Send info to relative servers.
-                        ShareTokenRights_MessageProcessor(requesterToken, subTargetToken, rights);
+                        ShareTokenRights_MessageProcessor(subTargetToken, rights);
                     }
                 }
                 // if user not detected.
@@ -212,7 +201,7 @@ namespace AuthorityController
                     info.rights = rights;
 
                     // Send info to relative servers.
-                    ShareTokenRights_MessageProcessor(requesterToken, targetToken, rights);
+                    ShareTokenRights_MessageProcessor(targetToken, rights);
                 }
             }
             // If user was not loaded.
@@ -229,7 +218,7 @@ namespace AuthorityController
                 tokensInfo.Add(targetToken, info);
 
                 // Send info to relative servers.
-                ShareTokenRights_MessageProcessor(requesterToken, targetToken, rights);
+                ShareTokenRights_MessageProcessor(targetToken, rights);
             }
         }
 
@@ -267,7 +256,7 @@ namespace AuthorityController
                     token);
 
                 // Send query to infrom related servers about event.
-                SendMessageToRelatedServers(informQuery);
+                InformAuthorityFollowers(informQuery);
 
                 // Confirm token removing.
                 return true;
@@ -296,19 +285,20 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Call event that request sanding mssage to related servers.
+        /// Sanding the message to all authority following servers descibed in 
+        /// AuthorityFollowers table.
         /// </summary>
         /// <param name="message">Message that would be shared.</param>
-        public void SendMessageToRelatedServers(string message)
+        public void InformAuthorityFollowers(string message)
         {
             // Inform relative servers.
-            if (RelatedServers != null)
+            if (AuthorityFollowers != null)
             {
                 // Check every instruction.
-                for (int i = 0; i < RelatedServers.intructions.Count; i++)
+                for (int i = 0; i < AuthorityFollowers.intructions.Count; i++)
                 {
                     // Get instruction.
-                    Instruction instruction = RelatedServers.intructions[i];
+                    Instruction instruction = AuthorityFollowers.intructions[i];
 
                     // Does instruction situable to query.
                     if (!instruction.IsRoutingTarget(message))
@@ -372,30 +362,60 @@ namespace AuthorityController
         /// </summary>
         /// <param name="targetToken"></param>
         /// <param name="rights"></param>
-        private void ShareTokenRights_MessageProcessor(string requesterToken, string targetToken, string[] rights)
+        private void ShareTokenRights_MessageProcessor(string targetToken, string[] rights)
         {
-            // Skip undefined requsester queryes.
-            // Suck kind of queries is equal.
-            if (requesterToken == null)
+            // Drop invalid or unnecessary  routing.
+            if (AuthorityFollowers == null ||
+                AuthorityFollowers.intructions == null ||
+                AuthorityFollowers.intructions.Count == 0)
             {
                 return;
             }
 
             // Composing query that will shared to related servers for update them local data.
-            string informQuery = string.Format("set{0}token={2}{0}targetToken={1}{0}rights=",
+            string baseQuery = string.Format("set{0}targetToken={1}{0}rights=",
                 UniformQueries.API.SPLITTING_SYMBOL,
-                targetToken,
-                requesterToken);
+                targetToken);
 
             // Adding rights' codes.
             foreach (string rightsCode in rights)
             {
                 // Add every code splited by '+'.
-                informQuery += "+" + rightsCode;
+                baseQuery += "+" + rightsCode;
             }
+            
+            // Send query to every following server.
+            foreach (AuthorizedInstruction authInstr in AuthorityFollowers.intructions)
+            {
+                // Relogon if not logon or token exipred.
+                if (string.IsNullOrEmpty(authInstr.AuthorizedToken) ||
+                    AuthorityController.API.Tokens.IsExpired(authInstr.AuthorizedToken))
+                {
+                    authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _)
+                    {
+                        // Send query using current token.
+                        SendQuery(authInstr.AuthorizedToken);
+                    },
+                    TerminationToken);
+                }
+                else
+                {
+                    // Send query using current token.
+                    SendQuery(authInstr.AuthorizedToken);
+                }
 
-            // Sending query to inform related servers about event.
-            SendMessageToRelatedServers(informQuery);
+
+                void SendQuery(string token)
+                {
+                    // Build personalized query.
+                    string informQuery =
+                        baseQuery + UniformQueries.API.SPLITTING_SYMBOL +
+                        "token=" + token;
+
+                    // Sending query to inform related servers about event.
+                    InformAuthorityFollowers(informQuery);
+                }
+            }
         }
         #endregion
     }

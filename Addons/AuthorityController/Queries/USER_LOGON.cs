@@ -89,7 +89,7 @@ namespace AuthorityController.Queries
                 timeStamp.propertyValue);
 
             // Set rights.
-            Session.Current.SetTokenRightsLocal(sessionToken, user.rights);
+            Session.Current.SetTokenRights(sessionToken, user.rights);
 
             // Return session data to user.
             string query = string.Format("token={1}{0}expiryIn={2}{0}rights=",

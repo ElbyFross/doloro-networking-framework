@@ -84,7 +84,7 @@ namespace AuthorityController.Queries
 
             // Apply new rights
             string[] rightsArray = rights.propertyValue.Split('+');
-            Session.Current.SetTokenRightsLocal(targetToken.propertyValue, rightsArray);
+            Session.Current.SetTokenRights(targetToken.propertyValue, rightsArray);
             
             // Inform about success.
             UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);

@@ -59,19 +59,13 @@ namespace ACTests.Tests
             }
         }
         #endregion
-
-
-        [TestInitialize]
-        public void Setup()
+                
+        [TestCleanup]
+        public void Cleanup()
         {
-            // Start broadcasting server that would share guest tokens.
-            BaseServer.StartBroadcastingViaPP(
-                "guests",
-                PipesProvider.Security.SecurityLevel.Anonymous,
-                AuthorityController.API.Tokens.AuthorizeNewGuestToken,
-                1);
+            // Stop all started servers.
+            PipesProvider.Server.ServerAPI.StopAllServers();
         }
-
 
         #region Token rights
         /// <summary>
@@ -80,13 +74,20 @@ namespace ACTests.Tests
         [TestMethod]
         public void GetGuestToken()
         {
+            // Start broadcasting server that would share guest tokens.
+            BaseServer.StartBroadcastingViaPP(
+                Helpers.Networking.DefaultGuestPipeName,
+                PipesProvider.Security.SecurityLevel.Anonymous,
+                AuthorityController.API.Tokens.AuthorizeNewGuestToken,
+                1);
+
             // Marker.
             bool waitingAnswer = true;
 
             #region Server answer processing
             // Start listening client.
             UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
-                "localhost", "guests",
+                "localhost", Helpers.Networking.DefaultGuestPipeName,
                 (PipesProvider.Client.TransmissionLine line, object obj) =>
                 {
                     // Validate answer.
@@ -170,7 +171,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -249,7 +250,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -332,7 +333,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -413,7 +414,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -497,7 +498,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -620,7 +621,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -709,7 +710,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -788,7 +789,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                     
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -938,7 +939,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1036,7 +1037,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1134,7 +1135,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1238,7 +1239,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1336,7 +1337,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1422,7 +1423,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1506,7 +1507,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),
@@ -1590,7 +1591,7 @@ namespace ACTests.Tests
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.PIPE_NAME,
+                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
                     QueryPart.QueryPartsArrayToString(query),

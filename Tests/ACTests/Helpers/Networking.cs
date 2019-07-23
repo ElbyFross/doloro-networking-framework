@@ -28,12 +28,37 @@ namespace ACTests.Helpers
         /// <summary>
         /// Name  of the pipe that would be started on server during tests.
         /// </summary>
-        public readonly static string PIPE_NAME = "ACTestPublic";
+        public readonly static string DefaultQueriesPipeName = "ACTestPublic";
+
+        /// <summary>
+        /// Name of the pipe that would be started on server during tests.
+        /// </summary>
+        public readonly static string DefaultGuestPipeName = "ACTestGuest";
+
 
         /// <summary>
         /// Starting public server that would able to recive queries.
         /// </summary>
-        public static void StartPublicServer(int chanels = 1)
+        public static void StartPublicServer()
+        {
+            StartPublicServer(1);
+        }
+
+        /// <summary>
+        /// Starting public server that would able to recive queries.
+        /// </summary>
+        /// <param name="chanels">Count of servers that will start.</param>
+        public static void StartPublicServer(int chanels)
+        {
+            StartPublicServer(chanels, DefaultQueriesPipeName);
+        }
+
+        /// <summary>
+        /// Starting public server that would able to recive queries.
+        /// </summary>
+        /// <param name="chanels">Count of servers that will start.</param>
+        /// <param name="pipeName">Name of pipe that would started on servers.</param>
+        public static void StartPublicServer(int chanels, string pipeName)
         {
             // Stop previos servers.
             PipesProvider.Server.ServerAPI.StopAllServers();
@@ -42,7 +67,7 @@ namespace ACTests.Helpers
             for (int i = 0; i < chanels; i++)
             {
                 // Open server.
-                AuthorityTestServer.Server.StartQueryProcessing(PIPE_NAME);
+                AuthorityTestServer.Server.StartQueryProcessing(pipeName);
             }
         }
     }

@@ -143,7 +143,7 @@ namespace AuthorityController.API
             string sessionToken = API.Tokens.UnusedToken;
 
             // Registrate token with guest rank.
-            Session.Current.SetTokenRightsLocal(sessionToken, new string[] { "rank=0" });
+            Session.Current.SetTokenRights(sessionToken, new string[] { "rank=0" });
 
             // Return session data to user.
             string query = string.Format("token={1}{0}expiryIn={2}{0}rights=rank=0",

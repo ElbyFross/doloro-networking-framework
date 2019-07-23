@@ -68,6 +68,7 @@ namespace PipesProvider.Networking.Routing
                 _isValid = value;
             }
         }
+
         [System.Xml.Serialization.XmlIgnore]
         private bool _isValid = true;
         #endregion
@@ -76,17 +77,17 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// Address that will be ised for routing
         /// </summary>
-        public string routingIP;
+        public string routingIP = "localhost";
 
         /// <summary>
         /// neme of the named pipe for server access.
         /// </summary>
-        public string pipeName;
+        public string pipeName = "";
 
         /// <summary>
         /// Logon config recuired to server connection.
         /// </summary>
-        public Security.LogonConfig logonConfig;
+        public Security.LogonConfig logonConfig = Security.LogonConfig.Anonymous;
 
         /// <summary>
         /// Array that contain querie's body that need to be routed by this instruction.
@@ -101,13 +102,13 @@ namespace PipesProvider.Networking.Routing
         /// targetQueries[1] = "q=GET&!pk";             // All queries that request data from server but has no RSA public keys for backward encription will wouted.
         /// targetQueries[1] = "$customProp";           // All queries that have "customProp" property in query will be routed.
         /// </summary>
-        public string[] queryPatterns;
+        public string[] queryPatterns = new string[] { "" };
 
         /// <summary>
         /// Does this chanel has RSA encryption?
         /// If true then client can ask for server's Public Key and encrypt message before send.
         /// </summary>
-        public bool RSAEncryption;
+        public bool RSAEncryption = true;
         #endregion
 
         #region Static properties

@@ -59,6 +59,7 @@
     <Compile Include="Helpers\Users.cs" />
     <Compile Include="Helpers\Locks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\QueryProcessors.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
