@@ -33,7 +33,17 @@ namespace AuthorityController.Queries
         #region Query
         public string Description(string cultureKey)
         {
-            throw new NotImplementedException();
+            switch (cultureKey)
+            {
+                case "en-US":
+                default:
+                    return "USER LOGON\n" +
+                            "\tDESCRIPTION: Request logon in system by provided entry data.\n" +
+                            "\tQUERY FORMAT: " + 
+                            string.Format(
+                                "LOGIN=userLogin{0}PASSWORD=userPassword{0}OS=operationSystem{0}MAC=macAddress{0}stamp=timeOfQuery\n",
+                            UniformQueries.API.SPLITTING_SYMBOL);
+            }
         }
 
         public void Execute(QueryPart[] queryParts)

@@ -32,9 +32,7 @@ namespace AuthorityController.Queries
                 case "en-US":
                 default:
                     return "USER NEW\n" +
-                            "\tDESCRIPTION: Request new password for user." +
-                            "\n\tToken confirm rights to change it.\n" +
-                            "\n\tOld password required to avoid access from public places.\n" +
+                            "\tDESCRIPTION: Request creating of new user.\n" +
                             "\tQUERY FORMAT: user=XMLSetializedUser" + UniformQueries.API.SPLITTING_SYMBOL +
                             "new\n";
             }

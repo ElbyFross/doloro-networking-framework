@@ -26,7 +26,15 @@ namespace AuthorityController.Queries
     {
         public string Description(string cultureKey)
         {
-            throw new NotImplementedException();
+            switch (cultureKey)
+            {
+                case "en-US":
+                default:
+                    return "USER LOGOFF\n" +
+                            "\tDESCRIPTION: Logoff token from system.\n" +
+                            "\tQUERY FORMAT: TOKEN=tokenForLogoff + " + UniformQueries.API.SPLITTING_SYMBOL +
+                            "USER" + UniformQueries.API.SPLITTING_SYMBOL + "LOGOFF\n";
+            }
         }
 
         public void Execute(QueryPart[] queryParts)

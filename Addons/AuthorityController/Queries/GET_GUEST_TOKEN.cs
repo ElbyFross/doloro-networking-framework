@@ -30,7 +30,15 @@ namespace AuthorityController.Queries
     {
         public string Description(string cultureKey)
         {
-            throw new NotImplementedException();
+            switch (cultureKey)
+            {
+                case "en-US":
+                default:
+                    return "GET GUEST TOKEN\n" +
+                            "\tDESCRIPTION: Provide guest key for passing of base authority level\n" +
+                            "\tQUERY FORMAT: GET" + UniformQueries.API.SPLITTING_SYMBOL + "GUEST" +
+                            UniformQueries.API.SPLITTING_SYMBOL + "TOKEN\n";
+            }
         }
 
         public void Execute(QueryPart[] queryParts)

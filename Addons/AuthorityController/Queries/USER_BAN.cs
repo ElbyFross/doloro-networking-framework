@@ -27,7 +27,15 @@ namespace AuthorityController.Queries
     {
         public string Description(string cultureKey)
         {
-            throw new NotImplementedException();
+            switch (cultureKey)
+            {
+                case "en-US":
+                default:
+                    return "TOKEN BAN USER\n" +
+                            "\tDESCRIPTION: Ban user by login or id.\n" +
+                            "\tQUERY FORMAT: TOKEN=requesterToken + " + UniformQueries.API.SPLITTING_SYMBOL +
+                            "BAN=BanInfoXML" + UniformQueries.API.SPLITTING_SYMBOL + "USER=userID\n";
+            }
         }
 
         public void Execute(QueryPart[] queryParts)
