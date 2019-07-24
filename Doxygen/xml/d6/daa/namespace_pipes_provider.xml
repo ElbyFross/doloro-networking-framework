@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d6/daa/namespace_pipes_provider" kind="namespace" language="C#">
     <compoundname>PipesProvider</compoundname>
+    <innerclass refid="dd/daf/class_pipes_provider_1_1_native_methods" prot="public">PipesProvider::NativeMethods</innerclass>
     <innernamespace refid="d1/dc6/namespace_pipes_provider_1_1_client">PipesProvider::Client</innernamespace>
     <innernamespace refid="db/d52/namespace_pipes_provider_1_1_handlers">PipesProvider::Handlers</innernamespace>
     <innernamespace refid="d1/d4b/namespace_pipes_provider_1_1_networking">PipesProvider::Networking</innernamespace>

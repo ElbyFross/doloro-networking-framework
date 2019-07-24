@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_74559a5f80e01ed2a26fad9b622a6f92" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions</compoundname>
+    <innerdir refid="dir_cb1f2b432267bdaae32ebf8e857e134c">D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider</innerdir>
+    <innerdir refid="dir_c4e9b6dcb2a7ab535fe1ca0b5c0bb74f">D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/UniformQueries</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/"/>
+  </compounddef>
+</doxygen>

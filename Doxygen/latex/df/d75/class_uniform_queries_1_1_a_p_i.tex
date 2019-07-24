@@ -30,9 +30,9 @@ static \mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mb
 \begin{DoxyCompactList}\small\item\em Convert query\textquotesingle{}s string to array of query parts. User S\+P\+L\+I\+T\+T\+I\+N\+G\+\_\+\+S\+Y\+M\+B\+OL as spliter for detect query parts. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_ab5875a3346878ba21ab331ba07889e92}{Detect\+Query\+Parts}} (string query, char spliter)
 \begin{DoxyCompactList}\small\item\em Convert query\textquotesingle{}s string to array of query parts. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a6b5e9796e2ed61c94fc49df8e6fec0d9}{Try\+Find\+Query\+Handler}} (string query, out \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}} handler)
+static bool \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a6b5e9796e2ed61c94fc49df8e6fec0d9}{Try\+Find\+Query\+Handler}} (string query, out \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}} handler)
 \begin{DoxyCompactList}\small\item\em Looking for processor situable for provided query. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a0b929a433be6dc51a05718bd682317f9}{Try\+Find\+Query\+Handler}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts, out \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}} handler)
+static bool \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a0b929a433be6dc51a05718bd682317f9}{Try\+Find\+Query\+Handler}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts, out \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}} handler)
 \begin{DoxyCompactList}\small\item\em Looking for query handler. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a76acc6d6941a7a30d0ed87f69eab3434}{Is\+Seems\+Valid}} (string query)
 \begin{DoxyCompactList}\small\item\em Try to detect core query parts. Example case of using\+: is decryption required. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -44,7 +44,7 @@ const char \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_aa906970223172f9f206
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-static List$<$ \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}} $>$ \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a759098e511956b9afaaaf3ab13af336e}{Query\+Handlers}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+static List$<$ \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}} $>$ \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a759098e511956b9afaaaf3ab13af336e}{Query\+Handlers}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em List that contain references to all query\textquotesingle{}s handlers instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -55,7 +55,7 @@ static \mbox{\hyperlink{class_uniform_queries_1_1_a_p_i_a8dbe3d00dcf507ab3cea1dc
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_uniform_queries_1_1_a_p_i_a8ec82d8dfe03f81379e43520e0b0abde}\label{class_uniform_queries_1_1_a_p_i_a8ec82d8dfe03f81379e43520e0b0abde}} 
-static readonly List$<$ \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}} $>$ {\bfseries query\+Handlers} = null
+static readonly List$<$ \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}} $>$ {\bfseries query\+Handlers} = null
 \end{DoxyCompactItemize}
 
 
@@ -264,7 +264,7 @@ Check existing of param in query parts.
 \index{Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}!Try\+Find\+Query\+Handler@{Try\+Find\+Query\+Handler}}
 \index{Try\+Find\+Query\+Handler@{Try\+Find\+Query\+Handler}!Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}}
 \subsubsection{\texorpdfstring{Try\+Find\+Query\+Handler()}{TryFindQueryHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily static bool Uniform\+Queries.\+A\+P\+I.\+Try\+Find\+Query\+Handler (\begin{DoxyParamCaption}\item[{string}]{query,  }\item[{out \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static bool Uniform\+Queries.\+A\+P\+I.\+Try\+Find\+Query\+Handler (\begin{DoxyParamCaption}\item[{string}]{query,  }\item[{out \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -284,7 +284,7 @@ Looking for processor situable for provided query.
 \index{Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}!Try\+Find\+Query\+Handler@{Try\+Find\+Query\+Handler}}
 \index{Try\+Find\+Query\+Handler@{Try\+Find\+Query\+Handler}!Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}}
 \subsubsection{\texorpdfstring{Try\+Find\+Query\+Handler()}{TryFindQueryHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily static bool Uniform\+Queries.\+A\+P\+I.\+Try\+Find\+Query\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts,  }\item[{out \mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static bool Uniform\+Queries.\+A\+P\+I.\+Try\+Find\+Query\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts,  }\item[{out \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -386,7 +386,7 @@ Symbol that divide query to parameters array.
 \index{Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}!Query\+Handlers@{Query\+Handlers}}
 \index{Query\+Handlers@{Query\+Handlers}!Uniform\+Queries\+::\+A\+PI@{Uniform\+Queries\+::\+A\+PI}}
 \subsubsection{\texorpdfstring{Query\+Handlers}{QueryHandlers}}
-{\footnotesize\ttfamily List$<$\mbox{\hyperlink{interface_uniform_queries_1_1_i_query_handler}{I\+Query\+Handler}}$>$ Uniform\+Queries.\+A\+P\+I.\+Query\+Handlers\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler}{I\+Query\+Handler}}$>$ Uniform\+Queries.\+A\+P\+I.\+Query\+Handlers\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
 
 
 
@@ -396,4 +396,4 @@ List that contain references to all query\textquotesingle{}s handlers instances.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Uniform\+Queries/Queries\+A\+P\+I.\+cs\end{DoxyCompactItemize}
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Uniform\+Queries/Queries\+A\+P\+I.\+cs\end{DoxyCompactItemize}

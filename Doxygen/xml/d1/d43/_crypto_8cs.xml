@@ -316,6 +316,6 @@
 <codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="375"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs"/>
   </compounddef>
 </doxygen>

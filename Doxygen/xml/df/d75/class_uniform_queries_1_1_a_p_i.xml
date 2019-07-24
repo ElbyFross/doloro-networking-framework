@@ -15,12 +15,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="30" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="31" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
       <memberdef kind="property" id="df/d75/class_uniform_queries_1_1_a_p_i_1a759098e511956b9afaaaf3ab13af336e" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
-        <type>List&lt; <ref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" kindref="compound">IQueryHandler</ref> &gt;</type>
+        <type>List&lt; <ref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" kindref="compound">IQueryHandler</ref> &gt;</type>
         <definition>List&lt;IQueryHandler&gt; UniformQueries.API.QueryHandlers</definition>
         <argsstring></argsstring>
         <name>QueryHandlers</name>
@@ -30,12 +30,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="36" bodyend="41"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="37" bodyend="42"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
       <memberdef kind="variable" id="df/d75/class_uniform_queries_1_1_a_p_i_1a8ec82d8dfe03f81379e43520e0b0abde" prot="private" static="yes" mutable="no">
-        <type>readonly List&lt; <ref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" kindref="compound">IQueryHandler</ref> &gt;</type>
+        <type>readonly List&lt; <ref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" kindref="compound">IQueryHandler</ref> &gt;</type>
         <definition>readonly List&lt;IQueryHandler&gt; UniformQueries.API.queryHandlers</definition>
         <argsstring></argsstring>
         <name>queryHandlers</name>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="42" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="48" bodyend="92"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="49" bodyend="93"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -100,7 +100,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="102" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="102" bodyend="105"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="103" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="103" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a0f6c53ca64000015c8bf7bed30d9c57a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -137,7 +137,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="114" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="114" bodyend="123"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="115" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="115" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1ac0f8c9faebdc4a69f2072c0bb9e955e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -174,7 +174,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="131" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="131" bodyend="141"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="132" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="132" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a987eb23a48b90e542001cc12fcbc1ddc" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -222,7 +222,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="151" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="151" bodyend="154"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="152" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="152" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a5747ff73a111b583fa01c442ca2a2d78" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -270,7 +270,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="163" bodyend="181"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="164" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="164" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a57f11d169fede8dc343e8fcce0af1c6a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -318,7 +318,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="190" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="190" bodyend="208"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="191" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="191" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1aa8a8215bbad2752c291803011dc49ff4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>List&lt; string &gt;</type>
@@ -362,7 +362,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="218" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="218" bodyend="232"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="219" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="219" bodyend="233"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1ae481c9b7a800886a2b461a7456043494" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>List&lt; <ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> &gt;</type>
@@ -406,7 +406,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="241" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="241" bodyend="255"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="242" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="242" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a132ca74ba34302f216b61668dd32a207" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -454,7 +454,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="265" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="265" bodyend="279"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="266" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="266" bodyend="280"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a013ca0eff0e67d7f30a6be289312b859" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
@@ -480,7 +480,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="288" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="288" bodyend="291"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="289" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="289" bodyend="292"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1ab5875a3346878ba21ab331ba07889e92" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
@@ -517,7 +517,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="299" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="299" bodyend="314"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="300" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="300" bodyend="315"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a6b5e9796e2ed61c94fc49df8e6fec0d9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -529,7 +529,7 @@
           <declname>query</declname>
         </param>
         <param>
-          <type>out <ref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" kindref="compound">IQueryHandler</ref></type>
+          <type>out <ref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" kindref="compound">IQueryHandler</ref></type>
           <declname>handler</declname>
         </param>
         <briefdescription>
@@ -554,7 +554,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="323" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="323" bodyend="330"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="324" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="324" bodyend="331"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a0b929a433be6dc51a05718bd682317f9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -566,7 +566,7 @@
           <declname>queryParts</declname>
         </param>
         <param>
-          <type>out <ref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" kindref="compound">IQueryHandler</ref></type>
+          <type>out <ref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" kindref="compound">IQueryHandler</ref></type>
           <declname>handler</declname>
         </param>
         <briefdescription>
@@ -591,7 +591,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="338" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="338" bodyend="352"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="339" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="339" bodyend="353"/>
       </memberdef>
       <memberdef kind="function" id="df/d75/class_uniform_queries_1_1_a_p_i_1a76acc6d6941a7a30d0ed87f69eab3434" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -617,14 +617,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="360" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="360" bodyend="367"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="361" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="361" bodyend="368"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Class that provide methods for handling of queries. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" line="26" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueriesAPI.cs" bodystart="25" bodyend="368"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueriesAPI.cs" bodystart="26" bodyend="369"/>
     <listofallmembers>
       <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a8dbe3d00dcf507ab3cea1dc58e1e154f" prot="private" virt="non-virtual"><scope>UniformQueries::API</scope><name>API</name></member>
       <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a013ca0eff0e67d7f30a6be289312b859" prot="public" virt="non-virtual"><scope>UniformQueries::API</scope><name>DetectQueryParts</name></member>

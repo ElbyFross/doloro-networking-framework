@@ -5,6 +5,13 @@
 Provide warped way to Add and Rmove rights for user from \mbox{\hyperlink{namespace_pipes_provider_1_1_security_1_1_l_s_a}{L\+SA}}.  
 
 
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s}{L\+S\+A\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES}}
+\item 
+struct \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}
+\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -12,21 +19,6 @@ static void \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa
 \begin{DoxyCompactList}\small\item\em Add rights for requested user or group to \mbox{\hyperlink{namespace_pipes_provider_1_1_security_1_1_l_s_a}{L\+SA}}. \href{https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment}{\tt https\+://docs.\+microsoft.\+com/en-\/us/windows/security/threat-\/protection/security-\/policy-\/settings/user-\/rights-\/assignment} \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_ad14aaa2cffa5be534590d0ef30810117}{Remove\+Account\+Rights}} (Security\+Identifier sid, string rights)
 \begin{DoxyCompactList}\small\item\em Remove rights for requested user or group from \mbox{\hyperlink{namespace_pipes_provider_1_1_security_1_1_l_s_a}{L\+SA}}. \href{https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment}{\tt https\+://docs.\+microsoft.\+com/en-\/us/windows/security/threat-\/protection/security-\/policy-\/settings/user-\/rights-\/assignment} \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Package Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_a773aa7b67cb9fc5616dc6bd1a619b225}\label{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_a773aa7b67cb9fc5616dc6bd1a619b225}} 
-static uint {\bfseries Lsa\+Open\+Policy} (\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} System\+Name, ref \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s}{L\+S\+A\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES}} Object\+Attributes, int Access\+Mask, out Int\+Ptr Policy\+Handle)
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_adda333d87687ba6906a623db79a9adfa}\label{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_adda333d87687ba6906a623db79a9adfa}} 
-static uint {\bfseries Lsa\+Add\+Account\+Rights} (L\+S\+A\+\_\+\+H\+A\+N\+D\+LE Policy\+Handle, Int\+Ptr p\+S\+ID, \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} User\+Rights, int Count\+Of\+Rights)
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_adc48b947899763c20b59951bd7d4bf1e}\label{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_adc48b947899763c20b59951bd7d4bf1e}} 
-static uint {\bfseries Lsa\+Remove\+Account\+Rights} (L\+S\+A\+\_\+\+H\+A\+N\+D\+LE Policy\+Handle, Int\+Ptr Account\+Sid, bool All\+Rights, \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} User\+Rights, int Count\+Of\+Rights)
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_a1e3a45dcb55bd6d339ccf426bc600022}\label{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_a1e3a45dcb55bd6d339ccf426bc600022}} 
-static int {\bfseries Lsa\+Close} (Int\+Ptr Policy\+Handle)
-\end{DoxyCompactItemize}
 \subsection*{Private Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,4 +99,4 @@ Remove rights for requested user or group from \mbox{\hyperlink{namespace_pipes_
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Security/L\+S\+A.\+cs\end{DoxyCompactItemize}
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Pipes\+Provider/\+Security/L\+S\+A.\+cs\end{DoxyCompactItemize}

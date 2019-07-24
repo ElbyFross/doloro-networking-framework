@@ -1,0 +1,25 @@
+var class_a_c_tests_1_1_tests_1_1_queries =
+[
+    [ "Cleanup", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#aad4293b7fc65633fe27c3e4d8ea98e18", null ],
+    [ "GetBanInfo", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a64ddab509ed7f6e37ad5d50e4b7d7368", null ],
+    [ "GetGuestToken", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a4ed741a79a3952ed1f7570085527f338", null ],
+    [ "Logoff_InvalidToken", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a4681bb158c5e25c0b525a5b99a3c6a2a", null ],
+    [ "Logoff_ValidToken", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a81874bda95bc7ff65fa636966a877e51", null ],
+    [ "Logon_InvalidData", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#aa4bfb0aea32100208caecb44043185bd", null ],
+    [ "Logon_UserNotExist", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a4ed3eaafcb072c911fd50ee326cb10b5", null ],
+    [ "Logon_ValidData", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a6b9ffc38c78697db04cfeb7410f975a9", null ],
+    [ "NewPassword_AdminToUser", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a1d5aa95d71f72e884b88af411915a8c4", null ],
+    [ "NewPassword_ModeratorToAdmin", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#ac81c93c61298ffc263b71fe56df8c8a1", null ],
+    [ "NewPassword_Self", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a6e0f0bb08cea34e8e078acdb761f05ab", null ],
+    [ "SetTokenRights_HasRights", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a3960f1ab51e343168f23590ef058599a", null ],
+    [ "SetTokenRights_NoRights", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a12b2f9a235bdbb914b693f30cf9a5800", null ],
+    [ "User_InvalidLogin", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a884d9f1c5de9054929456dc3d5439dcd", null ],
+    [ "User_InvalidPassword", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a31de34a9e5ae4fd570c28c76a733f7a6", null ],
+    [ "User_InvalidPersonal", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a0b53e9f54f2e773bf1a739b84afb7d1b", null ],
+    [ "User_UserExist", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#ad06fcb257c730cd383f3484417c65a19", null ],
+    [ "User_ValidData", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a3245bf7b7292d12608b40819fe7839fe", null ],
+    [ "UserBan_FullCycle", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#aa8ee1b6ac3d6d71f097ecbcb93200e51", null ],
+    [ "UserBan_ModeratorToAdmin", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a52e89a0d9a88f7db6a4631f91aa7a2a0", null ],
+    [ "UserBan_NoRights", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a13c440cfccaf9a8494769e03131fdddd", null ],
+    [ "GUEST_TOKEN", "d3/d90/class_a_c_tests_1_1_tests_1_1_queries.html#a380e8f923ee219755af841d4e9008a02", null ]
+];

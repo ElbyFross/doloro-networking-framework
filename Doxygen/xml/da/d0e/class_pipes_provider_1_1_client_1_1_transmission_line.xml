@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="35" bodyend="39"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="35" bodyend="39"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="47" bodyend="55"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="47" bodyend="55"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e8a85952e05718b1a0ff96b9874766" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type>string</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="61" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="62" bodyend="65"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="61" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="62" bodyend="65"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3dc08ad974186de6b0439b052ea0d72a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type>string</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="71" bodyend="74"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="71" bodyend="74"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a902851edce28b2ab7a7b9fc648a984d5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type>bool</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="80" bodyend="83"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="80" bodyend="83"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af0385a70cb2f9dc29fb4e7040330aa4c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
         <type>bool</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="88" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="89" bodyend="92"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="88" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="89" bodyend="92"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac4b9855c5d9aa2a9f6289c2eb43f6996" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="98" bodyend="107"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="98" bodyend="107"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3e840e02a896759c61ed428e013bc1e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="119" bodyend="121"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="119" bodyend="121"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a02c3eec4a1041d7b57ee5df00559d251" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
         <type>bool</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="128" bodyend="128"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="128" bodyend="128"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa7e1cb4797230b8dd9fcefdfe7dc5dca" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
         <type>TransmissionDirection</type>
@@ -147,7 +147,7 @@
 <para>In - will connect to target pipe as soon as possible. Out - will wait for query in queue. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="137" bodyend="139"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="137" bodyend="139"/>
       </memberdef>
       <memberdef kind="property" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a3f5625beace2f8ea5ec3cc46000b8cc3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>bool</type>
@@ -160,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="299" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="300" bodyend="300"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="299" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="300" bodyend="300"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -176,7 +176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="56" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="56" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="112" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="112" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="112" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a617db258fff1a28c80ff7d6241e8372e" prot="public" static="no" mutable="no">
         <type>NamedPipeClientStream</type>
@@ -204,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="146" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="146" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="146" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a86f49118056ad8cb6fe383abb2a350e8" prot="public" static="no" mutable="no">
         <type>System.Action&lt; <ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref> &gt;</type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="151" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="151" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="151" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="151" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="158" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="158" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="158" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1af110134a03e1e046911970fff4774600" prot="protected" static="no" mutable="no">
         <type>Queue&lt; <ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref> &gt;</type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="163" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="163" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -307,7 +307,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="176" bodyend="186"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="176" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aa75228335f18b62a772bd43db9587e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -343,7 +343,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="193" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="193" bodyend="206"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="193" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="193" bodyend="206"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ac7a9bbb2d71ae7080788b28449b216fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
@@ -368,7 +368,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="228" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="228" bodyend="232"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="228" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="228" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a0adfc0db736cc9315a6e1c0ea04c42e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
@@ -393,7 +393,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="238" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="238" bodyend="242"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="238" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="238" bodyend="242"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a48c6395608b4d32a7d852c2fd6d911e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -419,7 +419,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="252" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="252" bodyend="294"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="252" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="252" bodyend="294"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a5d921e9d7b0dfb366d79c6397bec9179" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -432,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="307" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="307" bodyend="317"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="307" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="307" bodyend="317"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1ae2d45dea3d22625d81634a6eea3cd356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -445,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="322" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="322" bodyend="326"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="322" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="322" bodyend="326"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a75c4a1aa309fbc60cccbe258a85a91b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -471,7 +471,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="336" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="336" bodyend="370"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="336" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="336" bodyend="370"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a2741ab56f9eecbe0bcbd018232321205" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref></type>
@@ -497,7 +497,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="383" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="383" bodyend="391"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="383" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="383" bodyend="391"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -525,7 +525,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="215" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="215" bodyend="219"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="215" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="215" bodyend="219"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1aebf1f90d880307f803bdeb6e0020a95f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -550,7 +550,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="400" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="400" bodyend="434"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="400" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="400" bodyend="434"/>
       </memberdef>
       <memberdef kind="function" id="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a334cde78dd1b3cc6c3cb2a6bb7419a1d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -587,7 +587,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="442" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="442" bodyend="457"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="442" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="442" bodyend="457"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -595,28 +595,28 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="179">
+      <node id="192">
         <label>PipesProvider.Client.TransmissionLine</label>
         <link refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line"/>
-        <childnode refid="180" relation="usage">
+        <childnode refid="193" relation="usage">
           <edgelabel>lastQuery</edgelabel>
         </childnode>
-        <childnode refid="181" relation="usage">
+        <childnode refid="194" relation="usage">
           <edgelabel>queryProcessor</edgelabel>
         </childnode>
       </node>
-      <node id="181">
+      <node id="194">
         <label>System</label>
       </node>
-      <node id="180">
+      <node id="193">
         <label>PipesProvider.Client.QueryContainer</label>
         <link refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container"/>
-        <childnode refid="181" relation="usage">
+        <childnode refid="194" relation="usage">
           <edgelabel>AnswerHandler</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs" bodystart="32" bodyend="459"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs" bodystart="32" bodyend="459"/>
     <listofallmembers>
       <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adad9bc543ae01a23e792f46bf3b3092f" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>accessToken</name></member>
       <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1a5d921e9d7b0dfb366d79c6397bec9179" prot="public" virt="non-virtual"><scope>PipesProvider::Client::TransmissionLine</scope><name>Close</name></member>

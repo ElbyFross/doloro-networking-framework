@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="df/d1f/class_uniform_queries_1_1_query_processor" kind="class" language="C#" prot="public" abstract="yes">
+    <compoundname>UniformQueries::QueryProcessor</compoundname>
+    <derivedcompoundref refid="d9/de6/class_uniform_queries_1_1_auth_query_processor" prot="public" virt="non-virtual">UniformQueries.AuthQueryProcessor</derivedcompoundref>
+      <sectiondef kind="event">
+      <memberdef kind="event" id="df/d1f/class_uniform_queries_1_1_query_processor_1a6892127a6d09754370570c124a2a5452" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="df/d1f/class_uniform_queries_1_1_query_processor" kindref="compound">QueryProcessor</ref>, bool, object &gt;</type>
+        <definition>Action&lt;QueryProcessor, bool, object&gt; UniformQueries.QueryProcessor.ProcessingFinished</definition>
+        <argsstring></argsstring>
+        <name>ProcessingFinished</name>
+        <briefdescription>
+<para>Event that would be called when reciving operation would be finished. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="df/d1f/class_uniform_queries_1_1_query_processor" kindref="compound">QueryProcessor</ref> - reference to this processor. bool - result od operation object - object shared by processor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="df/d1f/class_uniform_queries_1_1_query_processor_1a6c7b2f71bee989944cb95f927ed3bdfd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool UniformQueries.QueryProcessor.IsTerminated</definition>
+        <argsstring></argsstring>
+        <name>IsTerminated</name>
+        <briefdescription>
+<para>Does last auth&apos;s task was terminated. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="property" id="df/d1f/class_uniform_queries_1_1_query_processor_1a313a194b0608de7f02281824587dd1ac" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>bool</type>
+        <definition>bool UniformQueries.QueryProcessor.IsInProgress</definition>
+        <argsstring></argsstring>
+        <name>IsInProgress</name>
+        <briefdescription>
+<para>Is authrentification in proggress. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="45" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d1f/class_uniform_queries_1_1_query_processor_1a5f861d26305129e4b348adc5398aae9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void UniformQueries.QueryProcessor.TerminateAuthorizationTask</definition>
+        <argsstring>()</argsstring>
+        <name>TerminateAuthorizationTask</name>
+        <briefdescription>
+<para>Terminating current started process. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="51" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="df/d1f/class_uniform_queries_1_1_query_processor_1ad3338c48d35da2f6ddbe2daf736d34a8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UniformQueries.QueryProcessor.Finalize</definition>
+        <argsstring>(bool result, object args)</argsstring>
+        <name>Finalize</name>
+        <param>
+          <type>bool</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Generate ProcessingFinished event with provided params. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resdult of processing.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shared message.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="65" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="df/d1f/class_uniform_queries_1_1_query_processor_1ac0726166f2db4a9063024e4db190bd82" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void UniformQueries.QueryProcessor.ServerAnswerHandler</definition>
+        <argsstring>(object controller, object answer)</argsstring>
+        <name>ServerAnswerHandler</name>
+        <reimplementedby refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a09d3f6d361c09c0726a880a92191f3fd">ServerAnswerHandler</reimplementedby>
+        <param>
+          <type>object</type>
+          <declname>controller</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>answer</declname>
+        </param>
+        <briefdescription>
+<para>Handler that would recive server answer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>answer</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="76" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Object that provide base methods that allow to standartize and controll query processing. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="143">
+        <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
+        <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
+        <childnode refid="141" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>AuthorityController.Queries.GET_GUEST_TOKEN.GuestTokenProcessor</label>
+        <link refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor"/>
+        <childnode refid="141" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>UniformQueries.AuthQueryProcessor</label>
+        <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
+        <childnode refid="140" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="140">
+        <label>UniformQueries.QueryProcessor</label>
+        <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
+      </node>
+    </inheritancegraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Exacutable/QueryProcessor.cs" bodystart="23" bodyend="77"/>
+    <listofallmembers>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1ad3338c48d35da2f6ddbe2daf736d34a8" prot="protected" virt="non-virtual"><scope>UniformQueries::QueryProcessor</scope><name>Finalize</name></member>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a313a194b0608de7f02281824587dd1ac" prot="public" virt="non-virtual"><scope>UniformQueries::QueryProcessor</scope><name>IsInProgress</name></member>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a6c7b2f71bee989944cb95f927ed3bdfd" prot="public" virt="non-virtual"><scope>UniformQueries::QueryProcessor</scope><name>IsTerminated</name></member>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a6892127a6d09754370570c124a2a5452" prot="public" virt="non-virtual"><scope>UniformQueries::QueryProcessor</scope><name>ProcessingFinished</name></member>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1ac0726166f2db4a9063024e4db190bd82" prot="protected" virt="pure-virtual"><scope>UniformQueries::QueryProcessor</scope><name>ServerAnswerHandler</name></member>
+      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a5f861d26305129e4b348adc5398aae9f" prot="public" virt="virtual"><scope>UniformQueries::QueryProcessor</scope><name>TerminateAuthorizationTask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

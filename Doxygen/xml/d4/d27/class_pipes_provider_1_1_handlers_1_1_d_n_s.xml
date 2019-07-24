@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
 <para>Avoid disconnectin error. </para>        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="37" bodyend="121"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" bodystart="37" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a8c278ec0c39ce0c76cb6ac9c92355aad" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>async void</type>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="127" bodyend="179"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" line="137" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" bodystart="137" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1af052d964841594776956fc894642ef65" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>async void</type>
@@ -52,14 +52,14 @@
 <para>Provide broadcasting to client by useing GetMessage delegate of BroadcastingServerTC controller. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="187" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="187" bodyend="228"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" line="204" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" bodystart="204" bodyend="252"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para><ref refid="db/d52/namespace_pipes_provider_1_1_handlers" kindref="compound">Handlers</ref> that provide transmission between serve and clients. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Handlers/DNS.cs" bodystart="31" bodyend="229"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers/DNS.cs" bodystart="31" bodyend="253"/>
     <listofallmembers>
       <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1a974e13bf084c0284e4cfe5fecdeb99f7" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::DNS</scope><name>ClientToServerAsync</name></member>
       <member refid="d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s_1af052d964841594776956fc894642ef65" prot="public" virt="non-virtual"><scope>PipesProvider::Handlers::DNS</scope><name>ServerBroadcasting</name></member>

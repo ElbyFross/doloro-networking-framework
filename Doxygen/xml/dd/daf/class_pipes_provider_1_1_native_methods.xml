@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dd/daf/class_pipes_provider_1_1_native_methods" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::NativeMethods</compoundname>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="dd/daf/class_pipes_provider_1_1_native_methods_1a1a2952e32dd0e63f65ffd4103eee0942" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool PipesProvider.NativeMethods.WaitNamedPipe</definition>
+        <argsstring>(string name, int timeout)</argsstring>
+        <name>WaitNamedPipe</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/NativeMethods.cs" line="27" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="dd/daf/class_pipes_provider_1_1_native_methods_1a9455b60ac124b9a4e3170f1fbbd3c839" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool PipesProvider.NativeMethods.DoesNamedPipeExist</definition>
+        <argsstring>(string serverName, string pipeName)</argsstring>
+        <name>DoesNamedPipeExist</name>
+        <param>
+          <type>string</type>
+          <declname>serverName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <briefdescription>
+<para>Method to test if Windows considers that a named pipe of a certain name exists or not. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/NativeMethods.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/NativeMethods.cs" bodystart="32" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that provide access to native methods. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/NativeMethods.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/NativeMethods.cs" bodystart="23" bodyend="44"/>
+    <listofallmembers>
+      <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a9455b60ac124b9a4e3170f1fbbd3c839" prot="public" virt="non-virtual"><scope>PipesProvider::NativeMethods</scope><name>DoesNamedPipeExist</name></member>
+      <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a1a2952e32dd0e63f65ffd4103eee0942" prot="private" virt="non-virtual"><scope>PipesProvider::NativeMethods</scope><name>WaitNamedPipe</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

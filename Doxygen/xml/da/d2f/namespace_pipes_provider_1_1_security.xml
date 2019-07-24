@@ -5,6 +5,7 @@
     <innerclass refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto" prot="public">PipesProvider::Security::Crypto</innerclass>
     <innerclass refid="d6/d6b/class_pipes_provider_1_1_security_1_1_general" prot="public">PipesProvider::Security::General</innerclass>
     <innerclass refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" prot="public">PipesProvider::Security::LogonConfig</innerclass>
+    <innerclass refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods" prot="public">PipesProvider::Security::NativeMethods</innerclass>
     <innernamespace refid="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a">PipesProvider::Security::LSA</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" prot="public" static="no" strong="yes">
@@ -56,13 +57,28 @@
 <para>RemoteLogon - Require authentication via one of the profile on server.</para><para>Local - Pipe will be accessed only on the local machine.</para><para>Administrator - access to pipe will provided only for administrators. By default allowed via remote authentication.</para><para>Internal - pipe will controlled only be server application and system. Any external coonection will be blocked. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/SecurityLevel.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/SecurityLevel.cs" bodystart="37" bodyend="44"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/SecurityLevel.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/SecurityLevel.cs" bodystart="37" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="da/d2f/namespace_pipes_provider_1_1_security_1a12798908780706d7d5b56356a0329312" prot="public" static="no">
+        <type>IntPtr</type>
+        <definition>using PipesProvider::Security.LSA_HANDLE = typedef IntPtr</definition>
+        <argsstring></argsstring>
+        <name>LSA_HANDLE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="23" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="23" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="23" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_efb0de59ddc945c275543a90234c260e" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider</compoundname>
+    <innerdir refid="dir_582b2ab8fec84efbadda20abc68a120c">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client</innerdir>
+    <innerdir refid="dir_ff46bbc03812e332f3de71a41a193246">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Handlers</innerdir>
+    <innerdir refid="dir_a0d0ee960878cff15025a7d9b3dcac0c">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking</innerdir>
+    <innerdir refid="dir_68bb918fbc8676d3ef1b16897a707920">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/obj</innerdir>
+    <innerdir refid="dir_7bd7468a76652e661a38c04fe2debb5f">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Properties</innerdir>
+    <innerdir refid="dir_16c11ea74f9b20ab32b47cf78bc7dbc2">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security</innerdir>
+    <innerdir refid="dir_9805e5e5a943e39b178fdf71790e8b6e">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server</innerdir>
+    <innerfile refid="d2/da1/_pipes_provider_2_native_methods_8cs">NativeMethods.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_4c1ea3c63ac37641bbac7ee66e2a0520" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers</compoundname>
+    <innerfile refid="d8/dd6/_base_server_transmission_controller_8cs">BaseServerTransmissionController.cs</innerfile>
+    <innerfile refid="d1/d34/_broadcasting_server_transmission_controller_8cs">BroadcastingServerTransmissionController.cs</innerfile>
+    <innerfile refid="d0/d0e/_client_to_server_transmission_controller_8cs">ClientToServerTransmissionController.cs</innerfile>
+    <innerfile refid="d0/d2c/_server_to_client_transmission_controller_8cs">ServerToClientTransmissionController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/"/>
+  </compounddef>
+</doxygen>

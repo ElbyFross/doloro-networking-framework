@@ -1,0 +1,214 @@
+\hypertarget{class_a_c_tests_1_1_tests_1_1_data}{}\section{A\+C\+Tests.\+Tests.\+Data Class Reference}
+\label{class_a_c_tests_1_1_tests_1_1_data}\index{A\+C\+Tests.\+Tests.\+Data@{A\+C\+Tests.\+Tests.\+Data}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a2552730dfd36f256d7a6126101d146fd}\label{class_a_c_tests_1_1_tests_1_1_data_a2552730dfd36f256d7a6126101d146fd}} 
+void {\bfseries Config\+Validation} ()
+\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_aad3d42245f0a8aefd1a3aeefa1a6a4b4}{Config\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Create new config file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a60970a44b261e13c936a0f0f818c783c}{Config\+\_\+\+Load\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Try to load valid config data file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a72c6a9bf21087e790ecf8334e9c65eef}{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Trying to load corrupted config dile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a237c73f81e488349c5518159f0ee2841}{Users\+Pool\+Stress\+Test}} ()
+\begin{DoxyCompactList}\small\item\em Stress test in working with huge data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ab5c9695f229e23ce3cc23f98a636d5e5}{Users\+Pool\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Create huge pool of users. Use for stress tests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_af64fbea59748f51cde98b4880717ae98}{Users\+Poo\+\_\+\+Load}} ()
+\begin{DoxyCompactList}\small\item\em Try to load a huge pool of users. Some users can be corrupted. Need to finish operation without freezing of other threads and without crush due corupted data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ab71c64448d6988fb560e3186f112f25e}{User\+Profile\+Validation}} ()
+\begin{DoxyCompactList}\small\item\em Validate full stack of fetaures related to user profile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}} \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ae942667cbb7e7cb423b9ddca2d471b7d}{User\+\_\+\+New}} ()
+\begin{DoxyCompactList}\small\item\em Creating new user profile and saving to storage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a0412f98e50984ac558935722f4b2c69e}{User\+\_\+\+Update}} (\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}} test\+User)
+\begin{DoxyCompactList}\small\item\em Update already existed profile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a75fb52351037b0ec4d3ecb13dce062ed}{User\+\_\+\+Remove}} (\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}} test\+User)
+\begin{DoxyCompactList}\small\item\em Remove profile from storage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a43cb9406abb4801fded880d31ef04725}{Salt\+Generation}} ()
+\begin{DoxyCompactList}\small\item\em Start complex list of tests thet validate password salt feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ab9053b60d639cfe8e427d157cdac706a}{Salt\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Creating a new salt data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ade31d14086ddb2ebaaf87dfa38811c39}{Salt\+\_\+\+Loading}} ()
+\begin{DoxyCompactList}\small\item\em Validate loading of already created salt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_ab24c6c95a34b4749527df5ee38aa9853}{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Validate salt with correct stamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_a9f6040bf528c877d8b063acafb3e92e5}{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Validate salt with incorrect salt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_a_c_tests_1_1_tests_1_1_data_afa7e60107f280684a34e4222ad48efda}{C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED}} = false
+\begin{DoxyCompactList}\small\item\em Marker that need to avoid tests conflicts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a72c6a9bf21087e790ecf8334e9c65eef}\label{class_a_c_tests_1_1_tests_1_1_data_a72c6a9bf21087e790ecf8334e9c65eef}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Config\+\_\+\+Load\+\_\+\+Corupted\+Data@{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}}
+\index{Config\+\_\+\+Load\+\_\+\+Corupted\+Data@{Config\+\_\+\+Load\+\_\+\+Corupted\+Data}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+Load\+\_\+\+Corupted\+Data()}{Config\_Load\_CoruptedData()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Config\+\_\+\+Load\+\_\+\+Corupted\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trying to load corrupted config dile. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a60970a44b261e13c936a0f0f818c783c}\label{class_a_c_tests_1_1_tests_1_1_data_a60970a44b261e13c936a0f0f818c783c}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Config\+\_\+\+Load\+\_\+\+Valid\+Data@{Config\+\_\+\+Load\+\_\+\+Valid\+Data}}
+\index{Config\+\_\+\+Load\+\_\+\+Valid\+Data@{Config\+\_\+\+Load\+\_\+\+Valid\+Data}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+Load\+\_\+\+Valid\+Data()}{Config\_Load\_ValidData()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Config\+\_\+\+Load\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Try to load valid config data file. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_aad3d42245f0a8aefd1a3aeefa1a6a4b4}\label{class_a_c_tests_1_1_tests_1_1_data_aad3d42245f0a8aefd1a3aeefa1a6a4b4}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Config\+\_\+\+New@{Config\+\_\+\+New}}
+\index{Config\+\_\+\+New@{Config\+\_\+\+New}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Config\+\_\+\+New()}{Config\_New()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Config\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create new config file. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ab9053b60d639cfe8e427d157cdac706a}\label{class_a_c_tests_1_1_tests_1_1_data_ab9053b60d639cfe8e427d157cdac706a}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Salt\+\_\+\+Init@{Salt\+\_\+\+Init}}
+\index{Salt\+\_\+\+Init@{Salt\+\_\+\+Init}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Init()}{Salt\_Init()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Salt\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating a new salt data. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ade31d14086ddb2ebaaf87dfa38811c39}\label{class_a_c_tests_1_1_tests_1_1_data_ade31d14086ddb2ebaaf87dfa38811c39}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Salt\+\_\+\+Loading@{Salt\+\_\+\+Loading}}
+\index{Salt\+\_\+\+Loading@{Salt\+\_\+\+Loading}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Loading()}{Salt\_Loading()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Salt\+\_\+\+Loading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate loading of already created salt 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a9f6040bf528c877d8b063acafb3e92e5}\label{class_a_c_tests_1_1_tests_1_1_data_a9f6040bf528c877d8b063acafb3e92e5}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}}
+\index{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data()}{Salt\_Validation\_InvalidData()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Salt\+\_\+\+Validation\+\_\+\+Invalid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate salt with incorrect salt. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ab24c6c95a34b4749527df5ee38aa9853}\label{class_a_c_tests_1_1_tests_1_1_data_ab24c6c95a34b4749527df5ee38aa9853}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Salt\+\_\+\+Validation\+\_\+\+Valid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}}
+\index{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data@{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+\_\+\+Validation\+\_\+\+Valid\+Data()}{Salt\_Validation\_ValidData()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Salt\+\_\+\+Validation\+\_\+\+Valid\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate salt with correct stamp. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a43cb9406abb4801fded880d31ef04725}\label{class_a_c_tests_1_1_tests_1_1_data_a43cb9406abb4801fded880d31ef04725}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Salt\+Generation@{Salt\+Generation}}
+\index{Salt\+Generation@{Salt\+Generation}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Salt\+Generation()}{SaltGeneration()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Salt\+Generation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start complex list of tests thet validate password salt feature. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ae942667cbb7e7cb423b9ddca2d471b7d}\label{class_a_c_tests_1_1_tests_1_1_data_ae942667cbb7e7cb423b9ddca2d471b7d}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!User\+\_\+\+New@{User\+\_\+\+New}}
+\index{User\+\_\+\+New@{User\+\_\+\+New}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+New()}{User\_New()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}} A\+C\+Tests.\+Tests.\+Data.\+User\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating new user profile and saving to storage. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a75fb52351037b0ec4d3ecb13dce062ed}\label{class_a_c_tests_1_1_tests_1_1_data_a75fb52351037b0ec4d3ecb13dce062ed}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!User\+\_\+\+Remove@{User\+\_\+\+Remove}}
+\index{User\+\_\+\+Remove@{User\+\_\+\+Remove}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+Remove()}{User\_Remove()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+User\+\_\+\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}}}]{test\+User }\end{DoxyParamCaption})}
+
+
+
+Remove profile from storage. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a0412f98e50984ac558935722f4b2c69e}\label{class_a_c_tests_1_1_tests_1_1_data_a0412f98e50984ac558935722f4b2c69e}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!User\+\_\+\+Update@{User\+\_\+\+Update}}
+\index{User\+\_\+\+Update@{User\+\_\+\+Update}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+\_\+\+Update()}{User\_Update()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+User\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}}}]{test\+User }\end{DoxyParamCaption})}
+
+
+
+Update already existed profile. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ab71c64448d6988fb560e3186f112f25e}\label{class_a_c_tests_1_1_tests_1_1_data_ab71c64448d6988fb560e3186f112f25e}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!User\+Profile\+Validation@{User\+Profile\+Validation}}
+\index{User\+Profile\+Validation@{User\+Profile\+Validation}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{User\+Profile\+Validation()}{UserProfileValidation()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+User\+Profile\+Validation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validate full stack of fetaures related to user profile. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_af64fbea59748f51cde98b4880717ae98}\label{class_a_c_tests_1_1_tests_1_1_data_af64fbea59748f51cde98b4880717ae98}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Users\+Poo\+\_\+\+Load@{Users\+Poo\+\_\+\+Load}}
+\index{Users\+Poo\+\_\+\+Load@{Users\+Poo\+\_\+\+Load}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Poo\+\_\+\+Load()}{UsersPoo\_Load()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Users\+Poo\+\_\+\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Try to load a huge pool of users. Some users can be corrupted. Need to finish operation without freezing of other threads and without crush due corupted data. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_ab5c9695f229e23ce3cc23f98a636d5e5}\label{class_a_c_tests_1_1_tests_1_1_data_ab5c9695f229e23ce3cc23f98a636d5e5}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Users\+Pool\+\_\+\+New@{Users\+Pool\+\_\+\+New}}
+\index{Users\+Pool\+\_\+\+New@{Users\+Pool\+\_\+\+New}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Pool\+\_\+\+New()}{UsersPool\_New()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Users\+Pool\+\_\+\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create huge pool of users. Use for stress tests. 
+
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_a237c73f81e488349c5518159f0ee2841}\label{class_a_c_tests_1_1_tests_1_1_data_a237c73f81e488349c5518159f0ee2841}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!Users\+Pool\+Stress\+Test@{Users\+Pool\+Stress\+Test}}
+\index{Users\+Pool\+Stress\+Test@{Users\+Pool\+Stress\+Test}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{Users\+Pool\+Stress\+Test()}{UsersPoolStressTest()}}
+{\footnotesize\ttfamily void A\+C\+Tests.\+Tests.\+Data.\+Users\+Pool\+Stress\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stress test in working with huge data. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_a_c_tests_1_1_tests_1_1_data_afa7e60107f280684a34e4222ad48efda}\label{class_a_c_tests_1_1_tests_1_1_data_afa7e60107f280684a34e4222ad48efda}} 
+\index{A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}!C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED@{C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED}}
+\index{C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED@{C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED}!A\+C\+Tests\+::\+Tests\+::\+Data@{A\+C\+Tests\+::\+Tests\+::\+Data}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED}{CONFIG\_FILE\_GENERATED}}
+{\footnotesize\ttfamily bool A\+C\+Tests.\+Tests.\+Data.\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+ED = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Marker that need to avoid tests conflicts. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Tests/\+A\+C\+Tests/\+Tests/Data.\+cs\end{DoxyCompactItemize}

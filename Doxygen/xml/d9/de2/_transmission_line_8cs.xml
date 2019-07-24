@@ -4,6 +4,7 @@
     <compoundname>TransmissionLine.cs</compoundname>
     <innerclass refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" prot="public">PipesProvider::Client::TransmissionLine</innerclass>
     <innernamespace refid="d1/dc6/namespace_pipes_provider_1_1_client">PipesProvider::Client</innernamespace>
+    <innernamespace refid="df/d54/namespace_microsoft_1_1_win32_1_1_safe_handles">Microsoft::Win32::SafeHandles</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -350,6 +351,6 @@
 <codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="460"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Client/TransmissionLine.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Client/TransmissionLine.cs"/>
   </compounddef>
 </doxygen>

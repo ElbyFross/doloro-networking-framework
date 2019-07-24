@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d3/d76/namespace_a_c_tests_1_1_tests" kind="namespace" language="C#">
+    <compoundname>ACTests::Tests</compoundname>
+    <innerclass refid="da/d88/class_a_c_tests_1_1_tests_1_1_data" prot="public">ACTests::Tests::Data</innerclass>
+    <innerclass refid="d3/d90/class_a_c_tests_1_1_tests_1_1_queries" prot="public">ACTests::Tests::Queries</innerclass>
+    <innerclass refid="d5/d79/class_a_c_tests_1_1_tests_1_1_query_processors" prot="public">ACTests::Tests::QueryProcessors</innerclass>
+    <innerclass refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex" prot="public">ACTests::Tests::Regex</innerclass>
+    <innerclass refid="d4/d66/class_a_c_tests_1_1_tests_1_1_session" prot="public">ACTests::Tests::Session</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Data.cs" line="25" column="1"/>
+  </compounddef>
+</doxygen>

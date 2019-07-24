@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods" kind="class" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::NativeMethods</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aa8cbc36f4c83e56734a90e4f82599a14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool PipesProvider.Security.NativeMethods.LogonUser</definition>
+        <argsstring>(String lpszUsername, String lpszDomain, String lpszPassword, int dwLogonType, int dwLogonProvider, out SafeAccessTokenHandle phToken)</argsstring>
+        <name>LogonUser</name>
+        <param>
+          <type>String</type>
+          <declname>lpszUsername</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>lpszDomain</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>lpszPassword</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dwLogonType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dwLogonProvider</declname>
+        </param>
+        <param>
+          <type>out SafeAccessTokenHandle</type>
+          <declname>phToken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aaa43d5b08023ba65a847545f43bca37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.NativeMethods.LsaOpenPolicy</definition>
+        <argsstring>(LsaSecurityWrapper.LSA_UNICODE_STRING[] SystemName, ref LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES ObjectAttributes, int AccessMask, out IntPtr PolicyHandle)</argsstring>
+        <name>LsaOpenPolicy</name>
+        <param>
+          <type><ref refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LsaSecurityWrapper.LSA_UNICODE_STRING</ref> []</type>
+          <declname>SystemName</declname>
+        </param>
+        <param>
+          <type>ref <ref refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s" kindref="compound">LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES</ref></type>
+          <declname>ObjectAttributes</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>AccessMask</declname>
+        </param>
+        <param>
+          <type>out IntPtr</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1a41f3c8a115df5b26700d24b6ead2d687" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.NativeMethods.LsaAddAccountRights</definition>
+        <argsstring>(LSA_HANDLE PolicyHandle, IntPtr pSID, LsaSecurityWrapper.LSA_UNICODE_STRING[] UserRights, int CountOfRights)</argsstring>
+        <name>LsaAddAccountRights</name>
+        <param>
+          <type>LSA_HANDLE</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <param>
+          <type>IntPtr</type>
+          <declname>pSID</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LsaSecurityWrapper.LSA_UNICODE_STRING</ref> []</type>
+          <declname>UserRights</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>CountOfRights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1acf4899aa118ee28b7ea34a51af41a371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint PipesProvider.Security.NativeMethods.LsaRemoveAccountRights</definition>
+        <argsstring>(LSA_HANDLE PolicyHandle, IntPtr AccountSid, bool AllRights, LsaSecurityWrapper.LSA_UNICODE_STRING[] UserRights, int CountOfRights)</argsstring>
+        <name>LsaRemoveAccountRights</name>
+        <param>
+          <type>LSA_HANDLE</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <param>
+          <type>IntPtr</type>
+          <declname>AccountSid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>AllRights</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LsaSecurityWrapper.LSA_UNICODE_STRING</ref> []</type>
+          <declname>UserRights</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>CountOfRights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1ab24dd1a3005b9e4738c8a71b942e682a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int PipesProvider.Security.NativeMethods.LsaClose</definition>
+        <argsstring>(IntPtr PolicyHandle)</argsstring>
+        <name>LsaClose</name>
+        <param>
+          <type>IntPtr</type>
+          <declname>PolicyHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="63" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provide access to native metods used in security namespace. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" bodystart="28" bodyend="64"/>
+    <listofallmembers>
+      <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aa8cbc36f4c83e56734a90e4f82599a14" prot="public" virt="non-virtual"><scope>PipesProvider::Security::NativeMethods</scope><name>LogonUser</name></member>
+      <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1a41f3c8a115df5b26700d24b6ead2d687" prot="public" virt="non-virtual"><scope>PipesProvider::Security::NativeMethods</scope><name>LsaAddAccountRights</name></member>
+      <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1ab24dd1a3005b9e4738c8a71b942e682a" prot="public" virt="non-virtual"><scope>PipesProvider::Security::NativeMethods</scope><name>LsaClose</name></member>
+      <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aaa43d5b08023ba65a847545f43bca37a" prot="public" virt="non-virtual"><scope>PipesProvider::Security::NativeMethods</scope><name>LsaOpenPolicy</name></member>
+      <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1acf4899aa118ee28b7ea34a51af41a371" prot="public" virt="non-virtual"><scope>PipesProvider::Security::NativeMethods</scope><name>LsaRemoveAccountRights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

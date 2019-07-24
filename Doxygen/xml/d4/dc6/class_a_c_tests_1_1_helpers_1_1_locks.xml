@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d4/dc6/class_a_c_tests_1_1_helpers_1_1_locks" kind="class" language="C#" prot="public">
+    <compoundname>ACTests::Helpers::Locks</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d4/dc6/class_a_c_tests_1_1_helpers_1_1_locks_1a5125daad476e3564ac0e8d624de5e5e3" prot="public" static="yes" mutable="no">
+        <type>object</type>
+        <definition>object ACTests.Helpers.Locks.CONFIG_LOCK</definition>
+        <argsstring></argsstring>
+        <name>CONFIG_LOCK</name>
+        <initializer>= new object()</initializer>
+        <briefdescription>
+<para>Show doest lock file is locked. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Helpers/Locks.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Helpers/Locks.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>While that contain objects that can be used for detect multy thread locks. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Helpers/Locks.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Helpers/Locks.cs" bodystart="26" bodyend="32"/>
+    <listofallmembers>
+      <member refid="d4/dc6/class_a_c_tests_1_1_helpers_1_1_locks_1a5125daad476e3564ac0e8d624de5e5e3" prot="public" virt="non-virtual"><scope>ACTests::Helpers::Locks</scope><name>CONFIG_LOCK</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

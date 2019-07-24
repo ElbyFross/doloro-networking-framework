@@ -2,14 +2,14 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w" kind="class" language="C#" prot="public">
     <compoundname>AuthorityController::Queries::USER_NEW</compoundname>
-    <basecompoundref refid="da/d51/interface_uniform_queries_1_1_i_query_handler" prot="public" virt="non-virtual">UniformQueries.IQueryHandler</basecompoundref>
+    <basecompoundref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" prot="public" virt="non-virtual">UniformQueries.Executable.IQueryHandler</basecompoundref>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1ab0995d0559e0033ea963acaccb6e37bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
         <definition>string AuthorityController.Queries.USER_NEW.Description</definition>
         <argsstring>(string cultureKey)</argsstring>
         <name>Description</name>
-        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abe2d1124630ca8d74b7398d11c873526">Description</reimplements>
+        <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1ae0e55919571d5456af31298394d241a9">Description</reimplements>
         <param>
           <type>string</type>
           <declname>cultureKey</declname>
@@ -29,14 +29,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" bodystart="29" bodyend="42"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="28" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1afd715fb3d60e53ca7e3d55a4433f529c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void AuthorityController.Queries.USER_NEW.Execute</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>Execute</name>
-        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1a66d15db03bdd5b0caf6eef96f9b803c0">Execute</reimplements>
+        <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a3268d72c0388f5e3debba4d73bdfe523">Execute</reimplements>
         <param>
           <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
           <declname>queryParts</declname>
@@ -55,14 +55,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" bodystart="44" bodyend="240"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="41" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a6e26596b5a5ecc3d07591766b5d325ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool AuthorityController.Queries.USER_NEW.IsTarget</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>IsTarget</name>
-        <reimplements refid="da/d51/interface_uniform_queries_1_1_i_query_handler_1abda1ccf47ad2889fbd015955965046e7">IsTarget</reimplements>
+        <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a0f43184bf3e306a7cbebc39098f044ee">IsTarget</reimplements>
         <param>
           <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
           <declname>queryParts</declname>
@@ -82,7 +82,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" line="242" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" bodystart="242" bodyend="288"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="239" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="239" bodyend="285"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -90,30 +90,30 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="197">
+      <node id="210">
         <label>IQueryHandler</label>
-        <link refid="da/d51/interface_uniform_queries_1_1_i_query_handler"/>
+        <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="196">
+      <node id="209">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="197" relation="public-inheritance">
+        <childnode refid="210" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="199">
+      <node id="212">
         <label>IQueryHandler</label>
-        <link refid="da/d51/interface_uniform_queries_1_1_i_query_handler"/>
+        <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="198">
+      <node id="211">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="199" relation="public-inheritance">
+        <childnode refid="212" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Queries/USER_NEW.cs" bodystart="27" bodyend="289"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="26" bodyend="286"/>
     <listofallmembers>
       <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1ab0995d0559e0033ea963acaccb6e37bf" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Description</name></member>
       <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1afd715fb3d60e53ca7e3d55a4433f529c" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Execute</name></member>

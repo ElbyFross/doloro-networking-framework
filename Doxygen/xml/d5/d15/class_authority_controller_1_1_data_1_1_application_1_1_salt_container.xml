@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::Data::Application::SaltContainer</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a0aaf05215aac85237a3fb02de5a55a44" prot="public" static="no" mutable="no">
+        <type>byte []</type>
+        <definition>byte [] AuthorityController.Data.Application.SaltContainer.key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <briefdescription>
+<para>Bytes array that can be added to information before hashing to increase entropy. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1adcf2002c95427ded8b59046896b9c355" prot="public" static="no" mutable="no">
+        <type>byte []</type>
+        <definition>byte [] AuthorityController.Data.Application.SaltContainer.validationStamp</definition>
+        <argsstring></argsstring>
+        <name>validationStamp</name>
+        <briefdescription>
+<para>Stamp that provide confirmation that salt is valid. During loading salt will applied to test string and this stamp need to be the same as result. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1aa1c6611edb9a6b780e6763d780f7c2ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AuthorityController.Data.Application.SaltContainer.SaltContainer</definition>
+        <argsstring>()</argsstring>
+        <name>SaltContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a0bbc5729faf6cdce0798360552359777" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AuthorityController.Data.Application.SaltContainer.SaltContainer</definition>
+        <argsstring>(int keySize)</argsstring>
+        <name>SaltContainer</name>
+        <param>
+          <type>int</type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+<para>Create salt container with requested salt size. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="39" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a372e31be50989b8e0c4b2e78e59e0d3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Data.Application.SaltContainer.GenerateNewKey</definition>
+        <argsstring>(int keySize)</argsstring>
+        <name>GenerateNewKey</name>
+        <param>
+          <type>int</type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+<para>Generate new key for container with requiered size. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="48" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a193637ef347a3610305b75994c483305" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte []</type>
+        <definition>byte [] AuthorityController.Data.Application.SaltContainer.GetStamp</definition>
+        <argsstring>()</argsstring>
+        <name>GetStamp</name>
+        <briefdescription>
+<para>Create a stamp related to current salt. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="65" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a47a251ef343c25419d77b23dc28a50c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Application.SaltContainer.Validate</definition>
+        <argsstring>()</argsstring>
+        <name>Validate</name>
+        <briefdescription>
+<para>Call base operation and compare results. Relevant result must be equal to stamp. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="76" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="76" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" line="21" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/SaltContainer.cs" bodystart="20" bodyend="100"/>
+    <listofallmembers>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a372e31be50989b8e0c4b2e78e59e0d3b" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>GenerateNewKey</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a193637ef347a3610305b75994c483305" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>GetStamp</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a0aaf05215aac85237a3fb02de5a55a44" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>key</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1aa1c6611edb9a6b780e6763d780f7c2ce" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>SaltContainer</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a0bbc5729faf6cdce0798360552359777" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>SaltContainer</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a47a251ef343c25419d77b23dc28a50c0" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>Validate</name></member>
+      <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1adcf2002c95427ded8b59046896b9c355" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::SaltContainer</scope><name>validationStamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_b650dcca0e61598bf836023ad57e3941" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj</compoundname>
+    <innerdir refid="dir_4cf3ec8af0f347b39d45d2b6aca5bed1">D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Debug</innerdir>
+    <innerdir refid="dir_807ca304c0ce4ee0e4ab904c64044948">D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Release</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/"/>
+  </compounddef>
+</doxygen>

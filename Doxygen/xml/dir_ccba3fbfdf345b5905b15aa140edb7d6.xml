@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_ccba3fbfdf345b5905b15aa140edb7d6" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins</compoundname>
+    <innerfile refid="de/d31/_a_p_i_8cs">API.cs</innerfile>
+    <innerfile refid="d1/d39/_constants_8cs">Constants.cs</innerfile>
+    <innerfile refid="d0/d6a/_i_plugin_8cs">IPlugin.cs</innerfile>
+    <innerfile refid="d2/df4/_menu_item_meta_8cs">MenuItemMeta.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/"/>
+  </compounddef>
+</doxygen>

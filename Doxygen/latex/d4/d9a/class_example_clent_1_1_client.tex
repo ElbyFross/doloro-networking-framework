@@ -1,0 +1,108 @@
+\hypertarget{class_example_clent_1_1_client}{}\section{Example\+Clent.\+Client Class Reference}
+\label{class_example_clent_1_1_client}\index{Example\+Clent.\+Client@{Example\+Clent.\+Client}}
+
+
+Provide example of client-\/server transmission. Demostrate ways to use A\+PI. Provide tools for simple tests of local server.  
+
+
+Inheritance diagram for Example\+Clent.\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/d9a/class_example_clent_1_1_client}
+\end{center}
+\end{figure}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} \mbox{\hyperlink{class_example_clent_1_1_client_aa0a70a66b460286c18cbb59d4798f8f3}{routing\+Instruction}}
+\begin{DoxyCompactList}\small\item\em Data about target server loaded from routing table. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_example_clent_1_1_client_aa55c8c76b8164a59b15b8aec26c8bd89}{S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME}} = null
+\begin{DoxyCompactList}\small\item\em Server that will be used as target for this client. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_example_clent_1_1_client_ace39c387c6ea1cc5db66945775661ea6}{S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME}} = null
+\begin{DoxyCompactList}\small\item\em Pipe that will be used to queries of this client. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_example_clent_1_1_client_ab504450de6cc737767a77f8f206a8d6f}{quest\+Token\+Required}} = true
+\begin{DoxyCompactList}\small\item\em Is guest token required. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_example_clent_1_1_client_a2877623da00a3298a576a2b1d43ffb29}\label{class_example_clent_1_1_client_a2877623da00a3298a576a2b1d43ffb29}} 
+static void {\bfseries Main} (string\mbox{[}$\,$\mbox{]} args)
+\item 
+static void \mbox{\hyperlink{class_example_clent_1_1_client_a07189f53ed2d609dafbb8a856434c694}{Transmissions\+Block}} ()
+\begin{DoxyCompactList}\small\item\em Method that will send few sample to remote server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_example_clent_1_1_client_a7e95cf09843a81fac2dd5242a1268eee}\label{class_example_clent_1_1_client_a7e95cf09843a81fac2dd5242a1268eee}} 
+static void {\bfseries Send\+One\+Way\+Query} (string query)
+\item 
+\mbox{\Hypertarget{class_example_clent_1_1_client_a763e285f590ae8a45f0fb4a67183f540}\label{class_example_clent_1_1_client_a763e285f590ae8a45f0fb4a67183f540}} 
+static void {\bfseries Request\+Public\+R\+S\+A\+Key} ()
+\item 
+\mbox{\Hypertarget{class_example_clent_1_1_client_ab296f6e87332e4ddcd1145bd63b1ea64}\label{class_example_clent_1_1_client_ab296f6e87332e4ddcd1145bd63b1ea64}} 
+static void {\bfseries Server\+Answer\+Handler\+\_\+\+R\+S\+A\+Public\+Key} (\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}} tl, object message)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Provide example of client-\/server transmission. Demostrate ways to use A\+PI. Provide tools for simple tests of local server. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_example_clent_1_1_client_a07189f53ed2d609dafbb8a856434c694}\label{class_example_clent_1_1_client_a07189f53ed2d609dafbb8a856434c694}} 
+\index{Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}!Transmissions\+Block@{Transmissions\+Block}}
+\index{Transmissions\+Block@{Transmissions\+Block}!Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}}
+\subsubsection{\texorpdfstring{Transmissions\+Block()}{TransmissionsBlock()}}
+{\footnotesize\ttfamily static void Example\+Clent.\+Client.\+Transmissions\+Block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Method that will send few sample to remote server. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_example_clent_1_1_client_ab504450de6cc737767a77f8f206a8d6f}\label{class_example_clent_1_1_client_ab504450de6cc737767a77f8f206a8d6f}} 
+\index{Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}!quest\+Token\+Required@{quest\+Token\+Required}}
+\index{quest\+Token\+Required@{quest\+Token\+Required}!Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}}
+\subsubsection{\texorpdfstring{quest\+Token\+Required}{questTokenRequired}}
+{\footnotesize\ttfamily bool Example\+Clent.\+Client.\+quest\+Token\+Required = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Is guest token required. 
+
+\mbox{\Hypertarget{class_example_clent_1_1_client_aa0a70a66b460286c18cbb59d4798f8f3}\label{class_example_clent_1_1_client_aa0a70a66b460286c18cbb59d4798f8f3}} 
+\index{Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}!routing\+Instruction@{routing\+Instruction}}
+\index{routing\+Instruction@{routing\+Instruction}!Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}}
+\subsubsection{\texorpdfstring{routing\+Instruction}{routingInstruction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} Example\+Clent.\+Client.\+routing\+Instruction\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Data about target server loaded from routing table. 
+
+\mbox{\Hypertarget{class_example_clent_1_1_client_aa55c8c76b8164a59b15b8aec26c8bd89}\label{class_example_clent_1_1_client_aa55c8c76b8164a59b15b8aec26c8bd89}} 
+\index{Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}!S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME@{S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME}}
+\index{S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME@{S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME}!Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME}{SERVER\_NAME}}
+{\footnotesize\ttfamily string Example\+Clent.\+Client.\+S\+E\+R\+V\+E\+R\+\_\+\+N\+A\+ME = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Server that will be used as target for this client. 
+
+\mbox{\Hypertarget{class_example_clent_1_1_client_ace39c387c6ea1cc5db66945775661ea6}\label{class_example_clent_1_1_client_ace39c387c6ea1cc5db66945775661ea6}} 
+\index{Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}!S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME@{S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME}}
+\index{S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME@{S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME}!Example\+Clent\+::\+Client@{Example\+Clent\+::\+Client}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME}{SERVER\_PIPE\_NAME}}
+{\footnotesize\ttfamily string Example\+Clent.\+Client.\+S\+E\+R\+V\+E\+R\+\_\+\+P\+I\+P\+E\+\_\+\+N\+A\+ME = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pipe that will be used to queries of this client. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Examples/\+Example\+Client/Client.\+cs\end{DoxyCompactItemize}

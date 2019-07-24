@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s" kind="struct" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</compoundname>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1af6c28e20640088a73ca4fbe164d8fad1" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.Length</definition>
+        <argsstring></argsstring>
+        <name>Length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1acf7eb6c79221858596371dd1ddbeb9c9" prot="package" static="no" mutable="no">
+        <type>IntPtr</type>
+        <definition>IntPtr PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.RootDirectory</definition>
+        <argsstring></argsstring>
+        <name>RootDirectory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a4911f7b2b4f0cd4121616823bc1ab517" prot="package" static="no" mutable="no">
+        <type>IntPtr</type>
+        <definition>IntPtr PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.ObjectName</definition>
+        <argsstring></argsstring>
+        <name>ObjectName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a206c059deebe7243803b977e29088d5f" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.Attributes</definition>
+        <argsstring></argsstring>
+        <name>Attributes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a8eb1b205242a8c7b72bc804027e03acb" prot="package" static="no" mutable="no">
+        <type>IntPtr</type>
+        <definition>IntPtr PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.SecurityDescriptor</definition>
+        <argsstring></argsstring>
+        <name>SecurityDescriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1ade6b3f293883f2360deefd4449dffcd8" prot="package" static="no" mutable="no">
+        <type>IntPtr</type>
+        <definition>IntPtr PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES.SecurityQualityOfService</definition>
+        <argsstring></argsstring>
+        <name>SecurityQualityOfService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="29" bodyend="37"/>
+    <listofallmembers>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a206c059deebe7243803b977e29088d5f" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>Attributes</name></member>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1af6c28e20640088a73ca4fbe164d8fad1" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>Length</name></member>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a4911f7b2b4f0cd4121616823bc1ab517" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>ObjectName</name></member>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1acf7eb6c79221858596371dd1ddbeb9c9" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>RootDirectory</name></member>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1a8eb1b205242a8c7b72bc804027e03acb" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>SecurityDescriptor</name></member>
+      <member refid="dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s_1ade6b3f293883f2360deefd4449dffcd8" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_OBJECT_ATTRIBUTES</scope><name>SecurityQualityOfService</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

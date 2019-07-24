@@ -5,6 +5,12 @@
  
 
 
+Inheritance diagram for Pipes\+Provider.\+Networking.\+Routing.\+Instruction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,15 +21,15 @@ bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instru
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_adb75f80ff34fab644305856ccf23d07b}{routing\+IP}}
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_adb75f80ff34fab644305856ccf23d07b}{routing\+IP}} = \char`\"{}localhost\char`\"{}
 \begin{DoxyCompactList}\small\item\em Address that will be ised for routing \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abe54e245df8dd26547b0c881b987202b}{pipe\+Name}}
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_abe54e245df8dd26547b0c881b987202b}{pipe\+Name}} = \char`\"{}\char`\"{}
 \begin{DoxyCompactList}\small\item\em neme of the named pipe for server access. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a2a3325abd7537b7a961626272634e038}{logon\+Config}}
+\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a2a3325abd7537b7a961626272634e038}{logon\+Config}} = \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config_ad09f6e3c892826dc5df995e02f7a5738}{Security.\+Logon\+Config.\+Anonymous}}
 \begin{DoxyCompactList}\small\item\em Logon config recuired to server connection. \end{DoxyCompactList}\item 
-string \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aa98823848a42831095f92b639121cc67}{query\+Patterns}}
+string \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_aa98823848a42831095f92b639121cc67}{query\+Patterns}} = new string\mbox{[}$\,$\mbox{]} \{ \char`\"{}\char`\"{} \}
 \begin{DoxyCompactList}\small\item\em Array that contain querie\textquotesingle{}s body that need to be routed by this instruction. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a61ce6ffa8bb9cc44efc57bc51be3550b}{R\+S\+A\+Encryption}}
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_a61ce6ffa8bb9cc44efc57bc51be3550b}{R\+S\+A\+Encryption}} = true
 \begin{DoxyCompactList}\small\item\em Does this chanel has R\+SA encryption? If true then client can ask for server\textquotesingle{}s Public Key and encrypt message before send. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
@@ -97,7 +103,7 @@ Try to update Public R\+SA key by query recived from server as reply to G\+ET P\
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!logon\+Config@{logon\+Config}}
 \index{logon\+Config@{logon\+Config}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
 \subsubsection{\texorpdfstring{logon\+Config}{logonConfig}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+logon\+Config}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config}{Security.\+Logon\+Config}} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+logon\+Config = \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_logon_config_ad09f6e3c892826dc5df995e02f7a5738}{Security.\+Logon\+Config.\+Anonymous}}}
 
 
 
@@ -107,7 +113,7 @@ Logon config recuired to server connection.
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!pipe\+Name@{pipe\+Name}}
 \index{pipe\+Name@{pipe\+Name}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
 \subsubsection{\texorpdfstring{pipe\+Name}{pipeName}}
-{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+pipe\+Name}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+pipe\+Name = \char`\"{}\char`\"{}}
 
 
 
@@ -117,7 +123,7 @@ neme of the named pipe for server access.
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!query\+Patterns@{query\+Patterns}}
 \index{query\+Patterns@{query\+Patterns}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
 \subsubsection{\texorpdfstring{query\+Patterns}{queryPatterns}}
-{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+query\+Patterns}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+query\+Patterns = new string\mbox{[}$\,$\mbox{]} \{ \char`\"{}\char`\"{} \}}
 
 
 
@@ -131,7 +137,7 @@ target\+Queries\mbox{[}1\mbox{]} = \char`\"{}\$custom\+Prop\char`\"{};          
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!routing\+IP@{routing\+IP}}
 \index{routing\+IP@{routing\+IP}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
 \subsubsection{\texorpdfstring{routing\+IP}{routingIP}}
-{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+routing\+IP}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+routing\+IP = \char`\"{}localhost\char`\"{}}
 
 
 
@@ -141,7 +147,7 @@ Address that will be ised for routing
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}!R\+S\+A\+Encryption@{R\+S\+A\+Encryption}}
 \index{R\+S\+A\+Encryption@{R\+S\+A\+Encryption}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Instruction}}
 \subsubsection{\texorpdfstring{R\+S\+A\+Encryption}{RSAEncryption}}
-{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+R\+S\+A\+Encryption}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Instruction.\+R\+S\+A\+Encryption = true}
 
 
 
@@ -204,4 +210,4 @@ Time when public key will become expired.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Networking/\+Routing/Instruction.\+cs\end{DoxyCompactItemize}
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Pipes\+Provider/\+Networking/\+Routing/Instruction.\+cs\end{DoxyCompactItemize}

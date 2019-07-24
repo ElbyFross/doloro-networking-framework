@@ -2,6 +2,36 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info" kind="class" language="C#" prot="public">
     <compoundname>PipesProvider::Networking::Info</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a1f52d4e0fadf66135920386cd23473a2" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Networking.Info.MacAdsress</definition>
+        <argsstring></argsstring>
+        <name>MacAdsress</name>
+        <briefdescription>
+<para>Mac adress of current device. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="180" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="181" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a062b88b246e6ed088146325e62fe7d06" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Networking.Info.macAddress</definition>
+        <argsstring></argsstring>
+        <name>macAddress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="197" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1af2fa3a471e2f6245bed859c86b6f0c0e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -31,7 +61,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" bodystart="36" bodyend="61"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="36" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1aa609196312941e05536dcb3526b9a2ce" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>async void</type>
@@ -78,7 +108,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" line="72" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" bodystart="72" bodyend="95"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="72" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="72" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a3bc757d31da1bf0759a252ee0f919917" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string []</type>
@@ -91,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" bodystart="97" bodyend="124"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="97" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1ac8097e6a6bccbeae15e309ce72dbac91" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string []</type>
@@ -105,16 +135,18 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" line="130" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" bodystart="130" bodyend="175"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="130" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="130" bodyend="175"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Class that provide API for network information. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Info.cs" bodystart="29" bodyend="176"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Info.cs" bodystart="29" bodyend="199"/>
     <listofallmembers>
       <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1ac8097e6a6bccbeae15e309ce72dbac91" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>DisplayIPAddresses</name></member>
+      <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a062b88b246e6ed088146325e62fe7d06" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>macAddress</name></member>
+      <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a1f52d4e0fadf66135920386cd23473a2" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>MacAdsress</name></member>
       <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1aa609196312941e05536dcb3526b9a2ce" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>PingHost</name></member>
       <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1a3bc757d31da1bf0759a252ee0f919917" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>ServerName</name></member>
       <member refid="d7/d6e/class_pipes_provider_1_1_networking_1_1_info_1af2fa3a471e2f6245bed859c86b6f0c0e" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Info</scope><name>TryGetHostName</name></member>

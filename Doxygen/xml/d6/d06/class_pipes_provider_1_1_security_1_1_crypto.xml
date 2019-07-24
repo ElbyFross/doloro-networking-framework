@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="45" bodyend="51"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="45" bodyend="51"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="33" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a47ca964d3fea31884d730936a9be1c81" prot="public" static="yes" mutable="no">
         <type>bool</type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="38" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="38" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="60" bodyend="97"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="60" bodyend="97"/>
       </memberdef>
       <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a1813c1f43bdb164e4e023947e0cad08c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>RSAParameters</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="106" bodyend="111"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="106" bodyend="111"/>
       </memberdef>
       <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1adcb692dbcece7db4e96f4bce92daabd0" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>RSAParameters</type>
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="165" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="166" bodyend="171"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="165" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="166" bodyend="171"/>
       </memberdef>
       <memberdef kind="property" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aee1d631c98ae7aff552257befa32c37d" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
         <type>DateTime</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="176" bodyend="176"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="176" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="176" bodyend="176"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="98" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a3f5346401a457cde84339dcaf7f4ba21" prot="private" static="yes" mutable="no">
         <type>Timer</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="100" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="100" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="100" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="100" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -167,7 +167,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="117" bodyend="131"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="117" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a35b28e8676c9dea2c0b7991671fd78a6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -204,7 +204,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="139" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="139" bodyend="160"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="139" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="139" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a2a233d9860e9aee6b2bc49411a4e4917" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -230,7 +230,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="186" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="186" bodyend="212"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="186" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="186" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aeaf01f17d57b624fd4809ceb2836ebe0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>byte []</type>
@@ -267,7 +267,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="220" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="220" bodyend="246"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="220" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="220" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab43ab066a89134e4207ab0107f17a187" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -304,7 +304,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="256" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="256" bodyend="271"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="256" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="256" bodyend="271"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a09f2c39c0c97bf871f3ab9df2f1a40fd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>byte []</type>
@@ -352,7 +352,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="280" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="280" bodyend="308"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="280" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="280" bodyend="308"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1aa02bcc81446a930930bb43ff46981f60" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -378,7 +378,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="319" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="319" bodyend="322"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="319" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="319" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1af652a2847acd1502625c5496c4887274" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -408,14 +408,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="329" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="329" bodyend="372"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="329" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="329" bodyend="372"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Class that provide metods for providing server transmission sequrity. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/Crypto.cs" bodystart="27" bodyend="374"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/Crypto.cs" bodystart="27" bodyend="374"/>
     <listofallmembers>
       <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a085f49881af05eb6029d21fa8aab4439" prot="private" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>_CryptoServiceProvider_RSA</name></member>
       <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1ab1a4a6dad6ba4bad8e95587ae9c9ef28" prot="public" virt="non-virtual"><scope>PipesProvider::Security::Crypto</scope><name>CryptoServiceProvider_RSA</name></member>

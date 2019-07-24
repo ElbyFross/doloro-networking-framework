@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kind="class" language="C#" prot="public">
     <compoundname>PipesProvider::Networking::Routing::Instruction</compoundname>
+    <derivedcompoundref refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction" prot="public" virt="non-virtual">PipesProvider.Networking.Routing.AuthorizedInstruction</derivedcompoundref>
       <sectiondef kind="property">
       <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a8681a89ae14ad25d11ee0c588231b772" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
         <type>RSAParameters</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="37" bodyend="37"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="37" bodyend="37"/>
       </memberdef>
       <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a60281a347236a1311c37743b90596d58" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
         <type>DateTime</type>
@@ -27,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="43" bodyend="43"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="43" bodyend="43"/>
       </memberdef>
       <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a07dbb5b97b3d9a28e5a318815d954278" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
         <type>bool</type>
@@ -40,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="50" bodyend="70"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="50" bodyend="70"/>
       </memberdef>
       <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
@@ -53,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="118" bodyend="131"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="119" bodyend="132"/>
       </memberdef>
       <memberdef kind="property" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aad2d50b60ddcdd0c7d0671ced01a5480" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" kindref="compound">Instruction</ref></type>
@@ -66,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="137" bodyend="145"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="137" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="138" bodyend="146"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -82,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="72" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="72" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="73" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -91,45 +92,49 @@
         <definition>string PipesProvider.Networking.Routing.Instruction.routingIP</definition>
         <argsstring></argsstring>
         <name>routingIP</name>
+        <initializer>= &quot;localhost&quot;</initializer>
         <briefdescription>
 <para>Address that will be ised for routing </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="79" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="80" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abe54e245df8dd26547b0c881b987202b" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string PipesProvider.Networking.Routing.Instruction.pipeName</definition>
         <argsstring></argsstring>
         <name>pipeName</name>
+        <initializer>= &quot;&quot;</initializer>
         <briefdescription>
 <para>neme of the named pipe for server access. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="84" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="84" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="85" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a2a3325abd7537b7a961626272634e038" prot="public" static="no" mutable="no">
         <type><ref refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config" kindref="compound">Security.LogonConfig</ref></type>
         <definition>Security.LogonConfig PipesProvider.Networking.Routing.Instruction.logonConfig</definition>
         <argsstring></argsstring>
         <name>logonConfig</name>
+        <initializer>= <ref refid="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config_1ad09f6e3c892826dc5df995e02f7a5738" kindref="member">Security.LogonConfig.Anonymous</ref></initializer>
         <briefdescription>
 <para>Logon config recuired to server connection. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="89" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="89" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="90" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aa98823848a42831095f92b639121cc67" prot="public" static="no" mutable="no">
         <type>string []</type>
         <definition>string [] PipesProvider.Networking.Routing.Instruction.queryPatterns</definition>
         <argsstring></argsstring>
         <name>queryPatterns</name>
+        <initializer>= new string[] { &quot;&quot; }</initializer>
         <briefdescription>
 <para>Array that contain querie&apos;s body that need to be routed by this instruction. </para>        </briefdescription>
         <detaileddescription>
@@ -138,20 +143,21 @@ targetQueries[1] = &quot;q=GET&amp;!pk&quot;;             // All queries that re
 targetQueries[1] = &quot;$customProp&quot;;           // All queries that have &quot;customProp" property in query will be routed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="104" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="104" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a61ce6ffa8bb9cc44efc57bc51be3550b" prot="public" static="no" mutable="no">
         <type>bool</type>
         <definition>bool PipesProvider.Networking.Routing.Instruction.RSAEncryption</definition>
         <argsstring></argsstring>
         <name>RSAEncryption</name>
+        <initializer>= true</initializer>
         <briefdescription>
 <para>Does this chanel has RSA encryption? If true then client can ask for server&apos;s Public Key and encrypt message before send. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="110" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="110" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="111" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="111" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -179,7 +185,7 @@ targetQueries[1] = &quot;$customProp&quot;;           // All queries that have &
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="153" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="153" bodyend="249"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="154" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="154" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -205,26 +211,38 @@ targetQueries[1] = &quot;$customProp&quot;;           // All queries that have &
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="256" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="256" bodyend="333"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="257" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="257" bodyend="334"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Struct that contain instruction about target adress by relative query params. Allow using of several servers via one public.</para><para>Example: &lt;<ndash/>&gt; Authification server <ref refid="d1/dc6/namespace_pipes_provider_1_1_client" kindref="compound">Client</ref> &lt;<ndash/>&gt; Query server &lt;<ndash/>&gt; Data server 1 &lt;<ndash/>&gt; Data server 2 </para>    </detaileddescription>
-    <collaborationgraph>
-      <node id="84">
-        <label>Security</label>
+    <inheritancegraph>
+      <node id="94">
+        <label>PipesProvider.Networking.Routing.AuthorizedInstruction</label>
+        <link refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction"/>
+        <childnode refid="93" relation="public-inheritance">
+        </childnode>
       </node>
-      <node id="83">
+      <node id="93">
         <label>PipesProvider.Networking.Routing.Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
-        <childnode refid="84" relation="usage">
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="96">
+        <label>Security</label>
+      </node>
+      <node id="95">
+        <label>PipesProvider.Networking.Routing.Instruction</label>
+        <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
+        <childnode refid="96" relation="usage">
           <edgelabel>logonConfig</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Networking/Routing/Instruction.cs" bodystart="30" bodyend="334"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/Instruction.cs" bodystart="30" bodyend="335"/>
     <listofallmembers>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abcd8b85ff0383ecd73b24befa9d69506" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>_isValid</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::Instruction</scope><name>Default</name></member>

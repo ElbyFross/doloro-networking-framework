@@ -8,44 +8,43 @@
     <detaileddescription>
 <para>Case of using - simple transmition line that not require complex responce. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="163">
+      <node id="176">
         <label>UniformClient.Standard.SimpleClient</label>
         <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
-        <childnode refid="164" relation="public-inheritance">
+        <childnode refid="177" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="164">
+      <node id="177">
         <label>BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="167">
+      <node id="180">
         <label>PipesProvider.Networking.Routing.RoutingTable</label>
         <link refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table"/>
       </node>
-      <node id="165">
+      <node id="178">
         <label>UniformClient.Standard.SimpleClient</label>
         <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
-        <childnode refid="166" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="166">
+      <node id="179">
         <label>BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
-        <childnode refid="167" relation="usage">
+        <childnode refid="180" relation="usage">
           <edgelabel>routingTable</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/Standard/SimpleClient.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/Standard/SimpleClient.cs" bodystart="28" bodyend="30"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/Standard/SimpleClient.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/Standard/SimpleClient.cs" bodystart="28" bodyend="30"/>
     <listofallmembers>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a10f1c9dbb8d41719754b39344432497f" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>AppTerminated</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>ArgsReactor</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a52dacc1af85cbab035a159e64e1417a0" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>DuplexBackwardCallbacks</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a964bd521f46fd99f64b10257c5d233ef" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>EnqueueDuplexQueryViaPP</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a82dbf660ec06b5c05730ff57b63b4f28" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>EnqueueDuplexQueryViaPP</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aafcfed25b79baed0db4448f2e30f2aa2" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>GetConsoleWindow</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>GetValidPublicKeyViaPP</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>HandlerInputTransmissionAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>HandlerOutputTransmisssionAsync</name></member>
@@ -60,7 +59,6 @@
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a4db768d7c09862ab9adc9d7b0638edc6" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>ReceiveDelayedAnswerViaPP</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a97a86c4f5931d39e09ce7c9d336a1636" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>ReciveAnonymousBroadcastMessage</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a33b34ea9a2d7b4b8e26af767ab2897cf" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>routingTable</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a47b6d88848854c59fafefeeae3956699" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>ShowWindow</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a194b46bb0e889d07cade81c0aeab7cea" prot="protected" virt="virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>StartClientThread</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a01e5a7ef4c760207cfa644ac2f6a407f" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>StartPPClientThreadAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a6060f2eb1d44ec518f2dfc99c8b4f7aa" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>SW_HIDE</name></member>

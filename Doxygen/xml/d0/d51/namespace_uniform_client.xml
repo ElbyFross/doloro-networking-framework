@@ -3,6 +3,7 @@
   <compounddef id="d0/d51/namespace_uniform_client" kind="namespace" language="C#">
     <compoundname>UniformClient</compoundname>
     <innerclass refid="d4/deb/class_uniform_client_1_1_base_client" prot="public">UniformClient::BaseClient</innerclass>
+    <innerclass refid="d1/de3/class_uniform_client_1_1_native_methods" prot="public">UniformClient::NativeMethods</innerclass>
     <innernamespace refid="da/d8c/namespace_uniform_client_1_1_plugins">UniformClient::Plugins</innernamespace>
     <innernamespace refid="da/d7a/namespace_uniform_client_1_1_standard">UniformClient::Standard</innernamespace>
     <briefdescription>

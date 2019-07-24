@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_16c11ea74f9b20ab32b47cf78bc7dbc2" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security</compoundname>
+    <innerfile refid="d1/d43/_crypto_8cs">Crypto.cs</innerfile>
+    <innerfile refid="d7/d33/_general_8cs">General.cs</innerfile>
+    <innerfile refid="d9/d50/_logon_config_8cs">LogonConfig.cs</innerfile>
+    <innerfile refid="d7/d47/_l_s_a_8cs">LSA.cs</innerfile>
+    <innerfile refid="d5/d9d/_pipes_provider_2_security_2_native_methods_8cs">NativeMethods.cs</innerfile>
+    <innerfile refid="d4/dce/_security_level_8cs">SecurityLevel.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/"/>
+  </compounddef>
+</doxygen>

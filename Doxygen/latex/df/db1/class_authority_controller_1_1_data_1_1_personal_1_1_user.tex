@@ -1,0 +1,177 @@
+\hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user}{}\section{Authority\+Controller.\+Data.\+Personal.\+User Class Reference}
+\label{class_authority_controller_1_1_data_1_1_personal_1_1_user}\index{Authority\+Controller.\+Data.\+Personal.\+User@{Authority\+Controller.\+Data.\+Personal.\+User}}
+
+
+Object that contain relevant data about user.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a40e370338936914847b4ca8afb9cfc2f}{Is\+Open\+Password\+Correct}} (string recived\+Password)
+\begin{DoxyCompactList}\small\item\em Compare recived open password with stored to user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a3acdb952f59613bae8bf253a3cada496}{Is\+Hashed\+Password\+Correct}} (byte\mbox{[}$\,$\mbox{]} recived\+Hashed\+Password)
+\begin{DoxyCompactList}\small\item\em Check does the recived password is the same as stored to user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a1a2ed2d1d844d6c92cc301595488375a}{id}}
+\begin{DoxyCompactList}\small\item\em Unique id of this user to allow services access. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_aa0cd14927a55efeafd187ca681bfd62d}{login}}
+\begin{DoxyCompactList}\small\item\em Login of this user to access the system. \end{DoxyCompactList}\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_abc14acc6d3441deb742264eb6cfc167c}{password}}
+\begin{DoxyCompactList}\small\item\em ON C\+L\+I\+E\+NT\+: Open password. Situable only if user provides profile as new. ON S\+E\+R\+V\+ER\+: Hashed and salted password that confirm user rights to use this account. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}{first\+Name}}
+\begin{DoxyCompactList}\small\item\em Name of the user that will displayed in profile. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}{second\+Name}}
+\begin{DoxyCompactList}\small\item\em Secondary name that will be displayed in profile. \end{DoxyCompactList}\item 
+string \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a937c23d9fddf843c49a69a6424bfda02}{rights}} = new string\mbox{[}0\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of rigts\textquotesingle{} codes provided to this user. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}} $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_aba2ff03e67ecf1732c4bdb625b441aac}{bans}} = new List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()
+\begin{DoxyCompactList}\small\item\em List of bans that would received by user. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}{culture\+Preferences}} = new List$<$string$>$()
+\begin{DoxyCompactList}\small\item\em List of culture codes that prefered by this user. In order of priority. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}{tokens}} = new List$<$string$>$()
+\begin{DoxyCompactList}\small\item\em List that cont tokens provided to this user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object that contain relevant data about user. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a3acdb952f59613bae8bf253a3cada496}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a3acdb952f59613bae8bf253a3cada496}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!Is\+Hashed\+Password\+Correct@{Is\+Hashed\+Password\+Correct}}
+\index{Is\+Hashed\+Password\+Correct@{Is\+Hashed\+Password\+Correct}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{Is\+Hashed\+Password\+Correct()}{IsHashedPasswordCorrect()}}
+{\footnotesize\ttfamily bool Authority\+Controller.\+Data.\+Personal.\+User.\+Is\+Hashed\+Password\+Correct (\begin{DoxyParamCaption}\item[{byte \mbox{[}$\,$\mbox{]}}]{recived\+Hashed\+Password }\end{DoxyParamCaption})}
+
+
+
+Check does the recived password is the same as stored to user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recived\+Hashed\+Password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a40e370338936914847b4ca8afb9cfc2f}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a40e370338936914847b4ca8afb9cfc2f}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!Is\+Open\+Password\+Correct@{Is\+Open\+Password\+Correct}}
+\index{Is\+Open\+Password\+Correct@{Is\+Open\+Password\+Correct}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{Is\+Open\+Password\+Correct()}{IsOpenPasswordCorrect()}}
+{\footnotesize\ttfamily bool Authority\+Controller.\+Data.\+Personal.\+User.\+Is\+Open\+Password\+Correct (\begin{DoxyParamCaption}\item[{string}]{recived\+Password }\end{DoxyParamCaption})}
+
+
+
+Compare recived open password with stored to user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recived\+Password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_aba2ff03e67ecf1732c4bdb625b441aac}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_aba2ff03e67ecf1732c4bdb625b441aac}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!bans@{bans}}
+\index{bans@{bans}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{bans}{bans}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+bans = new List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()}
+
+
+
+List of bans that would received by user. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!culture\+Preferences@{culture\+Preferences}}
+\index{culture\+Preferences@{culture\+Preferences}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{culture\+Preferences}{culturePreferences}}
+{\footnotesize\ttfamily List$<$string$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+culture\+Preferences = new List$<$string$>$()}
+
+
+
+List of culture codes that prefered by this user. In order of priority. 
+
+Define what a UI language will selected after user login. Useful in multicultural environment like universities. \mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!first\+Name@{first\+Name}}
+\index{first\+Name@{first\+Name}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{first\+Name}{firstName}}
+{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+first\+Name}
+
+
+
+Name of the user that will displayed in profile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a1a2ed2d1d844d6c92cc301595488375a}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a1a2ed2d1d844d6c92cc301595488375a}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!id@{id}}
+\index{id@{id}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint Authority\+Controller.\+Data.\+Personal.\+User.\+id}
+
+
+
+Unique id of this user to allow services access. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_aa0cd14927a55efeafd187ca681bfd62d}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_aa0cd14927a55efeafd187ca681bfd62d}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!login@{login}}
+\index{login@{login}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{login}{login}}
+{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+login}
+
+
+
+Login of this user to access the system. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_abc14acc6d3441deb742264eb6cfc167c}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_abc14acc6d3441deb742264eb6cfc167c}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!password@{password}}
+\index{password@{password}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} Authority\+Controller.\+Data.\+Personal.\+User.\+password}
+
+
+
+ON C\+L\+I\+E\+NT\+: Open password. Situable only if user provides profile as new. ON S\+E\+R\+V\+ER\+: Hashed and salted password that confirm user rights to use this account. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a937c23d9fddf843c49a69a6424bfda02}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a937c23d9fddf843c49a69a6424bfda02}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!rights@{rights}}
+\index{rights@{rights}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{rights}{rights}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} Authority\+Controller.\+Data.\+Personal.\+User.\+rights = new string\mbox{[}0\mbox{]}}
+
+
+
+Array of rigts\textquotesingle{} codes provided to this user. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!second\+Name@{second\+Name}}
+\index{second\+Name@{second\+Name}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{second\+Name}{secondName}}
+{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+second\+Name}
+
+
+
+Secondary name that will be displayed in profile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!tokens@{tokens}}
+\index{tokens@{tokens}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{tokens}{tokens}}
+{\footnotesize\ttfamily List$<$string$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+tokens = new List$<$string$>$()}
+
+
+
+List that cont tokens provided to this user. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Addons/\+Authority\+Controller/\+Data/\+Personal/User.\+cs\end{DoxyCompactItemize}

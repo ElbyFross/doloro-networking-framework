@@ -38,7 +38,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="30" bodyend="88"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" bodystart="29" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a105196c0f8ec27b96594e2ac855b7db3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -75,14 +75,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="96" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="96" bodyend="111"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" line="95" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" bodystart="95" bodyend="110"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" line="23" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Validation.cs" bodystart="22" bodyend="112"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" line="22" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Validation.cs" bodystart="21" bodyend="111"/>
     <listofallmembers>
       <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a105196c0f8ec27b96594e2ac855b7db3" prot="public" virt="non-virtual"><scope>AuthorityController::API::Validation</scope><name>NameFormat</name></member>
       <member refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation_1a9aceff242f489e5d63808e28b1506487" prot="public" virt="non-virtual"><scope>AuthorityController::API::Validation</scope><name>PasswordFormat</name></member>

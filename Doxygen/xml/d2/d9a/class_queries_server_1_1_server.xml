@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" bodystart="41" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
 <para>Draw line</para><para>Show help. </para>        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" bodystart="43" bodyend="165"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" bodystart="43" bodyend="165"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-static-func">
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" line="170" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" bodystart="170" bodyend="189"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" line="170" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" bodystart="170" bodyend="189"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -92,7 +92,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" line="196" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" bodystart="196" bodyend="272"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" line="196" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" bodystart="196" bodyend="272"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,53 +100,52 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="141">
+      <node id="150">
         <label>UniformServer::BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
       </node>
-      <node id="140">
+      <node id="149">
         <label>QueriesServer.Server</label>
         <link refid="d2/d9a/class_queries_server_1_1_server"/>
-        <childnode refid="141" relation="public-inheritance">
+        <childnode refid="150" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="145">
+      <node id="154">
         <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="144" relation="usage">
+        <childnode refid="153" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="145" relation="usage">
+        <childnode refid="154" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="143">
+      <node id="152">
         <label>UniformServer::BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="144" relation="usage">
+        <childnode refid="153" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="145" relation="usage">
+        <childnode refid="154" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="144">
+      <node id="153">
         <label>Security</label>
       </node>
-      <node id="142">
+      <node id="151">
         <label>QueriesServer.Server</label>
         <link refid="d2/d9a/class_queries_server_1_1_server"/>
-        <childnode refid="143" relation="public-inheritance">
+        <childnode refid="152" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/QueriesServer/Server.cs" bodystart="36" bodyend="273"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Server.cs" bodystart="36" bodyend="273"/>
     <listofallmembers>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" prot="public" virt="non-virtual"><scope>QueriesServer::Server</scope><name>appTerminated</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>ArgsReactor</name></member>
-      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a1b7d5587de4974fad2ec366a571791e0" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>GetConsoleWindow</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a22b92ad517cd1003fe4fe3c86d857169" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>LoadAssemblies</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9c14e919da0c2b9b7f8e57a92c9b0742" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>longTermServerThreads</name></member>
       <member refid="d2/d9a/class_queries_server_1_1_server_1ae294b75511557ef0701455c0e2ba785d" prot="private" virt="non-virtual"><scope>QueriesServer::Server</scope><name>Main</name></member>
@@ -156,7 +155,6 @@
       <member refid="d2/d9a/class_queries_server_1_1_server_1af23657bf1fbf254abb46ed80180b0cc3" prot="public" virt="non-virtual"><scope>QueriesServer::Server</scope><name>QueryHandler_Relay</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" prot="public" virt="non-virtual"><scope>QueriesServer::Server</scope><name>securityLevel</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aefbb2a4287a7f995582b2abf41da8a89" prot="public" virt="non-virtual"><scope>QueriesServer::Server</scope><name>SendAnswerViaPP</name></member>
-      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a16cf4f4f9de9d6d6586631640d3d867b" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>ShowWindow</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" prot="public" virt="non-virtual"><scope>QueriesServer::Server</scope><name>StartBroadcastingViaPP</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa4a1412b217944e7f8d6ccae6ac68289" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>StartServerThread</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaff91507b262d2a1b9021caa2d01640f" prot="protected" virt="non-virtual"><scope>QueriesServer::Server</scope><name>SW_HIDE</name></member>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_33c78a012c8d08979f57a54a07694c46" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Tests</compoundname>
+    <innerdir refid="dir_062be73922cf33a454e6ab6ea5bc30a6">D:/Work/GitHub/doloro-networking-framework/Tests/ACTests</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Tests/"/>
+  </compounddef>
+</doxygen>

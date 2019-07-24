@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/IPlugin.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/IPlugin.cs" bodystart="29" bodyend="29"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/IPlugin.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/IPlugin.cs" bodystart="29" bodyend="29"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -33,14 +33,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/IPlugin.cs" line="35" column="1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/IPlugin.cs" line="35" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Interface that allow to create a plugin that can be connect to client application. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/IPlugin.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/UniformClient/Plugins/IPlugin.cs" bodystart="24" bodyend="36"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/IPlugin.cs" line="25" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins/IPlugin.cs" bodystart="24" bodyend="36"/>
     <listofallmembers>
       <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1aa49e267e66a3d697ded460d9281dcc3a" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::IPlugin</scope><name>Meta</name></member>
       <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1a1ca2220c7ce4a23f8f41af10efccf328" prot="public" virt="non-virtual"><scope>UniformClient::Plugins::IPlugin</scope><name>OnStart</name></member>

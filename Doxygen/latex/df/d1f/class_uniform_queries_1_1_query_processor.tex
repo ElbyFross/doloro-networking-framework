@@ -1,0 +1,134 @@
+\hypertarget{class_uniform_queries_1_1_query_processor}{}\section{Uniform\+Queries.\+Query\+Processor Class Reference}
+\label{class_uniform_queries_1_1_query_processor}\index{Uniform\+Queries.\+Query\+Processor@{Uniform\+Queries.\+Query\+Processor}}
+
+
+Object that provide base methods that allow to standartize and controll query processing.  
+
+
+Inheritance diagram for Uniform\+Queries.\+Query\+Processor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.962617cm]{df/d1f/class_uniform_queries_1_1_query_processor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_a5f861d26305129e4b348adc5398aae9f}{Terminate\+Authorization\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Terminating current started process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_ad3338c48d35da2f6ddbe2daf736d34a8}{Finalize}} (bool result, object args)
+\begin{DoxyCompactList}\small\item\em Generate Processing\+Finished event with provided params. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_ac0726166f2db4a9063024e4db190bd82}{Server\+Answer\+Handler}} (object controller, object answer)
+\begin{DoxyCompactList}\small\item\em Handler that would recive server answer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_a6c7b2f71bee989944cb95f927ed3bdfd}{Is\+Terminated}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Does last auth\textquotesingle{}s task was terminated. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_a313a194b0608de7f02281824587dd1ac}{Is\+In\+Progress}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Is authrentification in proggress. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ \mbox{\hyperlink{class_uniform_queries_1_1_query_processor}{Query\+Processor}}, bool, object $>$ \mbox{\hyperlink{class_uniform_queries_1_1_query_processor_a6892127a6d09754370570c124a2a5452}{Processing\+Finished}}
+\begin{DoxyCompactList}\small\item\em Event that would be called when reciving operation would be finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object that provide base methods that allow to standartize and controll query processing. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_ad3338c48d35da2f6ddbe2daf736d34a8}\label{class_uniform_queries_1_1_query_processor_ad3338c48d35da2f6ddbe2daf736d34a8}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void Uniform\+Queries.\+Query\+Processor.\+Finalize (\begin{DoxyParamCaption}\item[{bool}]{result,  }\item[{object}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Generate Processing\+Finished event with provided params. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Resdult of processing.\\
+\hline
+{\em message} & Shared message.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_ac0726166f2db4a9063024e4db190bd82}\label{class_uniform_queries_1_1_query_processor_ac0726166f2db4a9063024e4db190bd82}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Server\+Answer\+Handler@{Server\+Answer\+Handler}}
+\index{Server\+Answer\+Handler@{Server\+Answer\+Handler}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Server\+Answer\+Handler()}{ServerAnswerHandler()}}
+{\footnotesize\ttfamily abstract void Uniform\+Queries.\+Query\+Processor.\+Server\+Answer\+Handler (\begin{DoxyParamCaption}\item[{object}]{controller,  }\item[{object}]{answer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Handler that would recive server answer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & \\
+\hline
+{\em answer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_uniform_queries_1_1_auth_query_processor_a09d3f6d361c09c0726a880a92191f3fd}{Uniform\+Queries.\+Auth\+Query\+Processor}}.
+
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_a5f861d26305129e4b348adc5398aae9f}\label{class_uniform_queries_1_1_query_processor_a5f861d26305129e4b348adc5398aae9f}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Terminate\+Authorization\+Task@{Terminate\+Authorization\+Task}}
+\index{Terminate\+Authorization\+Task@{Terminate\+Authorization\+Task}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Terminate\+Authorization\+Task()}{TerminateAuthorizationTask()}}
+{\footnotesize\ttfamily virtual void Uniform\+Queries.\+Query\+Processor.\+Terminate\+Authorization\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Terminating current started process. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_a313a194b0608de7f02281824587dd1ac}\label{class_uniform_queries_1_1_query_processor_a313a194b0608de7f02281824587dd1ac}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Is\+In\+Progress@{Is\+In\+Progress}}
+\index{Is\+In\+Progress@{Is\+In\+Progress}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Is\+In\+Progress}{IsInProgress}}
+{\footnotesize\ttfamily bool Uniform\+Queries.\+Query\+Processor.\+Is\+In\+Progress\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}
+
+
+
+Is authrentification in proggress. 
+
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_a6c7b2f71bee989944cb95f927ed3bdfd}\label{class_uniform_queries_1_1_query_processor_a6c7b2f71bee989944cb95f927ed3bdfd}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Is\+Terminated@{Is\+Terminated}}
+\index{Is\+Terminated@{Is\+Terminated}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Is\+Terminated}{IsTerminated}}
+{\footnotesize\ttfamily bool Uniform\+Queries.\+Query\+Processor.\+Is\+Terminated\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}
+
+
+
+Does last auth\textquotesingle{}s task was terminated. 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_uniform_queries_1_1_query_processor_a6892127a6d09754370570c124a2a5452}\label{class_uniform_queries_1_1_query_processor_a6892127a6d09754370570c124a2a5452}} 
+\index{Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}!Processing\+Finished@{Processing\+Finished}}
+\index{Processing\+Finished@{Processing\+Finished}!Uniform\+Queries\+::\+Query\+Processor@{Uniform\+Queries\+::\+Query\+Processor}}
+\subsubsection{\texorpdfstring{Processing\+Finished}{ProcessingFinished}}
+{\footnotesize\ttfamily Action$<$\mbox{\hyperlink{class_uniform_queries_1_1_query_processor}{Query\+Processor}}, bool, object$>$ Uniform\+Queries.\+Query\+Processor.\+Processing\+Finished}
+
+
+
+Event that would be called when reciving operation would be finished. 
+
+\mbox{\hyperlink{class_uniform_queries_1_1_query_processor}{Query\+Processor}} -\/ reference to this processor. bool -\/ result od operation object -\/ object shared by processor. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Uniform\+Queries/\+Exacutable/Query\+Processor.\+cs\end{DoxyCompactItemize}

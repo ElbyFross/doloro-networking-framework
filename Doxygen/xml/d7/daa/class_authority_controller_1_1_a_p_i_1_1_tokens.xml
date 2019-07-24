@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="29" bodyend="41"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="26" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="27" bodyend="39"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -42,7 +42,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="53" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="53" bodyend="70"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="51" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a3077a786044bdd530ad50dbd615f8beb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -101,7 +101,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="82" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="82" bodyend="115"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="80" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="80" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1ab1d580a971a86c8e5b3c7c189aa65381" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -149,7 +149,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="125" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="125" bodyend="136"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="123" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="123" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>
@@ -163,14 +163,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="142" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="142" bodyend="157"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="140" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="140" bodyend="155"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/API/Tokens.cs" bodystart="23" bodyend="159"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" line="22" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/Tokens.cs" bodystart="21" bodyend="157"/>
     <listofallmembers>
       <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>AuthorizeNewGuestToken</name></member>
       <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1acbc5a5df26ae29633d4424873676ece3" prot="public" virt="non-virtual"><scope>AuthorityController::API::Tokens</scope><name>IsExpired</name></member>

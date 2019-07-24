@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_4ece27adf6b7af8c59cff67f9c0462ca" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Properties</compoundname>
+    <innerfile refid="da/dc2/_examples_2_servers_2_queries_server_2_properties_2_assembly_info_8cs">AssemblyInfo.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Properties/"/>
+  </compounddef>
+</doxygen>

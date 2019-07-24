@@ -8,7 +8,7 @@ Class that provide common methods for easy work with pipes\textquotesingle{} tas
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a8031df7ac05189a2459a110273c6fc37}{Client\+Loop}} (\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}} line\+Processor, Pipe\+Direction pipe\+Direction, Pipe\+Options pipe\+Options)
+static void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a5faffad05ab5adb19a5691d41767ed4a}{Client\+Loop}} (\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}} line, Pipe\+Direction pipe\+Direction, Pipe\+Options pipe\+Options)
 \begin{DoxyCompactList}\small\item\em Provide stable client loop controlled by data of Line\+Processor. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a745ac6dce4a89785c4b9306af84871e7}{Try\+Get\+Transmission\+Line\+By\+G\+U\+ID}} (string guid, out \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}} line\+Processor)
 \begin{DoxyCompactList}\small\item\em Try to find out registred transmission line by G\+U\+ID. If client not strted then return false. \end{DoxyCompactList}\item 
@@ -17,12 +17,11 @@ static bool \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a7
 static bool \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a20139222de5ce13aa336e7c4db174f91}{Try\+To\+Unregister\+Transmission\+Line}} (string guid)
 \begin{DoxyCompactList}\small\item\em Remove line from table if this line closed. In other keys this operation not available due to security amd stability purposes. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a4c588f18a7e7ff618702a27681543889}{Close\+All\+Transmission\+Lines}} ()
-\begin{DoxyCompactList}\small\item\em Closing all lines registred in table. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static async void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a4c62796db87af40dc4c6b8eb578c6487}{Connect\+To\+Server\+Async}} (Named\+Pipe\+Client\+Stream pipe\+Client, \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}} line\+Processor)
-\begin{DoxyCompactList}\small\item\em Start saftely async waiting connection operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Closing all lines registred in table. \end{DoxyCompactList}\item 
+static async void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_aaececd585be8b8660bb419e3bdb4aaec}{Connect\+To\+Server\+Async}} (Named\+Pipe\+Client\+Stream pipe\+Client)
+\begin{DoxyCompactList}\small\item\em Start saftely async waiting connection operation. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_client_a_p_i_a39908f350bea38807f4772ed4742abbb}{Connect\+To\+Server}} (Named\+Pipe\+Client\+Stream pipe\+Client)
+\begin{DoxyCompactList}\small\item\em Connecting to server\textquotesingle{}s pipe. If connection failed them stop thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,11 +35,11 @@ Class that provide common methods for easy work with pipes\textquotesingle{} tas
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_a8031df7ac05189a2459a110273c6fc37}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_a8031df7ac05189a2459a110273c6fc37}} 
+\mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_a5faffad05ab5adb19a5691d41767ed4a}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_a5faffad05ab5adb19a5691d41767ed4a}} 
 \index{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}!Client\+Loop@{Client\+Loop}}
 \index{Client\+Loop@{Client\+Loop}!Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}}
 \subsubsection{\texorpdfstring{Client\+Loop()}{ClientLoop()}}
-{\footnotesize\ttfamily static void Pipes\+Provider.\+Client.\+Client\+A\+P\+I.\+Client\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}}}]{line\+Processor,  }\item[{Pipe\+Direction}]{pipe\+Direction,  }\item[{Pipe\+Options}]{pipe\+Options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Client.\+Client\+A\+P\+I.\+Client\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}}}]{line,  }\item[{Pipe\+Direction}]{pipe\+Direction,  }\item[{Pipe\+Options}]{pipe\+Options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -48,7 +47,7 @@ Provide stable client loop controlled by data of Line\+Processor.
 
 
 \begin{DoxyParams}{Parameters}
-{\em line\+Processor} & \\
+{\em line} & \\
 \hline
 {\em pipe\+Direction} & \\
 \hline
@@ -65,11 +64,28 @@ Provide stable client loop controlled by data of Line\+Processor.
 
 Closing all lines registred in table. 
 
-\mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_a4c62796db87af40dc4c6b8eb578c6487}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_a4c62796db87af40dc4c6b8eb578c6487}} 
+\mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_a39908f350bea38807f4772ed4742abbb}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_a39908f350bea38807f4772ed4742abbb}} 
+\index{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}!Connect\+To\+Server@{Connect\+To\+Server}}
+\index{Connect\+To\+Server@{Connect\+To\+Server}!Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}}
+\subsubsection{\texorpdfstring{Connect\+To\+Server()}{ConnectToServer()}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Client.\+Client\+A\+P\+I.\+Connect\+To\+Server (\begin{DoxyParamCaption}\item[{Named\+Pipe\+Client\+Stream}]{pipe\+Client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Connecting to server\textquotesingle{}s pipe. If connection failed them stop thread. 
+
+Suspend caller thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe\+Client} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_aaececd585be8b8660bb419e3bdb4aaec}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_aaececd585be8b8660bb419e3bdb4aaec}} 
 \index{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}!Connect\+To\+Server\+Async@{Connect\+To\+Server\+Async}}
 \index{Connect\+To\+Server\+Async@{Connect\+To\+Server\+Async}!Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI@{Pipes\+Provider\+::\+Client\+::\+Client\+A\+PI}}
 \subsubsection{\texorpdfstring{Connect\+To\+Server\+Async()}{ConnectToServerAsync()}}
-{\footnotesize\ttfamily static async void Pipes\+Provider.\+Client.\+Client\+A\+P\+I.\+Connect\+To\+Server\+Async (\begin{DoxyParamCaption}\item[{Named\+Pipe\+Client\+Stream}]{pipe\+Client,  }\item[{\mbox{\hyperlink{class_pipes_provider_1_1_client_1_1_transmission_line}{Transmission\+Line}}}]{line\+Processor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily static async void Pipes\+Provider.\+Client.\+Client\+A\+P\+I.\+Connect\+To\+Server\+Async (\begin{DoxyParamCaption}\item[{Named\+Pipe\+Client\+Stream}]{pipe\+Client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -78,8 +94,6 @@ Start saftely async waiting connection operation.
 
 \begin{DoxyParams}{Parameters}
 {\em pipe\+Client} & \\
-\hline
-{\em line\+Processor} & \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_pipes_provider_1_1_client_1_1_client_a_p_i_a745ac6dce4a89785c4b9306af84871e7}\label{class_pipes_provider_1_1_client_1_1_client_a_p_i_a745ac6dce4a89785c4b9306af84871e7}} 
@@ -157,4 +171,4 @@ Hashtable thast contain references to oppened pipes. Key (string) server\+\_\+na
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Pipes\+Provider/\+Client/Client\+A\+P\+I.\+cs\end{DoxyCompactItemize}
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Pipes\+Provider/\+Client/Client\+A\+P\+I.\+cs\end{DoxyCompactItemize}

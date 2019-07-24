@@ -2,57 +2,81 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d6/d4b/class_authority_controller_1_1_session" kind="class" language="C#" prot="public">
     <compoundname>AuthorityController::Session</compoundname>
-      <sectiondef kind="event">
-      <memberdef kind="event" id="d6/d4b/class_authority_controller_1_1_session_1abbd978421ebd42315bde41126231ac18" prot="public" static="yes" add="no" remove="no" raise="no">
-        <type>System.Action&lt; string &gt;</type>
-        <definition>System.Action&lt;string&gt; AuthorityController.Session.InformateRelatedServers</definition>
-        <argsstring></argsstring>
-        <name>InformateRelatedServers</name>
-        <briefdescription>
-<para>Event that would called when provider would need to informate related servers by new data. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="36" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="property">
-      <memberdef kind="property" id="d6/d4b/class_authority_controller_1_1_session_1a20d84345a3843b7a1b340887bb961f7c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+      <memberdef kind="property" id="d6/d4b/class_authority_controller_1_1_session_1a20d84345a3843b7a1b340887bb961f7c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
         <type><ref refid="d6/d4b/class_authority_controller_1_1_session" kindref="compound">Session</ref></type>
         <definition>Session AuthorityController.Session.Current</definition>
         <argsstring></argsstring>
         <name>Current</name>
         <briefdescription>
-<para>Last created session. </para>        </briefdescription>
+<para>Current active session. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="44" bodyend="55"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="39" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="property" id="d6/d4b/class_authority_controller_1_1_session_1a6a8a683e8b0d236d2808cbd9130c0b99" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kindref="compound">RoutingTable</ref></type>
+        <definition>RoutingTable AuthorityController.Session.AuthorityFollowers</definition>
+        <argsstring></argsstring>
+        <name>AuthorityFollowers</name>
+        <briefdescription>
+<para>Routing table that contain instructions to access reletive servers that need to be informed about token events. </para>        </briefdescription>
+        <detaileddescription>
+<para>Before sharing query still will check is the query stituable for that routing instruction. If you no need any filtring then just leave query patterns empty. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="property" id="d6/d4b/class_authority_controller_1_1_session_1a531bf4c153a454ac5236366a1e684619" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>CancellationToken</type>
+        <definition>CancellationToken AuthorityController.Session.TerminationToken</definition>
+        <argsstring></argsstring>
+        <name>TerminationToken</name>
+        <briefdescription>
+<para>Token that provide possibility to terminate all stated tasks in this session. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="64" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="65" bodyend="75"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
-      <memberdef kind="variable" id="d6/d4b/class_authority_controller_1_1_session_1a774ff0a1fec6aae096af9ed744c7269d" prot="private" static="yes" mutable="no">
+      <memberdef kind="variable" id="d6/d4b/class_authority_controller_1_1_session_1aacaa808a7220b2dc4cf40d5be5752256" prot="private" static="yes" mutable="no">
         <type><ref refid="d6/d4b/class_authority_controller_1_1_session" kindref="compound">Session</ref></type>
-        <definition>Session AuthorityController.Session.last</definition>
+        <definition>Session AuthorityController.Session._current</definition>
         <argsstring></argsstring>
-        <name>last</name>
+        <name>_current</name>
         <briefdescription>
 <para>Object that contain current session. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="68" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="68" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="91" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="91" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="d6/d4b/class_authority_controller_1_1_session_1a69364ca8d68ac74a7220bdabb1551799" prot="private" static="no" mutable="no">
-        <type>readonly Hashtable</type>
-        <definition>readonly Hashtable AuthorityController.Session.tokensRights</definition>
+      <memberdef kind="variable" id="d6/d4b/class_authority_controller_1_1_session_1ab5d41775c82bcc731fc4c85f9934469c" prot="private" static="no" mutable="no">
+        <type>CancellationToken</type>
+        <definition>CancellationToken AuthorityController.Session._terminationToken</definition>
         <argsstring></argsstring>
-        <name>tokensRights</name>
+        <name>_terminationToken</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="93" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4b/class_authority_controller_1_1_session_1ab31f50a3b13fd88c44be84c0243ef6f9" prot="private" static="no" mutable="no">
+        <type>readonly Hashtable</type>
+        <definition>readonly Hashtable AuthorityController.Session.tokensInfo</definition>
+        <argsstring></argsstring>
+        <name>tokensInfo</name>
         <initializer>= new Hashtable()</initializer>
         <briefdescription>
 <para>Table that contains rights provided to token. </para>        </briefdescription>
@@ -60,7 +84,7 @@
 <para>Key - string token Value - TokenInfo </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="76" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="76" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="101" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="101" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -75,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="59" bodyend="63"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="79" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="79" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a798dbdfeeb3ce9156d99d8b7962d9528" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -83,7 +107,7 @@
         <argsstring>(User user, string token)</argsstring>
         <name>AsignTokenToUser</name>
         <param>
-          <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
           <declname>user</declname>
         </param>
         <param>
@@ -112,7 +136,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="88" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="88" bodyend="96"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="113" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="113" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1ab164831d0a5fc909c200feba1ac882e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -120,7 +144,7 @@
         <argsstring>(User user, string token, string mac, string os, string stamp)</argsstring>
         <name>AsignTokenToUser</name>
         <param>
-          <type><ref refid="d8/d02/class_authority_controller_1_1_data_1_1_user" kindref="compound">User</ref></type>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
           <declname>user</declname>
         </param>
         <param>
@@ -182,16 +206,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="107" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="107" bodyend="138"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="132" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="132" bodyend="163"/>
       </memberdef>
-      <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a481d888a9a2e90f1e43c60de7e1c7a71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a135fc2981f8ad7d26d484c9c9bcbf83c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void AuthorityController.Session.SetTokenRights</definition>
-        <argsstring>(string token, params string[] rights)</argsstring>
+        <argsstring>(string targetToken, params string[] rights)</argsstring>
         <name>SetTokenRights</name>
         <param>
           <type>string</type>
-          <declname>token</declname>
+          <declname>targetToken</declname>
         </param>
         <param>
           <type>params string []</type>
@@ -200,25 +224,25 @@
         <briefdescription>
 <para>Set rights&apos; codes array as relative to token. </para>        </briefdescription>
         <detaileddescription>
-<para>In case if token infor not registred then will create anonimouse info with applied rights. Applicable to purposes of servers that depends to session provider one, but not require entire token information, cause not manage it. </para><para><parameterlist kind="param"><parameteritem>
+<para>Make and share SET TOKEN RIGHTS query to every related server. Share only anonymous format of information. Personal data would be droped. </para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>token</parametername>
+<parametername>targetToken</parametername>
 </parameternamelist>
 <parameterdescription>
-<para><ref refid="d6/d4b/class_authority_controller_1_1_session" kindref="compound">Session</ref> token.</para></parameterdescription>
+<para>Token that need to change rights.</para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>rights</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Array og rights&apos; codes.</para></parameterdescription>
+<para>List of new rights allowed to target toekn.</para></parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="149" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="149" bodyend="199"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="173" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="173" bodyend="223"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a37157e74e3aee082b7adfb906ec69511" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -255,7 +279,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="207" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="207" bodyend="219"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="231" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="231" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a811b23b70e61ac567ec8eeb54641ffcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -280,7 +304,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="225" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="225" bodyend="243"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="249" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="249" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1abdd6c48f989b28cc9b3838dbe569edc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -292,7 +316,7 @@
           <declname>token</declname>
         </param>
         <param>
-          <type>out <ref refid="d6/d68/class_authority_controller_1_1_data_1_1_token_info" kindref="compound">TokenInfo</ref></type>
+          <type>out <ref refid="dd/d42/class_authority_controller_1_1_data_1_1_temporal_1_1_token_info" kindref="compound">TokenInfo</ref></type>
           <declname>info</declname>
         </param>
         <briefdescription>
@@ -317,7 +341,32 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="251" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="251" bodyend="261"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="275" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="275" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1a46ef72d5e8b812ae7ecd5bf413a320f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuthorityController.Session.InformAuthorityFollowers</definition>
+        <argsstring>(string message)</argsstring>
+        <name>InformAuthorityFollowers</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Sanding the message to all authority following servers descibed in AuthorityFollowers table. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message that would be shared.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="292" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="292" bodyend="317"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -345,16 +394,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="270" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="270" bodyend="302"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="326" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="326" bodyend="358"/>
       </memberdef>
-      <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1ae8e875b83d01b42f4623d2c81841ce62" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d6/d4b/class_authority_controller_1_1_session_1aea2ab13cf2e1cd192ef5e49935508b5b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void AuthorityController.Session.ShareTokenRights</definition>
-        <argsstring>(string token, string[] rights)</argsstring>
-        <name>ShareTokenRights</name>
+        <definition>void AuthorityController.Session.ShareTokenRights_MessageProcessor</definition>
+        <argsstring>(string targetToken, string[] rights)</argsstring>
+        <name>ShareTokenRights_MessageProcessor</name>
         <param>
           <type>string</type>
-          <declname>token</declname>
+          <declname>targetToken</declname>
         </param>
         <param>
           <type>string []</type>
@@ -365,7 +414,7 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>token</parametername>
+<parametername>targetToken</parametername>
 </parameternamelist>
 <parameterdescription>
 </parameterdescription>
@@ -381,7 +430,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="309" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="309" bodyend="325"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="365" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="365" bodyend="419"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -389,27 +438,30 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="158">
+      <node id="171">
         <label>AuthorityController.Session</label>
         <link refid="d6/d4b/class_authority_controller_1_1_session"/>
-        <childnode refid="158" relation="usage">
-          <edgelabel>last</edgelabel>
+        <childnode refid="171" relation="usage">
+          <edgelabel>_current</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/AuthorityController/Session.cs" bodystart="30" bodyend="327"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Session.cs" bodystart="32" bodyend="421"/>
     <listofallmembers>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1aacaa808a7220b2dc4cf40d5be5752256" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>_current</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1ab5d41775c82bcc731fc4c85f9934469c" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>_terminationToken</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a798dbdfeeb3ce9156d99d8b7962d9528" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>AsignTokenToUser</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1ab164831d0a5fc909c200feba1ac882e4" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>AsignTokenToUser</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1a6a8a683e8b0d236d2808cbd9130c0b99" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>AuthorityFollowers</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a20d84345a3843b7a1b340887bb961f7c" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>Current</name></member>
-      <member refid="d6/d4b/class_authority_controller_1_1_session_1abbd978421ebd42315bde41126231ac18" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>InformateRelatedServers</name></member>
-      <member refid="d6/d4b/class_authority_controller_1_1_session_1a774ff0a1fec6aae096af9ed744c7269d" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>last</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1a46ef72d5e8b812ae7ecd5bf413a320f0" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>InformAuthorityFollowers</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a8422d53f01daff616c1588cb3d657882" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>RemoveToken</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a935fde7bbd4091cc33bf0e72b354b937" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>Session</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a811b23b70e61ac567ec8eeb54641ffcd" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>SetExpired</name></member>
-      <member refid="d6/d4b/class_authority_controller_1_1_session_1a481d888a9a2e90f1e43c60de7e1c7a71" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>SetTokenRights</name></member>
-      <member refid="d6/d4b/class_authority_controller_1_1_session_1ae8e875b83d01b42f4623d2c81841ce62" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>ShareTokenRights</name></member>
-      <member refid="d6/d4b/class_authority_controller_1_1_session_1a69364ca8d68ac74a7220bdabb1551799" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>tokensRights</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1a135fc2981f8ad7d26d484c9c9bcbf83c" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>SetTokenRights</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1aea2ab13cf2e1cd192ef5e49935508b5b" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>ShareTokenRights_MessageProcessor</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1a531bf4c153a454ac5236366a1e684619" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>TerminationToken</name></member>
+      <member refid="d6/d4b/class_authority_controller_1_1_session_1ab31f50a3b13fd88c44be84c0243ef6f9" prot="private" virt="non-virtual"><scope>AuthorityController::Session</scope><name>tokensInfo</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1abdd6c48f989b28cc9b3838dbe569edc6" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>TryGetTokenInfo</name></member>
       <member refid="d6/d4b/class_authority_controller_1_1_session_1a37157e74e3aee082b7adfb906ec69511" prot="public" virt="non-virtual"><scope>AuthorityController::Session</scope><name>TryGetTokenRights</name></member>
     </listofallmembers>

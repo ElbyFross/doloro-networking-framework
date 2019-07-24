@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">0.9.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -90,8 +90,11 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_t"></a>- t -</h3><ul>
-<li>TestSubfolder
-: <a class="el" href="d8/d05/class_authority_controller_tests_1_1_configurator.html#a5f07aec045009437243f33e3cabc2fdd">AuthorityControllerTests.Configurator</a>
+<li>TerminateAuthorizationTask()
+: <a class="el" href="df/d1f/class_uniform_queries_1_1_query_processor.html#a5f861d26305129e4b348adc5398aae9f">UniformQueries.QueryProcessor</a>
+</li>
+<li>TerminationToken
+: <a class="el" href="d6/d4b/class_authority_controller_1_1_session.html#a531bf4c153a454ac5236366a1e684619">AuthorityController.Session</a>
 </li>
 <li>thread
 : <a class="el" href="d4/deb/class_uniform_client_1_1_base_client.html#a458271823ca5e21612c0947e1db695a0">UniformClient.BaseClient</a>
@@ -132,29 +135,26 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta.html#a7cd04fb564fa2bdd1ac3c0c3af3b9aab">UniformClient.Plugins.MenuItemMeta</a>
 </li>
 <li>token
-: <a class="el" href="d6/d68/class_authority_controller_1_1_data_1_1_token_info.html#a5039d141fce02bf9a1e4c28e8af24029">AuthorityController.Data.TokenInfo</a>
+: <a class="el" href="dd/d42/class_authority_controller_1_1_data_1_1_temporal_1_1_token_info.html#a9856f3e8590d95c39e2c2802b133fef4">AuthorityController.Data.Temporal.TokenInfo</a>
 , <a class="el" href="d4/deb/class_uniform_client_1_1_base_client.html#ad99bcf3d1afeed6eadca7035c926d2b7">UniformClient.BaseClient</a>
 </li>
-<li>tokens
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#a881f9d9beaa89819daf95838bdc5a984">AuthorityController.Data.User</a>
+<li>Token
+: <a class="el" href="d9/de6/class_uniform_queries_1_1_auth_query_processor.html#a6ff88b255dbd8916836a69ea086951f5">UniformQueries.AuthQueryProcessor</a>
 </li>
-<li>tokensRights
-: <a class="el" href="d6/d4b/class_authority_controller_1_1_session.html#a69364ca8d68ac74a7220bdabb1551799">AuthorityController.Session</a>
+<li>tokens
+: <a class="el" href="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a2d4cda1ba0e47546cc1d1b2c5db82434">AuthorityController.Data.Personal.User</a>
+</li>
+<li>tokensInfo
+: <a class="el" href="d6/d4b/class_authority_controller_1_1_session.html#ab31f50a3b13fd88c44be84c0243ef6f9">AuthorityController.Session</a>
 </li>
 <li>TokenValidTimeMinutes
-: <a class="el" href="db/d4a/class_authority_controller_1_1_data_1_1_config.html#aa0988724b8c2413203508f2819689750">AuthorityController.Data.Config</a>
-</li>
-<li>ToQueryValue()
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#a503a867ba5d2a9a3b1ca1eec4308325c">AuthorityController.Data.User</a>
+: <a class="el" href="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html#ad548f5fee544802b6c900eef6da88332">AuthorityController.Data.Application.Config</a>
 </li>
 <li>ToString()
 : <a class="el" href="d5/d61/struct_uniform_queries_1_1_query_part.html#acf5597530f693df3804fc2e638805245">UniformQueries.QueryPart</a>
 </li>
 <li>TransmissionLine()
 : <a class="el" href="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#a8fe76e563974e7380fe2f717e48d694e">PipesProvider.Client.TransmissionLine</a>
-</li>
-<li>TransmissionsBlock()
-: <a class="el" href="d6/dac/class_test_client_1_1_client.html#a7096d201835f0f2c3049fef72e89637c">TestClient.Client</a>
 </li>
 <li>TryDequeQuery()
 : <a class="el" href="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#a48c6395608b4d32a7d852c2fd6d911e2">PipesProvider.Client.TransmissionLine</a>
@@ -202,7 +202,14 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#a7890ae58af943645c6b6cfc39f0d3e6f">AuthorityController.API.Users</a>
 </li>
 <li>TryToLoad&lt; T &gt;()
-: <a class="el" href="db/d4a/class_authority_controller_1_1_data_1_1_config.html#a71b175024423041ed094744021463342">AuthorityController.Data.Config</a>
+: <a class="el" href="dc/dd6/class_authority_controller_1_1_data_1_1_handler.html#aad3bc4d6c6017f4061261f15935da6dc">AuthorityController.Data.Handler</a>
+</li>
+<li>TryToLogon()
+: <a class="el" href="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html#addf69c3fea172cc9d8199097466a052f">PipesProvider.Networking.Routing.AuthorizedInstruction</a>
+</li>
+<li>TryToLogonAsync()
+: <a class="el" href="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor.html#a5073849b4aec752f2fb1b68f11561985">AuthorityController.Queries.USER_LOGON.LogonProcessor</a>
+, <a class="el" href="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html#a20e94ddf386abb937f4c725a094dc050">PipesProvider.Networking.Routing.AuthorizedInstruction</a>
 </li>
 <li>TryToRegisterTransmissionLine()
 : <a class="el" href="d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i.html#a70ffe69963e762ee828887856e119883">PipesProvider.Client.ClientAPI</a>
@@ -213,11 +220,14 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TryUpdatePublicKey()
 : <a class="el" href="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#a04ee08d3b41785e88679c6870c392266">PipesProvider.Networking.Routing.Instruction</a>
 </li>
+<li>TryXMLDeserizlize&lt; T &gt;()
+: <a class="el" href="dc/dd6/class_authority_controller_1_1_data_1_1_handler.html#a086874112fede63b9d3bb8c070698c55">AuthorityController.Data.Handler</a>
+</li>
+<li>TryXMLSerialize&lt; T &gt;()
+: <a class="el" href="dc/dd6/class_authority_controller_1_1_data_1_1_handler.html#a7f4e5dd2a2f300e566116810897e7f2f">AuthorityController.Data.Handler</a>
+</li>
 <li>TyGetPropertyValue()
 : <a class="el" href="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections.html#a65e8bd3790cb8576d37938f20dd792f4">AuthorityController.API.Collections</a>
-</li>
-<li>TyToParseQueryValue()
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#adb8253e5d75b65467e42fcf243eeb991">AuthorityController.Data.User</a>
 </li>
 </ul>
 </div><!-- contents -->

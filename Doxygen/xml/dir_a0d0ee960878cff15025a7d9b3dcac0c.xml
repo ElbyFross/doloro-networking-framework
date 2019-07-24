@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_a0d0ee960878cff15025a7d9b3dcac0c" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking</compoundname>
+    <innerdir refid="dir_ff7e5229a0ca78d7d4d241d70ea2eb12">D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing</innerdir>
+    <innerfile refid="d1/d09/_info_8cs">Info.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/"/>
+  </compounddef>
+</doxygen>

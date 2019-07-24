@@ -1,0 +1,35 @@
+\hypertarget{class_pipes_provider_1_1_security_1_1_native_methods}{}\section{Pipes\+Provider.\+Security.\+Native\+Methods Class Reference}
+\label{class_pipes_provider_1_1_security_1_1_native_methods}\index{Pipes\+Provider.\+Security.\+Native\+Methods@{Pipes\+Provider.\+Security.\+Native\+Methods}}
+
+
+Provide access to native metods used in security namespace.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_native_methods_aa8cbc36f4c83e56734a90e4f82599a14}\label{class_pipes_provider_1_1_security_1_1_native_methods_aa8cbc36f4c83e56734a90e4f82599a14}} 
+static bool {\bfseries Logon\+User} (String lpsz\+Username, String lpsz\+Domain, String lpsz\+Password, int dw\+Logon\+Type, int dw\+Logon\+Provider, out Safe\+Access\+Token\+Handle ph\+Token)
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_native_methods_aaa43d5b08023ba65a847545f43bca37a}\label{class_pipes_provider_1_1_security_1_1_native_methods_aaa43d5b08023ba65a847545f43bca37a}} 
+static uint {\bfseries Lsa\+Open\+Policy} (\mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} System\+Name, ref \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s}{Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES}} Object\+Attributes, int Access\+Mask, out Int\+Ptr Policy\+Handle)
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_native_methods_a41f3c8a115df5b26700d24b6ead2d687}\label{class_pipes_provider_1_1_security_1_1_native_methods_a41f3c8a115df5b26700d24b6ead2d687}} 
+static uint {\bfseries Lsa\+Add\+Account\+Rights} (L\+S\+A\+\_\+\+H\+A\+N\+D\+LE Policy\+Handle, Int\+Ptr p\+S\+ID, \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} User\+Rights, int Count\+Of\+Rights)
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_native_methods_acf4899aa118ee28b7ea34a51af41a371}\label{class_pipes_provider_1_1_security_1_1_native_methods_acf4899aa118ee28b7ea34a51af41a371}} 
+static uint {\bfseries Lsa\+Remove\+Account\+Rights} (L\+S\+A\+\_\+\+H\+A\+N\+D\+LE Policy\+Handle, Int\+Ptr Account\+Sid, bool All\+Rights, \mbox{\hyperlink{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}{Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}}\mbox{[}$\,$\mbox{]} User\+Rights, int Count\+Of\+Rights)
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_security_1_1_native_methods_ab24dd1a3005b9e4738c8a71b942e682a}\label{class_pipes_provider_1_1_security_1_1_native_methods_ab24dd1a3005b9e4738c8a71b942e682a}} 
+static int {\bfseries Lsa\+Close} (Int\+Ptr Policy\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provide access to native metods used in security namespace. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Pipes\+Provider/\+Security/Native\+Methods.\+cs\end{DoxyCompactItemize}

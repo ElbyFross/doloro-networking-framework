@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['thread',['thread',['../d4/deb/class_uniform_client_1_1_base_client.html#a458271823ca5e21612c0947e1db695a0',1,'UniformClient.BaseClient.thread()'],['../d7/d32/class_uniform_server_1_1_base_server.html#a52485a2d70e615a5cbf720c952a8d62f',1,'UniformServer.BaseServer.thread()']]],
-  ['threadscount',['threadsCount',['../d7/d32/class_uniform_server_1_1_base_server.html#aa40c02a1eec7eda4c36a8ac08119b414',1,'UniformServer::BaseServer']]],
-  ['threadsleeptime',['threadSleepTime',['../d4/deb/class_uniform_client_1_1_base_client.html#a2c4762c1be5eac42b8b5d189530d0952',1,'UniformClient.BaseClient.threadSleepTime()'],['../d7/d32/class_uniform_server_1_1_base_server.html#a4dbe04636a763decfae22ddb2fe26c7a',1,'UniformServer.BaseServer.threadSleepTime()']]],
-  ['titledictionarycode',['titleDictionaryCode',['../dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta.html#a7cd04fb564fa2bdd1ac3c0c3af3b9aab',1,'UniformClient::Plugins::MenuItemMeta']]],
-  ['token',['token',['../d6/d68/class_authority_controller_1_1_data_1_1_token_info.html#a5039d141fce02bf9a1e4c28e8af24029',1,'AuthorityController.Data.TokenInfo.token()'],['../d4/deb/class_uniform_client_1_1_base_client.html#ad99bcf3d1afeed6eadca7035c926d2b7',1,'UniformClient.BaseClient.token()']]],
-  ['tokens',['tokens',['../d8/d02/class_authority_controller_1_1_data_1_1_user.html#a881f9d9beaa89819daf95838bdc5a984',1,'AuthorityController::Data::User']]],
-  ['tokensrights',['tokensRights',['../d6/d4b/class_authority_controller_1_1_session.html#a69364ca8d68ac74a7220bdabb1551799',1,'AuthorityController::Session']]],
-  ['tokenvalidtimeminutes',['TokenValidTimeMinutes',['../db/d4a/class_authority_controller_1_1_data_1_1_config.html#aa0988724b8c2413203508f2819689750',1,'AuthorityController::Data::Config']]]
+  ['secondname',['secondName',['../df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a8b4f88cdbace4ccf3101c6a62dc26a10',1,'AuthorityController::Data::Personal::User']]],
+  ['securitylevel',['securityLevel',['../d7/d32/class_uniform_server_1_1_base_server.html#ac6297faa957fd1005fc61054bdd1cdb1',1,'UniformServer::BaseServer']]],
+  ['splitting_5fsymbol',['SPLITTING_SYMBOL',['../df/d75/class_uniform_queries_1_1_a_p_i.html#aa906970223172f9f2068baa410b621d8',1,'UniformQueries::API']]],
+  ['sw_5fhide',['SW_HIDE',['../d4/deb/class_uniform_client_1_1_base_client.html#a6060f2eb1d44ec518f2dfc99c8b4f7aa',1,'UniformClient.BaseClient.SW_HIDE()'],['../d7/d32/class_uniform_server_1_1_base_server.html#aaff91507b262d2a1b9021caa2d01640f',1,'UniformServer.BaseServer.SW_HIDE()']]],
+  ['sw_5fshow',['SW_SHOW',['../d4/deb/class_uniform_client_1_1_base_client.html#a7545b9c72eef6cb7594a7001d3f558e4',1,'UniformClient.BaseClient.SW_SHOW()'],['../d7/d32/class_uniform_server_1_1_base_server.html#a494087cabc03c54c3dc0ac1cc1048860',1,'UniformServer.BaseServer.SW_SHOW()']]]
 ];

@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex" kind="class" language="C#" prot="public">
+    <compoundname>ACTests::Tests::Regex</compoundname>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a718c10ab40c5e07d59790980bcdca01b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.SetBasePasswordConfig</definition>
+        <argsstring>()</argsstring>
+        <name>SetBasePasswordConfig</name>
+        <briefdescription>
+<para>Set configs related to base password test. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="27" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a25d9c579fa5463bc64f843fbb5a9ea01" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.SetBasePersonalDataConfig</definition>
+        <argsstring>()</argsstring>
+        <name>SetBasePersonalDataConfig</name>
+        <briefdescription>
+<para>Set configs related to base personal data test. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="42" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ae7797ffa0e417b55c28c6636b37c047d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType1</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType1</name>
+        <briefdescription>
+<para>Validate name in format Name-name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="55" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="55" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a54844da3681dc14ab6578e17553fe8b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType2</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType2</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="76" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="76" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a60d236d5c061cae8d66743e2af761b1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType3</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType3</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="98" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad7611ecbd68a27461894f2a9f10c1780" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType4</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType4</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="119" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="119" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1aed8771049664094309007e7d9d57d8ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_InvalidType1</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_InvalidType1</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="140" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="140" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a03bf0183457b42a3ee58797e4487e12c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_InvalidType2</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_InvalidType2</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="161" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="161" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad8e5a2559a926adfa951a1c77e15b7c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_InvalidType3</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_InvalidType3</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="182" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="182" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a4c1e6b16ab813575058ab69045c9cc56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_InvalidType4</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_InvalidType4</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="203" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="203" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ac6bf5f9fb4509575986b5aa2cc0d0591" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_InvalidType5</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_InvalidType5</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="224" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="224" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad4ccc3b1d1143ec5b283aaa591b92eb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType5</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType5</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="245" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="245" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a6f9df1fe79f692c303c0c951854b0023" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ComplexNameValidation_ValidType6</definition>
+        <argsstring>()</argsstring>
+        <name>ComplexNameValidation_ValidType6</name>
+        <briefdescription>
+<para>Validate name in format Name&apos;name </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="266" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="266" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a7d4db91d7ffad80212ba5b9eee205ef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseValid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseValid</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="287" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="287" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a954c0141915ab29ceb0e2c05f0bea2f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseValid2</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseValid2</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="308" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="308" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a6545c48fb496df48a39610b0f091b677" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseValid3</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseValid3</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="329" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="329" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a5eaced5022d4eae7d3a984151140212f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseInvalid1</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseInvalid1</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="350" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="350" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a3c6a5c216cef0d3ebe7e0a26b3199336" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseInvalid2</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseInvalid2</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="371" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="371" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a8d3cff2c459c422de5a6162da2e29c82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseInvalid3</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseInvalid3</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="393" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="393" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a913dfa4f230e179f8a16b43efb26e24b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_BaseInvalid4</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_BaseInvalid4</name>
+        <briefdescription>
+<para>Check base password type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="414" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="414" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1afb5497f25802c0962c7197ac44356b47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_UpperCaseValid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_UpperCaseValid</name>
+        <briefdescription>
+<para>Check filter when enabled upper case required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="435" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="435" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a04621729e38f6f113afca8c6bf109a43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_UpperCaseInvalid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_UpperCaseInvalid</name>
+        <briefdescription>
+<para>Check filter when enabled upper case required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="456" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="456" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a85b89d5c2b6617c1e6243796dd3b962b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_SpecialSymbolValid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_SpecialSymbolValid</name>
+        <briefdescription>
+<para>Check filter when enabled special symbol required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="477" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="477" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a48b10eb6ffde7837698bf868cd8acc70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_SpecialSymbolInvalid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_SpecialSymbolInvalid</name>
+        <briefdescription>
+<para>Check filter when enabled special symbol required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="498" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="498" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1add6c36ef4c2dc9dc468e683727b685d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_DigitsValid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_DigitsValid</name>
+        <briefdescription>
+<para>Check filter when enabled digits required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="519" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="519" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ac7fde0aa24283986ac1c70d54bd97f9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ACTests.Tests.Regex.ValidatePassord_DigitsInvalid</definition>
+        <argsstring>()</argsstring>
+        <name>ValidatePassord_DigitsInvalid</name>
+        <briefdescription>
+<para>Check filter when enabled digits required. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="540" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="540" bodyend="555"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" line="23" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Tests/Regex.cs" bodystart="22" bodyend="556"/>
+    <listofallmembers>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1aed8771049664094309007e7d9d57d8ef" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_InvalidType1</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a03bf0183457b42a3ee58797e4487e12c" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_InvalidType2</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad8e5a2559a926adfa951a1c77e15b7c2" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_InvalidType3</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a4c1e6b16ab813575058ab69045c9cc56" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_InvalidType4</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ac6bf5f9fb4509575986b5aa2cc0d0591" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_InvalidType5</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ae7797ffa0e417b55c28c6636b37c047d" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType1</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a54844da3681dc14ab6578e17553fe8b4" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType2</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a60d236d5c061cae8d66743e2af761b1e" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType3</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad7611ecbd68a27461894f2a9f10c1780" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType4</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ad4ccc3b1d1143ec5b283aaa591b92eb3" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType5</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a6f9df1fe79f692c303c0c951854b0023" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ComplexNameValidation_ValidType6</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a718c10ab40c5e07d59790980bcdca01b" prot="private" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>SetBasePasswordConfig</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a25d9c579fa5463bc64f843fbb5a9ea01" prot="private" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>SetBasePersonalDataConfig</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a5eaced5022d4eae7d3a984151140212f" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseInvalid1</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a3c6a5c216cef0d3ebe7e0a26b3199336" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseInvalid2</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a8d3cff2c459c422de5a6162da2e29c82" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseInvalid3</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a913dfa4f230e179f8a16b43efb26e24b" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseInvalid4</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a7d4db91d7ffad80212ba5b9eee205ef0" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseValid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a954c0141915ab29ceb0e2c05f0bea2f1" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseValid2</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a6545c48fb496df48a39610b0f091b677" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_BaseValid3</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1ac7fde0aa24283986ac1c70d54bd97f9e" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_DigitsInvalid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1add6c36ef4c2dc9dc468e683727b685d8" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_DigitsValid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a48b10eb6ffde7837698bf868cd8acc70" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_SpecialSymbolInvalid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a85b89d5c2b6617c1e6243796dd3b962b" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_SpecialSymbolValid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1a04621729e38f6f113afca8c6bf109a43" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_UpperCaseInvalid</name></member>
+      <member refid="db/d8d/class_a_c_tests_1_1_tests_1_1_regex_1afb5497f25802c0962c7197ac44356b47" prot="public" virt="non-virtual"><scope>ACTests::Tests::Regex</scope><name>ValidatePassord_UpperCaseValid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

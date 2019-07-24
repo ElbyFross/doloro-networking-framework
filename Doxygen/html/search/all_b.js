@@ -1,10 +1,22 @@
 var searchData=
 [
-  ['machinemac',['machineMac',['../d6/d68/class_authority_controller_1_1_data_1_1_token_info.html#afbe13ef6a63b2a4cff326cfc6b5637b0',1,'AuthorityController::Data::TokenInfo']]],
-  ['main',['Main',['../d2/d9a/class_queries_server_1_1_server.html#ae294b75511557ef0701455c0e2ba785d',1,'QueriesServer.Server.Main()'],['../d8/d17/class_session_provider_1_1_server.html#a78068e966b78f7579b01ba80f53b87ea',1,'SessionProvider.Server.Main()']]],
-  ['makequery',['MakeQuery',['../df/d75/class_uniform_queries_1_1_a_p_i.html#a132ca74ba34302f216b61668dd32a207',1,'UniformQueries::API']]],
-  ['menuitemmeta',['MenuItemMeta',['../dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta.html',1,'UniformClient::Plugins']]],
-  ['meta',['Meta',['../d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin.html#aa49e267e66a3d697ded460d9281dcc3a',1,'UniformClient::Plugins::IPlugin']]],
-  ['multidevicelogon',['MultiDeviceLogon',['../d9/ddb/class_authority_controller_1_1_tests_1_1_session.html#a454260fa1b12b77664fcecea7b4c86aa',1,'AuthorityController::Tests::Session']]],
-  ['mutexobj',['mutexObj',['../d7/d32/class_uniform_server_1_1_base_server.html#a051bdce3aec037df76d8efe3b9938198',1,'UniformServer::BaseServer']]]
+  ['lastquery',['LastQuery',['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#ac4b9855c5d9aa2a9f6289c2eb43f6996',1,'PipesProvider.Client.TransmissionLine.LastQuery()'],['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#ac58ee721ec6876da25190b15d52530a3',1,'PipesProvider.Client.TransmissionLine.lastQuery()']]],
+  ['loadassemblies',['LoadAssemblies',['../d4/deb/class_uniform_client_1_1_base_client.html#a8abbd1d46cc50556eeae8bbd55ce680f',1,'UniformClient.BaseClient.LoadAssemblies()'],['../d7/d32/class_uniform_server_1_1_base_server.html#a22b92ad517cd1003fe4fe3c86d857169',1,'UniformServer.BaseServer.LoadAssemblies()']]],
+  ['loadinglockeddirectories',['LoadingLockedDirectories',['../da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#aed715cb6e26d7333f4ae338413460321',1,'AuthorityController::API::Users']]],
+  ['loadpluginscollection',['LoadPluginsCollection',['../d4/deb/class_uniform_client_1_1_base_client.html#a99ae0bb1dd5bef374fcedb3f873bfe8b',1,'UniformClient::BaseClient']]],
+  ['loadpluginsenumerable',['LoadPluginsEnumerable',['../d4/deb/class_uniform_client_1_1_base_client.html#aa60dbfa5bd8c46659aec7738193315f1',1,'UniformClient::BaseClient']]],
+  ['loadprofilesasync',['LoadProfilesAsync',['../da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#a5154a7787617e9c51c5519304ec89530',1,'AuthorityController::API::Users']]],
+  ['loadroutingtables',['LoadRoutingTables',['../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a13c2778abb1d14e7e8e4a2ae51d315ac',1,'PipesProvider.Networking.Routing.RoutingTable.LoadRoutingTables()'],['../d4/deb/class_uniform_client_1_1_base_client.html#a5f8f22aa4ab8219fb5f1b6a358f68daf',1,'UniformClient.BaseClient.LoadRoutingTables()']]],
+  ['login',['login',['../df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#aa0cd14927a55efeafd187ca681bfd62d',1,'AuthorityController::Data::Personal::User']]],
+  ['loginmaxsize',['LoginMaxSize',['../d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html#a0ad628b23000c825b59e4755c10e70fe',1,'AuthorityController::Data::Application::Config']]],
+  ['loginminsize',['LoginMinSize',['../d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html#a0cdcdcfb29481fdcd78202203d10d53c',1,'AuthorityController::Data::Application::Config']]],
+  ['logofftoken',['LogoffToken',['../db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f.html#aee1aba51496e1412706f77c53650955a',1,'AuthorityController::Queries::USER_LOGOFF']]],
+  ['logonconfig',['LogonConfig',['../df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config.html',1,'PipesProvider.Security.LogonConfig'],['../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#a2a3325abd7537b7a961626272634e038',1,'PipesProvider.Networking.Routing.Instruction.logonConfig()']]],
+  ['logonfinished',['LogonFinished',['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#a02c3eec4a1041d7b57ee5df00559d251',1,'PipesProvider::Client::TransmissionLine']]],
+  ['logonhandler',['LogonHandler',['../df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html#a9f1721ee3d1fbb3803b77a991f5e1a03',1,'PipesProvider::Networking::Routing::AuthorizedInstruction']]],
+  ['logonprocessor',['LogonProcessor',['../db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor.html',1,'AuthorityController::Queries::USER_LOGON']]],
+  ['longtermserverthreads',['longTermServerThreads',['../d7/d32/class_uniform_server_1_1_base_server.html#a9c14e919da0c2b9b7f8e57a92c9b0742',1,'UniformServer::BaseServer']]],
+  ['lsa_5fobject_5fattributes',['LSA_OBJECT_ATTRIBUTES',['../dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s.html',1,'PipesProvider::Security::LSA::LsaSecurityWrapper']]],
+  ['lsa_5funicode_5fstring',['LSA_UNICODE_STRING',['../d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g.html',1,'PipesProvider::Security::LSA::LsaSecurityWrapper']]],
+  ['lsasecuritywrapper',['LsaSecurityWrapper',['../de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper.html',1,'PipesProvider::Security::LSA']]]
 ];

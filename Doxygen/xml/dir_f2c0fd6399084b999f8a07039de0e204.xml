@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_f2c0fd6399084b999f8a07039de0e204" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/Standard</compoundname>
+    <innerfile refid="d3/d5c/_broadcasting_server_8cs">BroadcastingServer.cs</innerfile>
+    <innerfile refid="dc/d75/_simple_server_8cs">SimpleServer.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/Standard/"/>
+  </compounddef>
+</doxygen>

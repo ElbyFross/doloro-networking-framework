@@ -2,10 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d0/d9c/md__d_1__work__git_hub_doloro-networking-framework__r_e_a_d_m_e" kind="page">
     <compoundname>md_D:_Work_GitHub_doloro-networking-framework_README</compoundname>
-    <title>doloro-networking-framework</title>
+    <title>Doloro Networking Framework</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Framework that provide fast and easy way for creation of client and server applications powered by .Net Framework. </para>    </detaileddescription>
+<para>It&apos;s the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.</para><para><heading level="1">ATTENTION:</heading>
+</para><para>Work in progress. </para>    </detaileddescription>
   </compounddef>
 </doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_5f44a6ea4b93650b223f662ac8c23eb5" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data</compoundname>
+    <innerdir refid="dir_2566d57584cde634a8ffbc38f29d0d05">D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application</innerdir>
+    <innerdir refid="dir_a5b3fc5f40552bed7fa4a67d7d49ca04">D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal</innerdir>
+    <innerdir refid="dir_07166299b4ffc358b17ff119cf49ebde">D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Temporal</innerdir>
+    <innerfile refid="d7/db7/_handler_8cs">Handler.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/"/>
+  </compounddef>
+</doxygen>

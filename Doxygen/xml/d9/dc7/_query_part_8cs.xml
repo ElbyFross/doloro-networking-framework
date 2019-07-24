@@ -158,6 +158,6 @@
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/QueryPart.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/QueryPart.cs"/>
   </compounddef>
 </doxygen>

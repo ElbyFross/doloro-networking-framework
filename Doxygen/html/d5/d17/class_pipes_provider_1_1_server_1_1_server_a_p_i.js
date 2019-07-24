@@ -9,5 +9,6 @@ var class_pipes_provider_1_1_server_1_1_server_a_p_i =
     [ "StopServer", "d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i.html#a8a70cec80dfb54ff68d8c4924a8b4007", null ],
     [ "TryGetServerTransmissionController", "d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i.html#a6fba1adf18ce5938c6edcb29f28adfe5", null ],
     [ "openedServers", "d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i.html#ac18f0fca4de6269edeb97379112e67ca", null ],
+    [ "SeversThreadsCount", "d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i.html#a897f31aa880601dd930553266d7dd1ee", null ],
     [ "ServerTransmissionMeta_InProcessing", "d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i.html#adf4c77f25cd481b8190240e4aca06e56", null ]
 ];

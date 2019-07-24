@@ -2,28 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a" kind="namespace" language="C#">
     <compoundname>PipesProvider::Security::LSA</compoundname>
-    <innerclass refid="dd/dd5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s" prot="package">PipesProvider::Security::LSA::LSA_OBJECT_ATTRIBUTES</innerclass>
-    <innerclass refid="d7/df5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" prot="package">PipesProvider::Security::LSA::LSA_UNICODE_STRING</innerclass>
     <innerclass refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper" prot="public">PipesProvider::Security::LSA::LsaSecurityWrapper</innerclass>
-      <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="d3/de5/namespace_pipes_provider_1_1_security_1_1_l_s_a_1aa8038141b4ccef48a4ada2ba706c8ef7" prot="public" static="no">
-        <type>IntPtr</type>
-        <definition>using PipesProvider::Security::LSA.LSA_HANDLE = typedef IntPtr</definition>
-        <argsstring></argsstring>
-        <name>LSA_HANDLE</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="23" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" bodystart="23" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="22" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="21" column="1"/>
   </compounddef>
 </doxygen>

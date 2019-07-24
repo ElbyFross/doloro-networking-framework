@@ -31,6 +31,6 @@
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generated<sp/>by<sp/>the<sp/>MSBuild<sp/>WriteCodeFragment<sp/>class.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/obj/Debug/netstandard2.0/UniformServer.AssemblyInfo.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Debug/netstandard2.0/UniformServer.AssemblyInfo.cs"/>
   </compounddef>
 </doxygen>

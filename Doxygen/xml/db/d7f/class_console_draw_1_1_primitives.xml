@@ -39,7 +39,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" line="26" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" bodystart="26" bodyend="30"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" line="26" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" bodystart="26" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="db/d7f/class_console_draw_1_1_primitives_1a56f4fc0b28e3e0182208dccaf6944fdb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -77,14 +77,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" bodystart="38" bodyend="44"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" bodystart="38" bodyend="44"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" line="20" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/ConsoleDraw/Primitives.cs" bodystart="19" bodyend="45"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" line="20" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/Primitives.cs" bodystart="19" bodyend="45"/>
     <listofallmembers>
       <member refid="db/d7f/class_console_draw_1_1_primitives_1ad4b6aaed88ef18e2926febca63abf667" prot="public" virt="non-virtual"><scope>ConsoleDraw::Primitives</scope><name>DrawLine</name></member>
       <member refid="db/d7f/class_console_draw_1_1_primitives_1a56f4fc0b28e3e0182208dccaf6944fdb" prot="public" virt="non-virtual"><scope>ConsoleDraw::Primitives</scope><name>DrawSpacedLine</name></member>

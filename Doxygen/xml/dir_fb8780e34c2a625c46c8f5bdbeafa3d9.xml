@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_fb8780e34c2a625c46c8f5bdbeafa3d9" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider</compoundname>
+    <innerdir refid="dir_3a837aaf60d3369a6a8780deee84a603">D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider/obj</innerdir>
+    <innerdir refid="dir_9a919397bac3f9a8661b2707a9983ff6">D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider/Properties</innerdir>
+    <innerfile refid="dd/d2c/_examples_2_servers_2_session_provider_2_server_8cs">Server.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider/"/>
+  </compounddef>
+</doxygen>

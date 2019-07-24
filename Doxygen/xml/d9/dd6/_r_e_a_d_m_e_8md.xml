@@ -7,8 +7,11 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline><highlight class="normal">#<sp/>doloro-networking-framework</highlight></codeline>
-<codeline><highlight class="normal">Framework<sp/>that<sp/>provide<sp/>fast<sp/>and<sp/>easy<sp/>way<sp/>for<sp/>creation<sp/>of<sp/>client<sp/>and<sp/>server<sp/>applications<sp/>powered<sp/>by<sp/>.Net<sp/>Framework.</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>Doloro<sp/>Networking<sp/>Framework</highlight></codeline>
+<codeline><highlight class="normal">It&apos;s<sp/>the<sp/>framework<sp/>that<sp/>provide<sp/>fast<sp/>and<sp/>easy<sp/>way<sp/>for<sp/>creation<sp/>of<sp/>client<sp/>and<sp/>server<sp/>applications<sp/>powered<sp/>by<sp/>.Net<sp/>Framework.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>ATTENTION:</highlight></codeline>
+<codeline><highlight class="normal">Work<sp/>in<sp/>progress.</highlight></codeline>
     </programlisting>
     <location file="D:/Work/GitHub/doloro-networking-framework/README.md"/>
   </compounddef>

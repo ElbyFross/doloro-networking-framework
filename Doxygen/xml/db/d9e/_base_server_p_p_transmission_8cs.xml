@@ -140,6 +140,6 @@
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="153"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs"/>
   </compounddef>
 </doxygen>

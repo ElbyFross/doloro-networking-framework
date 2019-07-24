@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Doloro Networking Framework", "index.html", [
-    [ "doloro-networking-framework", "d0/d9c/md__d_1__work__git_hub_doloro-networking-framework__r_e_a_d_m_e.html", null ],
+    [ "Doloro Networking Framework", "d0/d9c/md__d_1__work__git_hub_doloro-networking-framework__r_e_a_d_m_e.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -51,8 +51,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d61/struct_uniform_queries_1_1_query_part.html#adb297c368ab4900f751d60ceffda0a99",
-"db/d4a/class_authority_controller_1_1_data_1_1_config.html#a71b175024423041ed094744021463342"
+"d6/d4b/class_authority_controller_1_1_session.html",
+"df/d1f/class_uniform_queries_1_1_query_processor.html#a6892127a6d09754370570c124a2a5452"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

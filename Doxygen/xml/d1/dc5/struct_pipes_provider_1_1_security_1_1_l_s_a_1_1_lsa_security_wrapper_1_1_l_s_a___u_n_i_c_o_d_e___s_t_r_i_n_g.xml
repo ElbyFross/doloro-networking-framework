@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kind="struct" language="C#" prot="public">
+    <compoundname>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_UNICODE_STRING</compoundname>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a48ff19f0bbc21f97b2eeb426cc5c3514" prot="package" static="no" mutable="no">
+        <type>ushort</type>
+        <definition>ushort PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_UNICODE_STRING.Length</definition>
+        <argsstring></argsstring>
+        <name>Length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a9722e45e60277e9b0b28049783af0ed8" prot="package" static="no" mutable="no">
+        <type>ushort</type>
+        <definition>ushort PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_UNICODE_STRING.MaximumLength</definition>
+        <argsstring></argsstring>
+        <name>MaximumLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a334675cf58725b2410e377674069dbf0" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_UNICODE_STRING.Buffer</definition>
+        <argsstring></argsstring>
+        <name>Buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="47" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g" kindref="compound">LSA_UNICODE_STRING</ref> structure </para>    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/LSA.cs" bodystart="43" bodyend="48"/>
+    <listofallmembers>
+      <member refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a334675cf58725b2410e377674069dbf0" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_UNICODE_STRING</scope><name>Buffer</name></member>
+      <member refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a48ff19f0bbc21f97b2eeb426cc5c3514" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_UNICODE_STRING</scope><name>Length</name></member>
+      <member refid="d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g_1a9722e45e60277e9b0b28049783af0ed8" prot="package" virt="non-virtual"><scope>PipesProvider::Security::LSA::LsaSecurityWrapper::LSA_UNICODE_STRING</scope><name>MaximumLength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

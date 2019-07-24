@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d1/de3/class_uniform_client_1_1_native_methods" kind="class" language="C#" prot="public">
+    <compoundname>UniformClient::NativeMethods</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/de3/class_uniform_client_1_1_native_methods_1a067dec2d455070ab352fef3caef7b323" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool UniformClient.NativeMethods.ShowWindow</definition>
+        <argsstring>(IntPtr hWnd, int nCmdShow)</argsstring>
+        <name>ShowWindow</name>
+        <param>
+          <type>IntPtr</type>
+          <declname>hWnd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCmdShow</declname>
+        </param>
+        <briefdescription>
+<para>Imported method that allo to controll console window state. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hWnd</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nCmdShow</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/de3/class_uniform_client_1_1_native_methods_1ab6b4879e450856c501624a55094ead5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IntPtr</type>
+        <definition>static IntPtr UniformClient.NativeMethods.GetConsoleWindow</definition>
+        <argsstring>()</argsstring>
+        <name>GetConsoleWindow</name>
+        <briefdescription>
+<para>Inported method that allow acces to console window. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="36" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="21" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" bodystart="20" bodyend="37"/>
+    <listofallmembers>
+      <member refid="d1/de3/class_uniform_client_1_1_native_methods_1ab6b4879e450856c501624a55094ead5b" prot="public" virt="non-virtual"><scope>UniformClient::NativeMethods</scope><name>GetConsoleWindow</name></member>
+      <member refid="d1/de3/class_uniform_client_1_1_native_methods_1a067dec2d455070ab352fef3caef7b323" prot="public" virt="non-virtual"><scope>UniformClient::NativeMethods</scope><name>ShowWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

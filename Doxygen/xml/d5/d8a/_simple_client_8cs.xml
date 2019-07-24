@@ -35,6 +35,6 @@
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="31"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformClient/Providers/Standard/SimpleClient.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/Standard/SimpleClient.cs"/>
   </compounddef>
 </doxygen>

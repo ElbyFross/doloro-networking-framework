@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">0.9.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -91,17 +91,19 @@ $(document).ready(function(){initNavTree('functions_i.html','');});
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>id
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#aa637a9c31ebd1d4f4a4fb769ba64b9ca">AuthorityController.Data.User</a>
+: <a class="el" href="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a1a2ed2d1d844d6c92cc301595488375a">AuthorityController.Data.Personal.User</a>
 </li>
-<li>InformateRelatedServers
-: <a class="el" href="d6/d4b/class_authority_controller_1_1_session.html#abbd978421ebd42315bde41126231ac18">AuthorityController.Session</a>
-, <a class="el" href="d8/d17/class_session_provider_1_1_server.html#a79f535be5b1dd781de2982f0b34ea4f9">SessionProvider.Server</a>
+<li>InformAuthorityFollowers()
+: <a class="el" href="d6/d4b/class_authority_controller_1_1_session.html#a46ef72d5e8b812ae7ecd5bf413a320f0">AuthorityController.Session</a>
 </li>
 <li>intructions
 : <a class="el" href="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a1a2c8459b4805d7ee1e81698a389f3f7">PipesProvider.Networking.Routing.RoutingTable</a>
 </li>
 <li>IsAnonymous
 : <a class="el" href="df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config.html#a75522f37bf91bbd20f01fa4498d28dd1">PipesProvider.Security.LogonConfig</a>
+</li>
+<li>IsAutorized
+: <a class="el" href="d9/de6/class_uniform_queries_1_1_auth_query_processor.html#a4b30ccde7ee894847d38961cec425e98">UniformQueries.AuthQueryProcessor</a>
 </li>
 <li>IsBanned()
 : <a class="el" href="da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#ab23c24d29e83e28d25452f7da05b427d">AuthorityController.API.Users</a>
@@ -111,20 +113,23 @@ $(document).ready(function(){initNavTree('functions_i.html','');});
 </li>
 <li>IsExpired()
 : <a class="el" href="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#acbc5a5df26ae29633d4424873676ece3">AuthorityController.API.Tokens</a>
-, <a class="el" href="dd/de1/struct_authority_controller_1_1_data_1_1_ban_information.html#a4f5feca536c5a0004d14b0f620e5b373">AuthorityController.Data.BanInformation</a>
+, <a class="el" href="d6/d49/struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information.html#ad07cbe220f0625c0b22183d764709d74">AuthorityController.Data.Personal.BanInformation</a>
 </li>
 <li>IsHasEnoughRigths()
 : <a class="el" href="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections.html#a7e292e3fb49b2b6f0fb1060a9beb2e9f">AuthorityController.API.Collections</a>
 , <a class="el" href="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#a3077a786044bdd530ad50dbd615f8beb">AuthorityController.API.Tokens</a>
 </li>
 <li>IsHashedPasswordCorrect()
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#ab34b934bfdb2603010dd4f25f118c3b4">AuthorityController.Data.User</a>
+: <a class="el" href="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a3acdb952f59613bae8bf253a3cada496">AuthorityController.Data.Personal.User</a>
+</li>
+<li>IsInProgress
+: <a class="el" href="df/d1f/class_uniform_queries_1_1_query_processor.html#a313a194b0608de7f02281824587dd1ac">UniformQueries.QueryProcessor</a>
 </li>
 <li>IsNone
 : <a class="el" href="d5/d61/struct_uniform_queries_1_1_query_part.html#af380375ca82e9dc2eecf899b5933fe2b">UniformQueries.QueryPart</a>
 </li>
 <li>IsOpenPasswordCorrect()
-: <a class="el" href="d8/d02/class_authority_controller_1_1_data_1_1_user.html#a654c513481e7cfbe36530c3cf6a908f7">AuthorityController.Data.User</a>
+: <a class="el" href="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a40e370338936914847b4ca8afb9cfc2f">AuthorityController.Data.Personal.User</a>
 </li>
 <li>IsRoutingTarget()
 : <a class="el" href="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#a376135eac06c59b1df8d2f5d1617bed9">PipesProvider.Networking.Routing.Instruction</a>
@@ -140,8 +145,11 @@ $(document).ready(function(){initNavTree('functions_i.html','');});
 , <a class="el" href="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n.html#a53261c6c60dc1a2324a67adf19f7547a">AuthorityController.Queries.USER_LOGON</a>
 , <a class="el" href="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w.html#a6e26596b5a5ecc3d07591766b5d325ec">AuthorityController.Queries.USER_NEW</a>
 , <a class="el" href="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d.html#a48ff6874453caf45973ad386bfe5b513">AuthorityController.Queries.USER_NEW_PASSWORD</a>
-, <a class="el" href="da/d51/interface_uniform_queries_1_1_i_query_handler.html#abda1ccf47ad2889fbd015955965046e7">UniformQueries.IQueryHandler</a>
+, <a class="el" href="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler.html#a0f43184bf3e306a7cbebc39098f044ee">UniformQueries.Executable.IQueryHandler</a>
 , <a class="el" href="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y.html#ae27d462fe9ccbbf22ac03c9ead9cbe8f">UniformServer.Queries.GET_PUBLIC_KEY</a>
+</li>
+<li>IsTerminated
+: <a class="el" href="df/d1f/class_uniform_queries_1_1_query_processor.html#a6c7b2f71bee989944cb95f927ed3bdfd">UniformQueries.QueryProcessor</a>
 </li>
 <li>IsValid
 : <a class="el" href="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#a07dbb5b97b3d9a28e5a318815d954278">PipesProvider.Networking.Routing.Instruction</a>

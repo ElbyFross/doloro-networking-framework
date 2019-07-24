@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/ded/namespace_a_c_tests_1_1_authority_test_server" kind="namespace" language="C#">
+    <compoundname>ACTests::AuthorityTestServer</compoundname>
+    <innerclass refid="d7/d25/class_a_c_tests_1_1_authority_test_server_1_1_server" prot="public">ACTests::AuthorityTestServer::Server</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/AuthorityTestServer/Server.cs" line="23" column="1"/>
+  </compounddef>
+</doxygen>

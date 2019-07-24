@@ -40,6 +40,6 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/SecurityLevel.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/SecurityLevel.cs"/>
   </compounddef>
 </doxygen>

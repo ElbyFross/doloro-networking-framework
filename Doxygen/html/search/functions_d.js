@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['querycontainer',['QueryContainer',['../d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container.html#a35009271933f6aebf60be2415b651067',1,'PipesProvider.Client.QueryContainer.QueryContainer(string query)'],['../d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container.html#a0e78a9dc3d3fc971f9a1abb06dc836b4',1,'PipesProvider.Client.QueryContainer.QueryContainer(string query, System.Action&lt; TransmissionLine, string &gt; AnswerHandler)']]],
-  ['queryhandler_5frelay',['QueryHandler_Relay',['../d2/d9a/class_queries_server_1_1_server.html#af23657bf1fbf254abb46ed80180b0cc3',1,'QueriesServer::Server']]],
-  ['queryparamexist',['QueryParamExist',['../df/d75/class_uniform_queries_1_1_a_p_i.html#a1a0ad73e1dad7f7ec61398cb33ec18a4',1,'UniformQueries.API.QueryParamExist(string param, string query)'],['../df/d75/class_uniform_queries_1_1_a_p_i.html#a0f6c53ca64000015c8bf7bed30d9c57a',1,'UniformQueries.API.QueryParamExist(string param, params string[] queryParts)'],['../df/d75/class_uniform_queries_1_1_a_p_i.html#ac0f8c9faebdc4a69f2072c0bb9e955e1',1,'UniformQueries.API.QueryParamExist(string param, params QueryPart[] queryParts)']]],
-  ['querypart',['QueryPart',['../d5/d61/struct_uniform_queries_1_1_query_part.html#ae8a918635c52a837300ff3b1fdcdfd57',1,'UniformQueries.QueryPart.QueryPart(string key)'],['../d5/d61/struct_uniform_queries_1_1_query_part.html#adabbcaa15ccf653f686d4f2bcd39ce09',1,'UniformQueries.QueryPart.QueryPart(string key, string property)']]],
-  ['querypartsarraytostring',['QueryPartsArrayToString',['../d5/d61/struct_uniform_queries_1_1_query_part.html#a053c8ba08ddd1a20d5b50128a524da09',1,'UniformQueries::QueryPart']]]
+  ['paramnameequal',['ParamNameEqual',['../d5/d61/struct_uniform_queries_1_1_query_part.html#af032469107805c1c71083666bb8548a9',1,'UniformQueries::QueryPart']]],
+  ['paramvalueequal',['ParamValueEqual',['../d5/d61/struct_uniform_queries_1_1_query_part.html#a5fb4475a72dcb6882fc860f7c0fcc50e',1,'UniformQueries::QueryPart']]],
+  ['passwordformat',['PasswordFormat',['../dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation.html#a9aceff242f489e5d63808e28b1506487',1,'AuthorityController::API::Validation']]],
+  ['pinghost',['PingHost',['../d7/d6e/class_pipes_provider_1_1_networking_1_1_info.html#aa609196312941e05536dcb3526b9a2ce',1,'PipesProvider::Networking::Info']]],
+  ['processingasync',['ProcessingAsync',['../d2/db8/class_pipes_provider_1_1_handlers_1_1_query.html#a3f08c44bfaf5e720d6dfbd791227c8fe',1,'PipesProvider::Handlers::Query']]]
 ];

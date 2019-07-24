@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Security/LSA.cs" line="23" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Security/NativeMethods.cs" line="23" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_03680f297d755c096b0a1ead13ee12b7" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Examples</compoundname>
+    <innerdir refid="dir_19c293622b5f03b588ed1bec289a7637">D:/Work/GitHub/doloro-networking-framework/Examples/ExampleClient</innerdir>
+    <innerdir refid="dir_0ff67ed230769ead909904d5f3a6c023">D:/Work/GitHub/doloro-networking-framework/Examples/Servers</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Examples/"/>
+  </compounddef>
+</doxygen>

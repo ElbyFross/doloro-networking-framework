@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_ac8e4afed435a9f1debf0b9d16af7286" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj</compoundname>
+    <innerdir refid="dir_182514bebaf00af20f32d6698403048c">D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/Debug</innerdir>
+    <innerdir refid="dir_b7ff27e3890b81af712e485a7dd9e471">D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/Release</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/"/>
+  </compounddef>
+</doxygen>

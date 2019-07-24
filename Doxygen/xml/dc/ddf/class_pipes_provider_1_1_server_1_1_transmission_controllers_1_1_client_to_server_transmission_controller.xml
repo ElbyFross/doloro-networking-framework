@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="30" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="33" bodyend="42"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="33" bodyend="42"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -92,7 +92,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="51" bodyend="66"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="51" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1ab52c0b0e04e34cd795847eef1e59d35b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -143,7 +143,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="75" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="75" bodyend="88"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="75" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="75" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1ae66dc95c0ec1e01f53bf5d0d7e0c3738" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -205,7 +205,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="98" bodyend="114"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="98" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="98" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller_1abd4776718a269d7cab7ea154d94eba45" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -300,7 +300,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="126" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="126" bodyend="162"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="126" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="126" bodyend="162"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -308,39 +308,39 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="48">
+      <node id="55">
         <label>PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController</label>
         <link refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller"/>
-        <childnode refid="49" relation="public-inheritance">
+        <childnode refid="56" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="49">
+      <node id="56">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="50">
+      <node id="57">
         <label>PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController</label>
         <link refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller"/>
-        <childnode refid="51" relation="public-inheritance">
+        <childnode refid="58" relation="public-inheritance">
         </childnode>
-        <childnode refid="52" relation="usage">
+        <childnode refid="59" relation="usage">
           <edgelabel>queryHandlerCallback</edgelabel>
         </childnode>
       </node>
-      <node id="52">
+      <node id="59">
         <label>System</label>
       </node>
-      <node id="51">
+      <node id="58">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-        <childnode refid="52" relation="usage">
+        <childnode refid="59" relation="usage">
           <edgelabel>connectionCallback</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="23" bodyend="164"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" line="24" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/ClientToServerTransmissionController.cs" bodystart="23" bodyend="164"/>
     <listofallmembers>
       <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1acd8c41b70a2f0000c0e0b24e3b37ba07" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::ClientToServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>
       <member refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller_1ad3ffb9dd45062b59d88dd08f9df90c5f" prot="public" virt="non-virtual"><scope>PipesProvider::Server::TransmissionControllers::ClientToServerTransmissionController</scope><name>BaseServerTransmissionController</name></member>

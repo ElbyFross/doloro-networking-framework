@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="33" bodyend="33"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="33" bodyend="33"/>
       </memberdef>
       <memberdef kind="property" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1ab2ceeaac61f04d4ce7e41bc8ea931a0f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>bool</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="39" bodyend="46"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="38" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="39" bodyend="46"/>
       </memberdef>
       <memberdef kind="property" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a565336905463066277e39b0dbe606112" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
         <type>int</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="51" bodyend="51"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="51" bodyend="51"/>
       </memberdef>
       <memberdef kind="property" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0e1f91d0a990824b56170c3da5e5919c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="64" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="64" bodyend="64"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="64" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="64" bodyend="64"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="56" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="56" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="56" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -96,7 +96,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="70" bodyend="75"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="70" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0e78a9dc3d3fc971f9a1abb06dc836b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -132,7 +132,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="82" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="82" bodyend="87"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="82" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="82" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a567d4d144909e8e480c30f1faacadbc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>override string</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="105" bodyend="108"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="105" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="105" bodyend="108"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -173,7 +173,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="97" bodyend="103"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="97" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a9a97cf832c6736f14f5ed2661fbb3bce" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container" kindref="compound">QueryContainer</ref></type>
@@ -199,7 +199,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="118" bodyend="122"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="118" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="118" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a0d227c39b9ecec5d8b3e739e87e171a6" prot="public" static="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type>static</type>
@@ -224,7 +224,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="128" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="128" bodyend="131"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="128" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="128" bodyend="131"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -232,18 +232,18 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="118">
+      <node id="137">
         <label>System</label>
       </node>
-      <node id="117">
+      <node id="136">
         <label>PipesProvider.Client.QueryContainer</label>
         <link refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container"/>
-        <childnode refid="118" relation="usage">
+        <childnode refid="137" relation="usage">
           <edgelabel>AnswerHandler</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/QueryContainer.cs" bodystart="27" bodyend="133"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/QueryContainer.cs" bodystart="27" bodyend="133"/>
     <listofallmembers>
       <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1acaaa09658d3bb75118670fbb90b77f33" prot="public" virt="non-virtual"><scope>PipesProvider::Client::QueryContainer</scope><name>AnswerHandler</name></member>
       <member refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container_1a565336905463066277e39b0dbe606112" prot="public" virt="non-virtual"><scope>PipesProvider::Client::QueryContainer</scope><name>Attempts</name></member>

@@ -86,6 +86,6 @@
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="109"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Server/TransmisssionControllers/BaseServerTransmissionController.cs"/>
   </compounddef>
 </doxygen>

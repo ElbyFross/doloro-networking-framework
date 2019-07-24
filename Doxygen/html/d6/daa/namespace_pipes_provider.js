@@ -4,5 +4,6 @@ var namespace_pipes_provider =
     [ "Handlers", "db/d52/namespace_pipes_provider_1_1_handlers.html", "db/d52/namespace_pipes_provider_1_1_handlers" ],
     [ "Networking", "d1/d4b/namespace_pipes_provider_1_1_networking.html", "d1/d4b/namespace_pipes_provider_1_1_networking" ],
     [ "Security", "da/d2f/namespace_pipes_provider_1_1_security.html", "da/d2f/namespace_pipes_provider_1_1_security" ],
-    [ "Server", "d2/d6a/namespace_pipes_provider_1_1_server.html", "d2/d6a/namespace_pipes_provider_1_1_server" ]
+    [ "Server", "d2/d6a/namespace_pipes_provider_1_1_server.html", "d2/d6a/namespace_pipes_provider_1_1_server" ],
+    [ "NativeMethods", "dd/daf/class_pipes_provider_1_1_native_methods.html", "dd/daf/class_pipes_provider_1_1_native_methods" ]
 ];

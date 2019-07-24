@@ -1,10 +1,8 @@
 var class_uniform_server_1_1_base_server =
 [
     [ "ArgsReactor", "d7/d32/class_uniform_server_1_1_base_server.html#a992660752da60019c348e18226a87bf2", null ],
-    [ "GetConsoleWindow", "d7/d32/class_uniform_server_1_1_base_server.html#a1b7d5587de4974fad2ec366a571791e0", null ],
     [ "LoadAssemblies", "d7/d32/class_uniform_server_1_1_base_server.html#a22b92ad517cd1003fe4fe3c86d857169", null ],
     [ "SendAnswerViaPP", "d7/d32/class_uniform_server_1_1_base_server.html#aefbb2a4287a7f995582b2abf41da8a89", null ],
-    [ "ShowWindow", "d7/d32/class_uniform_server_1_1_base_server.html#a16cf4f4f9de9d6d6586631640d3d867b", null ],
     [ "StartBroadcastingViaPP", "d7/d32/class_uniform_server_1_1_base_server.html#a9ca20516e2a562ddbf8d2c1866f90b25", null ],
     [ "StartServerThread", "d7/d32/class_uniform_server_1_1_base_server.html#aa4a1412b217944e7f8d6ccae6ac68289", null ],
     [ "ThreadingServerLoop_PP_Broadcast", "d7/d32/class_uniform_server_1_1_base_server.html#ae3c371a7e7953333bb2aa5104fa8a72d", null ],

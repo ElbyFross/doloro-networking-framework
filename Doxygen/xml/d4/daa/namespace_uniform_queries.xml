@@ -3,12 +3,14 @@
   <compounddef id="d4/daa/namespace_uniform_queries" kind="namespace" language="C#">
     <compoundname>UniformQueries</compoundname>
     <innerclass refid="df/d75/class_uniform_queries_1_1_a_p_i" prot="public">UniformQueries::API</innerclass>
-    <innerclass refid="da/d51/interface_uniform_queries_1_1_i_query_handler" prot="public">UniformQueries::IQueryHandler</innerclass>
+    <innerclass refid="d9/de6/class_uniform_queries_1_1_auth_query_processor" prot="public">UniformQueries::AuthQueryProcessor</innerclass>
     <innerclass refid="d5/d61/struct_uniform_queries_1_1_query_part" prot="public">UniformQueries::QueryPart</innerclass>
+    <innerclass refid="df/d1f/class_uniform_queries_1_1_query_processor" prot="public">UniformQueries::QueryProcessor</innerclass>
+    <innernamespace refid="dd/dba/namespace_uniform_queries_1_1_executable">UniformQueries::Executable</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/UniformQueries/IQuery.cs" line="22" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/UniformQueries/AuthQueryProcessor.cs" line="16" column="1"/>
   </compounddef>
 </doxygen>

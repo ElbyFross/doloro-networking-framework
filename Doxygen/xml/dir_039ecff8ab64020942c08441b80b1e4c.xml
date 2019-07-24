@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_039ecff8ab64020942c08441b80b1e4c" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries</compoundname>
+    <innerfile refid="dc/dfc/_g_e_t___g_u_e_s_t___t_o_k_e_n_8cs">GET_GUEST_TOKEN.cs</innerfile>
+    <innerfile refid="d2/d59/_s_e_t___t_o_k_e_n___r_i_g_h_t_s_8cs">SET_TOKEN_RIGHTS.cs</innerfile>
+    <innerfile refid="db/ddd/_u_s_e_r___b_a_n_8cs">USER_BAN.cs</innerfile>
+    <innerfile refid="d2/dae/_u_s_e_r___l_o_g_o_f_f_8cs">USER_LOGOFF.cs</innerfile>
+    <innerfile refid="d0/d58/_u_s_e_r___l_o_g_o_n_8cs">USER_LOGON.cs</innerfile>
+    <innerfile refid="df/d0c/_u_s_e_r___n_e_w_8cs">USER_NEW.cs</innerfile>
+    <innerfile refid="dc/df3/_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_8cs">USER_NEW_PASSWORD.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/"/>
+  </compounddef>
+</doxygen>

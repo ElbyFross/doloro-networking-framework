@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::Data::Application::Config</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ad3be522aa76fea2a368ffa3810979012" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Application.Config.DIRECTORY</definition>
+        <argsstring></argsstring>
+        <name>DIRECTORY</name>
+        <initializer>= &quot;\\resources\\ac\\&quot;</initializer>
+        <briefdescription>
+<para>Directory that will contain serialized instance of this class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a7cc94e6fe35ce997e75f0a0fa3feaa2e" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Application.Config.CONFIG_FILE_NAME</definition>
+        <argsstring></argsstring>
+        <name>CONFIG_FILE_NAME</name>
+        <initializer>= &quot;.config&quot;</initializer>
+        <briefdescription>
+<para>Name of the file that will be loaded as config. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a9889d48151e034f0bc451126058a5264" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Application.Config.UsersStorageDirectory</definition>
+        <argsstring></argsstring>
+        <name>UsersStorageDirectory</name>
+        <initializer>= &quot;\\resorces\\users\\&quot;</initializer>
+        <briefdescription>
+<para>Directory to folder that will contain users data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0cdcdcfb29481fdcd78202203d10d53c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.LoginMinSize</definition>
+        <argsstring></argsstring>
+        <name>LoginMinSize</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>How many character will be required in password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="50" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0ad628b23000c825b59e4755c10e70fe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.LoginMaxSize</definition>
+        <argsstring></argsstring>
+        <name>LoginMaxSize</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+<para>How many character will be allowed in password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="55" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a91b4d10af2d9680e0580c5fe30b09fc8" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Application.Config.UserNameRegexPattern</definition>
+        <argsstring></argsstring>
+        <name>UserNameRegexPattern</name>
+        <initializer>= @&quot;^([A-Z][a-z]+)+([-&apos; ][A-Z][a-z]+)?$&quot;</initializer>
+        <briefdescription>
+<para>Define a format of allowed name. By default provide possibility to make a names like: XXXXX Xxxx-Xxxx Xx&apos;Xxx etc. </para>        </briefdescription>
+        <detaileddescription>
+<para>For creating your own please use a Regex sinaxis. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="70" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a4f98440aff22ba7124faf929df4401ba" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Application.Config.UserDefaultRights</definition>
+        <argsstring></argsstring>
+        <name>UserDefaultRights</name>
+        <initializer>= new string[]
+        {
+            &quot;base&quot;,
+            &quot;commenting&quot;,
+            &quot;publishing&quot;,
+            &quot;personManaging&quot;,
+            &quot;passwordManaging&quot;,
+        }</initializer>
+        <briefdescription>
+<para>List of user rights that will profided to every new user. Any extra rights will require aditional query from authorised user. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="78" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1af2c4e3d6eba2ff61eed570390bfdcc14" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Application.Config.PasswordSaltFileName</definition>
+        <argsstring></argsstring>
+        <name>PasswordSaltFileName</name>
+        <initializer>= &quot;.salt&quot;</initializer>
+        <briefdescription>
+<para>Name of the file that will contain salt. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="92" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0b7dd2a319692cc608de89f4a463cb61" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.PasswordSaltSize</definition>
+        <argsstring></argsstring>
+        <name>PasswordSaltSize</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>How many bytes will contain salt. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ac6d18cfffc86aaa2443a06a90a688eb1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.PasswordMinAllowedLength</definition>
+        <argsstring></argsstring>
+        <name>PasswordMinAllowedLength</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+<para>How many character will be required in password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="102" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a04f768eacbc58e94bd7f5122eaf659fb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.PasswordMaxAllowedLength</definition>
+        <argsstring></argsstring>
+        <name>PasswordMaxAllowedLength</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>How many character will be allowed in password. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="107" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ae20771ce3750b078895ef998a57d8773" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Application.Config.PasswordRequireSpecialSymbol</definition>
+        <argsstring></argsstring>
+        <name>PasswordRequireSpecialSymbol</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>If true then will requre at leas one symbol like !$% etc. <ref refid="df/df4/namespace_authority_controller_1_1_data_1_1_application" kindref="compound">Application</ref> will provide valid mask without your involving. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="113" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a8ac9eca1d9766ddc46f9177133dd8b6e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Application.Config.PasswordRequireUpperSymbol</definition>
+        <argsstring></argsstring>
+        <name>PasswordRequireUpperSymbol</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>If true then will require at least one symbol in high register. <ref refid="df/df4/namespace_authority_controller_1_1_data_1_1_application" kindref="compound">Application</ref> will provide valid mask without your involving. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="119" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a2f39b6a13a99fc5a433d333b086fdcad" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Application.Config.PasswordRequireDigitSymbol</definition>
+        <argsstring></argsstring>
+        <name>PasswordRequireDigitSymbol</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>If true then will require at least one digit. <ref refid="df/df4/namespace_authority_controller_1_1_data_1_1_application" kindref="compound">Application</ref> will provide valid mask without your involving. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="125" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ad548f5fee544802b6c900eef6da88332" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Application.Config.TokenValidTimeMinutes</definition>
+        <argsstring></argsstring>
+        <name>TokenValidTimeMinutes</name>
+        <initializer>= 1440</initializer>
+        <briefdescription>
+<para>How many minutes token is valid. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="132" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a6d369c29beecb9c80a65168d72e2ae06" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Application.Config.QUERY_UserBan_RIGHTS</definition>
+        <argsstring></argsstring>
+        <name>QUERY_UserBan_RIGHTS</name>
+        <initializer>= new string[] { &quot;banhammer&quot;, &quot;&gt;rank=2&quot; }</initializer>
+        <briefdescription>
+<para>Rights code required for requester to proceed this action. </para>        </briefdescription>
+        <detaileddescription>
+<para>rank=x where x is 0 - guest 1 - user 2 - privileged user 4 - moderator 8 - admin 16 - superadminbannhammer - allow user set bans to others. &gt;rank=2 - wil requre at least moderators level. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="148" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a93960243b140fa132aef425493c7bb70" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Application.Config.QUERY_UserNewPassword_RIGHTS</definition>
+        <argsstring></argsstring>
+        <name>QUERY_UserNewPassword_RIGHTS</name>
+        <initializer>= new string[] { &quot;passwordManaging&quot; }</initializer>
+        <briefdescription>
+<para>Rights code required for requester to proceed this action. </para>        </briefdescription>
+        <detaileddescription>
+<para>passwordManaging - user can change them passwords. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="155" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1acf5f9058d36f7fd7fb017098481f8dfc" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Application.Config.QUERY_UserPasswordModeration_RIGHTS</definition>
+        <argsstring></argsstring>
+        <name>QUERY_UserPasswordModeration_RIGHTS</name>
+        <initializer>= new string[] { &quot;&gt;rank=2&quot; }</initializer>
+        <briefdescription>
+<para>What a rights will required to user that try to change the password of other user. Also system auto add instruction where user need to have hieghest rank the target. </para>        </briefdescription>
+        <detaileddescription>
+<para>"&gt;rank=2 - ata least moderator level. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0ac15c9d4920092355022d3cc0d47f4d" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Application.Config.QUERY_SetTokenRights_RIGHTS</definition>
+        <argsstring></argsstring>
+        <name>QUERY_SetTokenRights_RIGHTS</name>
+        <initializer>= new string[] {&quot;&gt;rank=5&quot; }</initializer>
+        <briefdescription>
+<para>Rights code required for requester to proceed this action. &gt;rank=4 - will requre at least admin level. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="170" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a4473b20e9b91d2811ac3610da497a1bc" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config" kindref="compound">Config</ref></type>
+        <definition>Config AuthorityController.Data.Application.Config.Active</definition>
+        <argsstring></argsstring>
+        <name>Active</name>
+        <briefdescription>
+<para>Reference to current configs. Auto load one from resources if exist by DIRECTORY. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="183" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="184" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="property" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ac91189185d3ab6bf689bfaf37f83d9c1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container" kindref="compound">SaltContainer</ref></type>
+        <definition>SaltContainer AuthorityController.Data.Application.Config.Salt</definition>
+        <argsstring></argsstring>
+        <name>Salt</name>
+        <briefdescription>
+<para>Salt loaded from file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="212" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="213" bodyend="245"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a889d164fa5479754663de6c2d64983ba" prot="private" static="yes" mutable="no">
+        <type><ref refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config" kindref="compound">Config</ref></type>
+        <definition>Config AuthorityController.Data.Application.Config.active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="204" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1abcf55c74cb4f50ee8a68e53a2f1fbf4c" prot="private" static="no" mutable="no">
+        <type><ref refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container" kindref="compound">SaltContainer</ref></type>
+        <definition>SaltContainer AuthorityController.Data.Application.Config.salt</definition>
+        <argsstring></argsstring>
+        <name>salt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="247" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a582fe6bdb659a1ba57dfd506959a0347" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AuthorityController.Data.Application.Config.Config</definition>
+        <argsstring>()</argsstring>
+        <name>Config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="251" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="251" bodyend="255"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Object that contain data for setup of authority controller. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="66">
+        <label>AuthorityController.Data.Application.SaltContainer</label>
+        <link refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container"/>
+      </node>
+      <node id="65">
+        <label>AuthorityController.Data.Application.Config</label>
+        <link refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config"/>
+        <childnode refid="66" relation="usage">
+          <edgelabel>salt</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>active</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Application/Config.cs" bodystart="26" bodyend="257"/>
+    <listofallmembers>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a4473b20e9b91d2811ac3610da497a1bc" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>Active</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a889d164fa5479754663de6c2d64983ba" prot="private" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>active</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a582fe6bdb659a1ba57dfd506959a0347" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>Config</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a7cc94e6fe35ce997e75f0a0fa3feaa2e" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>CONFIG_FILE_NAME</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ad3be522aa76fea2a368ffa3810979012" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>DIRECTORY</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0ad628b23000c825b59e4755c10e70fe" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>LoginMaxSize</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0cdcdcfb29481fdcd78202203d10d53c" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>LoginMinSize</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a04f768eacbc58e94bd7f5122eaf659fb" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordMaxAllowedLength</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ac6d18cfffc86aaa2443a06a90a688eb1" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordMinAllowedLength</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a2f39b6a13a99fc5a433d333b086fdcad" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordRequireDigitSymbol</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ae20771ce3750b078895ef998a57d8773" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordRequireSpecialSymbol</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a8ac9eca1d9766ddc46f9177133dd8b6e" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordRequireUpperSymbol</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1af2c4e3d6eba2ff61eed570390bfdcc14" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordSaltFileName</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0b7dd2a319692cc608de89f4a463cb61" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>PasswordSaltSize</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a0ac15c9d4920092355022d3cc0d47f4d" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>QUERY_SetTokenRights_RIGHTS</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a6d369c29beecb9c80a65168d72e2ae06" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>QUERY_UserBan_RIGHTS</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a93960243b140fa132aef425493c7bb70" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>QUERY_UserNewPassword_RIGHTS</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1acf5f9058d36f7fd7fb017098481f8dfc" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>QUERY_UserPasswordModeration_RIGHTS</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ac91189185d3ab6bf689bfaf37f83d9c1" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>Salt</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1abcf55c74cb4f50ee8a68e53a2f1fbf4c" prot="private" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>salt</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1ad548f5fee544802b6c900eef6da88332" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>TokenValidTimeMinutes</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a4f98440aff22ba7124faf929df4401ba" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>UserDefaultRights</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a91b4d10af2d9680e0580c5fe30b09fc8" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>UserNameRegexPattern</name></member>
+      <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a9889d48151e034f0bc451126058a5264" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Application::Config</scope><name>UsersStorageDirectory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
