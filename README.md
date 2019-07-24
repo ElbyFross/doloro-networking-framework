@@ -34,7 +34,7 @@ Contains built-in queries:
 
 # Simplicity
 ### Auto RSA encryption
-`(Core\PipesProvider\Security)`
+[Dirctory](./Core/PipesProvider/Security/)
 
 Client able automaticly recive a public RSA's key from server and encode message beffore transmisssion. 
 Append your client's RSA's public key in `pk` propery in query and server would auto encrypt answer.
@@ -49,24 +49,24 @@ Built-in networking handlers control logic loop of transmission without your inv
 4. Recive answer to your data handler in case of duplex query.
 
 ### Ready to use servers
-`(Examples\Servers\)`
+[Dirctory](./Examples/Servers/)
 - Session provider - provide tokens, control users profiles, provide complex hierarchy.
 - Queries server - relay server that would receive queries and redirect to target servers by using `Routing tables`.
   
 ### LSA configurator
-`(Core\PipesProvider\Security)`
+[Dirctory](./Core/PipesProvider/Security/)
 
 Allows to configure your OS in one click relative to required rights.
 
 ### Server's built-in transmission algorithms
-`(Core\PipesProvider\Server\TransmisssionControllers\)`
+[Dirctory](./Core/PipesProvider/Server/TransmisssionControllers/)
 
 - Client to Server
 - Server to Client
 - Broadcasting
 
 ### Client's built-in transmission algorithms 
-`(Core\UniformClient\Providers\PipesProvider\BaseClientPPHelpers.cs)`
+[Dirctory](./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs)
 
 - Duplex query
 - Input query
