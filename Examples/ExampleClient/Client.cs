@@ -20,7 +20,7 @@ using PipesProvider.Security;
 using PipesProvider.Client;
 using UniformQueries;
 
-namespace TestClient
+namespace ExampleClent
 {
     /// <summary>
     /// Provide example of client-server transmission.
