@@ -82,7 +82,8 @@ namespace AuthorityController.Queries
                             // Wait if not found.
                             Thread.Sleep(500);
                         }
-                    });
+                    },
+                    Session.Current.TerminationToken);
                 }
                 #endregion
 

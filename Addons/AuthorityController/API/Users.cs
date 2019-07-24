@@ -166,7 +166,8 @@ namespace AuthorityController.API
 
                 // Inform subscribers about location unlock.
                 DirectoryLoadingFinished?.Invoke(directory, loadingSucceed, loadingFailed);
-            });
+            },
+            Session.Current.TerminationToken);
         }
 
         /// <summary>
@@ -205,8 +206,8 @@ namespace AuthorityController.API
                         // Inform subscribers about location unlock.
                         DirectoryLoadingFinished?.Invoke(directory, result ? 1 : 0, result ? 0 : 1);
                     }
-                }
-            );
+                },
+                Session.Current.TerminationToken);
         }
 
         /// <summary>

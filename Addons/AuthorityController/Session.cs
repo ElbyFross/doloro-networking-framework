@@ -56,7 +56,7 @@ namespace AuthorityController
         /// Before sharing query still will check is the query stituable for that routing instruction.
         /// If you no need any filtring then just leave query patterns empty.
         /// </summary>
-        public static RoutingTable AuthorityFollowers { get; set; }
+        public RoutingTable AuthorityFollowers { get; set; }
 
         /// <summary>
         /// Token that provide possibility to terminate all stated tasks in this session.
