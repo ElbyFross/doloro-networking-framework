@@ -91,26 +91,26 @@
     <detaileddescription>
 <para>USER&amp;LOGON&amp;login=...&amp;password=...&amp;mac=...&amp;os=....&amp; </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="206">
+      <node id="198">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="205">
+      <node id="197">
         <label>AuthorityController.Queries.USER_LOGON</label>
         <link refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n"/>
-        <childnode refid="206" relation="public-inheritance">
+        <childnode refid="198" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="208">
+      <node id="200">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="207">
+      <node id="199">
         <label>AuthorityController.Queries.USER_LOGON</label>
         <link refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n"/>
-        <childnode refid="208" relation="public-inheritance">
+        <childnode refid="200" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

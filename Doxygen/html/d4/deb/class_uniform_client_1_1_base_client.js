@@ -7,8 +7,6 @@ var class_uniform_client_1_1_base_client =
     [ "HandlerInputTransmissionAsync", "d4/deb/class_uniform_client_1_1_base_client.html#a8b0bf0f5c032239a7b1bdc73d2d5ad3d", null ],
     [ "HandlerOutputTransmisssionAsync", "d4/deb/class_uniform_client_1_1_base_client.html#a233b9fc7f1cdc4df399115938afd917d", null ],
     [ "LoadAssemblies", "d4/deb/class_uniform_client_1_1_base_client.html#a8abbd1d46cc50556eeae8bbd55ce680f", null ],
-    [ "LoadPluginsCollection", "d4/deb/class_uniform_client_1_1_base_client.html#a99ae0bb1dd5bef374fcedb3f873bfe8b", null ],
-    [ "LoadPluginsEnumerable", "d4/deb/class_uniform_client_1_1_base_client.html#aa60dbfa5bd8c46659aec7738193315f1", null ],
     [ "LoadRoutingTables", "d4/deb/class_uniform_client_1_1_base_client.html#a5f8f22aa4ab8219fb5f1b6a358f68daf", null ],
     [ "OpenOutTransmissionLineViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a56ba8d0360e3c65a69d2d69db878ec23", null ],
     [ "OpenTransmissionLineViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a851ce49c50011eb0ed2552663c7731ab", null ],

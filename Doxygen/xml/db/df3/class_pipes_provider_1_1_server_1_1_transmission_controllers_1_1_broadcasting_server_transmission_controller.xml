@@ -185,31 +185,31 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
+      <node id="46">
+        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
+        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>BaseServerTransmissionController</label>
+        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
       <node id="48">
         <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
         <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
         <childnode refid="49" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="50">
+        <label>System</label>
+      </node>
       <node id="49">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-      </node>
-    </inheritancegraph>
-    <collaborationgraph>
-      <node id="50">
-        <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
-        <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
-        <childnode refid="51" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="52">
-        <label>System</label>
-      </node>
-      <node id="51">
-        <label>BaseServerTransmissionController</label>
-        <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-        <childnode refid="52" relation="usage">
+        <childnode refid="50" relation="usage">
           <edgelabel>connectionCallback</edgelabel>
         </childnode>
       </node>

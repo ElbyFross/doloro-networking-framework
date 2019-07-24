@@ -5,7 +5,6 @@ var searchData=
   ['informauthorityfollowers',['InformAuthorityFollowers',['../d6/d4b/class_authority_controller_1_1_session.html#a46ef72d5e8b812ae7ecd5bf413a320f0',1,'AuthorityController::Session']]],
   ['instruction',['Instruction',['../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html',1,'PipesProvider::Networking::Routing']]],
   ['intructions',['intructions',['../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a1a2c8459b4805d7ee1e81698a389f3f7',1,'PipesProvider::Networking::Routing::RoutingTable']]],
-  ['iplugin',['IPlugin',['../d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin.html',1,'UniformClient::Plugins']]],
   ['iqueryhandler',['IQueryHandler',['../d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler.html',1,'UniformQueries::Executable']]],
   ['isanonymous',['IsAnonymous',['../df/d6d/struct_pipes_provider_1_1_security_1_1_logon_config.html#a75522f37bf91bbd20f01fa4498d28dd1',1,'PipesProvider::Security::LogonConfig']]],
   ['isautorized',['IsAutorized',['../d9/de6/class_uniform_queries_1_1_auth_query_processor.html#a4b30ccde7ee894847d38961cec425e98',1,'UniformQueries::AuthQueryProcessor']]],

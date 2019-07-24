@@ -8,32 +8,32 @@
     <detaileddescription>
 <para>Case of using - simple transmition line that not require complex responce. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="176">
+      <node id="168">
         <label>UniformClient.Standard.SimpleClient</label>
         <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
-        <childnode refid="177" relation="public-inheritance">
+        <childnode refid="169" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="177">
+      <node id="169">
         <label>BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="180">
+      <node id="172">
         <label>PipesProvider.Networking.Routing.RoutingTable</label>
         <link refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table"/>
       </node>
-      <node id="178">
+      <node id="170">
         <label>UniformClient.Standard.SimpleClient</label>
         <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="171" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="179">
+      <node id="171">
         <label>BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
-        <childnode refid="180" relation="usage">
+        <childnode refid="172" relation="usage">
           <edgelabel>routingTable</edgelabel>
         </childnode>
       </node>
@@ -49,8 +49,6 @@
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>HandlerInputTransmissionAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>HandlerOutputTransmisssionAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8abbd1d46cc50556eeae8bbd55ce680f" prot="protected" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>LoadAssemblies</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>LoadPluginsCollection</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>LoadPluginsEnumerable</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a5f8f22aa4ab8219fb5f1b6a358f68daf" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>LoadRoutingTables</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a56ba8d0360e3c65a69d2d69db878ec23" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>OpenOutTransmissionLineViaPP</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a851ce49c50011eb0ed2552663c7731ab" prot="public" virt="non-virtual"><scope>UniformClient::Standard::SimpleClient</scope><name>OpenTransmissionLineViaPP</name></member>

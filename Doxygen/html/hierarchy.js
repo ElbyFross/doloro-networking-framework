@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "UniformClient.Plugins.API", "d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i.html", null ],
     [ "UniformQueries.API", "df/d75/class_uniform_queries_1_1_a_p_i.html", null ],
     [ "AuthorityController.Data.Personal.BanInformation", "d6/d49/struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information.html", null ],
     [ "UniformClient.BaseClient", "d4/deb/class_uniform_client_1_1_base_client.html", [
@@ -21,7 +20,6 @@ var hierarchy =
     [ "AuthorityController.API.Collections", "d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections.html", null ],
     [ "UniformServer.Commands", "d3/d12/class_uniform_server_1_1_commands.html", null ],
     [ "AuthorityController.Data.Application.Config", "d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html", null ],
-    [ "UniformClient.Plugins.Constants", "d2/d62/class_uniform_client_1_1_plugins_1_1_constants.html", null ],
     [ "PipesProvider.Security.Crypto", "d6/d06/class_pipes_provider_1_1_security_1_1_crypto.html", null ],
     [ "PipesProvider.Handlers.DNS", "d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s.html", null ],
     [ "PipesProvider.Security.General", "d6/d6b/class_pipes_provider_1_1_security_1_1_general.html", null ],
@@ -30,7 +28,6 @@ var hierarchy =
     [ "PipesProvider.Networking.Routing.Instruction", "d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html", [
       [ "PipesProvider.Networking.Routing.AuthorizedInstruction", "df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html", null ]
     ] ],
-    [ "UniformClient.Plugins.IPlugin", "d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin.html", null ],
     [ "UniformQueries.Executable.IQueryHandler", "d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler.html", [
       [ "AuthorityController.Queries.GET_GUEST_TOKEN", "d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n.html", null ],
       [ "AuthorityController.Queries.SET_TOKEN_RIGHTS", "d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s.html", null ],
@@ -45,11 +42,10 @@ var hierarchy =
     [ "PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_OBJECT_ATTRIBUTES", "dc/d69/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s.html", null ],
     [ "PipesProvider.Security.LSA.LsaSecurityWrapper.LSA_UNICODE_STRING", "d1/dc5/struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g.html", null ],
     [ "PipesProvider.Security.LSA.LsaSecurityWrapper", "de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper.html", null ],
-    [ "UniformClient.Plugins.MenuItemMeta", "dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta.html", null ],
     [ "PipesProvider.Security.NativeMethods", "d9/dff/class_pipes_provider_1_1_security_1_1_native_methods.html", null ],
     [ "UniformClient.NativeMethods", "d1/de3/class_uniform_client_1_1_native_methods.html", null ],
-    [ "PipesProvider.NativeMethods", "dd/daf/class_pipes_provider_1_1_native_methods.html", null ],
     [ "UniformServer.NativeMethods", "d7/dd4/class_uniform_server_1_1_native_methods.html", null ],
+    [ "PipesProvider.NativeMethods", "dd/daf/class_pipes_provider_1_1_native_methods.html", null ],
     [ "PipesProvider.Handlers.Query", "d2/db8/class_pipes_provider_1_1_handlers_1_1_query.html", null ],
     [ "PipesProvider.Client.QueryContainer", "d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container.html", null ],
     [ "UniformQueries.QueryPart", "d5/d61/struct_uniform_queries_1_1_query_part.html", null ],

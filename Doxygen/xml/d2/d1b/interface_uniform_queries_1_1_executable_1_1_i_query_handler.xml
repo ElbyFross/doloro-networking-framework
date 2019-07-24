@@ -118,56 +118,56 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="107">
+      <node id="101">
         <label>UniformServer.Queries.GET_PUBLIC_KEY</label>
         <link refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="103">
+      <node id="97">
         <label>AuthorityController.Queries.USER_LOGOFF</label>
         <link refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="106">
+      <node id="100">
         <label>AuthorityController.Queries.USER_NEW_PASSWORD</label>
         <link refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="101">
+      <node id="95">
         <label>AuthorityController.Queries.SET_TOKEN_RIGHTS</label>
         <link refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="102">
+      <node id="96">
         <label>AuthorityController.Queries.USER_BAN</label>
         <link refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n"/>
-        <childnode refid="99" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="105">
-        <label>AuthorityController.Queries.USER_NEW</label>
-        <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
       <node id="99">
+        <label>AuthorityController.Queries.USER_NEW</label>
+        <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
+        <childnode refid="93" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="93">
         <label>UniformQueries.Executable.IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="100">
+      <node id="94">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN</label>
         <link refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="104">
+      <node id="98">
         <label>AuthorityController.Queries.USER_LOGON</label>
         <link refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>

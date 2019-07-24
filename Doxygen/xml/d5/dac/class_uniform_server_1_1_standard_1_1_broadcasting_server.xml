@@ -38,63 +38,63 @@
     <detaileddescription>
 <para>Case of using - simple operations like registing of server for answer. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="39">
+      <node id="37">
         <label>UniformServer.Standard.BroadcastingServer</label>
         <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
-        <childnode refid="40" relation="public-inheritance">
+        <childnode refid="38" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="40">
+      <node id="38">
         <label>BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="45">
+      <node id="43">
         <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
         <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
-        <childnode refid="46" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="44">
-        <label>UniformServer.BaseServer</label>
-        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="43" relation="usage">
-          <edgelabel>securityLevel</edgelabel>
-        </childnode>
-        <childnode refid="44" relation="usage">
-          <edgelabel>longTermServerThreads</edgelabel>
-        </childnode>
-      </node>
-      <node id="41">
-        <label>UniformServer.Standard.BroadcastingServer</label>
-        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
-        <childnode refid="42" relation="public-inheritance">
-        </childnode>
-        <childnode refid="45" relation="usage">
-          <edgelabel>GetMessage</edgelabel>
+        <childnode refid="44" relation="public-inheritance">
         </childnode>
       </node>
       <node id="42">
-        <label>BaseServer</label>
+        <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="43" relation="usage">
+        <childnode refid="41" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="44" relation="usage">
+        <childnode refid="42" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="47">
+      <node id="39">
+        <label>UniformServer.Standard.BroadcastingServer</label>
+        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
+        <childnode refid="40" relation="public-inheritance">
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>GetMessage</edgelabel>
+        </childnode>
+      </node>
+      <node id="40">
+        <label>BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="41" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="45">
         <label>System</label>
       </node>
-      <node id="43">
+      <node id="41">
         <label>Security</label>
       </node>
-      <node id="46">
+      <node id="44">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-        <childnode refid="47" relation="usage">
+        <childnode refid="45" relation="usage">
           <edgelabel>connectionCallback</edgelabel>
         </childnode>
       </node>

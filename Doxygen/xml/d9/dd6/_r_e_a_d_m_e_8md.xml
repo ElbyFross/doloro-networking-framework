@@ -10,8 +10,77 @@
 <codeline><highlight class="normal">#<sp/>Doloro<sp/>Networking<sp/>Framework</highlight></codeline>
 <codeline><highlight class="normal">It&apos;s<sp/>the<sp/>framework<sp/>that<sp/>provide<sp/>fast<sp/>and<sp/>easy<sp/>way<sp/>for<sp/>creation<sp/>of<sp/>client<sp/>and<sp/>server<sp/>applications<sp/>powered<sp/>by<sp/>.Net<sp/>Framework.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">#<sp/>ATTENTION:</highlight></codeline>
-<codeline><highlight class="normal">Work<sp/>in<sp/>progress.</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>Scalability</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Routing<sp/>tables</highlight></codeline>
+<codeline><highlight class="normal">Control<sp/>routing<sp/>between<sp/>servers<sp/>using<sp/>easy<sp/>to<sp/>use<sp/>`Routing<sp/>tables`<sp/>that<sp/>include<sp/>built-in<sp/>filtering<sp/>powered<sp/>by<sp/>easy<sp/>to<sp/>understand<sp/>regular<sp/>expressions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Isolated<sp/>high<sp/>end<sp/>logic<sp/></highlight></codeline>
+<codeline><highlight class="normal">Create<sp/>your<sp/>own<sp/>high-end<sp/>server<sp/>logic<sp/>to<sp/>control<sp/>complex<sp/>custom<sp/>network<sp/>without<sp/>demand<sp/>to<sp/>deep<sp/>knowledge<sp/>of<sp/>networking<sp/>backend.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Modifiable<sp/>pipeline<sp/>of<sp/>networking<sp/>logic</highlight></codeline>
+<codeline><highlight class="normal">Framwork<sp/>provides<sp/>a<sp/>list<sp/>of<sp/>ready<sp/>to<sp/>use<sp/>handlers<sp/>that<sp/>fully<sp/>controll<sp/>transmisssion,<sp/>but<sp/>you<sp/>always<sp/>able<sp/>to<sp/>create<sp/>your<sp/>own<sp/>networking<sp/>logic<sp/>on<sp/>every<sp/>step<sp/>to<sp/>covering<sp/>your<sp/>own<sp/>purposes.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`(Server\Clent<sp/>loops<sp/>=&gt;<sp/>Connection<sp/>handler<sp/>=&gt;<sp/>Transmisssion<sp/>handlers<sp/>=&gt;<sp/>Data<sp/>handlers)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Security</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>RSA<sp/>encryption<sp/>of<sp/>transmission</highlight></codeline>
+<codeline><highlight class="normal">Framework<sp/>provide<sp/>full<sp/>API<sp/>and<sp/>automatic<sp/>controllers<sp/>for<sp/>providing<sp/>secure<sp/>transmission<sp/>of<sp/>any<sp/>your<sp/>message.<sp/>That<sp/>simplify<sp/>using<sp/>and<sp/>modification<sp/>of<sp/>system.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Named<sp/>Pipes</highlight></codeline>
+<codeline><highlight class="normal">Transmission<sp/>powered<sp/>by<sp/>named<sp/>pipes<sp/>that<sp/>significant<sp/>improve<sp/>security<sp/>on<sp/>NT<sp/>systems.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Authority<sp/>Controller</highlight></codeline>
+<codeline><highlight class="normal">Addon<sp/>that<sp/>provides<sp/>possibility<sp/>to<sp/>create<sp/>users,<sp/>control<sp/>them&apos;s<sp/>rights.<sp/>Implements<sp/>tokens<sp/>based<sp/>rights<sp/>control.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contains<sp/>built-in<sp/>queries:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Logon</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Logoff</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Set<sp/>token<sp/>rights</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Get<sp/>guest<sp/>token</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>New<sp/>user</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>New<sp/>user<sp/>password</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>User<sp/>ban</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Simplicity</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Auto<sp/>RSA<sp/>encryption</highlight></codeline>
+<codeline><highlight class="normal">[Dirctory](./Core/PipesProvider/Security/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Client<sp/>able<sp/>automaticly<sp/>recive<sp/>a<sp/>public<sp/>RSA&apos;s<sp/>key<sp/>from<sp/>server<sp/>and<sp/>encode<sp/>message<sp/>beffore<sp/>transmisssion.<sp/></highlight></codeline>
+<codeline><highlight class="normal">Append<sp/>your<sp/>client&apos;s<sp/>RSA&apos;s<sp/>public<sp/>key<sp/>in<sp/>`pk`<sp/>propery<sp/>in<sp/>query<sp/>and<sp/>server<sp/>would<sp/>auto<sp/>encrypt<sp/>answer.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Just<sp/>don&apos;t<sp/>forget<sp/>to<sp/>set<sp/>RSAEncryption<sp/>field<sp/>to<sp/>true<sp/>in<sp/>client&apos;s<sp/>`Routing<sp/>table`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Auto<sp/>control<sp/>of<sp/>transmission</highlight></codeline>
+<codeline><highlight class="normal">Built-in<sp/>networking<sp/>handlers<sp/>control<sp/>logic<sp/>loop<sp/>of<sp/>transmission<sp/>without<sp/>your<sp/>involving.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Create<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Open<sp/>`TransmisssionLine`</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Enque<sp/>query<sp/>to<sp/>transmission<sp/>line.</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Recive<sp/>answer<sp/>to<sp/>your<sp/>data<sp/>handler<sp/>in<sp/>case<sp/>of<sp/>duplex<sp/>query.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Ready<sp/>to<sp/>use<sp/>servers</highlight></codeline>
+<codeline><highlight class="normal">[Dirctory](./Examples/Servers/)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Session<sp/>provider<sp/>-<sp/>provide<sp/>tokens,<sp/>control<sp/>users<sp/>profiles,<sp/>provide<sp/>complex<sp/>hierarchy.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Queries<sp/>server<sp/>-<sp/>relay<sp/>server<sp/>that<sp/>would<sp/>receive<sp/>queries<sp/>and<sp/>redirect<sp/>to<sp/>target<sp/>servers<sp/>by<sp/>using<sp/>`Routing<sp/>tables`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">###<sp/>LSA<sp/>configurator</highlight></codeline>
+<codeline><highlight class="normal">[Dirctory](./Core/PipesProvider/Security/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Allows<sp/>to<sp/>configure<sp/>your<sp/>OS<sp/>in<sp/>one<sp/>click<sp/>relative<sp/>to<sp/>required<sp/>rights.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Server&apos;s<sp/>built-in<sp/>transmission<sp/>algorithms</highlight></codeline>
+<codeline><highlight class="normal">[Dirctory](./Core/PipesProvider/Server/TransmisssionControllers/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Client<sp/>to<sp/>Server</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Server<sp/>to<sp/>Client</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Broadcasting</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Client&apos;s<sp/>built-in<sp/>transmission<sp/>algorithms<sp/></highlight></codeline>
+<codeline><highlight class="normal">[Dirctory](./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Duplex<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Input<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Output<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Receiving<sp/>broadcast<sp/>message</highlight></codeline>
     </programlisting>
     <location file="D:/Work/GitHub/doloro-networking-framework/README.md"/>
   </compounddef>

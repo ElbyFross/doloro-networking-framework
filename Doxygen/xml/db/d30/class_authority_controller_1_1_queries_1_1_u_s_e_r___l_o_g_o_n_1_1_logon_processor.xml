@@ -79,38 +79,38 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="113">
+      <node id="107">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="112">
+      <node id="106">
         <label>UniformQueries::AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="113" relation="public-inheritance">
+        <childnode refid="107" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="111">
+      <node id="105">
         <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
         <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
-        <childnode refid="112" relation="public-inheritance">
+        <childnode refid="106" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="116">
+      <node id="110">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="115">
+      <node id="109">
         <label>UniformQueries::AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="116" relation="public-inheritance">
+        <childnode refid="110" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="114">
+      <node id="108">
         <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
         <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
-        <childnode refid="115" relation="public-inheritance">
+        <childnode refid="109" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

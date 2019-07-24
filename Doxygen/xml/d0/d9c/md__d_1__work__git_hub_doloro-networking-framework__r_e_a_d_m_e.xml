@@ -6,7 +6,31 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>It&apos;s the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.</para><para><heading level="1">ATTENTION:</heading>
-</para><para>Work in progress. </para>    </detaileddescription>
+<para>It&apos;s the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.</para><para><heading level="1">Scalability</heading>
+</para><para><heading level="3">Routing tables</heading>
+</para><para>Control routing between servers using easy to use <computeroutput>Routing tables</computeroutput> that include built-in filtering powered by easy to understand regular expressions.</para><para><heading level="3">Isolated high end logic</heading>
+</para><para>Create your own high-end server logic to control complex custom network without demand to deep knowledge of networking backend.</para><para><heading level="3">Modifiable pipeline of networking logic</heading>
+</para><para>Framwork provides a list of ready to use handlers that fully controll transmisssion, but you always able to create your own networking logic on every step to covering your own purposes.</para><para><computeroutput>(Server\Clent loops =&gt; Connection handler =&gt; Transmisssion handlers =&gt; Data handlers)</computeroutput></para><para><heading level="1">Security</heading>
+</para><para><heading level="3">RSA encryption of transmission</heading>
+</para><para>Framework provide full API and automatic controllers for providing secure transmission of any your message. That simplify using and modification of system.</para><para><heading level="3">Named Pipes</heading>
+</para><para>Transmission powered by named pipes that significant improve security on NT systems.</para><para><heading level="3">Authority Controller</heading>
+</para><para>Addon that provides possibility to create users, control them&apos;s rights. Implements tokens based rights control.</para><para>Contains built-in queries:<itemizedlist>
+<listitem><para>Logon</para></listitem><listitem><para>Logoff</para></listitem><listitem><para>Set token rights</para></listitem><listitem><para>Get guest token</para></listitem><listitem><para>New user</para></listitem><listitem><para>New user password</para></listitem><listitem><para>User ban</para></listitem></itemizedlist>
+</para><para><heading level="1">Simplicity</heading>
+</para><para><heading level="3">Auto RSA encryption</heading>
+</para><para><ulink url="./Core/PipesProvider/Security/">Dirctory</ulink></para><para>Client able automaticly recive a public RSA&apos;s key from server and encode message beffore transmisssion. Append your client&apos;s RSA&apos;s public key in <computeroutput>pk</computeroutput> propery in query and server would auto encrypt answer.</para><para>Just don&apos;t forget to set RSAEncryption field to true in client&apos;s <computeroutput>Routing table</computeroutput>.</para><para><heading level="3">Auto control of transmission</heading>
+</para><para>Built-in networking handlers control logic loop of transmission without your involving.<orderedlist>
+<listitem><para>Create query</para></listitem><listitem><para>Open <computeroutput>TransmisssionLine</computeroutput></para></listitem><listitem><para>Enque query to transmission line.</para></listitem><listitem><para>Recive answer to your data handler in case of duplex query.</para></listitem></orderedlist>
+</para><para><heading level="3">Ready to use servers</heading>
+</para><para><ulink url="./Examples/Servers/">Dirctory</ulink><itemizedlist>
+<listitem><para>Session provider - provide tokens, control users profiles, provide complex hierarchy.</para></listitem><listitem><para>Queries server - relay server that would receive queries and redirect to target servers by using <computeroutput>Routing tables</computeroutput>.</para></listitem></itemizedlist>
+</para><para><heading level="3">LSA configurator</heading>
+</para><para><ulink url="./Core/PipesProvider/Security/">Dirctory</ulink></para><para>Allows to configure your OS in one click relative to required rights.</para><para><heading level="3">Server&apos;s built-in transmission algorithms</heading>
+</para><para><ulink url="./Core/PipesProvider/Server/TransmisssionControllers/">Dirctory</ulink></para><para><itemizedlist>
+<listitem><para>Client to Server</para></listitem><listitem><para>Server to Client</para></listitem><listitem><para>Broadcasting</para></listitem></itemizedlist>
+</para><para><heading level="3">Client&apos;s built-in transmission algorithms</heading>
+</para><para><ulink url="./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs">Dirctory</ulink></para><para><itemizedlist>
+<listitem><para>Duplex query</para></listitem><listitem><para>Input query</para></listitem><listitem><para>Output query</para></listitem><listitem><para>Receiving broadcast message </para></listitem></itemizedlist>
+</para>    </detaileddescription>
   </compounddef>
 </doxygen>

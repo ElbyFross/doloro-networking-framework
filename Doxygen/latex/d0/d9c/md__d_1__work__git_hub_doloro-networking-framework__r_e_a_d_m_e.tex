@@ -1,5 +1,99 @@
 It\textquotesingle{}s the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.
 
-\section*{A\+T\+T\+E\+N\+T\+I\+ON\+:}
+\section*{Scalability}
 
-Work in progress. 
+\subsubsection*{Routing tables}
+
+Control routing between servers using easy to use {\ttfamily Routing tables} that include built-\/in filtering powered by easy to understand regular expressions.
+
+\subsubsection*{Isolated high end logic}
+
+Create your own high-\/end server logic to control complex custom network without demand to deep knowledge of networking backend.
+
+\subsubsection*{Modifiable pipeline of networking logic}
+
+Framwork provides a list of ready to use handlers that fully controll transmisssion, but you always able to create your own networking logic on every step to covering your own purposes.
+
+{\ttfamily (Server\textbackslash{}Clent loops =$>$ Connection handler =$>$ Transmisssion handlers =$>$ Data handlers)}
+
+\section*{Security}
+
+\subsubsection*{R\+SA encryption of transmission}
+
+Framework provide full A\+PI and automatic controllers for providing secure transmission of any your message. That simplify using and modification of system.
+
+\subsubsection*{Named Pipes}
+
+Transmission powered by named pipes that significant improve security on NT systems.
+
+\subsubsection*{Authority Controller}
+
+Addon that provides possibility to create users, control them\textquotesingle{}s rights. Implements tokens based rights control.
+
+Contains built-\/in queries\+:
+\begin{DoxyItemize}
+\item Logon
+\item Logoff
+\item Set token rights
+\item Get guest token
+\item New user
+\item New user password
+\item User ban
+\end{DoxyItemize}
+
+\section*{Simplicity}
+
+\subsubsection*{Auto R\+SA encryption}
+
+\href{./Core/PipesProvider/Security/}{\tt Dirctory}
+
+Client able automaticly recive a public R\+SA\textquotesingle{}s key from server and encode message beffore transmisssion. Append your client\textquotesingle{}s R\+SA\textquotesingle{}s public key in {\ttfamily pk} propery in query and server would auto encrypt answer.
+
+Just don\textquotesingle{}t forget to set R\+S\+A\+Encryption field to true in client\textquotesingle{}s {\ttfamily Routing table}.
+
+\subsubsection*{Auto control of transmission}
+
+Built-\/in networking handlers control logic loop of transmission without your involving.
+\begin{DoxyEnumerate}
+\item Create query
+\item Open {\ttfamily Transmisssion\+Line}
+\item Enque query to transmission line.
+\item Recive answer to your data handler in case of duplex query.
+\end{DoxyEnumerate}
+
+\subsubsection*{Ready to use servers}
+
+\href{./Examples/Servers/}{\tt Dirctory}
+\begin{DoxyItemize}
+\item Session provider -\/ provide tokens, control users profiles, provide complex hierarchy.
+\item Queries server -\/ relay server that would receive queries and redirect to target servers by using {\ttfamily Routing tables}.
+\end{DoxyItemize}
+
+\subsubsection*{L\+SA configurator}
+
+\href{./Core/PipesProvider/Security/}{\tt Dirctory}
+
+Allows to configure your OS in one click relative to required rights.
+
+\subsubsection*{Server\textquotesingle{}s built-\/in transmission algorithms}
+
+\href{./Core/PipesProvider/Server/TransmisssionControllers/}{\tt Dirctory}
+
+
+\begin{DoxyItemize}
+\item Client to Server
+\item Server to Client
+\item Broadcasting
+\end{DoxyItemize}
+
+\subsubsection*{Client\textquotesingle{}s built-\/in transmission algorithms}
+
+\href{./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs}{\tt Dirctory}
+
+
+\begin{DoxyItemize}
+\item Duplex query
+\item Input query
+\item Output query
+\item Receiving broadcast message 
+\end{DoxyItemize}

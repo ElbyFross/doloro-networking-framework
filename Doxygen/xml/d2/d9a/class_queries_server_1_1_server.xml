@@ -100,45 +100,45 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
+      <node id="148">
+        <label>UniformServer::BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+      </node>
+      <node id="147">
+        <label>QueriesServer.Server</label>
+        <link refid="d2/d9a/class_queries_server_1_1_server"/>
+        <childnode refid="148" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="152">
+        <label>UniformServer.BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="151" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="152" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
       <node id="150">
         <label>UniformServer::BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+        <childnode refid="151" relation="usage">
+          <edgelabel>securityLevel</edgelabel>
+        </childnode>
+        <childnode refid="152" relation="usage">
+          <edgelabel>longTermServerThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="151">
+        <label>Security</label>
       </node>
       <node id="149">
         <label>QueriesServer.Server</label>
         <link refid="d2/d9a/class_queries_server_1_1_server"/>
         <childnode refid="150" relation="public-inheritance">
-        </childnode>
-      </node>
-    </inheritancegraph>
-    <collaborationgraph>
-      <node id="154">
-        <label>UniformServer.BaseServer</label>
-        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="153" relation="usage">
-          <edgelabel>securityLevel</edgelabel>
-        </childnode>
-        <childnode refid="154" relation="usage">
-          <edgelabel>longTermServerThreads</edgelabel>
-        </childnode>
-      </node>
-      <node id="152">
-        <label>UniformServer::BaseServer</label>
-        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="153" relation="usage">
-          <edgelabel>securityLevel</edgelabel>
-        </childnode>
-        <childnode refid="154" relation="usage">
-          <edgelabel>longTermServerThreads</edgelabel>
-        </childnode>
-      </node>
-      <node id="153">
-        <label>Security</label>
-      </node>
-      <node id="151">
-        <label>QueriesServer.Server</label>
-        <link refid="d2/d9a/class_queries_server_1_1_server"/>
-        <childnode refid="152" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

@@ -131,38 +131,38 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="13">
+      <node id="11">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="15">
+      <node id="13">
         <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
         <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
-        <childnode refid="12" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>AuthorityController.Queries.GET_GUEST_TOKEN.GuestTokenProcessor</label>
-        <link refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor"/>
-        <childnode refid="12" relation="public-inheritance">
+        <childnode refid="10" relation="public-inheritance">
         </childnode>
       </node>
       <node id="12">
+        <label>AuthorityController.Queries.GET_GUEST_TOKEN.GuestTokenProcessor</label>
+        <link refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
         <label>UniformQueries.AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="13" relation="public-inheritance">
+        <childnode refid="11" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="17">
+      <node id="15">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="16">
+      <node id="14">
         <label>UniformQueries.AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="17" relation="public-inheritance">
+        <childnode refid="15" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

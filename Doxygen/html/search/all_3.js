@@ -18,7 +18,6 @@ var searchData=
   ['connectionmarker',['connectionMarker',['../d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller.html#afc45a2287e6fef24892a0aee8aa86f56',1,'PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController']]],
   ['connecttoserver',['ConnectToServer',['../d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i.html#a39908f350bea38807f4772ed4742abbb',1,'PipesProvider::Client::ClientAPI']]],
   ['connecttoserverasync',['ConnectToServerAsync',['../d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i.html#aaececd585be8b8660bb419e3bdb4aaec',1,'PipesProvider::Client::ClientAPI']]],
-  ['constants',['Constants',['../d2/d62/class_uniform_client_1_1_plugins_1_1_constants.html',1,'UniformClient::Plugins']]],
   ['copy',['Copy',['../d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container.html#acfcd11bf7f6b6c9cc4e6b2ff574437bd',1,'PipesProvider::Client::QueryContainer']]],
   ['crypto',['Crypto',['../d6/d06/class_pipes_provider_1_1_security_1_1_crypto.html',1,'PipesProvider::Security']]],
   ['cryptoserviceprovider_5frsa',['CryptoServiceProvider_RSA',['../d6/d06/class_pipes_provider_1_1_security_1_1_crypto.html#ab1a4a6dad6ba4bad8e95587ae9c9ef28',1,'PipesProvider::Security::Crypto']]],

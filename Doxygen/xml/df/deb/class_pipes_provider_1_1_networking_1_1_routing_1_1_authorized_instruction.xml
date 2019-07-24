@@ -183,54 +183,54 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="4">
+      <node id="2">
         <label>PipesProvider.Networking.Routing.AuthorizedInstruction</label>
         <link refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction"/>
-        <childnode refid="5" relation="public-inheritance">
+        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
+      <node id="3">
         <label>Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="10">
+      <node id="8">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="6">
+      <node id="4">
         <label>PipesProvider.Networking.Routing.AuthorizedInstruction</label>
         <link refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction"/>
-        <childnode refid="7" relation="public-inheritance">
+        <childnode refid="5" relation="public-inheritance">
         </childnode>
-        <childnode refid="9" relation="usage">
+        <childnode refid="7" relation="usage">
           <edgelabel>_LogonHandler</edgelabel>
         </childnode>
-        <childnode refid="11" relation="usage">
+        <childnode refid="9" relation="usage">
           <edgelabel>_GuestTokenHandler</edgelabel>
         </childnode>
       </node>
-      <node id="7">
+      <node id="5">
         <label>Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
-        <childnode refid="8" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>logonConfig</edgelabel>
         </childnode>
       </node>
-      <node id="8">
+      <node id="6">
         <label>Security</label>
       </node>
-      <node id="11">
+      <node id="9">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN</label>
         <link refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
-        <childnode refid="10" relation="public-inheritance">
+        <childnode refid="8" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="9">
+      <node id="7">
         <label>AuthorityController.Queries.USER_LOGON</label>
         <link refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n"/>
-        <childnode refid="10" relation="public-inheritance">
+        <childnode refid="8" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

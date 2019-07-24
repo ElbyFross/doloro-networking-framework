@@ -435,52 +435,52 @@
     <detaileddescription>
 <para>Part of class that provide methods for establishing transmisssion via <ref refid="d6/daa/namespace_pipes_provider" kindref="compound">PipesProvider</ref>. </para><para>Part of class that provide methods can be started as thread for server init; </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="25">
+      <node id="23">
         <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
       </node>
-      <node id="29">
+      <node id="27">
         <label>UniformServer.Standard.BroadcastingServer</label>
         <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
-        <childnode refid="25" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="28">
-        <label>SessionProvider.Server</label>
-        <link refid="d8/d17/class_session_provider_1_1_server"/>
-        <childnode refid="25" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>UniformServer.Standard.SimpleServer</label>
-        <link refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server"/>
-        <childnode refid="25" relation="public-inheritance">
+        <childnode refid="23" relation="public-inheritance">
         </childnode>
       </node>
       <node id="26">
-        <label>ACTests.AuthorityTestServer.Server</label>
-        <childnode refid="25" relation="public-inheritance">
+        <label>SessionProvider.Server</label>
+        <link refid="d8/d17/class_session_provider_1_1_server"/>
+        <childnode refid="23" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="27">
+      <node id="28">
+        <label>UniformServer.Standard.SimpleServer</label>
+        <link refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>ACTests.AuthorityTestServer.Server</label>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
         <label>QueriesServer.Server</label>
         <link refid="d2/d9a/class_queries_server_1_1_server"/>
-        <childnode refid="25" relation="public-inheritance">
+        <childnode refid="23" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="31">
+      <node id="29">
         <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="32" relation="usage">
+        <childnode refid="30" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="31" relation="usage">
+        <childnode refid="29" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="32">
+      <node id="30">
         <label>Security</label>
       </node>
     </collaborationgraph>

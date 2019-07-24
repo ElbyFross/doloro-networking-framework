@@ -117,26 +117,26 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="202">
+      <node id="194">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="201">
+      <node id="193">
         <label>AuthorityController.Queries.USER_LOGOFF</label>
         <link refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f"/>
-        <childnode refid="202" relation="public-inheritance">
+        <childnode refid="194" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="204">
+      <node id="196">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="203">
+      <node id="195">
         <label>AuthorityController.Queries.USER_LOGOFF</label>
         <link refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f"/>
-        <childnode refid="204" relation="public-inheritance">
+        <childnode refid="196" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

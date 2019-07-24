@@ -20,7 +20,6 @@ var searchData=
   ['settokenrights',['SetTokenRights',['../d6/d4b/class_authority_controller_1_1_session.html#a135fc2981f8ad7d26d484c9c9bcbf83c',1,'AuthorityController::Session']]],
   ['sharetokenrights_5fmessageprocessor',['ShareTokenRights_MessageProcessor',['../d6/d4b/class_authority_controller_1_1_session.html#aea2ab13cf2e1cd192ef5e49935508b5b',1,'AuthorityController::Session']]],
   ['showwindow',['ShowWindow',['../d1/de3/class_uniform_client_1_1_native_methods.html#a067dec2d455070ab352fef3caef7b323',1,'UniformClient.NativeMethods.ShowWindow()'],['../d7/dd4/class_uniform_server_1_1_native_methods.html#aff29bbaf540e0aebe51ba9fd53576a86',1,'UniformServer.NativeMethods.ShowWindow()']]],
-  ['sortbydomains',['SortByDomains',['../d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i.html#a0f983601b51597ea8ab13f718c58f80c',1,'UniformClient::Plugins::API']]],
   ['startbroadcastingviapp',['StartBroadcastingViaPP',['../d7/d32/class_uniform_server_1_1_base_server.html#a9ca20516e2a562ddbf8d2c1866f90b25',1,'UniformServer::BaseServer']]],
   ['startclientthread',['StartClientThread',['../d4/deb/class_uniform_client_1_1_base_client.html#a194b46bb0e889d07cade81c0aeab7cea',1,'UniformClient::BaseClient']]],
   ['startppclientthreadasync',['StartPPClientThreadAsync',['../d4/deb/class_uniform_client_1_1_base_client.html#a01e5a7ef4c760207cfa644ac2f6a407f',1,'UniformClient::BaseClient']]],

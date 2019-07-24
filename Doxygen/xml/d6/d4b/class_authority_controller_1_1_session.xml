@@ -438,10 +438,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="171">
+      <node id="163">
         <label>AuthorityController.Session</label>
         <link refid="d6/d4b/class_authority_controller_1_1_session"/>
-        <childnode refid="171" relation="usage">
+        <childnode refid="163" relation="usage">
           <edgelabel>_current</edgelabel>
         </childnode>
       </node>

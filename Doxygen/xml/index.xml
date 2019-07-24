@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
-  <compound refid="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i" kind="class"><name>UniformClient::Plugins::API</name>
-    <member refid="d5/d12/class_uniform_client_1_1_plugins_1_1_a_p_i_1a0f983601b51597ea8ab13f718c58f80c" kind="function"><name>SortByDomains</name></member>
-  </compound>
   <compound refid="df/d75/class_uniform_queries_1_1_a_p_i" kind="class"><name>UniformQueries::API</name>
     <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1aa906970223172f9f2068baa410b621d8" kind="variable"><name>SPLITTING_SYMBOL</name></member>
     <member refid="df/d75/class_uniform_queries_1_1_a_p_i_1a759098e511956b9afaaaf3ab13af336e" kind="property"><name>QueryHandlers</name></member>
@@ -70,8 +67,6 @@
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" kind="function"><name>ArgsReactor</name></member>
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a01e5a7ef4c760207cfa644ac2f6a407f" kind="function"><name>StartPPClientThreadAsync</name></member>
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a194b46bb0e889d07cade81c0aeab7cea" kind="function"><name>StartClientThread</name></member>
-    <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" kind="function"><name>LoadPluginsEnumerable</name></member>
-    <member refid="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" kind="function"><name>LoadPluginsCollection</name></member>
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" kind="function"><name>GetValidPublicKeyViaPP</name></member>
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" kind="function"><name>HandlerInputTransmissionAsync</name></member>
     <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" kind="function"><name>HandlerOutputTransmisssionAsync</name></member>
@@ -183,9 +178,6 @@
     <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1abcf55c74cb4f50ee8a68e53a2f1fbf4c" kind="variable"><name>salt</name></member>
     <member refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config_1a582fe6bdb659a1ba57dfd506959a0347" kind="function"><name>Config</name></member>
   </compound>
-  <compound refid="d2/d62/class_uniform_client_1_1_plugins_1_1_constants" kind="class"><name>UniformClient::Plugins::Constants</name>
-    <member refid="d2/d62/class_uniform_client_1_1_plugins_1_1_constants_1a7005abdb0c3ee5ba9e841769a7ecd575" kind="variable"><name>PLUGINS_DIR</name></member>
-  </compound>
   <compound refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto" kind="class"><name>PipesProvider::Security::Crypto</name>
     <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596e" kind="enum"><name>SHATypes</name></member>
     <member refid="d6/d06/class_pipes_provider_1_1_security_1_1_crypto_1a6956e9aac98864917946b750dee3596ea9a9f4eb6d0036a164588b6ee74390442" kind="enumvalue"><name>SHA1</name></member>
@@ -262,10 +254,6 @@
     <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a376135eac06c59b1df8d2f5d1617bed9" kind="function"><name>IsRoutingTarget</name></member>
     <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" kind="function"><name>TryUpdatePublicKey</name></member>
   </compound>
-  <compound refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kind="interface"><name>UniformClient::Plugins::IPlugin</name>
-    <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1aa49e267e66a3d697ded460d9281dcc3a" kind="property"><name>Meta</name></member>
-    <member refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin_1a1ca2220c7ce4a23f8f41af10efccf328" kind="function"><name>OnStart</name></member>
-  </compound>
   <compound refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" kind="interface"><name>UniformQueries::Executable::IQueryHandler</name>
     <member refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a3268d72c0388f5e3debba4d73bdfe523" kind="function"><name>Execute</name></member>
     <member refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a0f43184bf3e306a7cbebc39098f044ee" kind="function"><name>IsTarget</name></member>
@@ -305,13 +293,6 @@
     <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1ad14aaa2cffa5be534590d0ef30810117" kind="function"><name>RemoveAccountRights</name></member>
     <member refid="de/d2d/class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1a13ce034059c39f7a1a93d06a45b07d94" kind="function"><name>AccountRightsController</name></member>
   </compound>
-  <compound refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta" kind="class"><name>UniformClient::Plugins::MenuItemMeta</name>
-    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a5af82221a6390db0d98c7fe9ff1d1985" kind="variable"><name>domain</name></member>
-    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a7cd04fb564fa2bdd1ac3c0c3af3b9aab" kind="variable"><name>titleDictionaryCode</name></member>
-    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a3837afc599c411743bb08cd93b9937ad" kind="variable"><name>defaultTitle</name></member>
-    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1ab60d7d4920d6cbab2cea1ee9e8eb5955" kind="function"><name>MenuItemMeta</name></member>
-    <member refid="dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta_1a46c285f5a810f09b9f23b2e33d0a27f1" kind="function"><name>MenuItemMeta</name></member>
-  </compound>
   <compound refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods" kind="class"><name>PipesProvider::Security::NativeMethods</name>
     <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aa8cbc36f4c83e56734a90e4f82599a14" kind="function"><name>LogonUser</name></member>
     <member refid="d9/dff/class_pipes_provider_1_1_security_1_1_native_methods_1aaa43d5b08023ba65a847545f43bca37a" kind="function"><name>LsaOpenPolicy</name></member>
@@ -323,13 +304,13 @@
     <member refid="d1/de3/class_uniform_client_1_1_native_methods_1a067dec2d455070ab352fef3caef7b323" kind="function"><name>ShowWindow</name></member>
     <member refid="d1/de3/class_uniform_client_1_1_native_methods_1ab6b4879e450856c501624a55094ead5b" kind="function"><name>GetConsoleWindow</name></member>
   </compound>
-  <compound refid="dd/daf/class_pipes_provider_1_1_native_methods" kind="class"><name>PipesProvider::NativeMethods</name>
-    <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a1a2952e32dd0e63f65ffd4103eee0942" kind="function"><name>WaitNamedPipe</name></member>
-    <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a9455b60ac124b9a4e3170f1fbbd3c839" kind="function"><name>DoesNamedPipeExist</name></member>
-  </compound>
   <compound refid="d7/dd4/class_uniform_server_1_1_native_methods" kind="class"><name>UniformServer::NativeMethods</name>
     <member refid="d7/dd4/class_uniform_server_1_1_native_methods_1aff29bbaf540e0aebe51ba9fd53576a86" kind="function"><name>ShowWindow</name></member>
     <member refid="d7/dd4/class_uniform_server_1_1_native_methods_1afe32a1810d024798a409e904c15d1a20" kind="function"><name>GetConsoleWindow</name></member>
+  </compound>
+  <compound refid="dd/daf/class_pipes_provider_1_1_native_methods" kind="class"><name>PipesProvider::NativeMethods</name>
+    <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a1a2952e32dd0e63f65ffd4103eee0942" kind="function"><name>WaitNamedPipe</name></member>
+    <member refid="dd/daf/class_pipes_provider_1_1_native_methods_1a9455b60ac124b9a4e3170f1fbbd3c839" kind="function"><name>DoesNamedPipeExist</name></member>
   </compound>
   <compound refid="d2/db8/class_pipes_provider_1_1_handlers_1_1_query" kind="class"><name>PipesProvider::Handlers::Query</name>
     <member refid="d2/db8/class_pipes_provider_1_1_handlers_1_1_query_1a3f08c44bfaf5e720d6dfbd791227c8fe" kind="function"><name>ProcessingAsync</name></member>
@@ -387,16 +368,16 @@
     <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a193637ef347a3610305b75994c483305" kind="function"><name>GetStamp</name></member>
     <member refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container_1a47a251ef343c25419d77b23dc28a50c0" kind="function"><name>Validate</name></member>
   </compound>
+  <compound refid="d8/d17/class_session_provider_1_1_server" kind="class"><name>SessionProvider::Server</name>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a7ccb7c8e5465c2778d961034fcd6ac6f" kind="property"><name>UsersLoaded</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1a78068e966b78f7579b01ba80f53b87ea" kind="function"><name>Main</name></member>
+    <member refid="d8/d17/class_session_provider_1_1_server_1ad75d498e5203fe80a725f54ec955ace2" kind="function"><name>Users_DirectoryLoadingUnlocked</name></member>
+  </compound>
   <compound refid="d2/d9a/class_queries_server_1_1_server" kind="class"><name>QueriesServer::Server</name>
     <member refid="d2/d9a/class_queries_server_1_1_server_1a5d7c4c9ababa7292ef7cac92005d3563" kind="variable"><name>OPEN_CHANEL</name></member>
     <member refid="d2/d9a/class_queries_server_1_1_server_1ae294b75511557ef0701455c0e2ba785d" kind="function"><name>Main</name></member>
     <member refid="d2/d9a/class_queries_server_1_1_server_1af78ec354d7f465d29800f812996dc91b" kind="function"><name>ThreadingServerLoop_Relay</name></member>
     <member refid="d2/d9a/class_queries_server_1_1_server_1af23657bf1fbf254abb46ed80180b0cc3" kind="function"><name>QueryHandler_Relay</name></member>
-  </compound>
-  <compound refid="d8/d17/class_session_provider_1_1_server" kind="class"><name>SessionProvider::Server</name>
-    <member refid="d8/d17/class_session_provider_1_1_server_1a7ccb7c8e5465c2778d961034fcd6ac6f" kind="property"><name>UsersLoaded</name></member>
-    <member refid="d8/d17/class_session_provider_1_1_server_1a78068e966b78f7579b01ba80f53b87ea" kind="function"><name>Main</name></member>
-    <member refid="d8/d17/class_session_provider_1_1_server_1ad75d498e5203fe80a725f54ec955ace2" kind="function"><name>Users_DirectoryLoadingUnlocked</name></member>
   </compound>
   <compound refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i" kind="class"><name>PipesProvider::Server::ServerAPI</name>
     <member refid="d5/d17/class_pipes_provider_1_1_server_1_1_server_a_p_i_1adf4c77f25cd481b8190240e4aca06e56" kind="event"><name>ServerTransmissionMeta_InProcessing</name></member>
@@ -665,15 +646,11 @@
   </compound>
   <compound refid="de/df5/namespace_system_1_1_timers" kind="namespace"><name>System::Timers</name>
   </compound>
-  <compound refid="d7/d10/namespace_system_1_1_windows" kind="namespace"><name>System::Windows</name>
-  </compound>
   <compound refid="d9/d2f/namespace_system_1_1_xml" kind="namespace"><name>System::Xml</name>
   </compound>
   <compound refid="d1/de9/namespace_system_1_1_xml_1_1_serialization" kind="namespace"><name>System::Xml::Serialization</name>
   </compound>
   <compound refid="d0/d51/namespace_uniform_client" kind="namespace"><name>UniformClient</name>
-  </compound>
-  <compound refid="da/d8c/namespace_uniform_client_1_1_plugins" kind="namespace"><name>UniformClient::Plugins</name>
   </compound>
   <compound refid="da/d7a/namespace_uniform_client_1_1_standard" kind="namespace"><name>UniformClient::Standard</name>
   </compound>
@@ -835,14 +812,6 @@
   </compound>
   <compound refid="dc/dd4/_release_2netstandard2_80_2_uniform_client_8_assembly_info_8cs" kind="file"><name>UniformClient.AssemblyInfo.cs</name>
   </compound>
-  <compound refid="de/d31/_a_p_i_8cs" kind="file"><name>API.cs</name>
-  </compound>
-  <compound refid="d1/d39/_constants_8cs" kind="file"><name>Constants.cs</name>
-  </compound>
-  <compound refid="d0/d6a/_i_plugin_8cs" kind="file"><name>IPlugin.cs</name>
-  </compound>
-  <compound refid="d2/df4/_menu_item_meta_8cs" kind="file"><name>MenuItemMeta.cs</name>
-  </compound>
   <compound refid="d0/db0/_base_client_8cs" kind="file"><name>BaseClient.cs</name>
   </compound>
   <compound refid="d8/dce/_base_client_process_8cs" kind="file"><name>BaseClientProcess.cs</name>
@@ -977,21 +946,21 @@
   </compound>
   <compound refid="dir_b0734a4ac3ada305b3f166f37f1b40a7" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/obj/Release/net472</name>
   </compound>
-  <compound refid="dir_80d9788077edea8475729b58733e5d43" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Release/netstandard2.0</name>
-  </compound>
   <compound refid="dir_da7feeda6e51c91444eedbe13e0e4da2" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/obj/Debug/netstandard2.0</name>
-  </compound>
-  <compound refid="dir_4bf18f400d7b636fbda92df88208e590" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/obj/Release/netstandard2.0</name>
   </compound>
   <compound refid="dir_01164d67326396557655573fc6a4bae0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/Debug/netstandard2.0</name>
   </compound>
-  <compound refid="dir_5e1e8c7c60e517fb2bb3d22733a41a80" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Debug/netstandard2.0</name>
+  <compound refid="dir_4bf18f400d7b636fbda92df88208e590" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/obj/Release/netstandard2.0</name>
   </compound>
   <compound refid="dir_123e1cf40d007ceb8da4eed5fb3b1bf0" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_80d9788077edea8475729b58733e5d43" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Release/netstandard2.0</name>
   </compound>
   <compound refid="dir_4f1fb7dc2ac2517a453a331be01b9f17" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/obj/Debug/netstandard2.0</name>
   </compound>
   <compound refid="dir_a8484f37822b3b223f1832e4d9e2cdb7" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/obj/Release/netstandard2.0</name>
+  </compound>
+  <compound refid="dir_5e1e8c7c60e517fb2bb3d22733a41a80" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Debug/netstandard2.0</name>
   </compound>
   <compound refid="dir_a0d0ee960878cff15025a7d9b3dcac0c" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking</name>
   </compound>
@@ -1013,25 +982,23 @@
   </compound>
   <compound refid="dir_a5b3fc5f40552bed7fa4a67d7d49ca04" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal</name>
   </compound>
-  <compound refid="dir_68bd9f8952f482747a3fefb3b272842b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider</name>
-  </compound>
-  <compound refid="dir_cb1f2b432267bdaae32ebf8e857e134c" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider</name>
-  </compound>
   <compound refid="dir_efb0de59ddc945c275543a90234c260e" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider</name>
   </compound>
   <compound refid="dir_0c2c40c536e9d00ea4aab0be2571917b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/PipesProvider</name>
   </compound>
-  <compound refid="dir_ccba3fbfdf345b5905b15aa140edb7d6" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Plugins</name>
+  <compound refid="dir_68bd9f8952f482747a3fefb3b272842b" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider</name>
   </compound>
-  <compound refid="dir_4ece27adf6b7af8c59cff67f9c0462ca" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Properties</name>
+  <compound refid="dir_cb1f2b432267bdaae32ebf8e857e134c" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider</name>
   </compound>
-  <compound refid="dir_8f4e11964ba598d115bb0555d7486241" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Properties</name>
+  <compound refid="dir_9a919397bac3f9a8661b2707a9983ff6" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider/Properties</name>
   </compound>
   <compound refid="dir_7bd7468a76652e661a38c04fe2debb5f" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Properties</name>
   </compound>
   <compound refid="dir_f89b0c64ef8acb1082ae27c18a42afee" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Examples/ExampleClient/Properties</name>
   </compound>
-  <compound refid="dir_9a919397bac3f9a8661b2707a9983ff6" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/SessionProvider/Properties</name>
+  <compound refid="dir_8f4e11964ba598d115bb0555d7486241" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Properties</name>
+  </compound>
+  <compound refid="dir_4ece27adf6b7af8c59cff67f9c0462ca" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Examples/Servers/QueriesServer/Properties</name>
   </compound>
   <compound refid="dir_d1bdc1cf03b3322c065b1bde88dd081d" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Tests/ACTests/Properties</name>
   </compound>
@@ -1047,9 +1014,9 @@
   </compound>
   <compound refid="dir_b7ff27e3890b81af712e485a7dd9e471" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Addons/ConsoleDraw/obj/Release</name>
   </compound>
-  <compound refid="dir_6571b95b292bddad02e3ae5c3e244966" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/obj/Release</name>
-  </compound>
   <compound refid="dir_12a7a80ec2d78487092196503c9ba6f5" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/obj/Release</name>
+  </compound>
+  <compound refid="dir_6571b95b292bddad02e3ae5c3e244966" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/obj/Release</name>
   </compound>
   <compound refid="dir_807ca304c0ce4ee0e4ab904c64044948" kind="dir"><name>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/obj/Release</name>
   </compound>

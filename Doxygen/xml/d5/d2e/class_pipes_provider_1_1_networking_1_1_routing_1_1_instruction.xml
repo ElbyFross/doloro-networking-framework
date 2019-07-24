@@ -219,25 +219,25 @@ targetQueries[1] = &quot;$customProp&quot;;           // All queries that have &
     <detaileddescription>
 <para>Struct that contain instruction about target adress by relative query params. Allow using of several servers via one public.</para><para>Example: &lt;<ndash/>&gt; Authification server <ref refid="d1/dc6/namespace_pipes_provider_1_1_client" kindref="compound">Client</ref> &lt;<ndash/>&gt; Query server &lt;<ndash/>&gt; Data server 1 &lt;<ndash/>&gt; Data server 2 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="94">
+      <node id="90">
         <label>PipesProvider.Networking.Routing.AuthorizedInstruction</label>
         <link refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction"/>
-        <childnode refid="93" relation="public-inheritance">
+        <childnode refid="89" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="93">
+      <node id="89">
         <label>PipesProvider.Networking.Routing.Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="96">
+      <node id="92">
         <label>Security</label>
       </node>
-      <node id="95">
+      <node id="91">
         <label>PipesProvider.Networking.Routing.Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
-        <childnode refid="96" relation="usage">
+        <childnode refid="92" relation="usage">
           <edgelabel>logonConfig</edgelabel>
         </childnode>
       </node>

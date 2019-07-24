@@ -11,7 +11,6 @@ var searchData=
   ['pipeclient',['pipeClient',['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#a617db258fff1a28c80ff7d6241e8372e',1,'PipesProvider::Client::TransmissionLine']]],
   ['pipename',['pipeName',['../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#abe54e245df8dd26547b0c881b987202b',1,'PipesProvider.Networking.Routing.Instruction.pipeName()'],['../d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller.html#a4ce9911f1ad6814d3e5c9096d9ddde57',1,'PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController.pipeName()'],['../d7/d32/class_uniform_server_1_1_base_server.html#aaa318b3ed503dd8ccf381c9f3a81ecf2',1,'UniformServer.BaseServer.pipeName()']]],
   ['pipeserver',['pipeServer',['../d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller.html#a019f764411256a751f8a438076426a47',1,'PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController']]],
-  ['plugins_5fdir',['PLUGINS_DIR',['../d2/d62/class_uniform_client_1_1_plugins_1_1_constants.html#a7005abdb0c3ee5ba9e841769a7ecd575',1,'UniformClient::Plugins::Constants']]],
   ['propertyname',['propertyName',['../d5/d61/struct_uniform_queries_1_1_query_part.html#a941540a3d1489c7f32cb5e21910ba7ac',1,'UniformQueries::QueryPart']]],
   ['propertyvalue',['propertyValue',['../d5/d61/struct_uniform_queries_1_1_query_part.html#adb297c368ab4900f751d60ceffda0a99',1,'UniformQueries::QueryPart']]]
 ];

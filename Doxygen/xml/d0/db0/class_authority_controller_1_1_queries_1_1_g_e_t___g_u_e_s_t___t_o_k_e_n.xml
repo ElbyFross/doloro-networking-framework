@@ -91,26 +91,26 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="76">
+      <node id="72">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="75">
+      <node id="71">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN</label>
         <link refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
-        <childnode refid="76" relation="public-inheritance">
+        <childnode refid="72" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="78">
+      <node id="74">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="77">
+      <node id="73">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN</label>
         <link refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
-        <childnode refid="78" relation="public-inheritance">
+        <childnode refid="74" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

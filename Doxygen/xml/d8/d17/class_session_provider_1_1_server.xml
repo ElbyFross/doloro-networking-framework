@@ -69,45 +69,45 @@
 <listitem><para>Provide session token to clients.</para></listitem><listitem><para>User data managment.</para></listitem><listitem><para>Control rights. </para></listitem></itemizedlist>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="156">
+      <node id="142">
         <label>UniformServer::BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
       </node>
-      <node id="155">
+      <node id="141">
         <label>SessionProvider.Server</label>
         <link refid="d8/d17/class_session_provider_1_1_server"/>
-        <childnode refid="156" relation="public-inheritance">
+        <childnode refid="142" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="160">
+      <node id="146">
         <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="159" relation="usage">
+        <childnode refid="145" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="160" relation="usage">
+        <childnode refid="146" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="158">
+      <node id="144">
         <label>UniformServer::BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="159" relation="usage">
+        <childnode refid="145" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="160" relation="usage">
+        <childnode refid="146" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="159">
+      <node id="145">
         <label>Security</label>
       </node>
-      <node id="157">
+      <node id="143">
         <label>SessionProvider.Server</label>
         <link refid="d8/d17/class_session_provider_1_1_server"/>
-        <childnode refid="158" relation="public-inheritance">
+        <childnode refid="144" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

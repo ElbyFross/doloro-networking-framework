@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['menuitemmeta',['MenuItemMeta',['../dd/db0/class_uniform_client_1_1_plugins_1_1_menu_item_meta.html',1,'UniformClient::Plugins']]]
+  ['nativemethods',['NativeMethods',['../d9/dff/class_pipes_provider_1_1_security_1_1_native_methods.html',1,'PipesProvider.Security.NativeMethods'],['../d1/de3/class_uniform_client_1_1_native_methods.html',1,'UniformClient.NativeMethods'],['../d7/dd4/class_uniform_server_1_1_native_methods.html',1,'UniformServer.NativeMethods'],['../dd/daf/class_pipes_provider_1_1_native_methods.html',1,'PipesProvider.NativeMethods']]]
 ];

@@ -90,26 +90,26 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="210">
+      <node id="202">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="209">
+      <node id="201">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="210" relation="public-inheritance">
+        <childnode refid="202" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="212">
+      <node id="204">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="211">
+      <node id="203">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="212" relation="public-inheritance">
+        <childnode refid="204" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

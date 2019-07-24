@@ -232,13 +232,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="137">
+      <node id="129">
         <label>System</label>
       </node>
-      <node id="136">
+      <node id="128">
         <label>PipesProvider.Client.QueryContainer</label>
         <link refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container"/>
-        <childnode refid="137" relation="usage">
+        <childnode refid="129" relation="usage">
           <edgelabel>AnswerHandler</edgelabel>
         </childnode>
       </node>

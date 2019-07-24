@@ -90,26 +90,26 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="80">
+      <node id="76">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="79">
+      <node id="75">
         <label>UniformServer.Queries.GET_PUBLIC_KEY</label>
         <link refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y"/>
-        <childnode refid="80" relation="public-inheritance">
+        <childnode refid="76" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="82">
+      <node id="78">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="81">
+      <node id="77">
         <label>UniformServer.Queries.GET_PUBLIC_KEY</label>
         <link refid="da/d43/class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y"/>
-        <childnode refid="82" relation="public-inheritance">
+        <childnode refid="78" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

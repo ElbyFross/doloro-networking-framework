@@ -136,31 +136,31 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="163">
+      <node id="155">
         <label>PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController</label>
         <link refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller"/>
-        <childnode refid="164" relation="public-inheritance">
+        <childnode refid="156" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="164">
+      <node id="156">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="165">
+      <node id="157">
         <label>PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController</label>
         <link refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller"/>
-        <childnode refid="166" relation="public-inheritance">
+        <childnode refid="158" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="167">
+      <node id="159">
         <label>System</label>
       </node>
-      <node id="166">
+      <node id="158">
         <label>BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-        <childnode refid="167" relation="usage">
+        <childnode refid="159" relation="usage">
           <edgelabel>connectionCallback</edgelabel>
         </childnode>
       </node>

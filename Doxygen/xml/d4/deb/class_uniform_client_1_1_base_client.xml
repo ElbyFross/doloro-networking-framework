@@ -272,41 +272,6 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>System.Collections.Generic.IEnumerable&lt; <ref refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kindref="compound">Plugins.IPlugin</ref> &gt;</type>
-        <definition>static System.Collections.Generic.IEnumerable&lt;Plugins.IPlugin&gt; UniformClient.BaseClient.LoadPluginsEnumerable</definition>
-        <argsstring>()</argsstring>
-        <name>LoadPluginsEnumerable</name>
-        <briefdescription>
-<para>Load plugins from assembly and instiniate them to list. </para>        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="return"><para></para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" line="169" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" bodystart="169" bodyend="190"/>
-      </memberdef>
-      <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>System.Collections.ObjectModel.ObservableCollection&lt; <ref refid="d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin" kindref="compound">Plugins.IPlugin</ref> &gt;</type>
-        <definition>static System.Collections.ObjectModel.ObservableCollection&lt;Plugins.IPlugin&gt; UniformClient.BaseClient.LoadPluginsCollection</definition>
-        <argsstring>()</argsstring>
-        <name>LoadPluginsCollection</name>
-        <briefdescription>
-<para>Load plugins from assembly and instiniate them to list. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>list</parametername>
-</parameternamelist>
-<parameterdescription>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" line="196" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" bodystart="196" bodyend="220"/>
-      </memberdef>
       <memberdef kind="function" id="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>RSAParameters</type>
         <definition>static RSAParameters UniformClient.BaseClient.GetValidPublicKeyViaPP</definition>
@@ -819,36 +784,36 @@
     <detaileddescription>
 <para>Part of class that provide API to oppening Client-Server transmisssion lines. </para><para>Part off class that provide API to work by routing tables. </para><para>Part of class that provide methods that simplify using of client. </para><para>Par of classs that profide transmisssion handlers. </para><para>Part of class that provide core methods and fields. </para><para>Part off class that provide controll under the process. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="21">
+      <node id="19">
         <label>ExampleClient.Client</label>
-        <childnode refid="20" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>UniformClient.Standard.SimpleClient</label>
-        <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
-        <childnode refid="20" relation="public-inheritance">
+        <childnode refid="18" relation="public-inheritance">
         </childnode>
       </node>
       <node id="20">
+        <label>UniformClient.Standard.SimpleClient</label>
+        <link refid="d0/d21/class_uniform_client_1_1_standard_1_1_simple_client"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
         <label>UniformClient.BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="24">
+      <node id="22">
         <label>PipesProvider.Networking.Routing.RoutingTable</label>
         <link refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table"/>
       </node>
-      <node id="23">
+      <node id="21">
         <label>UniformClient.BaseClient</label>
         <link refid="d4/deb/class_uniform_client_1_1_base_client"/>
-        <childnode refid="24" relation="usage">
+        <childnode refid="22" relation="usage">
           <edgelabel>routingTable</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" bodystart="34" bodyend="222"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/BaseClient.cs" bodystart="34" bodyend="163"/>
     <listofallmembers>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a10f1c9dbb8d41719754b39344432497f" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>AppTerminated</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a7ec48981cf3e7ec10d2cb7dff81f912a" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>ArgsReactor</name></member>
@@ -859,8 +824,6 @@
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8b0bf0f5c032239a7b1bdc73d2d5ad3d" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>HandlerInputTransmissionAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a233b9fc7f1cdc4df399115938afd917d" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>HandlerOutputTransmisssionAsync</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a8abbd1d46cc50556eeae8bbd55ce680f" prot="protected" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadAssemblies</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1a99ae0bb1dd5bef374fcedb3f873bfe8b" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadPluginsCollection</name></member>
-      <member refid="d4/deb/class_uniform_client_1_1_base_client_1aa60dbfa5bd8c46659aec7738193315f1" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadPluginsEnumerable</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a5f8f22aa4ab8219fb5f1b6a358f68daf" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>LoadRoutingTables</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a56ba8d0360e3c65a69d2d69db878ec23" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>OpenOutTransmissionLineViaPP</name></member>
       <member refid="d4/deb/class_uniform_client_1_1_base_client_1a851ce49c50011eb0ed2552663c7731ab" prot="public" virt="non-virtual"><scope>UniformClient::BaseClient</scope><name>OpenTransmissionLineViaPP</name></member>

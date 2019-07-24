@@ -31,38 +31,38 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="85">
+      <node id="81">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="84">
+      <node id="80">
         <label>UniformQueries::AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="85" relation="public-inheritance">
+        <childnode refid="81" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="83">
+      <node id="79">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN.GuestTokenProcessor</label>
         <link refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor"/>
-        <childnode refid="84" relation="public-inheritance">
+        <childnode refid="80" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="88">
+      <node id="84">
         <label>QueryProcessor</label>
         <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
       </node>
-      <node id="87">
+      <node id="83">
         <label>UniformQueries::AuthQueryProcessor</label>
         <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="88" relation="public-inheritance">
+        <childnode refid="84" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="86">
+      <node id="82">
         <label>AuthorityController.Queries.GET_GUEST_TOKEN.GuestTokenProcessor</label>
         <link refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor"/>
-        <childnode refid="87" relation="public-inheritance">
+        <childnode refid="83" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

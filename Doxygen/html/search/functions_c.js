@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['onstart',['OnStart',['../d4/d25/interface_uniform_client_1_1_plugins_1_1_i_plugin.html#a1ca2220c7ce4a23f8f41af10efccf328',1,'UniformClient::Plugins::IPlugin']]],
   ['openouttransmissionlineviapp',['OpenOutTransmissionLineViaPP',['../d4/deb/class_uniform_client_1_1_base_client.html#a56ba8d0360e3c65a69d2d69db878ec23',1,'UniformClient::BaseClient']]],
   ['opentransmissionlineviapp',['OpenTransmissionLineViaPP',['../d4/deb/class_uniform_client_1_1_base_client.html#a851ce49c50011eb0ed2552663c7731ab',1,'UniformClient.BaseClient.OpenTransmissionLineViaPP(string serverName, string pipeName, System.Action&lt; TransmissionLine &gt; callback)'],['../d4/deb/class_uniform_client_1_1_base_client.html#a79c6e490b20b4b8c649af33926e20017',1,'UniformClient.BaseClient.OpenTransmissionLineViaPP(BaseClient client, string serverName, string pipeName, ref SafeAccessTokenHandle token, System.Action&lt; TransmissionLine &gt; callback)']]],
   ['operator_20querypart',['operator QueryPart',['../d5/d61/struct_uniform_queries_1_1_query_part.html#ab0c6ca9b91045a64286bf730ad97dc43',1,'UniformQueries::QueryPart']]],

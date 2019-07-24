@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.0.1</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -92,8 +92,65 @@ $(document).ready(function(){initNavTree('d0/d9c/md__d_1__work__git_hub_doloro-n
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>It's the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.</p>
-<h1>ATTENTION:</h1>
-<p>Work in progress. </p>
+<h1>Scalability</h1>
+<h3>Routing tables</h3>
+<p>Control routing between servers using easy to use <code>Routing tables</code> that include built-in filtering powered by easy to understand regular expressions.</p>
+<h3>Isolated high end logic</h3>
+<p>Create your own high-end server logic to control complex custom network without demand to deep knowledge of networking backend.</p>
+<h3>Modifiable pipeline of networking logic</h3>
+<p>Framwork provides a list of ready to use handlers that fully controll transmisssion, but you always able to create your own networking logic on every step to covering your own purposes.</p>
+<p><code>(Server\Clent loops =&gt; Connection handler =&gt; Transmisssion handlers =&gt; Data handlers)</code></p>
+<h1>Security</h1>
+<h3>RSA encryption of transmission</h3>
+<p>Framework provide full API and automatic controllers for providing secure transmission of any your message. That simplify using and modification of system.</p>
+<h3>Named Pipes</h3>
+<p>Transmission powered by named pipes that significant improve security on NT systems.</p>
+<h3>Authority Controller</h3>
+<p>Addon that provides possibility to create users, control them's rights. Implements tokens based rights control.</p>
+<p>Contains built-in queries:</p><ul>
+<li>Logon</li>
+<li>Logoff</li>
+<li>Set token rights</li>
+<li>Get guest token</li>
+<li>New user</li>
+<li>New user password</li>
+<li>User ban</li>
+</ul>
+<h1>Simplicity</h1>
+<h3>Auto RSA encryption</h3>
+<p><a href="../.././Core/PipesProvider/Security/">Dirctory</a></p>
+<p>Client able automaticly recive a public RSA's key from server and encode message beffore transmisssion. Append your client's RSA's public key in <code>pk</code> propery in query and server would auto encrypt answer.</p>
+<p>Just don't forget to set RSAEncryption field to true in client's <code>Routing table</code>.</p>
+<h3>Auto control of transmission</h3>
+<p>Built-in networking handlers control logic loop of transmission without your involving.</p><ol type="1">
+<li>Create query</li>
+<li>Open <code>TransmisssionLine</code></li>
+<li>Enque query to transmission line.</li>
+<li>Recive answer to your data handler in case of duplex query.</li>
+</ol>
+<h3>Ready to use servers</h3>
+<p><a href="../.././Examples/Servers/">Dirctory</a></p><ul>
+<li>Session provider - provide tokens, control users profiles, provide complex hierarchy.</li>
+<li>Queries server - relay server that would receive queries and redirect to target servers by using <code>Routing tables</code>.</li>
+</ul>
+<h3>LSA configurator</h3>
+<p><a href="../.././Core/PipesProvider/Security/">Dirctory</a></p>
+<p>Allows to configure your OS in one click relative to required rights.</p>
+<h3>Server's built-in transmission algorithms</h3>
+<p><a href="../.././Core/PipesProvider/Server/TransmisssionControllers/">Dirctory</a></p>
+<ul>
+<li>Client to Server</li>
+<li>Server to Client</li>
+<li>Broadcasting</li>
+</ul>
+<h3>Client's built-in transmission algorithms</h3>
+<p><a href="../.././Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs">Dirctory</a></p>
+<ul>
+<li>Duplex query</li>
+<li>Input query</li>
+<li>Output query</li>
+<li>Receiving broadcast message </li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
