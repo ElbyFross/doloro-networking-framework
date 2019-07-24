@@ -39,7 +39,7 @@ Contains built-in queries:
 Client able automaticly recive a public RSA's key from server and encode message beffore transmisssion. 
 Append your client's RSA's public key in `pk` propery in query and server would auto encrypt answer.
 
-Just don't forget to set RSAEncryption field to true in client's `Routing table`.
+Just don't forget to set `RSAEncryption` field to `true` in client's `RoutingTable`'s `Instruction`.
 
 ### Auto control of transmission
 Built-in networking handlers control logic loop of transmission without your involving.
