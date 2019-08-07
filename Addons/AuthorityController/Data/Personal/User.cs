@@ -28,7 +28,7 @@ namespace AuthorityController.Data.Personal
     /// Object that contain relevant data about user.
     /// </summary>
     [System.Serializable]
-    public class User
+    public partial class User
     {
         #region Serialized fields
         /// <summary>
@@ -66,15 +66,6 @@ namespace AuthorityController.Data.Personal
         /// List of bans that would received by user.
         /// </summary>
         public List<BanInformation> bans = new List<BanInformation>();
-
-        /// <summary>
-        /// List of culture codes that prefered by this user.
-        /// In order of priority.
-        /// 
-        /// Define what a UI language will selected after user login.
-        /// Useful in multicultural environment like universities.
-        /// </summary>
-        public List<string> culturePreferences = new List<string>();
         #endregion
 
         #region Seesion-time fields
