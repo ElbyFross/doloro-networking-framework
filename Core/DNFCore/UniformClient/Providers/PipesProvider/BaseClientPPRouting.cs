@@ -67,7 +67,7 @@ namespace UniformClient
                 {
                     Console.WriteLine("INSTRUCTION ROUTING RSA", instruction.routingIP, instruction.pipeName);
 
-                    // Request publick key reciving.
+                    // Request public key reciving.
                     GetValidPublicKeyViaPP(instruction);
                 }
             }

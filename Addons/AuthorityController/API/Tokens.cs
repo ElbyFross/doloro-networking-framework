@@ -20,53 +20,6 @@ namespace AuthorityController.API
 {
     public class Tokens
     {   
-        /// <summary>
-        /// Return free token.
-        /// </summary>
-        public static string UnusedToken
-        {
-            get
-            {
-                // Get current time.
-                byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
-                // Generate id.
-                byte[] key = Guid.NewGuid().ToByteArray();
-                // Create token.
-                string token = Convert.ToBase64String(time.Concat(key).ToArray());
-
-                return token;
-            }
-        }
-
-        /// <summary>
-        /// Check if token expired based on encoded token data.
-        /// Use it on Queries Server to avoid additive time spending on data servers and unnecessary connections.
-        /// 
-        /// If token have hacked allocate date this just will lead to passing of this check.
-        /// Server wouldn't has has token so sequrity will not be passed.
-        /// Also server will control expire time by him self.
-        /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public static bool IsExpired(string token)
-        {
-            // Convert token to bytes array.
-            byte[] data = Convert.FromBase64String(token);
-
-            // Get when token created. Date time will take the first bytes that contain data stamp.
-            DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
-
-            // Compare with allowed token time.
-            if (when < DateTime.UtcNow.AddMinutes(-Config.Active.TokenValidTimeMinutes))
-            {
-                // Confirm expiration.
-                return true;
-            }
-
-            // Conclude that token is valid.
-            return false;
-        }
-
         #region Rights API
         /// <summary>
         /// Check does this token has all requested rights.
@@ -140,7 +93,7 @@ namespace AuthorityController.API
         public static string AuthorizeNewGuestToken()
         {
             // Get free token.
-            string sessionToken = API.Tokens.UnusedToken;
+            string sessionToken = UniformQueries.Tokens.UnusedToken;
 
             // Registrate token with guest rank.
             Session.Current.SetTokenRights(sessionToken, new string[] { "rank=0" });
@@ -149,7 +102,7 @@ namespace AuthorityController.API
             string query = string.Format("token={1}{0}expiryIn={2}{0}rights=rank=0",
                 UniformQueries.API.SPLITTING_SYMBOL,
                 sessionToken,
-                Config.Active.TokenValidTimeMinutes);
+                DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes));
 
             return query;
         }

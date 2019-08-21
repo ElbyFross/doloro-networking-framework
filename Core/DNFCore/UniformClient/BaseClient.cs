@@ -43,18 +43,12 @@ namespace UniformClient
         /// If true then will stop main loop.
         /// </summary>
         public static bool AppTerminated { get; set; }
-
-        /// <summary>
-        /// Token that authorize client to data and commands access.
-        /// </summary>
-        public static string token;
-
+        
         /// <summary>
         /// Reference to thread that host this server.
         /// </summary>
         public Thread thread;
         #endregion
-
 
         #region Core | Application | Assembly
         /// <summary>

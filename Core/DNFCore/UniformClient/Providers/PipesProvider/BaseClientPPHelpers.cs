@@ -152,7 +152,7 @@ namespace UniformClient
         /// <param name="pipeName">Name of pipe started on server.</param>
         /// <param name="answerHandler">Delegate that would to call when message received.</param>
         /// <returns>Created line.</returns>
-        public static TransmissionLine ReciveAnonymousBroadcastMessage(
+        public static TransmissionLine ReceiveAnonymousBroadcastMessage(
             string serverName, 
             string pipeName,
             System.Action<TransmissionLine, object> answerHandler)

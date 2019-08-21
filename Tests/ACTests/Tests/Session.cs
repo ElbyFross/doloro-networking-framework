@@ -115,7 +115,7 @@ namespace ACTests.Tests
                     QueryPart[] logonQuery = new QueryPart[]
                     {
                         // TODO INVALID TOKEN
-                        new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                        new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                         new QueryPart("guid", Guid.NewGuid().ToString()),
 
                         new QueryPart("user", null),

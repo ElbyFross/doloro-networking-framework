@@ -47,8 +47,12 @@ namespace ExampleClient
         /// <summary>
         /// Is guest token required.
         /// </summary>
-        public static bool questTokenRequired = true;
+        public static bool guestTokenRequired = true;
 
+        /// <summary>
+        /// Token that would be used in transmissions.
+        /// </summary>
+        public static string token = "";
 
         static void Main(string[] args)
         {
@@ -64,7 +68,7 @@ namespace ExampleClient
 
             #region Recive guest token
             // Open client that will listen server guest chanel broadcasting.
-            UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
+            UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
                 "localhost", 
                 "guests",
                 (PipesProvider.Client.TransmissionLine line, object obj) =>
@@ -74,7 +78,7 @@ namespace ExampleClient
                     {
                         Console.WriteLine("GUSET BROAADCASTING CHANEL ANSWER RECIVED: {0}", answer);
                         // Unlock finish blocker.
-                        questTokenRequired = false;
+                        guestTokenRequired = false;
 
                         QueryPart[] recivedQuery = UniformQueries.API.DetectQueryParts(answer);
 
@@ -104,7 +108,7 @@ namespace ExampleClient
             Console.WriteLine("Witing forguest token from server autority system...");
 
             // Wait for guest token.
-            while(questTokenRequired)
+            while(guestTokenRequired)
             {
                 Thread.Sleep(5);
             }

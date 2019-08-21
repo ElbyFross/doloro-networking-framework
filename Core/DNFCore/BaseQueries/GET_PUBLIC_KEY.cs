@@ -19,7 +19,7 @@ using System.IO;
 using UniformQueries;
 using UniformQueries.Executable;
 
-namespace UniformServer.Queries
+namespace BaseQueries
 {
     /// <summary>
     /// Query that request from server public encription key (RSA algorithm).
@@ -51,7 +51,7 @@ namespace UniformServer.Queries
             string answer = publicKey + API.SPLITTING_SYMBOL + expireTime;
 
             // Open answer chanel on server and send message.
-            BaseServer.SendAnswerViaPP(answer, queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP(answer, queryParts);
         }
 
         public bool IsTarget(QueryPart[] queryParts)

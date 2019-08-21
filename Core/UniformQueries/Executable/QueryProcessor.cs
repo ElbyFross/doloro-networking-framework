@@ -15,7 +15,7 @@
 using System;
 using System.Threading;
 
-namespace UniformQueries
+namespace UniformQueries.Executable
 {
     /// <summary>
     /// Object that provide base methods\fields\properties that allow to standartize and controll query processing.
@@ -26,7 +26,7 @@ namespace UniformQueries
         /// <summary>
         /// Event that would be called when reciving operation would be finished.
         /// 
-        /// QueryProcessor - reference to this processor.
+        /// Executable.QueryProcessor - reference to this processor.
         /// bool - result od operation
         /// object - object shared by processor.
         /// </summary>

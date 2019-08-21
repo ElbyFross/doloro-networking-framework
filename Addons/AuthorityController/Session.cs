@@ -389,7 +389,7 @@ namespace AuthorityController
             {
                 // Relogon if not logon or token exipred.
                 if (string.IsNullOrEmpty(authInstr.AuthorizedToken) ||
-                    AuthorityController.API.Tokens.IsExpired(authInstr.AuthorizedToken))
+                    UniformQueries.Tokens.IsExpired(authInstr.AuthorizedToken, authInstr.LogonHandler.ExpiryTime))
                 {
                     authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _)
                     {

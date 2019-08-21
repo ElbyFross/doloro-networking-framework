@@ -56,35 +56,43 @@ namespace UniformClient
         /// </summary>
         /// <param name="instruction"></param>
         /// <returns></returns>
-        public static RSAParameters GetValidPublicKeyViaPP(PipesProvider.Networking.Routing.Instruction instruction)
+        public static RSAParameters GetValidPublicKeyViaPP(Instruction instruction)
         {
-            // Validate key.
-            if (!instruction.IsValid)
+            if (instruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
             {
-                // Create base part of query for reciving of public RSA key.
-                string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
-                    UniformQueries.API.SPLITTING_SYMBOL, token);
 
-                // Request public key from server.
-                EnqueueDuplexQueryViaPP(
-                    instruction.routingIP,
-                    instruction.pipeName,
-                    // Add guid base on instruction hash to this query.
-                    query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + instruction.GetHashCode(),
-                    // Create callback delegate that will set recived value to routing table.
-                    delegate (TransmissionLine answerLine, object answer)
-                    {
+                // Validate key.
+                if (!instruction.IsValid)
+                {
+                    // Create base part of query for reciving of public RSA key.
+                    string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
+                        UniformQueries.API.SPLITTING_SYMBOL, partialAuthorizedInstruction.GuestToken);
+
+                    // Request public key from server.
+                    EnqueueDuplexQueryViaPP(
+                        instruction.routingIP,
+                        instruction.pipeName,
+                        // Add guid base on instruction hash to this query.
+                        query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + instruction.GetHashCode(),
+                        // Create callback delegate that will set recived value to routing table.
+                        delegate (TransmissionLine answerLine, object answer)
+                        {
                         // Log about success.
                         //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
                         //    instruction.routingIP, instruction.pipeName);
 
                         // Try to apply recived answer.
                         instruction.TryUpdatePublicKey(answer);
-                    });
-            }
+                        });
+                }
 
-            // Return current public key.
-            return instruction.PublicKey;
+                // Return current public key.
+                return instruction.PublicKey;
+            }
+            else
+            {
+                throw new InvalidCastException("Instruction must be inheirted from PartialAuthorizedInstruction");
+            }
         }
     }
 }

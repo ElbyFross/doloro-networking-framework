@@ -83,7 +83,7 @@ namespace AuthorityController.Queries
 
             #region Build answer
             // Generate new token.
-            string sessionToken = API.Tokens.UnusedToken;
+            string sessionToken = UniformQueries.Tokens.UnusedToken;
 
             // Registrate token in session.
             if (!user.tokens.Contains(sessionToken))
@@ -158,7 +158,7 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Handler that provide logogn process.
         /// </summary>
-        public class LogonProcessor : UniformQueries.AuthQueryProcessor
+        public class LogonProcessor : UniformQueries.Executable.Security.AuthQueryProcessor
         {
             /// <summary>
             /// Logon on routing target server.

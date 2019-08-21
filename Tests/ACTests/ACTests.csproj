@@ -73,21 +73,17 @@
       <Project>{415c2c26-d8e0-4201-9c02-5d77480e74af}</Project>
       <Name>ConsoleDraw</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\DNFCore\DNFCore.csproj">
+      <Project>{d6ee0a40-2365-461b-a81e-5c1441c6e0bf}</Project>
+      <Name>DNFCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\UniformClient\UniformClient.csproj">
-      <Project>{7b1fd360-4a04-4574-b15e-8fc2d7c4dbad}</Project>
-      <Name>UniformClient</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
       <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
       <Name>UniformQueries</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\UniformServer\UniformServer.csproj">
-      <Project>{9e8bf96b-7476-46ac-ac59-d9ecd4e8308c}</Project>
-      <Name>UniformServer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

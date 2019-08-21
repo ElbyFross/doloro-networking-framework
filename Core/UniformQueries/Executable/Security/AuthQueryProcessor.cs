@@ -12,12 +12,12 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
-namespace UniformQueries
+namespace UniformQueries.Executable.Security
 {
     /// <summary>
     /// Provide fields situated but authentification queries.
     /// </summary>
-    public abstract class AuthQueryProcessor : QueryProcessor
+    public abstract class AuthQueryProcessor : Executable.QueryProcessor
     {
         #region Properties
         /// <summary>
@@ -63,7 +63,7 @@ namespace UniformQueries
         /// <summary>
         /// Time when token would expited.
         /// </summary>
-        public string ExpiryTime { get; protected set; }
+        public System.DateTime ExpiryTime { get; protected set; }
 
         /// <summary>
         /// Rights provided to token during logon.
@@ -102,7 +102,10 @@ namespace UniformQueries
                     if (UniformQueries.API.TryGetParamValue("expiryIn", out QueryPart expiryIn, parts))
                     {
                         // Apply expire time.
-                        ExpiryTime = expiryIn.propertyValue;
+                        if(long.TryParse(expiryIn.propertyValue, out long expiryTimeBufer))
+                        {
+                            ExpiryTime = System.DateTime.FromBinary(expiryTimeBufer);
+                        }
                     }
 
                     // Get provided rights.

@@ -21,13 +21,20 @@ using System.Threading.Tasks;
 using UniformQueries;
 using UniformQueries.Executable;
 
-namespace AuthorityController.Queries
+namespace BaseQueries
 {
     /// <summary>
     /// Registrate token with guest rights in the system and return to client.
     /// </summary>
     public class GET_GUEST_TOKEN : IQueryHandler
     {
+        /// <summary>
+        /// Handler that would be userd to generating and authorizing of guest tokens.
+        /// Return generated token in string format.
+        /// </summary>
+        public static GuestTokenHandler guestTokenHandler;
+        public delegate string GuestTokenHandler();
+
         public string Description(string cultureKey)
         {
             switch (cultureKey)
@@ -43,8 +50,15 @@ namespace AuthorityController.Queries
 
         public void Execute(QueryPart[] queryParts)
         {
-            // Send token to client.
-            UniformServer.BaseServer.SendAnswerViaPP(AuthorityController.API.Tokens.AuthorizeNewGuestToken(), queryParts);
+            if (guestTokenHandler != null)
+            {
+                // Send token to client.
+                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), queryParts);
+            }
+            else
+            {
+                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", queryParts);
+            }
         }
 
         public bool IsTarget(QueryPart[] queryParts)
@@ -64,11 +78,12 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Handler that provide standartized way to recive guest token.
         /// </summary>
-        public class GuestTokenProcessor : UniformQueries.AuthQueryProcessor
+        public class GuestTokenProcessor : UniformQueries.Executable.Security.AuthQueryProcessor
         {
             public async void TryToReciveTokenAsync(
                   string serverIP,
-                  string pipeName)
+                  string pipeName,
+                  CancellationToken cancellationToken)
             {
                 #region Wait connection possibilities.
                 if (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
@@ -91,12 +106,12 @@ namespace AuthorityController.Queries
                             Thread.Sleep(500);
                         }
                     },
-                    Session.Current.TerminationToken);
+                    cancellationToken);
                 }
                 #endregion
 
                 //Recive message.
-                UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
+                UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
                    serverIP, pipeName,
                    ServerAnswerHandler);
             }

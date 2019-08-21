@@ -58,7 +58,7 @@ namespace ACTests.Helpers
                     login = "sadmin",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=16",
                     "banhammer",
@@ -79,7 +79,7 @@ namespace ACTests.Helpers
                     login = "admin",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=8",
                     "banhammer",
@@ -99,7 +99,7 @@ namespace ACTests.Helpers
                     login = "moderator",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=4",
                     "banhammer",
@@ -119,7 +119,7 @@ namespace ACTests.Helpers
                     login = "puser",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=2",
                     "passwordManaging" }
@@ -138,7 +138,7 @@ namespace ACTests.Helpers
                     login = "user",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=1",
                     "passwordManaging" }
@@ -157,7 +157,7 @@ namespace ACTests.Helpers
                     login = "guest",
                     password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
-                    (new string[] { AC_API.Tokens.UnusedToken }),
+                    (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
                     "rank=0"}
                 };

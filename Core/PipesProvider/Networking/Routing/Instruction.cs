@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Xml.Serialization;
 using System.Security.Cryptography;
 
 namespace PipesProvider.Networking.Routing
@@ -33,19 +34,19 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// RSA public key that was recived from this server.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public RSAParameters PublicKey { get; private set; }
 
         /// <summary>
         /// Time when public key will become expired.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public DateTime PublicKeyExpireTime { get; private set; }
 
         /// <summary>
         /// Check does loading was failed or key was expired.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public bool IsValid
         {
             get
@@ -69,7 +70,7 @@ namespace PipesProvider.Networking.Routing
             }
         }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         private bool _isValid = true;
         #endregion
 

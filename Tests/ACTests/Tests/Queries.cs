@@ -86,7 +86,7 @@ namespace ACTests.Tests
 
             #region Server answer processing
             // Start listening client.
-            UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
+            UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
                 "localhost", Helpers.Networking.DefaultGuestPipeName,
                 (PipesProvider.Client.TransmissionLine line, object obj) =>
                 {
@@ -601,7 +601,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     // TODO INVALID TOKEN
-                    new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
@@ -690,7 +690,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     // TODO INVALID TOKEN
-                    new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
@@ -769,7 +769,7 @@ namespace ACTests.Tests
                 QueryPart[] query = new QueryPart[]
                 {
                     // TODO INVALID TOKEN
-                    new QueryPart("token", AuthorityController.API.Tokens.UnusedToken),
+                    new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", null),
@@ -847,7 +847,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Generate new token.
-                string newToken = AuthorityController.API.Tokens.UnusedToken;
+                string newToken = UniformQueries.Tokens.UnusedToken;
 
                 // Logoff unregistred token.
                 bool result = AuthorityController.Queries.USER_LOGOFF.LogoffToken(newToken);
