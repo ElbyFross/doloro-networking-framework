@@ -97,7 +97,7 @@ namespace PipesProvider.Networking.Routing
             string[] xmlFiles = Directory.GetFiles(directory, "*.xml", searchOption);
 
             // Init encoder.
-            XmlSerializer xmlSer = new XmlSerializer(typeof(RoutingTable));
+            XmlSerializer xmlSer = new XmlSerializer(typeof(RoutingTable), Instruction.DerivedTypes);
 
             // Deserialize every file to table if possible.
             foreach (string fileDir in xmlFiles)
@@ -173,24 +173,12 @@ namespace PipesProvider.Networking.Routing
                 Directory.CreateDirectory(directory);
             }
             #endregion
-
-            #region Checking up assemblies
-            // Getting extra types suitable for custom routing instructions.
-            System.Reflection.Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            IEnumerable<Type> deliveredTypes = new List<Type>();
-            foreach (System.Reflection.Assembly a in assemblies)
-            {
-                var subclasses = a.GetTypes().Where(type => type.IsSubclassOf(typeof(Instruction)));
-                deliveredTypes = deliveredTypes.Concat<Type>(subclasses);
-            }
-            var extraTypes = deliveredTypes.ToArray();
-            #endregion
-
+            
             #region Write table to XML file.
             try
             {
                 XmlDocument xmlDocument = new XmlDocument();
-                XmlSerializer serializer = new XmlSerializer(typeof(RoutingTable), extraTypes);
+                XmlSerializer serializer = new XmlSerializer(typeof(RoutingTable), Instruction.DerivedTypes);
                 using (MemoryStream stream = new MemoryStream())
                 {
                     serializer.Serialize(stream, table);
