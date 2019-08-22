@@ -76,6 +76,16 @@ namespace PipesProvider.Networking.Routing
 
         #region Public fields
         /// <summary>
+        /// Title of this instruction that can be showed in applications.
+        /// </summary>
+        public string title = "New instruction";
+
+        /// <summary>
+        /// Commentary added to this instruction.
+        /// </summary>
+        public string commentary = "";
+
+        /// <summary>
         /// Address that will be ised for routing
         /// </summary>
         public string routingIP = "localhost";

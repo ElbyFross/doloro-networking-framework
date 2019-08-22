@@ -64,6 +64,35 @@ namespace ExampleClient
             //Console.ReadLine();
             #endregion
 
+            // Client could has a numbers of connections to different servers.
+            // Connection to each server can have differend params.
+            // Cases:
+            // Some servers can require system login to pas LSA of Windows NT.
+            // Some could require in application authorization.
+            #region Routing table serialization example
+            // Create table with differend delivered instruction's types.
+            routingTable.intructions = new System.Collections.Generic.List<Instruction>(new Instruction[]
+                {
+                new PartialAuthorizedInstruction()
+                {
+                    guestChanel = "guest",
+                    routingIP = "localhost",
+                    pipeName = "common"
+                },
+                new Instruction()
+                {
+                    pipeName = "test",
+                    routingIP = "192.168.1.1"
+                },
+                new AuthorizedInstruction()
+                {
+                    authLogin = "login",
+                    authPassword = "pass",
+                    guestChanel = "guestChanel"
+                } });
+            RoutingTable.SaveRoutingTable(routingTable, "multyTypesInstructions");
+            #endregion
+
             token = "invalid";
 
             #region Recive guest token
@@ -105,7 +134,7 @@ namespace ExampleClient
                 });
 
             // Log
-            Console.WriteLine("Witing forguest token from server autority system...");
+            Console.WriteLine("Wating for a guest token from server's autority system...");
 
             // Wait for guest token.
             while(guestTokenRequired)

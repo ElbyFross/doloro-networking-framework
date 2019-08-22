@@ -58,9 +58,9 @@ namespace UniformClient
         /// <returns></returns>
         public static RSAParameters GetValidPublicKeyViaPP(Instruction instruction)
         {
+            // Try to cast instruction like a partial authorized (that has guest authorized token).
             if (instruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
             {
-
                 // Validate key.
                 if (!instruction.IsValid)
                 {

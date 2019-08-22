@@ -36,7 +36,7 @@ namespace UniformClient
         /// <summary>
         /// Table that contain instruction that allow to determine the server which is a target for recived query.
         /// </summary>
-        public static RoutingTable routingTable;
+        public static RoutingTable routingTable = new RoutingTable();
 
         /// <summary>
         /// Update routing table by the files that will found be requested directory.
