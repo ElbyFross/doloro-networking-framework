@@ -47,6 +47,7 @@
     <Compile Include="UniformClient\BaseClient.cs" />
     <Compile Include="UniformClient\BaseClientProcess.cs" />
     <Compile Include="UniformClient\Extensions\PipesProvider\PartialAuthorizedInstruction.cs" />
+    <Compile Include="UniformClient\Extensions\PipesProvider\RelayInstruction.cs" />
     <Compile Include="UniformClient\NativeMethods.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPCore.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPHandlers.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPThreading.cs" />
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPTransmission.cs" />
     <Compile Include="UniformServer\Providers\Standard\BroadcastingServer.cs" />
+    <Compile Include="UniformServer\Providers\Standard\RelayServer.cs" />
     <Compile Include="UniformServer\Providers\Standard\SimpleServer.cs" />
   </ItemGroup>
   <ItemGroup>
