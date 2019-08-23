@@ -117,37 +117,5 @@ namespace UniformServer
             Console.WriteLine();
             return true;
         }
-
-        /// <summary>
-        /// Open server with broadcasting chanels using PipesProvider.
-        /// </summary>
-        /// <param name="getBroadcastingMessageHandler">delegate that will be called to get message for new client.</param>
-        /// <param name="chanels">How many many connections would awaiable to this server.
-        /// Attention: every chanel is a tread.</param>
-        public static void StartBroadcastingViaPP(
-            string pipeName,
-            PipesProvider.Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getBroadcastingMessageHandler,
-            int chanels)
-        {
-            // Open every requested chanel.
-            for (int i = 0; i < chanels; i++)
-            {
-                // Instiniate primitive server to provide loop.
-                Standard.BroadcastingServer server = new Standard.BroadcastingServer
-                {
-                    pipeName = pipeName,
-                    securityLevel = securityLevel,
-                    // Set handler tha will provide message.
-                    GetMessage = getBroadcastingMessageHandler
-                };
-
-                // Starting server loop.
-                server.StartServerThread(
-                    string.Format("BS|{0}|{1}", pipeName, Guid.NewGuid().ToString()),
-                    server,
-                    ThreadingServerLoop_PP_Broadcast);
-            }
-        }
     }
 }

@@ -94,7 +94,7 @@ namespace ACTests.Tests
         public void GuestToken()
         {
             // Start broadcasting server that would share guest tokens.
-            BaseServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
                 Helpers.Networking.DefaultGuestPipeName,
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,

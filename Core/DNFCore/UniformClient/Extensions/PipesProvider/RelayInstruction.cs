@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 using UniformQueries;
 using System.Threading;
@@ -40,5 +41,43 @@ namespace PipesProvider.Networking.Routing
         /// client -> relay-server-ip.entryPipeName -> routingIp.pipeName
         /// </summary>
         public string entryPipeName = "broadcasting";
+
+        /// <summary>
+        /// Trying to find suitable instruction for transmisting pipe.
+        /// </summary>
+        /// <param name="collection">Collection of routing instructions that could contains target RelayInstruction.</param>
+        /// <param name="entryPipeName">Name of relay pipe that recive broadcasting relay request.</param>
+        /// <param name="relayInstruction">A found instruction. Null if not found.</param>
+        /// <returns>Resut of search.</returns>
+        public static bool TryToDetectTarget(IEnumerable<Instruction> collection, string entryPipeName, out RelayInstruction relayInstruction)
+        {
+            relayInstruction = DetectTarget(collection, entryPipeName);
+            return relayInstruction != null;
+        }
+
+        /// <summary>
+        /// Looking for suitable instruction for transmisting pipe.
+        /// In case if not found returning null.
+        /// </summary>
+        /// <param name="collection">Collection of routing instructions that could contains target RelayInstruction.</param>
+        /// <param name="entryPipeName">Name of relay pipe that recive broadcasting relay request.</param>
+        /// <returns>>A found instruction. Null if not found.</returns>
+        public static RelayInstruction DetectTarget(IEnumerable<Instruction> collection, string entryPipeName)
+        {
+            // Check every instruction in collection.
+            foreach(Instruction i in collection)
+            {
+                // Try to cast to RelayInstruction format.
+                if(i is RelayInstruction ri)
+                {
+                    // Comapre pipes.
+                    if(ri.entryPipeName == entryPipeName)
+                    {
+                        return ri;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

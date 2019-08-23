@@ -214,7 +214,7 @@ namespace PipesProvider.Handlers
                 try
                 {
                     // Get message
-                    string message = broadcastController?.GetMessage();
+                    string message = broadcastController?.GetMessage(broadcastController);
 
                     // Write message to stream.
                     Console.WriteLine("{0}: Start transmission to client.", controller.pipeName);

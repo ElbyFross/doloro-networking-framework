@@ -90,38 +90,5 @@ namespace UniformServer
                 ((BaseServer)server).securityLevel);
             #endregion
         }
-
-        /// <summary>
-        /// Main threaded loop that control broadcassting server loop start.
-        /// </summary>
-        protected static void ThreadingServerLoop_PP_Broadcast(object server)
-        {
-            if (server is Standard.BroadcastingServer broadcastingServer)
-            {
-                #region Init
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-                Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
-
-                // Name of pipe server that will established.
-                // Access to this pipe by clients will be available by this name.
-                string serverName = broadcastingServer.thread.Name;
-                #endregion
-
-                #region Server establishing
-                // Start server loop.
-                PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.ServerLoop(
-                    serverName,
-                    broadcastingServer.pipeName,
-                    broadcastingServer.securityLevel,
-                    broadcastingServer.GetMessage);
-                #endregion
-            }
-            else
-            {
-                // Throw error.
-                throw new InvalidCastException(
-                    "Require Standard.BroadcastingServer server as shared object.");
-            }
-        }
     }
 }

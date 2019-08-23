@@ -89,6 +89,17 @@ namespace AuthorityController.API
         /// <summary>
         /// Authorizing new token with guest's rights, and return information in query format.
         /// </summary>
+        /// <param name="_">Droped param not relative to this broadcasting.</param>
+        /// <returns>Token that can be used by client in queries.</returns>
+        public static string AuthorizeNewGuestToken(
+            PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController _)
+        {
+            return AuthorizeNewGuestToken();
+        }
+
+        /// <summary>
+        /// Authorizing new token with guest's rights, and return information in query format.
+        /// </summary>
         /// <returns>Token that can be used by client in queries.</returns>
         public static string AuthorizeNewGuestToken()
         {

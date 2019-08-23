@@ -25,58 +25,149 @@ namespace UniformServer.Standard
     /// </summary>
     public class RelayServer : BaseServer
     {
-        /// <summary>
-        /// Routing instruction that contains settings to relay establishment and maintenance.
-        /// </summary>
-        public RelayInstruction relayInstruction;
-
         // Init default constructor.
         public RelayServer() : base()
         {
 
         }
 
+        #region Broadcasting retranslator
         /// <summary>
         /// Establish server suitable provided instruction that would retranslate broadcasting from target server.
         /// </summary>
         /// <param name="relayInstruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
-        public static UniformServer.BaseServer EstablishBroadcastingRelayServer(RelayInstruction isntruction)
+        public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction isntruction)
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Establishing server that would recive client's server and forwarding it to target servers by using routing table.
-        /// </summary>
-        /// <param name="relayInstruction">Instruction that contain relay params.</param>
-        /// <returns>Established server.</returns>
-        public static UniformServer.BaseServer EstablishDuplexRelayServer(RelayInstruction relayInstruction)
-        {
-            if(relayInstruction == null)
+            // Check instruction.
+            if (isntruction == null)
             {
-                throw new NullReferenceException("Routing table can't be null");
+                throw new NullReferenceException("Routing instruction can't be null");
             }
 
             // Instiniate server.
-            RelayServer serverBufer = new RelayServer();
-
-            // Set fields.
-            serverBufer.pipeName = relayInstruction.entryPipeName;
+            RelayServer serverBufer = new RelayServer
+            {
+                // Set fields.
+                pipeName = isntruction.entryPipeName
+            };
 
             // Starting server loop.
             serverBufer.StartServerThread(
-                relayInstruction.entryPipeName + " #" + Guid.NewGuid(), 
+                isntruction.entryPipeName + " #" + Guid.NewGuid(),
                 serverBufer,
-                ThreadingServerLoop_Relay);
+                ThreadingServerLoop_BroadcastingRelay);
 
             return serverBufer;
         }
 
         /// <summary>
-        ///  Start the server loop that will condtol relay query handler.
+        /// Starting the server loop that will control relay query handler.
         /// </summary>
-        protected static void ThreadingServerLoop_Relay(object server)
+        protected static void ThreadingServerLoop_BroadcastingRelay(object server)
+        {
+            #region Init
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
+            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+
+            // Name of pipe server that will established.
+            // Access to this pipe by clients will be available by this name.
+            string serverName = ((RelayServer)server).thread.Name;
+            #endregion
+
+            #region Server establishing
+            // Start server loop.
+            BroadcastingServerTransmissionController.ServerLoop(
+                serverName,
+                ((RelayServer)server).pipeName,
+                ((RelayServer)server).securityLevel,
+                QueryHandler_BroadcastingRelay);
+            #endregion
+        }
+
+        /// <summary>
+        /// Redirect recived query from current server to other.
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="query"></param>
+        public static string QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
+        {
+            // Trying to detect relay instruction.
+            if (!RelayInstruction.TryToDetectTarget(
+               UniformClient.BaseClient.routingTable.intructions,
+               controller.pipeName,
+               out RelayInstruction relayInstruction))
+            {
+                Console.WriteLine(
+                    "Relay instruction for \""
+                    + controller.pipeName +
+                    "\" not found. Add instuction to \"BaseClient.routingTable.intructions\" collection.");
+
+                return "Error 404: Routing server not found. Con'tact administrator.";
+            }
+
+            // Markers for managing thread.
+            bool relayedMessageRecieved = false;
+            string relayedMessage = null;
+
+            // Requiest message from relaying broadcasting server.
+            UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
+                relayInstruction.routingIP,
+                relayInstruction.pipeName,
+                delegate (TransmissionLine lint, object message)
+                {
+                    // Conver message to string.
+                    relayedMessage = message as string;
+
+                    // Unlock thread.
+                    relayedMessageRecieved = true;
+                });
+
+            // Wait until broadcasting message.
+            while (!relayedMessageRecieved)
+            {
+                Thread.Sleep(15);
+            }
+
+            // Return recived message.
+            return relayedMessage;
+        }
+        #endregion
+
+        #region Duplex query retranslator
+        /// <summary>
+        /// Establishing server that would recive client's server and forwarding it to target servers by using routing table.
+        /// </summary>
+        /// <param name="isntruction">Instruction that contain relay params.</param>
+        /// <returns>Established server.</returns>
+        public static RelayServer EstablishDuplexRelayServer(RelayInstruction isntruction)
+        {
+            // Check instruction.
+            if(isntruction == null)
+            {
+                throw new NullReferenceException("Routing instruction can't be null");
+            }
+
+            // Instiniate server.
+            RelayServer serverBufer = new RelayServer
+            {
+                // Set fields.
+                pipeName = isntruction.entryPipeName
+            };
+
+            // Starting server loop.
+            serverBufer.StartServerThread(
+                isntruction.entryPipeName + " #" + Guid.NewGuid(), 
+                serverBufer,
+                ThreadingServerLoop_DuplexRelay);
+
+            return serverBufer;
+        }
+
+        /// <summary>
+        /// Starting the server loop that will control relay query handler.
+        /// </summary>
+        protected static void ThreadingServerLoop_DuplexRelay(object server)
         {
             #region Init
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
@@ -91,19 +182,18 @@ namespace UniformServer.Standard
             // Start server loop.
             PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController.ServerLoop(
                 serverName,
-                QueryHandler_Relay,
+                QueryHandler_DuplexRelay,
                 ((RelayServer)server).pipeName,
                 ((RelayServer)server).securityLevel);
             #endregion
         }
-
-
+        
         /// <summary>
         /// Redirect recived query from current server to other.
         /// </summary>
         /// <param name="_"></param>
         /// <param name="query"></param>
-        public static void QueryHandler_Relay(BaseServerTransmissionController _, string query)
+        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController _, string query)
         {
             // Try to decrypt.
             query = PipesProvider.Security.Crypto.DecryptString(query);
@@ -180,5 +270,6 @@ namespace UniformServer.Standard
                     }
                 });
         }
+        #endregion
     }
 }

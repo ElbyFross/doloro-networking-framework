@@ -79,7 +79,7 @@ namespace SessionProvider
 
             #region Guest tokens broadcasting
             // Start broadcasting server that would share guest tokens.
-            UniformServer.BaseServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
                 "guests",
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
