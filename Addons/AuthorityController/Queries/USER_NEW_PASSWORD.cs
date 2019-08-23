@@ -25,7 +25,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_NEW_PASSWORD : IQueryHandler
     {
-        public string Description(string cultureKey)
+        public virtual string Description(string cultureKey)
         {
             switch (cultureKey)
             {
@@ -43,7 +43,7 @@ namespace AuthorityController.Queries
             }
         }
 
-        public void Execute(QueryPart[] queryParts)
+        public virtual void Execute(QueryPart[] queryParts)
         {
             #region Get params.
             UniformQueries.API.TryGetParamValue("user",         out QueryPart user, queryParts);
@@ -148,7 +148,7 @@ namespace AuthorityController.Queries
                 queryParts);
         }
 
-        public bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(QueryPart[] queryParts)
         {
             // USER prop.
             if(!UniformQueries.API.QueryParamExist("user", queryParts))

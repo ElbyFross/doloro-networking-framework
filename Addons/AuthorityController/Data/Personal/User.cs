@@ -68,7 +68,7 @@ namespace AuthorityController.Data.Personal
         public List<BanInformation> bans = new List<BanInformation>();
         #endregion
 
-        #region Seesion-time fields
+        #region Session-time fields
         /// <summary>
         /// List that cont tokens provided to this user.
         /// </summary>

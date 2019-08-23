@@ -25,7 +25,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_BAN : IQueryHandler
     {
-        public string Description(string cultureKey)
+        public virtual string Description(string cultureKey)
         {
             switch (cultureKey)
             {
@@ -38,7 +38,7 @@ namespace AuthorityController.Queries
             }
         }
 
-        public void Execute(QueryPart[] queryParts)
+        public virtual void Execute(QueryPart[] queryParts)
         {
 
             #region Get params
@@ -124,7 +124,7 @@ namespace AuthorityController.Queries
             #endregion
         }
 
-        public bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(QueryPart[] queryParts)
         { 
             // USER prop.
             if (!UniformQueries.API.QueryParamExist("user", queryParts))

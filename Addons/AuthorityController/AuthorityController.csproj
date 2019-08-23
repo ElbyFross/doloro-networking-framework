@@ -39,6 +39,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UniformDataOperator">
+      <HintPath>..\uniform-data-operator\UniformDataOperator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Collections.cs" />
@@ -48,6 +51,7 @@
     <Compile Include="Data\Application\Config.cs" />
     <Compile Include="Data\Handler.cs" />
     <Compile Include="Data\Application\SaltContainer.cs" />
+    <Compile Include="Data\Personal\UserUDOSql.cs" />
     <Compile Include="Data\Temporal\TokenInfo.cs" />
     <Compile Include="Data\Personal\User.cs" />
     <Compile Include="Extensions\PipesProvider\AuthorizedInstruction.cs" />

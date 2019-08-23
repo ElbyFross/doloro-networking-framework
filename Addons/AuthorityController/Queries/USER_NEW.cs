@@ -25,7 +25,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_NEW : IQueryHandler
     {
-        public string Description(string cultureKey)
+        public virtual string Description(string cultureKey)
         {
             switch (cultureKey)
             {
@@ -38,7 +38,7 @@ namespace AuthorityController.Queries
             }
         }
 
-        public void Execute(QueryPart[] queryParts)
+        public virtual void Execute(QueryPart[] queryParts)
         {
             #region Get qyery params
             UniformQueries.API.TryGetParamValue("login", out QueryPart login, queryParts);
@@ -236,7 +236,7 @@ namespace AuthorityController.Queries
             }
         }
 
-        public bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(QueryPart[] queryParts)
         {
             // Check token exist.
             if (!UniformQueries.API.QueryParamExist("token", queryParts))
