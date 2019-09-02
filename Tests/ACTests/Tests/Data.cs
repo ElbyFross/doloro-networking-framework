@@ -316,7 +316,7 @@ namespace ACTests.Tests
         public void User_Update(User testUser)
         {
             testUser.firstName = "Updated";
-            testUser.secondName = "Updated";
+            testUser.lastName = "Updated";
 
             // Save profile.
             AuthorityController.API.Users.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");

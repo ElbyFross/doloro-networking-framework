@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +52,6 @@
     <Compile Include="Data\Application\Config.cs" />
     <Compile Include="Data\Handler.cs" />
     <Compile Include="Data\Application\SaltContainer.cs" />
-    <Compile Include="Data\Personal\UserUDOSql.cs" />
     <Compile Include="Data\Temporal\TokenInfo.cs" />
     <Compile Include="Data\Personal\User.cs" />
     <Compile Include="Extensions\PipesProvider\AuthorizedInstruction.cs" />

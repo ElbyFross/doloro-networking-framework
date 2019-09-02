@@ -134,7 +134,7 @@ namespace AuthorityController.Queries
                 login = login.propertyValue,
                 password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt),
                 firstName = firstName,
-                secondName = secondName
+                lastName = secondName
             };
 
             // Provide ID.
