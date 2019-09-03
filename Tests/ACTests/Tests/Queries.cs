@@ -542,7 +542,7 @@ namespace ACTests.Tests
 
                 #region Ban validation
                 // Find banned user.
-                if (!AuthorityController.API.Users.TryToFindUser(Helpers.Users.user_User.id, out User bannedUser))
+                if (!AuthorityController.API.LocalUsers.TryToFindUser(Helpers.Users.user_User.id, out User bannedUser))
                 {
                     Assert.Fail("Banned user lossed");
                     return;
@@ -557,7 +557,7 @@ namespace ACTests.Tests
                 }
 
                 // Check that still banned.
-                if (!AuthorityController.API.Users.IsBanned(bannedUser, "logon"))
+                if (!AuthorityController.Data.Personal.BanInformation.IsBanned(bannedUser, "logon"))
                 {
                     Assert.Fail("User was not banned.");
                     return;
@@ -570,7 +570,7 @@ namespace ACTests.Tests
                 }
 
                 // Check that not banned.
-                if (AuthorityController.API.Users.IsBanned(bannedUser, "logon"))
+                if (AuthorityController.Data.Personal.BanInformation.IsBanned(bannedUser, "logon"))
                 {
                     Assert.Fail("User still banned after ban's expiring.");
                     return;

@@ -39,7 +39,7 @@ namespace AuthorityController.Data.Personal
         /// <summary>
         /// Unique id of this user to allow services access.
         /// </summary>
-        [Column("userid", DbType.Int32), IsPrimaryKey, IsNotNull, IsAutoIncrement]
+        [Column("userid", DbType.Int32), IsPrimaryKey, IsNotNull, IsAutoIncrement(0)]
         [MySqlDBTypeOverride(MySqlDbType.Int32, "INT")]
         public uint id;
 
@@ -153,7 +153,7 @@ namespace AuthorityController.Data.Personal
         public bool IsOpenPasswordCorrect(string recivedPassword)
         {
             // Get hashed password from recived.
-            byte[] recivedHashedPassword = API.Users.GetHashedPassword(recivedPassword, Config.Active.Salt);
+            byte[] recivedHashedPassword = SaltContainer.GetHashedPassword(recivedPassword, Config.Active.Salt);
 
             // Compare.
             return IsHashedPasswordCorrect(recivedHashedPassword);

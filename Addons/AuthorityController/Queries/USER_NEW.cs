@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
@@ -22,11 +23,15 @@ namespace AuthorityController.Queries
 {
     /// <summary>
     /// Create new user.
+    /// 
+    /// Storing profile in local dile system by default via UsersLocal API.
+    /// Storing profile to SQL server in case if `UniformDataOperator.Sql.SqlOperatorHandler.Active` not null.
     /// </summary>
     public class USER_NEW : IQueryHandler
     {
         public virtual string Description(string cultureKey)
         {
+            
             switch (cultureKey)
             {
                 case "en-US":
@@ -81,7 +86,7 @@ namespace AuthorityController.Queries
             }
 
             // Check login exist.
-            if (API.Users.TryToFindUser(login.propertyValue, out User _))
+            if (API.LocalUsers.TryToFindUser(login.propertyValue, out User _))
             {
                 // Inform that target user has the same or heigher rank then requester.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Login occupied", queryParts);
@@ -132,74 +137,96 @@ namespace AuthorityController.Queries
             User userProfile = new User()
             {
                 login = login.propertyValue,
-                password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt),
+                password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt),
                 firstName = firstName,
                 lastName = secondName
             };
-
-            // Provide ID.
-            userProfile.id = API.Users.GenerateID(userProfile);
-
+            
             // Set rights default rights.
             userProfile.rights = Config.Active.UserDefaultRights;
             #endregion
 
-            // Save profile in storage.
-            API.Users.SetProfileAsync(userProfile, Config.Active.UsersStorageDirectory);
-            API.Users.UserProfileStored += DataStoredCallback;
-            API.Users.UserProfileNotStored += DataStroringFailed;
+            #region Data storing
+            // Store in SQL data base if provided.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
+            {
+                // Set ignorable value to activate autoincrement.
+                userProfile.id = 0;
 
-            // Marker that will enabled untill operation will recive result.
-            bool storingInProgress = true;
-            // Marker that contin result of storing operation.
-            bool storingResult = false;
-            // Field that would contain operation error in case of fail.
-            string storingError = null;
+                Task registrationTask = new Task(
+                    delegate ()
+                    {
+                        // Set data ro data base.
+                        UniformDataOperator.Sql.SqlOperatorHandler.Active.
+                            SetToTable<User>(
+                            userProfile, out error);
 
+                        // Success.
+                        if(string.IsNullOrEmpty(error))
+                        {
+                            Logon();
+                        }
+                        // Fail.
+                        else
+                        {
+                            // Send answer with operation's error.
+                            UniformServer.BaseServer.SendAnswerViaPP(
+                                "failed:" + error,
+                                queryParts);
+                        }
+                    },
+                    Session.Current.TerminationToken);
+            }
+            // Store in local file system.
+            else
+            {
+                // Provide ID.
+                userProfile.id = API.LocalUsers.GenerateID(userProfile);
 
+                // Save profile in storage.
+                API.LocalUsers.SetProfileAsync(userProfile, Config.Active.UsersStorageDirectory);
+                API.LocalUsers.UserProfileStored += DataStoredCallback;
+                API.LocalUsers.UserProfileNotStored += DataStroringFailed;
+            }
+            #endregion
+
+            #region Local callbacks
+            // Callback that would be processed in case of success of data storing.
             void DataStoredCallback(User target)
             {
                 // Check is that user is a target of this request.
                 if (target.id == userProfile.id)
                 {
                     // Unsubscribe.
-                    API.Users.UserProfileStored -= DataStoredCallback;
+                    API.LocalUsers.UserProfileStored -= DataStoredCallback;
+                    API.LocalUsers.UserProfileNotStored -= DataStroringFailed;
 
-                    // Unblock loop.
-                    storingInProgress = false;
-
-                    // Set operation result.
-                    storingResult = true;
+                    Logon();
                 }
-
             }
 
+
+            // Callback that would be processed in case of fail of data storing.
             void DataStroringFailed(User target, string operationError)
             {
-                // Check is that user is a target of this request.
                 if (target.id == userProfile.id)
                 {
                     // Unsubscribe.
-                    API.Users.UserProfileNotStored -= DataStroringFailed;
+                    API.LocalUsers.UserProfileStored -= DataStoredCallback;
+                    API.LocalUsers.UserProfileNotStored -= DataStroringFailed;
 
-                    // Unblock loop.
-                    storingInProgress = false;
-
-                    // Set operation result.
-                    storingResult = false;
-                    storingError = operationError;
+                    // Send answer with operation's error.
+                    UniformServer.BaseServer.SendAnswerViaPP(
+                        "failed:" + operationError,
+                        queryParts);
                 }
             }
+            #endregion
 
-            // Wait until operation finish.
-            while (storingInProgress)
+            #region Localc methods
+            // Request logon with current input data.
+            void Logon()
             {
-                System.Threading.Thread.Sleep(5);
-            }
-
-            if (storingResult)
-            {
-                #region Return token to client
                 // Build logon query.
                 QueryPart[] logonQuery = new QueryPart[]
                     {
@@ -214,26 +241,18 @@ namespace AuthorityController.Queries
                     timeStamp,
                     };
 
-                    // Create logon subquery.
-                  foreach(IQueryHandler processor in UniformQueries.API.QueryHandlers)
-                  {
-                      // Fini logon query processor.
-                      if(processor is USER_LOGON)
-                      {
-                          // Execute and send to client token valided to created user.
-                          processor.Execute(logonQuery);
-                      }
-                  }
-                #endregion
+                // Create logon subquery.
+                foreach (IQueryHandler processor in UniformQueries.API.QueryHandlers)
+                {
+                    // Fini logon query processor.
+                    if (processor is USER_LOGON)
+                    {
+                        // Execute and send to client token valided to created user.
+                        processor.Execute(logonQuery);
+                    }
+                }
             }
-            else
-            {
-                // Send answer with operation's error.
-                UniformServer.BaseServer.SendAnswerViaPP(
-                    "failed:" + storingError,
-                    queryParts
-                    );
-            }
+            #endregion
         }
 
         public virtual bool IsTarget(QueryPart[] queryParts)

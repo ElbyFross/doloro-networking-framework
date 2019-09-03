@@ -58,7 +58,7 @@ namespace ACTests.Tests
                 }
 
                 // Get user by registred id.
-                if(!AuthorityController.API.Users.TryToFindUser(
+                if(!AuthorityController.API.LocalUsers.TryToFindUser(
                     info.userId, 
                     out User user))
                 {

@@ -161,12 +161,12 @@ namespace ACTests.Tests
             void FailHandler(User obj, string error)
             {
                 poolFailed = true;
-                AuthorityController.API.Users.UserProfileNotStored -= FailHandler;
+                AuthorityController.API.LocalUsers.UserProfileNotStored -= FailHandler;
 
                 Assert.IsTrue(false, "Data storing failed.");
             }
             
-            AuthorityController.API.Users.UserProfileNotStored += FailHandler;
+            AuthorityController.API.LocalUsers.UserProfileNotStored += FailHandler;
 
             // Create all requested users.
             for (int i = 0; i < poolUsersCount; i++)
@@ -177,10 +177,10 @@ namespace ACTests.Tests
                     login = "user" + i
                 };
                 // Get GUID
-                user.id = AuthorityController.API.Users.GenerateID(user);
+                user.id = AuthorityController.API.LocalUsers.GenerateID(user);
 
                 // Save profile.
-                AuthorityController.API.Users.SetProfileAsync(user, Helpers.FileSystem.TestSubfolder + "\\USERS\\");
+                AuthorityController.API.LocalUsers.SetProfileAsync(user, Helpers.FileSystem.TestSubfolder + "\\USERS\\");
             }
 
             // Create users directory if notexist.
@@ -221,7 +221,7 @@ namespace ACTests.Tests
                 if (dir.Equals(loadDirectory))
                 {
                     // Unsubscribe
-                    AuthorityController.API.Users.DirectoryLoadingFinished -= FinishHandler;
+                    AuthorityController.API.LocalUsers.DirectoryLoadingFinished -= FinishHandler;
 
                     // Infrom waitnig loop about finish.
                     loaded = true;
@@ -235,10 +235,10 @@ namespace ACTests.Tests
                 }
             }
 
-            AuthorityController.API.Users.DirectoryLoadingFinished += FinishHandler;
+            AuthorityController.API.LocalUsers.DirectoryLoadingFinished += FinishHandler;
             #endregion
 
-            AuthorityController.API.Users.LoadProfilesAsync(loadDirectory);
+            AuthorityController.API.LocalUsers.LoadProfilesAsync(loadDirectory);
 
             // Wait until load.
             while (!loaded)
@@ -273,15 +273,15 @@ namespace ACTests.Tests
                 login = "userLogin"
             };
             // Get GUID
-            testUser.id = AuthorityController.API.Users.GenerateID(testUser);
+            testUser.id = AuthorityController.API.LocalUsers.GenerateID(testUser);
 
             // Save profile.
-            AuthorityController.API.Users.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
+            AuthorityController.API.LocalUsers.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
             bool userTestPaused = true;
 
             #region Wait for result
             // Failed
-            AuthorityController.API.Users.UserProfileNotStored += (User u, string error) =>
+            AuthorityController.API.LocalUsers.UserProfileNotStored += (User u, string error) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -291,7 +291,7 @@ namespace ACTests.Tests
             };
 
             // Stored
-            AuthorityController.API.Users.UserProfileStored += (User u) =>
+            AuthorityController.API.LocalUsers.UserProfileStored += (User u) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -319,13 +319,13 @@ namespace ACTests.Tests
             testUser.lastName = "Updated";
 
             // Save profile.
-            AuthorityController.API.Users.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
+            AuthorityController.API.LocalUsers.SetProfileAsync(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\");
 
             bool userTestPaused = true;
 
             #region Wait for result
             // Failed
-            AuthorityController.API.Users.UserProfileNotStored += (User u, string error) =>
+            AuthorityController.API.LocalUsers.UserProfileNotStored += (User u, string error) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -335,7 +335,7 @@ namespace ACTests.Tests
             };
 
             // Stored
-            AuthorityController.API.Users.UserProfileStored += (User u) =>
+            AuthorityController.API.LocalUsers.UserProfileStored += (User u) =>
             {
                 if (u.Equals(testUser))
                 {
@@ -357,7 +357,7 @@ namespace ACTests.Tests
         /// </summary>
         public void User_Remove(User testUser)
         {
-            Assert.IsTrue(AuthorityController.API.Users.RemoveProfile(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\"));
+            Assert.IsTrue(AuthorityController.API.LocalUsers.RemoveProfile(testUser, Helpers.FileSystem.TestSubfolder + "\\USERS\\TEMP\\"));
         }
 
 

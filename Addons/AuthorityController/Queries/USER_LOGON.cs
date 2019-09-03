@@ -56,7 +56,7 @@ namespace AuthorityController.Queries
             UniformQueries.API.TryGetParamValue("stamp", out QueryPart timeStamp, queryParts);
 
             // Find user.
-            if(!API.Users.TryToFindUser(login.propertyValue, out User user))
+            if(!API.LocalUsers.TryToFindUser(login.propertyValue, out User user))
             {
                 // Inform that user not found.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", queryParts);
@@ -73,7 +73,7 @@ namespace AuthorityController.Queries
             }
 
             // Check for logon bans
-            if(API.Users.IsBanned(user, "logon"))
+            if(BanInformation.IsBanned(user, "logon"))
             {
                 // Inform that password is incorrect.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User banned.", queryParts);

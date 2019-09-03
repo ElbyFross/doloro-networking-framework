@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Collections.cs" />
-    <Compile Include="API\Users.cs" />
+    <Compile Include="API\LocalUsers.cs" />
     <Compile Include="API\Validation.cs" />
     <Compile Include="Data\Personal\BanInformation.cs" />
     <Compile Include="Data\Application\Config.cs" />

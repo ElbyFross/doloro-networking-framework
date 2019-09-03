@@ -67,7 +67,7 @@ namespace AuthorityController.Queries
 
             #region Detect target user
             // Find user for ban.
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
+            if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -117,7 +117,7 @@ namespace AuthorityController.Queries
 
             // Update stored profile.
             // in other case ban will losed after session finishing.
-            API.Users.SetProfile(userProfile);
+            API.LocalUsers.SetProfile(userProfile);
             
             // Inform about success.
             UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);

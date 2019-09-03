@@ -30,9 +30,9 @@ using AuthorityController.Data.Application;
 namespace AuthorityController.API
 {
     /// <summary>
-    /// API that provide operation with authority data.
+    /// API that provide operation with authority data stored on local machine out of UniformDataOperator storage.
     /// </summary>
-    public static class Users
+    public static class LocalUsers
     {
         #region Events
         /// <summary>
@@ -426,7 +426,7 @@ namespace AuthorityController.API
             if (uint.TryParse(uniformValue, out uint userId))
             {
                 // Try to find user by id.
-                if (API.Users.TryToFindUser(userId, out userProfile))
+                if (API.LocalUsers.TryToFindUser(userId, out userProfile))
                 {
                     userFound = true;
                 }
@@ -436,7 +436,7 @@ namespace AuthorityController.API
             if (!userFound)
             {
                 // Try to find user by login.
-                if (!API.Users.TryToFindUser(uniformValue, out userProfile))
+                if (!API.LocalUsers.TryToFindUser(uniformValue, out userProfile))
                 {
                     // If also not found.
                     error = "ERROR 404: User not found";
@@ -447,89 +447,7 @@ namespace AuthorityController.API
             return true;
         }
         #endregion
-
-        #region Security
-        /// <summary>
-        /// Convert password to heshed and salted.
-        /// </summary>
-        /// <param name="input">Password recived from user.</param>
-        /// <returns></returns>
-        public static byte[] GetHashedPassword(string input, SaltContainer salt)
-        {
-            // Get recived password to byte array.
-            byte[] plainText = Encoding.UTF8.GetBytes(input);
-
-            // Create hash profider.
-            HashAlgorithm algorithm = new SHA256Managed();
-
-            // Allocate result array.
-            byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.key.Length];
-
-            // Copy input to result array.
-            for (int i = 0; i < plainText.Length; i++)
-            {
-                plainTextWithSaltBytes[i] = plainText[i];
-            }
-
-            // Add salt to array.
-            for (int i = 0; i < salt.key.Length; i++)
-            {
-                plainTextWithSaltBytes[plainText.Length + i] = salt.key[i];
-            }
-
-            // Get hash of salted array.
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
-        }
-
-        /// <summary>
-        /// Check permition for action.
-        /// </summary>
-        /// <param name="user">Target user.</param>
-        /// <param name="rightCode">Code of right that required for action.</param>
-        /// <returns></returns>
-        public static bool IsBanned(User user, string rightCode)
-        {
-            // Check every ban.
-            for(int i = 0; i < user.bans.Count; i++)
-            {
-                // Get ban data.
-                BanInformation banInformation = user.bans[i];
-
-                // Skip if ban expired.
-                if (!banInformation.active)
-                    continue;
-
-                // Validate ban and disable it if already expired.
-                if (banInformation.IsExpired)
-                {
-                    // Disactivate ban.
-                    banInformation.active = false;
-
-                    // Update profile.
-                    API.Users.SetProfileAsync(user, Config.Active.UsersStorageDirectory);
-
-                    // Skip cause already expired.
-                    continue;
-                }
-
-                // Check every baned right.
-                foreach(string blockedRights in banInformation.blockedRights)
-                {
-                    // Compare rights codes.
-                    if(blockedRights == rightCode)
-                    {
-                        // Confirm band if equal.
-                        return true;
-                    }
-                }
-            }
-
-            // ban not found.
-            return false;
-        }
-        #endregion
-
+        
         #region Private methods
         /// <summary>
         /// Return unified name based on user's profile.

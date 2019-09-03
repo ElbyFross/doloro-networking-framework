@@ -12,6 +12,7 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+using System.Text;
 using System.Security.Cryptography;
 
 namespace AuthorityController.Data.Application
@@ -64,7 +65,7 @@ namespace AuthorityController.Data.Application
         /// <returns></returns>
         public byte[] GetStamp()
         {
-            byte[] hashResult = API.Users.GetHashedPassword("SALT VALIDATION STRING", this);
+            byte[] hashResult = GetHashedPassword("SALT VALIDATION STRING", this);
             return hashResult;
         }
 
@@ -96,6 +97,39 @@ namespace AuthorityController.Data.Application
 
             // Validation success.
             return true;
+        }
+        
+        /// <summary>
+        /// Convert password to heshed and salted.
+        /// </summary>
+        /// <param name="input">Password recived from user.</param>
+        /// <returns></returns>
+        public static byte[] GetHashedPassword(string input, SaltContainer salt)
+        {
+            // Get recived password to byte array.
+            byte[] plainText = Encoding.UTF8.GetBytes(input);
+
+            // Create hash profider.
+            HashAlgorithm algorithm = new SHA256Managed();
+
+            // Allocate result array.
+            byte[] plainTextWithSaltBytes =
+              new byte[plainText.Length + salt.key.Length];
+
+            // Copy input to result array.
+            for (int i = 0; i < plainText.Length; i++)
+            {
+                plainTextWithSaltBytes[i] = plainText[i];
+            }
+
+            // Add salt to array.
+            for (int i = 0; i < salt.key.Length; i++)
+            {
+                plainTextWithSaltBytes[plainText.Length + i] = salt.key[i];
+            }
+
+            // Get hash of salted array.
+            return algorithm.ComputeHash(plainTextWithSaltBytes);
         }
     }
 }

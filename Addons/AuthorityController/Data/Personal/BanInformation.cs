@@ -99,5 +99,52 @@ namespace AuthorityController.Data.Personal
             }
         }
 
+
+        /// <summary>
+        /// Check permition for action.
+        /// </summary>
+        /// <param name="user">Target user.</param>
+        /// <param name="rightCode">Code of right that required for action.</param>
+        /// <returns></returns>
+        public static bool IsBanned(User user, string rightCode)
+        {
+            // Check every ban.
+            for (int i = 0; i < user.bans.Count; i++)
+            {
+                // Get ban data.
+                BanInformation banInformation = user.bans[i];
+
+                // Skip if ban expired.
+                if (!banInformation.active)
+                    continue;
+
+                // Validate ban and disable it if already expired.
+                if (banInformation.IsExpired)
+                {
+                    // Disactivate ban.
+                    banInformation.active = false;
+
+                    // Update profile.
+                    API.LocalUsers.SetProfileAsync(user, Application.Config.Active.UsersStorageDirectory);
+
+                    // Skip cause already expired.
+                    continue;
+                }
+
+                // Check every baned right.
+                foreach (string blockedRights in banInformation.blockedRights)
+                {
+                    // Compare rights codes.
+                    if (blockedRights == rightCode)
+                    {
+                        // Confirm band if equal.
+                        return true;
+                    }
+                }
+            }
+
+            // ban not found.
+            return false;
+        }
     }
 }

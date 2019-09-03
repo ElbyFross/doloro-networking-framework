@@ -49,14 +49,14 @@ namespace ACTests.Helpers
                 Config.Active.UsersStorageDirectory = "Tests\\Queries\\Users\\" + Guid.NewGuid().ToString() + "\\";
 
                 // Clear current user pool.
-                AC_API.Users.ClearUsersLoadedData();
+                AC_API.LocalUsers.ClearUsersLoadedData();
 
                 #region Create superadmin
                 user_SuperAdmin = new User()
                 {
                     id = 1,
                     login = "sadmin",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -66,10 +66,10 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_SuperAdmin.id = AC_API.Users.GenerateID(user_SuperAdmin);
+                user_SuperAdmin.id = AC_API.LocalUsers.GenerateID(user_SuperAdmin);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_SuperAdmin, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_SuperAdmin, Config.Active.UsersStorageDirectory);
 
                 #endregion
 
@@ -77,7 +77,7 @@ namespace ACTests.Helpers
                 user_Admin = new User()
                 {
                     login = "admin",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -87,17 +87,17 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_Admin.id = AC_API.Users.GenerateID(user_Admin);
+                user_Admin.id = AC_API.LocalUsers.GenerateID(user_Admin);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_Admin, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_Admin, Config.Active.UsersStorageDirectory);
                 #endregion
 
                 #region Create moderator
                 user_Moderator = new User()
                 {
                     login = "moderator",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -107,17 +107,17 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_Moderator.id = AC_API.Users.GenerateID(user_Moderator);
+                user_Moderator.id = AC_API.LocalUsers.GenerateID(user_Moderator);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_Moderator, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_Moderator, Config.Active.UsersStorageDirectory);
                 #endregion
 
                 #region Create privileged user
                 user_PrivilegedUser = new User()
                 {
                     login = "puser",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -126,17 +126,17 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_PrivilegedUser.id = AC_API.Users.GenerateID(user_PrivilegedUser);
+                user_PrivilegedUser.id = AC_API.LocalUsers.GenerateID(user_PrivilegedUser);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_PrivilegedUser, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_PrivilegedUser, Config.Active.UsersStorageDirectory);
                 #endregion
 
                 #region Create user
                 user_User = new User()
                 {
                     login = "user",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -145,17 +145,17 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_User.id = AC_API.Users.GenerateID(user_User);
+                user_User.id = AC_API.LocalUsers.GenerateID(user_User);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_User, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_User, Config.Active.UsersStorageDirectory);
                 #endregion
 
                 #region Create guest
                 user_Guest = new User()
                 {
                     login = "guest",
-                    password = AC_API.Users.GetHashedPassword("password", Config.Active.Salt),
+                    password = SaltContainer.GetHashedPassword("password", Config.Active.Salt),
                     tokens = new System.Collections.Generic.List<string>
                     (new string[] { UniformQueries.Tokens.UnusedToken }),
                     rights = new string[]{
@@ -163,10 +163,10 @@ namespace ACTests.Helpers
                 };
 
                 // Generate ID.
-                user_Guest.id = AC_API.Users.GenerateID(user_Guest);
+                user_Guest.id = AC_API.LocalUsers.GenerateID(user_Guest);
 
                 // Save profile.
-                AC_API.Users.SetProfileAsync(user_Guest, Config.Active.UsersStorageDirectory);
+                AC_API.LocalUsers.SetProfileAsync(user_Guest, Config.Active.UsersStorageDirectory);
                 #endregion
 
                 // Wait until loading.
@@ -174,7 +174,7 @@ namespace ACTests.Helpers
                 {
                     Thread.Sleep(5);
                 }
-                while (AC_API.Users.HasAsyncLoadings);
+                while (AC_API.LocalUsers.HasAsyncLoadings);
 
                 #region Authorize tokens
                 // Super admin

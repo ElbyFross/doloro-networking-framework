@@ -53,7 +53,7 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Detect target user
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out string error))
+            if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out User userProfile, out string error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -137,10 +137,10 @@ namespace AuthorityController.Queries
             #endregion
 
             // Update password.
-            userProfile.password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt);
+            userProfile.password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt);
 
             // Update stored profile.
-            API.Users.SetProfile(userProfile);
+            API.LocalUsers.SetProfile(userProfile);
 
             // Inform about success
             UniformServer.BaseServer.SendAnswerViaPP(
