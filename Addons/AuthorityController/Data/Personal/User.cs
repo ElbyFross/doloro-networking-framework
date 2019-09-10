@@ -15,12 +15,6 @@
 using System;
 using System.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
 using AuthorityController.Data.Application;
 using UniformDataOperator.Sql.Tables.Attributes;
 using UniformDataOperator.Sql.MySql.Attributes;
@@ -35,6 +29,11 @@ namespace AuthorityController.Data.Personal
     [Table("DNFAuthControl", "user", "InnoDB")]
     public partial class User
     {
+        /// <summary>
+        /// Type of user. Apply your castom user to this field to instinate required one.
+        /// </summary>
+        public static Type GlobalType = typeof(User);
+
         #region Serialized fields
         /// <summary>
         /// Unique id of this user to allow services access.
@@ -103,32 +102,7 @@ namespace AuthorityController.Data.Personal
         /// Array of rigts' codes provided to this user.
         /// </summary>
         public string[] rights = new string[0];
-
-        /// <summary>
-        /// Bans data in binary format.
-        /// Compatible with UDO.
-        /// </summary>
-        [Column("bans", DbType.Binary), IsNotNull]
-        [MySqlDBTypeOverride(MySqlDbType.TinyBlob, "TINYBLOB")]
-        public byte[] BansBinary
-        {
-            get
-            {
-                return UniformDataOperator.Binary.BinaryHandler.ToByteArray<List<BanInformation>>(bans);
-            }
-            set
-            {
-                if (value is byte[] bansBinary)
-                {
-                    bans = UniformDataOperator.Binary.BinaryHandler.FromByteArray<List<BanInformation>>(bansBinary);
-                }
-                else
-                {
-                    throw new InvalidCastException("Bans must be stored in System.Array of bytes format.");
-                }
-            }
-        }
-
+        
         /// <summary>
         /// List of bans that would received by user.
         /// </summary>

@@ -12,6 +12,7 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UniformQueries;
@@ -134,13 +135,11 @@ namespace AuthorityController.Queries
 
             #region Create user profile data.
             // Create base data.
-            User userProfile = new User()
-            {
-                login = login.propertyValue,
-                password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt),
-                firstName = firstName,
-                lastName = secondName
-            };
+            User userProfile = (User)Activator.CreateInstance(User.GlobalType);
+            userProfile.login = login.propertyValue;
+            userProfile.password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt);
+            userProfile.firstName = firstName;
+            userProfile.lastName = secondName;
             
             // Set rights default rights.
             userProfile.rights = Config.Active.UserDefaultRights;
@@ -156,10 +155,12 @@ namespace AuthorityController.Queries
                 Task registrationTask = new Task(
                     delegate ()
                     {
+                        // Subscribe on errors.
+                        UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += SQLErrorListener;
+
                         // Set data ro data base.
                         UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                            SetToTable<User>(
-                            userProfile, out error);
+                            SetToTable(User.GlobalType, userProfile, out error);
 
                         // Success.
                         if(string.IsNullOrEmpty(error))
@@ -174,6 +175,9 @@ namespace AuthorityController.Queries
                                 "failed:" + error,
                                 queryParts);
                         }
+
+                        // Unsubscribe from errors listening.
+                        UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
                     },
                     Session.Current.TerminationToken);
             }
@@ -185,21 +189,21 @@ namespace AuthorityController.Queries
 
                 // Save profile in storage.
                 API.LocalUsers.SetProfileAsync(userProfile, Config.Active.UsersStorageDirectory);
-                API.LocalUsers.UserProfileStored += DataStoredCallback;
-                API.LocalUsers.UserProfileNotStored += DataStroringFailed;
+                API.LocalUsers.UserProfileStored += LocalDataStoredCallback;
+                API.LocalUsers.UserProfileNotStored += LocalDataStroringFailed;
             }
             #endregion
 
             #region Local callbacks
             // Callback that would be processed in case of success of data storing.
-            void DataStoredCallback(User target)
+            void LocalDataStoredCallback(User target)
             {
                 // Check is that user is a target of this request.
                 if (target.id == userProfile.id)
                 {
                     // Unsubscribe.
-                    API.LocalUsers.UserProfileStored -= DataStoredCallback;
-                    API.LocalUsers.UserProfileNotStored -= DataStroringFailed;
+                    API.LocalUsers.UserProfileStored -= LocalDataStoredCallback;
+                    API.LocalUsers.UserProfileNotStored -= LocalDataStroringFailed;
 
                     Logon();
                 }
@@ -207,13 +211,13 @@ namespace AuthorityController.Queries
 
 
             // Callback that would be processed in case of fail of data storing.
-            void DataStroringFailed(User target, string operationError)
+            void LocalDataStroringFailed(User target, string operationError)
             {
                 if (target.id == userProfile.id)
                 {
                     // Unsubscribe.
-                    API.LocalUsers.UserProfileStored -= DataStoredCallback;
-                    API.LocalUsers.UserProfileNotStored -= DataStroringFailed;
+                    API.LocalUsers.UserProfileStored -= LocalDataStoredCallback;
+                    API.LocalUsers.UserProfileNotStored -= LocalDataStroringFailed;
 
                     // Send answer with operation's error.
                     UniformServer.BaseServer.SendAnswerViaPP(
@@ -223,7 +227,25 @@ namespace AuthorityController.Queries
             }
             #endregion
 
-            #region Localc methods
+            #region SQL server callbacks 
+            // Looking for user on SQL server if connected.
+            void SQLErrorListener(object sender, string message)
+            {
+                // Drop if not target user.
+                if (!userProfile.Equals(sender))
+                {
+                    return;
+                }
+
+                // Unsubscribe.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
+
+                // Inform that user not found.
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, queryParts);
+            }
+            #endregion
+
+            #region Local methods
             // Request logon with current input data.
             void Logon()
             {

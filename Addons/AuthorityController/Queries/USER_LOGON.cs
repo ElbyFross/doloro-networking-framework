@@ -48,6 +48,9 @@ namespace AuthorityController.Queries
 
         public void Execute(QueryPart[] queryParts)
         {
+            bool dataOperationFailed = false;
+
+            #region Input data
             // Get params.
             UniformQueries.API.TryGetParamValue("login", out QueryPart login, queryParts);
             UniformQueries.API.TryGetParamValue("password", out QueryPart password, queryParts);
@@ -55,11 +58,58 @@ namespace AuthorityController.Queries
             UniformQueries.API.TryGetParamValue("mac", out QueryPart mac, queryParts);
             UniformQueries.API.TryGetParamValue("stamp", out QueryPart timeStamp, queryParts);
 
-            // Find user.
-            if(!API.LocalUsers.TryToFindUser(login.propertyValue, out User user))
+            // Create user instance of requested type.
+            User user = (User)Activator.CreateInstance(User.GlobalType);
+            user.login = login.propertyValue;
+            #endregion
+
+            Task asyncDataOperator = null;                       
+            // Get data from SQL server if connected.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
             {
-                // Inform that user not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", queryParts);
+                #region SQL server                
+                // Subscribe on errors.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
+
+                // Request data.
+                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
+                    User.GlobalType, 
+                    Session.Current.TerminationToken,
+                    user, 
+                    new string[0],
+                    new string[] { "login" });
+                #endregion
+            }
+            // Looking for user in local storage.
+            else
+            {
+                #region Local storage
+                // Find user.
+                if (!API.LocalUsers.TryToFindUser(login.propertyValue, out user))
+                {
+                    // Inform that user not found.
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", queryParts);
+                    return;
+                }
+                #endregion
+            }
+
+            // If async operation started.
+            if (asyncDataOperator != null)
+            {
+                // Wait until finishing.
+                while (!asyncDataOperator.IsCompleted || !asyncDataOperator.IsCanceled)
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Unsubscribe from errors listening.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+            }
+
+            // DSrop if async operation failed.
+            if(dataOperationFailed)
+            {
                 return;
             }
 
@@ -117,6 +167,24 @@ namespace AuthorityController.Queries
             // Send token to client.
             UniformServer.BaseServer.SendAnswerViaPP(query, queryParts);
             #endregion
+
+            #region SQL server callbacks
+            // Looking for user on SQL server if connected.
+            void ErrorListener(object sender, string message)
+            {
+                // Drop if not target user.
+                if (!user.Equals(sender))
+                {
+                    return;
+                }
+
+                // Unsubscribe.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+
+                // Inform that user not found.
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, queryParts);
+            }
+            #endregion 
         }
 
         public bool IsTarget(QueryPart[] queryParts)

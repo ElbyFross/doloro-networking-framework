@@ -36,10 +36,10 @@ namespace ACTests.Tests
         /// </summary>
         /// <param name="banInfoXML"></param>
         /// <param name="expiryTime"></param>
-        public static void GetBanInfo(out string banInfoXML, out long expiryTime)
+        public static void GetBanInfo(out string banInfoXML, out DateTime expiryTime)
         {
             // Time when ban will expire.
-            expiryTime = DateTime.Now.AddMilliseconds(500).ToBinary();
+            expiryTime = DateTime.Now.AddMilliseconds(500);
 
             // Create ban information.
             BanInformation banInfo = new BanInformation()
@@ -312,7 +312,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 //Get ban info
-                GetBanInfo(out string banInfoXML, out long expiryTime);
+                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
@@ -393,7 +393,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 //Get ban info
-                GetBanInfo(out string banInfoXML, out long expiryTime);
+                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
 
                 // Create the query that would contain user data.
                 QueryPart[] query = new QueryPart[]
@@ -476,7 +476,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 //Get ban info
-                GetBanInfo(out string banInfoXML, out long expiryTime);
+                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
 
                 #region Ban apply
                 // Create the query that would contain user data.
@@ -549,10 +549,10 @@ namespace ACTests.Tests
                 }
 
                 // Increase ban time if expired before test passing.
-                if (DateTime.Compare(DateTime.FromBinary(expiryTime), DateTime.Now) < 0)
+                if (DateTime.Compare(expiryTime, DateTime.Now) < 0)
                 {
                     BanInformation bib = bannedUser.bans[0];
-                    bib.expiryTime = expiryTime = DateTime.Now.AddSeconds(1).ToBinary();
+                    bib.expiryTime = expiryTime = DateTime.Now.AddSeconds(1);
                     bannedUser.bans[0] = bib;
                 }
 
@@ -564,7 +564,7 @@ namespace ACTests.Tests
                 }
 
                 // Wait until epiry time.
-                while(DateTime.Compare(DateTime.FromBinary(expiryTime), DateTime.Now) > 0)
+                while(DateTime.Compare(expiryTime, DateTime.Now) > 0)
                 {
                     Thread.Sleep(5);
                 }
