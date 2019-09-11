@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UniformDataOperator.Sql.Tables.Attributes;
+using UniformDataOperator.Sql.Attributes;
 using UniformDataOperator.Sql.MySql.Attributes;
 using System.Xml.Serialization;
 
@@ -64,16 +64,23 @@ namespace AuthorityController.Data.Personal
         public int id = -1;
 
         /// <summary>
-        /// If of user that reived that ban.
-        /// </summary>
-        [Column("user_userid", System.Data.DbType.Int32), IsNotNull, IsForeignKey("DNFAuthControl", "user", "userid")]
-        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.Int32, "INT")]
-        public int userId = -1;
+        /// Id of banned user.
+        /// </summary> 
+        [Column("user_userid", System.Data.DbType.UInt32), IsNotNull, IsForeignKey("DNFAuthControl", "user", "userid")]
+        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.UInt32, "INT")]
+        public uint userId = 0;
 
         /// <summary>
-        /// Marker that make
+        /// Id of user who signed ban.
+        /// </summary> 
+        [Column("user_bannedbyid", System.Data.DbType.UInt32), IsNotNull, IsForeignKey("DNFAuthControl", "user", "userid")]
+        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.UInt32, "INT")]
+        public uint bannedByUserId = 0;
+
+        /// <summary>
+        /// If ban is active?
         /// </summary>
-        [Column("acive", System.Data.DbType.Boolean)]
+        [Column("active", System.Data.DbType.Boolean)]
         [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.Bit, "TINYINT(1)")]
         public bool active;
 
@@ -218,12 +225,19 @@ namespace AuthorityController.Data.Personal
         /// <summary>
         /// Recieving data from connected SQL server based on user profile meta.
         /// </summary>
-        /// <param name="user">Profile that contain core meta like id, login, etc.</param>
+        /// <param name="user">Profile that contains core meta like id, login, etc.</param>
+        /// <param name="callback">Delegate that would be called after finishing of operation. 
+        /// Return ban information. Null if not exist or failed.</param>
         /// <returns></returns>
         public static async Task RecieveServerDataAsync(User user, System.Action<BanInformation> callback)
         {
+            bool failed = false;
+
             // Init new ben info. 
-            BanInformation banInformation = new BanInformation();
+            BanInformation banInformation = new BanInformation()
+            {
+                userId = user.id // Set user's id to field for useing as where param.
+            };
 
             // Subscribe on sql error events.
             UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += SQLErrorListener;
@@ -239,7 +253,10 @@ namespace AuthorityController.Data.Personal
                     "user_userid"
                 });
 
+            // Inform about finishing of operation.
+            callback?.Invoke(failed ? null : banInformation);
 
+            // Callback the will has been calling in case is error occured.
             void SQLErrorListener(object sender, string message)
             {
                 // Is event target.
@@ -247,6 +264,9 @@ namespace AuthorityController.Data.Personal
                 {
                     return;
                 }
+
+                // Mark operation as failed.
+                failed = true;
 
                 // Unsubscribe from event.
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;

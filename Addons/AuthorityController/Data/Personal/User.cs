@@ -16,7 +16,7 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using AuthorityController.Data.Application;
-using UniformDataOperator.Sql.Tables.Attributes;
+using UniformDataOperator.Sql.Attributes;
 using UniformDataOperator.Sql.MySql.Attributes;
 using MySql.Data.MySqlClient;
 
