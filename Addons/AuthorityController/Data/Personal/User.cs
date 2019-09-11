@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Xml.Serialization;
 using System.Data;
 using System.Collections.Generic;
 using AuthorityController.Data.Application;
@@ -70,21 +71,34 @@ namespace AuthorityController.Data.Personal
         [Column("lastname", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string lastName;
+        
+        /// <summary>
+        /// Array of rigts' codes provided to this user.
+        /// </summary>
+        public string[] rights = new string[0];
+        
+        /// <summary>
+        /// List of bans that would received by user.
+        /// </summary>
+        public List<BanInformation> bans = new List<BanInformation>();
+        #endregion
 
+        #region Session-time fields
         /// <summary>
         /// Rights array as formated string.
         /// Compatible with UDO.
         /// </summary>
         [Column("rights", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(1000)")]
+        [XmlIgnore]
         public string RightsStringFormat
         {
             get
             {
                 string result = "";
-                foreach(string s in rights)
+                foreach (string s in rights)
                 {
-                    if(string.IsNullOrEmpty(result))
+                    if (string.IsNullOrEmpty(result))
                     {
                         result += "+";
                     }
@@ -99,21 +113,9 @@ namespace AuthorityController.Data.Personal
         }
 
         /// <summary>
-        /// Array of rigts' codes provided to this user.
-        /// </summary>
-        public string[] rights = new string[0];
-        
-        /// <summary>
-        /// List of bans that would received by user.
-        /// </summary>
-        public List<BanInformation> bans = new List<BanInformation>();
-        #endregion
-
-        #region Session-time fields
-        /// <summary>
         /// List that cont tokens provided to this user.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public List<string> tokens = new List<string>();
         #endregion
 
