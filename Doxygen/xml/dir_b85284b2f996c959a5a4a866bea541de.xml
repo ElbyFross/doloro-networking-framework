@@ -3,8 +3,8 @@
   <compounddef id="dir_b85284b2f996c959a5a4a866bea541de" kind="dir">
     <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API</compoundname>
     <innerfile refid="d1/d7c/_collections_8cs">Collections.cs</innerfile>
-    <innerfile refid="dd/d04/_tokens_8cs">Tokens.cs</innerfile>
-    <innerfile refid="d6/d42/_addons_2_authority_controller_2_a_p_i_2_users_8cs">Users.cs</innerfile>
+    <innerfile refid="dd/df2/_local_users_8cs">LocalUsers.cs</innerfile>
+    <innerfile refid="da/d6f/_addons_2_authority_controller_2_a_p_i_2_tokens_8cs">Tokens.cs</innerfile>
     <innerfile refid="d3/d75/_validation_8cs">Validation.cs</innerfile>
     <briefdescription>
     </briefdescription>

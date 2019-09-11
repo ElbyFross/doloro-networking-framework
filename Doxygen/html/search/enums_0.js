@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['securitylevel',['SecurityLevel',['../da/d2f/namespace_pipes_provider_1_1_security.html#a1a6020eca1c661a6f7140e8260502d7e',1,'PipesProvider::Security']]],
-  ['shatypes',['SHATypes',['../d6/d06/class_pipes_provider_1_1_security_1_1_crypto.html#a6956e9aac98864917946b750dee3596e',1,'PipesProvider::Security::Crypto']]]
+  ['duration',['Duration',['../d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information.html#a127a28a1db99b43e2540f18949921a7d',1,'AuthorityController::Data::Personal::BanInformation']]]
 ];

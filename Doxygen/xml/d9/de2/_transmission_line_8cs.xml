@@ -4,7 +4,6 @@
     <compoundname>TransmissionLine.cs</compoundname>
     <innerclass refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" prot="public">PipesProvider::Client::TransmissionLine</innerclass>
     <innernamespace refid="d1/dc6/namespace_pipes_provider_1_1_client">PipesProvider::Client</innernamespace>
-    <innernamespace refid="df/d54/namespace_microsoft_1_1_win32_1_1_safe_handles">Microsoft::Win32::SafeHandles</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

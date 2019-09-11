@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['processingfinished',['ProcessingFinished',['../df/d1f/class_uniform_queries_1_1_query_processor.html#a6892127a6d09754370570c124a2a5452',1,'UniformQueries::QueryProcessor']]]
+  ['processingfinished',['ProcessingFinished',['../dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor.html#a87f6d66a2f0bdd9ff0c0a3e66e716efe',1,'UniformQueries::Executable::QueryProcessor']]]
 ];

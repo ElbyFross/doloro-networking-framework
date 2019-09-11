@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.0.2</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -89,7 +89,6 @@ $(document).ready(function(){initNavTree('d7/daa/class_authority_controller_1_1_
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
 <a href="../../d4/d3b/class_authority_controller_1_1_a_p_i_1_1_tokens-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AuthorityController.API.Tokens Class Reference</div>  </div>
@@ -98,28 +97,57 @@ $(document).ready(function(){initNavTree('d7/daa/class_authority_controller_1_1_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acbc5a5df26ae29633d4424873676ece3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#acbc5a5df26ae29633d4424873676ece3">IsExpired</a> (string token)</td></tr>
-<tr class="memdesc:acbc5a5df26ae29633d4424873676ece3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if token expired based on encoded token data. Use it on <a class="el" href="../../dd/d74/namespace_authority_controller_1_1_queries.html">Queries</a> Server to avoid additive time spending on data servers and unnecessary connections.  <a href="#acbc5a5df26ae29633d4424873676ece3">More...</a><br /></td></tr>
-<tr class="separator:acbc5a5df26ae29633d4424873676ece3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3077a786044bdd530ad50dbd615f8beb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#a3077a786044bdd530ad50dbd615f8beb">IsHasEnoughRigths</a> (string token, out string[] requesterRights, out string error, params string[] requiredRights)</td></tr>
 <tr class="memdesc:a3077a786044bdd530ad50dbd615f8beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check does this token has all requested rights. If token is not registred on this server then will throw UnauthorizedAccessException.  <a href="#a3077a786044bdd530ad50dbd615f8beb">More...</a><br /></td></tr>
 <tr class="separator:a3077a786044bdd530ad50dbd615f8beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1d580a971a86c8e5b3c7c189aa65381"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#ab1d580a971a86c8e5b3c7c189aa65381">IsHasEnoughRigths</a> (string token, out string[] requesterRights, params string[] requiredRights)</td></tr>
 <tr class="memdesc:ab1d580a971a86c8e5b3c7c189aa65381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check does this token has all requested rights. If token is not registred on this server then will throw UnauthorizedAccessException.  <a href="#ab1d580a971a86c8e5b3c7c189aa65381">More...</a><br /></td></tr>
 <tr class="separator:ab1d580a971a86c8e5b3c7c189aa65381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b153378b97af2634e8dab9ff1fa48a5"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#a8b153378b97af2634e8dab9ff1fa48a5">AuthorizeNewGuestToken</a> (<a class="el" href="../../db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller.html">PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</a> _)</td></tr>
+<tr class="memdesc:a8b153378b97af2634e8dab9ff1fa48a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authorizing new token with guest's rights, and return information in query format.  <a href="#a8b153378b97af2634e8dab9ff1fa48a5">More...</a><br /></td></tr>
+<tr class="separator:a8b153378b97af2634e8dab9ff1fa48a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ba1c2d69ffbc73d78b7b16735f7fb5a"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#a0ba1c2d69ffbc73d78b7b16735f7fb5a">AuthorizeNewGuestToken</a> ()</td></tr>
 <tr class="memdesc:a0ba1c2d69ffbc73d78b7b16735f7fb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authorizing new token with guest's rights, and return information in query format.  <a href="#a0ba1c2d69ffbc73d78b7b16735f7fb5a">More...</a><br /></td></tr>
 <tr class="separator:a0ba1c2d69ffbc73d78b7b16735f7fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a43a1d7e3b2fa6ed94a20dc7b1e36b27a"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html#a43a1d7e3b2fa6ed94a20dc7b1e36b27a">UnusedToken</a><code> [get]</code></td></tr>
-<tr class="memdesc:a43a1d7e3b2fa6ed94a20dc7b1e36b27a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return free token.  <a href="#a43a1d7e3b2fa6ed94a20dc7b1e36b27a">More...</a><br /></td></tr>
-<tr class="separator:a43a1d7e3b2fa6ed94a20dc7b1e36b27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8b153378b97af2634e8dab9ff1fa48a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b153378b97af2634e8dab9ff1fa48a5">&#9670;&nbsp;</a></span>AuthorizeNewGuestToken() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static string AuthorityController.API.Tokens.AuthorizeNewGuestToken </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller.html">PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</a>&#160;</td>
+          <td class="paramname"><em>_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Authorizing new token with guest's rights, and return information in query format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_</td><td>Droped param not relative to this broadcasting.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Token that can be used by client in queries.</dd></dl>
+
+</div>
+</div>
 <a id="a0ba1c2d69ffbc73d78b7b16735f7fb5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ba1c2d69ffbc73d78b7b16735f7fb5a">&#9670;&nbsp;</a></span>AuthorizeNewGuestToken()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ba1c2d69ffbc73d78b7b16735f7fb5a">&#9670;&nbsp;</a></span>AuthorizeNewGuestToken() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,42 +171,6 @@ Properties</h2></td></tr>
 
 <p>Authorizing new token with guest's rights, and return information in query format. </p>
 <dl class="section return"><dt>Returns</dt><dd>Token that can be used by client in queries.</dd></dl>
-
-</div>
-</div>
-<a id="acbc5a5df26ae29633d4424873676ece3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbc5a5df26ae29633d4424873676ece3">&#9670;&nbsp;</a></span>IsExpired()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool AuthorityController.API.Tokens.IsExpired </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>token</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if token expired based on encoded token data. Use it on <a class="el" href="../../dd/d74/namespace_authority_controller_1_1_queries.html">Queries</a> Server to avoid additive time spending on data servers and unnecessary connections. </p>
-<p>If token have hacked allocate date this just will lead to passing of this check. Server wouldn't has has token so sequrity will not be passed. Also server will control expire time by him self. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">token</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -292,31 +284,6 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="a43a1d7e3b2fa6ed94a20dc7b1e36b27a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43a1d7e3b2fa6ed94a20dc7b1e36b27a">&#9670;&nbsp;</a></span>UnusedToken</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string AuthorityController.API.Tokens.UnusedToken</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return free token. </p>
 
 </div>
 </div>

@@ -357,17 +357,17 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="64">
+      <node id="67">
         <label>AuthorityController.Data.Application.SaltContainer</label>
         <link refid="d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container"/>
       </node>
-      <node id="63">
+      <node id="66">
         <label>AuthorityController.Data.Application.Config</label>
         <link refid="d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config"/>
-        <childnode refid="64" relation="usage">
+        <childnode refid="67" relation="usage">
           <edgelabel>salt</edgelabel>
         </childnode>
-        <childnode refid="63" relation="usage">
+        <childnode refid="66" relation="usage">
           <edgelabel>active</edgelabel>
         </childnode>
       </node>

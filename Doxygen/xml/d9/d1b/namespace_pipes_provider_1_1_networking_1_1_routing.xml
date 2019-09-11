@@ -4,11 +4,13 @@
     <compoundname>PipesProvider::Networking::Routing</compoundname>
     <innerclass refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction" prot="public">PipesProvider::Networking::Routing::AuthorizedInstruction</innerclass>
     <innerclass refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" prot="public">PipesProvider::Networking::Routing::Instruction</innerclass>
+    <innerclass refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction" prot="public">PipesProvider::Networking::Routing::PartialAuthorizedInstruction</innerclass>
+    <innerclass refid="de/d56/class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction" prot="public">PipesProvider::Networking::Routing::RelayInstruction</innerclass>
     <innerclass refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" prot="public">PipesProvider::Networking::Routing::RoutingTable</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="24" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="26" column="1"/>
   </compounddef>
 </doxygen>

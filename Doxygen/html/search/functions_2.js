@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['clearusersloadeddata',['ClearUsersLoadedData',['../da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#a4c078940968eaa39c6d9eff30f1f90dc',1,'AuthorityController::API::Users']]],
+  ['clearusersloadeddata',['ClearUsersLoadedData',['../dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users.html#a38dbb5226a8c8fb138f6ecb590713d75',1,'AuthorityController::API::LocalUsers']]],
   ['clientloop',['ClientLoop',['../d9/d01/class_pipes_provider_1_1_client_1_1_client_a_p_i.html#a5faffad05ab5adb19a5691d41767ed4a',1,'PipesProvider::Client::ClientAPI']]],
   ['clienttoserverasync',['ClientToServerAsync',['../d4/d27/class_pipes_provider_1_1_handlers_1_1_d_n_s.html#a974e13bf084c0284e4cfe5fecdeb99f7',1,'PipesProvider::Handlers::DNS']]],
   ['close',['Close',['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#a5d921e9d7b0dfb366d79c6397bec9179',1,'PipesProvider::Client::TransmissionLine']]],

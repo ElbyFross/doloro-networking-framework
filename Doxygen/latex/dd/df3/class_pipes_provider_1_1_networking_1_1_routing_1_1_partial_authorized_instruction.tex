@@ -1,0 +1,122 @@
+\hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}{}\section{Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction Class Reference}
+\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}\index{Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction@{Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction}}
+
+
+Provide data and A\+PI required for connections that require partical authorization rights on server.  
+
+
+Inheritance diagram for Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_ac84ced39a0d2a20639a82596ef34a093}{Try\+To\+Get\+Guest\+Token\+Async}} (System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}{Partial\+Authorized\+Instruction}} $>$ callback, Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Tring to recive partial authorized token from target server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a3ac0a0b15a47f6cfbf26bd0dbabc9b97}{Try\+To\+Get\+Guest\+Token}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Tring to recive partial authorized token from target server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_abda0735bb8ca245802008413dd50c863}{guest\+Chanel}} = \char`\"{}guests\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of the broadcasting pipe that providing guest tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_aef955c1b8751ba406a3b55a7155979c0}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_aef955c1b8751ba406a3b55a7155979c0}} 
+\mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} {\bfseries \+\_\+\+Guest\+Token\+Handler}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a0818427091144916faf74dab51ac1ba8}{Guest\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return token authorized on target server as guest. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a2449d0415992bc75cc854859cda8b0bf}{Guest\+Token\+Handler}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Handler that take full control on reciving of guest token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provide data and A\+PI required for connections that require partical authorization rights on server. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a3ac0a0b15a47f6cfbf26bd0dbabc9b97}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a3ac0a0b15a47f6cfbf26bd0dbabc9b97}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}!Try\+To\+Get\+Guest\+Token@{Try\+To\+Get\+Guest\+Token}}
+\index{Try\+To\+Get\+Guest\+Token@{Try\+To\+Get\+Guest\+Token}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{Try\+To\+Get\+Guest\+Token()}{TryToGetGuestToken()}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction.\+Try\+To\+Get\+Guest\+Token (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token }\end{DoxyParamCaption})}
+
+
+
+Tring to recive partial authorized token from target server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & Token that can be used to termination of the logon process.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_ac84ced39a0d2a20639a82596ef34a093}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_ac84ced39a0d2a20639a82596ef34a093}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}!Try\+To\+Get\+Guest\+Token\+Async@{Try\+To\+Get\+Guest\+Token\+Async}}
+\index{Try\+To\+Get\+Guest\+Token\+Async@{Try\+To\+Get\+Guest\+Token\+Async}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{Try\+To\+Get\+Guest\+Token\+Async()}{TryToGetGuestTokenAsync()}}
+{\footnotesize\ttfamily async void Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction.\+Try\+To\+Get\+Guest\+Token\+Async (\begin{DoxyParamCaption}\item[{System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}{Partial\+Authorized\+Instruction}} $>$}]{callback,  }\item[{Cancellation\+Token}]{cancellation\+Token }\end{DoxyParamCaption})}
+
+
+
+Tring to recive partial authorized token from target server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Delegate that will be called when guest token reciving operation would be finished.\\
+\hline
+{\em cancellation\+Token} & Using this token you can terminate task.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_abda0735bb8ca245802008413dd50c863}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_abda0735bb8ca245802008413dd50c863}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}!guest\+Chanel@{guest\+Chanel}}
+\index{guest\+Chanel@{guest\+Chanel}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{guest\+Chanel}{guestChanel}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction.\+guest\+Chanel = \char`\"{}guests\char`\"{}}
+
+
+
+Name of the broadcasting pipe that providing guest tokens. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a0818427091144916faf74dab51ac1ba8}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a0818427091144916faf74dab51ac1ba8}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}!Guest\+Token@{Guest\+Token}}
+\index{Guest\+Token@{Guest\+Token}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{Guest\+Token}{GuestToken}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction.\+Guest\+Token\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Return token authorized on target server as guest. 
+
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a2449d0415992bc75cc854859cda8b0bf}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_a2449d0415992bc75cc854859cda8b0bf}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}!Guest\+Token\+Handler@{Guest\+Token\+Handler}}
+\index{Guest\+Token\+Handler@{Guest\+Token\+Handler}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Partial\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{Guest\+Token\+Handler}{GuestTokenHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction.\+Guest\+Token\+Handler\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Handler that take full control on reciving of guest token. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+D\+N\+F\+Core/\+Uniform\+Client/\+Extensions/\+Pipes\+Provider/Partial\+Authorized\+Instruction.\+cs\end{DoxyCompactItemize}

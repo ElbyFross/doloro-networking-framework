@@ -8,7 +8,7 @@ Provide data and A\+PI required for connections that require authorization as Au
 Inheritance diagram for Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction}
+\includegraphics[height=3.000000cm]{df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -17,6 +17,8 @@ Inheritance diagram for Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Ins
 async void \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a20e94ddf386abb937f4c725a094dc050}{Try\+To\+Logon\+Async}} (System.\+Action$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction}{Authorized\+Instruction}} $>$ callback, Cancellation\+Token cancellation\+Token)
 \begin{DoxyCompactList}\small\item\em Tring to recive token authorized in authority controller of target server. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_addf69c3fea172cc9d8199097466a052f}{Try\+To\+Logon}} ()
+\begin{DoxyCompactList}\small\item\em Tring to recive token authorized in authority controller of target server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a067f546d69e4766868c1e28feef51acf}{Try\+To\+Logon}} (Cancellation\+Token cancellation\+Token)
 \begin{DoxyCompactList}\small\item\em Tring to recive token authorized in authority controller of target server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -24,29 +26,20 @@ bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_author
 string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_aabef40719c548a28cd3517516be58ded}{auth\+Login}}
 \begin{DoxyCompactList}\small\item\em Login for user authentification in \mbox{\hyperlink{namespace_authority_controller}{Authority\+Controller}} on instruction\textquotesingle{}s target server. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_aef611c3d3856d276dce814d7f4aaaee2}{auth\+Password}}
-\begin{DoxyCompactList}\small\item\em Password for user authentification in \mbox{\hyperlink{namespace_authority_controller}{Authority\+Controller}} on instruction\textquotesingle{}s target server. \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a45172a0762b6627107f67e4e7db61780}{guest\+Chanel}} = \char`\"{}guests\char`\"{}
-\begin{DoxyCompactList}\small\item\em Name of the broadcasting pipe that providing guest tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Password for user authentification in \mbox{\hyperlink{namespace_authority_controller}{Authority\+Controller}} on instruction\textquotesingle{}s target server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_ad4c378226e015ebdcd8390dd63d54669}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_ad4c378226e015ebdcd8390dd63d54669}} 
+\mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}{U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}} {\bfseries \+\_\+\+Logon\+Handler}
+\end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a0f856748d300d23a203b5e289007d6fd}{Authorized\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Return token authorized on target server by using provided data. \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a5bc07dddc515afbe5dc2dcd64c8314ee}{Guest\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Return token authorized on target server as guest. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}{U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a9f1721ee3d1fbb3803b77a991f5e1a03}{Logon\+Handler}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Handler that take full control on logon process. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a69c5e303ece339342c6979ba11436d82}{Guest\+Token\+Handler}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Handler that take full control on reciving of guest token. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_ad4c378226e015ebdcd8390dd63d54669}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_ad4c378226e015ebdcd8390dd63d54669}} 
-\mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}{U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}} {\bfseries \+\_\+\+Logon\+Handler}
-\item 
-\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a981488184cffd1c3f4e91e35bda055ba}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a981488184cffd1c3f4e91e35bda055ba}} 
-\mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} {\bfseries \+\_\+\+Guest\+Token\+Handler}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handler that take full control on logon process. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -58,13 +51,31 @@ Provide data and A\+PI required for connections that require authorization as Au
 \mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_addf69c3fea172cc9d8199097466a052f}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_addf69c3fea172cc9d8199097466a052f}} 
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Try\+To\+Logon@{Try\+To\+Logon}}
 \index{Try\+To\+Logon@{Try\+To\+Logon}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
-\subsubsection{\texorpdfstring{Try\+To\+Logon()}{TryToLogon()}}
+\subsubsection{\texorpdfstring{Try\+To\+Logon()}{TryToLogon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Try\+To\+Logon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Tring to recive token authorized in authority controller of target server. 
 
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a067f546d69e4766868c1e28feef51acf}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a067f546d69e4766868c1e28feef51acf}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Try\+To\+Logon@{Try\+To\+Logon}}
+\index{Try\+To\+Logon@{Try\+To\+Logon}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
+\subsubsection{\texorpdfstring{Try\+To\+Logon()}{TryToLogon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Try\+To\+Logon (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token }\end{DoxyParamCaption})}
+
+
+
+Tring to recive token authorized in authority controller of target server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & Token that can be used to termination of the logon process.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a20e94ddf386abb937f4c725a094dc050}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a20e94ddf386abb937f4c725a094dc050}} 
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Try\+To\+Logon\+Async@{Try\+To\+Logon\+Async}}
 \index{Try\+To\+Logon\+Async@{Try\+To\+Logon\+Async}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
@@ -105,16 +116,6 @@ Login for user authentification in \mbox{\hyperlink{namespace_authority_controll
 
 Password for user authentification in \mbox{\hyperlink{namespace_authority_controller}{Authority\+Controller}} on instruction\textquotesingle{}s target server. 
 
-\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a45172a0762b6627107f67e4e7db61780}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a45172a0762b6627107f67e4e7db61780}} 
-\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!guest\+Chanel@{guest\+Chanel}}
-\index{guest\+Chanel@{guest\+Chanel}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
-\subsubsection{\texorpdfstring{guest\+Chanel}{guestChanel}}
-{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+guest\+Chanel = \char`\"{}guests\char`\"{}}
-
-
-
-Name of the broadcasting pipe that providing guest tokens. 
-
 
 
 \subsection{Property Documentation}
@@ -128,31 +129,11 @@ Name of the broadcasting pipe that providing guest tokens.
 
 Return token authorized on target server by using provided data. 
 
-\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a5bc07dddc515afbe5dc2dcd64c8314ee}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a5bc07dddc515afbe5dc2dcd64c8314ee}} 
-\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Guest\+Token@{Guest\+Token}}
-\index{Guest\+Token@{Guest\+Token}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
-\subsubsection{\texorpdfstring{Guest\+Token}{GuestToken}}
-{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Guest\+Token\hspace{0.3cm}{\ttfamily [get]}}
-
-
-
-Return token authorized on target server as guest. 
-
-\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a69c5e303ece339342c6979ba11436d82}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a69c5e303ece339342c6979ba11436d82}} 
-\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Guest\+Token\+Handler@{Guest\+Token\+Handler}}
-\index{Guest\+Token\+Handler@{Guest\+Token\+Handler}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
-\subsubsection{\texorpdfstring{Guest\+Token\+Handler}{GuestTokenHandler}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}} Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Guest\+Token\+Handler\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
-
-
-
-Handler that take full control on reciving of guest token. 
-
 \mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a9f1721ee3d1fbb3803b77a991f5e1a03}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_a9f1721ee3d1fbb3803b77a991f5e1a03}} 
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}!Logon\+Handler@{Logon\+Handler}}
 \index{Logon\+Handler@{Logon\+Handler}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Authorized\+Instruction}}
 \subsubsection{\texorpdfstring{Logon\+Handler}{LogonHandler}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}{U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}} Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Logon\+Handler\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}{U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}} Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction.\+Logon\+Handler\hspace{0.3cm}{\ttfamily [get]}}
 
 
 

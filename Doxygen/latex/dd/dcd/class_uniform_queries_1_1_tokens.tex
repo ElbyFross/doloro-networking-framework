@@ -1,0 +1,55 @@
+\hypertarget{class_uniform_queries_1_1_tokens}{}\section{Uniform\+Queries.\+Tokens Class Reference}
+\label{class_uniform_queries_1_1_tokens}\index{Uniform\+Queries.\+Tokens@{Uniform\+Queries.\+Tokens}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_uniform_queries_1_1_tokens_a33a0ad42dfa560c4cfaac590a7924bd8}{Is\+Expired}} (string token, Date\+Time expiry\+Time)
+\begin{DoxyCompactList}\small\item\em Check if token expired based on encoded token data. Use it on Queries Server to avoid additive time spending on data servers and unnecessary connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_uniform_queries_1_1_tokens_af591930ab4fa60ebdf27724f84ac7a91}{Unused\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Return free token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_uniform_queries_1_1_tokens_a33a0ad42dfa560c4cfaac590a7924bd8}\label{class_uniform_queries_1_1_tokens_a33a0ad42dfa560c4cfaac590a7924bd8}} 
+\index{Uniform\+Queries\+::\+Tokens@{Uniform\+Queries\+::\+Tokens}!Is\+Expired@{Is\+Expired}}
+\index{Is\+Expired@{Is\+Expired}!Uniform\+Queries\+::\+Tokens@{Uniform\+Queries\+::\+Tokens}}
+\subsubsection{\texorpdfstring{Is\+Expired()}{IsExpired()}}
+{\footnotesize\ttfamily static bool Uniform\+Queries.\+Tokens.\+Is\+Expired (\begin{DoxyParamCaption}\item[{string}]{token,  }\item[{Date\+Time}]{expiry\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check if token expired based on encoded token data. Use it on Queries Server to avoid additive time spending on data servers and unnecessary connections. 
+
+If token have hacked allocate date this just will lead to passing of this check. Server wouldn\textquotesingle{}t has has token so sequrity will not be passed. Also server will control expire time by him self. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & Token in string format.\\
+\hline
+{\em expiry\+Time} & Time when token would expired.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_uniform_queries_1_1_tokens_af591930ab4fa60ebdf27724f84ac7a91}\label{class_uniform_queries_1_1_tokens_af591930ab4fa60ebdf27724f84ac7a91}} 
+\index{Uniform\+Queries\+::\+Tokens@{Uniform\+Queries\+::\+Tokens}!Unused\+Token@{Unused\+Token}}
+\index{Unused\+Token@{Unused\+Token}!Uniform\+Queries\+::\+Tokens@{Uniform\+Queries\+::\+Tokens}}
+\subsubsection{\texorpdfstring{Unused\+Token}{UnusedToken}}
+{\footnotesize\ttfamily string Uniform\+Queries.\+Tokens.\+Unused\+Token\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Return free token. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+Uniform\+Queries/Tokens.\+cs\end{DoxyCompactItemize}

@@ -13,3 +13,4 @@
 **/.vs
 **/TestResults
 **/packages
+Local.cs

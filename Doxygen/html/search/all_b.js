@@ -1,10 +1,12 @@
 var searchData=
 [
+  ['lastname',['lastName',['../df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#ac845744a6958089f44f79f3a1d9341d1',1,'AuthorityController::Data::Personal::User']]],
   ['lastquery',['LastQuery',['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#ac4b9855c5d9aa2a9f6289c2eb43f6996',1,'PipesProvider.Client.TransmissionLine.LastQuery()'],['../da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html#ac58ee721ec6876da25190b15d52530a3',1,'PipesProvider.Client.TransmissionLine.lastQuery()']]],
   ['loadassemblies',['LoadAssemblies',['../d4/deb/class_uniform_client_1_1_base_client.html#a8abbd1d46cc50556eeae8bbd55ce680f',1,'UniformClient.BaseClient.LoadAssemblies()'],['../d7/d32/class_uniform_server_1_1_base_server.html#a22b92ad517cd1003fe4fe3c86d857169',1,'UniformServer.BaseServer.LoadAssemblies()']]],
-  ['loadinglockeddirectories',['LoadingLockedDirectories',['../da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#aed715cb6e26d7333f4ae338413460321',1,'AuthorityController::API::Users']]],
-  ['loadprofilesasync',['LoadProfilesAsync',['../da/d48/class_authority_controller_1_1_a_p_i_1_1_users.html#a5154a7787617e9c51c5519304ec89530',1,'AuthorityController::API::Users']]],
-  ['loadroutingtables',['LoadRoutingTables',['../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a13c2778abb1d14e7e8e4a2ae51d315ac',1,'PipesProvider.Networking.Routing.RoutingTable.LoadRoutingTables()'],['../d4/deb/class_uniform_client_1_1_base_client.html#a5f8f22aa4ab8219fb5f1b6a358f68daf',1,'UniformClient.BaseClient.LoadRoutingTables()']]],
+  ['loadinglockeddirectories',['LoadingLockedDirectories',['../dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users.html#a6d00e6327f737d23cfdfff3f13ecaec3',1,'AuthorityController::API::LocalUsers']]],
+  ['loadprofilesasync',['LoadProfilesAsync',['../dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users.html#a1c037e720aa8b718fa5ceec4d2495f41',1,'AuthorityController::API::LocalUsers']]],
+  ['loadroutingtables',['LoadRoutingTables',['../d4/deb/class_uniform_client_1_1_base_client.html#a5f8f22aa4ab8219fb5f1b6a358f68daf',1,'UniformClient.BaseClient.LoadRoutingTables()'],['../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a13c2778abb1d14e7e8e4a2ae51d315ac',1,'PipesProvider.Networking.Routing.RoutingTable.LoadRoutingTables()']]],
+  ['localusers',['LocalUsers',['../dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users.html',1,'AuthorityController::API']]],
   ['login',['login',['../df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#aa0cd14927a55efeafd187ca681bfd62d',1,'AuthorityController::Data::Personal::User']]],
   ['loginmaxsize',['LoginMaxSize',['../d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html#a0ad628b23000c825b59e4755c10e70fe',1,'AuthorityController::Data::Application::Config']]],
   ['loginminsize',['LoginMinSize',['../d1/daa/class_authority_controller_1_1_data_1_1_application_1_1_config.html#a0cdcdcfb29481fdcd78202203d10d53c',1,'AuthorityController::Data::Application::Config']]],

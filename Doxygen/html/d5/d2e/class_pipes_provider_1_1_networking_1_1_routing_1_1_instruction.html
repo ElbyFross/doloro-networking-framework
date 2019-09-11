@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.0.2</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('d5/d2e/class_pipes_provider_1_1_networ
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="../../d5/d71/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PipesProvider.Networking.Routing.Instruction Class Reference</div>  </div>
@@ -106,7 +107,9 @@ Inheritance diagram for PipesProvider.Networking.Routing.Instruction:</div>
  <div class="center">
   <img src="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.png" usemap="#PipesProvider.Networking.Routing.Instruction_map" alt=""/>
   <map id="PipesProvider.Networking.Routing.Instruction_map" name="PipesProvider.Networking.Routing.Instruction_map">
-<area href="../../df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html" title="Provide data and API required for connections that require authorization as Authority Controller user..." alt="PipesProvider.Networking.Routing.AuthorizedInstruction" shape="rect" coords="0,56,328,80"/>
+<area href="../../dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction.html" title="Provide data and API required for connections that require partical authorization rights on server..." alt="PipesProvider.Networking.Routing.PartialAuthorizedInstruction" shape="rect" coords="0,56,364,80"/>
+<area href="../../de/d56/class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction.html" title="Instruction that allow retranslate broadcasting via servers chain. " alt="PipesProvider.Networking.Routing.RelayInstruction" shape="rect" coords="374,56,738,80"/>
+<area href="../../df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction.html" title="Provide data and API required for connections that require authorization as Authority Controller user..." alt="PipesProvider.Networking.Routing.AuthorizedInstruction" shape="rect" coords="0,112,364,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -121,6 +124,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:afc65118594a1953afeef63ff3d8e4506"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#afc65118594a1953afeef63ff3d8e4506">title</a> = &quot;New instruction&quot;</td></tr>
+<tr class="memdesc:afc65118594a1953afeef63ff3d8e4506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Title of this instruction that can be showed in applications.  <a href="#afc65118594a1953afeef63ff3d8e4506">More...</a><br /></td></tr>
+<tr class="separator:afc65118594a1953afeef63ff3d8e4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9d2229bd3188741d97b334106d1611"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#a5b9d2229bd3188741d97b334106d1611">commentary</a> = &quot;&quot;</td></tr>
+<tr class="memdesc:a5b9d2229bd3188741d97b334106d1611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commentary added to this instruction.  <a href="#a5b9d2229bd3188741d97b334106d1611">More...</a><br /></td></tr>
+<tr class="separator:a5b9d2229bd3188741d97b334106d1611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb75f80ff34fab644305856ccf23d07b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#adb75f80ff34fab644305856ccf23d07b">routingIP</a> = &quot;localhost&quot;</td></tr>
 <tr class="memdesc:adb75f80ff34fab644305856ccf23d07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address that will be ised for routing  <a href="#adb75f80ff34fab644305856ccf23d07b">More...</a><br /></td></tr>
 <tr class="separator:adb75f80ff34fab644305856ccf23d07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,12 +163,21 @@ Properties</h2></td></tr>
 <tr class="memitem:aad2d50b60ddcdd0c7d0671ced01a5480"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#aad2d50b60ddcdd0c7d0671ced01a5480">Empty</a><code> [get]</code></td></tr>
 <tr class="memdesc:aad2d50b60ddcdd0c7d0671ced01a5480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return empty instruction.  <a href="#aad2d50b60ddcdd0c7d0671ced01a5480">More...</a><br /></td></tr>
 <tr class="separator:aad2d50b60ddcdd0c7d0671ced01a5480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe25e78581cc3344b90a710f73a2d1be"><td class="memItemLeft" align="right" valign="top">static Type []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#afe25e78581cc3344b90a710f73a2d1be">DerivedTypes</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:afe25e78581cc3344b90a710f73a2d1be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return array of <a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html">Instruction</a>'s types derived from <a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html">Instruction</a>. If you need to rescan solution then set value to null and call again.  <a href="#afe25e78581cc3344b90a710f73a2d1be">More...</a><br /></td></tr>
+<tr class="separator:afe25e78581cc3344b90a710f73a2d1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:abcd8b85ff0383ecd73b24befa9d69506"><td class="memItemLeft" align="right" valign="top"><a id="abcd8b85ff0383ecd73b24befa9d69506"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_isValid</b> = true</td></tr>
 <tr class="separator:abcd8b85ff0383ecd73b24befa9d69506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:af4402de9adb2ac8dc18bbda83465b749"><td class="memItemLeft" align="right" valign="top">static Type []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html#af4402de9adb2ac8dc18bbda83465b749">_DerivedTypes</a></td></tr>
+<tr class="memdesc:af4402de9adb2ac8dc18bbda83465b749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cashed array with found derived types.  <a href="#af4402de9adb2ac8dc18bbda83465b749">More...</a><br /></td></tr>
+<tr class="separator:af4402de9adb2ac8dc18bbda83465b749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Struct that contain instruction about target adress by relative query params. Allow using of several servers via one public.</p>
@@ -220,6 +238,46 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_isValid</b> = true</
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af4402de9adb2ac8dc18bbda83465b749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4402de9adb2ac8dc18bbda83465b749">&#9670;&nbsp;</a></span>_DerivedTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Type [] PipesProvider.Networking.Routing.Instruction._DerivedTypes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cashed array with found derived types. </p>
+
+</div>
+</div>
+<a id="a5b9d2229bd3188741d97b334106d1611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b9d2229bd3188741d97b334106d1611">&#9670;&nbsp;</a></span>commentary</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PipesProvider.Networking.Routing.Instruction.commentary = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Commentary added to this instruction. </p>
+
+</div>
+</div>
 <a id="a2a3325abd7537b7a961626272634e038"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a3325abd7537b7a961626272634e038">&#9670;&nbsp;</a></span>logonConfig</h2>
 
@@ -304,6 +362,22 @@ targetQueries[1] = "$customProp";           // All queries that have "customProp
 
 </div>
 </div>
+<a id="afc65118594a1953afeef63ff3d8e4506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc65118594a1953afeef63ff3d8e4506">&#9670;&nbsp;</a></span>title</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PipesProvider.Networking.Routing.Instruction.title = &quot;New instruction&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Title of this instruction that can be showed in applications. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Property Documentation</h2>
 <a id="a7b1790dc22b0fd1a11b447e207245e83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b1790dc22b0fd1a11b447e207245e83">&#9670;&nbsp;</a></span>Default</h2>
@@ -326,6 +400,30 @@ targetQueries[1] = "$customProp";           // All queries that have "customProp
 </div><div class="memdoc">
 
 <p>Return default instruction. </p>
+
+</div>
+</div>
+<a id="afe25e78581cc3344b90a710f73a2d1be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe25e78581cc3344b90a710f73a2d1be">&#9670;&nbsp;</a></span>DerivedTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Type [] PipesProvider.Networking.Routing.Instruction.DerivedTypes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return array of <a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html">Instruction</a>'s types derived from <a class="el" href="../../d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction.html">Instruction</a>. If you need to rescan solution then set value to null and call again. </p>
 
 </div>
 </div>

@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dd/d74/namespace_authority_controller_1_1_queries" kind="namespace" language="C#">
     <compoundname>AuthorityController::Queries</compoundname>
-    <innerclass refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n" prot="public">AuthorityController::Queries::GET_GUEST_TOKEN</innerclass>
     <innerclass refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s" prot="public">AuthorityController::Queries::SET_TOKEN_RIGHTS</innerclass>
     <innerclass refid="d3/d4f/class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n" prot="public">AuthorityController::Queries::USER_BAN</innerclass>
     <innerclass refid="db/d2a/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f" prot="public">AuthorityController::Queries::USER_LOGOFF</innerclass>
@@ -13,6 +12,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/GET_GUEST_TOKEN.cs" line="25" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/SET_TOKEN_RIGHTS.cs" line="25" column="1"/>
   </compounddef>
 </doxygen>

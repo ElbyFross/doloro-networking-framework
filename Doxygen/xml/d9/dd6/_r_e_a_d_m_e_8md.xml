@@ -48,7 +48,7 @@
 <codeline><highlight class="normal">Client<sp/>able<sp/>automaticly<sp/>recive<sp/>a<sp/>public<sp/>RSA&apos;s<sp/>key<sp/>from<sp/>server<sp/>and<sp/>encode<sp/>message<sp/>beffore<sp/>transmisssion.<sp/></highlight></codeline>
 <codeline><highlight class="normal">Append<sp/>your<sp/>client&apos;s<sp/>RSA&apos;s<sp/>public<sp/>key<sp/>in<sp/>`pk`<sp/>propery<sp/>in<sp/>query<sp/>and<sp/>server<sp/>would<sp/>auto<sp/>encrypt<sp/>answer.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">Just<sp/>don&apos;t<sp/>forget<sp/>to<sp/>set<sp/>RSAEncryption<sp/>field<sp/>to<sp/>true<sp/>in<sp/>client&apos;s<sp/>`Routing<sp/>table`.</highlight></codeline>
+<codeline><highlight class="normal">Just<sp/>don&apos;t<sp/>forget<sp/>to<sp/>set<sp/>`RSAEncryption`<sp/>field<sp/>to<sp/>`true`<sp/>in<sp/>client&apos;s<sp/>`RoutingTable`&apos;s<sp/>`Instruction`.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Auto<sp/>control<sp/>of<sp/>transmission</highlight></codeline>
 <codeline><highlight class="normal">Built-in<sp/>networking<sp/>handlers<sp/>control<sp/>logic<sp/>loop<sp/>of<sp/>transmission<sp/>without<sp/>your<sp/>involving.</highlight></codeline>

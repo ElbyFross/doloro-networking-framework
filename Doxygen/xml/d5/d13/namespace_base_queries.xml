@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d5/d13/namespace_base_queries" kind="namespace" language="C#">
+    <compoundname>BaseQueries</compoundname>
+    <innerclass refid="d2/da1/class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n" prot="public">BaseQueries::GET_GUEST_TOKEN</innerclass>
+    <innerclass refid="da/d28/class_base_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y" prot="public">BaseQueries::GET_PUBLIC_KEY</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/BaseQueries/GET_GUEST_TOKEN.cs" line="25" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::Data::Personal::BanInformation</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a127a28a1db99b43e2540f18949921a7d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Duration</name>
+        <enumvalue id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a127a28a1db99b43e2540f18949921a7da10d85d7664a911bcaec89732098c269a" prot="public">
+          <name>Temporary</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a127a28a1db99b43e2540f18949921a7da23adaa457573eeb089c33214c90d3013" prot="public">
+          <name>Permanent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Ban&apos;s duration mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="36" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a129ecfe581f8d778a6b71cd13b7e8b77" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref></type>
+        <definition>BanInformation AuthorityController.Data.Personal.BanInformation.Permanent</definition>
+        <argsstring></argsstring>
+        <name>Permanent</name>
+        <briefdescription>
+<para>Return information for permanent ban. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="45" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="46" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="property" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ac4ff6168fd023122851068927068178f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Personal.BanInformation.DurationInt</definition>
+        <argsstring></argsstring>
+        <name>DurationInt</name>
+        <briefdescription>
+<para>Duration in int format that can be stored to the SQL server. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="93" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="94" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="property" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a6bbdcde258fbc08ded3d2c6d022767f7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>byte []</type>
+        <definition>byte [] AuthorityController.Data.Personal.BanInformation.BlockedRightsBlob</definition>
+        <argsstring></argsstring>
+        <name>BlockedRightsBlob</name>
+        <briefdescription>
+<para>Blocked rights array in binnary format. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="132" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="133" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="property" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ad07cbe220f0625c0b22183d764709d74" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Personal.BanInformation.IsExpired</definition>
+        <argsstring></argsstring>
+        <name>IsExpired</name>
+        <briefdescription>
+<para>Check is this ban still actual. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="164" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a723ebbe0f1de9d495ddc1415fbe8d58d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AuthorityController.Data.Personal.BanInformation.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>Unique identifier of this ban. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="64" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a1a674fa4493f3392a4726854e0316607" prot="public" static="no" mutable="no">
+        <type>uint</type>
+        <definition>uint AuthorityController.Data.Personal.BanInformation.userId</definition>
+        <argsstring></argsstring>
+        <name>userId</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Id of banned user. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="71" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1acdff2dd2a45cde1adf6586e631c99916" prot="public" static="no" mutable="no">
+        <type>uint</type>
+        <definition>uint AuthorityController.Data.Personal.BanInformation.bannedByUserId</definition>
+        <argsstring></argsstring>
+        <name>bannedByUserId</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Id of user who signed ban. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="78" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a8aa7fea19a5b2acce008883fcda629b2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.Data.Personal.BanInformation.active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <briefdescription>
+<para>If ban is active? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="85" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a68241c910c08c5659c1fcbc86e9ee8a8" prot="public" static="no" mutable="no">
+        <type><ref refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a127a28a1db99b43e2540f18949921a7d" kindref="member">Duration</ref></type>
+        <definition>Duration AuthorityController.Data.Personal.BanInformation.duration</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <briefdescription>
+<para>Duration mode of this ban. </para>        </briefdescription>
+        <detaileddescription>
+<para>Permanent will no have expiry time. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="110" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ac999bc7a08b0ac597e37898a74c3d79b" prot="public" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime AuthorityController.Data.Personal.BanInformation.expiryTime</definition>
+        <argsstring></argsstring>
+        <name>expiryTime</name>
+        <briefdescription>
+<para>Date Time when this bun will be expired. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="117" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a4b408f380448e918f8915510aaf4c159" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Personal.BanInformation.commentary</definition>
+        <argsstring></argsstring>
+        <name>commentary</name>
+        <briefdescription>
+<para>Resones for ban. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="124" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a3bfad0aa4906e8e60de00e93e4ee52a8" prot="public" static="no" mutable="no">
+        <type>string []</type>
+        <definition>string [] AuthorityController.Data.Personal.BanInformation.blockedRights</definition>
+        <argsstring></argsstring>
+        <name>blockedRights</name>
+        <briefdescription>
+<para>Rights that was blocked for this user. </para>        </briefdescription>
+        <detaileddescription>
+<para>Recommend: logon - block possibility to logon. commenting - block possibility to post commentaries. etc. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="155" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1af71a082c91c5d96b262ccbafe22c821a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.Data.Personal.BanInformation.IsBanned</definition>
+        <argsstring>(User user, string rightCode)</argsstring>
+        <name>IsBanned</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>rightCode</declname>
+        </param>
+        <briefdescription>
+<para>Check permition for action. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target user.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rightCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Code of right that required for action.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="184" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="184" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a70cc71c093fb9f5407b60a88a8361a9b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AuthorityController.Data.Personal.BanInformation.RecieveServerDataAsync</definition>
+        <argsstring>(User user, System.Action&lt; BanInformation &gt; callback)</argsstring>
+        <name>RecieveServerDataAsync</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>System.Action&lt; <ref refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref> &gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Recieving data from connected SQL server based on user profile meta. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Profile that contains core meta like id, login, etc.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delegate that would be called after finishing of operation. Return ban information. Null if not exist or failed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="232" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="232" bodyend="274"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provide information about user bans. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="31" bodyend="276"/>
+    <listofallmembers>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a8aa7fea19a5b2acce008883fcda629b2" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>active</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1acdff2dd2a45cde1adf6586e631c99916" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>bannedByUserId</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a3bfad0aa4906e8e60de00e93e4ee52a8" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>blockedRights</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a6bbdcde258fbc08ded3d2c6d022767f7" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>BlockedRightsBlob</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a4b408f380448e918f8915510aaf4c159" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>commentary</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a68241c910c08c5659c1fcbc86e9ee8a8" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>duration</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a127a28a1db99b43e2540f18949921a7d" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>Duration</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ac4ff6168fd023122851068927068178f" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>DurationInt</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ac999bc7a08b0ac597e37898a74c3d79b" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>expiryTime</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a723ebbe0f1de9d495ddc1415fbe8d58d" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>id</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1af71a082c91c5d96b262ccbafe22c821a" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>IsBanned</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1ad07cbe220f0625c0b22183d764709d74" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>IsExpired</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a129ecfe581f8d778a6b71cd13b7e8b77" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>Permanent</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a70cc71c093fb9f5407b60a88a8361a9b" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>RecieveServerDataAsync</name></member>
+      <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a1a674fa4493f3392a4726854e0316607" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>userId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

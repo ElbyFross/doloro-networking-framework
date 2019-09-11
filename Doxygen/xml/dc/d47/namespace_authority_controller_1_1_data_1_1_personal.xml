@@ -2,12 +2,12 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dc/d47/namespace_authority_controller_1_1_data_1_1_personal" kind="namespace" language="C#">
     <compoundname>AuthorityController::Data::Personal</compoundname>
-    <innerclass refid="d6/d49/struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information" prot="public">AuthorityController::Data::Personal::BanInformation</innerclass>
+    <innerclass refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" prot="public">AuthorityController::Data::Personal::BanInformation</innerclass>
     <innerclass refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" prot="public">AuthorityController::Data::Personal::User</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="22" column="1"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="25" column="1"/>
   </compounddef>
 </doxygen>

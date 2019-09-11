@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_c85570b708c5442e19274704c504f965" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers</compoundname>
+    <innerdir refid="dir_3cc00fea0a0f8fa3ebd8b295a882d1b0">D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider</innerdir>
+    <innerdir refid="dir_5c2aadb62a9ed0ec0f72ec2f2e0e7ce9">D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/Standard</innerdir>
+    <innerfile refid="dd/d0c/_base_server_8cs">BaseServer.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/"/>
+  </compounddef>
+</doxygen>

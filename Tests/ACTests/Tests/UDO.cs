@@ -23,5 +23,69 @@ namespace ACTests.Tests
     [TestClass]
     public class UDO
     {
+        /// <summary>
+        /// Set default UDO settigns relative to that tests.
+        /// </summary>
+        public static void SetDefaults()
+        {
+            // Drop operator.
+            UniformDataOperator.Sql.SqlOperatorHandler.Active =
+                UniformDataOperator.Sql.MySql.MySqlDataOperator.Active;
+
+            UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.UserId = Local.username;
+            UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.Password = Local.password;
+        }
+
+        /// <summary>
+        /// Checking creating new user in database.
+        /// </summary>
+        [TestMethod]
+        public void NewUser()
+        {
+            // Establish operator.
+            SetDefaults();
+
+            // Drop operator.
+            UniformDataOperator.Sql.SqlOperatorHandler.Active = null;
+        }
+
+        /// <summary>
+        /// Ckeckin logon of user storate in database.
+        /// </summary>
+        [TestMethod]
+        public void UserLogon()
+        {
+            // Establish operator.
+            SetDefaults();
+
+            // Drop operator.
+            UniformDataOperator.Sql.SqlOperatorHandler.Active = null;
+        }
+
+        /// <summary>
+        /// Trying to ban user in database.
+        /// </summary>
+        [TestMethod]
+        public void UserBan()
+        {
+            // Establish operator.
+            SetDefaults();
+
+            // Drop operator.
+            UniformDataOperator.Sql.SqlOperatorHandler.Active = null;
+        }
+               
+        /// <summary>
+        /// Trying to change password for user in database.
+        /// </summary>
+        [TestMethod]
+        public void UserSetPassword()
+        {
+            // Establish operator.
+            SetDefaults();
+
+            // Drop operator.
+            UniformDataOperator.Sql.SqlOperatorHandler.Active = null;
+        }
     }
 }

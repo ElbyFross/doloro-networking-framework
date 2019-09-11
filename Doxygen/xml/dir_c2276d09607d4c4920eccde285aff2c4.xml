@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_c2276d09607d4c4920eccde285aff2c4" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Application</compoundname>
+    <innerfile refid="db/d2f/_commands_8cs">Commands.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Application/"/>
+  </compounddef>
+</doxygen>

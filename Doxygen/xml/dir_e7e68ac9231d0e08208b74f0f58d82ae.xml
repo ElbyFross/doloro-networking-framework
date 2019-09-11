@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_e7e68ac9231d0e08208b74f0f58d82ae" kind="dir">
+    <compoundname>D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Executable</compoundname>
+    <innerdir refid="dir_ebd38db2cbe292027e537f358c2d790f">D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Executable/Security</innerdir>
+    <innerfile refid="dc/d30/_i_query_handler_8cs">IQueryHandler.cs</innerfile>
+    <innerfile refid="d9/dee/_query_processor_8cs">QueryProcessor.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformQueries/Executable/"/>
+  </compounddef>
+</doxygen>

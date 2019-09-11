@@ -4,9 +4,9 @@
     <compoundname>AuthorityController::Queries::USER_NEW</compoundname>
     <basecompoundref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" prot="public" virt="non-virtual">UniformQueries.Executable.IQueryHandler</basecompoundref>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1ab0995d0559e0033ea963acaccb6e37bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a16439c165f3ac2ca8b586dd8bfd2bf55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>string</type>
-        <definition>string AuthorityController.Queries.USER_NEW.Description</definition>
+        <definition>virtual string AuthorityController.Queries.USER_NEW.Description</definition>
         <argsstring>(string cultureKey)</argsstring>
         <name>Description</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1ae0e55919571d5456af31298394d241a9">Description</reimplements>
@@ -29,11 +29,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="28" bodyend="39"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="33" bodyend="45"/>
       </memberdef>
-      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1afd715fb3d60e53ca7e3d55a4433f529c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a05ffc1bd68a9d937aee817c05f273005" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>void AuthorityController.Queries.USER_NEW.Execute</definition>
+        <definition>virtual void AuthorityController.Queries.USER_NEW.Execute</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>Execute</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a3268d72c0388f5e3debba4d73bdfe523">Execute</reimplements>
@@ -55,11 +55,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="41" bodyend="237"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="47" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="47" bodyend="278"/>
       </memberdef>
-      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a6e26596b5a5ecc3d07591766b5d325ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a279a4acc2e4cad572f9760e62062d8e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
-        <definition>bool AuthorityController.Queries.USER_NEW.IsTarget</definition>
+        <definition>virtual bool AuthorityController.Queries.USER_NEW.IsTarget</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>IsTarget</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a0f43184bf3e306a7cbebc39098f044ee">IsTarget</reimplements>
@@ -82,42 +82,42 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="239" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="239" bodyend="285"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="280" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="280" bodyend="326"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Create new user. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para>Storing profile in local dile system by default via UsersLocal <ref refid="d0/dac/namespace_authority_controller_1_1_a_p_i" kindref="compound">API</ref>. Storing profile to SQL server in case if <computeroutput>UniformDataOperator.Sql.SqlOperatorHandler.Active</computeroutput> not null. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="202">
+      <node id="230">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="201">
+      <node id="229">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="202" relation="public-inheritance">
+        <childnode refid="230" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="204">
+      <node id="232">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="203">
+      <node id="231">
         <label>AuthorityController.Queries.USER_NEW</label>
         <link refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w"/>
-        <childnode refid="204" relation="public-inheritance">
+        <childnode refid="232" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="26" bodyend="286"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="31" bodyend="327"/>
     <listofallmembers>
-      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1ab0995d0559e0033ea963acaccb6e37bf" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Description</name></member>
-      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1afd715fb3d60e53ca7e3d55a4433f529c" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Execute</name></member>
-      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a6e26596b5a5ecc3d07591766b5d325ec" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>IsTarget</name></member>
+      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a16439c165f3ac2ca8b586dd8bfd2bf55" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Description</name></member>
+      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a05ffc1bd68a9d937aee817c05f273005" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Execute</name></member>
+      <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a279a4acc2e4cad572f9760e62062d8e8" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>IsTarget</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

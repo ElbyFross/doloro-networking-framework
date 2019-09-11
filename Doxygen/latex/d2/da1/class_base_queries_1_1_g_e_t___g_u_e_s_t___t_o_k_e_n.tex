@@ -1,0 +1,124 @@
+\hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n}{}\section{Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN Class Reference}
+\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n}\index{Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}
+
+
+Registrate token with guest rights in the system and return to client.  
+
+
+Inheritance diagram for Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/da1/class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}{Guest\+Token\+Processor}}
+\begin{DoxyCompactList}\small\item\em Handler that provide standartized way to recive guest token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a14602bc19c65ba7d11abf85e5e0f74a6}\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a14602bc19c65ba7d11abf85e5e0f74a6}} 
+delegate string {\bfseries Guest\+Token\+Handler} ()
+\item 
+string \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a06d62fabd5b44fb6b9975da1b72308a2}{Description}} (string culture\+Key)
+\begin{DoxyCompactList}\small\item\em Return the description relative to the lenguage code or default if not found. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_afbad0ace27a743793bccea51a5c39db5}{Execute}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+\begin{DoxyCompactList}\small\item\em Methods that process query. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_adb9e113e010750eeedd261ce6811da1c}{Is\+Target}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+\begin{DoxyCompactList}\small\item\em Check by the entry params does it target Query Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Guest\+Token\+Handler \mbox{\hyperlink{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_abf7dded72bc2a686ab8e179a413efaae}{guest\+Token\+Handler}}
+\begin{DoxyCompactList}\small\item\em Handler that would be userd to generating and authorizing of guest tokens. Return generated token in string format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Registrate token with guest rights in the system and return to client. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a06d62fabd5b44fb6b9975da1b72308a2}\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_a06d62fabd5b44fb6b9975da1b72308a2}} 
+\index{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}!Description@{Description}}
+\index{Description@{Description}!Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}
+\subsubsection{\texorpdfstring{Description()}{Description()}}
+{\footnotesize\ttfamily string Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Description (\begin{DoxyParamCaption}\item[{string}]{culture\+Key }\end{DoxyParamCaption})}
+
+
+
+Return the description relative to the lenguage code or default if not found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em culture\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler_ae0e55919571d5456af31298394d241a9}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}}.
+
+\mbox{\Hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_afbad0ace27a743793bccea51a5c39db5}\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_afbad0ace27a743793bccea51a5c39db5}} 
+\index{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}!Execute@{Execute}}
+\index{Execute@{Execute}!Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}
+\subsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily void Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+
+
+
+Methods that process query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Parts} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler_a3268d72c0388f5e3debba4d73bdfe523}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}}.
+
+\mbox{\Hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_adb9e113e010750eeedd261ce6811da1c}\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_adb9e113e010750eeedd261ce6811da1c}} 
+\index{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}!Is\+Target@{Is\+Target}}
+\index{Is\+Target@{Is\+Target}!Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}
+\subsubsection{\texorpdfstring{Is\+Target()}{IsTarget()}}
+{\footnotesize\ttfamily bool Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Is\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+
+
+
+Check by the entry params does it target Query Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Parts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler_a0f43184bf3e306a7cbebc39098f044ee}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_abf7dded72bc2a686ab8e179a413efaae}\label{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_abf7dded72bc2a686ab8e179a413efaae}} 
+\index{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}!guest\+Token\+Handler@{guest\+Token\+Handler}}
+\index{guest\+Token\+Handler@{guest\+Token\+Handler}!Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN@{Base\+Queries\+::\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}}
+\subsubsection{\texorpdfstring{guest\+Token\+Handler}{guestTokenHandler}}
+{\footnotesize\ttfamily Guest\+Token\+Handler Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+guest\+Token\+Handler\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handler that would be userd to generating and authorizing of guest tokens. Return generated token in string format. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+D\+N\+F\+Core/\+Base\+Queries/G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+cs\end{DoxyCompactItemize}

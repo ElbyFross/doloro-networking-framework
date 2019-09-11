@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.0.2</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -112,6 +112,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a13c2778abb1d14e7e8e4a2ae51d315ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a13c2778abb1d14e7e8e4a2ae51d315ac">LoadRoutingTables</a> (string directory, SearchOption searchOption)</td></tr>
 <tr class="memdesc:a13c2778abb1d14e7e8e4a2ae51d315ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trying to load all routing tables from durectory. You could have several XML serialized routing tables. This way allow to share it via plugins.  <a href="#a13c2778abb1d14e7e8e4a2ae51d315ac">More...</a><br /></td></tr>
 <tr class="separator:a13c2778abb1d14e7e8e4a2ae51d315ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28de144d3afcb29a69cd2a51b2af41a9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a28de144d3afcb29a69cd2a51b2af41a9">SaveRoutingTable</a> (<a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a> table)</td></tr>
+<tr class="memdesc:a28de144d3afcb29a69cd2a51b2af41a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save routing table by default directory app/resources/routing/ROUTING.xml  <a href="#a28de144d3afcb29a69cd2a51b2af41a9">More...</a><br /></td></tr>
+<tr class="separator:a28de144d3afcb29a69cd2a51b2af41a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affae680ffe9710e88416323ef3aa8c0b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#affae680ffe9710e88416323ef3aa8c0b">SaveRoutingTable</a> (<a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a> table, string name)</td></tr>
+<tr class="memdesc:affae680ffe9710e88416323ef3aa8c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save routing table by default directory app/resources/routing  <a href="#affae680ffe9710e88416323ef3aa8c0b">More...</a><br /></td></tr>
+<tr class="separator:affae680ffe9710e88416323ef3aa8c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe9c42819cd5c5210b254c0d868b336"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html#a1fe9c42819cd5c5210b254c0d868b336">SaveRoutingTable</a> (<a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a> table, string directory, string name)</td></tr>
 <tr class="memdesc:a1fe9c42819cd5c5210b254c0d868b336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save routing table by directory.  <a href="#a1fe9c42819cd5c5210b254c0d868b336">More...</a><br /></td></tr>
 <tr class="separator:a1fe9c42819cd5c5210b254c0d868b336"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,8 +232,87 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a28de144d3afcb29a69cd2a51b2af41a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28de144d3afcb29a69cd2a51b2af41a9">&#9670;&nbsp;</a></span>SaveRoutingTable() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PipesProvider.Networking.Routing.RoutingTable.SaveRoutingTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a>&#160;</td>
+          <td class="paramname"><em>table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Save routing table by default directory app/resources/routing/ROUTING.xml </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Source with instructions.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="affae680ffe9710e88416323ef3aa8c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affae680ffe9710e88416323ef3aa8c0b">&#9670;&nbsp;</a></span>SaveRoutingTable() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PipesProvider.Networking.Routing.RoutingTable.SaveRoutingTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table.html">RoutingTable</a>&#160;</td>
+          <td class="paramname"><em>table</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Save routing table by default directory app/resources/routing </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Source with instructions.</td></tr>
+    <tr><td class="paramname">name</td><td>Name of the file.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1fe9c42819cd5c5210b254c0d868b336"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fe9c42819cd5c5210b254c0d868b336">&#9670;&nbsp;</a></span>SaveRoutingTable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe9c42819cd5c5210b254c0d868b336">&#9670;&nbsp;</a></span>SaveRoutingTable() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,7 +354,7 @@ Properties</h2></td></tr>
 <p>Save routing table by directory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>Table object,</td></tr>
+    <tr><td class="paramname">table</td><td>Source with instructions.</td></tr>
     <tr><td class="paramname">directory</td><td>Target directory.</td></tr>
     <tr><td class="paramname">name</td><td>Name of the file.</td></tr>
   </table>

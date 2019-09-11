@@ -129,6 +129,6 @@
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="123"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Application/Commands.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Application/Commands.cs"/>
   </compounddef>
 </doxygen>
