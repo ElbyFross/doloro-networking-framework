@@ -162,12 +162,12 @@ namespace AuthorityController.Queries
                         dbStoredProfile.login = login.propertyValue;
 
                         // Mearker that would contains result of operation.
-                        bool userAlreadyExist = failed;
+                        bool userNotExist = false;
 
                         // Task that would start async waiting for server's answer.
                         Task existingCheckTask = new Task(async delegate ()
                             {
-                                // Calback that would be called if data not found.
+                                // Callback that would be called if data not found.
                                 // If not called then data already exist and operation failed.
                                 void DataNotFound(object sender, string _)
                                 {
@@ -181,7 +181,7 @@ namespace AuthorityController.Queries
                                     UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
 
                                     // Enable marker.
-                                    userAlreadyExist = true;
+                                    userNotExist = true;
                                 }
 
                                 // Subscribe on errors.
@@ -209,7 +209,7 @@ namespace AuthorityController.Queries
                         }
 
                         // Drop if user exist
-                        if (!userAlreadyExist)
+                        if (!userNotExist)
                         {
                             // Inform that user already exist.
                             UniformServer.BaseServer.SendAnswerViaPP(
