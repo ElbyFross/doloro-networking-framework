@@ -21,25 +21,31 @@ using System.Threading.Tasks;
 namespace PipesProvider.Security
 {
     /// <summary>
-    /// Anonymous - not require logon. 
-    /// Require Guest user on server.
-    /// Require allownce to network access via Guest accounts.
-    /// 
-    /// RemoteLogon - Require authentication via one of the profile on server.
-    /// 
-    /// Local - Pipe will be accessed only on the local machine.
-    /// 
-    /// Administrator - access to pipe will provided only for administrators. By default allowed via remote authentication.
-    /// 
-    /// Internal - pipe will controlled only be server application and system.
-    /// Any external coonection will be blocked.
+    /// Define requirement to connection.
     /// </summary>
     public enum SecurityLevel
     {
+        /// <summary>
+        /// Not require logon.
+        /// Require Guest user on server.
+        /// Require allownce to network access via Guest accounts.
+        /// </summary>
         Anonymous = 2,
+        /// <summary>
+        /// Require authentication via one of the profile on server.
+        /// </summary>
         RemoteLogon = 4,
+        /// <summary>
+        /// Pipe will be accessed only on the local machine.
+        /// </summary>
         Local = 8,
+        /// <summary>
+        /// access to pipe will provided only for administrators. By default allowed via remote authentication.
+        /// </summary>
         Administrator = 16,
+        /// <summary>
+        /// pipe will controlled only be server application and system. Any external coonection will be blocked.
+        /// </summary>
         Internal = 32
     }
 }

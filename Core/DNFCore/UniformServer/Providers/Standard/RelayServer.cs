@@ -25,7 +25,9 @@ namespace UniformServer.Standard
     /// </summary>
     public class RelayServer : BaseServer
     {
-        // Init default constructor.
+        /// <summary>
+        /// Instiniate relay server.
+        /// </summary>
         public RelayServer() : base()
         {
 
@@ -35,7 +37,7 @@ namespace UniformServer.Standard
         /// <summary>
         /// Establish server suitable provided instruction that would retranslate broadcasting from target server.
         /// </summary>
-        /// <param name="relayInstruction">Instruction that contain relay params.</param>
+        /// <param name="isntruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
         public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction isntruction)
         {
@@ -88,8 +90,7 @@ namespace UniformServer.Standard
         /// <summary>
         /// Redirect recived query from current server to other.
         /// </summary>
-        /// <param name="_"></param>
-        /// <param name="query"></param>
+        /// <param name="controller">Controller that manage curernt transmission.</param>
         public static string QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
         {
             // Trying to detect relay instruction.

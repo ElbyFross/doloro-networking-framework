@@ -79,7 +79,7 @@ namespace UniformQueries.Executable.Security
         /// <summary>
         /// Handler that would recive server answer.
         /// </summary>
-        /// <param name="line"></param>
+        /// <param name="_">Dropped param that not required on that processor.</param>
         /// <param name="answer"></param>
         protected override void ServerAnswerHandler(object _, object answer)
         {

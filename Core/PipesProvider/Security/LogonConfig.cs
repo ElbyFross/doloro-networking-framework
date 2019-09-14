@@ -78,6 +78,12 @@ namespace PipesProvider.Security
             }
         }
 
+        /// <summary>
+        /// Instiniate logon config settings.
+        /// </summary>
+        /// <param name="userName">Name of the registred user.</param>
+        /// <param name="password">user's password.</param>
+        /// <param name="domain">Machine's network domain.</param>
         public LogonConfig(string userName, string password, string domain)
         {
             this.userName = userName;

@@ -29,21 +29,21 @@ namespace UniformQueries.Executable
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts"></param>
+        /// <param name="queryParts">Recived query parts.</param>
         void Execute(QueryPart[] queryParts);
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
+        /// <param name="queryParts">Recived query parts.</param>
+        /// <returns>Result of comparation.</returns>
         bool IsTarget(QueryPart[] queryParts);
 
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
-        /// <param name="cultureKey"></param>
-        /// <returns></returns>
+        /// <param name="cultureKey">Key of target culture.</param>
+        /// <returns>Description for relative culture.</returns>
         string Description(string cultureKey);
     }
 }

@@ -27,10 +27,28 @@ namespace PipesProvider.Security
     /// </summary>
     public static class NativeMethods
     {
+        /// <summary>
+        /// Native method that implement logon on NT machine.
+        /// </summary>
+        /// <param name="lpszUsername"></param>
+        /// <param name="lpszDomain"></param>
+        /// <param name="lpszPassword"></param>
+        /// <param name="dwLogonType"></param>
+        /// <param name="dwLogonProvider"></param>
+        /// <param name="phToken"></param>
+        /// <returns></returns>
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern bool LogonUser(String lpszUsername, String lpszDomain, String lpszPassword,
         int dwLogonType, int dwLogonProvider, out SafeAccessTokenHandle phToken);
 
+        /// <summary>
+        /// Return local sequirity authority policy.
+        /// </summary>
+        /// <param name="SystemName"></param>
+        /// <param name="ObjectAttributes"></param>
+        /// <param name="AccessMask"></param>
+        /// <param name="PolicyHandle"></param>
+        /// <returns></returns>
         [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
              SuppressUnmanagedCodeSecurityAttribute]
         public static extern uint LsaOpenPolicy(
@@ -40,6 +58,14 @@ namespace PipesProvider.Security
                 out IntPtr PolicyHandle
                 );
 
+        /// <summary>
+        /// Adding rights to LSA.
+        /// </summary>
+        /// <param name="PolicyHandle"></param>
+        /// <param name="pSID"></param>
+        /// <param name="UserRights"></param>
+        /// <param name="CountOfRights"></param>
+        /// <returns></returns>
         [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
          SuppressUnmanagedCodeSecurityAttribute]
         public static extern uint LsaAddAccountRights(
@@ -49,6 +75,15 @@ namespace PipesProvider.Security
             int CountOfRights
             );
 
+        /// <summary>
+        /// Removing rights from LSA.
+        /// </summary>
+        /// <param name="PolicyHandle"></param>
+        /// <param name="AccountSid"></param>
+        /// <param name="AllRights"></param>
+        /// <param name="UserRights"></param>
+        /// <param name="CountOfRights"></param>
+        /// <returns></returns>
         [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true),
          SuppressUnmanagedCodeSecurityAttribute]
         public static extern uint LsaRemoveAccountRights(
@@ -59,6 +94,11 @@ namespace PipesProvider.Security
             int CountOfRights
             );
 
+        /// <summary>
+        /// Close LSA session.
+        /// </summary>
+        /// <param name="PolicyHandle"></param>
+        /// <returns></returns>
         [DllImport("advapi32")]
         public static extern int LsaClose(IntPtr PolicyHandle);
     }

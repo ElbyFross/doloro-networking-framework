@@ -76,6 +76,10 @@ namespace AuthorityController
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Instiniate session object.
+        /// Set it to Current property.
+        /// </summary>
         public Session()
         {
             // Set this session as active.

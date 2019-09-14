@@ -25,13 +25,16 @@ using PipesProvider.Server.TransmissionControllers;
 
 namespace PipesProvider.Handlers
 {
+    /// <summary>
+    /// Class that provides handlers for working with network queries.
+    /// </summary>
     public static class Query
     {
         /// <summary>
         /// Handler that can be connected as callback to default PipesProvides DNS Handler.
         /// Will validate and decompose querie on parts and send it to target Executable.QueryProcessor.
         /// </summary>
-        /// <param name="meta"></param>
+        /// <param name="_">Droped param that unnesessary in that method.</param>
         /// <param name="query"></param>
         public static async void ProcessingAsync(BaseServerTransmissionController _, string query)
         {

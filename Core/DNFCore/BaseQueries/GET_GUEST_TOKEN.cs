@@ -33,8 +33,18 @@ namespace BaseQueries
         /// Return generated token in string format.
         /// </summary>
         public static GuestTokenHandler guestTokenHandler;
+
+        /// <summary>
+        /// Delegate that allows to return guest token in string format.
+        /// </summary>
+        /// <returns></returns>
         public delegate string GuestTokenHandler();
 
+        /// <summary>
+        /// Return the description relative to the lenguage code or default if not found.
+        /// </summary>
+        /// <param name="cultureKey">Key of target culture.</param>
+        /// <returns>Description for relative culture.</returns>
         public string Description(string cultureKey)
         {
             switch (cultureKey)
@@ -48,6 +58,10 @@ namespace BaseQueries
             }
         }
 
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
         public void Execute(QueryPart[] queryParts)
         {
             if (guestTokenHandler != null)
@@ -61,6 +75,11 @@ namespace BaseQueries
             }
         }
 
+        /// <summary>
+        /// Check by the entry params does it target Query Handler.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
+        /// <returns>Result of comparation.</returns>
         public bool IsTarget(QueryPart[] queryParts)
         {
             if (!UniformQueries.API.QueryParamExist("get", queryParts))
@@ -80,6 +99,12 @@ namespace BaseQueries
         /// </summary>
         public class GuestTokenProcessor : UniformQueries.Executable.Security.AuthQueryProcessor
         {
+            /// <summary>
+            /// Trying to recive guest token in async task.
+            /// </summary>
+            /// <param name="serverIP">Target server's IP.</param>
+            /// <param name="pipeName">Name of the pipe that broadcasting guest tokens.</param>
+            /// <param name="cancellationToken">Token that would terminate async operation.</param>
             public async void TryToReciveTokenAsync(
                   string serverIP,
                   string pipeName,

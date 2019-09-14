@@ -18,6 +18,9 @@ using AuthorityController.Data.Application;
 
 namespace AuthorityController.API
 {
+    /// <summary>
+    /// Provides API for data validation.
+    /// </summary>
     public static class Validation
     {
         /// <summary>

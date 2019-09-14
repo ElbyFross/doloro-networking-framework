@@ -28,11 +28,24 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Handler that contain delegate that generate message for every broadcasting session.
         /// </summary>
         public MessageHandeler GetMessage { get; set; }
+
+        /// <summary>
+        /// Delegate that allow to share message via brodcasting controller and handler.
+        /// </summary>
+        /// <param name="transmissionController"></param>
+        /// <returns></returns>
         public delegate string MessageHandeler(BroadcastingServerTransmissionController transmissionController);
         #endregion
 
         #region Constructors
-        // Set uniform constructor.
+
+        /// <summary>
+        /// Instiniate broadcasting transmission controller.
+        /// </summary>
+        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
+        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
+        /// <param name="pipe">Named pipe stream established on the server.</param>
+        /// <param name="pipeName">Name of the pipe.</param>
         public BroadcastingServerTransmissionController(
            IAsyncResult connectionMarker,
            System.Action<BaseServerTransmissionController> connectionCallback,

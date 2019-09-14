@@ -38,7 +38,6 @@ namespace UniformServer
         /// 
         /// Recommended to use this methos by default dor duplex connection between sever and clients.
         /// </summary>
-        /// <param name="server">Instance of server that will provide multithreading implementation.</param>
         /// <param name="answer">Message that will sent by server to target client.</param>
         /// <param name="entryQueryParts">Parts of query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>

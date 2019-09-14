@@ -26,7 +26,9 @@ namespace UniformServer.Standard
     /// </summary>
     public class SimpleServer : BaseServer
     {
-        // Init default constructor.
+        /// <summary>
+        /// Insnitiate patch server that can be used if you not require any additive methods and properties.
+        /// </summary>
         public SimpleServer() : base()
         {
 

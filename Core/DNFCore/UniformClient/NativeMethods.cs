@@ -17,6 +17,9 @@ using System.Runtime.InteropServices;
 
 namespace UniformClient
 {
+    /// <summary>
+    /// Methods binded from external libraries.
+    /// </summary>
     public static class NativeMethods
     {
         /// <summary>

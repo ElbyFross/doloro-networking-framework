@@ -32,9 +32,18 @@ namespace PipesProvider.Client
     public class TransmissionLine
     {
         #region Enums
+        /// <summary>
+        /// Difines direction of transmission.
+        /// </summary>
         public enum TransmissionDirection
         {
+            /// <summary>
+            /// Transmission would recive message from sender.
+            /// </summary>
             In,
+            /// <summary>
+            /// Trasmission would emmite messages.
+            /// </summary>
             Out
         }
         #endregion
@@ -169,10 +178,10 @@ namespace PipesProvider.Client
         /// Create new instance of LineProcessor taht can be registread in static services.
         /// Contain information about transmission between client and server.
         /// </summary>
-        /// <param name="guid">Unique value that will be used to access this prossor.</param>
         /// <param name="serverName">Name of server into the network. If local than place "."</param>
         /// <param name="serverPipeName">Name of the pipe that will be used for transmitiong.</param>
         /// <param name="queryProcessor">Delegate that will be called when connection will be established.</param>
+        /// <param name="token">Reference to token that provide authority to work with remote server.</param>
         public TransmissionLine(string serverName, string serverPipeName, System.Action<TransmissionLine> queryProcessor, ref SafeAccessTokenHandle token)
         {
             // Set fields.
@@ -210,7 +219,7 @@ namespace PipesProvider.Client
         /// <summary>
         /// Incremet of attempts count.
         /// </summary>
-        /// <param name="contaier"></param>
+        /// <param name="line">Target line.</param>
         /// <returns></returns>
         public static TransmissionLine operator ++(TransmissionLine line)
         {

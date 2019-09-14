@@ -64,7 +64,7 @@ namespace PipesProvider.Handlers
                     if (DateTime.Compare(sessionTime, DateTime.Now) < 0)
                     {
                         Console.WriteLine("Connection terminated cause allowed time has expired.");
-                        /// Avoid disconnectin error.
+                        // Avoid disconnectin error.
                         try
                         {
                             controller.pipeServer.Disconnect();

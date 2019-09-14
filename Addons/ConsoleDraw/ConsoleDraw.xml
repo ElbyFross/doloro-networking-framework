@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleDraw</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleDraw.Primitives">
+            <summary>
+            Class that provides API to drawing of primitives in console.
+            </summary>
+        </member>
+        <member name="M:ConsoleDraw.Primitives.DrawLine(System.Char,System.Int32)">
+            <summary>
+            Drawing line from selected char.
+            </summary>
+            <param name="element"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:ConsoleDraw.Primitives.DrawSpacedLine(System.Char,System.Int32)">
+            <summary>
+            Drawing line from selected char.
+            Set space line befor and after separator.
+            </summary>
+            <param name="element"></param>
+            <param name="length"></param>
+        </member>
+    </members>
+</doc>

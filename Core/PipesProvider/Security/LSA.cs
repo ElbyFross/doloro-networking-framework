@@ -25,6 +25,9 @@ namespace PipesProvider.Security.LSA
     public sealed class LsaSecurityWrapper
     {
         #region Structs
+        /// <summary>
+        /// Struct that contains data according to LSA attribute format.
+        /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct LSA_OBJECT_ATTRIBUTES
         {

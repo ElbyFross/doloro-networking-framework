@@ -31,6 +31,11 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_NEW : IQueryHandler
     {
+        /// <summary>
+        /// Return the description relative to the lenguage code or default if not found.
+        /// </summary>
+        /// <param name="cultureKey">Key of target culture.</param>
+        /// <returns>Description for relative culture.</returns>
         public virtual string Description(string cultureKey)
         {
 
@@ -45,6 +50,10 @@ namespace AuthorityController.Queries
             }
         }
 
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
         public virtual void Execute(QueryPart[] queryParts)
         {
             // Marker that would be mean that some of internal tasks was failed and operation require termination.
@@ -357,6 +366,11 @@ namespace AuthorityController.Queries
             #endregion
         }
 
+        /// <summary>
+        /// Check by the entry params does it target Query Handler.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
+        /// <returns>Result of comparation.</returns>
         public virtual bool IsTarget(QueryPart[] queryParts)
         {
             // Check token exist.

@@ -25,9 +25,9 @@ namespace PipesProvider.Networking.Routing
      /// Allow using of several servers via one public.
      /// 
      /// Example:
-     ///                          <--> Authification server
-     /// Client <--> Query server <--> Data server 1
-     ///                          <--> Data server 2
+     ///                          -- Authification server
+     /// Client -- Query server -- Data server 1
+     ///                          -- Data server 2
      /// </summary>
     [System.Serializable]
     public class Instruction
@@ -106,14 +106,14 @@ namespace PipesProvider.Networking.Routing
         /// Array that contain querie's body that need to be routed by this instruction.
         /// 
         /// Format:
-        /// property=value&property=value&... etc. - Encount all properties that need to be a part of query by splitting with UniformQueries.API.SPLITTING_SYMBOL ('&' by default).
+        /// property=value&amp;property=value&amp;... etc.
+        /// Encount all properties that need to be a part of query by splitting with UniformQueries.API.SPLITTING_SYMBOL ('&amp;' by default).
         /// !property - this property must be out of query.
         /// $property - this property must exist in query.
         /// 
-        /// Example:
-        /// targetQueries[0] = "q=GET&sq="PUBLICKEY";   // All queries that contain GET query and PUBLICKEY sub-query will routed.
-        /// targetQueries[1] = "q=GET&!pk";             // All queries that request data from server but has no RSA public keys for backward encription will wouted.
-        /// targetQueries[1] = "$customProp";           // All queries that have "customProp" property in query will be routed.
+        /// targetQueries[0] = "q=GET&amp;sq="PUBLICKEY";   // All queries that contain GET query and PUBLICKEY sub-query will routed.
+        /// targetQueries[1] = "q=GET&amp;!pk";             // All queries that request data from server but has no RSA public keys for backward encription will wouted.
+        /// targetQueries[1] = "$customProp";               // All queries that have "customProp" property in query will be routed.
         /// </summary>
         public string[] queryPatterns = new string[] { "" };
 

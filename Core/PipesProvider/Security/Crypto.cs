@@ -44,9 +44,21 @@ namespace PipesProvider.Security
         /// </summary>
         public enum SHATypes
         {
+            /// <summary>
+            /// SHA1 encryption algorithm.
+            /// </summary>
             SHA1,
+            /// <summary>
+            /// SHA256 encryption algorithm.
+            /// </summary>
             SHA256,
+            /// <summary>
+            /// SHA384 encryption algorithm.
+            /// </summary>
             SHA384,
+            /// <summary>
+            /// SHA512 encryption algorithm.
+            /// </summary>
             SHA512
         }
         #endregion
@@ -77,15 +89,14 @@ namespace PipesProvider.Security
                     RSAProviderExpireTimer = new Timer(timerPeriod);
 
                     // Create delegate that will be called when timer will be passed.
-                    ElapsedEventHandler expireCallback = null;
-                    expireCallback = delegate (object sender, ElapsedEventArgs arg)
+                    void expireCallback(object sender, ElapsedEventArgs arg)
                     {
                         // unsubscribe.
                         RSAProviderExpireTimer.Elapsed -= expireCallback;
 
                         // Drop current provider.
                         _CryptoServiceProvider_RSA = null;
-                    };
+                    }
                     // Subscribe exipire handler to timer event.
                     RSAProviderExpireTimer.Elapsed += expireCallback;
                     #endregion
@@ -113,7 +124,7 @@ namespace PipesProvider.Security
         /// <summary>
         /// Serialize public key to XML.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Convert pubic key to string format.</returns>
         public static string SerializePublicKey()
         {
             var sw = new StringWriter();
@@ -314,8 +325,8 @@ namespace PipesProvider.Security
         /// Return the hash of the string.
         /// Use SHA256 as default.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// <param name="input">Input string for encoding.</param>
+        /// <returns>Encoded string.</returns>
         public static string StringToSHA(string input)
         {
             return StringToSHA(input, SHATypes.SHA256);
@@ -324,8 +335,9 @@ namespace PipesProvider.Security
         /// <summary>
         /// Return hash of string.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// <param name="input">Input string for encoding.</param>
+        /// <param name="type">Encoding algorithm's type.</param>
+        /// <returns>Encoded string.</returns>
         public static string StringToSHA(string input, SHATypes type)
         {
             byte[] hashValue = null;

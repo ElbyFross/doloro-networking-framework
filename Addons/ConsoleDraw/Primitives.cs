@@ -16,6 +16,9 @@ using System;
 
 namespace ConsoleDraw
 {
+    /// <summary>
+    /// Class that provides API to drawing of primitives in console.
+    /// </summary>
     public static class Primitives
     {
         /// <summary>

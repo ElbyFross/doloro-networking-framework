@@ -17,6 +17,9 @@ using System.Security.Cryptography;
 
 namespace AuthorityController.Data.Application
 {
+    /// <summary>
+    /// Provides salt container that increase entropy during generation of secret keys.
+    /// </summary>
     [System.Serializable]
     public class SaltContainer
     {
@@ -31,6 +34,9 @@ namespace AuthorityController.Data.Application
         /// </summary>
         public byte[] validationStamp;
 
+        /// <summary>
+        /// Instiniate default salt container.
+        /// </summary>
         public SaltContainer() { }
 
         /// <summary>
@@ -98,11 +104,12 @@ namespace AuthorityController.Data.Application
             // Validation success.
             return true;
         }
-        
+
         /// <summary>
         /// Convert password to heshed and salted.
         /// </summary>
         /// <param name="input">Password recived from user.</param>
+        /// <param name="salt">Salt that would be used to increase entropy.</param>
         /// <returns></returns>
         public static byte[] GetHashedPassword(string input, SaltContainer salt)
         {

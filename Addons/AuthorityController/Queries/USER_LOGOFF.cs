@@ -24,6 +24,11 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_LOGOFF : IQueryHandler
     {
+        /// <summary>
+        /// Return the description relative to the lenguage code or default if not found.
+        /// </summary>
+        /// <param name="cultureKey">Key of target culture.</param>
+        /// <returns>Description for relative culture.</returns>
         public string Description(string cultureKey)
         {
             switch (cultureKey)
@@ -37,6 +42,10 @@ namespace AuthorityController.Queries
             }
         }
 
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
         public void Execute(QueryPart[] queryParts)
         {
             // Get params.
@@ -55,8 +64,12 @@ namespace AuthorityController.Queries
             // Set expired.
             return Session.Current.SetExpired(token);
         }
-            
-
+        
+        /// <summary>
+        /// Check by the entry params does it target Query Handler.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
+        /// <returns>Result of comparation.</returns>
         public bool IsTarget(QueryPart[] queryParts)
         {
             // Check query.

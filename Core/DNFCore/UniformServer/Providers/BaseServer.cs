@@ -205,14 +205,15 @@ namespace UniformServer
             }
         }
         #endregion
-        
+
         #region Multithreading
         /// <summary>
         /// Method that starting server thread.
         /// </summary>
-        /// <param name="threadName"></param>
-        /// <param name="sharebleParam"></param>
-        /// <returns></returns>
+        /// <param name="threadName">Name that would be applied to thread.</param>
+        /// <param name="sharebleParam">Param that would be shared to server thread.</param>
+        /// <param name="serverLoop">Loop delegate with sharable param.</param>
+        /// <returns>Established thread.</returns>
         protected Thread StartServerThread(string threadName, object sharebleParam, ParameterizedThreadStart serverLoop)
         {
             // Initialize queries monitor thread.

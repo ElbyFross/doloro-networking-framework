@@ -29,6 +29,11 @@ namespace AuthorityController.Queries
     /// </summary>
     public class SET_TOKEN_RIGHTS : IQueryHandler
     {
+        /// <summary>
+        /// Return the description relative to the lenguage code or default if not found.
+        /// </summary>
+        /// <param name="cultureKey">Key of target culture.</param>
+        /// <returns>Description for relative culture.</returns>
         public string Description(string cultureKey)
         {
             switch (cultureKey)
@@ -43,6 +48,10 @@ namespace AuthorityController.Queries
             }
         }
 
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
         public void Execute(QueryPart[] queryParts)
         {
             #region Get fields from query
@@ -99,6 +108,11 @@ namespace AuthorityController.Queries
             UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);
         }
 
+        /// <summary>
+        /// Check by the entry params does it target Query Handler.
+        /// </summary>
+        /// <param name="queryParts">Recived query parts.</param>
+        /// <returns>Result of comparation.</returns>
         public bool IsTarget(QueryPart[] queryParts)
         { 
             // Request set property.

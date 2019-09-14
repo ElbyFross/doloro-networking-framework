@@ -31,7 +31,8 @@ namespace PipesProvider.Networking
         /// <summary>
         /// Conver ip adress of server to host name.
         /// </summary>
-        /// <param name="ipAddress"></param>
+        /// <param name="ipAddress">Ip adress of host.</param>
+        /// <param name="output">Host name.</param>
         /// <returns></returns>
         public static void TryGetHostName(string ipAddress, ref string output)
         {
@@ -94,7 +95,11 @@ namespace PipesProvider.Networking
             }
         }
 
-        public static string[] ServerName()
+        /// <summary>
+        /// Looking for current available hosts.
+        /// </summary>
+        /// <returns>Arrays with hosts' names.</returns>
+        public static string[] ServerNames()
         {
             string[] strIP = DisplayIPAddresses();
             Console.WriteLine("strIP : {0}", strIP.Length);

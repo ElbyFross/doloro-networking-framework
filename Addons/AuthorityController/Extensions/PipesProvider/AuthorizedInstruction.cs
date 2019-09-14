@@ -195,6 +195,9 @@ namespace PipesProvider.Networking.Routing
             }
         }
 
+        /// <summary>
+        /// Handler that take full control on logon process.
+        /// </summary>
         [XmlIgnore]
         protected USER_LOGON.LogonProcessor _LogonHandler;
         #endregion

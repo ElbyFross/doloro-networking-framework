@@ -17,6 +17,9 @@ using System.Linq;
 
 namespace UniformQueries
 {
+    /// <summary>
+    /// Class that provide API for works with tokens.
+    /// </summary>
     public class Tokens
     {   
         /// <summary>

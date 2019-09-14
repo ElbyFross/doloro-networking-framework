@@ -18,6 +18,9 @@ using AuthorityController.Data.Application;
 
 namespace AuthorityController.API
 {
+    /// <summary>
+    /// Provides API for work with security tokens.
+    /// </summary>
     public class Tokens
     {   
         #region Rights API

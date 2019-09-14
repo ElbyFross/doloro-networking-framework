@@ -35,7 +35,13 @@ namespace AuthorityController.Data.Personal
         /// </summary>
         public enum Duration
         {
+            /// <summary>
+            /// Ban that would auto exired when the time will pass.
+            /// </summary>
             Temporary,
+            /// <summary>
+            /// Ban that can't be exipred. Only diactivated.
+            /// </summary>
             Permanent
         }
 

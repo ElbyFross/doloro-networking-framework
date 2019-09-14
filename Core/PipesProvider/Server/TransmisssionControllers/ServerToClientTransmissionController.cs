@@ -30,7 +30,13 @@ namespace PipesProvider.Server.TransmissionControllers
         /// </summary>
         public string ProcessingQuery { get; set; }
 
-        // Set uniform constructor.
+        /// <summary>
+        /// Instiniate server to client transmission controller.
+        /// </summary>
+        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
+        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
+        /// <param name="pipe">Named pipe stream established on the server.</param>
+        /// <param name="pipeName">Name of the pipe.</param>
         public ServerToClientTransmissionController(
            IAsyncResult connectionMarker,
            System.Action<BaseServerTransmissionController> connectionCallback,
@@ -47,8 +53,9 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Automaticly create server's pipe that will send message to client.
         /// </summary>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
         /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
+        /// <param name="guid">Generated GUID of this loop.</param>
+        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
             string pipeName,
             out string guid,
@@ -64,8 +71,9 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Automaticly create server's pipe that will send message to client.
         /// </summary>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
         /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
+        /// <param name="guid">GUID of this loop.</param>
+        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
             string guid,
             string pipeName,

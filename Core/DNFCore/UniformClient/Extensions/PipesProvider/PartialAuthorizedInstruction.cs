@@ -142,6 +142,9 @@ namespace PipesProvider.Networking.Routing
             }
         }
 
+        /// <summary>
+        /// Handler that take full control on reciving of guest token.
+        /// </summary>
         [XmlIgnore]
         protected GET_GUEST_TOKEN.GuestTokenProcessor _GuestTokenHandler;
         #endregion

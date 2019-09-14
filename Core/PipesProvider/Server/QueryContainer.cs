@@ -102,6 +102,10 @@ namespace PipesProvider.Client
 
         }
         
+        /// <summary>
+        /// Convert object to string for\mat.
+        /// </summary>
+        /// <returns>Returns Query property.</returns>
         public override string ToString()
         {
             return Query;

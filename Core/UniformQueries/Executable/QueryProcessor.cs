@@ -61,7 +61,7 @@ namespace UniformQueries.Executable
         /// Generate ProcessingFinished event with provided params.
         /// </summary>
         /// <param name="result">Resdult of processing.</param>
-        /// <param name="message">Shared message.</param>
+        /// <param name="args">Shared object.</param>
         protected void Finalize(bool result, object args)
         {
             // Inform subscribers.
@@ -71,7 +71,7 @@ namespace UniformQueries.Executable
         /// <summary>
         /// Handler that would recive server answer.
         /// </summary>
-        /// <param name="line"></param>
+        /// <param name="controller"></param>
         /// <param name="answer"></param>
         protected abstract void ServerAnswerHandler(object controller, object answer);
     }

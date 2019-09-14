@@ -26,9 +26,14 @@ namespace UniformServer.Standard
     /// </summary>
     public class BroadcastingServer : BaseServer
     {
+        /// <summary>
+        /// Handler that would generate brodcasting message during every new connection.
+        /// </summary>
         public BroadcastingServerTransmissionController.MessageHandeler GetMessage;
 
-        // Init default constructor.
+        /// <summary>
+        /// Insiniate broadcasting server.
+        /// </summary>
         public BroadcastingServer() : base()
         {
 
@@ -38,6 +43,8 @@ namespace UniformServer.Standard
         /// <summary>
         /// Open server with broadcasting chanels using PipesProvider.
         /// </summary>
+        /// <param name="pipeName">Name of the pipe.</param>
+        /// <param name="securityLevel">Sequirity level that would be applied to connection.</param>
         /// <param name="getBroadcastingMessageHandler">delegate that will be called to get message for new client.</param>
         /// <param name="chanels">How many many connections would awaiable to this server.
         /// Attention: every chanel is a tread.</param>

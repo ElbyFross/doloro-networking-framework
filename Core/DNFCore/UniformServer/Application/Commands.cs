@@ -21,6 +21,9 @@ using System.Threading.Tasks;
 
 namespace UniformServer
 {
+    /// <summary>
+    /// Provide API to work with server related commands.
+    /// </summary>
     public static partial class Commands
     {
         /// <summary>

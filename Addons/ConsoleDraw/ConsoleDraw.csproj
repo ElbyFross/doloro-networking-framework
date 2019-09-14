@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Work\GitHub\doloro-networking-framework\Addons\ConsoleDraw\ConsoleDraw.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

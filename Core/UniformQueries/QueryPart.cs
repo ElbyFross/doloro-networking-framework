@@ -18,6 +18,9 @@ using System.Text;
 
 namespace UniformQueries
 {
+    /// <summary>
+    /// Formated query part descriptor.
+    /// </summary>
     public struct QueryPart
     {
         /// <summary>
@@ -47,6 +50,9 @@ namespace UniformQueries
             }
         }
 
+        /// <summary>
+        /// Default querie part that not contains valid data.
+        /// </summary>
         public static QueryPart None
         {
             get { return new QueryPart(); }
@@ -145,11 +151,11 @@ namespace UniformQueries
 
             return query;
         }
-        
+
         /// <summary>
         /// Check does this query's key equals to target.
         /// </summary>
-        /// <param name="param"></param>
+        /// <param name="key">Key for comparing.</param>
         /// <returns></returns>
         public bool ParamNameEqual(string key)
         {

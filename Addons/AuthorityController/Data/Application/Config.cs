@@ -131,13 +131,13 @@ namespace AuthorityController.Data.Application
         /// </summary>
         public int TokenValidTimeMinutes = 1440;
 
-        /// rank=x where x is
-        /// 0 - guest
-        /// 1 - user 
-        /// 2 - privileged user
-        /// 4 - moderator
-        /// 8 - admin
-        /// 16 - superadmin
+        // rank=x where x is
+        // 0 - guest
+        // 1 - user 
+        // 2 - privileged user
+        // 4 - moderator
+        // 8 - admin
+        // 16 - superadmin
         #region Queries rights
         /// <summary>
         /// Rights code required for requester to proceed this action.
@@ -248,6 +248,9 @@ namespace AuthorityController.Data.Application
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Insiniate Config object and set in to Active property.
+        /// </summary>
         public Config()
         {
             // Set as active.

@@ -82,7 +82,7 @@ namespace QueriesServer
             #endregion
 
             #region Loaded query handler processors
-            /// Draw line
+            // Draw line
             ConsoleDraw.Primitives.DrawSpacedLine();
             // Initialize Queue monitor.
             try
@@ -125,7 +125,7 @@ namespace QueriesServer
 
             #endregion
 
-            /// Show help.
+            // Show help.
             UniformServer.Commands.BaseCommands("help");
 
             #region Main loop

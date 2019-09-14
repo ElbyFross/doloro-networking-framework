@@ -213,7 +213,6 @@ namespace UniformQueries
         /// Try to find requested all param's value among query parts by requested param name.
         /// </summary>
         /// <param name="param"></param>
-        /// <param name="value"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
         public static List<string> GetParamValues(string param, params string[] queryParts)
@@ -235,10 +234,9 @@ namespace UniformQueries
         /// <summary>
         /// Try to find requested all param's value among query parts by requested param name.
         /// </summary>
-        /// <param name="param"></param>
-        /// <param name="value"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
+        /// <param name="param">Target param's name.</param>
+        /// <param name="queryParts">Array with query parts.</param>
+        /// <returns>Suitable query parts with target param.</returns>
         public static List<QueryPart> GetParamValues(string param, params QueryPart[] queryParts)
         {
             List<QueryPart> value = new List<QueryPart>();

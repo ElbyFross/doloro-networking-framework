@@ -21,6 +21,9 @@ using System.Threading.Tasks;
 
 namespace UniformServer
 {
+    /// <summary>
+    /// Methods binded from external libraries.
+    /// </summary>
     public static class NativeMethods
     {
         /// <summary>

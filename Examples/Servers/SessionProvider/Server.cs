@@ -86,7 +86,7 @@ namespace SessionProvider
                 1);
             #endregion
 
-            /// Show help.
+            // Show help.
             UniformServer.Commands.BaseCommands("help");
 
             #region Main loop

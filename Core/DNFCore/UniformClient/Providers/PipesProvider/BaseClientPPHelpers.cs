@@ -37,7 +37,7 @@ namespace UniformClient
         /// Table that contain delegatds subscribed to beckward lines in duplex queries.
         /// 
         /// Key string - backward domain
-        /// Value System.Action<TransmissionLine, object> - answer processing delegat.
+        /// Value void(PipesProvider.Client.TransmissionLine, object) // answer processing delegat.
         /// </summary>
         protected static Hashtable DuplexBackwardCallbacks = new Hashtable();
 

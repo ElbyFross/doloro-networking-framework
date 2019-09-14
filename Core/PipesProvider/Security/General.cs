@@ -222,12 +222,13 @@ namespace PipesProvider.Security
                 }
             }
         }
-                
+
         /// <summary>
         /// Trying to get access token for remote user.
         /// In case if requested anonymous connection then return anonymous token without permission check.
         /// </summary>
         /// <param name="config">Fields required for remote logon with impersonation.</param>
+        /// <param name="token">Token authorized in system with required rights.</param>
         /// <returns></returns>
         public static bool TryLogon(LogonConfig config, out SafeAccessTokenHandle token)
         {

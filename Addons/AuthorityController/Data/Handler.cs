@@ -87,8 +87,9 @@ namespace AuthorityController.Data
         /// <summary>
         /// Saving config file to directory.
         /// </summary>
-        /// <param name="directory"></param>
-        /// <param name="fileName"></param>
+        /// <param name="obj">Object that contains data.</param>
+        /// <param name="directory">Target folder directory.</param>
+        /// <param name="fileName">Name of the file that would created \ rewrited.</param>
         public static void SaveAs<T>(object obj, string directory, string fileName)
         {
             // Check directory exist.

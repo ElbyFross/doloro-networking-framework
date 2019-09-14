@@ -52,7 +52,7 @@ namespace PipesProvider.Server
             get { return openedServers.Count; }
         }
         #endregion
-        
+
         #region Core configurable loop
         /// <summary>
         /// Provide base server loop that control pipe.
@@ -60,12 +60,14 @@ namespace PipesProvider.Server
         /// 
         /// Warrning: Use only if undersend how it work. Overwise use simplived ClientToServerLoop or ServerToClientLoop
         /// </summary>
+        /// <param name="guid">GUID that would be used to registration of that pipe.</param>
         /// <param name="connectionCallback">Delegate that will be called when connection will be established.</param>
         /// <param name="pipeName">Name of pipe that will be used to acces by client.</param>
         /// <param name="pipeDirection">Dirrection of the possible transmission.</param>
         /// <param name="allowedServerInstances">How many server pipes can be started with the same name.</param>
         /// <param name="transmissionMode">Type of transmission.</param>
         /// <param name="pipeOptions">Configuration of the pipe.</param>
+        /// <param name="securityLevel">Security options that would be applied to this pipe.</param>
         /// <param name="initHandler">Handler that will be called in case if transmisssion still not registred.
         /// Provide possibility to castom initialization for every type of controller.</param>
         public static void ServerLoop<TransmissionControllerType>(
@@ -155,7 +157,7 @@ namespace PipesProvider.Server
                             Handlers.Service.ConnectionEstablishedCallbackRetranslator, 
                             transmisssionController);
 
-                        /// Update data.
+                        // Update data.
                         transmisssionController.connectionMarker = connectionMarker;
 
                         Console.Write("{0}: Waiting for client connection...\n", pipeName);
@@ -216,12 +218,12 @@ namespace PipesProvider.Server
                 meta.SetExpired();
             }
         }
-        
+
         /// <summary>
         /// Marking pipe as expired. 
         /// On the next loop tick connections will be disconnect and pipe will close.
         /// </summary>
-        /// <param name="pipeName"></param>
+        /// <param name="meta">Object that contains information about transmission.</param>
         public static void SetExpired(BaseServerTransmissionController meta)
         {
             // Mark it as expired.
@@ -283,7 +285,7 @@ namespace PipesProvider.Server
                 }
                 catch (Exception ex)
                 {
-                    /// Log error.
+                    // Log error.
                     Console.WriteLine("SERVER STOP FAILED: {0}", ex.Message);
                 }
 

@@ -18,7 +18,7 @@ using System.IO.Pipes;
 namespace PipesProvider.Server.TransmissionControllers
 {
     /// <summary>
-    /// Container that contain meta data about server instance.
+    /// Container that contains meta data about server instance.
     /// </summary>
     public class BaseServerTransmissionController
     {
@@ -58,8 +58,19 @@ namespace PipesProvider.Server.TransmissionControllers
 
 
         #region Constructors
+        /// <summary>
+        /// instiniate default server trnasmission controller.
+        /// </summary>
         public BaseServerTransmissionController() { }
 
+
+        /// <summary>
+        /// Instiniate base transmission controller.
+        /// </summary>
+        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
+        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
+        /// <param name="pipe">Named pipe stream established on the server.</param>
+        /// <param name="pipeName">Name of the pipe.</param>
         public BaseServerTransmissionController(
             IAsyncResult connectionMarker, 
             System.Action<BaseServerTransmissionController> connectionCallback,
