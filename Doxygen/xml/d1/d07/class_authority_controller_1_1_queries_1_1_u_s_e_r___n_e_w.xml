@@ -29,7 +29,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="33" bodyend="45"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="34" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a05ffc1bd68a9d937aee817c05f273005" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -55,7 +55,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="47" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="47" bodyend="278"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="48" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a279a4acc2e4cad572f9760e62062d8e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
@@ -82,7 +82,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="280" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="280" bodyend="326"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="360" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="360" bodyend="406"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -113,7 +113,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="31" bodyend="327"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" line="33" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW.cs" bodystart="32" bodyend="407"/>
     <listofallmembers>
       <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a16439c165f3ac2ca8b586dd8bfd2bf55" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Description</name></member>
       <member refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a05ffc1bd68a9d937aee817c05f273005" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW</scope><name>Execute</name></member>

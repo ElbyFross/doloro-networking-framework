@@ -30,7 +30,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="34" bodyend="47"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="36" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a001f81c71597259636be777078e50f7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -56,7 +56,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="49" bodyend="188"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="51" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a53261c6c60dc1a2324a67adf19f7547a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -83,7 +83,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="190" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="190" bodyend="222"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="236" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="236" bodyend="268"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,7 +114,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="31" bodyend="318"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="33" bodyend="364"/>
     <listofallmembers>
       <member refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1af448426be46032c3ae103cdf4ea5f40b" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON</scope><name>Description</name></member>
       <member refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a001f81c71597259636be777078e50f7e" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON</scope><name>Execute</name></member>

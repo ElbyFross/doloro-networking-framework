@@ -81,7 +81,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="164" bodyend="176"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="163" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="164" bodyend="183"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -229,7 +229,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="184" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="184" bodyend="223"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="191" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="191" bodyend="230"/>
       </memberdef>
       <memberdef kind="function" id="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a70cc71c093fb9f5407b60a88a8361a9b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>async Task</type>
@@ -266,14 +266,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="232" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="232" bodyend="274"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="239" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="239" bodyend="281"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Provide information about user bans. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="31" bodyend="276"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/BanInformation.cs" bodystart="31" bodyend="283"/>
     <listofallmembers>
       <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1a8aa7fea19a5b2acce008883fcda629b2" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>active</name></member>
       <member refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information_1acdff2dd2a45cde1adf6586e631c99916" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::BanInformation</scope><name>bannedByUserId</name></member>

@@ -492,15 +492,15 @@
     <member refid="dd/d42/class_authority_controller_1_1_data_1_1_temporal_1_1_token_info_1acce187b055ae59b52d704b7dfcd4b74d" kind="variable"><name>allocationTime</name></member>
     <member refid="dd/d42/class_authority_controller_1_1_data_1_1_temporal_1_1_token_info_1aa1919ec575894ea2ff957f87d3428dc7" kind="variable"><name>rights</name></member>
   </compound>
+  <compound refid="dd/dcd/class_uniform_queries_1_1_tokens" kind="class"><name>UniformQueries::Tokens</name>
+    <member refid="dd/dcd/class_uniform_queries_1_1_tokens_1af591930ab4fa60ebdf27724f84ac7a91" kind="property"><name>UnusedToken</name></member>
+    <member refid="dd/dcd/class_uniform_queries_1_1_tokens_1a33a0ad42dfa560c4cfaac590a7924bd8" kind="function"><name>IsExpired</name></member>
+  </compound>
   <compound refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens" kind="class"><name>AuthorityController::API::Tokens</name>
     <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a3077a786044bdd530ad50dbd615f8beb" kind="function"><name>IsHasEnoughRigths</name></member>
     <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1ab1d580a971a86c8e5b3c7c189aa65381" kind="function"><name>IsHasEnoughRigths</name></member>
     <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a8b153378b97af2634e8dab9ff1fa48a5" kind="function"><name>AuthorizeNewGuestToken</name></member>
     <member refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens_1a0ba1c2d69ffbc73d78b7b16735f7fb5a" kind="function"><name>AuthorizeNewGuestToken</name></member>
-  </compound>
-  <compound refid="dd/dcd/class_uniform_queries_1_1_tokens" kind="class"><name>UniformQueries::Tokens</name>
-    <member refid="dd/dcd/class_uniform_queries_1_1_tokens_1af591930ab4fa60ebdf27724f84ac7a91" kind="property"><name>UnusedToken</name></member>
-    <member refid="dd/dcd/class_uniform_queries_1_1_tokens_1a33a0ad42dfa560c4cfaac590a7924bd8" kind="function"><name>IsExpired</name></member>
   </compound>
   <compound refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kind="class"><name>PipesProvider::Client::TransmissionLine</name>
     <member refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line_1adf7f55a4fb34b6503ef72d8b562b2ff5" kind="enum"><name>TransmissionDirection</name></member>
@@ -771,6 +771,10 @@
   </compound>
   <compound refid="d5/d2f/_primitives_8cs" kind="file"><name>Primitives.cs</name>
   </compound>
+  <compound refid="dd/d26/_addons_2uniform-data-operator_2_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="d9/dd6/_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
   <compound refid="dc/dfc/_g_e_t___g_u_e_s_t___t_o_k_e_n_8cs" kind="file"><name>GET_GUEST_TOKEN.cs</name>
   </compound>
   <compound refid="d9/d26/_g_e_t___p_u_b_l_i_c___k_e_y_8cs" kind="file"><name>GET_PUBLIC_KEY.cs</name>
@@ -905,8 +909,6 @@
   </compound>
   <compound refid="d2/d1d/_tests_2_a_c_tests_2_authority_test_server_2_server_8cs" kind="file"><name>Server.cs</name>
   </compound>
-  <compound refid="d9/dd6/_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
-  </compound>
   <compound refid="d5/d08/_filesystem_8cs" kind="file"><name>Filesystem.cs</name>
   </compound>
   <compound refid="d4/dac/_locks_8cs" kind="file"><name>Locks.cs</name>
@@ -915,6 +917,8 @@
   </compound>
   <compound refid="d7/dc8/_users_8cs" kind="file"><name>Users.cs</name>
     <member refid="d7/dc8/_users_8cs_1ace4c204cf2dab0610f7a38127d8a473d" kind="typedef"><name>AC_API</name></member>
+  </compound>
+  <compound refid="d5/d5b/_local_8cs" kind="file"><name>Local.cs</name>
   </compound>
   <compound refid="d8/dec/_data_8cs" kind="file"><name>Data.cs</name>
   </compound>
@@ -925,6 +929,8 @@
   <compound refid="d0/d65/_regex_8cs" kind="file"><name>Regex.cs</name>
   </compound>
   <compound refid="df/d4a/_u_d_o_8cs" kind="file"><name>UDO.cs</name>
+  </compound>
+  <compound refid="db/dc5/md__d_1__work__git_hub_doloro-networking-framework__addons_uniform-data-operator__r_e_a_d_m_e" kind="page"><name>md_D:_Work_GitHub_doloro-networking-framework_Addons_uniform-data-operator_README</name>
   </compound>
   <compound refid="d0/d9c/md__d_1__work__git_hub_doloro-networking-framework__r_e_a_d_m_e" kind="page"><name>md_D:_Work_GitHub_doloro-networking-framework_README</name>
   </compound>

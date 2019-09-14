@@ -66,8 +66,8 @@ var hierarchy =
     [ "PipesProvider.Handlers.Service", "dd/d9c/class_pipes_provider_1_1_handlers_1_1_service.html", null ],
     [ "AuthorityController.Session", "d6/d4b/class_authority_controller_1_1_session.html", null ],
     [ "AuthorityController.Data.Temporal.TokenInfo", "dd/d42/class_authority_controller_1_1_data_1_1_temporal_1_1_token_info.html", null ],
-    [ "AuthorityController.API.Tokens", "d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html", null ],
     [ "UniformQueries.Tokens", "dd/dcd/class_uniform_queries_1_1_tokens.html", null ],
+    [ "AuthorityController.API.Tokens", "d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens.html", null ],
     [ "PipesProvider.Client.TransmissionLine", "da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line.html", null ],
     [ "AuthorityController.Data.Personal.User", "df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html", null ],
     [ "AuthorityController.API.Validation", "dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation.html", null ]

@@ -22,8 +22,8 @@
         <reimplementedby refid="d6/d9d/class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s_1aebb323c8033e3a027f59c55a95695360">Execute</reimplementedby>
         <reimplementedby refid="d1/d07/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w_1a05ffc1bd68a9d937aee817c05f273005">Execute</reimplementedby>
         <reimplementedby refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a567cb1f67a718cab9dae99a9d4e892d4">Execute</reimplementedby>
-        <reimplementedby refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a001f81c71597259636be777078e50f7e">Execute</reimplementedby>
         <reimplementedby refid="d2/da1/class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1afbad0ace27a743793bccea51a5c39db5">Execute</reimplementedby>
+        <reimplementedby refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1a001f81c71597259636be777078e50f7e">Execute</reimplementedby>
         <param>
           <type><ref refid="d5/d61/struct_uniform_queries_1_1_query_part" kindref="compound">QueryPart</ref> []</type>
           <declname>queryParts</declname>

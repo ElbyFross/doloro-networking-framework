@@ -1,6 +1,7 @@
 var searchData=
 [
   ['executable',['Executable',['../dd/dba/namespace_uniform_queries_1_1_executable.html',1,'UniformQueries']]],
+  ['uniform_20data_20operator',['Uniform Data Operator',['../db/dc5/md__d_1__work__git_hub_doloro-networking-framework__addons_uniform-data-operator__r_e_a_d_m_e.html',1,'']]],
   ['security',['Security',['../d0/d3e/namespace_uniform_queries_1_1_executable_1_1_security.html',1,'UniformQueries::Executable']]],
   ['standard',['Standard',['../da/d7a/namespace_uniform_client_1_1_standard.html',1,'UniformClient.Standard'],['../d7/def/namespace_uniform_server_1_1_standard.html',1,'UniformServer.Standard']]],
   ['uniformclient',['UniformClient',['../d0/d51/namespace_uniform_client.html',1,'']]],
