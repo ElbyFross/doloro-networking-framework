@@ -38,7 +38,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="29" column="1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/NativeMethods.cs" line="29" column="1"/>
       </memberdef>
       <memberdef kind="function" id="d1/de3/class_uniform_client_1_1_native_methods_1ab6b4879e450856c501624a55094ead5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>IntPtr</type>
@@ -52,14 +52,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="36" column="1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/NativeMethods.cs" line="36" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" line="21" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/NativeMethods.cs" bodystart="20" bodyend="37"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/NativeMethods.cs" line="21" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/NativeMethods.cs" bodystart="20" bodyend="37"/>
     <listofallmembers>
       <member refid="d1/de3/class_uniform_client_1_1_native_methods_1ab6b4879e450856c501624a55094ead5b" prot="public" virt="non-virtual"><scope>UniformClient::NativeMethods</scope><name>GetConsoleWindow</name></member>
       <member refid="d1/de3/class_uniform_client_1_1_native_methods_1a067dec2d455070ab352fef3caef7b323" prot="public" virt="non-virtual"><scope>UniformClient::NativeMethods</scope><name>ShowWindow</name></member>

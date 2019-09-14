@@ -56,7 +56,7 @@ namespace ACTests.Tests
 
                 // Sign up on callback that would be called when logon operation would be passed.
                 processor.ProcessingFinished += delegate (
-                    UniformQueries.QueryProcessor _,
+                    UniformQueries.Executable.QueryProcessor _,
                     bool result,
                     object message)
                 {
@@ -94,7 +94,7 @@ namespace ACTests.Tests
         public void GuestToken()
         {
             // Start broadcasting server that would share guest tokens.
-            BaseServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
                 Helpers.Networking.DefaultGuestPipeName,
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -118,11 +118,11 @@ namespace ACTests.Tests
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Create new processor that provide get token receiving operation.
-                GET_GUEST_TOKEN.GuestTokenProcessor processor = new GET_GUEST_TOKEN.GuestTokenProcessor();
+                BaseQueries.GET_GUEST_TOKEN.GuestTokenProcessor processor = new BaseQueries.GET_GUEST_TOKEN.GuestTokenProcessor();
 
                 // Sign up on callback that would be called when logon operation would be passed.
                 processor.ProcessingFinished += delegate (
-                    UniformQueries.QueryProcessor _,
+                    UniformQueries.Executable.QueryProcessor _,
                     bool result,
                     object message)
                 {
@@ -137,7 +137,8 @@ namespace ACTests.Tests
                 // Request logon.
                 processor.TryToReciveTokenAsync(
                     "localhost",
-                    Helpers.Networking.DefaultGuestPipeName);
+                    Helpers.Networking.DefaultGuestPipeName,
+                    AuthorityController.Session.Current.TerminationToken);
 
                 // Wait until logon would compleated.
                 while (!operationCompleted)

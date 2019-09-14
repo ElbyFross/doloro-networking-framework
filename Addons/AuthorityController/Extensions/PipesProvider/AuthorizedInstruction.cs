@@ -19,13 +19,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using PipesProvider.Networking.Routing;
 using AuthorityController.Queries;
+using UniformQueries.Executable;
+using AuthorityController.Data.Application;
 
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
     /// Provide data and API required for connections that require authorization as Authority Controller user.
     /// </summary>
-    public class AuthorizedInstruction : Instruction
+    public class AuthorizedInstruction : PartialAuthorizedInstruction
     {
         #region Public fields
         /// <summary>
@@ -37,28 +39,16 @@ namespace PipesProvider.Networking.Routing
         /// Password for user authentification in AuthorityController on instruction's target server.
         /// </summary>
         public string authPassword;
-
-        /// <summary>
-        /// Name of the broadcasting pipe that providing guest tokens.
-        /// </summary>
-        public string guestChanel = "guests";
         #endregion
 
         #region Public properties
         /// <summary>
         /// Return token authorized on target server by using provided data.
         /// </summary>
+        [XmlIgnore]
         public string AuthorizedToken
         {
             get { return LogonHandler.Token; }
-        }
-
-        /// <summary>
-        /// Return token authorized on target server as guest.
-        /// </summary>
-        public string GuestToken
-        {
-            get { return GuestTokenHandler.Token; }
         }
         #endregion
 
@@ -84,10 +74,21 @@ namespace PipesProvider.Networking.Routing
             cancellationToken);
         }
 
+
         /// <summary>
         /// Tring to recive token authorized in authority controller of target server.
         /// </summary>
         public bool TryToLogon()
+        {
+            return TryToLogon(AuthorityController.Session.Current.TerminationToken);
+        }
+
+        /// <summary>
+        /// Tring to recive token authorized in authority controller of target server.
+        /// </summary>
+        /// <param name="cancellationToken">Token that can be used to termination of the logon process.</param>
+        /// <returns></returns>
+        public bool TryToLogon(CancellationToken cancellationToken)
         {
             bool asyncOperationStarted = false;
 
@@ -95,7 +96,9 @@ namespace PipesProvider.Networking.Routing
             // Is the guest token is relevant.
             bool guestTokenValid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
-                AuthorityController.API.Tokens.IsExpired(GuestTokenHandler.Token);
+                UniformQueries.Tokens.IsExpired(
+                    GuestTokenHandler.Token, 
+                    GuestTokenHandler.ExpiryTime);
 
             if (!guestTokenValid)
             {
@@ -116,7 +119,8 @@ namespace PipesProvider.Networking.Routing
                 // Recive guest token to get access to server.
                 GuestTokenHandler.TryToReciveTokenAsync(
                     routingIP,
-                    pipeName);
+                    pipeName,
+                    cancellationToken);
             }
 
             // Wait for guest token.
@@ -177,7 +181,7 @@ namespace PipesProvider.Networking.Routing
         /// Handler that take full control on logon process.
         /// </summary>
         [XmlIgnore]
-        private USER_LOGON.LogonProcessor LogonHandler
+        public USER_LOGON.LogonProcessor LogonHandler
         {
             get
             {
@@ -192,28 +196,7 @@ namespace PipesProvider.Networking.Routing
         }
 
         [XmlIgnore]
-        private USER_LOGON.LogonProcessor _LogonHandler;
-
-        /// <summary>
-        /// Handler that take full control on reciving of guest token.
-        /// </summary>
-        [XmlIgnore]
-        private GET_GUEST_TOKEN.GuestTokenProcessor GuestTokenHandler
-        {
-            get
-            {
-                // Create new if not started yet.
-                if (_GuestTokenHandler == null)
-                {
-                    _GuestTokenHandler = new GET_GUEST_TOKEN.GuestTokenProcessor();
-                }
-
-                return _GuestTokenHandler;
-            }
-        }
-
-        [XmlIgnore]
-        private GET_GUEST_TOKEN.GuestTokenProcessor _GuestTokenHandler;
+        protected USER_LOGON.LogonProcessor _LogonHandler;
         #endregion
     }
 }

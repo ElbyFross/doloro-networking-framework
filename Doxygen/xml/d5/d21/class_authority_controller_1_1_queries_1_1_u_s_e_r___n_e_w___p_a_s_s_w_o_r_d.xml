@@ -4,9 +4,9 @@
     <compoundname>AuthorityController::Queries::USER_NEW_PASSWORD</compoundname>
     <basecompoundref refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler" prot="public" virt="non-virtual">UniformQueries.Executable.IQueryHandler</basecompoundref>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a04d2af1732d4ac353076d489fe75c696" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a3050d851f7563bb06a3b5dbb7e3496d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>string</type>
-        <definition>string AuthorityController.Queries.USER_NEW_PASSWORD.Description</definition>
+        <definition>virtual string AuthorityController.Queries.USER_NEW_PASSWORD.Description</definition>
         <argsstring>(string cultureKey)</argsstring>
         <name>Description</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1ae0e55919571d5456af31298394d241a9">Description</reimplements>
@@ -29,11 +29,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="28" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="28" bodyend="44"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="31" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a63a5424c90f45f09f72a530ef0389416" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a567cb1f67a718cab9dae99a9d4e892d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>void AuthorityController.Queries.USER_NEW_PASSWORD.Execute</definition>
+        <definition>virtual void AuthorityController.Queries.USER_NEW_PASSWORD.Execute</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>Execute</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a3268d72c0388f5e3debba4d73bdfe523">Execute</reimplements>
@@ -55,11 +55,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="46" bodyend="149"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="49" bodyend="244"/>
       </memberdef>
-      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a48ff6874453caf45973ad386bfe5b513" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1aef792462301f1687630b64e5479f3f73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
-        <definition>bool AuthorityController.Queries.USER_NEW_PASSWORD.IsTarget</definition>
+        <definition>virtual bool AuthorityController.Queries.USER_NEW_PASSWORD.IsTarget</definition>
         <argsstring>(QueryPart[] queryParts)</argsstring>
         <name>IsTarget</name>
         <reimplements refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler_1a0f43184bf3e306a7cbebc39098f044ee">IsTarget</reimplements>
@@ -82,7 +82,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="151" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="151" bodyend="170"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="246" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="246" bodyend="265"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -90,34 +90,34 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="206">
+      <node id="234">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="205">
+      <node id="233">
         <label>AuthorityController.Queries.USER_NEW_PASSWORD</label>
         <link refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d"/>
-        <childnode refid="206" relation="public-inheritance">
+        <childnode refid="234" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="208">
+      <node id="236">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="207">
+      <node id="235">
         <label>AuthorityController.Queries.USER_NEW_PASSWORD</label>
         <link refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d"/>
-        <childnode refid="208" relation="public-inheritance">
+        <childnode refid="236" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="27" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="26" bodyend="171"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_NEW_PASSWORD.cs" bodystart="29" bodyend="266"/>
     <listofallmembers>
-      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a04d2af1732d4ac353076d489fe75c696" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>Description</name></member>
-      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a63a5424c90f45f09f72a530ef0389416" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>Execute</name></member>
-      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a48ff6874453caf45973ad386bfe5b513" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>IsTarget</name></member>
+      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a3050d851f7563bb06a3b5dbb7e3496d0" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>Description</name></member>
+      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1a567cb1f67a718cab9dae99a9d4e892d4" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>Execute</name></member>
+      <member refid="d5/d21/class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d_1aef792462301f1687630b64e5479f3f73" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_NEW_PASSWORD</scope><name>IsTarget</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

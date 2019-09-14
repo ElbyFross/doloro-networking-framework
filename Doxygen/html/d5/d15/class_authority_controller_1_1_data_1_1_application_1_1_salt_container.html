@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.0.3</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('d5/d15/class_authority_controller_1_1_
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d4/d36/class_authority_controller_1_1_data_1_1_application_1_1_salt_container-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -110,6 +111,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a47a251ef343c25419d77b23dc28a50c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container.html#a47a251ef343c25419d77b23dc28a50c0">Validate</a> ()</td></tr>
 <tr class="memdesc:a47a251ef343c25419d77b23dc28a50c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call base operation and compare results. Relevant result must be equal to stamp.  <a href="#a47a251ef343c25419d77b23dc28a50c0">More...</a><br /></td></tr>
 <tr class="separator:a47a251ef343c25419d77b23dc28a50c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a35a53fe573ec37ee773a0f02af1cb496"><td class="memItemLeft" align="right" valign="top">static byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container.html#a35a53fe573ec37ee773a0f02af1cb496">GetHashedPassword</a> (string input, <a class="el" href="../../d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container.html">SaltContainer</a> salt)</td></tr>
+<tr class="memdesc:a35a53fe573ec37ee773a0f02af1cb496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert password to heshed and salted.  <a href="#a35a53fe573ec37ee773a0f02af1cb496">More...</a><br /></td></tr>
+<tr class="separator:a35a53fe573ec37ee773a0f02af1cb496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -171,6 +178,51 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a35a53fe573ec37ee773a0f02af1cb496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35a53fe573ec37ee773a0f02af1cb496">&#9670;&nbsp;</a></span>GetHashedPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static byte [] AuthorityController.Data.Application.SaltContainer.GetHashedPassword </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d15/class_authority_controller_1_1_data_1_1_application_1_1_salt_container.html">SaltContainer</a>&#160;</td>
+          <td class="paramname"><em>salt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert password to heshed and salted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Password recived from user.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

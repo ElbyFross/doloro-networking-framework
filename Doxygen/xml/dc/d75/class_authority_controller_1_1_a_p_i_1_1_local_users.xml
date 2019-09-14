@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users" kind="class" language="C#" prot="public">
+    <compoundname>AuthorityController::API::LocalUsers</compoundname>
+      <sectiondef kind="event">
+      <memberdef kind="event" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a54370dd6dd474a14106891cd6d0beaaf" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type>System.Action&lt; string, int, int &gt;</type>
+        <definition>System.Action&lt;string, int, int&gt; AuthorityController.API.LocalUsers.DirectoryLoadingFinished</definition>
+        <argsstring></argsstring>
+        <name>DirectoryLoadingFinished</name>
+        <briefdescription>
+<para>Event that will be called when loading of users from directory will be finished. Int - count of loaded files. Int - count of corupted files. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af973c97a05818a9e360aadca02da8834" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type>System.Action&lt; <ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>System.Action&lt;User&gt; AuthorityController.API.LocalUsers.UserProfileStored</definition>
+        <argsstring></argsstring>
+        <name>UserProfileStored</name>
+        <briefdescription>
+<para>Event that will be called when profile will be setted to storage. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af05c837a76c7b94631884b965e5cc75d" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type>System.Action&lt; <ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref>, string &gt;</type>
+        <definition>System.Action&lt;User, string&gt; AuthorityController.API.LocalUsers.UserProfileNotStored</definition>
+        <argsstring></argsstring>
+        <name>UserProfileNotStored</name>
+        <briefdescription>
+<para>Event that will be called when profile will be fail adding to storage. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="53" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1afdfecc5fc12d8f2a862ddc030577a064" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AuthorityController.API.LocalUsers.HasAsyncLoadings</definition>
+        <argsstring></argsstring>
+        <name>HasAsyncLoadings</name>
+        <briefdescription>
+<para>Does async processes started at the moment? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="60" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="61" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1aaae0c59c3cdaf7fcde412e10326059f1" prot="private" static="yes" mutable="no">
+        <type>readonly Hashtable</type>
+        <definition>readonly Hashtable AuthorityController.API.LocalUsers.UsersByLogin</definition>
+        <argsstring></argsstring>
+        <name>UsersByLogin</name>
+        <initializer>= new Hashtable()</initializer>
+        <briefdescription>
+<para>Table that provide aaccess to user data by login. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a7ccc07a39b84ca1871e981bf6f8729ba" prot="private" static="yes" mutable="no">
+        <type>readonly Hashtable</type>
+        <definition>readonly Hashtable AuthorityController.API.LocalUsers.UsersById</definition>
+        <argsstring></argsstring>
+        <name>UsersById</name>
+        <initializer>= new Hashtable()</initializer>
+        <briefdescription>
+<para>Table that provide access to user by unique ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="78" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a6d00e6327f737d23cfdfff3f13ecaec3" prot="private" static="yes" mutable="no">
+        <type>readonly HashSet&lt; string &gt;</type>
+        <definition>readonly HashSet&lt;string&gt; AuthorityController.API.LocalUsers.LoadingLockedDirectories</definition>
+        <argsstring></argsstring>
+        <name>LoadingLockedDirectories</name>
+        <initializer>= new HashSet&lt;string&gt;()</initializer>
+        <briefdescription>
+<para>Contains directories that has users loading process and blocked for new ones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="83" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a1c037e720aa8b718fa5ceec4d2495f41" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void AuthorityController.API.LocalUsers.LoadProfilesAsync</definition>
+        <argsstring>(string directory)</argsstring>
+        <name>LoadProfilesAsync</name>
+        <param>
+          <type>string</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Loading users data from directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="92" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="92" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1ac9295cdceab3bc5a0363a435cbdf3f03" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AuthorityController.API.LocalUsers.SetProfile</definition>
+        <argsstring>(User user)</argsstring>
+        <name>SetProfile</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Adding user&apos;s profile by directory sete up via config file. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User profile.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="177" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a87fd101098bce03f6c0775434946640e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>static async void AuthorityController.API.LocalUsers.SetProfileAsync</definition>
+        <argsstring>(User user, string directory)</argsstring>
+        <name>SetProfileAsync</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Adding user&apos;s profile by directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User profile.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Users storage.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="187" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="187" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af2f5f3adeecfe6de4d7e480dfc22157a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.SetProfile</definition>
+        <argsstring>(User user, string directory)</argsstring>
+        <name>SetProfile</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Adding user&apos;s profile by directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User profile.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Users storage.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="218" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="218" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a11f2205f650c36ae8bce9b291a6f1cba" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.RemoveProfile</definition>
+        <argsstring>(User user)</argsstring>
+        <name>RemoveProfile</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Remove user profile from directory seted up via Config file. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="267" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="267" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1ae02de90abedf4b3e97478dc6270d833d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.RemoveProfile</definition>
+        <argsstring>(User user, string directory)</argsstring>
+        <name>RemoveProfile</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Remove user profile from directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="277" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="277" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1aad5081adb0650b6d693e00bf0e833a8a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>static uint AuthorityController.API.LocalUsers.GenerateID</definition>
+        <argsstring>(User user)</argsstring>
+        <name>GenerateID</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Looking for free id. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="303" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="303" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a2090f668f0dcc303c254b0bdac6c0701" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AuthorityController.API.LocalUsers.AddToLoadedData</definition>
+        <argsstring>(User user)</argsstring>
+        <name>AddToLoadedData</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Registrate user in tables by id and login. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="328" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="328" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a38dbb5226a8c8fb138f6ecb590713d75" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AuthorityController.API.LocalUsers.ClearUsersLoadedData</definition>
+        <argsstring>()</argsstring>
+        <name>ClearUsersLoadedData</name>
+        <briefdescription>
+<para>Remove all loaded users data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="360" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="360" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a9ce59e22a9d7f732ea20d2579ab57f48" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.TryToFindUser</definition>
+        <argsstring>(uint id, out User user)</argsstring>
+        <name>TryToFindUser</name>
+        <param>
+          <type>uint</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>out <ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Try to find user by ID in loaded users table. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unique user&apos;s id.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference on loaded user profile.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of operation.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="372" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="372" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af37939b7ade7b7be30f5ad8935cecdb3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.TryToFindUser</definition>
+        <argsstring>(string login, out User user)</argsstring>
+        <name>TryToFindUser</name>
+        <param>
+          <type>string</type>
+          <declname>login</declname>
+        </param>
+        <param>
+          <type>out <ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Try to find user by ID in loaded users table. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>login</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unique user&apos;s login.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference on loaded user profile.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of operation.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="392" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="392" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a8bf53e0c8216de0a8f5244e11ccb90b5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool AuthorityController.API.LocalUsers.TryToFindUserUniform</definition>
+        <argsstring>(string uniformValue, out User userProfile, out string error)</argsstring>
+        <name>TryToFindUserUniform</name>
+        <param>
+          <type>string</type>
+          <declname>uniformValue</declname>
+        </param>
+        <param>
+          <type>out <ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>userProfile</declname>
+        </param>
+        <param>
+          <type>out string</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Seeking for user. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniformValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID or login in string format.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userProfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Field that will contain user&apos;s profile in case of found.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error that describe a reasone of fail. Could be send backward to client.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="417" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="417" bodyend="448"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a67fe99b2249aacec99b18538ee86bec8" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string AuthorityController.API.LocalUsers.GetUserFileName</definition>
+        <argsstring>(User user)</argsstring>
+        <name>GetUserFileName</name>
+        <param>
+          <type><ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Return unified name based on user&apos;s profile. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="457" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="457" bodyend="468"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="d0/dac/namespace_authority_controller_1_1_a_p_i" kindref="compound">API</ref> that provide operation with authority data stored on local machine out of UniformDataOperator storage. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/API/LocalUsers.cs" bodystart="35" bodyend="470"/>
+    <listofallmembers>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a2090f668f0dcc303c254b0bdac6c0701" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>AddToLoadedData</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a38dbb5226a8c8fb138f6ecb590713d75" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>ClearUsersLoadedData</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a54370dd6dd474a14106891cd6d0beaaf" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>DirectoryLoadingFinished</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1aad5081adb0650b6d693e00bf0e833a8a" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>GenerateID</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a67fe99b2249aacec99b18538ee86bec8" prot="private" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>GetUserFileName</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1afdfecc5fc12d8f2a862ddc030577a064" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>HasAsyncLoadings</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a6d00e6327f737d23cfdfff3f13ecaec3" prot="private" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>LoadingLockedDirectories</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a1c037e720aa8b718fa5ceec4d2495f41" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>LoadProfilesAsync</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a11f2205f650c36ae8bce9b291a6f1cba" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>RemoveProfile</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1ae02de90abedf4b3e97478dc6270d833d" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>RemoveProfile</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1ac9295cdceab3bc5a0363a435cbdf3f03" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>SetProfile</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af2f5f3adeecfe6de4d7e480dfc22157a" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>SetProfile</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a87fd101098bce03f6c0775434946640e" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>SetProfileAsync</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a9ce59e22a9d7f732ea20d2579ab57f48" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>TryToFindUser</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af37939b7ade7b7be30f5ad8935cecdb3" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>TryToFindUser</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a8bf53e0c8216de0a8f5244e11ccb90b5" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>TryToFindUserUniform</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af05c837a76c7b94631884b965e5cc75d" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>UserProfileNotStored</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1af973c97a05818a9e360aadca02da8834" prot="public" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>UserProfileStored</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1a7ccc07a39b84ca1871e981bf6f8729ba" prot="private" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>UsersById</name></member>
+      <member refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users_1aaae0c59c3cdaf7fcde412e10326059f1" prot="private" virt="non-virtual"><scope>AuthorityController::API::LocalUsers</scope><name>UsersByLogin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

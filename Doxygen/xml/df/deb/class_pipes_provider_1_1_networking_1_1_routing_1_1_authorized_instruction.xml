@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction" kind="class" language="C#" prot="public">
     <compoundname>PipesProvider::Networking::Routing::AuthorizedInstruction</compoundname>
-    <basecompoundref refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction" prot="public" virt="non-virtual">PipesProvider.Networking.Routing.Instruction</basecompoundref>
+    <basecompoundref refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction" prot="public" virt="non-virtual">PipesProvider.Networking.Routing.PartialAuthorizedInstruction</basecompoundref>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1aabef40719c548a28cd3517516be58ded" prot="public" static="no" mutable="no">
         <type>string</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="34" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1aef611c3d3856d276dce814d7f4aaaee2" prot="public" static="no" mutable="no">
         <type>string</type>
@@ -28,21 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="39" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="39" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a45172a0762b6627107f67e4e7db61780" prot="public" static="no" mutable="no">
-        <type>string</type>
-        <definition>string PipesProvider.Networking.Routing.AuthorizedInstruction.guestChanel</definition>
-        <argsstring></argsstring>
-        <name>guestChanel</name>
-        <initializer>= &quot;guests&quot;</initializer>
-        <briefdescription>
-<para>Name of the broadcasting pipe that providing guest tokens. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="44" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
@@ -57,22 +43,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="52" bodyend="54"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="49" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="50" bodyend="52"/>
       </memberdef>
-      <memberdef kind="property" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a5bc07dddc515afbe5dc2dcd64c8314ee" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
-        <type>string</type>
-        <definition>string PipesProvider.Networking.Routing.AuthorizedInstruction.GuestToken</definition>
-        <argsstring></argsstring>
-        <name>GuestToken</name>
-        <briefdescription>
-<para>Return token authorized on target server as guest. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="60" bodyend="62"/>
-      </memberdef>
-      <memberdef kind="property" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a9f1721ee3d1fbb3803b77a991f5e1a03" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+      <memberdef kind="property" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a9f1721ee3d1fbb3803b77a991f5e1a03" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor" kindref="compound">USER_LOGON.LogonProcessor</ref></type>
         <definition>USER_LOGON.LogonProcessor PipesProvider.Networking.Routing.AuthorizedInstruction.LogonHandler</definition>
         <argsstring></argsstring>
@@ -83,24 +56,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="180" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="181" bodyend="192"/>
-      </memberdef>
-      <memberdef kind="property" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a69c5e303ece339342c6979ba11436d82" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
-        <type><ref refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor" kindref="compound">GET_GUEST_TOKEN.GuestTokenProcessor</ref></type>
-        <definition>GET_GUEST_TOKEN.GuestTokenProcessor PipesProvider.Networking.Routing.AuthorizedInstruction.GuestTokenHandler</definition>
-        <argsstring></argsstring>
-        <name>GuestTokenHandler</name>
-        <briefdescription>
-<para>Handler that take full control on reciving of guest token. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="201" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="202" bodyend="213"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="184" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="185" bodyend="196"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1ad4c378226e015ebdcd8390dd63d54669" prot="private" static="no" mutable="no">
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1ad4c378226e015ebdcd8390dd63d54669" prot="protected" static="no" mutable="no">
         <type><ref refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor" kindref="compound">USER_LOGON.LogonProcessor</ref></type>
         <definition>USER_LOGON.LogonProcessor PipesProvider.Networking.Routing.AuthorizedInstruction._LogonHandler</definition>
         <argsstring></argsstring>
@@ -111,20 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="195" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="195" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a981488184cffd1c3f4e91e35bda055ba" prot="private" static="no" mutable="no">
-        <type><ref refid="d3/d12/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor" kindref="compound">GET_GUEST_TOKEN.GuestTokenProcessor</ref></type>
-        <definition>GET_GUEST_TOKEN.GuestTokenProcessor PipesProvider.Networking.Routing.AuthorizedInstruction._GuestTokenHandler</definition>
-        <argsstring></argsstring>
-        <name>_GuestTokenHandler</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="216" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="216" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="199" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="199" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -162,7 +109,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="71" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="71" bodyend="85"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="61" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="61" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1addf69c3fea172cc9d8199097466a052f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -175,7 +122,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="90" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="90" bodyend="172"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="81" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a067f546d69e4766868c1e28feef51acf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PipesProvider.Networking.Routing.AuthorizedInstruction.TryToLogon</definition>
+        <argsstring>(CancellationToken cancellationToken)</argsstring>
+        <name>TryToLogon</name>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Tring to recive token authorized in authority controller of target server. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Token that can be used to termination of the logon process.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="91" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="91" bodyend="176"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -189,74 +162,92 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>Instruction</label>
         <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
       </node>
+      <node id="3">
+        <label>PartialAuthorizedInstruction</label>
+        <link refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="8">
+      <node id="10">
         <label>IQueryHandler</label>
         <link refid="d2/d1b/interface_uniform_queries_1_1_executable_1_1_i_query_handler"/>
       </node>
-      <node id="4">
+      <node id="5">
         <label>PipesProvider.Networking.Routing.AuthorizedInstruction</label>
         <link refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction"/>
-        <childnode refid="5" relation="public-inheritance">
+        <childnode refid="6" relation="public-inheritance">
         </childnode>
-        <childnode refid="7" relation="usage">
+        <childnode refid="11" relation="usage">
           <edgelabel>_LogonHandler</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Instruction</label>
+        <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>logonConfig</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>BaseQueries.GET_GUEST_TOKEN</label>
+        <link refid="d2/da1/class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Security</label>
+      </node>
+      <node id="6">
+        <label>PartialAuthorizedInstruction</label>
+        <link refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction"/>
+        <childnode refid="7" relation="public-inheritance">
         </childnode>
         <childnode refid="9" relation="usage">
           <edgelabel>_GuestTokenHandler</edgelabel>
         </childnode>
       </node>
-      <node id="5">
-        <label>Instruction</label>
-        <link refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction"/>
-        <childnode refid="6" relation="usage">
-          <edgelabel>logonConfig</edgelabel>
-        </childnode>
-      </node>
-      <node id="6">
-        <label>Security</label>
-      </node>
-      <node id="9">
-        <label>AuthorityController.Queries.GET_GUEST_TOKEN</label>
-        <link refid="d0/db0/class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n"/>
-        <childnode refid="8" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="7">
+      <node id="11">
         <label>AuthorityController.Queries.USER_LOGON</label>
         <link refid="de/d4c/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n"/>
-        <childnode refid="8" relation="public-inheritance">
+        <childnode refid="10" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="28" bodyend="218"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" line="31" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Extensions/PipesProvider/AuthorizedInstruction.cs" bodystart="30" bodyend="201"/>
     <listofallmembers>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a981488184cffd1c3f4e91e35bda055ba" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>_GuestTokenHandler</name></member>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1ad4c378226e015ebdcd8390dd63d54669" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>_LogonHandler</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1aef955c1b8751ba406a3b55a7155979c0" prot="protected" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>_GuestTokenHandler</name></member>
+      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1ad4c378226e015ebdcd8390dd63d54669" prot="protected" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>_LogonHandler</name></member>
       <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1aabef40719c548a28cd3517516be58ded" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>authLogin</name></member>
       <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a0f856748d300d23a203b5e289007d6fd" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>AuthorizedToken</name></member>
       <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1aef611c3d3856d276dce814d7f4aaaee2" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>authPassword</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a5b9d2229bd3188741d97b334106d1611" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>commentary</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a7b1790dc22b0fd1a11b447e207245e83" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>Default</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1afe25e78581cc3344b90a710f73a2d1be" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>DerivedTypes</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aad2d50b60ddcdd0c7d0671ced01a5480" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>Empty</name></member>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a45172a0762b6627107f67e4e7db61780" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>guestChanel</name></member>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a5bc07dddc515afbe5dc2dcd64c8314ee" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>GuestToken</name></member>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a69c5e303ece339342c6979ba11436d82" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>GuestTokenHandler</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1abda0735bb8ca245802008413dd50c863" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>guestChanel</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1a0818427091144916faf74dab51ac1ba8" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>GuestToken</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1a2449d0415992bc75cc854859cda8b0bf" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>GuestTokenHandler</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a376135eac06c59b1df8d2f5d1617bed9" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>IsRoutingTarget</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a07dbb5b97b3d9a28e5a318815d954278" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>IsValid</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a2a3325abd7537b7a961626272634e038" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>logonConfig</name></member>
-      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a9f1721ee3d1fbb3803b77a991f5e1a03" prot="private" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>LogonHandler</name></member>
+      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a9f1721ee3d1fbb3803b77a991f5e1a03" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>LogonHandler</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1abe54e245df8dd26547b0c881b987202b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>pipeName</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a8681a89ae14ad25d11ee0c588231b772" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>PublicKey</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a60281a347236a1311c37743b90596d58" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>PublicKeyExpireTime</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1aa98823848a42831095f92b639121cc67" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>queryPatterns</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1adb75f80ff34fab644305856ccf23d07b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>routingIP</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a61ce6ffa8bb9cc44efc57bc51be3550b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>RSAEncryption</name></member>
+      <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1afc65118594a1953afeef63ff3d8e4506" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>title</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1a3ac0a0b15a47f6cfbf26bd0dbabc9b97" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryToGetGuestToken</name></member>
+      <member refid="dd/df3/class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction_1ac84ced39a0d2a20639a82596ef34a093" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryToGetGuestTokenAsync</name></member>
       <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1addf69c3fea172cc9d8199097466a052f" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryToLogon</name></member>
+      <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a067f546d69e4766868c1e28feef51acf" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryToLogon</name></member>
       <member refid="df/deb/class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction_1a20e94ddf386abb937f4c725a094dc050" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryToLogonAsync</name></member>
       <member refid="d5/d2e/class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction_1a04ee08d3b41785e88679c6870c392266" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::AuthorizedInstruction</scope><name>TryUpdatePublicKey</name></member>
     </listofallmembers>

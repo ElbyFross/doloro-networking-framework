@@ -15,6 +15,10 @@ bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routin
 \item 
 static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a13c2778abb1d14e7e8e4a2ae51d315ac}{Load\+Routing\+Tables}} (string directory, Search\+Option search\+Option)
 \begin{DoxyCompactList}\small\item\em Trying to load all routing tables from durectory. You could have several X\+ML serialized routing tables. This way allow to share it via plugins. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a28de144d3afcb29a69cd2a51b2af41a9}{Save\+Routing\+Table}} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table)
+\begin{DoxyCompactList}\small\item\em Save routing table by default directory app/resources/routing/\+R\+O\+U\+T\+I\+NG.xml \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_affae680ffe9710e88416323ef3aa8c0b}{Save\+Routing\+Table}} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table, string name)
+\begin{DoxyCompactList}\small\item\em Save routing table by default directory app/resources/routing \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1fe9c42819cd5c5210b254c0d868b336}{Save\+Routing\+Table}} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table, string directory, string name)
 \begin{DoxyCompactList}\small\item\em Save routing table by directory. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a515b9ad19dc868afb6d47c762064fd96}{operator+}} (\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table0, \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}} table1)
@@ -77,10 +81,42 @@ Adding instruction from second table to first one.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a28de144d3afcb29a69cd2a51b2af41a9}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a28de144d3afcb29a69cd2a51b2af41a9}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Save\+Routing\+Table@{Save\+Routing\+Table}}
+\index{Save\+Routing\+Table@{Save\+Routing\+Table}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{Save\+Routing\+Table()}{SaveRoutingTable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Save\+Routing\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}}}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Save routing table by default directory app/resources/routing/\+R\+O\+U\+T\+I\+NG.xml 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Source with instructions.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_affae680ffe9710e88416323ef3aa8c0b}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_affae680ffe9710e88416323ef3aa8c0b}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Save\+Routing\+Table@{Save\+Routing\+Table}}
+\index{Save\+Routing\+Table@{Save\+Routing\+Table}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
+\subsubsection{\texorpdfstring{Save\+Routing\+Table()}{SaveRoutingTable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily static void Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Save\+Routing\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}}}]{table,  }\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Save routing table by default directory app/resources/routing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Source with instructions.\\
+\hline
+{\em name} & Name of the file.\\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1fe9c42819cd5c5210b254c0d868b336}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_a1fe9c42819cd5c5210b254c0d868b336}} 
 \index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}!Save\+Routing\+Table@{Save\+Routing\+Table}}
 \index{Save\+Routing\+Table@{Save\+Routing\+Table}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Routing\+Table}}
-\subsubsection{\texorpdfstring{Save\+Routing\+Table()}{SaveRoutingTable()}}
+\subsubsection{\texorpdfstring{Save\+Routing\+Table()}{SaveRoutingTable()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily static void Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table.\+Save\+Routing\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}{Routing\+Table}}}]{table,  }\item[{string}]{directory,  }\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
@@ -89,7 +125,7 @@ Save routing table by directory.
 
 
 \begin{DoxyParams}{Parameters}
-{\em table} & Table object,\\
+{\em table} & Source with instructions.\\
 \hline
 {\em directory} & Target directory.\\
 \hline

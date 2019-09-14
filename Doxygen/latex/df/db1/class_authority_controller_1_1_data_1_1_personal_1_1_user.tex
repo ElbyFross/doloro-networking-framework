@@ -23,16 +23,24 @@ byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1
 \begin{DoxyCompactList}\small\item\em ON C\+L\+I\+E\+NT\+: Open password. Situable only if user provides profile as new. ON S\+E\+R\+V\+ER\+: Hashed and salted password that confirm user rights to use this account. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}{first\+Name}}
 \begin{DoxyCompactList}\small\item\em Name of the user that will displayed in profile. \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}{second\+Name}}
-\begin{DoxyCompactList}\small\item\em Secondary name that will be displayed in profile. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_ac845744a6958089f44f79f3a1d9341d1}{last\+Name}}
+\begin{DoxyCompactList}\small\item\em Last name that will be displayed in profile. \end{DoxyCompactList}\item 
 string \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a937c23d9fddf843c49a69a6424bfda02}{rights}} = new string\mbox{[}0\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of rigts\textquotesingle{} codes provided to this user. \end{DoxyCompactList}\item 
-List$<$ \mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}} $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_aba2ff03e67ecf1732c4bdb625b441aac}{bans}} = new List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()
+List$<$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}} $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_aba2ff03e67ecf1732c4bdb625b441aac}{bans}} = new List$<$\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()
 \begin{DoxyCompactList}\small\item\em List of bans that would received by user. \end{DoxyCompactList}\item 
-List$<$ string $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}{culture\+Preferences}} = new List$<$string$>$()
-\begin{DoxyCompactList}\small\item\em List of culture codes that prefered by this user. In order of priority. \end{DoxyCompactList}\item 
 List$<$ string $>$ \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}{tokens}} = new List$<$string$>$()
 \begin{DoxyCompactList}\small\item\em List that cont tokens provided to this user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Type \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a0ea20d5524b6ae3936197f88a270c6a8}{Global\+Type}} = typeof(\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}})
+\begin{DoxyCompactList}\small\item\em Type of user. Apply your castom user to this field to instinate required one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user_a163bc8322a4fa64abb1f169cde75e5a5}{Rights\+String\+Format}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Rights array as formated string. Compatible with U\+DO. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -84,23 +92,13 @@ Compare recived open password with stored to user.
 \index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!bans@{bans}}
 \index{bans@{bans}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
 \subsubsection{\texorpdfstring{bans}{bans}}
-{\footnotesize\ttfamily List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+bans = new List$<$\mbox{\hyperlink{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+bans = new List$<$\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_ban_information}{Ban\+Information}}$>$()}
 
 
 
 List of bans that would received by user. 
 
-\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a03e95a08b53368aa266c83327f0654b4}} 
-\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!culture\+Preferences@{culture\+Preferences}}
-\index{culture\+Preferences@{culture\+Preferences}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
-\subsubsection{\texorpdfstring{culture\+Preferences}{culturePreferences}}
-{\footnotesize\ttfamily List$<$string$>$ Authority\+Controller.\+Data.\+Personal.\+User.\+culture\+Preferences = new List$<$string$>$()}
-
-
-
-List of culture codes that prefered by this user. In order of priority. 
-
-Define what a UI language will selected after user login. Useful in multicultural environment like universities. \mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}} 
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a06913d22f1b4518cce99c356bdad38a0}} 
 \index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!first\+Name@{first\+Name}}
 \index{first\+Name@{first\+Name}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
 \subsubsection{\texorpdfstring{first\+Name}{firstName}}
@@ -109,6 +107,16 @@ Define what a UI language will selected after user login. Useful in multicultura
 
 
 Name of the user that will displayed in profile. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a0ea20d5524b6ae3936197f88a270c6a8}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a0ea20d5524b6ae3936197f88a270c6a8}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!Global\+Type@{Global\+Type}}
+\index{Global\+Type@{Global\+Type}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{Global\+Type}{GlobalType}}
+{\footnotesize\ttfamily Type Authority\+Controller.\+Data.\+Personal.\+User.\+Global\+Type = typeof(\mbox{\hyperlink{class_authority_controller_1_1_data_1_1_personal_1_1_user}{User}})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Type of user. Apply your castom user to this field to instinate required one. 
 
 \mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a1a2ed2d1d844d6c92cc301595488375a}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a1a2ed2d1d844d6c92cc301595488375a}} 
 \index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!id@{id}}
@@ -119,6 +127,16 @@ Name of the user that will displayed in profile.
 
 
 Unique id of this user to allow services access. 
+
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_ac845744a6958089f44f79f3a1d9341d1}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_ac845744a6958089f44f79f3a1d9341d1}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!last\+Name@{last\+Name}}
+\index{last\+Name@{last\+Name}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{last\+Name}{lastName}}
+{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+last\+Name}
+
+
+
+Last name that will be displayed in profile. 
 
 \mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_aa0cd14927a55efeafd187ca681bfd62d}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_aa0cd14927a55efeafd187ca681bfd62d}} 
 \index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!login@{login}}
@@ -150,16 +168,6 @@ ON C\+L\+I\+E\+NT\+: Open password. Situable only if user provides profile as ne
 
 Array of rigts\textquotesingle{} codes provided to this user. 
 
-\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a8b4f88cdbace4ccf3101c6a62dc26a10}} 
-\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!second\+Name@{second\+Name}}
-\index{second\+Name@{second\+Name}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
-\subsubsection{\texorpdfstring{second\+Name}{secondName}}
-{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+second\+Name}
-
-
-
-Secondary name that will be displayed in profile. 
-
 \mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a2d4cda1ba0e47546cc1d1b2c5db82434}} 
 \index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!tokens@{tokens}}
 \index{tokens@{tokens}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
@@ -169,6 +177,19 @@ Secondary name that will be displayed in profile.
 
 
 List that cont tokens provided to this user. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_authority_controller_1_1_data_1_1_personal_1_1_user_a163bc8322a4fa64abb1f169cde75e5a5}\label{class_authority_controller_1_1_data_1_1_personal_1_1_user_a163bc8322a4fa64abb1f169cde75e5a5}} 
+\index{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}!Rights\+String\+Format@{Rights\+String\+Format}}
+\index{Rights\+String\+Format@{Rights\+String\+Format}!Authority\+Controller\+::\+Data\+::\+Personal\+::\+User@{Authority\+Controller\+::\+Data\+::\+Personal\+::\+User}}
+\subsubsection{\texorpdfstring{Rights\+String\+Format}{RightsStringFormat}}
+{\footnotesize\ttfamily string Authority\+Controller.\+Data.\+Personal.\+User.\+Rights\+String\+Format\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Rights array as formated string. Compatible with U\+DO. 
 
 
 

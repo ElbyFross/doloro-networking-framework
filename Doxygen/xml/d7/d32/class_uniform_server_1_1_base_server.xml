@@ -6,6 +6,7 @@
     <derivedcompoundref refid="d2/d9a/class_queries_server_1_1_server" prot="public" virt="non-virtual">QueriesServer.Server</derivedcompoundref>
     <derivedcompoundref refid="d8/d17/class_session_provider_1_1_server" prot="public" virt="non-virtual">SessionProvider.Server</derivedcompoundref>
     <derivedcompoundref refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server" prot="public" virt="non-virtual">UniformServer.Standard.BroadcastingServer</derivedcompoundref>
+    <derivedcompoundref refid="d0/d04/class_uniform_server_1_1_standard_1_1_relay_server" prot="public" virt="non-virtual">UniformServer.Standard.RelayServer</derivedcompoundref>
     <derivedcompoundref refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server" prot="public" virt="non-virtual">UniformServer.Standard.SimpleServer</derivedcompoundref>
       <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" prot="public" static="yes" mutable="no">
@@ -19,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="35" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
@@ -34,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="42" bodyend="83"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="42" bodyend="83"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-static-attrib">
@@ -50,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="89" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="89" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="89" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1aa40c02a1eec7eda4c36a8ac08119b414" prot="protected" static="yes" mutable="no">
         <type>int</type>
@@ -64,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="94" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="94" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="94" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1a9c14e919da0c2b9b7f8e57a92c9b0742" prot="protected" static="yes" mutable="no">
         <type><ref refid="d7/d32/class_uniform_server_1_1_base_server" kindref="compound">BaseServer</ref> []</type>
@@ -77,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="99" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="99" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="99" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1a051bdce3aec037df76d8efe3b9938198" prot="protected" static="yes" mutable="no">
         <type>Mutex</type>
@@ -91,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="114" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="114" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="114" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="114" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -107,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="104" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="104" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="104" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1a494087cabc03c54c3dc0ac1cc1048860" prot="protected" static="no" mutable="no">
         <type>const int</type>
@@ -121,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="109" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="109" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="109" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="109" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -136,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="121" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="121" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="121" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1aaa318b3ed503dd8ccf381c9f3a81ecf2" prot="public" static="no" mutable="no">
         <type>string</type>
@@ -149,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="126" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="126" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="126" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" prot="public" static="no" mutable="no">
         <type><ref refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" kindref="member">PipesProvider.Security.SecurityLevel</ref></type>
@@ -163,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="131" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="131" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="131" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="131" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="event">
@@ -178,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="37" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="event" id="d7/d32/class_uniform_server_1_1_base_server_1a440a854a955ab7c5e563918c12e9b32c" prot="public" static="yes" add="no" remove="no" raise="no">
         <type>System.Action&lt; int &gt;</type>
@@ -191,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="43" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="43" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-static-func">
@@ -218,7 +219,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="140" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="140" bodyend="165"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="140" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="140" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -243,7 +244,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="171" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="171" bodyend="206"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="171" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="171" bodyend="206"/>
       </memberdef>
       <memberdef kind="function" id="d7/d32/class_uniform_server_1_1_base_server_1a8e9e872bad891b2bc06a8caa6c09ebf9" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -260,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="50" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="50" bodyend="68"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="50" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="50" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="d7/d32/class_uniform_server_1_1_base_server_1a6cf6b8472de3925d465737a7fc9a8842" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -277,24 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="73" bodyend="92"/>
-      </memberdef>
-      <memberdef kind="function" id="d7/d32/class_uniform_server_1_1_base_server_1ae3c371a7e7953333bb2aa5104fa8a72d" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>static void UniformServer.BaseServer.ThreadingServerLoop_PP_Broadcast</definition>
-        <argsstring>(object server)</argsstring>
-        <name>ThreadingServerLoop_PP_Broadcast</name>
-        <param>
-          <type>object</type>
-          <declname>server</declname>
-        </param>
-        <briefdescription>
-<para>Main threaded loop that control broadcassting server loop start. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="97" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="97" bodyend="125"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs" bodystart="73" bodyend="92"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -337,7 +321,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="216" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="216" bodyend="232"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="216" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="216" bodyend="232"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -383,51 +367,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" bodystart="46" bodyend="119"/>
-      </memberdef>
-      <memberdef kind="function" id="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>static void UniformServer.BaseServer.StartBroadcastingViaPP</definition>
-        <argsstring>(string pipeName, PipesProvider.Security.SecurityLevel securityLevel, BroadcastingServerTransmissionController.MessageHandeler getBroadcastingMessageHandler, int chanels)</argsstring>
-        <name>StartBroadcastingViaPP</name>
-        <param>
-          <type>string</type>
-          <declname>pipeName</declname>
-        </param>
-        <param>
-          <type><ref refid="da/d2f/namespace_pipes_provider_1_1_security_1a1a6020eca1c661a6f7140e8260502d7e" kindref="member">PipesProvider.Security.SecurityLevel</ref></type>
-          <declname>securityLevel</declname>
-        </param>
-        <param>
-          <type>BroadcastingServerTransmissionController.MessageHandeler</type>
-          <declname>getBroadcastingMessageHandler</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>chanels</declname>
-        </param>
-        <briefdescription>
-<para>Open server with broadcasting chanels using <ref refid="d6/daa/namespace_pipes_provider" kindref="compound">PipesProvider</ref>. </para>        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>getBroadcastingMessageHandler</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>delegate that will be called to get message for new client.</para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>chanels</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>How many many connections would awaiable to this server. Attention: every chanel is a tread.</para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" line="127" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" bodystart="127" bodyend="151"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" line="46" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs" bodystart="46" bodyend="119"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -435,56 +375,62 @@
     <detaileddescription>
 <para>Part of class that provide methods for establishing transmisssion via <ref refid="d6/daa/namespace_pipes_provider" kindref="compound">PipesProvider</ref>. </para><para>Part of class that provide methods can be started as thread for server init; </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="23">
-        <label>UniformServer.BaseServer</label>
-        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-      </node>
-      <node id="27">
-        <label>UniformServer.Standard.BroadcastingServer</label>
-        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
-        <childnode refid="23" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>SessionProvider.Server</label>
-        <link refid="d8/d17/class_session_provider_1_1_server"/>
-        <childnode refid="23" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="28">
-        <label>UniformServer.Standard.SimpleServer</label>
-        <link refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server"/>
-        <childnode refid="23" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>ACTests.AuthorityTestServer.Server</label>
-        <childnode refid="23" relation="public-inheritance">
+      <node id="30">
+        <label>UniformServer.Standard.RelayServer</label>
+        <link refid="d0/d04/class_uniform_server_1_1_standard_1_1_relay_server"/>
+        <childnode refid="25" relation="public-inheritance">
         </childnode>
       </node>
       <node id="25">
+        <label>UniformServer.BaseServer</label>
+        <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
+      </node>
+      <node id="29">
+        <label>UniformServer.Standard.BroadcastingServer</label>
+        <link refid="d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>SessionProvider.Server</label>
+        <link refid="d8/d17/class_session_provider_1_1_server"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>UniformServer.Standard.SimpleServer</label>
+        <link refid="db/daa/class_uniform_server_1_1_standard_1_1_simple_server"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>ACTests.AuthorityTestServer.Server</label>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
         <label>QueriesServer.Server</label>
         <link refid="d2/d9a/class_queries_server_1_1_server"/>
-        <childnode refid="23" relation="public-inheritance">
+        <childnode refid="25" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="29">
+      <node id="32">
         <label>UniformServer.BaseServer</label>
         <link refid="d7/d32/class_uniform_server_1_1_base_server"/>
-        <childnode refid="30" relation="usage">
+        <childnode refid="33" relation="usage">
           <edgelabel>securityLevel</edgelabel>
         </childnode>
-        <childnode refid="29" relation="usage">
+        <childnode refid="32" relation="usage">
           <edgelabel>longTermServerThreads</edgelabel>
         </childnode>
       </node>
-      <node id="30">
+      <node id="33">
         <label>Security</label>
       </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs" bodystart="29" bodyend="234"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs" bodystart="29" bodyend="234"/>
     <listofallmembers>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a632ed557976f4d7bd9b41502bb9a262b" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>appTerminated</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a992660752da60019c348e18226a87bf2" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>ArgsReactor</name></member>
@@ -494,12 +440,10 @@
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaa318b3ed503dd8ccf381c9f3a81ecf2" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>pipeName</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1ac6297faa957fd1005fc61054bdd1cdb1" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>securityLevel</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aefbb2a4287a7f995582b2abf41da8a89" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>SendAnswerViaPP</name></member>
-      <member refid="d7/d32/class_uniform_server_1_1_base_server_1a9ca20516e2a562ddbf8d2c1866f90b25" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>StartBroadcastingViaPP</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aa4a1412b217944e7f8d6ccae6ac68289" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>StartServerThread</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1aaff91507b262d2a1b9021caa2d01640f" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>SW_HIDE</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a494087cabc03c54c3dc0ac1cc1048860" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>SW_SHOW</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a52485a2d70e615a5cbf720c952a8d62f" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>thread</name></member>
-      <member refid="d7/d32/class_uniform_server_1_1_base_server_1ae3c371a7e7953333bb2aa5104fa8a72d" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>ThreadingServerLoop_PP_Broadcast</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a6cf6b8472de3925d465737a7fc9a8842" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>ThreadingServerLoop_PP_Input</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a8e9e872bad891b2bc06a8caa6c09ebf9" prot="protected" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>ThreadingServerLoop_PP_Output</name></member>
       <member refid="d7/d32/class_uniform_server_1_1_base_server_1a31cc7d436bb2dd344ec275fd0fa0061e" prot="public" virt="non-virtual"><scope>UniformServer::BaseServer</scope><name>ThreadsCount</name></member>

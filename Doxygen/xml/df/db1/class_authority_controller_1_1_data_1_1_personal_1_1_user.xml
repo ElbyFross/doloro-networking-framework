@@ -2,6 +2,22 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kind="class" language="C#" prot="public">
     <compoundname>AuthorityController::Data::Personal::User</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a0ea20d5524b6ae3936197f88a270c6a8" prot="public" static="yes" mutable="no">
+        <type>Type</type>
+        <definition>Type AuthorityController.Data.Personal.User.GlobalType</definition>
+        <argsstring></argsstring>
+        <name>GlobalType</name>
+        <initializer>= typeof(<ref refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user" kindref="compound">User</ref>)</initializer>
+        <briefdescription>
+<para>Type of user. Apply your castom user to this field to instinate required one. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="36" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a1a2ed2d1d844d6c92cc301595488375a" prot="public" static="no" mutable="no">
         <type>uint</type>
@@ -14,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="37" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="37" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="44" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1aa0cd14927a55efeafd187ca681bfd62d" prot="public" static="no" mutable="no">
         <type>string</type>
@@ -27,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="42" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="42" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1abc14acc6d3441deb742264eb6cfc167c" prot="public" static="no" mutable="no">
         <type>byte []</type>
@@ -40,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="48" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="48" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="59" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a06913d22f1b4518cce99c356bdad38a0" prot="public" static="no" mutable="no">
         <type>string</type>
@@ -53,20 +69,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="53" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="53" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="66" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="66" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a8b4f88cdbace4ccf3101c6a62dc26a10" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1ac845744a6958089f44f79f3a1d9341d1" prot="public" static="no" mutable="no">
         <type>string</type>
-        <definition>string AuthorityController.Data.Personal.User.secondName</definition>
+        <definition>string AuthorityController.Data.Personal.User.lastName</definition>
         <argsstring></argsstring>
-        <name>secondName</name>
+        <name>lastName</name>
         <briefdescription>
-<para>Secondary name that will be displayed in profile. </para>        </briefdescription>
+<para>Last name that will be displayed in profile. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="58" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="58" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="73" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a937c23d9fddf843c49a69a6424bfda02" prot="public" static="no" mutable="no">
         <type>string []</type>
@@ -80,35 +96,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="63" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="63" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="78" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1aba2ff03e67ecf1732c4bdb625b441aac" prot="public" static="no" mutable="no">
-        <type>List&lt; <ref refid="d6/d49/struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref> &gt;</type>
+        <type>List&lt; <ref refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref> &gt;</type>
         <definition>List&lt;BanInformation&gt; AuthorityController.Data.Personal.User.bans</definition>
         <argsstring></argsstring>
         <name>bans</name>
-        <initializer>= new List&lt;<ref refid="d6/d49/struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref>&gt;()</initializer>
+        <initializer>= new List&lt;<ref refid="d0/dfe/class_authority_controller_1_1_data_1_1_personal_1_1_ban_information" kindref="compound">BanInformation</ref>&gt;()</initializer>
         <briefdescription>
 <para>List of bans that would received by user. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="68" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="68" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a03e95a08b53368aa266c83327f0654b4" prot="public" static="no" mutable="no">
-        <type>List&lt; string &gt;</type>
-        <definition>List&lt;string&gt; AuthorityController.Data.Personal.User.culturePreferences</definition>
-        <argsstring></argsstring>
-        <name>culturePreferences</name>
-        <initializer>= new List&lt;string&gt;()</initializer>
-        <briefdescription>
-<para>List of culture codes that prefered by this user. In order of priority. </para>        </briefdescription>
-        <detaileddescription>
-<para>Define what a UI language will selected after user login. Useful in multicultural environment like universities. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="77" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="77" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="83" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a2d4cda1ba0e47546cc1d1b2c5db82434" prot="public" static="no" mutable="no">
         <type>List&lt; string &gt;</type>
@@ -122,7 +124,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="85" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="85" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="119" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a163bc8322a4fa64abb1f169cde75e5a5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string AuthorityController.Data.Personal.User.RightsStringFormat</definition>
+        <argsstring></argsstring>
+        <name>RightsStringFormat</name>
+        <briefdescription>
+<para>Rights array as formated string. Compatible with UDO. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="94" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="95" bodyend="113"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -150,7 +167,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="95" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="95" bodyend="102"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="129" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="129" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a3acdb952f59613bae8bf253a3cada496" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -176,25 +193,26 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="109" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="109" bodyend="127"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="143" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="143" bodyend="161"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Object that contain relevant data about user. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="31" bodyend="129"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" line="32" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Data/Personal/User.cs" bodystart="31" bodyend="163"/>
     <listofallmembers>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1aba2ff03e67ecf1732c4bdb625b441aac" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>bans</name></member>
-      <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a03e95a08b53368aa266c83327f0654b4" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>culturePreferences</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a06913d22f1b4518cce99c356bdad38a0" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>firstName</name></member>
+      <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a0ea20d5524b6ae3936197f88a270c6a8" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>GlobalType</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a1a2ed2d1d844d6c92cc301595488375a" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>id</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a3acdb952f59613bae8bf253a3cada496" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>IsHashedPasswordCorrect</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a40e370338936914847b4ca8afb9cfc2f" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>IsOpenPasswordCorrect</name></member>
+      <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1ac845744a6958089f44f79f3a1d9341d1" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>lastName</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1aa0cd14927a55efeafd187ca681bfd62d" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>login</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1abc14acc6d3441deb742264eb6cfc167c" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>password</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a937c23d9fddf843c49a69a6424bfda02" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>rights</name></member>
-      <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a8b4f88cdbace4ccf3101c6a62dc26a10" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>secondName</name></member>
+      <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a163bc8322a4fa64abb1f169cde75e5a5" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>RightsStringFormat</name></member>
       <member refid="df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user_1a2d4cda1ba0e47546cc1d1b2c5db82434" prot="public" virt="non-virtual"><scope>AuthorityController::Data::Personal::User</scope><name>tokens</name></member>
     </listofallmembers>
   </compounddef>

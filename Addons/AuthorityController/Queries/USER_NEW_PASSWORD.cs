@@ -12,6 +12,9 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
@@ -25,7 +28,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_NEW_PASSWORD : IQueryHandler
     {
-        public string Description(string cultureKey)
+        public virtual string Description(string cultureKey)
         {
             switch (cultureKey)
             {
@@ -43,8 +46,11 @@ namespace AuthorityController.Queries
             }
         }
 
-        public void Execute(QueryPart[] queryParts)
+        public virtual void Execute(QueryPart[] queryParts)
         {
+            bool dataOperationFailed = false;
+            string error = null;
+
             #region Get params.
             UniformQueries.API.TryGetParamValue("user",         out QueryPart user, queryParts);
             UniformQueries.API.TryGetParamValue("password",     out QueryPart password, queryParts);
@@ -52,14 +58,54 @@ namespace AuthorityController.Queries
             UniformQueries.API.TryGetParamValue("token",        out QueryPart token, queryParts);
             #endregion
 
+            User userProfile = (User)Activator.CreateInstance(User.GlobalType);
+            userProfile.login = user.propertyValue;
+
             #region Detect target user
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out string error))
+            Task asyncDataOperator = null;                       
+            // Get data from SQL server if connected.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
             {
-                // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
-                return;
+                #region SQL server                
+                // Subscribe on errors.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
+
+                // Request data.
+                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
+                    User.GlobalType,
+                    Session.Current.TerminationToken,
+                    userProfile,
+                    new string[0],
+                    new string[] { "login" });
+                #endregion
+            }
+            // Looking for user in local storage.
+            else
+            {
+                #region Local storage
+                if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out userProfile, out error))
+                {
+                    // Inform about error.
+                    UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                    return;
+                }
+                #endregion
             }
             #endregion
+
+            // If async operation started.
+            if (asyncDataOperator != null)
+            {
+                // Wait until finishing.
+                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Unsubscribe from errors listening.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+                asyncDataOperator = null;
+            }
 
             #region Check base requester rights
             if (!API.Tokens.IsHasEnoughRigths(
@@ -137,18 +183,67 @@ namespace AuthorityController.Queries
             #endregion
 
             // Update password.
-            userProfile.password = API.Users.GetHashedPassword(password.propertyValue, Config.Active.Salt);
+            userProfile.password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt);
 
             // Update stored profile.
-            API.Users.SetProfile(userProfile);
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
+            {
+                // Update on SQL server.
+                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
+                    User.GlobalType, 
+                    Session.Current.TerminationToken, 
+                    userProfile);
+            }
+            else
+            {
+                // Ipdate in local storage.
+                API.LocalUsers.SetProfile(userProfile);
+            }
 
-            // Inform about success
-            UniformServer.BaseServer.SendAnswerViaPP(
-                "success",
-                queryParts);
+            // If async operation started.
+            if (asyncDataOperator != null)
+            {
+                // Wait until finishing.
+                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Unsubscribe from errors listening.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+                asyncDataOperator = null;
+            }
+            
+            // Log sucess if not failed.
+            if(!dataOperationFailed)
+            { 
+                // Inform about success
+                UniformServer.BaseServer.SendAnswerViaPP(
+                    "success",
+                    queryParts);
+            }
+
+            #region SQL server callbacks
+            // Looking for user on SQL server if connected.
+            void ErrorListener(object sender, string message)
+            {
+                // Drop if not target user.
+                if (!userProfile.Equals(sender))
+                {
+                    return;
+                }
+
+                // Unsubscribe.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+
+                // Inform that user not found.
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, queryParts);
+                dataOperationFailed = true;
+            }
+            #endregion 
         }
 
-        public bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(QueryPart[] queryParts)
         {
             // USER prop.
             if(!UniformQueries.API.QueryParamExist("user", queryParts))

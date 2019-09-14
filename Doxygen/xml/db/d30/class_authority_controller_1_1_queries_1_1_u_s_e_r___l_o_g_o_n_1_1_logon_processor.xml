@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor" kind="class" language="C#" prot="public">
     <compoundname>AuthorityController::Queries::USER_LOGON::LogonProcessor</compoundname>
-    <basecompoundref refid="d9/de6/class_uniform_queries_1_1_auth_query_processor" prot="public" virt="non-virtual">UniformQueries.AuthQueryProcessor</basecompoundref>
+    <basecompoundref refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor" prot="public" virt="non-virtual">UniformQueries.Executable.Security.AuthQueryProcessor</basecompoundref>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor_1a5073849b4aec752f2fb1b68f11561985" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>async void</type>
@@ -71,7 +71,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="171" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="171" bodyend="246"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="285" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="285" bodyend="360"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -79,53 +79,53 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="107">
-        <label>QueryProcessor</label>
-        <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
-      </node>
-      <node id="106">
-        <label>UniformQueries::AuthQueryProcessor</label>
-        <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="107" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="105">
+      <node id="112">
         <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
         <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
-        <childnode refid="106" relation="public-inheritance">
+        <childnode refid="113" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="113">
+        <label>UniformQueries::Executable::Security::AuthQueryProcessor</label>
+        <link refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor"/>
+        <childnode refid="114" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>Executable::QueryProcessor</label>
+        <link refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="110">
-        <label>QueryProcessor</label>
-        <link refid="df/d1f/class_uniform_queries_1_1_query_processor"/>
-      </node>
-      <node id="109">
-        <label>UniformQueries::AuthQueryProcessor</label>
-        <link refid="d9/de6/class_uniform_queries_1_1_auth_query_processor"/>
-        <childnode refid="110" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="108">
+      <node id="115">
         <label>AuthorityController.Queries.USER_LOGON.LogonProcessor</label>
         <link refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor"/>
-        <childnode refid="109" relation="public-inheritance">
+        <childnode refid="116" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="116">
+        <label>UniformQueries::Executable::Security::AuthQueryProcessor</label>
+        <link refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor"/>
+        <childnode refid="117" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>Executable::QueryProcessor</label>
+        <link refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor"/>
+      </node>
     </collaborationgraph>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="162" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="161" bodyend="248"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" line="276" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries/USER_LOGON.cs" bodystart="275" bodyend="362"/>
     <listofallmembers>
-      <member refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a7fcc961b31968e6bbee1309e9cb24a9b" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ExpiryTime</name></member>
-      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1ad3338c48d35da2f6ddbe2daf736d34a8" prot="protected" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>Finalize</name></member>
-      <member refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a4b30ccde7ee894847d38961cec425e98" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsAutorized</name></member>
-      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a313a194b0608de7f02281824587dd1ac" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsInProgress</name></member>
-      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a6c7b2f71bee989944cb95f927ed3bdfd" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsTerminated</name></member>
-      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a6892127a6d09754370570c124a2a5452" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ProcessingFinished</name></member>
-      <member refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a2efbbd31413266f084d0c7f43ad6a343" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>RecivedRights</name></member>
-      <member refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a09d3f6d361c09c0726a880a92191f3fd" prot="protected" virt="virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ServerAnswerHandler</name></member>
-      <member refid="df/d1f/class_uniform_queries_1_1_query_processor_1a5f861d26305129e4b348adc5398aae9f" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>TerminateAuthorizationTask</name></member>
-      <member refid="d9/de6/class_uniform_queries_1_1_auth_query_processor_1a6ff88b255dbd8916836a69ea086951f5" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>Token</name></member>
+      <member refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor_1a09df0334aa792f2b50d90c107d758af4" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ExpiryTime</name></member>
+      <member refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor_1abe2a2292006829ba3b715b1cfe19f9cb" prot="protected" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>Finalize</name></member>
+      <member refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor_1ab77106e3aee595bb89634690bec88d9f" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsAutorized</name></member>
+      <member refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor_1aef7bc3b54884fa1c4f95af2fd542b6c0" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsInProgress</name></member>
+      <member refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor_1a6782b3a610851ec2eabb04b43172b7e0" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>IsTerminated</name></member>
+      <member refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor_1a87f6d66a2f0bdd9ff0c0a3e66e716efe" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ProcessingFinished</name></member>
+      <member refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor_1a29e80b384acdfe7fccfb713a4ae72140" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>RecivedRights</name></member>
+      <member refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor_1a4693289bf81ca5d98fe8f5678a7c4b87" prot="protected" virt="virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>ServerAnswerHandler</name></member>
+      <member refid="dc/d75/class_uniform_queries_1_1_executable_1_1_query_processor_1a7cbb30cf1452ec10f246d82145f0d90f" prot="public" virt="virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>TerminateAuthorizationTask</name></member>
+      <member refid="dc/d63/class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor_1aef3e0af13be8f2e30f3ae95a9e8b58bb" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>Token</name></member>
       <member refid="db/d30/class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor_1a5073849b4aec752f2fb1b68f11561985" prot="public" virt="non-virtual"><scope>AuthorityController::Queries::USER_LOGON::LogonProcessor</scope><name>TryToLogonAsync</name></member>
     </listofallmembers>
   </compounddef>

@@ -179,7 +179,7 @@ namespace AuthorityController
                 TokenInfo info = (TokenInfo)tokensInfo[targetToken];
 
                 // If not anonymous user.
-                if (API.Users.TryToFindUser(info.userId, out User user))
+                if (API.LocalUsers.TryToFindUser(info.userId, out User user))
                 {
                     // Update every token.
                     foreach(string subTargetToken in user.tokens)
@@ -332,7 +332,7 @@ namespace AuthorityController
                 {
                     // Try to get user by id.
                     // Would found if server not anonymous and has registred data about user.
-                    if(API.Users.TryToFindUser(info.userId, out User user))
+                    if(API.LocalUsers.TryToFindUser(info.userId, out User user))
                     {
                         // Remove tokens from registred list.
                         user.tokens.Remove(token);
@@ -389,7 +389,7 @@ namespace AuthorityController
             {
                 // Relogon if not logon or token exipred.
                 if (string.IsNullOrEmpty(authInstr.AuthorizedToken) ||
-                    AuthorityController.API.Tokens.IsExpired(authInstr.AuthorizedToken))
+                    UniformQueries.Tokens.IsExpired(authInstr.AuthorizedToken, authInstr.LogonHandler.ExpiryTime))
                 {
                     authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _)
                     {

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['secondname',['secondName',['../df/db1/class_authority_controller_1_1_data_1_1_personal_1_1_user.html#a8b4f88cdbace4ccf3101c6a62dc26a10',1,'AuthorityController::Data::Personal::User']]],
   ['securitylevel',['securityLevel',['../d7/d32/class_uniform_server_1_1_base_server.html#ac6297faa957fd1005fc61054bdd1cdb1',1,'UniformServer::BaseServer']]],
   ['splitting_5fsymbol',['SPLITTING_SYMBOL',['../df/d75/class_uniform_queries_1_1_a_p_i.html#aa906970223172f9f2068baa410b621d8',1,'UniformQueries::API']]],
   ['sw_5fhide',['SW_HIDE',['../d4/deb/class_uniform_client_1_1_base_client.html#a6060f2eb1d44ec518f2dfc99c8b4f7aa',1,'UniformClient.BaseClient.SW_HIDE()'],['../d7/d32/class_uniform_server_1_1_base_server.html#aaff91507b262d2a1b9021caa2d01640f',1,'UniformServer.BaseServer.SW_HIDE()']]],

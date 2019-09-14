@@ -73,13 +73,13 @@ namespace SessionProvider
             //AuthorityController.Session.InformateRelatedServers += InformateRelatedServers;
 
             // Load users.
-            AuthorityController.API.Users.DirectoryLoadingFinished += Users_DirectoryLoadingUnlocked;
-            AuthorityController.API.Users.LoadProfilesAsync(Config.Active.UsersStorageDirectory);
+            AuthorityController.API.LocalUsers.DirectoryLoadingFinished += Users_DirectoryLoadingUnlocked;
+            AuthorityController.API.LocalUsers.LoadProfilesAsync(Config.Active.UsersStorageDirectory);
             #endregion
 
             #region Guest tokens broadcasting
             // Start broadcasting server that would share guest tokens.
-            UniformServer.BaseServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
                 "guests",
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -117,7 +117,7 @@ namespace SessionProvider
 
             // Unsubscribe from events
             //AuthorityController.Session.InformateRelatedServers -= InformateRelatedServers;
-            AuthorityController.API.Users.DirectoryLoadingFinished -= Users_DirectoryLoadingUnlocked;
+            AuthorityController.API.LocalUsers.DirectoryLoadingFinished -= Users_DirectoryLoadingUnlocked;
 
             // Whait until close.
             Console.WriteLine("Press any key to exit...");

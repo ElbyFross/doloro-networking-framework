@@ -175,38 +175,38 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="32">
+      <node id="35">
         <label>PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController</label>
         <link refid="db/df3/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_broadcasting_server_transmission_controller"/>
-        <childnode refid="31" relation="public-inheritance">
+        <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="31">
+      <node id="34">
         <label>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
       </node>
-      <node id="34">
+      <node id="37">
         <label>PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController</label>
         <link refid="d5/d4e/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_server_to_client_transmission_controller"/>
-        <childnode refid="31" relation="public-inheritance">
+        <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="33">
+      <node id="36">
         <label>PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController</label>
         <link refid="dc/ddf/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_client_to_server_transmission_controller"/>
-        <childnode refid="31" relation="public-inheritance">
+        <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="35">
+      <node id="38">
         <label>PipesProvider.Server.TransmissionControllers.BaseServerTransmissionController</label>
         <link refid="d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller"/>
-        <childnode refid="36" relation="usage">
+        <childnode refid="39" relation="usage">
           <edgelabel>connectionCallback</edgelabel>
         </childnode>
       </node>
-      <node id="36">
+      <node id="39">
         <label>System</label>
       </node>
     </collaborationgraph>

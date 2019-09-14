@@ -174,8 +174,8 @@
 boxfont setfont
 1 boundaspect scale
 (AuthorityController.Queries.USER_LOGON.LogonProcessor) cw
-(UniformQueries.AuthQueryProcessor) cw
-(UniformQueries.QueryProcessor) cw
+(UniformQueries.Executable.Security.AuthQueryProcessor) cw
+(UniformQueries.Executable.QueryProcessor) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
 /yspacing boxheight disty add def
@@ -188,8 +188,8 @@ boundx scalefactor div boundy scalefactor div scale
 % ----- classes -----
 
  (AuthorityController.Queries.USER_LOGON.LogonProcessor) 0.000000 0.000000 box
- (UniformQueries.AuthQueryProcessor) 0.000000 1.000000 box
- (UniformQueries.QueryProcessor) 0.000000 2.000000 box
+ (UniformQueries.Executable.Security.AuthQueryProcessor) 0.000000 1.000000 box
+ (UniformQueries.Executable.QueryProcessor) 0.000000 2.000000 box
 
 % ----- relations -----
 

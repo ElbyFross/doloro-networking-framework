@@ -28,7 +28,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Handler that contain delegate that generate message for every broadcasting session.
         /// </summary>
         public MessageHandeler GetMessage { get; set; }
-        public delegate string MessageHandeler();
+        public delegate string MessageHandeler(BroadcastingServerTransmissionController transmissionController);
         #endregion
 
         #region Constructors

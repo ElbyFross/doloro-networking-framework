@@ -3,8 +3,8 @@
   <compounddef id="d0/dac/namespace_authority_controller_1_1_a_p_i" kind="namespace" language="C#">
     <compoundname>AuthorityController::API</compoundname>
     <innerclass refid="d3/d91/class_authority_controller_1_1_a_p_i_1_1_collections" prot="public">AuthorityController::API::Collections</innerclass>
+    <innerclass refid="dc/d75/class_authority_controller_1_1_a_p_i_1_1_local_users" prot="public">AuthorityController::API::LocalUsers</innerclass>
     <innerclass refid="d7/daa/class_authority_controller_1_1_a_p_i_1_1_tokens" prot="public">AuthorityController::API::Tokens</innerclass>
-    <innerclass refid="da/d48/class_authority_controller_1_1_a_p_i_1_1_users" prot="public">AuthorityController::API::Users</innerclass>
     <innerclass refid="dc/d46/class_authority_controller_1_1_a_p_i_1_1_validation" prot="public">AuthorityController::API::Validation</innerclass>
     <briefdescription>
     </briefdescription>

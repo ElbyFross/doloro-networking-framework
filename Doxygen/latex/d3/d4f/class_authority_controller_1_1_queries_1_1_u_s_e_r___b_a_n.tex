@@ -14,11 +14,11 @@ Inheritance diagram for Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-string \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a0635966a71b389cbb4354e61e3c52513}{Description}} (string culture\+Key)
+virtual string \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_ae0fe5998c22cf9fb76b601fbf7ee832e}{Description}} (string culture\+Key)
 \begin{DoxyCompactList}\small\item\em Return the description relative to the lenguage code or default if not found. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a719795c950c9dedbc187c2c0cfca37a7}{Execute}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+virtual void \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a160a12bc99edf855a2bdddb908596ecf}{Execute}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
 \begin{DoxyCompactList}\small\item\em Methods that process query. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a29c898b411adc3a0edbed31cf90e007b}{Is\+Target}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
+virtual bool \mbox{\hyperlink{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a4f42625ac06de3292575a043ff0addd9}{Is\+Target}} (\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}}\mbox{[}$\,$\mbox{]} query\+Parts)
 \begin{DoxyCompactList}\small\item\em Check by the entry params does it target Query Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -28,11 +28,11 @@ Set temporaly or permanent ban for user.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a0635966a71b389cbb4354e61e3c52513}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a0635966a71b389cbb4354e61e3c52513}} 
+\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_ae0fe5998c22cf9fb76b601fbf7ee832e}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_ae0fe5998c22cf9fb76b601fbf7ee832e}} 
 \index{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}!Description@{Description}}
 \index{Description@{Description}!Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}}
 \subsubsection{\texorpdfstring{Description()}{Description()}}
-{\footnotesize\ttfamily string Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Description (\begin{DoxyParamCaption}\item[{string}]{culture\+Key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual string Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Description (\begin{DoxyParamCaption}\item[{string}]{culture\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -50,11 +50,11 @@ Return the description relative to the lenguage code or default if not found.
 
 Implements \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler_ae0e55919571d5456af31298394d241a9}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}}.
 
-\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a719795c950c9dedbc187c2c0cfca37a7}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a719795c950c9dedbc187c2c0cfca37a7}} 
+\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a160a12bc99edf855a2bdddb908596ecf}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a160a12bc99edf855a2bdddb908596ecf}} 
 \index{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}!Execute@{Execute}}
 \index{Execute@{Execute}!Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}}
 \subsubsection{\texorpdfstring{Execute()}{Execute()}}
-{\footnotesize\ttfamily void Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual void Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -69,11 +69,11 @@ Methods that process query.
 
 Implements \mbox{\hyperlink{interface_uniform_queries_1_1_executable_1_1_i_query_handler_a3268d72c0388f5e3debba4d73bdfe523}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}}.
 
-\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a29c898b411adc3a0edbed31cf90e007b}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a29c898b411adc3a0edbed31cf90e007b}} 
+\mbox{\Hypertarget{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a4f42625ac06de3292575a043ff0addd9}\label{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n_a4f42625ac06de3292575a043ff0addd9}} 
 \index{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}!Is\+Target@{Is\+Target}}
 \index{Is\+Target@{Is\+Target}!Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN@{Authority\+Controller\+::\+Queries\+::\+U\+S\+E\+R\+\_\+\+B\+AN}}
 \subsubsection{\texorpdfstring{Is\+Target()}{IsTarget()}}
-{\footnotesize\ttfamily bool Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Is\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual bool Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+A\+N.\+Is\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_uniform_queries_1_1_query_part}{Query\+Part}} \mbox{[}$\,$\mbox{]}}]{query\+Parts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 

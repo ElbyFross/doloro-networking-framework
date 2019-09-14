@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,10 +40,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UniformDataOperator, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\uniform-data-operator\UniformDataOperator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Collections.cs" />
-    <Compile Include="API\Users.cs" />
+    <Compile Include="API\LocalUsers.cs" />
     <Compile Include="API\Validation.cs" />
     <Compile Include="Data\Personal\BanInformation.cs" />
     <Compile Include="Data\Application\Config.cs" />
@@ -51,9 +56,7 @@
     <Compile Include="Data\Temporal\TokenInfo.cs" />
     <Compile Include="Data\Personal\User.cs" />
     <Compile Include="Extensions\PipesProvider\AuthorizedInstruction.cs" />
-    <Compile Include="Extensions\UniformQueries\AuthQueryProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\GET_GUEST_TOKEN.cs" />
     <Compile Include="Queries\SET_TOKEN_RIGHTS.cs" />
     <Compile Include="Queries\USER_BAN.cs" />
     <Compile Include="Queries\USER_LOGOFF.cs" />
@@ -67,21 +70,17 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\DNFCore\DNFCore.csproj">
+      <Project>{d6ee0a40-2365-461b-a81e-5c1441c6e0bf}</Project>
+      <Name>DNFCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\UniformClient\UniformClient.csproj">
-      <Project>{7b1fd360-4a04-4574-b15e-8fc2d7c4dbad}</Project>
-      <Name>UniformClient</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
       <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
       <Name>UniformQueries</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\UniformServer\UniformServer.csproj">
-      <Project>{9e8bf96b-7476-46ac-ac59-d9ecd4e8308c}</Project>
-      <Name>UniformServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

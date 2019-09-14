@@ -29,7 +29,7 @@ namespace PipesProvider.Handlers
     {
         /// <summary>
         /// Handler that can be connected as callback to default PipesProvides DNS Handler.
-        /// Will validate and decompose querie on parts and send it to target QueryProcessor.
+        /// Will validate and decompose querie on parts and send it to target Executable.QueryProcessor.
         /// </summary>
         /// <param name="meta"></param>
         /// <param name="query"></param>

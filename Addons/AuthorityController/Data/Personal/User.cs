@@ -13,14 +13,13 @@
 //limitations under the License.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Xml.Serialization;
-using System.Xml;
+using System.Data;
+using System.Collections.Generic;
 using AuthorityController.Data.Application;
+using UniformDataOperator.Sql.Attributes;
+using UniformDataOperator.Sql.MySql.Attributes;
+using MySql.Data.MySqlClient;
 
 namespace AuthorityController.Data.Personal
 {
@@ -28,51 +27,95 @@ namespace AuthorityController.Data.Personal
     /// Object that contain relevant data about user.
     /// </summary>
     [System.Serializable]
+    [Table("DNFAuthControl", "user", "InnoDB")]
     public partial class User
     {
+        /// <summary>
+        /// Type of user. Apply your castom user to this field to instinate required one.
+        /// </summary>
+        public static Type GlobalType = typeof(User);
+
         #region Serialized fields
         /// <summary>
         /// Unique id of this user to allow services access.
         /// </summary>
+        [Column("userid", DbType.Int32), IsPrimaryKey, IsNotNull, IsAutoIncrement(0)]
+        [MySqlDBTypeOverride(MySqlDbType.Int32, "INT")]
         public uint id;
 
         /// <summary>
         /// Login of this user to access the system.
         /// </summary>
+        [Column("login", DbType.String), IsNotNull, IsUnique]
+        [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string login;
 
         /// <summary>
         /// ON CLIENT: Open password. Situable only if user provides profile as new.
         /// ON SERVER: Hashed and salted password that confirm user rights to use this account.
         /// </summary>
+        [Column("password", DbType.Binary), IsNotNull]
+        [MySqlDBTypeOverride(MySqlDbType.Blob, "BLOB(512)")]
         public byte[] password;
 
         /// <summary>
         /// Name of the user that will displayed in profile.
         /// </summary>
+        [Column("firstname", DbType.String)]
+        [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string firstName;
 
         /// <summary>
-        /// Secondary name that will be displayed in profile.
+        /// Last name that will be displayed in profile.
         /// </summary>
-        public string secondName;
-
+        [Column("lastname", DbType.String)]
+        [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
+        public string lastName;
+        
         /// <summary>
         /// Array of rigts' codes provided to this user.
         /// </summary>
         public string[] rights = new string[0];
-
+        
         /// <summary>
         /// List of bans that would received by user.
         /// </summary>
         public List<BanInformation> bans = new List<BanInformation>();
         #endregion
 
-        #region Seesion-time fields
+        #region Session-time fields
+        /// <summary>
+        /// Rights array as formated string.
+        /// Compatible with UDO.
+        /// </summary>
+        [Column("rights", DbType.String)]
+        [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(1000)")]
+        [XmlIgnore]
+        public string RightsStringFormat
+        {
+            get
+            {
+                string result = "";
+                foreach (string s in rights)
+                {
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        result += "+";
+                    }
+                    result += s;
+                }
+                return result;
+            }
+            set
+            {
+                rights = value.Split('+');
+            }
+        }
+
         /// <summary>
         /// List that cont tokens provided to this user.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public List<string> tokens = new List<string>();
         #endregion
 
@@ -86,7 +129,7 @@ namespace AuthorityController.Data.Personal
         public bool IsOpenPasswordCorrect(string recivedPassword)
         {
             // Get hashed password from recived.
-            byte[] recivedHashedPassword = API.Users.GetHashedPassword(recivedPassword, Config.Active.Salt);
+            byte[] recivedHashedPassword = SaltContainer.GetHashedPassword(recivedPassword, Config.Active.Salt);
 
             // Compare.
             return IsHashedPasswordCorrect(recivedHashedPassword);

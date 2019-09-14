@@ -25,7 +25,7 @@ namespace AuthorityController.Queries
     /// </summary>
     public class USER_BAN : IQueryHandler
     {
-        public string Description(string cultureKey)
+        public virtual string Description(string cultureKey)
         {
             switch (cultureKey)
             {
@@ -38,7 +38,7 @@ namespace AuthorityController.Queries
             }
         }
 
-        public void Execute(QueryPart[] queryParts)
+        public virtual void Execute(QueryPart[] queryParts)
         {
 
             #region Get params
@@ -67,7 +67,7 @@ namespace AuthorityController.Queries
 
             #region Detect target user
             // Find user for ban.
-            if (!API.Users.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
+            if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
             {
                 // Inform about error.
                 UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
@@ -117,14 +117,14 @@ namespace AuthorityController.Queries
 
             // Update stored profile.
             // in other case ban will losed after session finishing.
-            API.Users.SetProfile(userProfile);
+            API.LocalUsers.SetProfile(userProfile);
             
             // Inform about success.
             UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);
             #endregion
         }
 
-        public bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(QueryPart[] queryParts)
         { 
             // USER prop.
             if (!UniformQueries.API.QueryParamExist("user", queryParts))

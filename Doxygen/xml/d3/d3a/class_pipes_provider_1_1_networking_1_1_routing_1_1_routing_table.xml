@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="34" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="34" bodyend="-1"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="35" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="40" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="40" bodyend="40"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="41" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="41" bodyend="41"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -69,7 +69,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="51" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="51" bodyend="72"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="52" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="52" bodyend="73"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -108,7 +108,68 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="83" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="83" bodyend="128"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="84" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="84" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a28de144d3afcb29a69cd2a51b2af41a9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Networking.Routing.RoutingTable.SaveRoutingTable</definition>
+        <argsstring>(RoutingTable table)</argsstring>
+        <name>SaveRoutingTable</name>
+        <param>
+          <type><ref refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kindref="compound">RoutingTable</ref></type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Save routing table by default directory app/resources/routing/ROUTING.xml </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source with instructions.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1affae680ffe9710e88416323ef3aa8c0b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PipesProvider.Networking.Routing.RoutingTable.SaveRoutingTable</definition>
+        <argsstring>(RoutingTable table, string name)</argsstring>
+        <name>SaveRoutingTable</name>
+        <param>
+          <type><ref refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kindref="compound">RoutingTable</ref></type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Save routing table by default directory app/resources/routing </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source with instructions.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the file.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="148" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="148" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a1fe9c42819cd5c5210b254c0d868b336" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -135,7 +196,7 @@
 <parametername>table</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Table object,</para></parameterdescription>
+<para>Source with instructions.</para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
@@ -155,7 +216,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="136" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="136" bodyend="162"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="159" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="159" bodyend="195"/>
       </memberdef>
       <memberdef kind="function" id="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a515b9ad19dc868afb6d47c762064fd96" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table" kindref="compound">RoutingTable</ref></type>
@@ -192,18 +253,20 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="172" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="172" bodyend="196"/>
+        <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="205" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="205" bodyend="229"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Object that contain routing instgructions. Provide API to work with file system. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="29" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="28" bodyend="198"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" line="30" column="1" bodyfile="D:/Work/GitHub/doloro-networking-framework/Core/PipesProvider/Networking/Routing/RoutingTable.cs" bodystart="29" bodyend="231"/>
     <listofallmembers>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a1a2c8459b4805d7ee1e81698a389f3f7" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>intructions</name></member>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a13c2778abb1d14e7e8e4a2ae51d315ac" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>LoadRoutingTables</name></member>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a515b9ad19dc868afb6d47c762064fd96" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>operator+</name></member>
+      <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a28de144d3afcb29a69cd2a51b2af41a9" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>SaveRoutingTable</name></member>
+      <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1affae680ffe9710e88416323ef3aa8c0b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>SaveRoutingTable</name></member>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1a1fe9c42819cd5c5210b254c0d868b336" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>SaveRoutingTable</name></member>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1af756c825762d5434f5b934a1c1b2d3eb" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>SourcePath</name></member>
       <member refid="d3/d3a/class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table_1afa326622fc49d66bcd375c08b2f6ff8b" prot="public" virt="non-virtual"><scope>PipesProvider::Networking::Routing::RoutingTable</scope><name>TryGetRoutingInstruction</name></member>

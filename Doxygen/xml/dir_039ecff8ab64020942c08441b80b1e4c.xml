@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dir_039ecff8ab64020942c08441b80b1e4c" kind="dir">
     <compoundname>D:/Work/GitHub/doloro-networking-framework/Addons/AuthorityController/Queries</compoundname>
-    <innerfile refid="dc/dfc/_g_e_t___g_u_e_s_t___t_o_k_e_n_8cs">GET_GUEST_TOKEN.cs</innerfile>
     <innerfile refid="d2/d59/_s_e_t___t_o_k_e_n___r_i_g_h_t_s_8cs">SET_TOKEN_RIGHTS.cs</innerfile>
     <innerfile refid="db/ddd/_u_s_e_r___b_a_n_8cs">USER_BAN.cs</innerfile>
     <innerfile refid="d2/dae/_u_s_e_r___l_o_g_o_f_f_8cs">USER_LOGOFF.cs</innerfile>

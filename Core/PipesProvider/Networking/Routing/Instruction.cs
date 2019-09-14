@@ -13,7 +13,10 @@
 //limitations under the License.
 
 using System;
+using System.Xml.Serialization;
 using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PipesProvider.Networking.Routing
 {
@@ -33,19 +36,19 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// RSA public key that was recived from this server.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public RSAParameters PublicKey { get; private set; }
 
         /// <summary>
         /// Time when public key will become expired.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public DateTime PublicKeyExpireTime { get; private set; }
 
         /// <summary>
         /// Check does loading was failed or key was expired.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public bool IsValid
         {
             get
@@ -69,11 +72,21 @@ namespace PipesProvider.Networking.Routing
             }
         }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         private bool _isValid = true;
         #endregion
 
         #region Public fields
+        /// <summary>
+        /// Title of this instruction that can be showed in applications.
+        /// </summary>
+        public string title = "New instruction";
+
+        /// <summary>
+        /// Commentary added to this instruction.
+        /// </summary>
+        public string commentary = "";
+
         /// <summary>
         /// Address that will be ised for routing
         /// </summary>
@@ -332,5 +345,46 @@ namespace PipesProvider.Networking.Routing
 
             return true;
         }
+
+        /// <summary>
+        /// Return array of Instruction's types derived from Instruction.
+        /// If you need to rescan solution then set value to null and call again.
+        /// </summary>
+        public static Type[] DerivedTypes
+        {
+            get
+            {
+                // Search for types if not found yet.
+                if (_DerivedTypes == null)
+                {
+                    // Getting extra types suitable for custom routing instructions.
+                    System.Reflection.Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                    IEnumerable<Type> deliveredTypes = new List<Type>();
+                    foreach (System.Reflection.Assembly a in assemblies)
+                    {
+                        try
+                        {
+                            var subclasses = a.GetTypes().Where(type => type.IsSubclassOf(typeof(Instruction)));
+                            deliveredTypes = deliveredTypes.Concat<Type>(subclasses);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("ASSEMBLY ERROR: RoutingTable serialization : " + ex.Message);
+                        }
+                    }
+                    _DerivedTypes = deliveredTypes.ToArray();
+                }
+
+                return _DerivedTypes;
+            }
+            set
+            {
+                _DerivedTypes = value;
+            }
+        }
+        /// <summary>
+        /// Cashed array with found derived types.
+        /// </summary>
+        private static Type[] _DerivedTypes;
     }
 }

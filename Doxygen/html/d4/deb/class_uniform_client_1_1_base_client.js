@@ -3,7 +3,7 @@ var class_uniform_client_1_1_base_client =
     [ "ArgsReactor", "d4/deb/class_uniform_client_1_1_base_client.html#a7ec48981cf3e7ec10d2cb7dff81f912a", null ],
     [ "EnqueueDuplexQueryViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a964bd521f46fd99f64b10257c5d233ef", null ],
     [ "EnqueueDuplexQueryViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a82dbf660ec06b5c05730ff57b63b4f28", null ],
-    [ "GetValidPublicKeyViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a849e820e6135840e615b759cb09cd2dd", null ],
+    [ "GetValidPublicKeyViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#ac9dcfa2f28b9fcbaaf0a0eba456ce507", null ],
     [ "HandlerInputTransmissionAsync", "d4/deb/class_uniform_client_1_1_base_client.html#a8b0bf0f5c032239a7b1bdc73d2d5ad3d", null ],
     [ "HandlerOutputTransmisssionAsync", "d4/deb/class_uniform_client_1_1_base_client.html#a233b9fc7f1cdc4df399115938afd917d", null ],
     [ "LoadAssemblies", "d4/deb/class_uniform_client_1_1_base_client.html#a8abbd1d46cc50556eeae8bbd55ce680f", null ],
@@ -11,9 +11,9 @@ var class_uniform_client_1_1_base_client =
     [ "OpenOutTransmissionLineViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a56ba8d0360e3c65a69d2d69db878ec23", null ],
     [ "OpenTransmissionLineViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a851ce49c50011eb0ed2552663c7731ab", null ],
     [ "OpenTransmissionLineViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a79c6e490b20b4b8c649af33926e20017", null ],
+    [ "ReceiveAnonymousBroadcastMessage", "d4/deb/class_uniform_client_1_1_base_client.html#a740568ca68dbd6bcdf099d572347ceb6", null ],
     [ "ReceiveDelayedAnswerViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#aa6a13dcf0a4dbefd681cf7eb333813aa", null ],
     [ "ReceiveDelayedAnswerViaPP", "d4/deb/class_uniform_client_1_1_base_client.html#a4db768d7c09862ab9adc9d7b0638edc6", null ],
-    [ "ReciveAnonymousBroadcastMessage", "d4/deb/class_uniform_client_1_1_base_client.html#a97a86c4f5931d39e09ce7c9d336a1636", null ],
     [ "StartClientThread", "d4/deb/class_uniform_client_1_1_base_client.html#a194b46bb0e889d07cade81c0aeab7cea", null ],
     [ "StartPPClientThreadAsync", "d4/deb/class_uniform_client_1_1_base_client.html#a01e5a7ef4c760207cfa644ac2f6a407f", null ],
     [ "DuplexBackwardCallbacks", "d4/deb/class_uniform_client_1_1_base_client.html#a52dacc1af85cbab035a159e64e1417a0", null ],
@@ -22,6 +22,5 @@ var class_uniform_client_1_1_base_client =
     [ "SW_SHOW", "d4/deb/class_uniform_client_1_1_base_client.html#a7545b9c72eef6cb7594a7001d3f558e4", null ],
     [ "thread", "d4/deb/class_uniform_client_1_1_base_client.html#a458271823ca5e21612c0947e1db695a0", null ],
     [ "threadSleepTime", "d4/deb/class_uniform_client_1_1_base_client.html#a2c4762c1be5eac42b8b5d189530d0952", null ],
-    [ "token", "d4/deb/class_uniform_client_1_1_base_client.html#ad99bcf3d1afeed6eadca7035c926d2b7", null ],
     [ "AppTerminated", "d4/deb/class_uniform_client_1_1_base_client.html#a10f1c9dbb8d41719754b39344432497f", null ]
 ];

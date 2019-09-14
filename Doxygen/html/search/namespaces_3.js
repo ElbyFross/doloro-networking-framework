@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sessionprovider',['SessionProvider',['../dc/d85/namespace_session_provider.html',1,'']]]
+  ['queriesserver',['QueriesServer',['../db/d5f/namespace_queries_server.html',1,'']]]
 ];

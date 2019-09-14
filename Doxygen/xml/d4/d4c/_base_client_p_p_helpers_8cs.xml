@@ -115,7 +115,7 @@
 <codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endregion</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
 <codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#region<sp/>Broadcast<sp/>connection</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref><sp/><ref refid="d4/deb/class_uniform_client_1_1_base_client_1a97a86c4f5931d39e09ce7c9d336a1636" kindref="member">ReciveAnonymousBroadcastMessage</ref>(</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref><sp/><ref refid="d4/deb/class_uniform_client_1_1_base_client_1a740568ca68dbd6bcdf099d572347ceb6" kindref="member">ReceiveAnonymousBroadcastMessage</ref>(</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>serverName,<sp/></highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>pipeName,</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd0/namespace_system" kindref="compound">System</ref>.Action&lt;<ref refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line" kindref="compound">TransmissionLine</ref>,<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&gt;<sp/>answerHandler)</highlight></codeline>
@@ -186,6 +186,6 @@
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="240"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/Providers/PipesProvider/BaseClientPPHelpers.cs"/>
   </compounddef>
 </doxygen>

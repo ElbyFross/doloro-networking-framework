@@ -47,9 +47,8 @@ namespace ExampleClient
         /// <summary>
         /// Is guest token required.
         /// </summary>
-        public static bool questTokenRequired = true;
-
-
+        public static bool guestTokenRequired = true;
+        
         static void Main(string[] args)
         {
             #region Encryption test.
@@ -60,54 +59,35 @@ namespace ExampleClient
             //Console.ReadLine();
             #endregion
 
-            token = "invalid";
-
-            #region Recive guest token
-            // Open client that will listen server guest chanel broadcasting.
-            UniformClient.Standard.SimpleClient.ReciveAnonymousBroadcastMessage(
-                "localhost", 
-                "guests",
-                (PipesProvider.Client.TransmissionLine line, object obj) =>
-                {  
-                    // Validate answer.
-                    if (obj is string answer)
-                    {
-                        Console.WriteLine("GUSET BROAADCASTING CHANEL ANSWER RECIVED: {0}", answer);
-                        // Unlock finish blocker.
-                        questTokenRequired = false;
-
-                        QueryPart[] recivedQuery = UniformQueries.API.DetectQueryParts(answer);
-
-                        // Check token.
-                        if (UniformQueries.API.TryGetParamValue("token", out QueryPart tokenQP, recivedQuery) &&
-                        !string.IsNullOrEmpty(tokenQP.propertyValue))
-                        {
-                            token = tokenQP.propertyValue;
-                            Console.WriteLine("Guest token: {0}", token);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Guest token not detected. Authorization not possible.");
-                            Thread.Sleep(2000);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Guest token not recived. Incorrect answer format.");
-                        Thread.Sleep(2000);
-                        return;
-                    }
-                });
-
-            // Log
-            Console.WriteLine("Witing forguest token from server autority system...");
-
-            // Wait for guest token.
-            while(questTokenRequired)
-            {
-                Thread.Sleep(5);
-            }
+            // This part has no any effect on application in future. Valid routing table would be loaded from "resources\routing\ROUTING.xml".
+            //
+            // Client could has a numbers of connections to different servers.
+            // Connection to each server can have differend params.
+            //
+            // Cases:
+            // Some servers can require system login to pas LSA of Windows NT.
+            // Some could require in application authorization.
+            #region Routing table serialization example
+            // Create table with differend delivered instruction's types.
+            routingTable.intructions = new System.Collections.Generic.List<Instruction>(new Instruction[]
+                {
+                new Instruction()
+                {
+                    routingIP = "localhost",
+                    pipeName = "THB_QUERY_SERVER",
+                    logonConfig = new LogonConfig(null, null, "WORKGROUP"),
+                    title = "Query server",
+                    commentary = "Server that reciving all queries from clients and then forwarding them to target servers."
+                },
+                new PartialAuthorizedInstruction()
+                {
+                    guestChanel = "guest",
+                    routingIP = "localhost",
+                    title = "Guest auth server",
+                    commentary = "Authority Server that maintaining broadcast of guest tokens."
+                }});
+            RoutingTable.SaveRoutingTable(routingTable, "resources/sample", "ROUTING"); // Save table as recommended sample for this client.
+            routingTable = new RoutingTable(); // Drop from memory to allow clear loading of customer's routing tables.
             #endregion
 
             #region Init
@@ -139,8 +119,34 @@ namespace ExampleClient
             PipesProvider.Networking.Info.TryGetHostName(SERVER_NAME, ref SERVER_NAME);
 
 
+            #region Recive guest token from server
+            // Trying to get instruction in partial authorized format.
+            if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
+            {
+                // Trying to recive guest token from server.
+                partialAuthorizedInstruction.TryToGetGuestTokenAsync(null, 
+                    AuthorityController.Session.Current.TerminationToken); // Using Seestion termination token as uniform 
+                                                                           //to provide possibility to stop all async operation before application exit.
+            }
+            else
+            {
+                Console.WriteLine("ERROR: Invalid cast. For this example routing instruction by 0 index must by delivered from PartialAuthorizedInstruction. Application terminated.");
+                Thread.Sleep(2000);
+                return;
+            }
+
+            // Wait until authorization.
+            Console.WriteLine("Wating for guest token from server's autority system...");
+            while (!partialAuthorizedInstruction.GuestTokenHandler.IsAutorized)
+            {
+                Thread.Sleep(50);
+            }
+            Console.WriteLine("Authorized. Token: " + partialAuthorizedInstruction.GuestToken);
+            #endregion
+
             // Check server exist. When connection will be established will be called shared delegate.
             // Port 445 required for named pipes work.
+            Console.WriteLine("Ping gost server via the 445 port...");
             PipesProvider.Networking.Info.PingHost(
                 SERVER_NAME, 445,
                 delegate (string uri, int port)
@@ -230,7 +236,8 @@ namespace ExampleClient
 
             // Short way to send one way query.
             OpenOutTransmissionLineViaPP(SERVER_NAME, SERVER_PIPE_NAME). // Opern transmission line via starndard DNS handler.
-                EnqueueQuery(string.Format("token={1}{0}guid=echo{0}q=ECHO", UniformQueries.API.SPLITTING_SYMBOL, token)). // Adding query to line's queue.
+                EnqueueQuery(string.Format("token={1}{0}guid=echo{0}q=ECHO", UniformQueries.API.SPLITTING_SYMBOL, // Adding query to line's queue.
+                ((PartialAuthorizedInstruction)routingInstruction).GuestToken)). // Using recent recived guest token for authorization.
                 SetInstructionAsKey(ref routingInstruction).        // Connect instruction to provide auto-encryption via RSA.
                 TryLogonAs(routingInstruction.logonConfig);         // Request remote logon. By default LogonConfig equal Anonymous (Guest) user.
             #endregion
@@ -241,7 +248,8 @@ namespace ExampleClient
             Console.WriteLine("ONE WAY (SHORT FORMAT) query.\nTransmisssion to {0}/{1}", SERVER_NAME, SERVER_PIPE_NAME);
 
             // Send sample one way query to server with every step description.
-            SendOneWayQuery(string.Format("token={1}{0}guid=datesRange{0}q=GET{0}sq=DAYSRANGE", UniformQueries.API.SPLITTING_SYMBOL, token));
+            SendOneWayQuery(string.Format("token={1}{0}guid=datesRange{0}q=GET{0}sq=DAYSRANGE", UniformQueries.API.SPLITTING_SYMBOL,
+                ((PartialAuthorizedInstruction)routingInstruction).GuestToken)); // Using recent recived guest token.
             #endregion
 
             #region Third query

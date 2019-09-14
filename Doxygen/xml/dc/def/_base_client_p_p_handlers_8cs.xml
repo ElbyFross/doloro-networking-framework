@@ -157,7 +157,7 @@
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!lineProcessor.RoutingInstruction.IsValid)</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Request<sp/>new<sp/>key.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d51/namespace_uniform_client" kindref="compound">UniformClient</ref>.<ref refid="d4/deb/class_uniform_client_1_1_base_client" kindref="compound">BaseClient</ref>.<ref refid="d4/deb/class_uniform_client_1_1_base_client_1a849e820e6135840e615b759cb09cd2dd" kindref="member">GetValidPublicKeyViaPP</ref>(lineProcessor.RoutingInstruction);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d51/namespace_uniform_client" kindref="compound">UniformClient</ref>.<ref refid="d4/deb/class_uniform_client_1_1_base_client" kindref="compound">BaseClient</ref>.<ref refid="d4/deb/class_uniform_client_1_1_base_client_1ac9dcfa2f28b9fcbaaf0a0eba456ce507" kindref="member">GetValidPublicKeyViaPP</ref>(lineProcessor.RoutingInstruction);</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"></highlight></codeline>
 <codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Log.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine(</highlight><highlight class="stringliteral">&quot;WAITING<sp/>FOR<sp/>PUBLIC<sp/>RSA<sp/>KEY<sp/>FROM<sp/>{0}/{1}&quot;</highlight><highlight class="normal">,</highlight></codeline>
@@ -210,6 +210,6 @@
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="212"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="D:/Work/GitHub/doloro-networking-framework/Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs"/>
+    <location file="D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs"/>
   </compounddef>
 </doxygen>

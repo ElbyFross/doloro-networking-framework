@@ -595,23 +595,23 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="184">
+      <node id="212">
         <label>PipesProvider.Client.TransmissionLine</label>
         <link refid="da/d0e/class_pipes_provider_1_1_client_1_1_transmission_line"/>
-        <childnode refid="185" relation="usage">
+        <childnode refid="213" relation="usage">
           <edgelabel>lastQuery</edgelabel>
         </childnode>
-        <childnode refid="186" relation="usage">
+        <childnode refid="214" relation="usage">
           <edgelabel>queryProcessor</edgelabel>
         </childnode>
       </node>
-      <node id="186">
+      <node id="214">
         <label>System</label>
       </node>
-      <node id="185">
+      <node id="213">
         <label>PipesProvider.Client.QueryContainer</label>
         <link refid="d0/dc9/struct_pipes_provider_1_1_client_1_1_query_container"/>
-        <childnode refid="186" relation="usage">
+        <childnode refid="214" relation="usage">
           <edgelabel>AnswerHandler</edgelabel>
         </childnode>
       </node>

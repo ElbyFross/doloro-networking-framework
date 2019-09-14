@@ -1,7 +1,7 @@
 \section{Class Hierarchy}
 This inheritance list is sorted roughly, but not completely, alphabetically\+:\begin{DoxyCompactList}
 \item \contentsline{section}{Uniform\+Queries.\+A\+PI}{\pageref{class_uniform_queries_1_1_a_p_i}}{}
-\item \contentsline{section}{Authority\+Controller.\+Data.\+Personal.\+Ban\+Information}{\pageref{struct_authority_controller_1_1_data_1_1_personal_1_1_ban_information}}{}
+\item \contentsline{section}{Authority\+Controller.\+Data.\+Personal.\+Ban\+Information}{\pageref{class_authority_controller_1_1_data_1_1_personal_1_1_ban_information}}{}
 \item \contentsline{section}{Uniform\+Client.\+Base\+Client}{\pageref{class_uniform_client_1_1_base_client}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Uniform\+Client.\+Standard.\+Simple\+Client}{\pageref{class_uniform_client_1_1_standard_1_1_simple_client}}{}
@@ -11,6 +11,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{Queries\+Server.\+Server}{\pageref{class_queries_server_1_1_server}}{}
 \item \contentsline{section}{Session\+Provider.\+Server}{\pageref{class_session_provider_1_1_server}}{}
 \item \contentsline{section}{Uniform\+Server.\+Standard.\+Broadcasting\+Server}{\pageref{class_uniform_server_1_1_standard_1_1_broadcasting_server}}{}
+\item \contentsline{section}{Uniform\+Server.\+Standard.\+Relay\+Server}{\pageref{class_uniform_server_1_1_standard_1_1_relay_server}}{}
 \item \contentsline{section}{Uniform\+Server.\+Standard.\+Simple\+Server}{\pageref{class_uniform_server_1_1_standard_1_1_simple_server}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{Pipes\+Provider.\+Server.\+Transmission\+Controllers.\+Base\+Server\+Transmission\+Controller}{\pageref{class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller}}{}
@@ -30,36 +31,41 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{Pipes\+Provider.\+Networking.\+Info}{\pageref{class_pipes_provider_1_1_networking_1_1_info}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Networking.\+Routing.\+Instruction}{\pageref{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}}{}
 \begin{DoxyCompactList}
+\item \contentsline{section}{Pipes\+Provider.\+Networking.\+Routing.\+Partial\+Authorized\+Instruction}{\pageref{class_pipes_provider_1_1_networking_1_1_routing_1_1_partial_authorized_instruction}}{}
+\begin{DoxyCompactList}
 \item \contentsline{section}{Pipes\+Provider.\+Networking.\+Routing.\+Authorized\+Instruction}{\pageref{class_pipes_provider_1_1_networking_1_1_routing_1_1_authorized_instruction}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction}{\pageref{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{Uniform\+Queries.\+Executable.\+I\+Query\+Handler}{\pageref{interface_uniform_queries_1_1_executable_1_1_i_query_handler}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{Authority\+Controller.\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}{\pageref{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+S\+E\+T\+\_\+\+T\+O\+K\+E\+N\+\_\+\+R\+I\+G\+H\+TS}{\pageref{class_authority_controller_1_1_queries_1_1_s_e_t___t_o_k_e_n___r_i_g_h_t_s}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+B\+AN}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___b_a_n}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+FF}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_f_f}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+ON}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+EW}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+N\+E\+W\+\_\+\+P\+A\+S\+S\+W\+O\+RD}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___n_e_w___p_a_s_s_w_o_r_d}}{}
-\item \contentsline{section}{Uniform\+Server.\+Queries.\+G\+E\+T\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+K\+EY}{\pageref{class_uniform_server_1_1_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y}}{}
+\item \contentsline{section}{Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+EN}{\pageref{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n}}{}
+\item \contentsline{section}{Base\+Queries.\+G\+E\+T\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+K\+EY}{\pageref{class_base_queries_1_1_g_e_t___p_u_b_l_i_c___k_e_y}}{}
 \end{DoxyCompactList}
+\item \contentsline{section}{Authority\+Controller.\+A\+P\+I.\+Local\+Users}{\pageref{class_authority_controller_1_1_a_p_i_1_1_local_users}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Security.\+Logon\+Config}{\pageref{struct_pipes_provider_1_1_security_1_1_logon_config}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Security.\+L\+S\+A.\+Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES}{\pageref{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___o_b_j_e_c_t___a_t_t_r_i_b_u_t_e_s}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Security.\+L\+S\+A.\+Lsa\+Security\+Wrapper.\+L\+S\+A\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+S\+T\+R\+I\+NG}{\pageref{struct_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper_1_1_l_s_a___u_n_i_c_o_d_e___s_t_r_i_n_g}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Security.\+L\+S\+A.\+Lsa\+Security\+Wrapper}{\pageref{class_pipes_provider_1_1_security_1_1_l_s_a_1_1_lsa_security_wrapper}}{}
+\item \contentsline{section}{Pipes\+Provider.\+Native\+Methods}{\pageref{class_pipes_provider_1_1_native_methods}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Security.\+Native\+Methods}{\pageref{class_pipes_provider_1_1_security_1_1_native_methods}}{}
 \item \contentsline{section}{Uniform\+Client.\+Native\+Methods}{\pageref{class_uniform_client_1_1_native_methods}}{}
 \item \contentsline{section}{Uniform\+Server.\+Native\+Methods}{\pageref{class_uniform_server_1_1_native_methods}}{}
-\item \contentsline{section}{Pipes\+Provider.\+Native\+Methods}{\pageref{class_pipes_provider_1_1_native_methods}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Handlers.\+Query}{\pageref{class_pipes_provider_1_1_handlers_1_1_query}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Client.\+Query\+Container}{\pageref{struct_pipes_provider_1_1_client_1_1_query_container}}{}
 \item \contentsline{section}{Uniform\+Queries.\+Query\+Part}{\pageref{struct_uniform_queries_1_1_query_part}}{}
-\item \contentsline{section}{Uniform\+Queries.\+Query\+Processor}{\pageref{class_uniform_queries_1_1_query_processor}}{}
+\item \contentsline{section}{Uniform\+Queries.\+Executable.\+Query\+Processor}{\pageref{class_uniform_queries_1_1_executable_1_1_query_processor}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{Uniform\+Queries.\+Auth\+Query\+Processor}{\pageref{class_uniform_queries_1_1_auth_query_processor}}{}
+\item \contentsline{section}{Uniform\+Queries.\+Executable.\+Security.\+Auth\+Query\+Processor}{\pageref{class_uniform_queries_1_1_executable_1_1_security_1_1_auth_query_processor}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{Authority\+Controller.\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}{\pageref{class_authority_controller_1_1_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}}{}
 \item \contentsline{section}{Authority\+Controller.\+Queries.\+U\+S\+E\+R\+\_\+\+L\+O\+G\+O\+N.\+Logon\+Processor}{\pageref{class_authority_controller_1_1_queries_1_1_u_s_e_r___l_o_g_o_n_1_1_logon_processor}}{}
+\item \contentsline{section}{Base\+Queries.\+G\+E\+T\+\_\+\+G\+U\+E\+S\+T\+\_\+\+T\+O\+K\+E\+N.\+Guest\+Token\+Processor}{\pageref{class_base_queries_1_1_g_e_t___g_u_e_s_t___t_o_k_e_n_1_1_guest_token_processor}}{}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
 \item \contentsline{section}{Pipes\+Provider.\+Networking.\+Routing.\+Routing\+Table}{\pageref{class_pipes_provider_1_1_networking_1_1_routing_1_1_routing_table}}{}
@@ -68,9 +74,9 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{Pipes\+Provider.\+Handlers.\+Service}{\pageref{class_pipes_provider_1_1_handlers_1_1_service}}{}
 \item \contentsline{section}{Authority\+Controller.\+Session}{\pageref{class_authority_controller_1_1_session}}{}
 \item \contentsline{section}{Authority\+Controller.\+Data.\+Temporal.\+Token\+Info}{\pageref{class_authority_controller_1_1_data_1_1_temporal_1_1_token_info}}{}
+\item \contentsline{section}{Uniform\+Queries.\+Tokens}{\pageref{class_uniform_queries_1_1_tokens}}{}
 \item \contentsline{section}{Authority\+Controller.\+A\+P\+I.\+Tokens}{\pageref{class_authority_controller_1_1_a_p_i_1_1_tokens}}{}
 \item \contentsline{section}{Pipes\+Provider.\+Client.\+Transmission\+Line}{\pageref{class_pipes_provider_1_1_client_1_1_transmission_line}}{}
 \item \contentsline{section}{Authority\+Controller.\+Data.\+Personal.\+User}{\pageref{class_authority_controller_1_1_data_1_1_personal_1_1_user}}{}
-\item \contentsline{section}{Authority\+Controller.\+A\+P\+I.\+Users}{\pageref{class_authority_controller_1_1_a_p_i_1_1_users}}{}
 \item \contentsline{section}{Authority\+Controller.\+A\+P\+I.\+Validation}{\pageref{class_authority_controller_1_1_a_p_i_1_1_validation}}{}
 \end{DoxyCompactList}

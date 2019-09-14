@@ -1,0 +1,94 @@
+\hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{}\section{Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction Class Reference}
+\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}\index{Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction@{Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction}}
+
+
+\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} that allow retranslate broadcasting via servers chain.  
+
+
+Inheritance diagram for Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d56/class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a31f5ae59274888144f030d36e6b0a048}{Try\+To\+Detect\+Target}} (I\+Enumerable$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} $>$ collection, string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_ab5f83b58775b783a3dc4d4ad2d9ffb81}{entry\+Pipe\+Name}}, out \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}} relay\+Instruction)
+\begin{DoxyCompactList}\small\item\em Trying to find suitable instruction for transmisting pipe. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}} \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a94279d5a766e562f152ce612827fcbe8}{Detect\+Target}} (I\+Enumerable$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} $>$ collection, string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_ab5f83b58775b783a3dc4d4ad2d9ffb81}{entry\+Pipe\+Name}})
+\begin{DoxyCompactList}\small\item\em Looking for suitable instruction for transmisting pipe. In case if not found returning null. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_ab5f83b58775b783a3dc4d4ad2d9ffb81}{entry\+Pipe\+Name}} = \char`\"{}broadcasting\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of pipe started on server that would relay broadcasting from target server. Target server must be broadcasting one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} that allow retranslate broadcasting via servers chain. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a94279d5a766e562f152ce612827fcbe8}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a94279d5a766e562f152ce612827fcbe8}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}!Detect\+Target@{Detect\+Target}}
+\index{Detect\+Target@{Detect\+Target}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}}
+\subsubsection{\texorpdfstring{Detect\+Target()}{DetectTarget()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}} Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction.\+Detect\+Target (\begin{DoxyParamCaption}\item[{I\+Enumerable$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} $>$}]{collection,  }\item[{string}]{entry\+Pipe\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Looking for suitable instruction for transmisting pipe. In case if not found returning null. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collection} & Collection of routing instructions that could contains target \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}}.\\
+\hline
+{\em entry\+Pipe\+Name} & Name of relay pipe that recive broadcasting relay request.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$>$A found instruction. Null if not found.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a31f5ae59274888144f030d36e6b0a048}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_a31f5ae59274888144f030d36e6b0a048}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}!Try\+To\+Detect\+Target@{Try\+To\+Detect\+Target}}
+\index{Try\+To\+Detect\+Target@{Try\+To\+Detect\+Target}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}}
+\subsubsection{\texorpdfstring{Try\+To\+Detect\+Target()}{TryToDetectTarget()}}
+{\footnotesize\ttfamily static bool Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction.\+Try\+To\+Detect\+Target (\begin{DoxyParamCaption}\item[{I\+Enumerable$<$ \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_instruction}{Instruction}} $>$}]{collection,  }\item[{string}]{entry\+Pipe\+Name,  }\item[{out \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}}}]{relay\+Instruction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trying to find suitable instruction for transmisting pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collection} & Collection of routing instructions that could contains target \mbox{\hyperlink{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction}{Relay\+Instruction}}.\\
+\hline
+{\em entry\+Pipe\+Name} & Name of relay pipe that recive broadcasting relay request.\\
+\hline
+{\em relay\+Instruction} & A found instruction. Null if not found.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Resut of search.
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_ab5f83b58775b783a3dc4d4ad2d9ffb81}\label{class_pipes_provider_1_1_networking_1_1_routing_1_1_relay_instruction_ab5f83b58775b783a3dc4d4ad2d9ffb81}} 
+\index{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}!entry\+Pipe\+Name@{entry\+Pipe\+Name}}
+\index{entry\+Pipe\+Name@{entry\+Pipe\+Name}!Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction@{Pipes\+Provider\+::\+Networking\+::\+Routing\+::\+Relay\+Instruction}}
+\subsubsection{\texorpdfstring{entry\+Pipe\+Name}{entryPipeName}}
+{\footnotesize\ttfamily string Pipes\+Provider.\+Networking.\+Routing.\+Relay\+Instruction.\+entry\+Pipe\+Name = \char`\"{}broadcasting\char`\"{}}
+
+
+
+Name of pipe started on server that would relay broadcasting from target server. Target server must be broadcasting one. 
+
+Shame\+: client -\/$>$ relay-\/server-\/ip.\+entry\+Pipe\+Name -\/$>$ routing\+Ip.\+pipe\+Name 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+Git\+Hub/doloro-\/networking-\/framework/\+Core/\+D\+N\+F\+Core/\+Uniform\+Client/\+Extensions/\+Pipes\+Provider/Relay\+Instruction.\+cs\end{DoxyCompactItemize}

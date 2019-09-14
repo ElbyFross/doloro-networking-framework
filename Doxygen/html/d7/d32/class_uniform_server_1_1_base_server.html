@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Doloro Networking Framework
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.0.3</span>
    </div>
    <div id="projectbrief">Easy | Fast | Protected</div>
   </td>
@@ -114,7 +114,8 @@ Inheritance diagram for UniformServer.BaseServer:</div>
 <area href="../../d2/d9a/class_queries_server_1_1_server.html" title="Public servers that allow anonimous connection. Reciving clients&#39; queries and redirect in to target i..." alt="QueriesServer.Server" shape="rect" coords="0,56,266,80"/>
 <area href="../../d8/d17/class_session_provider_1_1_server.html" title="Server tasks: " alt="SessionProvider.Server" shape="rect" coords="276,56,542,80"/>
 <area href="../../d5/dac/class_uniform_server_1_1_standard_1_1_broadcasting_server.html" title="Server that allow instiniate BaseServer. Not contain any additive methods. " alt="UniformServer.Standard.BroadcastingServer" shape="rect" coords="552,56,818,80"/>
-<area href="../../db/daa/class_uniform_server_1_1_standard_1_1_simple_server.html" title="Server that allow instiniate BaseServer. Not contain any additive methods. " alt="UniformServer.Standard.SimpleServer" shape="rect" coords="828,56,1094,80"/>
+<area href="../../d0/d04/class_uniform_server_1_1_standard_1_1_relay_server.html" title="Server that provide API for relaying of transmission. " alt="UniformServer.Standard.RelayServer" shape="rect" coords="828,56,1094,80"/>
+<area href="../../db/daa/class_uniform_server_1_1_standard_1_1_simple_server.html" title="Server that allow instiniate BaseServer. Not contain any additive methods. " alt="UniformServer.Standard.SimpleServer" shape="rect" coords="1104,56,1370,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -123,9 +124,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aefbb2a4287a7f995582b2abf41da8a89"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#aefbb2a4287a7f995582b2abf41da8a89">SendAnswerViaPP</a> (string answer, <a class="el" href="../../d5/d61/struct_uniform_queries_1_1_query_part.html">UniformQueries.QueryPart</a>[] entryQueryParts)</td></tr>
 <tr class="memdesc:aefbb2a4287a7f995582b2abf41da8a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open server line using <a class="el" href="../../d6/daa/namespace_pipes_provider.html">PipesProvider</a> that will send answer backward to cliend by dirrect line. Line will established relative to the data shared by client query.  <a href="#aefbb2a4287a7f995582b2abf41da8a89">More...</a><br /></td></tr>
 <tr class="separator:aefbb2a4287a7f995582b2abf41da8a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ca20516e2a562ddbf8d2c1866f90b25"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#a9ca20516e2a562ddbf8d2c1866f90b25">StartBroadcastingViaPP</a> (string <a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#aaa318b3ed503dd8ccf381c9f3a81ecf2">pipeName</a>, <a class="el" href="../../da/d2f/namespace_pipes_provider_1_1_security.html#a1a6020eca1c661a6f7140e8260502d7e">PipesProvider.Security.SecurityLevel</a> <a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#ac6297faa957fd1005fc61054bdd1cdb1">securityLevel</a>, BroadcastingServerTransmissionController.MessageHandeler getBroadcastingMessageHandler, int chanels)</td></tr>
-<tr class="memdesc:a9ca20516e2a562ddbf8d2c1866f90b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open server with broadcasting chanels using <a class="el" href="../../d6/daa/namespace_pipes_provider.html">PipesProvider</a>.  <a href="#a9ca20516e2a562ddbf8d2c1866f90b25">More...</a><br /></td></tr>
-<tr class="separator:a9ca20516e2a562ddbf8d2c1866f90b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -165,9 +163,6 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6cf6b8472de3925d465737a7fc9a8842"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#a6cf6b8472de3925d465737a7fc9a8842">ThreadingServerLoop_PP_Input</a> (object server)</td></tr>
 <tr class="memdesc:a6cf6b8472de3925d465737a7fc9a8842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop that control pipe chanel that will recive clients.  <a href="#a6cf6b8472de3925d465737a7fc9a8842">More...</a><br /></td></tr>
 <tr class="separator:a6cf6b8472de3925d465737a7fc9a8842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c371a7e7953333bb2aa5104fa8a72d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d32/class_uniform_server_1_1_base_server.html#ae3c371a7e7953333bb2aa5104fa8a72d">ThreadingServerLoop_PP_Broadcast</a> (object server)</td></tr>
-<tr class="memdesc:ae3c371a7e7953333bb2aa5104fa8a72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main threaded loop that control broadcassting server loop start.  <a href="#ae3c371a7e7953333bb2aa5104fa8a72d">More...</a><br /></td></tr>
-<tr class="separator:ae3c371a7e7953333bb2aa5104fa8a72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -330,63 +325,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a id="a9ca20516e2a562ddbf8d2c1866f90b25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ca20516e2a562ddbf8d2c1866f90b25">&#9670;&nbsp;</a></span>StartBroadcastingViaPP()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void UniformServer.BaseServer.StartBroadcastingViaPP </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>pipeName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d2f/namespace_pipes_provider_1_1_security.html#a1a6020eca1c661a6f7140e8260502d7e">PipesProvider.Security.SecurityLevel</a>&#160;</td>
-          <td class="paramname"><em>securityLevel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BroadcastingServerTransmissionController.MessageHandeler&#160;</td>
-          <td class="paramname"><em>getBroadcastingMessageHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>chanels</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Open server with broadcasting chanels using <a class="el" href="../../d6/daa/namespace_pipes_provider.html">PipesProvider</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">getBroadcastingMessageHandler</td><td>delegate that will be called to get message for new client.</td></tr>
-    <tr><td class="paramname">chanels</td><td>How many many connections would awaiable to this server. Attention: every chanel is a tread.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aa4a1412b217944e7f8d6ccae6ac68289"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4a1412b217944e7f8d6ccae6ac68289">&#9670;&nbsp;</a></span>StartServerThread()</h2>
 
@@ -436,34 +374,6 @@ Events</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a id="ae3c371a7e7953333bb2aa5104fa8a72d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3c371a7e7953333bb2aa5104fa8a72d">&#9670;&nbsp;</a></span>ThreadingServerLoop_PP_Broadcast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void UniformServer.BaseServer.ThreadingServerLoop_PP_Broadcast </td>
-          <td>(</td>
-          <td class="paramtype">object&#160;</td>
-          <td class="paramname"><em>server</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Main threaded loop that control broadcassting server loop start. </p>
 
 </div>
 </div>
@@ -815,9 +725,9 @@ Events</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/BaseServer.cs</li>
-<li>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs</li>
-<li>D:/Work/GitHub/doloro-networking-framework/Core/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs</li>
+<li>D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/BaseServer.cs</li>
+<li>D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPThreading.cs</li>
+<li>D:/Work/GitHub/doloro-networking-framework/Core/DNFCore/UniformServer/Providers/PipesProvider/BaseServerPPTransmission.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

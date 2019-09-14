@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none',['None',['../d0/d5b/class_pipes_provider_1_1_server_1_1_transmission_controllers_1_1_base_server_transmission_controller.html#af60aaebfbfe6988e008cedb18f32c759',1,'PipesProvider::Server::TransmissionControllers::BaseServerTransmissionController']]]
+  ['macadsress',['MacAdsress',['../d7/d6e/class_pipes_provider_1_1_networking_1_1_info.html#a1f52d4e0fadf66135920386cd23473a2',1,'PipesProvider::Networking::Info']]]
 ];

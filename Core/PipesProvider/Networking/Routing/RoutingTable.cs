@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -96,7 +97,7 @@ namespace PipesProvider.Networking.Routing
             string[] xmlFiles = Directory.GetFiles(directory, "*.xml", searchOption);
 
             // Init encoder.
-            XmlSerializer xmlSer = new XmlSerializer(typeof(RoutingTable));
+            XmlSerializer xmlSer = new XmlSerializer(typeof(RoutingTable), Instruction.DerivedTypes);
 
             // Deserialize every file to table if possible.
             foreach (string fileDir in xmlFiles)
@@ -128,40 +129,72 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
+        /// Save routing table by default directory 
+        /// %app/resources/routing/ROUTING.xml
+        /// </summary>
+        /// <param name="table">Source with instructions.</param>
+        public static void SaveRoutingTable(RoutingTable table)
+        {
+            SaveRoutingTable(table, "resources/routing", "ROUTING");
+        }
+
+
+        /// <summary>
+        /// Save routing table by default directory 
+        /// %app/resources/routing
+        /// </summary>
+        /// <param name="table">Source with instructions.</param>
+        /// <param name="name">Name of the file.</param>
+        public static void SaveRoutingTable(RoutingTable table, string name)
+        {
+            SaveRoutingTable(table, "resources/routing", name);
+        }
+
+        /// <summary>
         /// Save routing table by directory.
         /// </summary>
-        /// <param name="table">Table object,</param>
+        /// <param name="table">Source with instructions.</param>
         /// <param name="directory">Target directory.</param>
         /// <param name="name">Name of the file.</param>
         public static void SaveRoutingTable(RoutingTable table, string directory, string name)
         {
+            #region Validate directory
+            // Avoid null reference exception.
+            if (directory == null)
+            {
+                directory = "";
+            }
+
             // Check directory exist.
-            if (!Directory.Exists(directory))
+            if (directory != "" &&
+                !Directory.Exists(directory))
             {
                 // Create if not found.
                 Directory.CreateDirectory(directory);
             }
-
-            // Convert table to XML file.
+            #endregion
+            
+            #region Write table to XML file.
             try
             {
                 XmlDocument xmlDocument = new XmlDocument();
-                XmlSerializer serializer = new XmlSerializer(typeof(RoutingTable));
+                XmlSerializer serializer = new XmlSerializer(typeof(RoutingTable), Instruction.DerivedTypes);
                 using (MemoryStream stream = new MemoryStream())
                 {
                     serializer.Serialize(stream, table);
                     stream.Position = 0;
                     xmlDocument.Load(stream);
-                    xmlDocument.Save(directory + name + ".xml");
+                    xmlDocument.Save(directory + "/" + name + ".xml");
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("ROUTING TABLE ERROR: Not serialized. Reason:\n{0}", ex.Message);
             }
+            #endregion
         }
         #endregion
-        
+
         #region Operators
         /// <summary>
         /// Adding instruction from second table to first one.
