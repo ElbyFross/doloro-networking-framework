@@ -112,8 +112,8 @@ namespace AuthorityController.Data.Personal
         /// <summary>
         /// Date Time when this bun will be expired.
         /// </summary>
-        [Column("expiryTime", System.Data.DbType.String)]
-        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.VarChar, "VARCHAR(256)")]
+        [Column("expiryTime", System.Data.DbType.DateTime)]
+        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.DateTime, "DATETIME")]
         public DateTime expiryTime;
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace AuthorityController.Data.Personal
         /// Blocked rights array in binnary format.
         /// </summary>
         [Column("blockedRights", System.Data.DbType.Binary)]
-        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.TinyBlob, "TNYBLOB")]
+        [MySqlDBTypeOverride(MySql.Data.MySqlClient.MySqlDbType.TinyBlob, "TINYBLOB")]
         [XmlIgnore]
         public byte[] BlockedRightsBlob
         {
@@ -139,7 +139,7 @@ namespace AuthorityController.Data.Personal
             {
                 if (value != null)
                 {
-                    UniformDataOperator.Binary.BinaryHandler.FromByteArray<string[]>(value);
+                    blockedRights = UniformDataOperator.Binary.BinaryHandler.FromByteArray<string[]>(value);
                 }
             }
         }
@@ -164,6 +164,13 @@ namespace AuthorityController.Data.Personal
         {
             get
             {
+                // Al;ways relevant it permanent.
+                if(duration == Duration.Permanent && 
+                   active)
+                {
+                    return false;
+                }
+
                 // Check for line key expiring.
                 bool isExpired = DateTime.Compare(expiryTime, DateTime.Now) < 0;
                 if (isExpired)

@@ -13,6 +13,8 @@
 //limitations under the License.
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UniformQueries;
@@ -67,7 +69,9 @@ namespace AuthorityController.Queries
             // Get data from SQL server if connected.
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
             {
-                #region SQL server                
+                #region SQL server      
+
+                #region Get user
                 // Subscribe on errors.
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
 
@@ -78,6 +82,58 @@ namespace AuthorityController.Queries
                     user, 
                     new string[0],
                     new string[] { "login" });
+                
+                // If async operation started.
+                if (asyncDataOperator != null)
+                {
+                    // Wait until finishing.
+                    while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
+                    {
+                        Thread.Sleep(5);
+                    }
+
+                    // Unsubscribe from errors listening.
+                    UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+                }
+
+                // Drop if async operation failed.
+                if (dataOperationFailed)
+                {
+                    return;
+                }
+                #endregion
+
+                #region Get bans data
+                // Subscribe on errors.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
+
+                // Request data.
+                Task banListnerAsyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectsAsync(
+                    typeof(BanInformation),
+                    Session.Current.TerminationToken,
+                    new BanInformation() { userId = user.id },
+                    delegate(IList collection)
+                    {
+                        user.bans = (List<BanInformation>)collection;
+                    },
+                    new string[0],
+                    new string[] { "user_userid" });
+
+                // If async operation started.
+                if (banListnerAsyncDataOperator != null)
+                {
+                    // Wait until finishing.
+                    while (!banListnerAsyncDataOperator.IsCompleted && !banListnerAsyncDataOperator.IsCanceled)
+                    {
+                        Thread.Sleep(5);
+                    }
+
+                    // Unsubscribe from errors listening.
+                    UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+                }
+                
+                #endregion
+
                 #endregion
             }
             // Looking for user in local storage.
@@ -94,28 +150,15 @@ namespace AuthorityController.Queries
                 #endregion
             }
 
-            // If async operation started.
-            if (asyncDataOperator != null)
-            {
-                // Wait until finishing.
-                while (!asyncDataOperator.IsCompleted || !asyncDataOperator.IsCanceled)
-                {
-                    Thread.Sleep(5);
-                }
-
-                // Unsubscribe from errors listening.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
-            }
-
-            // DSrop if async operation failed.
-            if(dataOperationFailed)
+            // Drop if async operation failed.
+            if (dataOperationFailed)
             {
                 return;
             }
 
             #region Validate password.
             // Comapre password with stored.
-            if(!user.IsOpenPasswordCorrect(password.propertyValue))
+            if (!user.IsOpenPasswordCorrect(password.propertyValue))
             {
                 // Inform that password is incorrect.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", queryParts);
@@ -177,6 +220,9 @@ namespace AuthorityController.Queries
                 {
                     return;
                 }
+
+                // Mark that data receiving failed.
+                dataOperationFailed = true;
 
                 // Unsubscribe.
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;

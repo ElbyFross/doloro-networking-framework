@@ -17,6 +17,7 @@ using System.Threading;
 using AuthorityController.Data.Personal;
 using AuthorityController.Data.Application;
 using AC_API = AuthorityController.API;
+using UniformQueries;
 
 namespace ACTests.Helpers
 {
@@ -202,6 +203,36 @@ namespace ACTests.Helpers
                 AuthorityController.Session.Current.SetTokenRights(user_Guest.tokens[0], user_Guest.rights);
                 #endregion
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="login">User's login.</param>
+        /// <param name="password">User's password.</param>
+        /// <param name="fn">User's name</param>
+        /// <param name="ln">User's last name</param>
+        /// <returns></returns>
+        public static QueryPart[] NewUserQuery(string login, string password = "1234567!Qwerty", string fn = "FirstName", string ln = "SecondName")
+        {
+            return new QueryPart[]
+            {
+                // TODO invalid token.
+                new QueryPart("token", UniformQueries.Tokens.UnusedToken),
+                new QueryPart("guid", Guid.NewGuid().ToString()),
+
+                new QueryPart("user"),
+                new QueryPart("new"),
+
+                new QueryPart("login", login),
+                new QueryPart("password", password),
+                new QueryPart("fn", fn),
+                new QueryPart("ln", ln),
+
+                new QueryPart("os", Environment.OSVersion.VersionString),
+                new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
+            };
         }
     }
 }

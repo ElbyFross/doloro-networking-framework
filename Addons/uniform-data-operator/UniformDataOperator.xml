@@ -214,6 +214,51 @@
             <param name="error">Error faces during operation.</param>
             <returns>Result of operation.</returns>
         </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@,System.String[],System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.
+            After operation would contains recived object.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <param name="where">List of requested columns that would included to `WHERE` part of SQL query.</param>
+            <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@,System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.
+            After operation would contains recived object.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@)">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.
+            After operation would contains recived object.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <returns>Result of operation.</returns>
+        </member>
         <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjectAsync(System.Type,System.Threading.CancellationToken,System.Object,System.String[],System.String[])">
             <summary>
             Setting data from DB Data reader to object by using column map described at object Type.
@@ -226,7 +271,8 @@
             Would be used as table descriptor during query building.</param>
             <param name="cancellationToken">Token that can terminate operation.</param>
             <param name="obj">Target object that cantains described primary keys, 
-            that would be used during query generation.</param>
+            that would be used during query generation.
+            After operation would contains recived object.</param>
             <param name="select">List of requested columns that would included to SQL query.</param>
             <param name="where">List of requested columns that would included to `WHERE` part of SQL query.</param>
         </member>
@@ -241,7 +287,8 @@
             Would be used as table descriptor during query building.</param>
             <param name="cancellationToken">Token that can terminate operation.</param>
             <param name="obj">Target object that cantains described primary keys, 
-            that would be used during query generation.</param>
+            that would be used during query generation.
+            After operation would contains recived object.</param>
             <param name="select">List of requested columns that would included to SQL query.</param>
         </member>
         <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjectAsync(System.Type,System.Threading.CancellationToken,System.Object)">
@@ -253,7 +300,56 @@
             Would be used as table descriptor during query building.</param>
             <param name="cancellationToken">Token that can terminate operation.</param>
             <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.
+            After operation would contains recived object.</param>
+        </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList},System.String[],System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
             that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <param name="where">List of requested columns that would included to `WHERE` part of SQL query.</param>
+        </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList},System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+        </member>
+        <member name="M:UniformDataOperator.Sql.ISqlOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList})">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
         </member>
         <member name="T:UniformDataOperator.Sql.MySql.Attributes.MySqlDBTypeOverride">
             <summary>
@@ -347,6 +443,48 @@
             <param name="error">Occurred error. Null if operation passed success.</param>
             <returns>Result of operation.</returns>
         </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@,System.String[],System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <param name="where">List of requested columns that would included to `WHERE` part of SQL query.</param>
+            <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@,System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjects(System.Type,System.Object,System.Collections.IList@,System.String@)">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="collection">Output collection that would contains recived object with the same Type like obj.</param>
+            <param name="error">Error faces during operation.</param>
+            <returns>Result of operation.</returns>
+        </member>
         <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjectAsync(System.Type,System.Threading.CancellationToken,System.Object,System.String[],System.String[])">
             <summary>
             Trying to set object data to database.
@@ -387,6 +525,54 @@
             <param name="cancellationToken">Token that will terminate operation if would be required.</param>
             <param name="obj">Instance that contains data tha with the same column sttributes as in tableType.</param>
             <returns>Awaitable task.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList},System.String[],System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+            <param name="where">List of requested columns that would included to `WHERE` part of SQL query.</param>
+        </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList},System.String[])">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
+            <param name="select">List of requested columns that would included to SQL query.</param>
+        </member>
+        <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.SetToObjectsAsync(System.Type,System.Threading.CancellationToken,System.Object,System.Action{System.Collections.IList})">
+            <summary>
+            Setting data from DB Data reader to object by using column map described at object Type.
+            Auto-generate SQL query and request coluns data relative to privary keys described in object.
+            
+            Add to WHERE block only requested columns.
+            Request data only for required columns.
+            </summary>
+            <param name="tableType">Type that has defined Table attribute
+            Would be used as table descriptor during query building.</param>
+            <param name="cancellationToken">Token that can terminate operation.</param>
+            <param name="obj">Target object that cantains described primary keys, 
+            that would be used during query generation.</param>
+            <param name="callback">Delegate that would be called and return retcived collection of objects.</param>
         </member>
         <member name="M:UniformDataOperator.Sql.MySql.MySqlDataOperator.ValidateEntryRD(System.Type,System.Object,System.String@)">
             <summary>
@@ -1073,6 +1259,11 @@
             </summary>
             <param name="selfTableName">Name of the table that contain column.</param>
             <returns>Return FK suitable name</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.Attributes.IsForeignKey.DropIndexator">
+            <summary>
+            Clearing current index history.
+            </summary>
         </member>
         <member name="M:UniformDataOperator.Sql.Attributes.IsForeignKey.ConstrainDeclarationCommand(UniformDataOperator.Sql.Attributes.Column,UniformDataOperator.Sql.Attributes.IsForeignKey,System.String)">
             <summary>

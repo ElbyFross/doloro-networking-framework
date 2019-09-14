@@ -46,7 +46,7 @@ namespace AuthorityController.Data.Personal
         /// <summary>
         /// Login of this user to access the system.
         /// </summary>
-        [Column("login", DbType.String), IsNotNull]
+        [Column("login", DbType.String), IsNotNull, IsUnique]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string login;
 
@@ -98,7 +98,7 @@ namespace AuthorityController.Data.Personal
                 string result = "";
                 foreach (string s in rights)
                 {
-                    if (string.IsNullOrEmpty(result))
+                    if (!string.IsNullOrEmpty(result))
                     {
                         result += "+";
                     }

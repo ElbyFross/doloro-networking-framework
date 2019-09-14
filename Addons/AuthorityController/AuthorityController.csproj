@@ -40,7 +40,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UniformDataOperator">
+    <Reference Include="UniformDataOperator, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\uniform-data-operator\UniformDataOperator.dll</HintPath>
     </Reference>
   </ItemGroup>

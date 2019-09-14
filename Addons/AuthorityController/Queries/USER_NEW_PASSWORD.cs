@@ -97,7 +97,7 @@ namespace AuthorityController.Queries
             if (asyncDataOperator != null)
             {
                 // Wait until finishing.
-                while (!asyncDataOperator.IsCompleted || !asyncDataOperator.IsCanceled)
+                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
                 {
                     Thread.Sleep(5);
                 }
@@ -204,7 +204,7 @@ namespace AuthorityController.Queries
             if (asyncDataOperator != null)
             {
                 // Wait until finishing.
-                while (!asyncDataOperator.IsCompleted || !asyncDataOperator.IsCanceled)
+                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
                 {
                     Thread.Sleep(5);
                 }

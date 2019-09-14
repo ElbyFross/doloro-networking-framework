@@ -59,7 +59,7 @@ namespace ACTests.Tests
             }
         }
         #endregion
-                
+
         [TestCleanup]
         public void Cleanup()
         {
@@ -96,14 +96,14 @@ namespace ACTests.Tests
                         QueryPart[] recivedQuery = UniformQueries.API.DetectQueryParts(answer);
 
                         // Check token.
-                        if(UniformQueries.API.TryGetParamValue("token", out QueryPart token, recivedQuery))
+                        if (UniformQueries.API.TryGetParamValue("token", out QueryPart token, recivedQuery))
                         {
                             // Set token as GUEST to share between other tests.
                             GUEST_TOKEN = token.propertyValue;
 
                             // Assert test result.
                             bool tokenProvided = !string.IsNullOrEmpty(token.propertyValue);
-                            Assert.IsTrue(tokenProvided, "Token is null.\n"+ answer);
+                            Assert.IsTrue(tokenProvided, "Token is null.\n" + answer);
                         }
                         else
                         {
@@ -131,7 +131,7 @@ namespace ACTests.Tests
             #endregion
 
             // Wait server answer.
-            while(waitingAnswer)
+            while (waitingAnswer)
             {
                 Thread.Sleep(5);
             }
@@ -564,7 +564,7 @@ namespace ACTests.Tests
                 }
 
                 // Wait until epiry time.
-                while(DateTime.Compare(expiryTime, DateTime.Now) > 0)
+                while (DateTime.Compare(expiryTime, DateTime.Now) > 0)
                 {
                     Thread.Sleep(5);
                 }
@@ -632,34 +632,34 @@ namespace ACTests.Tests
                         // Trying to convert answer to string
                         if (answer is string answerS)
                         {
-                        // Is operation success?
-                        if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                            // Is operation success?
+                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                             {
-                            // Log error.
-                            Assert.Fail("Recived error:\n" + answerS);
+                                // Log error.
+                                Assert.Fail("Recived error:\n" + answerS);
                                 operationCompete = true;
                             }
                             else
                             {
-                            // Trying to get toekn from answer.
-                            if (UniformQueries.API.TryGetParamValue("token", out string value, answerS))
+                                // Trying to get toekn from answer.
+                                if (UniformQueries.API.TryGetParamValue("token", out string value, answerS))
                                 {
-                                // Confirm logon.
-                                Assert.IsTrue(true);
+                                    // Confirm logon.
+                                    Assert.IsTrue(true);
                                     operationCompete = true;
                                 }
                                 else
                                 {
-                                // Log error.
-                                Assert.Fail("Answer not contain token:\nFull answer:" + answerS);
+                                    // Log error.
+                                    Assert.Fail("Answer not contain token:\nFull answer:" + answerS);
                                     operationCompete = true;
                                 }
                             }
                         }
                         else
                         {
-                        // Assert error.
-                        Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
+                            // Assert error.
+                            Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
                             operationCompete = true;
                         }
                     });
@@ -787,7 +787,7 @@ namespace ACTests.Tests
 
                 // Start reciving clent line.
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
-                    
+
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
@@ -912,23 +912,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
-                    new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", Guid.NewGuid().ToString()),
-
-                    new QueryPart("user"),
-                    new QueryPart("new"),
-
-                    new QueryPart("login", "login123@"),
-                    new QueryPart("password", "Password123!"),
-                    new QueryPart("fn", "Mark"),
-                    new QueryPart("sn", "Sanders"),
-
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                QueryPart[] query = Helpers.Users.NewUserQuery("login123@", "Password123!", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1003,30 +987,14 @@ namespace ACTests.Tests
                 }
             }
             #endregion
-            
+
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
-                    new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", Guid.NewGuid().ToString()),
-
-                    new QueryPart("user"),
-                    new QueryPart("new"),
-
-                    new QueryPart("login", "login123@"),
-                    new QueryPart("password", "aa!"),
-                    new QueryPart("fn", "Mark"),
-                    new QueryPart("sn", "Sanders"),
-
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                QueryPart[] query = Helpers.Users.NewUserQuery("login123@", "aa!", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1101,30 +1069,14 @@ namespace ACTests.Tests
                 }
             }
             #endregion
-            
+
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
-                    new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", Guid.NewGuid().ToString()),
-
-                    new QueryPart("user"),
-                    new QueryPart("new"),
-
-                    new QueryPart("login", "a"),
-                    new QueryPart("password", "validPass2@"),
-                    new QueryPart("fn", "Mark"),
-                    new QueryPart("sn", "Sanders"),
-
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                QueryPart[] query = Helpers.Users.NewUserQuery("a", "validPass2@", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1212,23 +1164,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
-                    new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", Guid.NewGuid().ToString()),
-
-                    new QueryPart("user"),
-                    new QueryPart("new"),
-
-                    new QueryPart("login", "admin"),
-                    new QueryPart("password", "validPass2@"),
-                    new QueryPart("fn", "Mark"),
-                    new QueryPart("sn", "Sanders"),
-
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                QueryPart[] query = Helpers.Users.NewUserQuery("admin", "validPass2@", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1303,30 +1239,14 @@ namespace ACTests.Tests
                 }
             }
             #endregion
-            
+
             lock (Helpers.Locks.CONFIG_LOCK)
             {
                 // Start new server for thsi test to avoid conflicts.
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
-                    new QueryPart("token", GUEST_TOKEN),
-                    new QueryPart("guid", Guid.NewGuid().ToString()),
-
-                    new QueryPart("user"),
-                    new QueryPart("new"),
-
-                    new QueryPart("login", "newLogin"),
-                    new QueryPart("password", "validPass2@"),
-                    new QueryPart("fn", "Mark2"),
-                    new QueryPart("sn", "Sanders"),
-
-                    new QueryPart("os", Environment.OSVersion.VersionString),
-                    new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                QueryPart[] query = Helpers.Users.NewUserQuery("newLogin", "validPass2@", "Mark2", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;

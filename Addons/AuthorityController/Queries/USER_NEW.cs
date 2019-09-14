@@ -14,6 +14,7 @@
 
 using System;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using UniformQueries;
 using UniformQueries.Executable;
@@ -32,7 +33,7 @@ namespace AuthorityController.Queries
     {
         public virtual string Description(string cultureKey)
         {
-            
+
             switch (cultureKey)
             {
                 case "en-US":
@@ -46,11 +47,14 @@ namespace AuthorityController.Queries
 
         public virtual void Execute(QueryPart[] queryParts)
         {
+            // Marker that would be mean that some of internal tasks was failed and operation require termination.
+            bool failed = false;
+
             #region Get qyery params
             UniformQueries.API.TryGetParamValue("login", out QueryPart login, queryParts);
             UniformQueries.API.TryGetParamValue("password", out QueryPart password, queryParts);
             UniformQueries.API.TryGetParamValue("fn", out QueryPart firstName, queryParts);
-            UniformQueries.API.TryGetParamValue("sn", out QueryPart secondName, queryParts);
+            UniformQueries.API.TryGetParamValue("ln", out QueryPart lastName, queryParts);
 
             UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);
             UniformQueries.API.TryGetParamValue("guid", out QueryPart guid, queryParts);
@@ -76,22 +80,14 @@ namespace AuthorityController.Queries
             }
 
             // Check login format.
-            if(!Regex.IsMatch(login.propertyValue, @"^[a-zA-Z0-9@._]+$"))
+            if (!Regex.IsMatch(login.propertyValue, @"^[a-zA-Z0-9@._]+$"))
             {
                 // Inform about incorrect login size.
                 UniformServer.BaseServer.SendAnswerViaPP(
-                    "ERROR 401: Invalid login format. Allowed symbols: [a-z][A-Z][0-9]@._" ,
+                    "ERROR 401: Invalid login format. Allowed symbols: [a-z][A-Z][0-9]@._",
                     queryParts);
                 return;
 
-            }
-
-            // Check login exist.
-            if (API.LocalUsers.TryToFindUser(login.propertyValue, out User _))
-            {
-                // Inform that target user has the same or heigher rank then requester.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Login occupied", queryParts);
-                return;
             }
 
             // Can take enough long time so just let other query to process.
@@ -114,8 +110,8 @@ namespace AuthorityController.Queries
 
             #region Validate names
             // Validate name.
-            if(!API.Validation.NameFormat(ref firstName.propertyValue, out string error) ||
-               !API.Validation.NameFormat(ref secondName.propertyValue, out error))
+            if (!API.Validation.NameFormat(ref firstName.propertyValue, out string error) ||
+               !API.Validation.NameFormat(ref lastName.propertyValue, out error))
             {
                 // Inform about incorrect login size.
                 UniformServer.BaseServer.SendAnswerViaPP(
@@ -138,9 +134,9 @@ namespace AuthorityController.Queries
             User userProfile = (User)Activator.CreateInstance(User.GlobalType);
             userProfile.login = login.propertyValue;
             userProfile.password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt);
-            userProfile.firstName = firstName;
-            userProfile.lastName = secondName;
-            
+            userProfile.firstName = firstName.propertyValue;
+            userProfile.lastName = lastName.propertyValue;
+
             // Set rights default rights.
             userProfile.rights = Config.Active.UserDefaultRights;
             #endregion
@@ -149,41 +145,122 @@ namespace AuthorityController.Queries
             // Store in SQL data base if provided.
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
             {
-                // Set ignorable value to activate autoincrement.
-                userProfile.id = 0;
-
-                Task registrationTask = new Task(
-                    delegate ()
+                #region SQL server
+                // Start new task for providing possibility to terminate all operation by
+                // session's cancelation token. 
+                // In other case after termination on any internal task other will started.
+                Task.Run(delegate ()
                     {
-                        // Subscribe on errors.
-                        UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += SQLErrorListener;
+                        // Set ignorable value to activate autoincrement.
+                        userProfile.id = 0;
 
-                        // Set data ro data base.
-                        UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                            SetToTable(User.GlobalType, userProfile, out error);
+                        #region Check existing
+                        // Virtual user profile that would be used to build the query for exist xhecking.
+                        User dbStoredProfile = (User)Activator.CreateInstance(User.GlobalType);
 
-                        // Success.
-                        if(string.IsNullOrEmpty(error))
+                        // Set login to using in WHERE  sql block.
+                        dbStoredProfile.login = login.propertyValue;
+
+                        // Mearker that would contains result of operation.
+                        bool userAlreadyExist = failed;
+
+                        // Task that would start async waiting for server's answer.
+                        Task existingCheckTask = new Task(async delegate ()
+                            {
+                                // Calback that would be called if data not found.
+                                // If not called then data already exist and operation failed.
+                                void DataNotFound(object sender, string _)
+                                {
+                                    // Drop if not target user.
+                                    if (!dbStoredProfile.Equals(sender))
+                                    {
+                                        return;
+                                    }
+
+                                    // Unsubscribe.
+                                    UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
+
+                                    // Enable marker.
+                                    userAlreadyExist = true;
+                                }
+
+                                // Subscribe on errors.
+                                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += DataNotFound;
+
+                                // Set data ro data base.
+                                await UniformDataOperator.Sql.SqlOperatorHandler.Active.
+                                            SetToObjectAsync(User.GlobalType, Session.Current.TerminationToken, dbStoredProfile,
+                                            new string[0],
+                                            new string[]
+                                            {
+                                                "login"
+                                            });
+
+                                // Unsubscribe from errors listening.
+                                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
+                            },
+                            Session.Current.TerminationToken);
+                        existingCheckTask.Start(); // Start async task.
+
+                        // Whait untol result.
+                        while (!existingCheckTask.IsCanceled && !existingCheckTask.IsCompleted)
                         {
-                            Logon();
+                            Thread.Sleep(5);
                         }
-                        // Fail.
-                        else
+
+                        // Drop if user exist
+                        if (!userAlreadyExist)
                         {
-                            // Send answer with operation's error.
+                            // Inform that user already exist.
                             UniformServer.BaseServer.SendAnswerViaPP(
-                                "failed:" + error,
+                                "ERROR: User with login `" + userProfile.login + "` already exist.",
                                 queryParts);
+                            return;
                         }
+                        #endregion
 
-                        // Unsubscribe from errors listening.
-                        UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
+                        #region Create new user
+                        // Request creating of new user.
+                        Task registrationTask = new Task(
+                            async delegate ()
+                            {
+                                // Subscribe on errors.
+                                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += SQLErrorListener;
+
+                                // Set data ro data base.
+                                await UniformDataOperator.Sql.SqlOperatorHandler.Active.
+                                            SetToTableAsync(User.GlobalType, Session.Current.TerminationToken, userProfile);
+
+                                // If operation nit failed.
+                                if (!failed)
+                                {
+                                    // Request logon.
+                                    Logon();
+
+                                    // Unsubscribe from errors listening.
+                                    UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
+                                }
+                            },
+                            Session.Current.TerminationToken);
+                        registrationTask.Start();
+
                     },
                     Session.Current.TerminationToken);
+                #endregion
+                #endregion
             }
             // Store in local file system.
             else
             {
+                #region Local storage
+                // Check login exist.
+                if (API.LocalUsers.TryToFindUser(login.propertyValue, out User _))
+                {
+                    // Inform that target user has the same or heigher rank then requester.
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Login occupied", queryParts);
+                    return;
+                }
+
                 // Provide ID.
                 userProfile.id = API.LocalUsers.GenerateID(userProfile);
 
@@ -191,6 +268,7 @@ namespace AuthorityController.Queries
                 API.LocalUsers.SetProfileAsync(userProfile, Config.Active.UsersStorageDirectory);
                 API.LocalUsers.UserProfileStored += LocalDataStoredCallback;
                 API.LocalUsers.UserProfileNotStored += LocalDataStroringFailed;
+                #endregion
             }
             #endregion
 
@@ -208,7 +286,6 @@ namespace AuthorityController.Queries
                     Logon();
                 }
             }
-
 
             // Callback that would be processed in case of fail of data storing.
             void LocalDataStroringFailed(User target, string operationError)
@@ -236,6 +313,8 @@ namespace AuthorityController.Queries
                 {
                     return;
                 }
+
+                failed = true;
 
                 // Unsubscribe.
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
@@ -271,6 +350,7 @@ namespace AuthorityController.Queries
                     {
                         // Execute and send to client token valided to created user.
                         processor.Execute(logonQuery);
+                        return;
                     }
                 }
             }
@@ -306,7 +386,7 @@ namespace AuthorityController.Queries
             if (!UniformQueries.API.QueryParamExist("fn", queryParts))
                 return false;
 
-            if (!UniformQueries.API.QueryParamExist("sn", queryParts))
+            if (!UniformQueries.API.QueryParamExist("ln", queryParts))
                 return false;
 
 
