@@ -52,7 +52,7 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         /// <param name="callback">Delegate that will be called when guest token reciving operation would be finished.</param>
         /// <param name="cancellationToken">Using this token you can terminate task.</param>
-        public async void TryToGetGuestTokenAsync(
+        public async Task TryToGetGuestTokenAsync(
             System.Action<PartialAuthorizedInstruction> callback, 
             CancellationToken cancellationToken)
         {
@@ -76,14 +76,14 @@ namespace PipesProvider.Networking.Routing
         public bool TryToGetGuestToken(CancellationToken cancellationToken)
         {
             bool asyncOperationStarted = false;
-
+            
             #region Guest token processing
             // Is the guest token is relevant.
-            bool guestTokenValid =
+            bool guestTokenInvalid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
                 UniformQueries.Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
 
-            if (!guestTokenValid)
+            if (guestTokenInvalid)
             {
                 // Lock thread.
                 asyncOperationStarted = true;
@@ -102,7 +102,7 @@ namespace PipesProvider.Networking.Routing
                 // Recive guest token to get access to server.
                 GuestTokenHandler.TryToReciveTokenAsync(
                     routingIP,
-                    pipeName,
+                    guestChanel,
                     cancellationToken);
             }
 
@@ -115,10 +115,12 @@ namespace PipesProvider.Networking.Routing
             // Drop if guest token not recived.
             if (string.IsNullOrEmpty(GuestTokenHandler.Token))
             {
+                Console.WriteLine(routingIP + "\\" + pipeName + ": GUEST TOKEN NOT RECEIVED");
                 return false;
             }
             #endregion
 
+            Console.WriteLine(routingIP + "\\" + pipeName + ": GUEST TOKEN RECEIVED: " + GuestTokenHandler.Token);
             return true;
         }
         #endregion

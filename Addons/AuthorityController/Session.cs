@@ -59,15 +59,15 @@ namespace AuthorityController
         public RoutingTable AuthorityFollowers { get; set; }
 
         /// <summary>
-        /// Token that provide possibility to terminate all stated tasks in this session.
+        /// Token source that provide possibility to terminate all stated tasks in this session.
         /// </summary>
-        public CancellationToken TerminationToken
+        public CancellationTokenSource TerminationTokenSource
         {
             get
             {
                 if(_terminationToken == null)
                 {
-                    _terminationToken = new CancellationToken();
+                    _terminationToken = new CancellationTokenSource();
                 }
 
                 return _terminationToken;
@@ -86,7 +86,7 @@ namespace AuthorityController
             Current = this;
 
             // Initialize Termination token.
-            _ = TerminationToken;
+            _ = TerminationTokenSource;
         }
         #endregion
 
@@ -94,7 +94,7 @@ namespace AuthorityController
         /// Object that contain current session.
         private static Session _current;
 
-        private CancellationToken _terminationToken;
+        private CancellationTokenSource _terminationToken;
 
         /// <summary>
         /// Table that contains rights provided to token.
@@ -400,7 +400,7 @@ namespace AuthorityController
                         // Send query using current token.
                         SendQuery(authInstr.AuthorizedToken);
                     },
-                    TerminationToken);
+                    TerminationTokenSource.Token);
                 }
                 else
                 {

@@ -110,6 +110,22 @@ namespace BaseQueries
                   string pipeName,
                   CancellationToken cancellationToken)
             {
+                #region Validate
+                // Drop if process already started to avoid conflicts.
+                if (IsInProgress)
+                {
+                    Console.WriteLine("Authorization process already started.");
+                    return;
+                }
+                #endregion
+
+                #region Set markers
+                // Drop previous autorization.
+                IsAutorized = false;
+                IsInProgress = true;
+                IsTerminated = false;
+                #endregion
+
                 #region Wait connection possibilities.
                 if (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
                 {

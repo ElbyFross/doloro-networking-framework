@@ -56,43 +56,59 @@ namespace UniformClient
         /// </summary>
         /// <param name="instruction"></param>
         /// <returns></returns>
-        public static RSAParameters GetValidPublicKeyViaPP(Instruction instruction)
+        public static async Task GetValidPublicKeyViaPPAsync(Instruction instruction)
         {
             // Try to cast instruction like a partial authorized (that has guest authorized token).
-            if (instruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
+            if (instruction is PartialAuthorizedInstruction pai)
             {
-                // Validate key.
-                if (!instruction.IsValid)
+                if (string.IsNullOrEmpty(pai.GuestToken))
                 {
-                    // Create base part of query for reciving of public RSA key.
-                    string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
-                        UniformQueries.API.SPLITTING_SYMBOL, partialAuthorizedInstruction.GuestToken);
-
-                    // Request public key from server.
-                    EnqueueDuplexQueryViaPP(
-                        instruction.routingIP,
-                        instruction.pipeName,
-                        // Add guid base on instruction hash to this query.
-                        query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + instruction.GetHashCode(),
-                        // Create callback delegate that will set recived value to routing table.
-                        delegate (TransmissionLine answerLine, object answer)
-                        {
-                        // Log about success.
-                        //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
-                        //    instruction.routingIP, instruction.pipeName);
-
-                        // Try to apply recived answer.
-                        instruction.TryUpdatePublicKey(answer);
-                        });
+                    // Request guest token and only after that request public key.
+                    await pai.TryToGetGuestTokenAsync(RequestPublicKey, TerminationTokenSource.Token);
                 }
-
-                // Return current public key.
-                return instruction.PublicKey;
+                else
+                {
+                    // Request pai if 
+                    if (!pai.IsValid)
+                    {
+                        RequestPublicKey(pai);
+                    }
+                }
             }
             else
             {
                 throw new InvalidCastException("Instruction must be inheirted from PartialAuthorizedInstruction");
             }
+        }
+
+        static void RequestPublicKey(PartialAuthorizedInstruction pai)
+        {
+            // Validate key.
+            if (pai.IsValid)
+            {
+                return;
+            }
+
+            // Create base part of query for reciving of public RSA key.
+            string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
+                UniformQueries.API.SPLITTING_SYMBOL, pai.GuestToken);
+
+            // Request public key from server.
+            EnqueueDuplexQueryViaPP(
+                pai.routingIP,
+                pai.pipeName,
+                // Add guid base on instruction hash to this query.
+                query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + pai.GetHashCode(),
+                // Create callback delegate that will set recived value to routing table.
+                delegate (TransmissionLine answerLine, object answer)
+                {
+                    // Log about success.
+                    //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
+                    //    instruction.routingIP, instruction.pipeName);
+
+                    // Try to apply recived answer.
+                    pai.TryUpdatePublicKey(answer);
+                });
         }
     }
 }

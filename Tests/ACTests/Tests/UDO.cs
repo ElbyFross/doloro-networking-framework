@@ -184,7 +184,7 @@ namespace ACTests.Tests
             // Create the query that would simulate logon.
             QueryPart[] query = new QueryPart[]
             {
-                // TODO INVALID TOKEN
+                // TODO FAKE TOKEN
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -289,7 +289,7 @@ namespace ACTests.Tests
             // Create the query that would simulate logon.
             QueryPart[] query = new QueryPart[]
             {
-                // TODO INVALID TOKEN
+                // TODO FAKE TOKEN
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -497,7 +497,7 @@ namespace ACTests.Tests
             // Create the query that would simulate logon.
             QueryPart[] query = new QueryPart[]
             {
-                // TODO INVALID TOKEN
+                // TODO FAKE TOKEN
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 

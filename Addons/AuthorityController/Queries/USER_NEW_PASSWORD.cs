@@ -82,7 +82,7 @@ namespace AuthorityController.Queries
                 // Request data.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
                     User.GlobalType,
-                    Session.Current.TerminationToken,
+                    Session.Current.TerminationTokenSource.Token,
                     userProfile,
                     new string[0],
                     new string[] { "login" });
@@ -200,7 +200,7 @@ namespace AuthorityController.Queries
                 // Update on SQL server.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
                     User.GlobalType, 
-                    Session.Current.TerminationToken, 
+                    Session.Current.TerminationTokenSource.Token, 
                     userProfile);
             }
             else

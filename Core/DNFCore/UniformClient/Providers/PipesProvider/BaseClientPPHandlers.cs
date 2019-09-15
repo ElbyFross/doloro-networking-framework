@@ -158,7 +158,7 @@ namespace UniformClient
                 if (!lineProcessor.RoutingInstruction.IsValid)
                 {
                     // Request new key.
-                    UniformClient.BaseClient.GetValidPublicKeyViaPP(lineProcessor.RoutingInstruction);
+                    _ = UniformClient.BaseClient.GetValidPublicKeyViaPPAsync(lineProcessor.RoutingInstruction);
 
                     // Log.
                     Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}",

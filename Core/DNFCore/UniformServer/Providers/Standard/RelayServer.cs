@@ -33,16 +33,36 @@ namespace UniformServer.Standard
 
         }
 
+        /// <summary>
+        /// Auto detect behavior of instruction and start relative relay server.
+        /// </summary>
+        /// <param name="instruction">Instruction that contain relay params.</param>
+        /// <returns>Established server.</returns>
+        public static RelayServer EstablishAutoRelayServer(RelayInstruction instruction)
+        {
+            switch(instruction.behavior)
+            {
+                case RelayInstruction.RelayBehavior.Duplex:
+                    return EstablishDuplexRelayServer(instruction);
+
+                case RelayInstruction.RelayBehavior.Broadcasting:
+                    return EstablishBroadcastingRelayServer(instruction);
+
+                default:
+                    throw new InvalidCastException("Invalid behavior type. Relay server not started.");
+            }
+        }
+
         #region Broadcasting retranslator
         /// <summary>
         /// Establish server suitable provided instruction that would retranslate broadcasting from target server.
         /// </summary>
-        /// <param name="isntruction">Instruction that contain relay params.</param>
+        /// <param name="instruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
-        public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction isntruction)
+        public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction instruction)
         {
             // Check instruction.
-            if (isntruction == null)
+            if (instruction == null)
             {
                 throw new NullReferenceException("Routing instruction can't be null");
             }
@@ -51,12 +71,12 @@ namespace UniformServer.Standard
             RelayServer serverBufer = new RelayServer
             {
                 // Set fields.
-                pipeName = isntruction.entryPipeName
+                pipeName = instruction.entryPipeName
             };
 
             // Starting server loop.
             serverBufer.StartServerThread(
-                isntruction.entryPipeName + " #" + Guid.NewGuid(),
+                instruction.entryPipeName + " #" + Guid.NewGuid(),
                 serverBufer,
                 ThreadingServerLoop_BroadcastingRelay);
 
@@ -139,12 +159,12 @@ namespace UniformServer.Standard
         /// <summary>
         /// Establishing server that would recive client's server and forwarding it to target servers by using routing table.
         /// </summary>
-        /// <param name="isntruction">Instruction that contain relay params.</param>
+        /// <param name="instruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
-        public static RelayServer EstablishDuplexRelayServer(RelayInstruction isntruction)
+        public static RelayServer EstablishDuplexRelayServer(RelayInstruction instruction)
         {
             // Check instruction.
-            if(isntruction == null)
+            if(instruction == null)
             {
                 throw new NullReferenceException("Routing instruction can't be null");
             }
@@ -153,12 +173,12 @@ namespace UniformServer.Standard
             RelayServer serverBufer = new RelayServer
             {
                 // Set fields.
-                pipeName = isntruction.entryPipeName
+                pipeName = instruction.entryPipeName
             };
 
             // Starting server loop.
             serverBufer.StartServerThread(
-                isntruction.entryPipeName + " #" + Guid.NewGuid(), 
+                instruction.entryPipeName + " #" + Guid.NewGuid(), 
                 serverBufer,
                 ThreadingServerLoop_DuplexRelay);
 
@@ -226,7 +246,7 @@ namespace UniformServer.Standard
                 if (!instruction.IsValid)
                 {
                     // Request new key.
-                    UniformClient.BaseClient.GetValidPublicKeyViaPP(instruction);
+                    System.Threading.Tasks.Task task = UniformClient.BaseClient.GetValidPublicKeyViaPPAsync(instruction);
 
                     // Log.
                     Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}", instruction.routingIP, instruction.pipeName);

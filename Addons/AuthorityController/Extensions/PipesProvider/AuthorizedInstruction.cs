@@ -80,7 +80,7 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         public bool TryToLogon()
         {
-            return TryToLogon(AuthorityController.Session.Current.TerminationToken);
+            return TryToLogon(AuthorityController.Session.Current.TerminationTokenSource.Token);
         }
 
         /// <summary>

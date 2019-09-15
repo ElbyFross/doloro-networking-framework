@@ -68,7 +68,7 @@ namespace UniformClient
                     Console.WriteLine("INSTRUCTION ROUTING RSA", instruction.routingIP, instruction.pipeName);
 
                     // Request public key reciving.
-                    GetValidPublicKeyViaPP(instruction);
+                    _ = GetValidPublicKeyViaPPAsync(instruction);
                 }
             }
             #endregion
@@ -77,14 +77,14 @@ namespace UniformClient
             // If routing table not found.
             if (routingTable.intructions.Count == 0)
             {
-                // Log error.
-                Console.WriteLine("ROUTING TABLE NOT FOUND: Create default table by directory \\resources\\routing\\ROUTING.xml");
+                //// Log error.
+                //Console.WriteLine("ROUTING TABLE NOT FOUND: Create default table by directory \\resources\\routing\\ROUTING.xml");
 
-                // Set default intruction.
-                routingTable.intructions.Add(Instruction.Default);
+                //// Set default intruction.
+                //routingTable.intructions.Add(Instruction.Default);
 
-                // Save sample routing table to application files.
-                RoutingTable.SaveRoutingTable(routingTable, AppDomain.CurrentDomain.BaseDirectory + "resources\\routing\\", "ROUTING");
+                //// Save sample routing table to application files.
+                //RoutingTable.SaveRoutingTable(routingTable, AppDomain.CurrentDomain.BaseDirectory + "resources\\routing\\", "ROUTING");
             }
             else
             {

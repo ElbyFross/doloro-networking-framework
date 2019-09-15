@@ -63,7 +63,7 @@ namespace QueriesServer
             #region Set default data \ load DLLs \ appling arguments
             // Set default thread count. Can be changed via args or command.
             threadsCount = Environment.ProcessorCount;
-            longTermServerThreads = new Server[threadsCount];
+            longTermServerThreads = new UniformServer.BaseServer[threadsCount];
 
             // React on uniform arguments.
             ArgsReactor(args);
@@ -76,9 +76,15 @@ namespace QueriesServer
             // Request anonymous configuration for system.
             General.SetLocalSecurityAuthority(SecurityLevel.Anonymous);
 
-
-            #region Load routing tables
+            #region Load routing tables.
+            // Try to load tables.
             UniformClient.BaseClient.LoadRoutingTables(AppDomain.CurrentDomain.BaseDirectory + "plugins\\");
+
+            // Init new if not found.
+            if (UniformClient.BaseClient.routingTable.intructions.Count == 0)
+            {
+                SetDefaultRoutingTable();
+            }
             #endregion
 
             #region Loaded query handler processors
@@ -114,15 +120,24 @@ namespace QueriesServer
                 longTermServerThreads[i] = serverBufer;
 
                 // Changing thread culture.
-                serverBufer.thread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
+                serverBufer.thread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
                 // Skip line
                 Console.WriteLine();
             }
             #endregion
 
-            #region Auth relay start
-
+            #region Start broadcast relaying chanels.
+            foreach (Instruction instruction in UniformClient.BaseClient.routingTable.intructions)
+            {
+                // Looking for broadcasting relays.
+                if(instruction is RelayInstruction relayInstruction && 
+                    relayInstruction.behavior == RelayInstruction.RelayBehavior.Broadcasting)
+                {
+                    // Start relay server.
+                    UniformServer.Standard.RelayServer.EstablishBroadcastingRelayServer(relayInstruction);
+                }
+            }
             #endregion
 
             // Show help.
@@ -166,6 +181,37 @@ namespace QueriesServer
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
             #endregion
+        }
+
+        /// <summary>
+        /// Set default routing table's draft to resources\routing\ROUTING.xml file.
+        /// </summary>
+        public static void SetDefaultRoutingTable()
+        {
+            // Set public chanel.
+            UniformClient.BaseClient.routingTable.intructions.Add(
+                new RelayInstruction()
+                {
+                    title = "Public chanel",
+                    behavior = RelayInstruction.RelayBehavior.Duplex,
+                    entryPipeName = OPEN_CHANEL,
+                    pipeName = "DATA_SERVER_PIPE",
+                    RSAEncryption = true
+                });
+
+            // Set guset chanel.
+            UniformClient.BaseClient.routingTable.intructions.Add(
+                new RelayInstruction()
+                {
+                    title = "Guests chanel",
+                    behavior = RelayInstruction.RelayBehavior.Broadcasting,
+                    entryPipeName = "guests",
+                    pipeName = "guests",
+                    RSAEncryption = false
+                });
+
+            // Save table to resources as draft.
+            RoutingTable.SaveRoutingTable(UniformClient.BaseClient.routingTable);
         }
     }
 }

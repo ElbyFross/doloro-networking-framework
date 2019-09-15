@@ -217,7 +217,7 @@ namespace ACTests.Helpers
         {
             return new QueryPart[]
             {
-                // TODO invalid token.
+                // TODO FAKE TOKEN
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 

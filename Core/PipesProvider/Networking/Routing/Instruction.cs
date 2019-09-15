@@ -135,7 +135,7 @@ namespace PipesProvider.Networking.Routing
                 return new Instruction()
                 {
                     logonConfig = PipesProvider.Security.LogonConfig.Anonymous,
-                    queryPatterns = new string[] { "$q,$guid,$token" },
+                    queryPatterns = new string[] { "$guid,$token" },
                     routingIP = "localhost",
                     pipeName = "THB_DS_QM_MAIN_INOUT",
                     RSAEncryption = false,
@@ -185,6 +185,12 @@ namespace PipesProvider.Networking.Routing
                 // Compare every instruction.
                 foreach (UniformQueries.QueryPart pp in patternParts)
                 {
+                    // Skip damaged or empty.
+                    if(string.IsNullOrEmpty(pp.propertyName))
+                    {
+                        continue;
+                    }
+
                     // If instruction.
                     #region Instuction processing
                     if (string.IsNullOrEmpty(pp.propertyValue))

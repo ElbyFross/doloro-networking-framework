@@ -138,7 +138,7 @@ namespace ACTests.Tests
                 processor.TryToReciveTokenAsync(
                     "localhost",
                     Helpers.Networking.DefaultGuestPipeName,
-                    AuthorityController.Session.Current.TerminationToken);
+                    AuthorityController.Session.Current.TerminationTokenSource.Token);
 
                 // Wait until logon would compleated.
                 while (!operationCompleted)

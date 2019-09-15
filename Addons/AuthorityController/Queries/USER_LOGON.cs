@@ -87,7 +87,7 @@ namespace AuthorityController.Queries
                 // Request data.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
                     User.GlobalType, 
-                    Session.Current.TerminationToken,
+                    Session.Current.TerminationTokenSource.Token,
                     user, 
                     new string[0],
                     new string[] { "login" });
@@ -119,7 +119,7 @@ namespace AuthorityController.Queries
                 // Request data.
                 Task banListnerAsyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectsAsync(
                     typeof(BanInformation),
-                    Session.Current.TerminationToken,
+                    Session.Current.TerminationTokenSource.Token,
                     new BanInformation() { userId = user.id },
                     delegate(IList collection)
                     {
@@ -340,7 +340,7 @@ namespace AuthorityController.Queries
                             Thread.Sleep(500);
                         }
                     },
-                    Session.Current.TerminationToken);
+                    Session.Current.TerminationTokenSource.Token);
                 }
                 #endregion
 

@@ -198,7 +198,7 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToObjectAsync(User.GlobalType, Session.Current.TerminationToken, dbStoredProfile,
+                                            SetToObjectAsync(User.GlobalType, Session.Current.TerminationTokenSource.Token, dbStoredProfile,
                                             new string[0],
                                             new string[]
                                             {
@@ -208,7 +208,7 @@ namespace AuthorityController.Queries
                                 // Unsubscribe from errors listening.
                                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
                             },
-                            Session.Current.TerminationToken);
+                            Session.Current.TerminationTokenSource.Token);
                         existingCheckTask.Start(); // Start async task.
 
                         // Whait untol result.
@@ -238,7 +238,7 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToTableAsync(User.GlobalType, Session.Current.TerminationToken, userProfile);
+                                            SetToTableAsync(User.GlobalType, Session.Current.TerminationTokenSource.Token, userProfile);
 
                                 // If operation nit failed.
                                 if (!failed)
@@ -250,11 +250,11 @@ namespace AuthorityController.Queries
                                     UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorListener;
                                 }
                             },
-                            Session.Current.TerminationToken);
+                            Session.Current.TerminationTokenSource.Token);
                         registrationTask.Start();
 
                     },
-                    Session.Current.TerminationToken);
+                    Session.Current.TerminationTokenSource.Token);
                 #endregion
                 #endregion
             }

@@ -99,6 +99,7 @@ namespace ExampleClient
 
             // Loading roting tables to detect servers.
             LoadRoutingTables(AppDomain.CurrentDomain.BaseDirectory + "plugins\\");
+            Thread.Sleep(50);
 
             Console.WriteLine("Preparetion finished. Client strated.");
             #endregion
@@ -124,9 +125,9 @@ namespace ExampleClient
             if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
             {
                 // Trying to recive guest token from server.
-                partialAuthorizedInstruction.TryToGetGuestTokenAsync(null, 
-                    AuthorityController.Session.Current.TerminationToken); // Using Seestion termination token as uniform 
-                                                                           //to provide possibility to stop all async operation before application exit.
+                _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(null,
+                    AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
+                                                        //to provide possibility to stop all async operation before application exit.
             }
             else
             {
