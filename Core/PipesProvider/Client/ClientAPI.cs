@@ -157,19 +157,23 @@ namespace PipesProvider.Client
         /// <returns></returns>
         public static bool TryToRegisterTransmissionLine(TransmissionLine lineProcessor)
         {
-            // Build pipe domain.
-            string lineDomain = lineProcessor.ServerName + "." + lineProcessor.ServerPipeName;
-
-            // Reject if already registred.
-            if (openedClients[lineDomain] is TransmissionLine)
+            lock(openedClients)
             {
-                Console.WriteLine("LINE PROCESSOR \"{0}\" ALREADY EXIST.", lineDomain);
-                return false;
-            }
+                // Build pipe domain.
+                string lineDomain = lineProcessor.ServerName + "." + lineProcessor.ServerPipeName;
 
-            // Add line to table.
-            openedClients.Add(lineDomain, lineProcessor);
-            return true;
+                // Reject if already registred.
+                if (openedClients[lineDomain] is TransmissionLine)
+                {
+                    Console.WriteLine("LINE PROCESSOR \"{0}\" ALREADY EXIST.", lineDomain);
+                    lineProcessor.Close();
+                    return false;
+                }
+
+                // Add line to table.
+                openedClients.Add(lineDomain, lineProcessor);
+                return true;
+            }
         }
 
         /// <summary>
@@ -180,17 +184,20 @@ namespace PipesProvider.Client
         /// <returns></returns>
         public static bool TryToUnregisterTransmissionLine(string guid)
         {
-            // Reject if already registred.
-            if (openedClients[guid] is TransmissionLine transmissionLine)
+            lock (openedClients)
             {
-                // if not closed.
-                if (!transmissionLine.Closed)
-                    return false;
+                // Reject if already registred.
+                if (openedClients[guid] is TransmissionLine transmissionLine)
+                {
+                    // if not closed.
+                    if (!transmissionLine.Closed)
+                        return false;
 
-                // Remove from table.
-                openedClients.Remove(guid);
+                    // Remove from table.
+                    openedClients.Remove(guid);
+                }
+                return true;
             }
-            return true;
         }
 
         /// <summary>
@@ -198,14 +205,17 @@ namespace PipesProvider.Client
         /// </summary>
         public static void CloseAllTransmissionLines()
         {
-            // Closing every line.
-            foreach(TransmissionLine line in openedClients.Values)
+            lock (openedClients)
             {
-                line.Close();
-            }
+                // Closing every line.
+                foreach (TransmissionLine line in openedClients.Values)
+                {
+                    line.Close();
+                }
 
-            // Clear garbage.
-            openedClients.Clear();
+                // Clear garbage.
+                openedClients.Clear();
+            }
         }
         #endregion
 

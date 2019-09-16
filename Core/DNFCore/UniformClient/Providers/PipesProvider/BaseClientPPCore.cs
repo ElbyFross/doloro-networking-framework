@@ -40,7 +40,7 @@ namespace UniformClient
         /// <param name="client"></param>
         /// <param name="guid"></param>
         /// <param name="trnsLine"></param>
-        protected static async void StartPPClientThreadAsync(BaseClient client, string guid, TransmissionLine trnsLine)
+        protected static async Task StartPPClientThreadAsync(BaseClient client, string guid, TransmissionLine trnsLine)
         {
             await Task.Run(() => {
                 client.StartClientThread(

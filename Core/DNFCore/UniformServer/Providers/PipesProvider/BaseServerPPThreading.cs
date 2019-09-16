@@ -51,7 +51,7 @@ namespace UniformServer
         {
             #region Init
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+            Console.WriteLine("OUTPUT THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
@@ -74,7 +74,7 @@ namespace UniformServer
         {
             #region Init
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+            Console.WriteLine("INPUT THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.

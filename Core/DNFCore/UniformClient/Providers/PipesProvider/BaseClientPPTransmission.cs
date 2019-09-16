@@ -34,6 +34,11 @@ namespace UniformClient
     public abstract partial class BaseClient
     {
         /// <summary>
+        /// Object that useing to lock line establishing until operation finish.
+        /// </summary>
+        private static object lineLocker = new object();
+
+        /// <summary>
         /// Automaticly create Transmission line or lokking for previos one.
         /// </summary>
         /// <param name="serverName"></param>
@@ -69,52 +74,59 @@ namespace UniformClient
             ref SafeAccessTokenHandle token,
             System.Action<TransmissionLine> callback)
         {
-            // Validate client.
-            if (client == null)
+            lock (lineLocker)
             {
-                Console.WriteLine("CLIENT is NULL (BC_OTL_0). Unable to open new transmission line.");
-                return null;
-            }
-
-            // Get target GUID.
-            string guid = TransmissionLine.GenerateGUID(serverName, pipeName);
-
-            // Try to load  trans line by GUID.
-            if (ClientAPI.TryGetTransmissionLineByGUID(guid, out TransmissionLine trnsLine))
-            {
-                // If not obsolterd transmission line then drop operation.
-                if (!trnsLine.Closed)
+                // Validate client.
+                if (client == null)
                 {
-                    //Console.WriteLine("OTL {0} | FOUND", guid);
-                    return trnsLine;
+                    Console.WriteLine("CLIENT is NULL (BC_OTL_0). Unable to open new transmission line.");
+                    return null;
                 }
+
+                // Get target GUID.
+                string guid = TransmissionLine.GenerateGUID(serverName, pipeName);
+
+                //// Try to load  trans line by GUID.
+                //ClientAPI.TryGetTransmissionLineByGUID(guid, out TransmissionLine trnsLine);
+
+                //if (trnsLine != null &&
+                //    trnsLine.Direction == TransmissionLine.TransmissionDirection.Out)
+                if(ClientAPI.TryGetTransmissionLineByGUID(guid, out TransmissionLine trnsLine))
+                {
+                    // If not obsolterd transmission line then drop operation.
+                    if (!trnsLine.Closed)
+                    {
+                        Console.WriteLine("OTL {0} | FOUND", guid);
+                        return trnsLine;
+                    }
+                    else
+                    {
+                        // Unregister line and recall method.
+                        ClientAPI.TryToUnregisterTransmissionLine(guid);
+
+                        Console.WriteLine("OTL {0} | RETRY", guid);
+
+                        // Retry.
+                        return OpenTransmissionLineViaPP(client, serverName, pipeName, ref token, callback);
+                    }
+                }
+                // If full new pipe.
                 else
                 {
-                    // Unregister line and recall method.
-                    ClientAPI.TryToUnregisterTransmissionLine(guid);
+                    // Create new if not registred.
+                    trnsLine = new TransmissionLine(
+                        serverName,
+                        pipeName,
+                        callback,
+                        ref token);
 
-                    //Console.WriteLine("OTL {0} | RETRY", guid);
-
-                    // Retry.
-                    return OpenTransmissionLineViaPP(client, serverName, pipeName, ref token, callback);
+                    // Request thread start but let a time quantum only when this thread will pass order.
+                    _ = StartPPClientThreadAsync(client, guid, trnsLine);
                 }
-            }
-            // If full new pipe.
-            else
-            {
-                // Create new if not registred.
-                trnsLine = new TransmissionLine(
-                    serverName,
-                    pipeName,
-                    callback,
-                    ref token);
 
-                // Request thread start but let a time quantum only when this thread will pass order.
-                StartPPClientThreadAsync(client, guid, trnsLine);
+                // Return oppened line.
+                return trnsLine;
             }
-
-            // Return oppened line.
-            return trnsLine;
         }
     }
 }

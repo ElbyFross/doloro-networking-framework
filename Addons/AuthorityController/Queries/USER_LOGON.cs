@@ -304,6 +304,11 @@ namespace AuthorityController.Queries
                 string pipeName)
             {
                 #region Validate
+                if(string.IsNullOrEmpty(guestToken))
+                {
+                    throw new NullReferenceException("Guest token undefined.");
+                }
+
                 // Drop if process already started to avoid conflicts.
                 if (IsInProgress)
                 {

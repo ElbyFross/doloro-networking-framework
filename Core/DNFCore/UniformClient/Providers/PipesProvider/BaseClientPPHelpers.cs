@@ -175,6 +175,7 @@ namespace UniformClient
 
             #region Opening transmition line
             // Create transmission line.
+            Console.WriteLine("RABM: Oppening line to " + serverName + "/" + pipeName);
             TransmissionLine line = OpenTransmissionLineViaPP(
                 serverName, pipeName,
                 HandlerInputTransmissionAsync

@@ -84,7 +84,7 @@ namespace PipesProvider.Handlers
             if (meta.pipeServer.IsConnected)
             {
                 // Log connection.
-                Console.WriteLine("\n{0}: Client connected.", meta.pipeName);
+                Console.WriteLine("\n{0}: Client connected. Handler: {1}", meta.pipeName, meta.connectionCallback != null ? meta.connectionCallback.Method.Name : "None");
 
                 // Call connection handler.
                 meta.connectionCallback?.Invoke(meta);

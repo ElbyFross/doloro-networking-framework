@@ -321,6 +321,9 @@ namespace PipesProvider.Client
             // Drop processing marker to allow loop drop waiting to async operrations.
             Processing = false;
 
+            // Log about closing
+            Console.WriteLine("LINE CLOSED: " + ServerName + "/" + ServerPipeName);
+
             // Remove from table.
             ClientAPI.TryToUnregisterTransmissionLine(GUID);
         }
@@ -417,7 +420,7 @@ namespace PipesProvider.Client
                 
             // Change thread cuture.
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+            Console.WriteLine("TL THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
             // Wait until logon will finished.
             while(!line.LogonFinished)
