@@ -78,7 +78,7 @@ namespace SessionProvider
             #endregion
 
             #region Loaded query handler processors.
-            /// Draw line
+            // Draw line
             ConsoleDraw.Primitives.DrawSpacedLine();
             // Initialize Queue monitor.
             try
@@ -116,7 +116,7 @@ namespace SessionProvider
                 Console.WriteLine();
             }
 
-            /// Draw line
+            // Draw line
             ConsoleDraw.Primitives.DrawLine();
             Console.WriteLine();
             #endregion
