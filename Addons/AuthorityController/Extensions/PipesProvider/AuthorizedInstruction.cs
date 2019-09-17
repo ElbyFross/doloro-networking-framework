@@ -27,18 +27,19 @@ namespace PipesProvider.Networking.Routing
     /// <summary>
     /// Provide data and API required for connections that require authorization as Authority Controller user.
     /// </summary>
+    [System.Serializable]
     public class AuthorizedInstruction : PartialAuthorizedInstruction
     {
         #region Public fields
         /// <summary>
         /// Login for user authentification in AuthorityController on instruction's target server.
         /// </summary>
-        public string authLogin;
+        public string authLogin = null;
 
         /// <summary>
         /// Password for user authentification in AuthorityController on instruction's target server.
         /// </summary>
-        public string authPassword;
+        public string authPassword = null;
         #endregion
 
         #region Public properties
@@ -49,6 +50,18 @@ namespace PipesProvider.Networking.Routing
         public string AuthorizedToken
         {
             get { return LogonHandler.Token; }
+        }
+
+        /// <summary>
+        /// Check does instruction has the full authorization.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsFullAuthorized
+        {
+            get
+            {
+                return LogonHandler.IsAutorized;
+            }
         }
         #endregion
 

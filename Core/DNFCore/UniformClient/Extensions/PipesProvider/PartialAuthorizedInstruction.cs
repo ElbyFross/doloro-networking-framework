@@ -26,6 +26,7 @@ namespace PipesProvider.Networking.Routing
     /// <summary>
     /// Provide data and API required for connections that require partical authorization rights on server.
     /// </summary>
+    [System.Serializable]
     public class PartialAuthorizedInstruction : Instruction
     {
         #region Public fields
@@ -43,6 +44,18 @@ namespace PipesProvider.Networking.Routing
         public string GuestToken
         {
             get { return GuestTokenHandler.Token; }
+        }
+
+        /// <summary>
+        /// Check does instruction has a guest authorization.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsPartialAuthorized
+        {
+            get
+            {
+                return GuestTokenHandler.IsAutorized;
+            }
         }
         #endregion
 
