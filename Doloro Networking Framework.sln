@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNFCore", "Core\DNFCore\DNF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueriesServer", "Examples\Servers\QueriesServer\QueriesServer.csproj", "{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipesProviderTests", "Tests\PipesProviderTests\PipesProviderTests.csproj", "{7235FC54-03C3-4D07-A027-479FCF17986D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7235FC54-03C3-4D07-A027-479FCF17986D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7235FC54-03C3-4D07-A027-479FCF17986D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7235FC54-03C3-4D07-A027-479FCF17986D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7235FC54-03C3-4D07-A027-479FCF17986D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{EB9B28A4-91D4-487F-81BD-9B6DED35A901} = {E635F229-2F40-4820-A10C-5AA667A0CBCB}
 		{D6EE0A40-2365-461B-A81E-5C1441C6E0BF} = {FDF87D80-350E-4AAB-B396-8DD294CE941A}
 		{4A1F54A5-B400-4E67-BBFB-7F86FAC8452C} = {E635F229-2F40-4820-A10C-5AA667A0CBCB}
+		{7235FC54-03C3-4D07-A027-479FCF17986D} = {5E134BBA-6DCF-4AFE-B676-15E2CEF54DA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BBC048DD-8E18-441D-BEF9-A395A421C470}

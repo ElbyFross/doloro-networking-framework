@@ -107,13 +107,11 @@ namespace PipesProvider.Networking.Routing
 
             #region Guest token processing
             // Is the guest token is relevant.
-            bool guestTokenValid =
+            bool guestTokenInvalid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
-                UniformQueries.Tokens.IsExpired(
-                    GuestTokenHandler.Token, 
-                    GuestTokenHandler.ExpiryTime);
+                UniformQueries.Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
 
-            if (!guestTokenValid)
+            if (guestTokenInvalid)
             {
                 // Lock thread.
                 asyncOperationStarted = true;
