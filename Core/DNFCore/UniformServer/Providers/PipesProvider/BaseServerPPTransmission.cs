@@ -77,12 +77,15 @@ namespace UniformServer
                             out UniformQueries.QueryPart publicKeyProp,
                             entryQueryParts))
                         {
-                            // Try to get publick key from entry query.
-                            if (PipesProvider.Security.Crypto.TryDeserializeRSAKey(publicKeyProp.propertyValue,
-                                out System.Security.Cryptography.RSAParameters publicKey))
+                            // Try to get public key from entry query.
+                            try
                             {
-                                // Encrypt query.
-                                answer = PipesProvider.Security.Crypto.EncryptString(answer, publicKey);
+                                tc.TransmissionEncryption.SharableData = publicKeyProp.propertyValue;
+                                answer = tc.TransmissionEncryption.Encrypt(answer);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
                             }
                         }
                         #endregion

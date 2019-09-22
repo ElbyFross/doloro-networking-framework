@@ -106,16 +106,16 @@ namespace PipesProvider.Handlers
                 }
 
                 // Try to decrypt. In case of fail decryptor return entry message.
-                queryBufer = Security.Crypto.DecryptString(queryBufer);
+                queryBufer = controller.TransmissionEncryption?.Decrypt(queryBufer);
 
                 // Log query.
                 Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", queryBufer);
 
                 // Try to get correct transmisssion controller.
-                if (controller is ClientToServerTransmissionController ct)
+                if (controller is ClientToServerTransmissionController CToSTS)
                 {
                     // Redirect handler.
-                    ct.queryHandlerCallback?.Invoke(controller, queryBufer);
+                    CToSTS.queryHandlerCallback?.Invoke(controller, queryBufer);
                 }
                 else
                 {

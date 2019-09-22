@@ -53,8 +53,9 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Methods that process query.
         /// </summary>
+        /// <param name="serverTL">Operator that call that operation</param>
         /// <param name="queryParts">Recived query parts.</param>
-        public virtual void Execute(QueryPart[] queryParts)
+        public virtual void Execute(object serverTL, QueryPart[] queryParts)
         {
             // Marker that would be mean that some of internal tasks was failed and operation require termination.
             bool failed = false;
@@ -358,7 +359,7 @@ namespace AuthorityController.Queries
                     if (processor is USER_LOGON)
                     {
                         // Execute and send to client token valided to created user.
-                        processor.Execute(logonQuery);
+                        processor.Execute(serverTL, logonQuery);
                         return;
                     }
                 }

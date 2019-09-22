@@ -151,14 +151,14 @@ namespace UniformClient
 
             // If requested encryption.
             if (lineProcessor.RoutingInstruction != null &&
-                lineProcessor.RoutingInstruction.RSAEncryption)
+                lineProcessor.RoutingInstruction.encryption)
             {
                 // Check if instruction key is valid.
                 // If key expired or invalid then will be requested new.
                 if (!lineProcessor.RoutingInstruction.IsValid)
                 {
                     // Request new key.
-                    _ = UniformClient.BaseClient.GetValidPublicKeyViaPPAsync(lineProcessor.RoutingInstruction);
+                    _ = UniformClient.BaseClient.GetValidSecretKeysViaPPAsync(lineProcessor.RoutingInstruction);
 
                     // Log.
                     Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}",
@@ -173,7 +173,7 @@ namespace UniformClient
                 }
 
                 // Encrypt query by public key of target server.
-                sharableQuery = PipesProvider.Security.Crypto.EncryptString(sharableQuery, lineProcessor.RoutingInstruction.PublicKey);
+                sharableQuery = lineProcessor.TransmissionEncryption.Encrypt(sharableQuery);
             }
 
             // Open stream writer.

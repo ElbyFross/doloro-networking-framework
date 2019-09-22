@@ -12,11 +12,11 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+using PipesProvider.Client;
+using PipesProvider.Networking.Routing;
+using PipesProvider.Server.TransmissionControllers;
 using System;
 using System.Threading;
-using PipesProvider.Server.TransmissionControllers;
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
 
 namespace UniformServer.Standard
 {
@@ -217,10 +217,11 @@ namespace UniformServer.Standard
         /// </summary>
         /// <param name="_"></param>
         /// <param name="query"></param>
-        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController _, string query)
+        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, string query)
         {
-            // Try to decrypt.
-            query = PipesProvider.Security.Crypto.DecryptString(query);
+            // Try to encrypt receved message.
+            PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta =
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
 
             // Detect routing target.
             bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
@@ -229,7 +230,7 @@ namespace UniformServer.Standard
             if (!relayTargetFound)
             {
                 // If reley target not found then server will mean that query requested to itself.
-                PipesProvider.Handlers.Query.ProcessingAsync(_, query);
+                PipesProvider.Handlers.Query.ProcessingAsync(tc, query);
 
                 //// Log
                 //Console.WriteLine("RELAY TARGET NOT FOUND: {q}", query);
@@ -242,14 +243,14 @@ namespace UniformServer.Standard
             }
 
             // If requested encryption.
-            if (instruction.RSAEncryption)
+            if (instruction.encryption)
             {
                 // Check if instruction key is valid.
                 // If key expired or invalid then will be requested new.
                 if (!instruction.IsValid)
                 {
                     // Request new key.
-                    System.Threading.Tasks.Task task = UniformClient.BaseClient.GetValidPublicKeyViaPPAsync(instruction);
+                    System.Threading.Tasks.Task task = UniformClient.BaseClient.GetValidSecretKeysViaPPAsync(instruction);
 
                     // Log.
                     Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}", instruction.routingIP, instruction.pipeName);
@@ -266,7 +267,7 @@ namespace UniformServer.Standard
                 }
 
                 // Encrypt query by public key of target server.
-                query = PipesProvider.Security.Crypto.EncryptString(query, instruction.PublicKey);
+                query = tc.TransmissionEncryption?.Encrypt(query);
             }
 
             // Open connection.

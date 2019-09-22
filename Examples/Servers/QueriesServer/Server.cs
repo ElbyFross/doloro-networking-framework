@@ -196,7 +196,7 @@ namespace QueriesServer
                     behavior = RelayInstruction.RelayBehavior.Duplex,
                     entryPipeName = OPEN_CHANEL,
                     pipeName = "DATA_SERVER_PIPE",
-                    RSAEncryption = true
+                    encryption = true
                 });
 
             // Set guset chanel.
@@ -207,7 +207,7 @@ namespace QueriesServer
                     behavior = RelayInstruction.RelayBehavior.Broadcasting,
                     entryPipeName = "guests",
                     pipeName = "guests",
-                    RSAEncryption = false
+                    encryption = false
                 });
 
             // Save table to resources as draft.

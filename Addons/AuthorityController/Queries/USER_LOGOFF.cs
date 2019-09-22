@@ -45,8 +45,9 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Methods that process query.
         /// </summary>
+        /// <param name="sender">Operator that call that operation</param>
         /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        public void Execute(object sender, QueryPart[] queryParts)
         {
             // Get params.
             UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);

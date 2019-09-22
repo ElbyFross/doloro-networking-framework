@@ -52,6 +52,9 @@
     <Compile Include="Networking\Routing\RoutingTable.cs" />
     <Compile Include="Networking\Routing\Instruction.cs" />
     <Compile Include="Security\Crypto.cs" />
+    <Compile Include="Security\Encryption\AESTransmissionEncryption.cs" />
+    <Compile Include="Security\Encryption\ITransmissionEncryption.cs" />
+    <Compile Include="Security\Encryption\RSATransmissionEncryption.cs" />
     <Compile Include="Security\General.cs" />
     <Compile Include="Security\LogonConfig.cs" />
     <Compile Include="Security\LSA.cs" />

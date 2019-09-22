@@ -29,8 +29,9 @@ namespace UniformQueries.Executable
         /// <summary>
         /// Methods that process query.
         /// </summary>
+        /// <param name="sender">Operator that call that operation</param>
         /// <param name="queryParts">Recived query parts.</param>
-        void Execute(QueryPart[] queryParts);
+        void Execute(object sender, QueryPart[] queryParts);
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.

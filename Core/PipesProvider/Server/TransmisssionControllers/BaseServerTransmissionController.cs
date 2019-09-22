@@ -13,6 +13,8 @@
 //limitations under the License.
 
 using System;
+using PipesProvider.Security.Encryption;
+using System.Collections;
 using System.IO.Pipes;
 
 namespace PipesProvider.Server.TransmissionControllers
@@ -54,6 +56,20 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Marker that show does this transmition stoped.
         /// </summary>
         public bool Stoped { get; protected set; }
+
+        /// <summary>
+        /// Asymmedtric key that would be used to encrypting short message before sending to that server.
+        /// </summary>
+        public static IEncryptionOperator AsymmetricKey { get; set; } =  new RSAEncryptionOperator();
+
+        /// <summary>
+        /// Hashtable that contains generated symmetric keys relative to client's guid.
+        /// 
+        /// Key - string guid.
+        /// Value - Security.Encryption.IEncryptionOperator security descriptor 
+        /// that contains generated keys and control expiry operation.
+        /// </summary>
+        protected static readonly Hashtable symmetricKeys = new Hashtable();
         #endregion
 
 
@@ -62,7 +78,6 @@ namespace PipesProvider.Server.TransmissionControllers
         /// instiniate default server trnasmission controller.
         /// </summary>
         public BaseServerTransmissionController() { }
-
 
         /// <summary>
         /// Instiniate base transmission controller.
@@ -114,6 +129,33 @@ namespace PipesProvider.Server.TransmissionControllers
             Expired = true;
 
             Console.WriteLine("{0}: PIPE SERVER MANUALY STOPED", pipeName);
+        }
+        
+        /// <summary>
+        /// Returning encryption operator suitable for client's token.
+        /// Registrate new operator to that token if not found.
+        /// </summary>
+        /// <typeparam name="T">Operator type.</typeparam>
+        /// <param name="guid">GUID related to key.</param>
+        /// <returns>AES Encryption operator</returns>
+        public static IEncryptionOperator GetSymetricKey<T>(string guid) where T : IEncryptionOperator
+        {
+            // Trying to find already existed operator.
+            if(symmetricKeys[guid] is IEncryptionOperator eo)
+            {
+                return eo;
+            }
+            else
+            {
+                // Initialize new operator
+                eo = (IEncryptionOperator)Activator.CreateInstance(typeof(T));
+
+                // Adding operator to hashtable.
+                symmetricKeys.Add(guid, eo);
+
+                // Returning created operator as result.
+                return eo;
+            }
         }
         #endregion
     }

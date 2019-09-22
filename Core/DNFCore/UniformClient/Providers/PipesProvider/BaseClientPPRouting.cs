@@ -63,12 +63,12 @@ namespace UniformClient
             foreach (Instruction instruction in routingTable.intructions)
             {
                 // If encryption requested.
-                if (instruction.RSAEncryption)
+                if (instruction.encryption)
                 {
                     Console.WriteLine("INSTRUCTION ROUTING RSA", instruction.routingIP, instruction.pipeName);
 
                     // Request public key reciving.
-                    _ = GetValidPublicKeyViaPPAsync(instruction);
+                    _ = GetValidSecretKeysViaPPAsync(instruction);
                 }
             }
             #endregion

@@ -18,6 +18,7 @@ using System.Text;
 using System.IO;
 using UniformQueries;
 using UniformQueries.Executable;
+using PipesProvider.Server.TransmissionControllers;
 
 namespace BaseQueries
 {
@@ -47,14 +48,17 @@ namespace BaseQueries
         /// <summary>
         /// Methods that process query.
         /// </summary>
+        /// <param name="sender">Operator that call that operation</param>
         /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        public void Execute(object sender, QueryPart[] queryParts)
         {
+            // TODO FIND RSA PROVIDER
+
             // Create public key as answer.
-            string publicKey = "pk=" + PipesProvider.Security.Crypto.SerializePublicKey();
+            string publicKey = "pk=" + BaseServerTransmissionController.AsymmetricKey.SharableData;
 
             // Set time when this key will expired.
-            string expireTime = "expire=" + PipesProvider.Security.Crypto.RSAKeyExpireTime.ToBinary().ToString();
+            string expireTime = "expire=" + BaseServerTransmissionController.AsymmetricKey.ExpiryTime.ToBinary().ToString();
 
             // Compine answer.
             string answer = publicKey + API.SPLITTING_SYMBOL + expireTime;

@@ -34,9 +34,9 @@ namespace PipesProvider.Handlers
         /// Handler that can be connected as callback to default PipesProvides DNS Handler.
         /// Will validate and decompose querie on parts and send it to target Executable.QueryProcessor.
         /// </summary>
-        /// <param name="_">Droped param that unnesessary in that method.</param>
+        /// <param name="tl">Server's transmission controller called that handler.</param>
         /// <param name="query"></param>
-        public static async void ProcessingAsync(BaseServerTransmissionController _, string query)
+        public static async void ProcessingAsync(BaseServerTransmissionController tl, string query)
         {
             // Detect query parts.
             QueryPart[] queryParts = UQAPI.DetectQueryParts(query);
@@ -50,7 +50,7 @@ namespace PipesProvider.Handlers
                     query, token.IsNone ? "token not found" : token.propertyValue);
 
                 // Execute query as async.
-                await Task.Run(() => handler.Execute(queryParts));
+                await Task.Run(() => handler.Execute(tl, queryParts));
             }
             else
             {

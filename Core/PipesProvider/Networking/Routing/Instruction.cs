@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Linq;
+using PipesProvider.Security.Encryption;
 
 namespace PipesProvider.Networking.Routing
 {
@@ -34,30 +35,41 @@ namespace PipesProvider.Networking.Routing
     {
         #region Public properties
         /// <summary>
-        /// RSA public key that was recived from this server.
+        /// Configurated RSA encryption operator that would be used during transmission.
+        /// Using for sharing of small messages not longer then 117 bytes.
         /// </summary>
         [XmlIgnore]
-        public RSAParameters PublicKey { get; private set; }
+        public RSAEncryptionOperator RSAEncryptionOperator = new RSAEncryptionOperator();
 
         /// <summary>
-        /// Time when public key will become expired.
+        /// Configurated AES encryption operator that would be used during transmission.
+        /// Using for sharing big data. 
+        /// Requeire previous existing of RSA keys, do save exchange of secret key with server.
         /// </summary>
         [XmlIgnore]
-        public DateTime PublicKeyExpireTime { get; private set; }
+        public AESEncryptionOperator AESEncryptionOperator = new AESEncryptionOperator();
 
         /// <summary>
         /// Check does loading was failed or key was expired.
         /// </summary>
         [XmlIgnore]
-        public bool IsValid
+        public virtual bool IsValid
         {
             get
             {
                 // If encryption enabled.
-                if (RSAEncryption)
+                if (encryption)
                 {
                     // Check for line key expiring.
-                    bool isExpired = DateTime.Compare(PublicKeyExpireTime, DateTime.Now) < 0;
+                    bool isExpired = DateTime.Compare(RSAEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
+                    if (isExpired)
+                    {
+                        // Mark as invalid if expired.
+                        return false;
+                    }
+
+                    // Check for line key expiring.
+                    isExpired = DateTime.Compare(AESEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
                     if (isExpired)
                     {
                         // Mark as invalid if expired.
@@ -118,10 +130,10 @@ namespace PipesProvider.Networking.Routing
         public string[] queryPatterns = new string[] { "" };
 
         /// <summary>
-        /// Does this chanel has RSA encryption?
-        /// If true then client can ask for server's Public Key and encrypt message before send.
+        /// Does this chanel has encryption?
+        /// If true then client will ask for server's Public RSA Key for seve requesting of AES sycret key and encrypt message before send.
         /// </summary>
-        public bool RSAEncryption = true;
+        public bool encryption = true;
         #endregion
 
         #region Static properties
@@ -138,8 +150,7 @@ namespace PipesProvider.Networking.Routing
                     queryPatterns = new string[] { "$guid,$token" },
                     routingIP = "localhost",
                     pipeName = "THB_DS_QM_MAIN_INOUT",
-                    RSAEncryption = false,
-                    PublicKeyExpireTime = DateTime.Now
+                    encryption = false
                 };
             }
         }
@@ -149,13 +160,7 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         public static Instruction Empty
         {
-            get
-            {
-                return new Instruction()
-                {
-                    PublicKeyExpireTime = DateTime.Now
-                };
-            }
+            get { return new Instruction(); }
         }
         #endregion
 
@@ -273,7 +278,7 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         /// <param name="recivedQuery"></param>
         /// <returns></returns>
-        public bool TryUpdatePublicKey(object recivedQuery)
+        public bool TryUpdateRSAPublicKey(object recivedQuery)
         {
             // Validate.
             if (!(recivedQuery is string answerAsString))
@@ -306,18 +311,18 @@ namespace PipesProvider.Networking.Routing
             // Mark as valid until fail.
             IsValid = true;
 
-            RSAParameters bufer;
+            RSAParameters keyBufer;
             DateTime expireTimeBufer;
 
             // Deserialize key.
             try
             {
-                if (!PipesProvider.Security.Crypto.TryDeserializeRSAKey(publicKey.propertyValue, out bufer))
+                // Creating bufer operator to operate with sharable data.
+                keyBufer = (RSAParameters)new RSAEncryptionOperator
                 {
-                    Console.WriteLine("ERROR(BCRT2_1): Deserizlization failed");
-                    IsValid = false;
-                    return false;
-                }
+                    // Apply recived XML data as sharable value.
+                    EncryptionKey = publicKey.propertyValue
+                }.EncryptionKey; // Getting deserialized key.
             }
             catch (Exception ex)
             {
@@ -339,11 +344,11 @@ namespace PipesProvider.Networking.Routing
             }
             #endregion
 
-            Console.WriteLine("{0}/{1} UPDATE EXPIRE TIME FROM {2} TO {3}", routingIP, pipeName, PublicKeyExpireTime, expireTimeBufer);
+            Console.WriteLine("{0}/{1} UPDATE EXPIRE TIME FROM {2} TO {3}", routingIP, pipeName, RSAEncryptionOperator.ExpiryTime, expireTimeBufer);
 
             // Set pufers to block if operation completed.
-            PublicKey = bufer;
-            PublicKeyExpireTime = expireTimeBufer;
+            RSAEncryptionOperator.EncryptionKey = keyBufer;
+            RSAEncryptionOperator.ExpiryTime = expireTimeBufer;
 
             // Log about update
             Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
@@ -388,6 +393,7 @@ namespace PipesProvider.Networking.Routing
                 _DerivedTypes = value;
             }
         }
+
         /// <summary>
         /// Cashed array with found derived types.
         /// </summary>

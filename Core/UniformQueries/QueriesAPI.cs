@@ -151,7 +151,26 @@ namespace UniformQueries
         /// <returns></returns>
         public static bool TryGetParamValue(string param, out string value, string query)
         {
-            return TryGetParamValue(param, out value, query.Split(SPLITTING_SYMBOL));
+            // Try to find start index of query part.
+            int startIndex = query.IndexOf(param + "=");
+            // Drop if not found.
+            if(startIndex == -1)
+            {
+                value = null;
+                return false;
+            }
+
+            // looking for part's end symbol.
+            int endIndex = query.IndexOf("&", startIndex);
+
+            // Make offset to value start position.
+            startIndex += param.Length + 1;
+
+            // Copying value.
+            value = query.Substring(startIndex,
+                endIndex == -1 ? query.Length - startIndex : endIndex - startIndex);
+
+            return true;
         }
 
         /// <summary>
@@ -347,21 +366,6 @@ namespace UniformQueries
             }
 
             handler = null;
-            return false;
-        }
-
-        /// <summary>
-        /// Try to detect core query parts.
-        /// Example case of using: is decryption required.
-        /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        public static bool IsSeemsValid(string query)
-        {
-            // Check does contain query.
-            if (query.Contains("q="))
-                return true;
-
             return false;
         }
     }

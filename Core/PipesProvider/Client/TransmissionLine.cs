@@ -23,7 +23,7 @@ using Microsoft.Win32.SafeHandles;
 using PipesProvider.Networking.Routing;
 
 namespace PipesProvider.Client
-{
+{ 
     /// <summary>
     /// Class that provide information about line between client and server.
     /// Provide API to easy control.
@@ -146,6 +146,12 @@ namespace PipesProvider.Client
         {
             get; set;
         } = TransmissionDirection.Out;
+
+        /// <summary>
+        /// Ecription provider that would applied to that transmission.
+        /// </summary>
+        public Security.Encryption.IEncryptionOperator TransmissionEncryption { get; set; } =
+            new Security.Encryption.AESEncryptionOperator();
         #endregion
 
         #region Public fields

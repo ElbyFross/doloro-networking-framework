@@ -217,7 +217,7 @@ namespace ExampleClient
         static void TransmissionsBlock()
         {
             // If requested line encryption.
-            if (routingInstruction.RSAEncryption)
+            if (routingInstruction.encryption)
             {
                 Console.WriteLine("Wait for public key....");
                 while (!routingInstruction.IsValid)

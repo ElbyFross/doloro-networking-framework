@@ -54,6 +54,7 @@
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPHandlers.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPHelpers.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPRouting.cs" />
+    <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPSecurity.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPTransmission.cs" />
     <Compile Include="UniformClient\Providers\Standard\SimpleClient.cs" />
     <Compile Include="UniformServer\Application\Commands.cs" />

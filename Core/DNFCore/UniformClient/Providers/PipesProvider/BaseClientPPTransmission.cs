@@ -36,7 +36,7 @@ namespace UniformClient
         /// <summary>
         /// Object that useing to lock line establishing until operation finish.
         /// </summary>
-        private static object lineLocker = new object();
+        private static readonly object lineLocker = new object();
 
         /// <summary>
         /// Automaticly create Transmission line or lokking for previos one.
