@@ -29,6 +29,7 @@ namespace UniformServer
     /// </summary>
     public abstract partial class BaseServer
     {
+
         /// <summary>
         /// Open server line using PipesProvider that will send answer backward to cliend by dirrect line.
         /// Line will established relative to the data shared by client query.
@@ -39,19 +40,37 @@ namespace UniformServer
         /// Recommended to use this methos by default dor duplex connection between sever and clients.
         /// </summary>
         /// <param name="answer">Message that will sent by server to target client.</param>
-        /// <param name="entryQueryParts">Parts of query that was recived from client. 
+        /// <param name="entryQuery">Query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>
         /// <returns></returns>
-        public static bool SendAnswerViaPP(string answer, UniformQueries.QueryPart[] entryQueryParts)
+        [Obsolete]
+        public static bool SendAnswerViaPP(string answer, UniformQueries.Query entryQuery)
+        {
+            return SendAnswerViaPP(new UniformQueries.Query(answer), entryQuery);
+        }
+
+        /// <summary>
+        /// Open server line using PipesProvider that will send answer backward to cliend by dirrect line.
+        /// Line will established relative to the data shared by client query.
+        /// 
+        /// Using this method you frovide uniform revers connection and not need to create 
+        /// a transmission line by yourself.
+        /// 
+        /// Recommended to use this methos by default dor duplex connection between sever and clients.
+        /// </summary>
+        /// <param name="answer">Qury that will sent by server to target client.</param>
+        /// <param name="entryQuery">Query that was recived from client. 
+        /// Method will detect core part and establish backward connection.</param>
+        /// <returns></returns>
+        public static bool SendAnswerViaPP(UniformQueries.Query answer, UniformQueries.Query entryQuery)
         {
             // Instiniate primitive server to provide loop.
             BaseServer server = new Standard.SimpleServer();
 
             // Try to compute bacward domaint to contact with client.
-            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQueryParts, out string domain))
+            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQuery, out string domain))
             {
-                Console.WriteLine("ERROR (BSSA0): Unable to buid backward domain. QUERY: {0}",
-                    UniformQueries.QueryPart.QueryPartsArrayToString(entryQueryParts));
+                Console.WriteLine("ERROR (BSSA0): Unable to buid backward domain. QUERY: " + entryQuery.ToString());
                 return false;
             }
 
@@ -72,14 +91,14 @@ namespace UniformServer
 
                         #region Encryption
                         // Encrypt query if requested by "pk" query's param.
-                        if (UniformQueries.API.TryGetParamValue(
+                        if (entryQuery.TryGetParamValue(
                             "pk",
-                            out UniformQueries.QueryPart publicKeyProp,
-                            entryQueryParts))
+                            out UniformQueries.QueryPart publicKeyProp))
                         {
                             // Try to get public key from entry query.
                             try
                             {
+                                // TODO Detect target encryptor.
                                 tc.TransmissionEncryption.SharableData = publicKeyProp.propertyValue;
                                 answer = tc.TransmissionEncryption.Encrypt(answer);
                             }

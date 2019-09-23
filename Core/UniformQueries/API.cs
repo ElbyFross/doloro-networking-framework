@@ -100,6 +100,7 @@ namespace UniformQueries
         /// <param name="param"></param>
         /// <param name="query"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool QueryParamExist(string param, string query)
         {
             return QueryParamExist(param, query.Split(SPLITTING_SYMBOL));
@@ -112,6 +113,7 @@ namespace UniformQueries
         /// <param name="param"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool QueryParamExist(string param, params string[] queryParts)
         {
             // Try to find target param
@@ -149,6 +151,7 @@ namespace UniformQueries
         /// <param name="value"></param>
         /// <param name="query"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool TryGetParamValue(string param, out string value, string query)
         {
             // Try to find start index of query part.
@@ -272,31 +275,6 @@ namespace UniformQueries
             return value;
         }
 
-
-        /// <summary>
-        /// Build query string with requested parts and core data.
-        /// </summary>
-        /// <param name="guid"></param>
-        /// <param name="token"></param>
-        /// <param name="queryParams"></param>
-        /// <returns></returns>
-        public static string MakeQuery(string guid, string token, params QueryPart[] queryParams)
-        {
-            string query = "";
-
-            // Build core data.
-            query += new QueryPart("guid", guid);
-            query += SPLITTING_SYMBOL;
-            query += new QueryPart("token", token);
-
-            // Add parts.
-            foreach(QueryPart part in queryParams)
-                query += SPLITTING_SYMBOL + part;
-
-            return query;
-        }
-
-
         /// <summary>
         /// Convert query's string to array of query parts.
         /// User SPLITTING_SYMBOL as spliter for detect query parts.
@@ -340,25 +318,22 @@ namespace UniformQueries
         /// <returns></returns>
         public static bool TryFindQueryHandler(string query, out IQueryHandler handler)
         {
-            // Detect query parts.
-            QueryPart[] queryParts = DetectQueryParts(query);
-
             // Search.
-            return TryFindQueryHandler(queryParts, out handler);
+            return TryFindQueryHandler(new Query(query) , out handler);
         }
 
         /// <summary>
         /// Looking for query handler.
         /// </summary>
-        /// <param name="queryParts">Recived query splited by parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <param name="handler">Hadler that's situated to this query.</param>
         /// <returns></returns>
-        public static bool TryFindQueryHandler(QueryPart[] queryParts, out IQueryHandler handler)
+        public static bool TryFindQueryHandler(Query query, out IQueryHandler handler)
         {
             foreach (IQueryHandler pb in UniformQueries.API.QueryHandlers)
             {
                 // Check header
-                if (pb.IsTarget(queryParts))
+                if (pb.IsTarget(query))
                 {
                     handler = pb;
                     return true;

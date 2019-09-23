@@ -25,6 +25,76 @@
             <param name="data">Binary data.</param>
             <returns>Deserialized object.</returns>
         </member>
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.StreamWriterAsync(System.IO.Stream,System.Byte[],System.Int32)">
+            <summary>
+            Writing asynchronicly binary data to stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="data">Binary data that would be sent to stream.</param>
+            <param name="dataBlockSize">Size of block in bytes that would be send to stream per each flush.</param>
+            <returns>Asynchronous operation of data writing.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.StreamReaderAsync(System.IO.Stream,System.Int32)">
+            <summary>
+            Asynchronous reading formated data from stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="dataBlockSize">Bytes readed during one tick.</param>
+            <returns>Readed binary data.</returns>
+        </member>
+        <member name="T:UniformDataOperator.Binary.BoyerMoore">
+            <summary>
+            Implement algorithm of Boyer-Moore for searching of binary parts.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.IndexOf(System.String,System.String)">
+            <summary> 
+            Returns the index within this string of the first occurrence of the
+            specified substring.If it is not a substring, return -1.
+            </summary>
+            <param name="data">Binary array that would be source for search.</param>
+            <param name="fragment">Binary fragment that would be looked into data array.</param>
+            <returns>Index of fragment start. -1 if no found.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.IndexOf(System.Byte[],System.Byte[])">
+            <summary> 
+            Returns the index within this string of the first occurrence of the
+            specified substring.If it is not a substring, return -1.
+            </summary>
+            <param name="data">Binary array that would be source for search.</param>
+            <param name="fragment">Binary fragment that would be looked into data array.</param>
+            <returns>Index of fragment start. -1 if no found.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.MakeCharTable(System.Byte[])">
+            <summary>
+            Makes the jump table based on the mismatched character information.
+            </summary>
+            <param name="fragment">Target binry fragment to search.</param>
+            <returns>Char table.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.MakeOffsetTable(System.Byte[])">
+            <summary>
+            Makes the jump table based on the scan offset which mismatch occurs.
+            </summary>
+            <param name="fragment">Target binry fragment to search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.IsPrefix(System.Byte[],System.Int32)">
+            <summary>
+            Is fragment[p:end] a prefix of fragment?
+            </summary>
+            <param name="fragment">Target binry fragment to search.</param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.BoyerMoore.SuffixLength(System.Byte[],System.Int32)">
+            <summary>
+            Returns the maximum length of the substring ends at p and is a suffix.
+            </summary>
+            <param name="fragment">Target binry fragment to search.</param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
         <member name="T:UniformDataOperator.Sql.ISqlOperator">
             <summary>
             Implement that interface to provide possiblity to controll your data base by using SQL queryes.

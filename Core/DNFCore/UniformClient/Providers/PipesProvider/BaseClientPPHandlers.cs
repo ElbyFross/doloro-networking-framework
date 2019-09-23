@@ -147,7 +147,7 @@ namespace UniformClient
                 return;
             }
 
-            string sharableQuery = lineProcessor.LastQuery.Query;
+            string sharableQuery = lineProcessor.LastQuery.Data;
 
             // If requested encryption.
             if (lineProcessor.RoutingInstruction != null &&

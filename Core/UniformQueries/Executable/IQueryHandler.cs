@@ -30,15 +30,15 @@ namespace UniformQueries.Executable
         /// Methods that process query.
         /// </summary>
         /// <param name="sender">Operator that call that operation</param>
-        /// <param name="queryParts">Recived query parts.</param>
-        void Execute(object sender, QueryPart[] queryParts);
+        /// <param name="query">Recived query.</param>
+        void Execute(object sender, Query query);
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        bool IsTarget(QueryPart[] queryParts);
+        bool IsTarget(Query query);
 
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.

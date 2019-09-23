@@ -41,7 +41,7 @@ namespace BaseQueries
                     return "GET PUBLICKEY\n" +
                             "\tDESCRIPTION: Will return public RSA key of this server," + 
                             "\n\tthat can be used to encrypt message before start transmission.\n" +
-                            "\tQUERY FORMAT: q=GET" + API.SPLITTING_SYMBOL + "sq=PUBLICKEY\n";
+                            "\tQUERY FORMAT: GET & PUBLICKEY\n";
             }
         }
 
@@ -49,8 +49,8 @@ namespace BaseQueries
         /// Methods that process query.
         /// </summary>
         /// <param name="sender">Operator that call that operation</param>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(object sender, QueryPart[] queryParts)
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
             // TODO FIND RSA PROVIDER
 
@@ -64,30 +64,22 @@ namespace BaseQueries
             string answer = publicKey + API.SPLITTING_SYMBOL + expireTime;
 
             // Open answer chanel on server and send message.
-            UniformServer.BaseServer.SendAnswerViaPP(answer, queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP(answer, query);
         }
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
-            // Get query header.
-            if (!API.TryGetParamValue("q", out QueryPart query, queryParts))
-                return false;
-
-            // Get subquery.
-            if (!API.TryGetParamValue("sq", out QueryPart subQuery, queryParts))
-                return false;
-
             // Check query.
-            if (!query.ParamValueEqual("GET"))
+            if (!query.QueryParamExist("GET"))
                 return false;
 
             // Check sub query.
-            if (!subQuery.ParamValueEqual("PUBLICKEY"))
+            if (!query.QueryParamExist("PUBLICKEY"))
                 return false;
 
             return true;

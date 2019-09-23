@@ -36,46 +36,41 @@ namespace PipesProvider.Handlers
         /// </summary>
         public static async void ClientToServerAsync(BaseServerTransmissionController controller)
         {
-            // Open stream reader.
-            StreamReader sr = new StreamReader(controller.pipeServer);
-            string queryBufer;
             DateTime sessionTime = DateTime.Now.AddSeconds(5000);
 
             // Read until trasmition exits not finished.
             while (controller.pipeServer.IsConnected)
             {
+                // Open stream reader.
+                byte[] binaryQuery;
                 #region Reciving message
-                queryBufer = null;
-                // Read line from stream.
-                while (queryBufer == null)
+                // Read data from stream.
+                // Avoid an error caused to disconection of client.
+                try
                 {
-                    // Avoid an error caused to disconection of client.
+                    binaryQuery = await UniformDataOperator.Binary.BinaryHandler.StreamReaderAsync(controller.pipeServer);
+                }
+                // Catch the Exception that is raised if the pipe is broken or disconnected.
+                catch (Exception e)
+                {
+                    Console.WriteLine("DNS HANDLER ERROR: {0}", e.Message);
+                    return;
+                }
+
+                if (DateTime.Compare(sessionTime, DateTime.Now) < 0)
+                {
+                    Console.WriteLine("Connection terminated cause allowed time has expired.");
+                    // Avoid disconnectin error.
                     try
                     {
-                        queryBufer = await sr.ReadToEndAsync();
+                        controller.pipeServer.Disconnect();
                     }
-                    // Catch the Exception that is raised if the pipe is broken or disconnected.
-                    catch (Exception e)
+                    catch
                     {
-                        Console.WriteLine("DNS HANDLER ERROR: {0}", e.Message);
-                        return;
+                        // Exception caused by disconecction on client side.
                     }
 
-                    if (DateTime.Compare(sessionTime, DateTime.Now) < 0)
-                    {
-                        Console.WriteLine("Connection terminated cause allowed time has expired.");
-                        // Avoid disconnectin error.
-                        try
-                        {
-                            controller.pipeServer.Disconnect();
-                        }
-                        catch
-                        {
-                            // Exception caused by disconecction on client side.
-                        }
-
-                        return;
-                    }
+                    return;
                 }
                 #endregion
 
@@ -99,23 +94,38 @@ namespace PipesProvider.Handlers
 
                 #region Query processing
                 // Drop if stream is over.
-                if (string.IsNullOrEmpty(queryBufer))
+                if (binaryQuery == null)
                 {
                     //Console.WriteLine("NULL REQUEST AVOIDED. CONNECTION TERMINATED.");
                     break;
                 }
 
+                // Decode query from binary data.
+                UniformQueries.Query query;
+                try
+                {
+                    query = UniformDataOperator.Binary.BinaryHandler.FromByteArray<UniformQueries.Query>(binaryQuery);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("DNS HANDLER ERROR: DAMAGED DATA : {0}", ex.Message);
+                    return;
+                }
+
                 // Try to decrypt. In case of fail decryptor return entry message.
-                queryBufer = controller.TransmissionEncryption?.Decrypt(queryBufer);
+                if (!string.IsNullOrEmpty(query.encytpion))
+                {
+                    query.content = controller.TransmissionEncryption?.Decrypt(query.content);
+                }
 
                 // Log query.
-                Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", queryBufer);
+                Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", query);
 
                 // Try to get correct transmisssion controller.
                 if (controller is ClientToServerTransmissionController CToSTS)
                 {
                     // Redirect handler.
-                    CToSTS.queryHandlerCallback?.Invoke(controller, queryBufer);
+                    CToSTS.queryHandlerCallback?.Invoke(controller, query);
                 }
                 else
                 {
@@ -140,15 +150,16 @@ namespace PipesProvider.Handlers
             if (controller is ServerToClientTransmissionController outController)
             {
                 // Open stream reader.
-                StreamWriter sw = new StreamWriter(outController.pipeServer);
+                BinaryWriter sw = new BinaryWriter(outController.pipeServer);
 
                 // Buferise query before calling of async operations.
-                string sharedQuery = outController.ProcessingQuery;
+                UniformQueries.Query sharedQuery = outController.ProcessingQuery;
                 
                 // Read until trasmition exits not finished.
                 // Avoid an error caused to disconection of client.
                 try
                 {
+                    // Wait until connection.
                     if (!outController.pipeServer.IsConnected)
                     {
                         Thread.Sleep(5);
@@ -156,8 +167,36 @@ namespace PipesProvider.Handlers
 
                     // Write message to stream.
                     Console.WriteLine("{0}: Start transmission to client.", outController.pipeName);
-                    await sw.WriteAsync(sharedQuery);
-                    await sw.FlushAsync();
+
+                    // Getting data to sharing.
+                    byte[] sharingData = UniformDataOperator.Binary.BinaryHandler.ToByteArray(sharedQuery);
+                    int byteIndex = 0;
+
+
+                    // Sending information about data size.
+                    await new Task(delegate ()
+                    { 
+                        sw.Write(UniformDataOperator.Binary.BinaryHandler.ToByteArray<int>(sharingData.Length));
+                        sw.Flush();
+                    });
+
+                    // Sending data to client.
+                    await new Task(delegate ()
+                    {
+                        // Fill block.
+                        for (int i = 0; i < 1024; i++)
+                        {
+                            // Drop if stream ended.
+                            if(byteIndex >= sharingData.Length)
+                            {
+                                break;
+                            }
+                            sw.Write(sharingData[byteIndex]);
+                            byteIndex++;
+                        }
+                        // Send block to destination.
+                        sw.Flush();
+                    });
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -206,21 +245,18 @@ namespace PipesProvider.Handlers
             // Try to get correct controller.
             if (controller is BroadcastingServerTransmissionController broadcastController)
             {
-                // Open stream reader.
-                StreamWriter sw = new StreamWriter(controller.pipeServer);
-
                 // Read until trasmition exits not finished.
                 // Avoid an error caused to disconection of client.
                 try
                 {
                     // Get message
-                    string message = broadcastController?.GetMessage(broadcastController);
-                    Console.WriteLine(message);
+                    byte[] message = broadcastController?.GetMessage(broadcastController);
 
                     // Write message to stream.
                     Console.WriteLine("{0}: Start transmission to client.", controller.pipeName);
-                    await sw.WriteAsync(message);
-                    await sw.FlushAsync();
+
+                    // Send data to stream.
+                    await UniformDataOperator.Binary.BinaryHandler.StreamWriterAsync(controller.pipeServer, message);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)

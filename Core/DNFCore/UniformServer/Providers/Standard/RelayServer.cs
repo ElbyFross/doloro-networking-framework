@@ -111,7 +111,7 @@ namespace UniformServer.Standard
         /// Redirect recived query from current server to other.
         /// </summary>
         /// <param name="controller">Controller that manage curernt transmission.</param>
-        public static string QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
+        public static byte[] QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
         {
             // Trying to detect relay instruction.
             if (!RelayInstruction.TryToDetectTarget(
@@ -124,12 +124,12 @@ namespace UniformServer.Standard
                     + controller.pipeName +
                     "\" not found. Add instuction to \"BaseClient.routingTable.intructions\" collection.");
 
-                return "Error 404: Routing server not found. Con'tact administrator.";
+                return  UniformDataOperator.Binary.BinaryHandler.ToByteArray<string>("Error 404: Routing server not found. Con'tact administrator.");
             }
 
             // Markers for managing thread.
             bool relayedMessageRecieved = false;
-            string relayedMessage = null;
+            byte[] relayedData = null;
 
             // Log
             Console.WriteLine("Requesting broadcasting: " + relayInstruction.routingIP + "/" + relayInstruction.pipeName);
@@ -138,10 +138,10 @@ namespace UniformServer.Standard
             UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
                 relayInstruction.routingIP,
                 relayInstruction.pipeName,
-                delegate (TransmissionLine lint, object message)
+                delegate (TransmissionLine lint, byte[] data)
                 {
                     // Conver message to string.
-                    relayedMessage = message as string;
+                    relayedData = data as byte[];
 
                     // Unlock thread.
                     relayedMessageRecieved = true;
@@ -154,7 +154,7 @@ namespace UniformServer.Standard
             }
 
             // Return recived message.
-            return relayedMessage;
+            return relayedData;
         }
         #endregion
 
@@ -216,21 +216,28 @@ namespace UniformServer.Standard
         /// Redirect recived query from current server to other.
         /// </summary>
         /// <param name="_"></param>
-        /// <param name="query"></param>
-        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, string query)
+        /// <param name="receivedData"></param>
+        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, byte[] receivedData)
         {
+            if(!(UniformDataOperator.Binary.BinaryHandler.FromByteArray<UniformQueries.Query>(receivedData) 
+                is UniformQueries.Query fornmatedQuery))
+            {
+                Console.WriteLine("DUPLEX CHANEL ERROR (401): Incorrect query format.");
+                return;
+            }
+
             // Try to encrypt receved message.
             PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta =
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref receivedData);
 
             // Detect routing target.
-            bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
+            bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(receivedData, out Instruction instruction);
 
             // If instruction not found.
             if (!relayTargetFound)
             {
                 // If reley target not found then server will mean that query requested to itself.
-                PipesProvider.Handlers.Query.ProcessingAsync(tc, query);
+                PipesProvider.Handlers.Queries.ProcessingAsync(tc, receivedData);
 
                 //// Log
                 //Console.WriteLine("RELAY TARGET NOT FOUND: {q}", query);
@@ -267,23 +274,23 @@ namespace UniformServer.Standard
                 }
 
                 // Encrypt query by public key of target server.
-                query = tc.TransmissionEncryption?.Encrypt(query);
+                receivedData = tc.TransmissionEncryption?.Encrypt(receivedData);
             }
 
             // Open connection.
             TransmissionLine tl = UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                 instruction.routingIP,
                 instruction.pipeName,
-                query,
+                receivedData,
                 // Delegate that will called when relayed server send answer.
                 // Redirect this answer to client.
-                delegate (PipesProvider.Client.TransmissionLine answerTL, object answer)
+                delegate (PipesProvider.Client.TransmissionLine answerTL, byte[] receivedData)
                 {
                     // Try to get answer in string format.
-                    string answerAsString = answer as string;
-                    if (!string.IsNullOrEmpty(answerAsString))
+                    byte[] receivedData = answer as byte[];
+                    if (!string.IsNullOrEmpty(receivedData))
                     {
-                        UniformServer.BaseServer.SendAnswerViaPP(answerAsString, UniformQueries.API.DetectQueryParts(query));
+                        SendAnswerViaPP(receivedData, UniformQueries.API.DetectQueryParts(receivedData));
                         return;
                     }
 

@@ -56,9 +56,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>

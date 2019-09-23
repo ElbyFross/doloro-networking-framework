@@ -85,7 +85,7 @@ namespace UniformServer
             // Start server loop.
             PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController.ServerLoop(
                 serverName,
-                PipesProvider.Handlers.Query.ProcessingAsync,
+                PipesProvider.Handlers.Queries.ProcessingAsync,
                 ((BaseServer)server).pipeName,
                 ((BaseServer)server).securityLevel);
             #endregion

@@ -239,8 +239,8 @@ namespace PipesProvider.Client
         /// <summary>
         /// Enqueue query to order. Query will be posted to server as soon as will possible.
         /// </summary>
-        /// <param name="query"></param>
-        public TransmissionLine EnqueueQuery(string query)
+        /// <param name="query">Formated query.</param>
+        public TransmissionLine EnqueueQuery(UniformQueries.Query query)
         {
             queries.Enqueue(new QueryContainer(query, null));
             return this;

@@ -32,9 +32,9 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Delegate that allow to share message via brodcasting controller and handler.
         /// </summary>
-        /// <param name="transmissionController"></param>
-        /// <returns></returns>
-        public delegate string MessageHandeler(BroadcastingServerTransmissionController transmissionController);
+        /// <param name="transmissionController">Broadcasting controller that invoke delegate.</param>
+        /// <returns>Shared data in binary format.</returns>
+        public delegate byte[] MessageHandeler(BroadcastingServerTransmissionController transmissionController);
         #endregion
 
         #region Constructors

@@ -22,5 +22,35 @@ namespace PipesProvider.Security.Encryption
 {
     public static class EnctyptionOperatorsHandler
     {
+        /// <summary>
+        /// Key data exculted from data array during decryption process. 
+        /// Can be used to refecrs encryption with the same params.
+        /// </summary>
+        public class EncryptionMeta
+        {
+        }
+
+        /// <summary>
+        /// TODO Trying to decrypt data.
+        /// </summary>
+        /// <param name="query">Binary data that can contain encryption descryptor.</param>
+        /// <returns>Key data exculted from data array during decryption process. 
+        /// Can be used to refecrs encryption with the same params.</returns>
+        public static EncryptionMeta TryToDecrypt (ref UniformQueries.Query query)
+        {
+            /*// Trying to receive encryption operator code from header.
+            if(!UniformQueries.API.TryGetParamValue("crypto", out string ecryptorHeader, encryptorHeader))
+            {
+                // Drop decrypting if not crypto header not exist.
+                return null;
+            }
+
+            // TODO Find target EcnrytionOperator.
+            IEncryptionOperator encryptionOperator = null;
+
+            encryptionOperator.de*/
+
+            return null;
+        }
     }
 }

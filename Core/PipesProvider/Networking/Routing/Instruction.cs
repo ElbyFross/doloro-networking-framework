@@ -165,15 +165,13 @@ namespace PipesProvider.Networking.Routing
         #endregion
 
         /// <summary>
+        /// TODO Not operate with new query data.
         /// Check doest this query must be routed using this server instruction.
         /// </summary>
-        /// <param name="recivedQuery"></param>
+        /// <param name="query">Query received from client.</param>
         /// <returns></returns>
-        public bool IsRoutingTarget(string recivedQuery)
+        public bool IsRoutingTarget(UniformQueries.Query query)
         {
-            // Get query patrs.
-            UniformQueries.QueryPart[] splitedQuery = UniformQueries.API.DetectQueryParts(recivedQuery);
-
             // Declere variables out of loops for avoid additive allocating.
             bool valid = true;
             char instructionOperator;
@@ -185,6 +183,7 @@ namespace PipesProvider.Networking.Routing
                 valid = true;
 
                 // Split pattern to instructions.
+                // TODO Deprecated patterns.
                 UniformQueries.QueryPart[] patternParts = UniformQueries.API.DetectQueryParts(pattern, ',');
 
                 // Compare every instruction.
@@ -198,7 +197,7 @@ namespace PipesProvider.Networking.Routing
 
                     // If instruction.
                     #region Instuction processing
-                    if (string.IsNullOrEmpty(pp.propertyValue))
+                    if (string.IsNullOrEmpty(pp.PropertyValueString))
                     {
                         instructionOperator = pp.propertyName[0];
 
@@ -207,7 +206,7 @@ namespace PipesProvider.Networking.Routing
                             // Not contain instruction.
                             case '!':
                                 // Check parameter existing.
-                                if (UniformQueries.API.QueryParamExist(pp.propertyName.Substring(1), splitedQuery))
+                                if (query.QueryParamExist(pp.propertyName.Substring(1)))
                                 {
                                     // Mark as invalid if found.
                                     valid = false;
@@ -218,7 +217,7 @@ namespace PipesProvider.Networking.Routing
                             case '$':
                             default:
                                 // Check parameter existing.
-                                if (!UniformQueries.API.QueryParamExist(pp.propertyName.Substring(1), splitedQuery))
+                                if (!query.QueryParamExist(pp.propertyName.Substring(1)))
                                 {
                                     // Mark as invalid if not found.
                                     valid = false;
@@ -237,16 +236,16 @@ namespace PipesProvider.Networking.Routing
                         string croppedParamName = pp.propertyName.Substring(0, pp.propertyName.Length - 1);
 
                         // Try to get requested value.
-                        if (UniformQueries.API.TryGetParamValue(croppedParamName, out UniformQueries.QueryPart propertyBufer, splitedQuery))
+                        if (query.TryGetParamValue(croppedParamName, out UniformQueries.QueryPart propertyBufer))
                         {
                             // Check param value.
                             if (notEqualRequested)
                             {
-                                valid = !propertyBufer.ParamValueEqual(pp.propertyValue);
+                                valid = !propertyBufer.ParamValueEqual(pp.PropertyValueString);
                             }
                             else
                             {
-                                valid = propertyBufer.ParamValueEqual(pp.propertyValue);
+                                valid = propertyBufer.ParamValueEqual(pp.PropertyValueString);
                             }
                         }
                         else
@@ -278,6 +277,7 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         /// <param name="recivedQuery"></param>
         /// <returns></returns>
+        [Obsolete]
         public bool TryUpdateRSAPublicKey(object recivedQuery)
         {
             // Validate.
@@ -334,7 +334,7 @@ namespace PipesProvider.Networking.Routing
             // Pars expire time.
             try
             {
-                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.propertyValue));
+                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.PropertyValueString));
             }
             catch(Exception ex)
             {

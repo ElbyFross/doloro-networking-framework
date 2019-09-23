@@ -68,43 +68,19 @@ namespace UniformClient
         /// <param name="answerHandler">Delegate that will be called as handler for answer processing. 
         /// TransmissionLine contain data about actual transmission.
         /// object contain recived query (usualy string or byte[]).</param>
-        /// <param name="decodedQuery">Query that sent to server and must recive answer. Must be not encoded.</param>
-        /// <returns></returns>
-        public static bool ReceiveDelayedAnswerViaPP(
-            TransmissionLine line,
-            string decodedQuery,
-            System.Action<TransmissionLine, object> answerHandler)
-        {
-            return ReceiveDelayedAnswerViaPP(
-                line,
-                UniformQueries.API.DetectQueryParts(decodedQuery),
-                answerHandler);
-        }
-
-        /// <summary>
-        /// Open a line that will be ready to recive server answer.
-        /// New line will created related to params of requesting line and sended query.
-        /// 
-        /// Attention: Not work with broadcasting server.
-        /// </summary>
-        /// <param name="line">Line that was used to transmition</param>
-        /// <param name="answerHandler">Delegate that will be called as handler for answer processing. 
-        /// TransmissionLine contain data about actual transmission.
-        /// object contain recived query (usualy string or byte[]).</param>
-        /// <param name="entryQueryParts">Parts of query that was recived from client. 
+        /// <param name="entryQuery">Query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>
         /// <returns></returns>
         public static bool ReceiveDelayedAnswerViaPP(
             TransmissionLine line,
-            UniformQueries.QueryPart[] entryQueryParts,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query entryQuery,
+            System.Action<TransmissionLine, byte[]> answerHandler)
         {
             #region Create backward domain
             // Try to compute bacward domaint to contact with client.
-            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQueryParts, out string domain))
+            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQuery, out string domain))
             {
-                Console.WriteLine("ERROR (BCRA0): Unable to buid backward domain. QUERY: {0}",
-                    UniformQueries.QueryPart.QueryPartsArrayToString(entryQueryParts));
+                Console.WriteLine("ERROR (BCRA0): Unable to buid backward domain. QUERY: " + entryQuery.ToString());
                 return false;
             }
             #endregion
@@ -155,7 +131,7 @@ namespace UniformClient
         public static TransmissionLine ReceiveAnonymousBroadcastMessage(
             string serverName, 
             string pipeName,
-            System.Action<TransmissionLine, object> answerHandler)
+            System.Action<TransmissionLine, byte[]> answerHandler)
         {
             #region Append answer handler to backward table.
             string hashKey = serverName + "\\" + pipeName;
@@ -203,8 +179,8 @@ namespace UniformClient
         /// <param name="answerHandler">Callback that will recive answer.</param>
         public static void EnqueueDuplexQueryViaPP(
             TransmissionLine line,
-            string query,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query query,
+            System.Action<TransmissionLine, byte[]> answerHandler)
         {
             // Add our query to line processor queue.
             line.EnqueueQuery(query);
@@ -225,8 +201,8 @@ namespace UniformClient
         public static TransmissionLine EnqueueDuplexQueryViaPP(
             string serverName,
             string serverPipeName,
-            string query,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query query,
+            System.Action<TransmissionLine, byte[]> answerHandler)
         {
             // Open transmission line.
             TransmissionLine line = OpenOutTransmissionLineViaPP(serverName, serverPipeName);

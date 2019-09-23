@@ -28,29 +28,28 @@ namespace PipesProvider.Handlers
     /// <summary>
     /// Class that provides handlers for working with network queries.
     /// </summary>
-    public static class Query
+    public static class Queries
     {
         /// <summary>
         /// Handler that can be connected as callback to default PipesProvides DNS Handler.
         /// Will validate and decompose querie on parts and send it to target Executable.QueryProcessor.
         /// </summary>
         /// <param name="tl">Server's transmission controller called that handler.</param>
-        /// <param name="query"></param>
-        public static async void ProcessingAsync(BaseServerTransmissionController tl, string query)
+        /// <param name="query">Received query</param>
+        public static async void ProcessingAsync(BaseServerTransmissionController tl, UniformQueries.Query query)
         {
             // Detect query parts.
-            QueryPart[] queryParts = UQAPI.DetectQueryParts(query);
-            QueryPart token = QueryPart.None;
+            query.TryGetParamValue("token", out QueryPart token);
 
             // Try to detect target query processor.
-            if(API.TryFindQueryHandler(queryParts, out IQueryHandler handler))
+            if(API.TryFindQueryHandler(query, out IQueryHandler handler))
             {
                 // Log.
                 Console.WriteLine("Start execution: [{0}]\n for token: [{1}]",
-                    query, token.IsNone ? "token not found" : token.propertyValue);
+                    query, token.IsNone ? "token not found" : token.PropertyValueString);
 
                 // Execute query as async.
-                await Task.Run(() => handler.Execute(tl, queryParts));
+                await Task.Run(() => handler.Execute(tl, query));
             }
             else
             {
