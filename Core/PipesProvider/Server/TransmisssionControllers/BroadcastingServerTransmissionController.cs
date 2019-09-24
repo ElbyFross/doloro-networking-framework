@@ -90,7 +90,7 @@ namespace PipesProvider.Server.TransmissionControllers
             string guid,
             string pipeName,
             Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getMessageHanler)
+            MessageHandeler getMessageHanler)
         {
             // Start loop.
             ServerAPI.ServerLoop<BroadcastingServerTransmissionController>(

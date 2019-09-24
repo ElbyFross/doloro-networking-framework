@@ -22,6 +22,7 @@ using UniformQueries;
 using PipesProvider.Server;
 using UQAPI = UniformQueries.API;
 using PipesProvider.Server.TransmissionControllers;
+using PipesProvider.Security.Encryption;
 
 namespace PipesProvider.Handlers
 {
@@ -101,7 +102,7 @@ namespace PipesProvider.Handlers
                 }
 
                 // Decode query from binary data.
-                UniformQueries.Query query;
+                Query query;
                 try
                 {
                     query = UniformDataOperator.Binary.BinaryHandler.FromByteArray<UniformQueries.Query>(binaryQuery);
@@ -113,10 +114,8 @@ namespace PipesProvider.Handlers
                 }
 
                 // Try to decrypt. In case of fail decryptor return entry message.
-                if (!string.IsNullOrEmpty(query.encytpion))
-                {
-                    query.content = controller.TransmissionEncryption?.Decrypt(query.content);
-                }
+                EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta = 
+                    EnctyptionOperatorsHandler.TryToDecrypt(ref query);
 
                 // Log query.
                 Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", query);

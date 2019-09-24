@@ -74,7 +74,7 @@ namespace UniformClient
         public static bool ReceiveDelayedAnswerViaPP(
             TransmissionLine line,
             UniformQueries.Query entryQuery,
-            System.Action<TransmissionLine, byte[]> answerHandler)
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Create backward domain
             // Try to compute bacward domaint to contact with client.
@@ -89,7 +89,7 @@ namespace UniformClient
             string hashKey = line.ServerName + "\\" + domain;
             // Try to load registred callback to overriding.
             if (DuplexBackwardCallbacks[hashKey] is
-                System.Action<TransmissionLine, object> registredCallback)
+                System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
             {
                 DuplexBackwardCallbacks[hashKey] = answerHandler;
             }
@@ -131,13 +131,13 @@ namespace UniformClient
         public static TransmissionLine ReceiveAnonymousBroadcastMessage(
             string serverName, 
             string pipeName,
-            System.Action<TransmissionLine, byte[]> answerHandler)
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Append answer handler to backward table.
             string hashKey = serverName + "\\" + pipeName;
             // Try to load registred callback to overriding.
             if (DuplexBackwardCallbacks[hashKey] is
-                System.Action<TransmissionLine, object> registredCallback)
+                System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
             {
                 // Override current delegate.
                 DuplexBackwardCallbacks[hashKey] = answerHandler;
@@ -154,8 +154,7 @@ namespace UniformClient
             Console.WriteLine("RABM: Oppening line to " + serverName + "/" + pipeName);
             TransmissionLine line = OpenTransmissionLineViaPP(
                 serverName, pipeName,
-                HandlerInputTransmissionAsync
-                );
+                HandlerInputTransmissionAsync);
 
             // Set input direction.
             line.Direction = TransmissionLine.TransmissionDirection.In;
@@ -180,7 +179,7 @@ namespace UniformClient
         public static void EnqueueDuplexQueryViaPP(
             TransmissionLine line,
             UniformQueries.Query query,
-            System.Action<TransmissionLine, byte[]> answerHandler)
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Add our query to line processor queue.
             line.EnqueueQuery(query);
@@ -202,7 +201,7 @@ namespace UniformClient
             string serverName,
             string serverPipeName,
             UniformQueries.Query query,
-            System.Action<TransmissionLine, byte[]> answerHandler)
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Open transmission line.
             TransmissionLine line = OpenOutTransmissionLineViaPP(serverName, serverPipeName);

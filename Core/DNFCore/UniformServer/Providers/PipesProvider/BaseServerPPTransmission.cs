@@ -77,6 +77,19 @@ namespace UniformServer
             // Set fields.
             server.pipeName = domain;
 
+            // Subscribe or waiting delegate on server loop event.
+            ServerAPI.ServerTransmissionMeta_InProcessing += InitationCallback;
+
+
+            // Starting server loop.
+            server.StartServerThread(
+                "SERVER ANSWER " + domain, server,
+                ThreadingServerLoop_PP_Output);
+
+            // Skip line
+            Console.WriteLine();
+            return true;
+
             // Create delegate that will set our answer message to processing
             // when transmission line would established.
             void InitationCallback(BaseServerTransmissionController tc)
@@ -99,6 +112,7 @@ namespace UniformServer
                             try
                             {
                                 // TODO Detect target encryptor.
+                                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(answer)
                                 tc.TransmissionEncryption.SharableData = publicKeyProp.propertyValue;
                                 answer = tc.TransmissionEncryption.Encrypt(answer);
                             }
@@ -125,18 +139,6 @@ namespace UniformServer
                     Console.WriteLine("{0}: ERROR Incorrect transmisssion controller. Required \"ServerAnswerTransmissionController\"", tc.pipeName);
                 }
             }
-            // Subscribe or waiting delegate on server loop event.
-            ServerAPI.ServerTransmissionMeta_InProcessing += InitationCallback;
-
-
-            // Starting server loop.
-            server.StartServerThread(
-                "SERVER ANSWER " + domain, server,
-                ThreadingServerLoop_PP_Output);
-
-            // Skip line
-            Console.WriteLine();
-            return true;
         }
     }
 }

@@ -62,17 +62,17 @@ namespace BaseQueries
         /// Methods that process query.
         /// </summary>
         /// <param name="sender">Operator that call that operation</param>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(object sender, QueryPart[] queryParts)
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
             if (guestTokenHandler != null)
             {
                 // Send token to client.
-                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), query);
             }
             else
             {
-                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", query);
             }
         }
 

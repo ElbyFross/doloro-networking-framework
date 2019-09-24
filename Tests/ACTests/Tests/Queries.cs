@@ -88,7 +88,7 @@ namespace ACTests.Tests
             // Start listening client.
             UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
                 "localhost", Helpers.Networking.DefaultGuestPipeName,
-                (PipesProvider.Client.TransmissionLine line, object obj) =>
+                (PipesProvider.Client.TransmissionLine line, Query message) =>
                 {
                     // Validate answer.
                     if (obj is string answer)
@@ -152,15 +152,14 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("set"),
                     new QueryPart("targetToken", Helpers.Users.user_Admin.tokens[0]),
-                    new QueryPart("rights", "newRight"),
-                };
+                    new QueryPart("rights", "newRight")
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -173,11 +172,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -231,15 +229,14 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("set"),
                     new QueryPart("targetToken", Helpers.Users.user_User.tokens[0]),
-                    new QueryPart("rights", "newRight"),
-                };
+                    new QueryPart("rights", "newRight")
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -252,11 +249,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -315,14 +311,13 @@ namespace ACTests.Tests
                 GetBanInfo(out string banInfoXML, out DateTime expiryTime);
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", Helpers.Users.user_Guest.id.ToString()),
-                };
+                    new QueryPart("user", Helpers.Users.user_Guest.id.ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -335,11 +330,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -396,14 +390,13 @@ namespace ACTests.Tests
                 GetBanInfo(out string banInfoXML, out DateTime expiryTime);
 
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
-                };
+                    new QueryPart("user", Helpers.Users.user_Admin.id.ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -416,11 +409,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -480,14 +472,13 @@ namespace ACTests.Tests
 
                 #region Ban apply
                 // Create the query that would contain user data.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("ban", banInfoXML),
-                    new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                };
+                    new QueryPart("user", Helpers.Users.user_User.id.ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -500,11 +491,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -598,21 +588,19 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("user", null),
-                    new QueryPart("logon", null),
+                    new QueryPart("user"),
+                    new QueryPart("logon"),
 
                     new QueryPart("login", "sadmin"),
                     new QueryPart("password", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()));
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -623,11 +611,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -687,21 +674,20 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("user", null),
-                    new QueryPart("logon", null),
+                    new QueryPart("user"),
+                    new QueryPart("logon"),
 
                     new QueryPart("login", "notExistedUser"),
                     new QueryPart("password", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -712,11 +698,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -766,21 +751,20 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("user", null),
-                    new QueryPart("logon", null),
+                    new QueryPart("user"),
+                    new QueryPart("logon"),
 
                     new QueryPart("login", "user"),
                     new QueryPart("password", "invalidPassword"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -791,11 +775,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -912,7 +895,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = Helpers.Users.NewUserQuery("login123@", "Password123!", "Mark", "Sanders");
+                Query query = Helpers.Users.NewUserQuery("login123@", "Password123!", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -925,11 +908,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -994,7 +976,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = Helpers.Users.NewUserQuery("login123@", "aa!", "Mark", "Sanders");
+                Query query = Helpers.Users.NewUserQuery("login123@", "aa!", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1008,10 +990,10 @@ namespace ACTests.Tests
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                     // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1076,7 +1058,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = Helpers.Users.NewUserQuery("a", "validPass2@", "Mark", "Sanders");
+                Query query = Helpers.Users.NewUserQuery("a", "validPass2@", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1089,11 +1071,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1164,7 +1145,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = Helpers.Users.NewUserQuery("admin", "validPass2@", "Mark", "Sanders");
+                Query query = Helpers.Users.NewUserQuery("admin", "validPass2@", "Mark", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1177,11 +1158,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1246,7 +1226,7 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would contain user data.
-                QueryPart[] query = Helpers.Users.NewUserQuery("newLogin", "validPass2@", "Mark2", "Sanders");
+                Query query = Helpers.Users.NewUserQuery("newLogin", "validPass2@", "Mark2", "Sanders");
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1259,11 +1239,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1319,20 +1298,19 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new", null),
+                    new QueryPart("new"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1344,12 +1322,9 @@ namespace ACTests.Tests
 
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
-
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
-
+                    query,
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1403,20 +1378,19 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
-                    new QueryPart("new", null),
+                    new QueryPart("new"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1429,11 +1403,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)
@@ -1487,20 +1460,19 @@ namespace ACTests.Tests
                 Helpers.Networking.StartPublicServer();
 
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new", null),
+                    new QueryPart("new"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
 
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
@@ -1513,11 +1485,10 @@ namespace ACTests.Tests
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    // Convert query parts array to string view in correct format provided by UniformQueries API.
-                    QueryPart.QueryPartsArrayToString(query),
+                    query,
 
                     // Handler that would recive ther ver answer.
-                    (PipesProvider.Client.TransmissionLine line, object answer) =>
+                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Trying to convert answer to string
                         if (answer is string answerS)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DNFCore.BaseQueries
 {
     /// <summary>
-    /// Returns symetric key for encryption and registration GUID.
+    /// TODO Returns symetric key for encryption and registration GUID.
     /// </summary>
     public class GET_SYMMETRIC_KEY
     {

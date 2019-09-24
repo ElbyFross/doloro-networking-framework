@@ -52,63 +52,86 @@ namespace UniformClient
 
             #region Reciving message
             // Open stream reader.
-            string message = null;
-            StreamReader sr = new StreamReader(lineProcessor.pipeClient);
+            byte[] receivedData = null;
             try
             {
                 Console.WriteLine("{0}/{1}: WAITING FOR MESSAGE",
                         lineProcessor.ServerName, lineProcessor.ServerPipeName);
 
-                while (string.IsNullOrEmpty(message))
+                // Avoid an error caused to disconection of client.
+                try
                 {
-                    // Avoid an error caused to disconection of client.
-                    try
-                    {
-                        message = await sr.ReadToEndAsync();
-                    }
-                    // Catch the Exception that is raised if the pipe is broken or disconnected.
-                    catch (Exception e)
-                    {
-                        // Log error.
-                        Console.WriteLine("DNS HANDLER ERROR (USAH0): {0}", e.Message);
+                    receivedData = await UniformDataOperator.Binary.BinaryHandler.StreamReaderAsync(lineProcessor.pipeClient);
+                }
+                // Catch the Exception that is raised if the pipe is broken or disconnected.
+                catch (Exception e)
+                {
+                    // Log error.
+                    Console.WriteLine("DNS HANDLER ERROR (USAH0): {0}", e.Message);
 
-                        // Stop processing merker to pass async block.
-                        lineProcessor.Processing = false;
+                    // Stop processing merker to pass async block.
+                    lineProcessor.Processing = false;
 
-                        // Close processor case this line already deprecated on the server side as single time task.
-                        lineProcessor.Close();
-                        return;
-                    }
+                    // Close processor case this line already deprecated on the server side as single time task.
+                    lineProcessor.Close();
+                    return;
                 }
             }
             // Catch the Exception that is raised if the pipe is broken or disconnected.
             catch (Exception e)
             {
                 // Log
-                if (string.IsNullOrEmpty(message))
+                if (receivedData == null || receivedData.Length == 0)
                 {
                     Console.WriteLine("DNS HANDLER ERROR ({1}): {0}", e.Message, lineProcessor.pipeClient.GetHashCode());
                 }
             }
             #endregion
 
-            if (!string.IsNullOrEmpty(message))
+            // Log
+            if (receivedData == null || receivedData.Length == 0)
+            {
+                Console.WriteLine("{0}/{1}: RECEIVED MESSAGE IS EMPTY.",
+                        lineProcessor.ServerName, lineProcessor.ServerPipeName);
+            }
+            else
             {
                 // Log state.
                 Console.WriteLine("{0}/{1}: MESSAGE RECIVED",
                         lineProcessor.ServerName, lineProcessor.ServerPipeName);
+
+                // Decode to Query.
+                UniformQueries.Query receviedQuery;
+                try
+                {
+                    receviedQuery = UniformDataOperator.Binary.BinaryHandler.FromByteArray<UniformQueries.Query>(receivedData);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("DNS HANDLER ERROR 401({1}): QURY DAMAGED : {0}", ex.Message, lineProcessor.pipeClient.GetHashCode());
+
+                    // Stop processing merker to pass async block.
+                    lineProcessor.Processing = false;
+
+                    // Close processor case this line already deprecated on the server side as single time task.
+                    lineProcessor.Close();
+                    return;
+                }
+
+                // Decrypt if required.
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref receviedQuery);
 
                 #region Processing message
                 // Try to call answer handler.
                 string tableGUID = lineProcessor.ServerName + "\\" + lineProcessor.ServerPipeName;
                 // Look for delegate in table.
                 if (DuplexBackwardCallbacks[tableGUID] is
-                    System.Action<TransmissionLine, object> registredCallback)
+                    System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
                 {
                     if (registredCallback != null)
                     {
                         // Invoke delegate if found and has dubscribers.
-                        registredCallback.Invoke(lineProcessor, message);
+                        registredCallback.Invoke(lineProcessor, receviedQuery);
                     }
                     else
                     {
@@ -146,9 +169,7 @@ namespace UniformClient
                 Console.WriteLine("TRANSMISSION ERROR (UQPP0): INCORRECT TRANSFERED DATA TYPE. PERMITED ONLY \"LineProcessor\"");
                 return;
             }
-
-            string sharableQuery = lineProcessor.LastQuery.Data;
-
+            
             // If requested encryption.
             if (lineProcessor.RoutingInstruction != null &&
                 lineProcessor.RoutingInstruction.encryption)
@@ -158,7 +179,7 @@ namespace UniformClient
                 if (!lineProcessor.RoutingInstruction.IsValid)
                 {
                     // Request new key.
-                    _ = UniformClient.BaseClient.GetValidSecretKeysViaPPAsync(lineProcessor.RoutingInstruction);
+                    _ = GetValidSecretKeysViaPPAsync(lineProcessor.RoutingInstruction);
 
                     // Log.
                     Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}",
@@ -173,17 +194,22 @@ namespace UniformClient
                 }
 
                 // Encrypt query by public key of target server.
-                sharableQuery = lineProcessor.TransmissionEncryption.Encrypt(sharableQuery);
+                UniformQueries.Query encryptingQuery = lineProcessor.LastQuery.Data;
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt
+                    (ref encryptingQuery, lineProcessor.RoutingInstruction);
             }
 
+
             // Open stream writer.
-            StreamWriter sw = new StreamWriter(lineProcessor.pipeClient);
             try
             {
-                await sw.WriteAsync(sharableQuery);
-                await sw.FlushAsync();
+                // Start writing data to stream.
+                await UniformDataOperator.Binary.BinaryHandler.StreamWriterAsync(
+                    lineProcessor.pipeClient, 
+                    UniformDataOperator.Binary.BinaryHandler.ToByteArray(lineProcessor.LastQuery.Data));
+
+                // Log that data tansmited.
                 Console.WriteLine("TRANSMITED: {0}", lineProcessor.LastQuery);
-                //sw.Close();
             }
             // Catch the Exception that is raised if the pipe is broken or disconnected.
             catch (Exception e)

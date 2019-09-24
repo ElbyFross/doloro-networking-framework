@@ -52,16 +52,10 @@ namespace BaseQueries
         /// <param name="query">Recived query.</param>
         public void Execute(object sender, Query query)
         {
-            // TODO FIND RSA PROVIDER
-
-            // Create public key as answer.
-            string publicKey = "pk=" + BaseServerTransmissionController.AsymmetricKey.SharableData;
-
-            // Set time when this key will expired.
-            string expireTime = "expire=" + BaseServerTransmissionController.AsymmetricKey.ExpiryTime.ToBinary().ToString();
-
-            // Compine answer.
-            string answer = publicKey + API.SPLITTING_SYMBOL + expireTime;
+            // Building query with asymmetric key data.
+            Query answer = new Query(
+                new QueryPart("pk", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.SharableData),
+                new QueryPart("expire", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.ExpiryTime.ToString()));
 
             // Open answer chanel on server and send message.
             UniformServer.BaseServer.SendAnswerViaPP(answer, query);

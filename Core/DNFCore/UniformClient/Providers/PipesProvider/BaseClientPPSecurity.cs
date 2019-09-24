@@ -67,27 +67,33 @@ namespace UniformClient
             }
 
             // Create base part of query for reciving of public RSA key.
-            string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
-                UniformQueries.API.SPLITTING_SYMBOL, pai.GuestToken);
-
+            UniformQueries.Query query = new UniformQueries.Query(
+                new UniformQueries.QueryPart("token", pai.GuestToken),
+                new UniformQueries.QueryPart("GET"),
+                new UniformQueries.QueryPart("PUBLICKEY"),
+                new UniformQueries.QueryPart("guid", pai.GetHashCode().ToString()));
+            
             // Request public key from server.
             EnqueueDuplexQueryViaPP(
                 pai.routingIP,
                 pai.pipeName,
-                // Add guid base on instruction hash to this query.
-                query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + pai.GetHashCode(),
+                query,
                 // Create callback delegate that will set recived value to routing table.
-                delegate (TransmissionLine answerLine, object answer)
+                delegate (TransmissionLine answerLine, UniformQueries.Query answer)
                 {
                     // Log about success.
                     //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
                     //    instruction.routingIP, instruction.pipeName);
 
                     // Try to apply recived answer.
-                    if(pai.TryUpdateRSAPublicKey(answer))
+                    if(pai.RSAEncryptionOperator.UpdateWithQuery(answer))
                     {
                         // TODO Request AES keys exchange.
                     }
+
+                    // Log about update
+                    Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
+                         pai.routingIP, pai.pipeName);
                 });
         }
     }

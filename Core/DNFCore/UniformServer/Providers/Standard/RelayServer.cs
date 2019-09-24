@@ -138,10 +138,10 @@ namespace UniformServer.Standard
             UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
                 relayInstruction.routingIP,
                 relayInstruction.pipeName,
-                delegate (TransmissionLine lint, byte[] data)
+                delegate (TransmissionLine lint, UniformQueries.Query query)
                 {
                     // Conver message to string.
-                    relayedData = data as byte[];
+                    relayedData = UniformDataOperator.Binary.BinaryHandler.ToByteArray(query);
 
                     // Unlock thread.
                     relayedMessageRecieved = true;
@@ -211,33 +211,26 @@ namespace UniformServer.Standard
                 ((RelayServer)server).securityLevel);
             #endregion
         }
-        
+
         /// <summary>
         /// Redirect recived query from current server to other.
         /// </summary>
-        /// <param name="_"></param>
-        /// <param name="receivedData"></param>
-        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, byte[] receivedData)
+        /// <param name="tc">Server's transmission controller.</param>
+        /// <param name="query">Query received from client.</param>
+        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, UniformQueries.Query query)
         {
-            if(!(UniformDataOperator.Binary.BinaryHandler.FromByteArray<UniformQueries.Query>(receivedData) 
-                is UniformQueries.Query fornmatedQuery))
-            {
-                Console.WriteLine("DUPLEX CHANEL ERROR (401): Incorrect query format.");
-                return;
-            }
-
             // Try to encrypt receved message.
             PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta =
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref receivedData);
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
 
             // Detect routing target.
-            bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(receivedData, out Instruction instruction);
+            bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
 
             // If instruction not found.
             if (!relayTargetFound)
             {
                 // If reley target not found then server will mean that query requested to itself.
-                PipesProvider.Handlers.Queries.ProcessingAsync(tc, receivedData);
+                PipesProvider.Handlers.Queries.ProcessingAsync(tc, query);
 
                 //// Log
                 //Console.WriteLine("RELAY TARGET NOT FOUND: {q}", query);
@@ -273,33 +266,22 @@ namespace UniformServer.Standard
                     Console.WriteLine("PUBLIC RSA KEY FROM {0}/{1} RECIVED", instruction.routingIP, instruction.pipeName);
                 }
 
-                // Encrypt query by public key of target server.
-                receivedData = tc.TransmissionEncryption?.Encrypt(receivedData);
+                // Encrypt message if encryptor exist.
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(ref query, instruction);
             }
 
             // Open connection.
             TransmissionLine tl = UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                 instruction.routingIP,
                 instruction.pipeName,
-                receivedData,
+                query,
                 // Delegate that will called when relayed server send answer.
                 // Redirect this answer to client.
-                delegate (PipesProvider.Client.TransmissionLine answerTL, byte[] receivedData)
+                delegate (TransmissionLine answerTL, UniformQueries.Query receivedData)
                 {
                     // Try to get answer in string format.
-                    byte[] receivedData = answer as byte[];
-                    if (!string.IsNullOrEmpty(receivedData))
-                    {
-                        SendAnswerViaPP(receivedData, UniformQueries.API.DetectQueryParts(receivedData));
-                        return;
-                    }
-
-                    // Try to get answer as byte array.
-                    if (answer is byte[] answerAsByteArray)
-                    {
-                        // TODO Send answer as byte array.
-                        throw new NotImplementedException();
-                    }
+                    SendAnswerViaPP(receivedData, query);
+                    return;
                 });
         }
         #endregion

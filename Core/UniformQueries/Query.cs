@@ -28,9 +28,40 @@ namespace UniformQueries
     public class Query : ICloneable
     {
         /// <summary>
-        /// Code of encryption operator that applied to that query.
+        /// Setiing of qury encryption.
         /// </summary>
-        public string encytpion;
+        [System.Serializable]
+        public class EncryptionSettings : ICloneable
+        {
+            /// <summary>
+            /// Code of encryption operator that applied to that query.
+            /// </summary>
+            public string encytpionOperatorCode;
+
+            /// <summary>
+            /// Is that encryption based on asym,etric keys.
+            /// </summary>
+            public bool asymmetricEncryption = false;
+
+            /// <summary>
+            /// Return cloned object of settings.
+            /// </summary>
+            /// <returns></returns>
+            public object Clone()
+            {
+                return new EncryptionSettings()
+                {
+                    asymmetricEncryption = this.asymmetricEncryption,
+                    encytpionOperatorCode = string.Copy(encytpionOperatorCode)
+                };
+            }
+        }
+
+        /// <summary>
+        /// Encryption setting of that query.
+        /// if null then messages would not encrypted.
+        /// </summary>
+        public EncryptionSettings Encryption { get; set; }
 
         /// <summary>
         /// Custom configs data. Can be used to share specific meta suitable for operating with that query.
@@ -173,7 +204,7 @@ namespace UniformQueries
         {
             var bufer = new Query()
             {
-                encytpion = string.Copy(encytpion)
+                Encryption = Encryption != null ? (EncryptionSettings)this.Encryption.Clone() : null
             };
 
             if (content != null)

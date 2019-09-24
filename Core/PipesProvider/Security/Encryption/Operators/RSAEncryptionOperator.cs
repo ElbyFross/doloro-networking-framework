@@ -21,13 +21,19 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Timers;
 
-namespace PipesProvider.Security.Encryption
+namespace PipesProvider.Security.Encryption.Operators
 {
     /// <summary>
     /// Ecryuption operator that provides API to ecryption by RSA algorithm.
     /// </summary>
     public class RSAEncryptionOperator : IEncryptionOperator
     {
+        /// <summary>
+        /// Encryption type of that operator.
+        /// Define the method of managing that operator.
+        /// </summary>
+        public EncryptionOperatorType Type { get { return EncryptionOperatorType.Asymmetric; } }
+
         /// <summary>
         /// Code of that encyptor that allow to detect what encryptor is suitable for data decryption.
         /// </summary>
@@ -314,6 +320,67 @@ namespace PipesProvider.Security.Encryption
             byte[] encryptedData = null;
             await new Task(delegate() { encryptedData = Encrypt(data); }, cancellationToken);
             return encryptedData;
+        }
+
+        /// <summary>
+        /// Try to update Public RSA key by query recived from server as reply to GET PUBLICKEY query.
+        /// </summary>
+        /// <param name="recivedQuery">Query with shared data.</param>
+        /// <returns>Result of updating operation.</returns>
+        public bool UpdateWithQuery(UniformQueries.Query recivedQuery)
+        {
+            #region Query processing
+            // Get RSA public key
+            if (!recivedQuery.TryGetParamValue("pk", out UniformQueries.QueryPart publicKey))
+            {
+                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"pk\" propety.");
+                return false;
+            }
+
+            // Get expire param
+            if (!recivedQuery.TryGetParamValue("expire", out UniformQueries.QueryPart expireDate))
+            {
+
+                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"expire\" propety.");
+                return false;
+            }
+
+            RSAParameters keyBufer;
+            DateTime expireTimeBufer;
+
+            // Deserialize key.
+            try
+            {
+                // Creating bufer operator to operate with sharable data.
+                keyBufer = (RSAParameters)new RSAEncryptionOperator
+                {
+                    // Apply recived XML data as sharable value.
+                    EncryptionKey = publicKey.propertyValue
+                }.EncryptionKey; // Getting deserialized key.
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR(BCRT2): {0}", ex.Message);
+                return false;
+            }
+
+            // Pars expire time.
+            try
+            {
+                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.PropertyValueString));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR(BCRT3): {0}", ex.Message);
+                return false;
+            }
+            #endregion
+
+            // Set pufers to block if operation completed.
+            EncryptionKey = keyBufer;
+            ExpiryTime = expireTimeBufer;
+            
+            return true;
         }
     }
 }

@@ -21,13 +21,19 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Timers;
 
-namespace PipesProvider.Security.Encryption
+namespace PipesProvider.Security.Encryption.Operators
 {
     /// <summary>
     /// Ecryuption operator that provides API to ecryption by AES algorithm.
     /// </summary>
     public class AESEncryptionOperator : IEncryptionOperator
     {
+        /// <summary>
+        /// Encryption type of that operator.
+        /// Define the method of managing that operator.
+        /// </summary>
+        public EncryptionOperatorType Type { get { return EncryptionOperatorType.Symmetric; } }
+
         /// <summary>
         /// Code of that encyptor that allow to detect what encryptor is suitable for data decryption.
         /// </summary>
@@ -288,6 +294,16 @@ namespace PipesProvider.Security.Encryption
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// TODO Trying to update key by query.
+        /// </summary>
+        /// <param name="recivedQuery">Query with shared data.</param>
+        /// <returns>Result of updating operation.</returns>
+        public bool UpdateWithQuery(UniformQueries.Query recivedQuery)
+        {
+            throw new NotImplementedException();
         }
     }
 }

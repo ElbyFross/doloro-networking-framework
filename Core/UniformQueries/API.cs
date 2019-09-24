@@ -131,6 +131,7 @@ namespace UniformQueries
         /// <param name="param"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool QueryParamExist(string param, params QueryPart[] queryParts)
         {
             // Try to find target param
@@ -183,6 +184,7 @@ namespace UniformQueries
         /// <param name="value"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool TryGetParamValue(string param, out string value, params string[] queryParts)
         {
             // Try to find target param
@@ -210,6 +212,7 @@ namespace UniformQueries
         /// <param name="value"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
+        [Obsolete]
         public static bool TryGetParamValue(string param, out QueryPart value, params QueryPart[] queryParts)
         {
             // Try to find target param
@@ -237,6 +240,7 @@ namespace UniformQueries
         /// <param name="param"></param>
         /// <param name="queryParts"></param>
         /// <returns></returns>
+        [Obsolete]
         public static List<string> GetParamValues(string param, params string[] queryParts)
         {
             List<string> value = new List<string>();
@@ -316,6 +320,7 @@ namespace UniformQueries
         /// <param name="query">Recived query in string format.</param>
         /// <param name="handler">Qirty handler that situable for that query.</param>
         /// <returns></returns>
+        [Obsolete]
         public static bool TryFindQueryHandler(string query, out IQueryHandler handler)
         {
             // Search.

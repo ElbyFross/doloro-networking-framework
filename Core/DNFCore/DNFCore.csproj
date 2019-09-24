@@ -41,7 +41,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UniformDataOperator">
-      <HintPath>..\..\..\datum-point\Frameworks\doloro-networking-framework\libs\UniformDataOperator.dll</HintPath>
+      <HintPath>..\..\Addons\uniform-data-operator\UniformDataOperator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

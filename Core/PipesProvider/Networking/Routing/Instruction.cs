@@ -17,7 +17,7 @@ using System.Xml.Serialization;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Linq;
-using PipesProvider.Security.Encryption;
+using PipesProvider.Security.Encryption.Operators;
 
 namespace PipesProvider.Networking.Routing
 {
@@ -76,16 +76,9 @@ namespace PipesProvider.Networking.Routing
                         return false;
                     }
                 }
-                return _isValid;
-            }
-            private set
-            {
-                _isValid = value;
+                return true;
             }
         }
-
-        [XmlIgnore]
-        private bool _isValid = true;
         #endregion
 
         #region Public fields
@@ -165,7 +158,6 @@ namespace PipesProvider.Networking.Routing
         #endregion
 
         /// <summary>
-        /// TODO Not operate with new query data.
         /// Check doest this query must be routed using this server instruction.
         /// </summary>
         /// <param name="query">Query received from client.</param>
@@ -183,7 +175,6 @@ namespace PipesProvider.Networking.Routing
                 valid = true;
 
                 // Split pattern to instructions.
-                // TODO Deprecated patterns.
                 UniformQueries.QueryPart[] patternParts = UniformQueries.API.DetectQueryParts(pattern, ',');
 
                 // Compare every instruction.
@@ -270,91 +261,6 @@ namespace PipesProvider.Networking.Routing
 
             // Return validation result.
             return valid;
-        }
-
-        /// <summary>
-        /// Try to update Public RSA key by query recived from server as reply to GET PUBLICKEY query.
-        /// </summary>
-        /// <param name="recivedQuery"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public bool TryUpdateRSAPublicKey(object recivedQuery)
-        {
-            // Validate.
-            if (!(recivedQuery is string answerAsString))
-            {
-                Console.WriteLine("ERROR (BCRT0): Incorrect answer format. Require string.");
-                return false;
-            }
-
-            #region Query processing
-            // Decompose query and set to table.
-            UniformQueries.QueryPart[] queryParts = UniformQueries.API.DetectQueryParts(answerAsString);
-            
-            // Get RSA public key
-            if (!UniformQueries.API.TryGetParamValue(
-            "pk", out UniformQueries.QueryPart publicKey, queryParts))
-            {
-                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"pk\" propety.");
-                return false;
-            }
-
-            // Get expire param
-            if (!UniformQueries.API.TryGetParamValue(
-            "expire", out UniformQueries.QueryPart expireDate, queryParts))
-            {
-
-                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"expire\" propety.");
-                return false;
-            }
-
-            // Mark as valid until fail.
-            IsValid = true;
-
-            RSAParameters keyBufer;
-            DateTime expireTimeBufer;
-
-            // Deserialize key.
-            try
-            {
-                // Creating bufer operator to operate with sharable data.
-                keyBufer = (RSAParameters)new RSAEncryptionOperator
-                {
-                    // Apply recived XML data as sharable value.
-                    EncryptionKey = publicKey.propertyValue
-                }.EncryptionKey; // Getting deserialized key.
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR(BCRT2): {0}", ex.Message);
-                IsValid = false;
-                return false;
-            }
-
-            // Pars expire time.
-            try
-            {
-                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.PropertyValueString));
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("ERROR(BCRT3): {0}", ex.Message);
-                IsValid = false;
-                return false;
-            }
-            #endregion
-
-            Console.WriteLine("{0}/{1} UPDATE EXPIRE TIME FROM {2} TO {3}", routingIP, pipeName, RSAEncryptionOperator.ExpiryTime, expireTimeBufer);
-
-            // Set pufers to block if operation completed.
-            RSAEncryptionOperator.EncryptionKey = keyBufer;
-            RSAEncryptionOperator.ExpiryTime = expireTimeBufer;
-
-            // Log about update
-            Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
-                routingIP, pipeName);
-
-            return true;
         }
 
         /// <summary>

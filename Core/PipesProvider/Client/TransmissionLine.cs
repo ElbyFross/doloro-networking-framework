@@ -150,8 +150,8 @@ namespace PipesProvider.Client
         /// <summary>
         /// Ecription provider that would applied to that transmission.
         /// </summary>
-        public Security.Encryption.IEncryptionOperator TransmissionEncryption { get; set; } =
-            new Security.Encryption.AESEncryptionOperator();
+        public Security.Encryption.Operators.IEncryptionOperator TransmissionEncryption { get; set; } =
+            new Security.Encryption.Operators.AESEncryptionOperator();
         #endregion
 
         #region Public fields

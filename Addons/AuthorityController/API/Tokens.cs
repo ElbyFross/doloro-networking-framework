@@ -94,7 +94,7 @@ namespace AuthorityController.API
         /// </summary>
         /// <param name="_">Droped param not relative to this broadcasting.</param>
         /// <returns>Token that can be used by client in queries.</returns>
-        public static string AuthorizeNewGuestToken(
+        public static byte[] AuthorizeNewGuestToken(
             PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController _)
         {
             return AuthorizeNewGuestToken();
@@ -103,8 +103,8 @@ namespace AuthorityController.API
         /// <summary>
         /// Authorizing new token with guest's rights, and return information in query format.
         /// </summary>
-        /// <returns>Token that can be used by client in queries.</returns>
-        public static string AuthorizeNewGuestToken()
+        /// <returns>Query in binary format that contain token's data.</returns>
+        public static byte[] AuthorizeNewGuestToken()
         {
             // Get free token.
             string sessionToken = UniformQueries.Tokens.UnusedToken;
@@ -112,13 +112,14 @@ namespace AuthorityController.API
             // Registrate token with guest rank.
             Session.Current.SetTokenRights(sessionToken, new string[] { "rank=0" });
 
-            // Return session data to user.
-            string query = string.Format("token={1}{0}expiryIn={2}{0}rights=rank=0",
-                UniformQueries.API.SPLITTING_SYMBOL,
-                sessionToken,
-                DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes));
+            // Buiding query.
+            UniformQueries.Query query = new UniformQueries.Query(
+                new UniformQueries.QueryPart("token", sessionToken),
+                new UniformQueries.QueryPart("expiryIn", DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes)),
+                new UniformQueries.QueryPart("rights", "rank=0")
+                );
 
-            return query;
+            return UniformDataOperator.Binary.BinaryHandler.ToByteArray(query);
         }
         #endregion
     }

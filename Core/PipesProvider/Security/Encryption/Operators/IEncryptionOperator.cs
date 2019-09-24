@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PipesProvider.Security.Encryption
+namespace PipesProvider.Security.Encryption.Operators
 {
     /// <summary>
     /// Interface that allow to implement uniformed data encryptor 
@@ -27,6 +27,12 @@ namespace PipesProvider.Security.Encryption
     /// </summary>
     public interface IEncryptionOperator
     {
+        /// <summary>
+        /// Encryption type of that operator.
+        /// Define the method of managing that operator.
+        /// </summary>
+        EncryptionOperatorType Type { get; }
+
         /// <summary>
         /// Code of that encyptor that allow to detect what encryptor is suitable for data decryption.
         /// </summary>
@@ -112,5 +118,12 @@ namespace PipesProvider.Security.Encryption
         /// <param name="cancellationToken">Token that can can be used for termination of operation.</param>
         /// <returns>Decrypted data.</returns>
         Task<byte[]> DecryptAsync(byte[] data, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Trying to update key by query.
+        /// </summary>
+        /// <param name="recivedQuery">Query with shared data.</param>
+        /// <returns>Result of updating operation.</returns>
+        bool UpdateWithQuery(UniformQueries.Query recivedQuery);
     }
 }

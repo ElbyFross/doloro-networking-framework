@@ -109,6 +109,20 @@ namespace UniformQueries
 
         /// <summary>
         /// Base constructor.
+        /// Value will be null
+        /// </summary>
+        /// <param name="key">String key that allow to find this part in query.</param>
+        /// <param name="obj">Object that woulb be converted to binary array.</param>
+        public QueryPart(string key, object obj)
+        {
+            _PropertyValueString = null;
+            encoding = Encoding.UTF8;
+            this.propertyName = key;
+            this.propertyValue = obj != null ? UniformDataOperator.Binary.BinaryHandler.ToByteArray(obj) : null;
+        }
+
+        /// <summary>
+        /// Base constructor.
         /// </summary>
         /// <param name="key">String key that allow to find this part in query.</param>
         /// <param name="property">String property that will be available to find by key.</param>
@@ -147,7 +161,6 @@ namespace UniformQueries
         /// Convert QueryPart to string.
         /// </summary>
         /// <param name="qp"></param>
-        [Obsolete]
         public static implicit operator string(QueryPart qp)
         {
             return qp.ToString();
@@ -157,7 +170,6 @@ namespace UniformQueries
         /// Convert string to Qury Part.
         /// </summary>
         /// <param name="buildedPart"></param>
-        [Obsolete]
         public static explicit operator QueryPart(string buildedPart)
         {
             // Drop invalid request.
@@ -183,30 +195,6 @@ namespace UniformQueries
                 // Examples: !prop, $prop, etc.
                 return new QueryPart(buildedPart);
             }
-        }
-
-        /// <summary>
-        /// Convert array to query string.
-        /// </summary>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static string QueryPartsArrayToString(QueryPart[] queryParts)
-        {
-            string query = "";
-
-            // Processing of every part.
-            for (int i = 0; i < queryParts.Length; i++)
-            {
-                // Add query part.
-                query += queryParts[i];
-
-                // Add splitter.
-                if (i < queryParts.Length - 1)
-                    query += API.SPLITTING_SYMBOL;
-            }
-
-            return query;
         }
 
         /// <summary>
