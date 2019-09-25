@@ -189,7 +189,7 @@ namespace ExampleClient
                             if (tmp.StartsWith("DPX:"))
                             {
                                 EnqueueDuplexQueryViaPP(SERVER_NAME, SERVER_PIPE_NAME,
-                                    tmp.Substring(4), ServerAnswerHandler_RSAPublicKey).
+                                    new Query(tmp.Substring(4)), ServerAnswerHandler_RSAPublicKey).
                                     TryLogonAs(routingInstruction.logonConfig);
                             }
                             // Send as one way
@@ -237,8 +237,10 @@ namespace ExampleClient
 
             // Short way to send one way query.
             OpenOutTransmissionLineViaPP(SERVER_NAME, SERVER_PIPE_NAME). // Opern transmission line via starndard DNS handler.
-                EnqueueQuery(string.Format("token={1}{0}guid=echo{0}q=ECHO", UniformQueries.API.SPLITTING_SYMBOL, // Adding query to line's queue.
-                ((PartialAuthorizedInstruction)routingInstruction).GuestToken)). // Using recent recived guest token for authorization.
+                EnqueueQuery(new Query(     // Adding query to line's queue.
+                    new QueryPart("token", ((PartialAuthorizedInstruction)routingInstruction).GuestToken), // Using recent recived guest token for authorization.
+                    new QueryPart("guid", "echo"),
+                    new QueryPart("q", "ECHO"))).
                 SetInstructionAsKey(ref routingInstruction).        // Connect instruction to provide auto-encryption via RSA.
                 TryLogonAs(routingInstruction.logonConfig);         // Request remote logon. By default LogonConfig equal Anonymous (Guest) user.
             #endregion
@@ -294,7 +296,7 @@ namespace ExampleClient
             lineProcessor.accessToken = safeTokenHandle;
 
             // Add sample query to queue. You can use this way if you not need answer from server.
-            lineProcessor.EnqueueQuery(query);
+            lineProcessor.EnqueueQuery(new Query(query));
         }
 
         static void RequestPublicRSAKey()
@@ -308,7 +310,11 @@ namespace ExampleClient
             // Param "pk" (public key (RSA)) will provide possibility to encrypt of answer on the server side.
             //
             // Using a UniformQueries.API.SPLITTING_SYMBOL to get a valid splitter between your query parts.
-            string GetPKQuery = string.Format("guid=WelomeGUID{0}token=InvalidToken{0}q=Get{0}sq=publickey", UniformQueries.API.SPLITTING_SYMBOL);
+            Query GetPKQuery = new Query(
+                new QueryPart("guid", "WelomeGUID"),
+                new QueryPart("token", "InvalidToken"),
+                new QueryPart("get"),
+                new QueryPart("publickey"));
 
             // Open duplex chanel. First line processor will send query to server and after that will listen to its andwer.
             // When answer will recived it will redirected to callback.

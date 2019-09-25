@@ -196,7 +196,7 @@ namespace UniformClient
                 // Encrypt query by public key of target server.
                 UniformQueries.Query encryptingQuery = lineProcessor.LastQuery.Data;
                 PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt
-                    (ref encryptingQuery, lineProcessor.RoutingInstruction);
+                    (ref encryptingQuery, lineProcessor.RoutingInstruction.ValidEncryptionOperator);
             }
 
 

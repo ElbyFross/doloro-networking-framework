@@ -113,9 +113,8 @@ namespace PipesProvider.Handlers
                     return;
                 }
 
-                // Try to decrypt. In case of fail decryptor return entry message.
-                EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta = 
-                    EnctyptionOperatorsHandler.TryToDecrypt(ref query);
+                // TODO Try to decrypt. In case of fail decryptor return entry message.
+                EnctyptionOperatorsHandler.TryToDecrypt(ref query);
 
                 // Log query.
                 Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", query);

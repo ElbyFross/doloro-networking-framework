@@ -40,8 +40,8 @@ namespace PipesProvider.Client
             get
             {
                 if (Data == null || 
-                    Data.content == null || 
-                    Data.content.Length == 0)
+                    Data.Content == null || 
+                    Data.Content.Length == 0)
                 {
                     return true;
                 }

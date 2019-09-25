@@ -43,7 +43,6 @@ namespace UniformServer
         /// <param name="entryQuery">Query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>
         /// <returns></returns>
-        [Obsolete]
         public static bool SendAnswerViaPP(string answer, UniformQueries.Query entryQuery)
         {
             return SendAnswerViaPP(new UniformQueries.Query(answer), entryQuery);
@@ -102,26 +101,8 @@ namespace UniformServer
                         // Unsubscribe.
                         ServerAPI.ServerTransmissionMeta_InProcessing -= InitationCallback;
 
-                        #region Encryption
-                        // Encrypt query if requested by "pk" query's param.
-                        if (entryQuery.TryGetParamValue(
-                            "pk",
-                            out UniformQueries.QueryPart publicKeyProp))
-                        {
-                            // Try to get public key from entry query.
-                            try
-                            {
-                                // TODO Detect target encryptor.
-                                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(answer)
-                                tc.TransmissionEncryption.SharableData = publicKeyProp.propertyValue;
-                                answer = tc.TransmissionEncryption.Encrypt(answer);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
-                            }
-                        }
-                        #endregion
+                        // Try to encrypt answer if required.
+                        PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncryptByReceivedQuery(entryQuery, answer);
 
                         // Set answer query as target for processing,
                         transmissionController.ProcessingQuery = answer;

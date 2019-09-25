@@ -79,17 +79,17 @@ namespace BaseQueries
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
-            if (!UniformQueries.API.QueryParamExist("get", queryParts))
+            if (!query.QueryParamExist("get"))
                 return false;
 
-            if (!UniformQueries.API.QueryParamExist("guest", queryParts))
+            if (!query.QueryParamExist("guest"))
                 return false;
 
-            if (!UniformQueries.API.QueryParamExist("token", queryParts))
+            if (!query.QueryParamExist("token"))
                 return false;
 
             return true;

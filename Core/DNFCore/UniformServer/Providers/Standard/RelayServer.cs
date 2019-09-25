@@ -220,8 +220,7 @@ namespace UniformServer.Standard
         public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, UniformQueries.Query query)
         {
             // Try to encrypt receved message.
-            PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.EncryptionMeta encryptionMeta =
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
+            PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
 
             // Detect routing target.
             bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
@@ -267,7 +266,7 @@ namespace UniformServer.Standard
                 }
 
                 // Encrypt message if encryptor exist.
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(ref query, instruction);
+                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(ref query, instruction.ValidEncryptionOperator);
             }
 
             // Open connection.

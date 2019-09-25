@@ -42,7 +42,6 @@ namespace UniformQueries
         }
         private static readonly List<IQueryHandler> queryHandlers = null;
 
-
         /// <summary>
         /// Load query handlers during first call.
         /// </summary>
@@ -92,59 +91,6 @@ namespace UniformQueries
                 DateTime.Now.ToString("HH:mm:ss"), queryHandlers.Count);
         }
 
-
-        /// <summary>
-        /// Check existing of param in query parts.
-        /// Example entry query part: "q=Get", where target param is "q".
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool QueryParamExist(string param, string query)
-        {
-            return QueryParamExist(param, query.Split(SPLITTING_SYMBOL));
-        }
-
-        /// <summary>
-        /// Check existing of param in query parts.
-        /// Example entry query part: "q=Get", where target param is "q".
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool QueryParamExist(string param, params string[] queryParts)
-        {
-            // Try to find target param
-            foreach (string part in queryParts)
-            {
-                // If target param
-                if (part.StartsWith(param + "=")) return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Check existing of param in query parts.
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool QueryParamExist(string param, params QueryPart[] queryParts)
-        {
-            // Try to find target param
-            foreach (QueryPart part in queryParts)
-            {
-                // If target param
-                if (part.ParamNameEqual(param))
-                    return true;
-            }
-            return false;
-        }
-
-
         /// <summary>
         /// Try to find requested param's value in query.
         /// </summary>
@@ -175,86 +121,6 @@ namespace UniformQueries
                 endIndex == -1 ? query.Length - startIndex : endIndex - startIndex);
 
             return true;
-        }
-
-        /// <summary>
-        /// Try to find requested param's value among query parts.
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="value"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool TryGetParamValue(string param, out string value, params string[] queryParts)
-        {
-            // Try to find target param
-            foreach (string part in queryParts)
-            {
-                // If target param
-                if (part.StartsWith(param + "="))
-                {
-                    // Get value.
-                    value = part.Substring(param.Length + 1);
-                    // Mark as success.
-                    return true;
-                }
-            }
-
-            // Inform that param not found.
-            value = null;
-            return false;
-        }
-
-        /// <summary>
-        /// Try to find requested param's value among query parts.
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="value"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool TryGetParamValue(string param, out QueryPart value, params QueryPart[] queryParts)
-        {
-            // Try to find target param
-            foreach (QueryPart part in queryParts)
-            {
-                // If target param
-                if (part.ParamNameEqual(param))
-                {
-                    // Get value.
-                    value = part;
-                    // Mark as success.
-                    return true;
-                }
-            }
-
-            // Inform that param not found.
-            value = QueryPart.None;
-            return false;
-        }
-
-
-        /// <summary>
-        /// Try to find requested all param's value among query parts by requested param name.
-        /// </summary>
-        /// <param name="param"></param>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        [Obsolete]
-        public static List<string> GetParamValues(string param, params string[] queryParts)
-        {
-            List<string> value = new List<string>();
-            // Try to find target param
-            foreach (string part in queryParts)
-            {
-                // If target param
-                if (part.StartsWith(param + "="))
-                {
-                    // Get value.
-                    value.Add(part.Substring(param.Length + 1));
-                }
-            }
-            return value;
         }
 
         /// <summary>
@@ -311,20 +177,6 @@ namespace UniformQueries
             }
 
             return parts;
-        }
-
-
-        /// <summary>
-        /// Looking for processor situable for provided query.
-        /// </summary>
-        /// <param name="query">Recived query in string format.</param>
-        /// <param name="handler">Qirty handler that situable for that query.</param>
-        /// <returns></returns>
-        [Obsolete]
-        public static bool TryFindQueryHandler(string query, out IQueryHandler handler)
-        {
-            // Search.
-            return TryFindQueryHandler(new Query(query) , out handler);
         }
 
         /// <summary>

@@ -88,42 +88,31 @@ namespace ACTests.Tests
             // Start listening client.
             UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
                 "localhost", Helpers.Networking.DefaultGuestPipeName,
-                (PipesProvider.Client.TransmissionLine line, Query message) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Validate answer.
-                    if (obj is string answer)
+                    // Check token.
+                    if (answer.TryGetParamValue("token", out QueryPart token))
                     {
-                        QueryPart[] recivedQuery = UniformQueries.API.DetectQueryParts(answer);
+                        // Set token as GUEST to share between other tests.
+                        GUEST_TOKEN = token.PropertyValueString;
 
-                        // Check token.
-                        if (UniformQueries.API.TryGetParamValue("token", out QueryPart token, recivedQuery))
-                        {
-                            // Set token as GUEST to share between other tests.
-                            GUEST_TOKEN = token.propertyValue;
-
-                            // Assert test result.
-                            bool tokenProvided = !string.IsNullOrEmpty(token.propertyValue);
-                            Assert.IsTrue(tokenProvided, "Token is null.\n" + answer);
-                        }
-                        else
-                        {
-                            // Inform that failed.
-                            Assert.IsTrue(false, "Token not provided.\n" + answer);
-                        }
-
-                        // Check expire time.
-                        if (!UniformQueries.API.TryGetParamValue("expiryIn", out QueryPart _, recivedQuery))
-                            Assert.IsTrue(false, "Expire time not provided.\n" + answer);
-
-                        // Check rights providing.
-                        if (!UniformQueries.API.TryGetParamValue("rights", out QueryPart _, recivedQuery))
-                            Assert.IsTrue(false, "Rights not shared.\n" + answer);
+                        // Assert test result.
+                        bool tokenProvided = !string.IsNullOrEmpty(token.PropertyValueString);
+                        Assert.IsTrue(tokenProvided, "Token is null.\n" + answer.First.PropertyValueString);
                     }
                     else
                     {
                         // Inform that failed.
-                        Assert.IsTrue(false, "Incorrect answer type.");
+                        Assert.IsTrue(false, "Token not provided.\n" + answer.First.PropertyValueString);
                     }
+
+                    // Check expire time.
+                    if (!answer.QueryParamExist("expiryIn"))
+                        Assert.IsTrue(false, "Expire time not provided.\n" + answer.First.PropertyValueString);
+
+                    // Check rights providing.
+                    if (!answer.QueryParamExist("rights"))
+                        Assert.IsTrue(false, "Rights not shared.\n" + answer.First.PropertyValueString);
 
                     // Unlock finish blocker.
                     waitingAnswer = false;
@@ -177,29 +166,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Unathorized operation passed. Server answer:" + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Unathorized operation passed. Server answer:" + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -254,29 +232,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Operation failed with error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Operation failed with error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -335,29 +302,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Permited unatorized operation. Answer:" + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Permited unatorized operation. Answer:" + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -414,29 +370,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Permited unatorized operation. Answer:" + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Permited unatorized operation. Answer:" + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -496,29 +441,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Operation failed with error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Operation failed with error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -616,38 +550,29 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                            // Log error.
+                            Assert.Fail("Recived error:\n" + answer.First.PropertyValueString);
+                            operationCompete = true;
+                        }
+                        else
+                        {
+                            // Trying to get token from answer.
+                            if (answer.TryGetParamValue("token", out QueryPart token) && 
+                            !string.IsNullOrEmpty(token.PropertyValueString))
                             {
-                                // Log error.
-                                Assert.Fail("Recived error:\n" + answerS);
+                                // Confirm logon.
+                                Assert.IsTrue(true);
                                 operationCompete = true;
                             }
                             else
                             {
-                                // Trying to get toekn from answer.
-                                if (UniformQueries.API.TryGetParamValue("token", out string value, answerS))
-                                {
-                                    // Confirm logon.
-                                    Assert.IsTrue(true);
-                                    operationCompete = true;
-                                }
-                                else
-                                {
-                                    // Log error.
-                                    Assert.Fail("Answer not contain token:\nFull answer:" + answerS);
-                                    operationCompete = true;
-                                }
+                                // Log error.
+                                Assert.Fail("Answer not contain token:\nFull answer:" + answer.First.PropertyValueString);
+                                operationCompete = true;
                             }
-                        }
-                        else
-                        {
-                            // Assert error.
-                            Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
-                            operationCompete = true;
                         }
                     });
 
@@ -703,27 +628,17 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                Assert.IsTrue(true);
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                Assert.Fail("Unexisted user found on server.\nAnswer:" + answerS);
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            Assert.IsTrue(true);
+                            operationCompete = true;
                         }
                         else
                         {
-                            // Assert error.
-                            Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
+                            // Log error.
+                            Assert.Fail("Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString);
                             operationCompete = true;
                         }
                     });
@@ -780,27 +695,17 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                Assert.IsTrue(true);
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                Assert.Fail("Unexisted user found on server.\nAnswer:" + answerS);
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            Assert.IsTrue(true);
+                            operationCompete = true;
                         }
                         else
                         {
-                            // Assert error.
-                            Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
+                            // Log error.
+                            Assert.Fail("Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString);
                             operationCompete = true;
                         }
                     });
@@ -913,29 +818,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "User creation returned error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "User creation returned error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -995,29 +889,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "User creation returned error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "User creation returned error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1076,29 +959,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "User creation returned error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "User creation returned error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1163,29 +1035,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "User creation returned error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "User creation returned error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1244,29 +1105,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "User creation returned error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "User creation returned error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1326,29 +1176,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log success.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log fail & error.
-                                operationResult = false;
-                                operationError = "Recived error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log success.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log fail & error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer. Required format is string. Type:" + answer.GetType();
+                            operationError = "Recived error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1408,29 +1247,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Unatuorized operation allowed with result: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Unatuorized operation allowed with result: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });
@@ -1490,29 +1318,18 @@ namespace ACTests.Tests
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
-                        // Trying to convert answer to string
-                        if (answer is string answerS)
+                        // Is operation success?
+                        if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Is operation success?
-                            if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // Log error.
-                                operationResult = true;
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log error.
-                                operationResult = false;
-                                operationError = "Authorized operation denied with error: " + answerS;
-                                operationCompete = true;
-                            }
+                            // Log error.
+                            operationResult = true;
+                            operationCompete = true;
                         }
                         else
                         {
                             // Log error.
                             operationResult = false;
-                            operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                            operationError = "Authorized operation denied with error: " + answer.First.PropertyValueString;
                             operationCompete = true;
                         }
                     });

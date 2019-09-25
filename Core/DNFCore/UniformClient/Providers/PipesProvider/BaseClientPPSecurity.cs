@@ -69,8 +69,8 @@ namespace UniformClient
             // Create base part of query for reciving of public RSA key.
             UniformQueries.Query query = new UniformQueries.Query(
                 new UniformQueries.QueryPart("token", pai.GuestToken),
-                new UniformQueries.QueryPart("GET"),
-                new UniformQueries.QueryPart("PUBLICKEY"),
+                new UniformQueries.QueryPart("get"),
+                new UniformQueries.QueryPart("publickey"),
                 new UniformQueries.QueryPart("guid", pai.GetHashCode().ToString()));
             
             // Request public key from server.

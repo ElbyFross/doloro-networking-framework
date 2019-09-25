@@ -50,6 +50,29 @@ namespace PipesProvider.Networking.Routing
         public AESEncryptionOperator AESEncryptionOperator = new AESEncryptionOperator();
 
         /// <summary>
+        /// Returns most suitable Encryption operator.
+        /// Null if all invald.
+        /// </summary>
+        [XmlIgnore]
+        public IEncryptionOperator ValidEncryptionOperator
+        {
+            get
+            {
+                if(AESEncryptionOperator.IsValid)
+                {
+                    return AESEncryptionOperator;
+                }
+
+                if(RSAEncryptionOperator.IsValid)
+                {
+                    return RSAEncryptionOperator;
+                }
+
+                return null; 
+            }
+        }
+
+        /// <summary>
         /// Check does loading was failed or key was expired.
         /// </summary>
         [XmlIgnore]

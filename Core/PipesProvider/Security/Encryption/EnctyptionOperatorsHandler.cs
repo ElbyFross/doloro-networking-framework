@@ -40,47 +40,54 @@ namespace PipesProvider.Security.Encryption
         /// that contains generated keys and control expiry operation.
         /// </summary>
         private static readonly Hashtable symmetricKeys = new Hashtable();
-
-        /// <summary>
-        /// Key data exculted from data array during decryption process. 
-        /// Can be used to refecrs encryption with the same params.
-        /// </summary>
-        public class EncryptionMeta
-        {
-
-        }
-
+        
         /// <summary>
         /// TODO Trying to decrypt data.
         /// </summary>
         /// <param name="query">Binary data that can contain encryption descryptor.</param>
-        /// <returns>Key data exculted from data array during decryption process. 
-        /// Can be used to refecrs encryption with the same params.</returns>
-        public static EncryptionMeta TryToDecrypt (ref UniformQueries.Query query)
+        public static void TryToDecrypt (ref UniformQueries.Query query)
         {
-            /*// Trying to receive encryption operator code from header.
-            if(!UniformQueries.API.TryGetParamValue("crypto", out string ecryptorHeader, encryptorHeader))
+            // Drop if encryptor not described.
+            if(query.Encryption == null || 
+                string.IsNullOrEmpty( query.Encryption.encytpionOperatorCode))
             {
-                // Drop decrypting if not crypto header not exist.
-                return null;
+                return;
             }
 
-            // TODO Find target EcnrytionOperator.
-            IEncryptionOperator encryptionOperator = null;
+            // Ancrypt via assymetric key.
+            if (query.Encryption.asymmetricEncryption)
+            {
+                // Decrypt message.
+                query.Content = AsymmetricKey.Decrypt(query.Content);
+            }
+            else
+            {
+                // Get guid for shared configs.
+                string guid = UniformDataOperator.Binary.BinaryHandler.FromByteArray<string>(query.Encryption.configs);
 
-            encryptionOperator.de*/
-
-            throw new NotImplementedException();
+                // Loading encryptor by GUID.
+                if(symmetricKeys[guid] is IEncryptionOperator encryptor)
+                {
+                    // Decrypting message.
+                    query.Content = encryptor.Decrypt(query.Content);
+                }
+            }
         }
 
         /// <summary>
-        /// TODO Trying to encrypt data.
+        /// Trying to encrypt data.
         /// </summary>
         /// <param name="query">Query that's content would be ecrypted.</param>
         /// <param name="encryptionOperator">Operator that woud be used to encryption.</param>
         public static void TryToEncrypt(ref UniformQueries.Query query, IEncryptionOperator encryptionOperator)
         {
-            throw new NotImplementedException();
+            // Validate.
+            if (query == null) return;
+            if (encryptionOperator == null) return;
+            if (query.Content == null) return;
+
+            // Encrypt data.
+            query.Content = encryptionOperator.Encrypt(UniformDataOperator.Binary.BinaryHandler.ToByteArray(query.Content));
         }
 
         /// <summary>
@@ -111,21 +118,63 @@ namespace PipesProvider.Security.Encryption
         }
 
         /// <summary>
-        /// TODO Detecting encryption operator from query.
+        /// Trying to encrypt answer query from data shared with received query.
         /// </summary>
-        /// <param name="receivedQuery"></param>
-        /// <returns></returns>
-        public static IEncryptionOperator DetectEncryption(UniformQueries.Query receivedQuery)
+        /// <param name="receivedQuery">Query received from client, that contain ecnryption descriptor.</param>
+        /// <param name="toEncrypt">Query that would be ecrypted with enctry data.</param>
+        public static void TryToEncryptByReceivedQuery(UniformQueries.Query receivedQuery, UniformQueries.Query toEncrypt)
         {
-            if(receivedQuery.Encryption == null || 
-               string.IsNullOrEmpty(receivedQuery.Encryption.encytpionOperatorCode))
+            if (receivedQuery.Encryption != null &&
+               !string.IsNullOrEmpty(receivedQuery.Encryption.encytpionOperatorCode))
             {
-                return null;
-            }
+                // To valid format.
+                receivedQuery.Encryption.encytpionOperatorCode = receivedQuery.Encryption.encytpionOperatorCode.ToLower();
 
-            if(receivedQuery.Encryption.asymmetricEncryption)
-            {
-                throw new NotImplementedException();
+                switch (receivedQuery.Encryption.encytpionOperatorCode)
+                {
+                    case "rsa":
+                        // Encrypt query if requested by "pk" query's param.
+                        if (receivedQuery.TryGetParamValue(
+                            "pk",
+                            out UniformQueries.QueryPart publicKeyProp))
+                        {
+                            try
+                            {
+                                // Create new RSA decryptor.
+                                RSAEncryptionOperator rsaEncryption = new RSAEncryptionOperator
+                                {
+                                    SharableData = publicKeyProp.PropertyValueString
+                                };
+
+                                // Encrypt with shared RSA encryptor.
+                                TryToEncrypt(ref toEncrypt, rsaEncryption);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
+                            }
+                        }
+                        break;
+
+                    case "aes":
+                        // Try to get public key from entry query.
+                        try
+                        {
+                            // Get guid for shared configs.
+                            string guid = UniformDataOperator.Binary.BinaryHandler.FromByteArray<string>(receivedQuery.Encryption.configs);
+
+                            // Looking for decryptor.
+                            AESEncryptionOperator aesEncryption = (AESEncryptionOperator)symmetricKeys[guid];
+
+                            // Encrypt with shared RSA encryptor.
+                            EnctyptionOperatorsHandler.TryToEncrypt(ref toEncrypt, aesEncryption);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
+                        }
+                        break;
+                }
             }
         }
     }
