@@ -125,7 +125,7 @@ namespace ExampleClient
             if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
             {
                 // Trying to recive guest token from server.
-                _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(null,
+                _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(
                     AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
                                                         //to provide possibility to stop all async operation before application exit.
             }

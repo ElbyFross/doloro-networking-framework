@@ -57,12 +57,18 @@ namespace PipesProvider.Client
             get
             {
                 // Generate GUID if not found.
-                if (string.IsNullOrEmpty(guid))
-                    guid = GenerateGUID(ServerName, ServerPipeName);
-                return guid;
+                if (string.IsNullOrEmpty(_GUID))
+                {
+                    _GUID = GenerateGUID(ServerName, ServerPipeName);
+                }
+                return _GUID;
             }
         }
-        private string guid = null;
+
+        /// <summary>
+        /// Buffer that contains GUID value.
+        /// </summary>
+        protected string _GUID = null;
 
         /// <summary>
         /// Name of server pipe that will be using for transmission via current processor.
@@ -94,20 +100,57 @@ namespace PipesProvider.Client
         /// <summary>
         /// True if async operation started and not finished.
         /// </summary>
-        public bool Processing
+        public bool Processing { get; set; }
+
+        /// <summary>
+        /// Is current query processing is interrupted.
+        /// Will disconnect current connection with error.
+        /// </summary>
+        public bool Interrupted
         {
-            get;
-            set;
+            get
+            {
+                return _Interrupted;
+            }
+            set
+            {
+                if (!Processing)
+                {
+                    // If terrmination requested.
+                    if (value)
+                    {
+                        // Log about error.
+                        Console.WriteLine("LINE INTERRUPTION IMPOSSIBLE. Line not in processing. : " + ServerName + "/" + ServerPipeName);
+                    }
+                    _Interrupted = false;
+                    return;
+                }
+
+                if(value)
+                {
+                    // Log about closing
+                    Console.WriteLine(ServerName + "/" + ServerPipeName + " : LINE INTERRUPTED : " +
+                        (Processing && LastQuery.Data != null ? "Intrupted query: " + LastQuery.Data + "\n": "Has no query in processing."));
+                }
+
+                _Interrupted = value;
+            }
         }
 
         /// <summary>
-        /// Return tthe query that was dequeue at last.
+        /// Buffer that contains interruptoin state.
+        /// </summary>
+        protected bool _Interrupted;
+
+
+        /// <summary>
+        /// Return the query that was dequeue at last.
         /// </summary>
         public QueryContainer LastQuery
         {
             get
             {
-                return lastQuery.IsEmpty ? QueryContainer.Empty : QueryContainer.Copy(lastQuery);
+                return lastQuery.IsEmpty ? QueryContainer.Empty : lastQuery;
             }
             protected set
             {
@@ -142,10 +185,7 @@ namespace PipesProvider.Client
         /// In - will connect to target pipe as soon as possible.
         /// Out - will wait for query in queue.
         /// </summary>
-        public TransmissionDirection Direction
-        {
-            get; set;
-        } = TransmissionDirection.Out;
+        public TransmissionDirection Direction { get; set; } = TransmissionDirection.Out;
 
         /// <summary>
         /// Ecription provider that would applied to that transmission.
@@ -313,6 +353,46 @@ namespace PipesProvider.Client
         /// </summary>
         public bool HasQueries
         { get {  return queries.Count > 0; } }
+
+        /// <summary>
+        /// Insurting query to start of queue.
+        /// </summary>
+        /// <param name="query">Query that will places on first place in queue.</param>
+        /// <param name="withInterruption">If true then will interupt cuerent query in processing and 
+        /// add enqueue it to the second position. After that will enqueue all left queue's elements.</param>
+        public void InsertQuery(UniformQueries.Query query, bool withInterruption)
+        {
+            // Lock queue changing.
+            lock (queries)
+            {
+                // Add requested query on first place.
+                Queue<QueryContainer> queue = new Queue<QueryContainer>();
+                queue.Enqueue(new QueryContainer(query));
+
+                // Interuupt current if possible and required.
+                if (withInterruption)
+                {
+                    // Does there is something computing at the time.
+                    if (Processing)
+                    {
+                        // Buferrize unfinished query.
+                        queue.Enqueue(LastQuery);
+
+                        // Interrupting processing.
+                        Interrupted = true;
+                    }
+                }
+
+                // Enque all left queries from old queue.
+                while(queries.Count > 0)
+                {
+                    queue.Enqueue(queries.Dequeue());
+                }
+
+                // Update queue.
+                queries = queue;
+            }
+        }
         #endregion
 
         #region Finilizing API
@@ -341,6 +421,7 @@ namespace PipesProvider.Client
         {
             pipeClient = null;
             Processing = false;
+            Interrupted = false;
         }
         #endregion
 
@@ -446,7 +527,7 @@ namespace PipesProvider.Client
                 // Start client loop.
                 ClientAPI.ClientLoop(
                     line,
-                    System.IO.Pipes.PipeDirection.InOut,
+                    PipeDirection.InOut,
                     PipeOptions.Asynchronous | PipeOptions.WriteThrough);
             });
         }

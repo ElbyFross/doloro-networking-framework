@@ -92,7 +92,7 @@ namespace UniformServer.Standard
 
                 #region Server establishing
                 // Start server loop.
-                PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.ServerLoop(
+                BroadcastingServerTransmissionController.ServerLoop(
                     serverName,
                     broadcastingServer.pipeName,
                     broadcastingServer.securityLevel,

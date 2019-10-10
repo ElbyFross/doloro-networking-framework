@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 using System.Timers;
+using PipesProvider.Networking.Routing;
 
 namespace PipesProvider.Security.Encryption.Operators
 {
@@ -53,8 +54,17 @@ namespace PipesProvider.Security.Encryption.Operators
         /// Is current encryption provider is valid and can be used in transmission.
         /// </summary>
         public bool IsValid
-        {
-            get { return true; }
+        {           
+            get
+            {
+                // If crypto provider expired.
+                if (_CryptoProvider == null) return false;
+
+                // Check if expired.
+                if (ExpiryTime < DateTime.Now) return false;
+
+                return true;
+            }
         }
 
         /// <summary>
@@ -121,31 +131,48 @@ namespace PipesProvider.Security.Encryption.Operators
         public DateTime ExpiryTime { get; set; } = DateTime.Now;
 
         /// <summary>
-        /// Public keys ins string format allowed to sharing in message format.
+        /// Public keys in string format allowed to sharing in message format.
         /// </summary>
-        public string SharableData
+        public byte[] SharableData
         {
             get
             {
-                var sw = new StringWriter();
-                var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+                return UniformDataOperator.Binary.BinaryHandler.ToByteArray(EncryptionKey);
 
-                xs.Serialize(sw, EncryptionKey);
-                return sw.ToString();
+                // Deprecated xml data.
+                //var sw = new StringWriter();
+                //var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+
+                //xs.Serialize(sw, EncryptionKey);
+                //return sw.ToString();
             }
             set
             {
-                var sr = new StringReader(value);
-                var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+                try
+                {
+                    var ekBufer = UniformDataOperator.Binary.BinaryHandler.FromByteArray<RSAParameters>(value);
+                    EncryptionKey = ekBufer;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine
+                        ("RSA EO ERROR: Invalid sharable data. Leaved the previous " + 
+                        "value of Encryption key. Details:\n" + ex.Message);
+                }
 
-                // Convert xml to object.
-                object bufer = xs.Deserialize(sr);
-                EncryptionKey = (RSAParameters)bufer;
+                // Deprecated xml data.
+                //var sr = new StringReader(value);
+                //var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+
+                //// Convert xml to object.
+                //object bufer = xs.Deserialize(sr);
+                //EncryptionKey = bufer;
             }
         }
-        
+
         /// <summary>
         /// Public RSA key that must be used to encrypt of message before transmission.
+        /// Set always cause NotSupportedException.
         /// </summary>
         public object EncryptionKey
         {
@@ -153,11 +180,15 @@ namespace PipesProvider.Security.Encryption.Operators
             {
                 return CryptoProvider.ExportParameters(false);
             }
-            set => throw new NotImplementedException();
+            set
+            {
+                CryptoProvider.ImportParameters((RSAParameters)value);
+            }
         }
 
         /// <summary>
         /// Return private RSA key that can be used to decode message.
+        /// Set always cause NotSupportedException.
         /// </summary>
         public object DecryptionKey
         {
@@ -165,7 +196,7 @@ namespace PipesProvider.Security.Encryption.Operators
             {
                 return CryptoProvider.ExportParameters(true);
             }
-            set => throw new NotImplementedException();
+            set => throw new NotSupportedException();
         }
         
 
@@ -245,7 +276,10 @@ namespace PipesProvider.Security.Encryption.Operators
         public async Task<byte[]> DecryptAsync(byte[] data, System.Threading.CancellationToken cancellationToken)
         {
             byte[] decryptedData = null;
-            await new Task(delegate () { decryptedData = Decrypt(data); }, cancellationToken);
+            await Task.Run(delegate () 
+            {
+                decryptedData = Decrypt(data);
+            }, cancellationToken);
             return decryptedData;
         }
 
@@ -318,7 +352,10 @@ namespace PipesProvider.Security.Encryption.Operators
         public async Task<byte[]> EncryptAsync(byte[] data, System.Threading.CancellationToken cancellationToken)
         {
             byte[] encryptedData = null;
-            await new Task(delegate() { encryptedData = Encrypt(data); }, cancellationToken);
+            await Task.Run(delegate() 
+            {
+                encryptedData = Encrypt(data);
+            }, cancellationToken);
             return encryptedData;
         }
 
@@ -352,11 +389,11 @@ namespace PipesProvider.Security.Encryption.Operators
             try
             {
                 // Creating bufer operator to operate with sharable data.
-                keyBufer = (RSAParameters)new RSAEncryptionOperator
+                keyBufer = (RSAParameters)(new RSAEncryptionOperator
                 {
-                    // Apply recived XML data as sharable value.
-                    EncryptionKey = publicKey.propertyValue
-                }.EncryptionKey; // Getting deserialized key.
+                    // Apply recived binary data as sharable value.
+                    SharableData = publicKey.propertyValue
+                }).EncryptionKey; // Getting deserialized key.
             }
             catch (Exception ex)
             {
@@ -364,10 +401,10 @@ namespace PipesProvider.Security.Encryption.Operators
                 return false;
             }
 
-            // Pars expire time.
+            // Parse expire time.
             try
             {
-                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.PropertyValueString));
+                expireTimeBufer = DateTime.FromBinary(UniformDataOperator.Binary.BinaryHandler.FromByteArray<long>(expireDate.propertyValue));
             }
             catch (Exception ex)
             {

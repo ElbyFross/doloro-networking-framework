@@ -48,7 +48,7 @@ namespace UniformClient
         public static TransmissionLine OpenTransmissionLineViaPP(
            string serverName,
            string pipeName,
-           System.Action<TransmissionLine> callback)
+           Action<TransmissionLine> callback)
         {
             SafeAccessTokenHandle token = System.Security.Principal.WindowsIdentity.GetAnonymous().AccessToken;
             string guid = serverName.GetHashCode() + "_" + pipeName.GetHashCode();
@@ -72,7 +72,7 @@ namespace UniformClient
             string serverName,
             string pipeName,
             ref SafeAccessTokenHandle token,
-            System.Action<TransmissionLine> callback)
+            Action<TransmissionLine> callback)
         {
             lock (lineLocker)
             {

@@ -41,6 +41,12 @@ namespace UniformClient
         /// </summary>
         protected static Hashtable DuplexBackwardCallbacks = new Hashtable();
 
+        /// <summary>
+        /// Event that would be called when duplex callback will received.
+        /// Sharint transmisson GUID as parameter.
+        /// </summary>
+        public static Action<string> eDuplexBackwardCallbacksReceived;
+
         #region Output transmission
         /// <summary>
         /// Oppening transmition line that will able to send querie to described server's pipe.
@@ -74,7 +80,7 @@ namespace UniformClient
         public static bool ReceiveDelayedAnswerViaPP(
             TransmissionLine line,
             UniformQueries.Query entryQuery,
-            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
+            Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Create backward domain
             // Try to compute bacward domaint to contact with client.
@@ -106,8 +112,7 @@ namespace UniformClient
                 new Standard.SimpleClient(),
                 line.ServerName, domain,
                 ref line.accessToken,
-                HandlerInputTransmissionAsync
-                );
+                HandlerInputTransmissionAsync);
 
             // Set input direction.
             lineProcessor.Direction = TransmissionLine.TransmissionDirection.In;

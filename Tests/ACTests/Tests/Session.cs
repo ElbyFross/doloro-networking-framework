@@ -114,7 +114,6 @@ namespace ACTests.Tests
                     // Create the query that would simulate logon.
                     Query logonQuery = new Query
                     (
-                        // TODO FAKE TOKEN
                         new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                         new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -196,7 +195,7 @@ namespace ACTests.Tests
             {
                 // Trying to get toekn from answer.
                 if (serverAnswer.TryGetParamValue("token", out QueryPart value) && 
-                    string.IsNullOrEmpty(value))
+                    !string.IsNullOrEmpty(value))
                 {
                     // Confirm logon.
                     message = value.PropertyValueString;

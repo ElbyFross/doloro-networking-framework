@@ -187,13 +187,16 @@ namespace UniformQueries
         /// <returns></returns>
         public static bool TryFindQueryHandler(Query query, out IQueryHandler handler)
         {
-            foreach (IQueryHandler pb in UniformQueries.API.QueryHandlers)
+            lock (QueryHandlers)
             {
-                // Check header
-                if (pb.IsTarget(query))
+                foreach (IQueryHandler pb in QueryHandlers)
                 {
-                    handler = pb;
-                    return true;
+                    // Check header
+                    if (pb.IsTarget(query))
+                    {
+                        handler = pb;
+                        return true;
+                    }
                 }
             }
 

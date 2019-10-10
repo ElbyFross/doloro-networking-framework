@@ -37,7 +37,7 @@ namespace PipesProvider.Client
         /// Key (string) server_name.pipe_name;
         /// Value (LineProcessor) meta data about transmition.
         /// </summary>
-        private static readonly Hashtable openedClients = new Hashtable();
+        public static readonly Hashtable openedClients = new Hashtable();
         
         #region Loops
         /// <summary>
@@ -73,7 +73,7 @@ namespace PipesProvider.Client
                         line.ServerName,
                         line.ServerPipeName,
                         pipeDirection, pipeOptions,
-                        System.Security.Principal.TokenImpersonationLevel.Impersonation,
+                        TokenImpersonationLevel.Impersonation,
                         HandleInheritability.None))
                 {
                     // Update meta data.
@@ -103,11 +103,16 @@ namespace PipesProvider.Client
 
                         // Wait until processing finish.
                         Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR FINISH HANDLER.", line.ServerName, line.ServerPipeName);
-                        while (line.Processing)
+                        while (line.Processing) 
                         {
+                            if(line.Interrupted)
+                            {
+                                break;
+                            }
+
                             Thread.Sleep(50);
                         }
-                        Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR HANDLER FINISHED.", line.ServerName, line.ServerPipeName);
+                        Console.WriteLine("{0}/{1}: QUERY PROCESSOR HANDLER FINISHED.", line.ServerName, line.ServerPipeName);
                     }
                     catch (Exception ex)
                     {
@@ -115,7 +120,10 @@ namespace PipesProvider.Client
                     }
 
                     // Log about establishing.
-                    Console.WriteLine("{0}/{1}: Transmission finished at {2}.", line.ServerName, line.ServerPipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
+                    Console.WriteLine("{0}/{1}: Transmission finished at {2}.", 
+                        line.ServerName, 
+                        line.ServerPipeName, 
+                        DateTime.Now.ToString("HH:mm:ss.fff"));
 
                     // Remove not relevant meta data.
                     line.pipeClient.Dispose();

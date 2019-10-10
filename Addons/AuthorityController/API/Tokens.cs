@@ -115,7 +115,7 @@ namespace AuthorityController.API
             // Buiding query.
             UniformQueries.Query query = new UniformQueries.Query(
                 new UniformQueries.QueryPart("token", sessionToken),
-                new UniformQueries.QueryPart("expiryIn", DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes)),
+                new UniformQueries.QueryPart("expiryIn", DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes).ToBinary()),
                 new UniformQueries.QueryPart("rights", "rank=0")
                 );
 

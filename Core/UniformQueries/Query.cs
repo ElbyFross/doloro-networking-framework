@@ -28,25 +28,21 @@ namespace UniformQueries
     public class Query : ICloneable
     {
         /// <summary>
-        /// Setiing of qury encryption.
+        /// Data that describe required or applied encryption.
         /// </summary>
-        [System.Serializable]
-        public class EncryptionSettings : ICloneable
+        [Serializable]
+        public class EncryptionInfo : ICloneable
         {
             /// <summary>
-            /// Code of encryption operator that applied to that query.
+            /// Code of encryption operator that applied to the query's content.
             /// </summary>
-            public string encytpionOperatorCode;
+            public string contentEncytpionOperatorCode;
 
             /// <summary>
-            /// Is that encryption based on asym,etric keys.
+            /// Symmetric key that used for content encryption.
+            /// Encrupted by public key received from server.
             /// </summary>
-            public bool asymmetricEncryption = false;
-
-            /// <summary>
-            /// Custom configs data. Can be used to share specific meta suitable for operating with that query.
-            /// </summary>
-            public byte[] configs;
+            public byte[] encryptedSymmetricKey;
 
             /// <summary>
             /// Return cloned object of settings.
@@ -54,15 +50,14 @@ namespace UniformQueries
             /// <returns></returns>
             public object Clone()
             {
-                var settigns = new EncryptionSettings()
+                var settigns = new EncryptionInfo()
                 {
-                    asymmetricEncryption = this.asymmetricEncryption,
-                    encytpionOperatorCode = string.Copy(this.encytpionOperatorCode)
+                    contentEncytpionOperatorCode = string.Copy(this.contentEncytpionOperatorCode)
                 };
 
-                if (configs != null)
+                if (encryptedSymmetricKey != null)
                 {
-                    Array.Copy(this.configs, configs, this.configs.Length);
+                    Array.Copy(this.encryptedSymmetricKey, encryptedSymmetricKey, this.encryptedSymmetricKey.Length);
                 }
 
                 return settigns;
@@ -73,12 +68,29 @@ namespace UniformQueries
         /// Encryption setting of that query.
         /// if null then messages would not encrypted.
         /// </summary>
-        public EncryptionSettings Encryption { get; set; }
-        
+        public EncryptionInfo EncryptionMeta { get; set; }
+
+        /// <summary>
+        /// Is that query has configurated encryption meta?
+        /// If it is then system would mean that the content was or require to be encrypted and would to operate that.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsEncrypted
+        {
+            get
+            {
+                if (EncryptionMeta == null) return false;
+                if (string.IsNullOrEmpty(EncryptionMeta.contentEncytpionOperatorCode)) return false;
+
+                return true;
+            }
+        }
+
         /// <summary>
         /// Binary array with content. Could be encrypted.
         /// In normal state is List of QueryPart.
         /// </summary>
+        [XmlIgnore]
         public byte[] Content
         {
             get
@@ -99,11 +111,21 @@ namespace UniformQueries
             }
         }
 
+        /// <summary>
+        /// Binary data shared via that query. Can be encrypted.
+        /// </summary>
         protected byte[] content;
+
+        /// <summary>
+        /// If true than output handler will wait for receiving answer input handler and
+        /// only after that will start next query in queue.
+        /// </summary>
+        public bool WaitForAnswer { get; set; } = false;
 
         /// <summary>
         /// Returns first query part or QueryPart.None if not available.
         /// </summary>
+        [XmlIgnore]
         public QueryPart First
         {
             get
@@ -141,7 +163,8 @@ namespace UniformQueries
             }
             set
             {
-                Content = UniformDataOperator.Binary.BinaryHandler.ToByteArray<List<QueryPart>>(value);
+                Content = UniformDataOperator.Binary.BinaryHandler.ToByteArray(value);
+                listedContent = value;
             }
         }
 
@@ -162,23 +185,38 @@ namespace UniformQueries
         /// <param name="message">Message that would be available via `value` param.</param>
         public Query(string message)
         {
-            listedContent = new List<QueryPart>
+            ListedContent = new List<QueryPart>
             {
                 new QueryPart("value", message)
             };
+        }
+        
+        /// <summary>
+        /// Creating query from parts.
+        /// </summary>
+        /// <param name="parts">Query parts that would be used as Listed content.</param>
+        public Query(EncryptionInfo meta, params QueryPart[] parts)
+        {
+            // Applying encryption descriptor.
+            EncryptionMeta = meta;
+
+            // Creating listed content.
+            ListedContent = new List<QueryPart>(parts);
         }
 
         /// <summary>
         /// Creating query from parts.
         /// </summary>
-        /// <param name="parts"></param>
+        /// <param name="parts">Query parts that would be used as Listed content.</param>
         public Query(params QueryPart[] parts)
         {
-            listedContent = new List<QueryPart>();
+            var lc = new List<QueryPart>();
             foreach(QueryPart part in parts)
             {
-                listedContent.Add(part);
+                lc.Add(part);
             }
+
+            ListedContent = lc;
         }
 
         /// <summary>
@@ -200,7 +238,6 @@ namespace UniformQueries
             }
             return false;
         }
-
 
         /// <summary>
         /// Try to find requested param's value among query parts.
@@ -236,6 +273,55 @@ namespace UniformQueries
         }
 
         /// <summary>
+        /// Setting part to listed content. 
+        /// Update existing if found.
+        /// </summary>
+        /// <param name="queryPart">Target query part.</param>
+        public void SetParam(QueryPart queryPart)
+        {
+            // Try to get data in listed format.
+            var lc = ListedContent;
+
+            // If lsted data not found.
+            if (lc == null)
+            {
+                // Drop if has a binary format of data.
+                if(content != null && content.Length > 0)
+                {
+                    throw new NotSupportedException("Your query contain binary data in not ListedContent compatible view." +
+                        " Adding query part not possible.");
+                }
+
+                // Init listed content.
+                lc = new List<QueryPart>
+                {
+                    queryPart
+                };
+                ListedContent = lc;
+                return;
+            }
+            else
+            {
+                // Looking for existed property.
+                for(int i = 0; i < lc.Count; i++)
+                {
+                    // Compare by name.
+                    if(lc[i].ParamNameEqual(queryPart.propertyName))
+                    {
+                        lc[i] = queryPart;  // Set new data.
+                        ListedContent = lc; //  Convert to binary.
+                        return;
+                    }
+                }
+
+                // Add as new if not found.
+                lc.Add(queryPart);
+                ListedContent = lc; //  Convert to binary.
+                return;
+            }
+        }
+
+        /// <summary>
         /// Returns copy of that object.
         /// </summary>
         /// <returns></returns>
@@ -243,11 +329,12 @@ namespace UniformQueries
         {
             var bufer = new Query()
             {
-                Encryption = Encryption != null ? (EncryptionSettings)this.Encryption.Clone() : null
+                EncryptionMeta = EncryptionMeta != null ? (EncryptionInfo)this.EncryptionMeta.Clone() : null,
             };
 
             if (Content != null)
             {
+                bufer.Content = new byte[Content.Length];
                 Array.Copy(Content, bufer.Content, Content.Length);
             }
 
@@ -266,7 +353,7 @@ namespace UniformQueries
 
                 foreach(QueryPart qp in ListedContent)
                 {
-                    if(!string.IsNullOrEmpty(qp))
+                    if(!string.IsNullOrEmpty(query))
                     {
                         query += API.SPLITTING_SYMBOL;
                     }
@@ -278,6 +365,15 @@ namespace UniformQueries
             {
                 return "Query content is not listed.";
             }
+        }
+
+        /// <summary>
+        /// Converting query to string.
+        /// </summary>
+        /// <param name="query"></param>
+        public static implicit operator string(Query query)
+        {
+            return query.ToString();
         }
     }
 }

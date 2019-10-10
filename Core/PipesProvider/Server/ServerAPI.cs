@@ -42,8 +42,8 @@ namespace PipesProvider.Server
         /// Key (string) pipe_name;
         /// Value (ServerTransmissionMeta) meta data about transmition.
         /// </summary>
-        private static readonly Hashtable openedServers = new Hashtable();
-        
+        public static readonly Hashtable openedServers = new Hashtable();
+
         /// <summary>
         /// Return count of started threads.
         /// </summary>
@@ -104,7 +104,6 @@ namespace PipesProvider.Server
             #region Meta data
             // Meta data about curent transmition.
             TransmissionControllerType transmisssionController = null;
-            IAsyncResult connectionMarker = null;
 
             lock (openedServers)
             {
@@ -150,18 +149,20 @@ namespace PipesProvider.Server
             while (!transmisssionController.Expired)
             {
                 // Wait for a client to connect
-                if ((connectionMarker == null || connectionMarker.IsCompleted) &&
-                    !pipeServer.IsConnected)
+                if ((transmisssionController.connectionMarker == null || 
+                    transmisssionController.connectionMarker.IsCompleted) &&
+                    !pipeServer.IsConnected && 
+                    transmisssionController.newConnectionSearchAllowed)
                 {
                     try
                     {
                         // Start async waiting of connection.
-                        connectionMarker = pipeServer.BeginWaitForConnection(
-                            Handlers.Service.ConnectionEstablishedCallbackRetranslator, 
+                        transmisssionController.connectionMarker = pipeServer.BeginWaitForConnection(
+                            Handlers.Service.ConnectionEstablishedCallbackRetranslator,
                             transmisssionController);
 
                         // Update data.
-                        transmisssionController.connectionMarker = connectionMarker;
+                        transmisssionController.newConnectionSearchAllowed = false;
 
                         Console.Write("{0}: Waiting for client connection...\n", pipeName);
                     }

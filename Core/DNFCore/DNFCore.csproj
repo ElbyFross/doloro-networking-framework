@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="BaseQueries\GET_GUEST_TOKEN.cs" />
     <Compile Include="BaseQueries\GET_PUBLIC_KEY.cs" />
-    <Compile Include="BaseQueries\GET_SYMMETRIC_KEY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniformClient\BaseClient.cs" />
     <Compile Include="UniformClient\BaseClientProcess.cs" />

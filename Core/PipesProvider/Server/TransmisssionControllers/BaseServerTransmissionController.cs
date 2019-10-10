@@ -31,6 +31,11 @@ namespace PipesProvider.Server.TransmissionControllers
         public IAsyncResult connectionMarker;
 
         /// <summary>
+        /// Marker that autorize new connection search.
+        /// </summary>
+        public bool newConnectionSearchAllowed = true;
+
+        /// <summary>
         /// Delegate that will be called when connection will be established.
         /// ServerTransmissionMeta - meta data of transmission.
         /// </summary>

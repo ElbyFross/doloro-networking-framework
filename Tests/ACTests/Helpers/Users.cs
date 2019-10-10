@@ -216,7 +216,6 @@ namespace ACTests.Helpers
         public static Query NewUserQuery(string login, string password = "1234567!Qwerty", string fn = "FirstName", string ln = "SecondName")
         {
             return new Query(
-                // TODO FAKE TOKEN
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 

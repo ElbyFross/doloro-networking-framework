@@ -153,7 +153,7 @@ namespace BaseQueries
                 #endregion
 
                 //Recive message.
-                UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
+                UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
                    serverIP, pipeName,
                    ServerAnswerHandler);
             }

@@ -216,7 +216,7 @@ namespace AuthorityController.Queries
             // Building query.
             Query answerQuery = new Query(
                 new QueryPart("token", sessionToken),
-                new QueryPart("expiryIn", Config.Active.TokenValidTimeMinutes.ToString()),
+                new QueryPart("expiryIn", DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes).ToBinary()),
                 new QueryPart("rights", rightsString)
                 );
 

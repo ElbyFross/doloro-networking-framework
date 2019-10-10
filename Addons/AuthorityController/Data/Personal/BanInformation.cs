@@ -139,7 +139,7 @@ namespace AuthorityController.Data.Personal
         {
             get
             {
-                return blockedRights == null ? null : UniformDataOperator.Binary.BinaryHandler.ToByteArray<string[]>(blockedRights);
+                return blockedRights == null ? null : UniformDataOperator.Binary.BinaryHandler.ToByteArray(blockedRights);
             }
             set
             {

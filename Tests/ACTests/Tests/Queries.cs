@@ -523,7 +523,6 @@ namespace ACTests.Tests
 
                 // Create the query that would simulate logon.
                 Query query = new Query(
-                    // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -600,7 +599,6 @@ namespace ACTests.Tests
 
                 // Create the query that would simulate logon.
                 Query query = new Query(
-                    // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -667,7 +665,6 @@ namespace ACTests.Tests
 
                 // Create the query that would simulate logon.
                 Query query = new Query(
-                    // TODO FAKE TOKEN
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -686,12 +683,9 @@ namespace ACTests.Tests
 
                 // Start reciving clent line.
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
-
                     // Request connection to localhost server via main pipe.
                     "localhost", Helpers.Networking.DefaultQueriesPipeName,
-
                     query,
-
                     // Handler that would recive ther ver answer.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {

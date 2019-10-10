@@ -39,38 +39,7 @@ namespace PipesProvider.Networking.Routing
         /// Using for sharing of small messages not longer then 117 bytes.
         /// </summary>
         [XmlIgnore]
-        public RSAEncryptionOperator RSAEncryptionOperator = new RSAEncryptionOperator();
-
-        /// <summary>
-        /// Configurated AES encryption operator that would be used during transmission.
-        /// Using for sharing big data. 
-        /// Requeire previous existing of RSA keys, do save exchange of secret key with server.
-        /// </summary>
-        [XmlIgnore]
-        public AESEncryptionOperator AESEncryptionOperator = new AESEncryptionOperator();
-
-        /// <summary>
-        /// Returns most suitable Encryption operator.
-        /// Null if all invald.
-        /// </summary>
-        [XmlIgnore]
-        public IEncryptionOperator ValidEncryptionOperator
-        {
-            get
-            {
-                if(AESEncryptionOperator.IsValid)
-                {
-                    return AESEncryptionOperator;
-                }
-
-                if(RSAEncryptionOperator.IsValid)
-                {
-                    return RSAEncryptionOperator;
-                }
-
-                return null; 
-            }
-        }
+        public IEncryptionOperator AsymmetricEncryptionOperator = new RSAEncryptionOperator();
 
         /// <summary>
         /// Check does loading was failed or key was expired.
@@ -84,15 +53,7 @@ namespace PipesProvider.Networking.Routing
                 if (encryption)
                 {
                     // Check for line key expiring.
-                    bool isExpired = DateTime.Compare(RSAEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
-                    if (isExpired)
-                    {
-                        // Mark as invalid if expired.
-                        return false;
-                    }
-
-                    // Check for line key expiring.
-                    isExpired = DateTime.Compare(AESEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
+                    bool isExpired = DateTime.Compare(AsymmetricEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
                     if (isExpired)
                     {
                         // Mark as invalid if expired.
@@ -179,6 +140,23 @@ namespace PipesProvider.Networking.Routing
             get { return new Instruction(); }
         }
         #endregion
+
+        /// <summary>
+        /// Trying to detect encryption operator by operator's internal code.
+        /// </summary>
+        /// <param name="code">Code of the operator.</param>
+        /// <returns>Operator that was found.</returns>
+        /// <exception cref="NotSupportedException">If operator's code is invalid.</exception>
+        public IEncryptionOperator FindEncryptorByCode(string code)
+        {
+            code = code.ToLower();
+
+            switch (code)
+            {
+                case "rsa": return AsymmetricEncryptionOperator;
+                default: throw new NotSupportedException("\""+ code + "\" IEncryptionOperator not exist in that instruction.");
+            }
+        }
 
         /// <summary>
         /// Check doest this query must be routed using this server instruction.

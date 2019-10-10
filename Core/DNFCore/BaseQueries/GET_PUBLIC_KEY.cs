@@ -1,4 +1,4 @@
-﻿//Copyright 2019 Volodymyr Podshyvalov
+﻿﻿//Copyright 2019 Volodymyr Podshyvalov
 //
 //Licensed under the Apache License, Version 2.0 (the "License");
 //you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ namespace BaseQueries
                 case "en-US":
                 default:
                     return "GET PUBLICKEY\n" +
-                            "\tDESCRIPTION: Will return public RSA key of this server," + 
+                            "\tDESCRIPTION: Will return public RSA key of this server," +
                             "\n\tthat can be used to encrypt message before start transmission.\n" +
                             "\tQUERY FORMAT: GET & PUBLICKEY\n";
             }
@@ -55,7 +55,7 @@ namespace BaseQueries
             // Building query with asymmetric key data.
             Query answer = new Query(
                 new QueryPart("pk", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.SharableData),
-                new QueryPart("expire", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.ExpiryTime.ToString()));
+                new QueryPart("expire", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.ExpiryTime.ToBinary()));
 
             // Open answer chanel on server and send message.
             UniformServer.BaseServer.SendAnswerViaPP(answer, query);

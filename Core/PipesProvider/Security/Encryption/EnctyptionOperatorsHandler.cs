@@ -33,88 +33,191 @@ namespace PipesProvider.Security.Encryption
         public static IEncryptionOperator AsymmetricKey { get; set; } = new RSAEncryptionOperator();
 
         /// <summary>
-        /// Hashtable that contains generated symmetric keys relative to client's guid.
-        /// 
-        /// Key - string guid.
-        /// Value - Security.Encryption.IEncryptionOperator security descriptor 
-        /// that contains generated keys and control expiry operation.
+        /// Trying to decrypt data.
         /// </summary>
-        private static readonly Hashtable symmetricKeys = new Hashtable();
-        
+        /// <param name="query">Binary data that can contain encryption descryptor.</param>
+        /// <param name="asymmetricEO">Operator that would be used to decrypting of symmetric key shared with.</param>
+        /// <returns>Result of operation.</returns>
+        public static async Task<bool> TryToDecryptAsync(
+            UniformQueries.Query query,
+            IEncryptionOperator asymmetricEO)
+        {
+            return await TryToDecryptAsync(query, asymmetricEO, System.Threading.CancellationToken.None);
+        }
+
         /// <summary>
         /// TODO Trying to decrypt data.
         /// </summary>
         /// <param name="query">Binary data that can contain encryption descryptor.</param>
-        public static void TryToDecrypt (ref UniformQueries.Query query)
+        /// <param name="asymmetricEO">Operator that would be used to decrypting of symmetric key shared with.</param>
+        /// <param name="cancellationToken">Token that woul be used for termination of async operations.</param>
+        /// <returns>Result of operation.</returns>
+        public static async Task<bool> TryToDecryptAsync(
+            UniformQueries.Query query, 
+            IEncryptionOperator asymmetricEO,
+            System.Threading.CancellationToken cancellationToken)
         {
+            #region Validation
             // Drop if encryptor not described.
-            if(query.Encryption == null || 
-                string.IsNullOrEmpty( query.Encryption.encytpionOperatorCode))
+            if (query.EncryptionMeta == null || 
+                string.IsNullOrEmpty( query.EncryptionMeta.contentEncytpionOperatorCode))
             {
-                return;
+                // Decryption not required so operation is success.
+                return true;
             }
 
-            // Ancrypt via assymetric key.
-            if (query.Encryption.asymmetricEncryption)
-            {
-                // Decrypt message.
-                query.Content = AsymmetricKey.Decrypt(query.Content);
-            }
-            else
-            {
-                // Get guid for shared configs.
-                string guid = UniformDataOperator.Binary.BinaryHandler.FromByteArray<string>(query.Encryption.configs);
+            // Validate encryption operators.
+            if (asymmetricEO == null) return false;
+            #endregion
 
-                // Loading encryptor by GUID.
-                if(symmetricKeys[guid] is IEncryptionOperator encryptor)
-                {
-                    // Decrypting message.
-                    query.Content = encryptor.Decrypt(query.Content);
-                }
+            // Unifyng 
+            query.EncryptionMeta.contentEncytpionOperatorCode = query.EncryptionMeta.contentEncytpionOperatorCode.ToLower();
+
+            // Decrypting symmetric key.
+            byte[] symmetricKey = await asymmetricEO.DecryptAsync(
+                query.EncryptionMeta.encryptedSymmetricKey,
+                cancellationToken);
+
+            // Decrypt content with symmetric operator.
+            IEncryptionOperator symmetricEncryptionOperator = null;
+            switch(query.EncryptionMeta.contentEncytpionOperatorCode)
+            {
+                case "aes":
+                    symmetricEncryptionOperator = new AESEncryptionOperator() { SharableData = symmetricKey };
+                    break;
             }
+
+            // Decrypt data.
+            query.Content = await symmetricEncryptionOperator.DecryptAsync(query.Content, cancellationToken);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Trying to encrypt query.
+        /// </summary>
+        /// <param name="query">Query for encryption.</param>
+        /// <param name="symmetricEncryptionOperatorCode">
+        /// Code of operator that would be used to content encryption.
+        /// AES by default.
+        /// </param>
+        /// <param name="asymmetricEecryptionOperator">
+        /// Operator that would be used to encrypting of symmetric key shared with a </param>
+        /// <param name="cancellationToken">Token for termination of async operations.</param>
+        /// <returns>Result of operation. False mean that operation failed.</returns>
+        public static async Task<bool> TryToEncryptAsync(
+           UniformQueries.Query query,
+           string symmetricEncryptionOperatorCode,
+           IEncryptionOperator asymmetricEecryptionOperator,
+           System.Threading.CancellationToken cancellationToken)
+        {
+            // Validate
+            if (string.IsNullOrEmpty(symmetricEncryptionOperatorCode)) return false;
+
+            // To uniform view.
+            symmetricEncryptionOperatorCode = symmetricEncryptionOperatorCode.ToLower();
+
+            // Detect content symetryc encryptor.
+            IEncryptionOperator symmetricOperator = null;
+            switch (symmetricEncryptionOperatorCode)
+            {
+                default:
+                case "aes":
+                    // Try to get public key from entry query.
+                    try
+                    {
+                        // Generate new key for data encryption.
+                        symmetricOperator = new AESEncryptionOperator()
+                        { EncryptionKey = System.Security.Cryptography.Aes.Create().Key };
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
+                    }
+                    break;
+            }
+
+            // Redirect encryption.
+            return await TryToEncryptAsync(
+                query, 
+                symmetricOperator,
+                asymmetricEecryptionOperator,
+                cancellationToken);
         }
 
         /// <summary>
         /// Trying to encrypt data.
         /// </summary>
         /// <param name="query">Query that's content would be ecrypted.</param>
-        /// <param name="encryptionOperator">Operator that woud be used to encryption.</param>
-        public static void TryToEncrypt(ref UniformQueries.Query query, IEncryptionOperator encryptionOperator)
+        /// <param name="symmetricEncryptionOperator">Operator that woud be used to content encryption.</param>
+        /// <param name="asymmetricEecryptionOperator">
+        /// Operator that woud be used to symmetric key encryption.
+        /// Operate with public key received from server.
+        /// </param>
+        /// <param name="cancellationToken">Token for operation termination.</param>
+        /// <returns>Result of encrypting. False meaning failed.</returns>
+        public static async Task<bool> TryToEncryptAsync(
+            UniformQueries.Query query,
+            IEncryptionOperator symmetricEncryptionOperator,
+            IEncryptionOperator asymmetricEecryptionOperator,
+            System.Threading.CancellationToken cancellationToken)
         {
             // Validate.
-            if (query == null) return;
-            if (encryptionOperator == null) return;
-            if (query.Content == null) return;
+            if (query == null) return false;
+            if (symmetricEncryptionOperator == null) return false;
+            if (asymmetricEecryptionOperator == null) return false;
+            if (query.Content == null) return false;
 
             // Encrypt data.
-            query.Content = encryptionOperator.Encrypt(UniformDataOperator.Binary.BinaryHandler.ToByteArray(query.Content));
+            query.Content = symmetricEncryptionOperator.Encrypt(query.Content);
+
+            // Add encryption meta.
+            query.EncryptionMeta = new UniformQueries.Query.EncryptionInfo()
+            {
+                // Save decryptor marker.
+                contentEncytpionOperatorCode = symmetricEncryptionOperator.DecryptionMarker,
+
+                // Encrypt syhmetric key used to data encryption with assymetric key received from server.
+                encryptedSymmetricKey = await asymmetricEecryptionOperator.EncryptAsync(
+                    symmetricEncryptionOperator.SharableData,
+                    cancellationToken)
+            };
+
+            return true;
         }
 
         /// <summary>
-        /// Returning encryption operator suitable for client's token.
-        /// Registrate new operator to that token if not found.
+        /// Trying to encrypt data.
         /// </summary>
-        /// <typeparam name="T">Operator type.</typeparam>
-        /// <param name="guid">GUID related to key.</param>
-        /// <returns>AES Encryption operator</returns>
-        public static IEncryptionOperator GetSymetricKey<T>(string guid) where T : IEncryptionOperator
+        /// <param name="query">Query that's content would be ecrypted.</param>
+        /// <param name="symmetricEncryptionOperator">Operator that woud be used to content encryption.</param>
+        /// <param name="asymmetricEecryptionOperator">
+        /// Operator that woud be used to symmetric key encryption.
+        /// Operate with public key received from server.
+        /// </param>
+        public static void TryToEncrypt(
+            UniformQueries.Query query, 
+            IEncryptionOperator symmetricEncryptionOperator, 
+            IEncryptionOperator asymmetricEecryptionOperator)
         {
-            // Trying to find already existed operator.
-            if (symmetricKeys[guid] is IEncryptionOperator eo)
-            {
-                return eo;
-            }
-            else
-            {
-                // Initialize new operator
-                eo = (IEncryptionOperator)Activator.CreateInstance(typeof(T));
+            // Validate.
+            if (query == null) return;
+            if (symmetricEncryptionOperator == null) return;
+            if (asymmetricEecryptionOperator == null) return;
+            if (query.Content == null) return;
 
-                // Adding operator to hashtable.
-                symmetricKeys.Add(guid, eo);
+            // Encrypt data.
+            query.Content = symmetricEncryptionOperator.Encrypt(query.Content);
 
-                // Returning created operator as result.
-                return eo;
-            }
+            // Add encryption meta.
+            query.EncryptionMeta = new UniformQueries.Query.EncryptionInfo()
+            {
+                // Save decryptor marker.
+                contentEncytpionOperatorCode = symmetricEncryptionOperator.DecryptionMarker,
+
+                // Encrypt syhmetric key used to data encryption with assymetric key received from server.
+                encryptedSymmetricKey = asymmetricEecryptionOperator.Encrypt(symmetricEncryptionOperator.SharableData)
+            };
         }
 
         /// <summary>
@@ -122,60 +225,52 @@ namespace PipesProvider.Security.Encryption
         /// </summary>
         /// <param name="receivedQuery">Query received from client, that contain ecnryption descriptor.</param>
         /// <param name="toEncrypt">Query that would be ecrypted with enctry data.</param>
-        public static void TryToEncryptByReceivedQuery(UniformQueries.Query receivedQuery, UniformQueries.Query toEncrypt)
+        /// <param name="cancellationToken">Token for operation termination.</param>
+        public static async Task<bool> TryToEncryptByReceivedQueryAsync(
+            UniformQueries.Query receivedQuery,
+            UniformQueries.Query toEncrypt,
+            System.Threading.CancellationToken cancellationToken)
         {
-            if (receivedQuery.Encryption != null &&
-               !string.IsNullOrEmpty(receivedQuery.Encryption.encytpionOperatorCode))
+            if (receivedQuery.EncryptionMeta != null &&
+               !string.IsNullOrEmpty(receivedQuery.EncryptionMeta.contentEncytpionOperatorCode))
             {
-                // To valid format.
-                receivedQuery.Encryption.encytpionOperatorCode = receivedQuery.Encryption.encytpionOperatorCode.ToLower();
-
-                switch (receivedQuery.Encryption.encytpionOperatorCode)
+                #region RSA encryptor
+                IEncryptionOperator asymmetricOperator;
+                // Encrypt query if requested by "pk" query's param.
+                if (receivedQuery.TryGetParamValue(
+                    "pk", out UniformQueries.QueryPart publicKeyProp))
                 {
-                    case "rsa":
-                        // Encrypt query if requested by "pk" query's param.
-                        if (receivedQuery.TryGetParamValue(
-                            "pk",
-                            out UniformQueries.QueryPart publicKeyProp))
+                    try
+                    {
+                        // Create new RSA decryptor.
+                        asymmetricOperator = new RSAEncryptionOperator
                         {
-                            try
-                            {
-                                // Create new RSA decryptor.
-                                RSAEncryptionOperator rsaEncryption = new RSAEncryptionOperator
-                                {
-                                    SharableData = publicKeyProp.PropertyValueString
-                                };
-
-                                // Encrypt with shared RSA encryptor.
-                                TryToEncrypt(ref toEncrypt, rsaEncryption);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
-                            }
-                        }
-                        break;
-
-                    case "aes":
-                        // Try to get public key from entry query.
-                        try
-                        {
-                            // Get guid for shared configs.
-                            string guid = UniformDataOperator.Binary.BinaryHandler.FromByteArray<string>(receivedQuery.Encryption.configs);
-
-                            // Looking for decryptor.
-                            AESEncryptionOperator aesEncryption = (AESEncryptionOperator)symmetricKeys[guid];
-
-                            // Encrypt with shared RSA encryptor.
-                            EnctyptionOperatorsHandler.TryToEncrypt(ref toEncrypt, aesEncryption);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
-                        }
-                        break;
+                            SharableData = publicKeyProp.propertyValue
+                        };
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Ecryption failed. Operation terminated. Details: " + ex.Message);
+                    }
                 }
+                #endregion
+
+                #region Encrypt content
+                // To valid format.
+                receivedQuery.EncryptionMeta.contentEncytpionOperatorCode = 
+                    receivedQuery.EncryptionMeta.contentEncytpionOperatorCode.ToLower();
+
+                // Encrypting data.
+                return await TryToEncryptAsync(
+                    toEncrypt,
+                    receivedQuery.EncryptionMeta.contentEncytpionOperatorCode,
+                    new RSAEncryptionOperator() { SharableData = publicKeyProp.propertyValue },
+                    cancellationToken);
+                #endregion
             }
+
+            // Encryption not required.
+            return true;
         }
     }
 }

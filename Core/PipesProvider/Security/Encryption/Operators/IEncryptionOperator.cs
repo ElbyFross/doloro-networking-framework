@@ -71,9 +71,9 @@ namespace PipesProvider.Security.Encryption.Operators
         object DecryptionKey { get; set; }
 
         /// <summary>
-        /// Public keys ins string format allowed to sharing.
+        /// Public keys in binary format allowed to sharing in message format.
         /// </summary>
-        string SharableData { get; set; }
+        byte[] SharableData { get; set; }
 
         /// <summary>
         /// Encrypting string message.

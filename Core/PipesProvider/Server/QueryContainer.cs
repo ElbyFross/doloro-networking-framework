@@ -57,7 +57,7 @@ namespace PipesProvider.Client
         /// <summary>
         /// Delegate that will be called when anser transmition will be recived.
         /// </summary>
-        public System.Action<TransmissionLine, byte[]> AnswerHandler;
+        public Action<TransmissionLine, byte[]> AnswerHandler;
         #endregion
 
 
@@ -83,7 +83,7 @@ namespace PipesProvider.Client
         /// </summary>
         /// <param name="query">Formated query.</param>
         /// <param name="AnswerHandler">Delegate that would handle answer received from server.</param>
-        public QueryContainer(UniformQueries.Query query, System.Action<TransmissionLine, byte[]> AnswerHandler)
+        public QueryContainer(UniformQueries.Query query, Action<TransmissionLine, byte[]> AnswerHandler)
         {
             this.Data = query;
             this.AnswerHandler = AnswerHandler;

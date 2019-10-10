@@ -9,11 +9,10 @@
             Provide API to working with binary files.
             </summary>
         </member>
-        <member name="M:UniformDataOperator.Binary.BinaryHandler.ToByteArray``1(``0)">
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.ToByteArray(System.Object)">
             <summary>
             Convert object to bytes array.
             </summary>
-            <typeparam name="T">Type of target object.</typeparam>
             <param name="obj">Object for serialization.</param>
             <returns>Binary data</returns>
         </member>
@@ -24,23 +23,6 @@
             <typeparam name="T">Type of target object.</typeparam>
             <param name="data">Binary data.</param>
             <returns>Deserialized object.</returns>
-        </member>
-        <member name="M:UniformDataOperator.Binary.BinaryHandler.StreamWriterAsync(System.IO.Stream,System.Byte[],System.Int32)">
-            <summary>
-            Writing asynchronicly binary data to stream.
-            </summary>
-            <param name="stream">Target stream.</param>
-            <param name="data">Binary data that would be sent to stream.</param>
-            <param name="dataBlockSize">Size of block in bytes that would be send to stream per each flush.</param>
-            <returns>Asynchronous operation of data writing.</returns>
-        </member>
-        <member name="M:UniformDataOperator.Binary.BinaryHandler.StreamReaderAsync(System.IO.Stream,System.Int32)">
-            <summary>
-            Asynchronous reading formated data from stream.
-            </summary>
-            <param name="stream">Target stream.</param>
-            <param name="dataBlockSize">Bytes readed during one tick.</param>
-            <returns>Readed binary data.</returns>
         </member>
         <member name="T:UniformDataOperator.Binary.BoyerMoore">
             <summary>
@@ -94,6 +76,140 @@
             <param name="fragment">Target binry fragment to search.</param>
             <param name="p"></param>
             <returns></returns>
+        </member>
+        <member name="T:UniformDataOperator.Binary.IO.StreamChanelMode">
+            <summary>
+            Defines what a type of stream chanel.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Binary.IO.StreamChanelMode.Duplex">
+            <summary>
+            Server will wait for confirming of data receiving from client.
+            Has advantage in case of small packages (about 8kb). 
+            Can take more time for precoessing in case if package is 64kb or higher.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Binary.IO.StreamChanelMode.Oneway">
+            <summary>
+            Server wait declared count of spins.
+            </summary>
+        </member>
+        <member name="T:UniformDataOperator.Binary.IO.StreamHandler">
+            <summary>
+            Class that provides way to operating binary data streams.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Binary.IO.StreamHandler.HEADER_SIZE">
+            <summary>
+            Size of package's header in bytes.
+            </summary>
+        </member>
+        <member name="P:UniformDataOperator.Binary.IO.StreamHandler.OneWaySpinsPause">
+            <summary>
+            How many spins package builder will wait before manage next package.
+            </summary>
+        </member>
+        <member name="P:UniformDataOperator.Binary.IO.StreamHandler.MilisecondsBeforeDrop">
+            <summary>
+            How many miliseconds would wait stream server before drop connection as failed.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(System.IO.Pipes.PipeStream,System.Byte[])">
+            <summary>
+            Writing asynchronicly binary data to stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="data">Binary data that would be sent to stream.</param>
+            <returns>Asynchronous operation of data writing.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(System.IO.Pipes.PipeStream,System.Object)">
+            <summary>
+            Writing asynchronicly binary data to stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="nonBinaryData">Non binary object that would be shared via stream.</param>
+            <returns>Asynchronous operation of data writing.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(System.IO.Stream,UniformDataOperator.Binary.IO.StreamChanelMode,System.Byte[],System.Int32)">
+            <summary>
+            Writing asynchronicly binary data to stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="mode">
+            Defines mode of package building. 
+            In case of Duplex streaming would droped if @MilisecondsBeforeDrop timeout passed without client's confirmation.
+            </param>
+            <param name="data">Binary data that would be sent to stream.</param>
+            <param name="dataBlockSize">Size of block in bytes that would be send to stream per each flush.</param>
+            <returns>Asynchronous operation of data writing.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(System.IO.Pipes.PipeStream,UniformDataOperator.Binary.IO.StreamChanelMode,System.Byte[],System.Int32)">
+            <summary>
+            Writing asynchronicly binary data to stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <param name="mode">
+            Defines mode of package building. 
+            In case of Duplex streaming would droped if @MilisecondsBeforeDrop timeout passed without client's confirmation.
+            </param>
+            <param name="data">Binary data that would be sent to stream.</param>
+            <param name="dataBlockSize">Size of block in bytes that would be send to stream per each flush.</param>
+            <returns>Asynchronous operation of data writing.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.WaitPackageReceiving(System.IO.Stream,UniformDataOperator.Binary.IO.StreamChanelMode)">
+            <summary>
+            Whaiting for previous package receiving by client.
+            </summary>
+            <param name="stream">Stream to client.</param>
+            <param name="mode">Mode of stram managing.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.ComputeRequiredPackages(System.Int32,System.Int32)">
+            <summary>
+            Computing count of packages required to data transmission.
+            </summary>
+            <param name="blockSize">Size of one transmission package.</param>
+            <param name="dataBytes">Linght of data to sharing in bytes.</param>
+            <returns>Count of required packages.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.BuildPackage(System.Int32,System.Int32,System.Int32,System.Byte[],System.Byte[]@)">
+            <summary>
+            Building data package by index.
+            </summary>
+            <param name="index">Index of data block.</param>
+            <param name="headerIndex">Index that would be used as header to determine is a data block received.</param>
+            <param name="blockSize">Size of block including header.</param>
+            <param name="source">Binary data devided on packages.</param>
+            <param name="package">Builded binaty package.</param>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync(System.IO.Pipes.PipeStream)">
+            <summary>
+            Asynchronous reading formated data from stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <returns>Readed binary data.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync``1(System.IO.Pipes.PipeStream)">
+            <summary>
+            Asynchronous reading formated data from stream.
+            </summary>
+            <typeparam name="T">Type of data after binary decoding.</typeparam>
+            <param name="stream">Target stream.</param>
+            <returns>Readed binary data.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync(System.IO.Stream)">
+            <summary>
+            Asynchronous reading formated data from stream.
+            </summary>
+            <param name="stream">Target stream.</param>
+            <returns>Readed binary data.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Binary.IO.StreamHandler.InformAboutReceving(UniformDataOperator.Binary.IO.StreamChanelMode,System.IO.Stream)">
+            <summary>
+            Informing server about receiving message by client.
+            </summary>
+            <param name="mode">Server mode that decide reaction.</param>
+            <param name="stream">Target to server stream.</param>
         </member>
         <member name="T:UniformDataOperator.Sql.ISqlOperator">
             <summary>

@@ -13,14 +13,9 @@
 //limitations under the License.
 
 using System;
-using System.Collections;
 using System.Threading.Tasks;
-using System.Threading;
-using System.IO;
-using System.IO.Pipes;
 using UniformQueries;
 using UniformQueries.Executable;
-using UQAPI = UniformQueries.API;
 using PipesProvider.Server.TransmissionControllers;
 
 namespace PipesProvider.Handlers
@@ -36,27 +31,38 @@ namespace PipesProvider.Handlers
         /// </summary>
         /// <param name="tl">Server's transmission controller called that handler.</param>
         /// <param name="query">Received query</param>
-        public static async void ProcessingAsync(BaseServerTransmissionController tl, UniformQueries.Query query)
+        public static async void ProcessingAsync(BaseServerTransmissionController tl, Query query)
         {
             // Detect query parts.
             query.TryGetParamValue("token", out QueryPart token);
 
-            // Try to detect target query processor.
-            if(API.TryFindQueryHandler(query, out IQueryHandler handler))
+            try
             {
-                // Log.
-                Console.WriteLine("Start execution: [{0}]\n for token: [{1}]",
-                    query, token.IsNone ? "token not found" : token.PropertyValueString);
+                // Try to detect target query processor.
+                if (API.TryFindQueryHandler(query, out IQueryHandler handler))
+                {
+                    // Log.
+                    Console.WriteLine("Start execution: [{0}]", query);
 
-                // Execute query as async.
-                await Task.Run(() => handler.Execute(tl, query));
+                    // Execute query as async.
+                    await Task.Run(() => handler.Execute(tl, query));
+
+                    // Log.
+                    Console.WriteLine("Query finished execution: [{0}]", query);
+                }
+                else
+                {
+                    // Inform about error.
+                    Console.WriteLine("POST ERROR: Token: {1} | Handler for query \"{0}\" not implemented.",
+                        query, token);
+                }
             }
-            else
+            catch(Exception ex)
             {
                 // Inform about error.
-                Console.WriteLine("POST ERROR: Token: {1} | Handler for query \"{0}\" not implemented.",
-                    query, token);
-            }           
+                Console.WriteLine("POST ERROR: Token: {1} | Query \"{0}\" caused error : \n[{2}]",
+                        query, token, ex.Message);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ using PipesProvider.Networking.Routing;
 using PipesProvider.Server.TransmissionControllers;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace UniformServer.Standard
 {
@@ -124,7 +125,7 @@ namespace UniformServer.Standard
                     + controller.pipeName +
                     "\" not found. Add instuction to \"BaseClient.routingTable.intructions\" collection.");
 
-                return  UniformDataOperator.Binary.BinaryHandler.ToByteArray<string>("Error 404: Routing server not found. Con'tact administrator.");
+                return  UniformDataOperator.Binary.BinaryHandler.ToByteArray("Error 404: Routing server not found. Con'tact administrator.");
             }
 
             // Markers for managing thread.
@@ -219,8 +220,32 @@ namespace UniformServer.Standard
         /// <param name="query">Query received from client.</param>
         public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, UniformQueries.Query query)
         {
-            // Try to encrypt receved message.
-            PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref query);
+            bool decryptionComplete = false;
+            bool decryptionResult = false;
+
+            Task decryptionOperation = new Task(async delegate ()
+            {
+                // Try to encrypt receved message.
+                decryptionResult = await PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecryptAsync(
+                    query,
+                    PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey);
+
+                decryptionComplete = true; 
+            });
+
+            // Whait for decription completing.
+            while(!decryptionComplete)
+            {
+                Thread.Sleep(5);
+            }
+
+            // Loging error to client.
+            if(!decryptionResult)
+            {
+                // Try to get answer in string format.
+                SendAnswerViaPP("DUPLEX RELEAY ERROR: Data corrupted. Decryption not possible. Relay terminated.", query);
+                return;
+            }
 
             // Detect routing target.
             bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
@@ -239,34 +264,6 @@ namespace UniformServer.Standard
 
                 // Drop continue computing.
                 return;
-            }
-
-            // If requested encryption.
-            if (instruction.encryption)
-            {
-                // Check if instruction key is valid.
-                // If key expired or invalid then will be requested new.
-                if (!instruction.IsValid)
-                {
-                    // Request new key.
-                    System.Threading.Tasks.Task task = UniformClient.BaseClient.GetValidSecretKeysViaPPAsync(instruction);
-
-                    // Log.
-                    Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}", instruction.routingIP, instruction.pipeName);
-
-                    // Wait until validation time.
-                    // Operation will work in another threads, so we just need to take a time.
-                    while (!instruction.IsValid)
-                    {
-                        Thread.Sleep(15);
-                    }
-
-                    // Log.
-                    Console.WriteLine("PUBLIC RSA KEY FROM {0}/{1} RECIVED", instruction.routingIP, instruction.pipeName);
-                }
-
-                // Encrypt message if encryptor exist.
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt(ref query, instruction.ValidEncryptionOperator);
             }
 
             // Open connection.

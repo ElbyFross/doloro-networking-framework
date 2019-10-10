@@ -15,12 +15,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace UniformQueries
 {
     /// <summary>
     /// Formated query part descriptor.
     /// </summary>
+    [System.Serializable]
     public struct QueryPart
     {
         /// <summary>
@@ -50,6 +52,11 @@ namespace UniformQueries
                     if(_PropertyValueString == null)
                     {
                         _PropertyValueString = encoding.GetString(propertyValue);
+
+                        if(_PropertyValueString.Contains("\0"))
+                        {
+                            _PropertyValueString = "binary";
+                        }
                     }
                     return _PropertyValueString;
                 }
@@ -60,7 +67,14 @@ namespace UniformQueries
             }
             set
             {
-                propertyValue = encoding.GetBytes(value);
+                if (value != null)
+                {
+                    propertyValue = encoding.GetBytes(value);
+                }
+                else
+                {
+                    propertyValue = null;
+                }
             }
         }
 
@@ -72,6 +86,7 @@ namespace UniformQueries
         /// <summary>
         /// If this struct not initialized.
         /// </summary>
+        [XmlIgnore]
         public bool IsNone
         {
             get
@@ -154,7 +169,14 @@ namespace UniformQueries
         /// <returns></returns>
         public override string ToString()
         {
-            return propertyName + (PropertyValueString != null ? "=" + PropertyValueString : ":binary");
+            if (propertyValue != null)
+            {
+                return propertyName + (PropertyValueString != null ? "=" + PropertyValueString : ":binary");
+            }
+            else
+            {
+                return propertyName + ":none";
+            }
         }
 
         /// <summary>
@@ -253,7 +275,7 @@ namespace UniformQueries
             if (!query.TryGetParamValue("token", out QueryPart token)) return false;
 
             // Build domain.
-            domain = guid.propertyValue.GetHashCode() + "_" + token.propertyValue.GetHashCode();
+            domain = guid.PropertyValueString.GetHashCode() + "_" + token.PropertyValueString.GetHashCode();
 
             return true;
         }

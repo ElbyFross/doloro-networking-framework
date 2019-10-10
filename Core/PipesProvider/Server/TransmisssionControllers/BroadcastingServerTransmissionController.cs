@@ -48,7 +48,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="pipeName">Name of the pipe.</param>
         public BroadcastingServerTransmissionController(
            IAsyncResult connectionMarker,
-           System.Action<BaseServerTransmissionController> connectionCallback,
+           Action<BaseServerTransmissionController> connectionCallback,
            NamedPipeServerStream pipe, 
            string pipeName) : base(
                 connectionMarker, 
@@ -98,7 +98,7 @@ namespace PipesProvider.Server.TransmissionControllers
                 Handlers.DNS.ServerBroadcasting,
                 pipeName,
                 PipeDirection.InOut,
-                System.IO.Pipes.NamedPipeServerStream.MaxAllowedServerInstances,
+                NamedPipeServerStream.MaxAllowedServerInstances,
                 PipeTransmissionMode.Message,
                 PipeOptions.Asynchronous | PipeOptions.WriteThrough,
                 securityLevel,

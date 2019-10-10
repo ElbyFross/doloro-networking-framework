@@ -88,11 +88,6 @@ namespace UniformQueries.Executable.Security
             // Trying to convert answer to string
             if (answer is Query query)
             {
-                if(query.ListedContent == null)
-                {
-
-                }
-
                 // Get token.
                 if (query.TryGetParamValue("token", out QueryPart tokenBufer))
                 {
@@ -105,11 +100,9 @@ namespace UniformQueries.Executable.Security
                     // Get expiry time.
                     if (query.TryGetParamValue("expiryIn", out QueryPart expiryIn))
                     {
-                        // Apply expire time.
-                        if(long.TryParse(expiryIn.PropertyValueString, out long expiryTimeBufer))
-                        {
-                            ExpiryTime = System.DateTime.FromBinary(expiryTimeBufer);
-                        }
+                        // Decode expiry time from binary format.
+                        ExpiryTime = System.DateTime.FromBinary(
+                            UniformDataOperator.Binary.BinaryHandler.FromByteArray<long>(expiryIn.propertyValue));
                     }
 
                     // Get provided rights.

@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using PipesProvider.Networking.Routing;
 using PipesProvider.Client;
@@ -24,77 +25,143 @@ namespace UniformClient
     /// </summary>
     public abstract partial class BaseClient
     {
-        /// Provide valid public key for target server encryption.
-        /// Auto update key if was expired.
+        /// <summary>
+        /// Requesting secrete key.
         /// </summary>
-        /// <param name="instruction">Routing instruction that contains transmission descriptor.</param>
-        /// <returns>Started async task.</returns>
-        public static async Task GetValidSecretKeysViaPPAsync(Instruction instruction)
+        /// <param name="encryptionProviderKey">Code of target encryption operator.</param>
+        /// <param name="pai">Routing instruction to target server.</param>
+        /// <returns></returns>
+        public static async Task<bool> RequestSecretKeyViaPPAsync(string encryptionProviderKey, PartialAuthorizedInstruction pai)
         {
-            // Try to cast instruction like a partial authorized (that has guest authorized token).
-            if (instruction is PartialAuthorizedInstruction pai)
+            // Validate guest token.
+            if(string.IsNullOrEmpty(pai.GuestToken))
             {
-                if (string.IsNullOrEmpty(pai.GuestToken))
+                // Waiting for guest token.
+                if(!await pai.TryToGetGuestTokenAsync(TerminationTokenSource.Token))
                 {
-                    // Request guest token and only after that request public key.
-                    await pai.TryToGetGuestTokenAsync(RequestEncryptionKeys, TerminationTokenSource.Token);
-                }
-                else
-                {
-                    // Request pai if 
-                    if (!pai.IsValid)
-                    {
-                        RequestEncryptionKeys(pai);
-                    }
+                    Console.WriteLine("{0}/{1}: Guest token receiving failed. Keys enchange terminated.");
+                    return false;
                 }
             }
-            else
+
+            encryptionProviderKey = encryptionProviderKey.ToLower();
+
+            switch (encryptionProviderKey)
             {
-                throw new InvalidCastException("Instruction must be inheirted from PartialAuthorizedInstruction");
+                case "rsa": return await RequestRSAEncryptionKeyAsync(pai);
+                //case "aes": return await RequestAESEncryptionKeyAsync(pai);
+                default: throw new NotSupportedException("\"" + encryptionProviderKey + "\" IEncryptionOperator not exist in that instruction.");
             }
+
         }
 
         /// <summary>
-        /// Requsting RSA and AES encryption keys from server.
+        /// Requsting RSA encryption key from server.
         /// </summary>
         /// <param name="pai">Instruction that would be used for routing to target server.</param>
-        private static void RequestEncryptionKeys(PartialAuthorizedInstruction pai)
+        private static async Task<bool> RequestRSAEncryptionKeyAsync(PartialAuthorizedInstruction pai)
         {
-            // Validate key.
-            if (pai.IsValid)
+            // Create base part of query for reciving of public RSA key.
+            UniformQueries.Query query = new UniformQueries.Query(
+                new UniformQueries.QueryPart("token", pai.GuestToken),
+                new UniformQueries.QueryPart("get"),
+                new UniformQueries.QueryPart("publickey"),
+                new UniformQueries.QueryPart("guid", pai.GetHashCode().ToString()))
             {
-                return;
+                WaitForAnswer = true // Request waitign for answer before computing of the next query in queue.
+            };
+
+            // Getting line to prevent conflict.
+            TransmissionLine line = OpenOutTransmissionLineViaPP(pai.routingIP, pai.pipeName);
+
+            // Insert query to processing with termination of current query.
+            line.InsertQuery(query, true);
+
+            bool result = false;
+            bool completed = false;
+
+            // Open backward chanel to recive answer from server.
+            ReceiveDelayedAnswerViaPP(line, query, 
+                // Create callback delegate that will set recived value to routing table.
+                delegate (TransmissionLine answerLine, UniformQueries.Query answer)
+                {
+                    // Try to apply recived answer.
+                    result = pai.AsymmetricEncryptionOperator.UpdateWithQuery(answer);
+
+                    // Log about update
+                    Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
+                         pai.routingIP, pai.pipeName);
+
+                    // Finalize operation.
+                    completed = true;
+                });
+
+            // Wait for result.
+            while(!completed)
+            {
+                await Task.Delay(20, TerminationTokenSource.Token);
+            }
+
+            return result;
+        }
+
+        /*
+        /// <summary>
+        /// Requsting AES encryption key from server.
+        /// </summary>
+        /// <param name="pai">Instruction that would be used for routing to target server.</param>
+        private static async Task<bool> RequestAESEncryptionKeyAsync(PartialAuthorizedInstruction pai)
+        {
+            // Check if RSA encryptor alredy received and valid.
+            if(!pai.AsymmetricEncryptionOperator.IsValid)
+            {
+                // Requestung new RSA key.
+                if(!await RequestRSAEncryptionKeyAsync(pai))
+                {
+                    return false;
+                }
             }
 
             // Create base part of query for reciving of public RSA key.
             UniformQueries.Query query = new UniformQueries.Query(
                 new UniformQueries.QueryPart("token", pai.GuestToken),
                 new UniformQueries.QueryPart("get"),
-                new UniformQueries.QueryPart("publickey"),
+                new UniformQueries.QueryPart("skey"),
                 new UniformQueries.QueryPart("guid", pai.GetHashCode().ToString()));
-            
-            // Request public key from server.
-            EnqueueDuplexQueryViaPP(
-                pai.routingIP,
-                pai.pipeName,
-                query,
+
+            // Getting line to prevent conflict.
+            TransmissionLine line = OpenOutTransmissionLineViaPP(pai.routingIP, pai.pipeName);
+
+            // Insert query to processing with termination of current query.
+            line.InsertQuery(query, true);
+
+            bool result = false;
+            bool completed = false;
+
+            // Open backward chanel to recive answer from server.
+            ReceiveDelayedAnswerViaPP(line, query,
                 // Create callback delegate that will set recived value to routing table.
                 delegate (TransmissionLine answerLine, UniformQueries.Query answer)
                 {
-                    // Log about success.
-                    //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
-                    //    instruction.routingIP, instruction.pipeName);
-
                     // Try to apply recived answer.
-                    if(pai.RSAEncryptionOperator.UpdateWithQuery(answer))
-                    {
-                        // TODO Request AES keys exchange.
-                    }
+                    result = pai.AESEncryptionOperator.UpdateWithQuery(answer);
 
                     // Log about update
-                    Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
+                    Console.WriteLine("{0}/{1}: AES KEY UPDATED",
                          pai.routingIP, pai.pipeName);
+
+                    // Finalize operation.
+                    completed = true;
                 });
+
+            // Wait for result.
+            while (!completed)
+            {
+                await Task.Delay(20, TerminationTokenSource.Token);
+            }
+
+            return result;
         }
+        */
     }
 }

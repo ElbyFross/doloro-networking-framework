@@ -101,14 +101,35 @@ namespace UniformServer
                         // Unsubscribe.
                         ServerAPI.ServerTransmissionMeta_InProcessing -= InitationCallback;
 
-                        // Try to encrypt answer if required.
-                        PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncryptByReceivedQuery(entryQuery, answer);
+                        bool encryptingComplete = false;
+
+                        // Encrypting data in async operation.
+                        var encryptionAgent = new System.Threading.Tasks.Task(async delegate ()
+                        {
+                            // Try to encrypt answer if required.
+                            await PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.
+                            TryToEncryptByReceivedQueryAsync(entryQuery, answer, CancellationToken.None);
+
+                            encryptingComplete = true;
+                        });
+
+                        try
+                        {
+                            encryptionAgent.Start();
+                        }
+                        catch { }
+
+                        // Wait for encryption 
+                        while(!encryptingComplete)
+                        {
+                            Thread.Sleep(5);
+                        }
 
                         // Set answer query as target for processing,
                         transmissionController.ProcessingQuery = answer;
 
                         // Log.
-                        Console.WriteLine("{0}: Processing query changed on:\n{1}\n", transmissionController.pipeName, answer);
+                        Console.WriteLine(@"{0}: Processing query changed on: " + @answer.ToString(), @transmissionController.pipeName);
                     }
                 }
                 else // Incorrect type.

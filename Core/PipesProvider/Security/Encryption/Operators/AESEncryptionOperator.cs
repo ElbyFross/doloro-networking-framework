@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 using System.Timers;
+using PipesProvider.Networking.Routing;
 
 namespace PipesProvider.Security.Encryption.Operators
 {
@@ -44,18 +45,49 @@ namespace PipesProvider.Security.Encryption.Operators
         /// </summary>
         public Encoding Encoder { get; set; } = Encoding.Default;
 
-        public bool IsValid => throw new NotImplementedException();
+        /// <summary>
+        /// Is current encryption provider is valid and can be used in transmission.
+        /// </summary>
+        public bool IsValid
+        {
+            get
+            {
+                // If crypto provider expired.
+                if (_SecretKey == null || _SecretKey.Count() == 0)
+                {
+                    return false;
+                }
 
-        public int SessionTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+                return true;
+            }
+        }
 
-        public DateTime ExpiryTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        /// <summary>
+        /// Always cause NotSupportedException.
+        /// Key must be applied like a new for every transmission.
+        /// </summary>
+        public int SessionTime { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
+
+        /// <summary>
+        /// Always cause NotSupportedException.
+        /// Key must be applied like a new for every transmission.
+        /// </summary>
+        public DateTime ExpiryTime { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
 
         /// <summary>
         /// Object that contains suitable data that can be used to encryption\decryption of data.
+        /// Generate new if null.
         /// </summary>
         public object EncryptionKey
         {
-            get { return _SecretKey; }
+            get
+            {
+                if(_SecretKey == null)
+                {
+                    _SecretKey = Aes.Create().Key;
+                }
+                return _SecretKey;
+            }
             set { _SecretKey = value as byte[]; }
         }
         
@@ -74,26 +106,17 @@ namespace PipesProvider.Security.Encryption.Operators
         private byte[] _SecretKey;
 
         /// <summary>
-        /// Public keys ins string format allowed to sharing in message format.
+        /// Public keys in binary format allowed to sharing in message format.
         /// </summary>
-        public string SharableData
+        public byte[] SharableData
         {
             get
-            {
-                var sw = new StringWriter();
-                var xs = new System.Xml.Serialization.XmlSerializer(typeof(byte[]));
-
-                xs.Serialize(sw, EncryptionKey);
-                return sw.ToString();
+            {               
+                return _SecretKey;
             }
             set
             {
-                var sr = new StringReader(value);
-                var xs = new System.Xml.Serialization.XmlSerializer(typeof(byte[]));
-
-                // Convert xml to object.
-                object bufer = xs.Deserialize(sr);
-                EncryptionKey = (RSAParameters)bufer;
+                _SecretKey = value;
             }
         }
 
@@ -232,11 +255,11 @@ namespace PipesProvider.Security.Encryption.Operators
         /// <returns>Encrypted data.</returns>
         public byte[] Encrypt(byte[] data)
         {           
-            if (_SecretKey == null || _SecretKey.Length == 0) throw new ArgumentException("encryptionKey");
+            //if (EncryptionKey == null || _SecretKey.Length == 0) throw new ArgumentException("encryptionKey");
             using (var provider = new AesCryptoServiceProvider())
             {
                 // Configurating provider.
-                provider.Key = _SecretKey;
+                provider.Key = (byte[])EncryptionKey;
                 provider.Padding = PaddingMode.PKCS7;
                 provider.Mode = CipherMode.CBC;
 
@@ -250,7 +273,7 @@ namespace PipesProvider.Security.Encryption.Operators
                         using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
                         {
                             cs.Write(data, 0, data.Length);
-                            cs.FlushFinalBlock();
+                            cs.Flush();//.FlushFinalBlock();
                         }
 
                         // Return result.

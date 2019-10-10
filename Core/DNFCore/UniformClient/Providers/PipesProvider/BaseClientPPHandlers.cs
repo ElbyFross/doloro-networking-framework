@@ -23,6 +23,7 @@ using System.Security.Cryptography;
 
 using Microsoft.Win32.SafeHandles;
 
+using PipesProvider.Security.Encryption;
 using PipesProvider.Networking.Routing;
 using PipesProvider.Client;
 
@@ -61,7 +62,7 @@ namespace UniformClient
                 // Avoid an error caused to disconection of client.
                 try
                 {
-                    receivedData = await UniformDataOperator.Binary.BinaryHandler.StreamReaderAsync(lineProcessor.pipeClient);
+                    receivedData = await UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync(lineProcessor.pipeClient);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -108,7 +109,7 @@ namespace UniformClient
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine("DNS HANDLER ERROR 401({1}): QURY DAMAGED : {0}", ex.Message, lineProcessor.pipeClient.GetHashCode());
+                    Console.WriteLine("DNS HANDLER ERROR 401({1}): QUERY DAMAGED : {0}", ex.Message, lineProcessor.pipeClient.GetHashCode());
 
                     // Stop processing merker to pass async block.
                     lineProcessor.Processing = false;
@@ -119,19 +120,29 @@ namespace UniformClient
                 }
 
                 // Decrypt if required.
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecrypt(ref receviedQuery);
+                await EnctyptionOperatorsHandler.TryToDecryptAsync(
+                    receviedQuery, 
+                    EnctyptionOperatorsHandler.AsymmetricKey,
+                    TerminationTokenSource.Token);
 
                 #region Processing message
                 // Try to call answer handler.
                 string tableGUID = lineProcessor.ServerName + "\\" + lineProcessor.ServerPipeName;
+
                 // Look for delegate in table.
                 if (DuplexBackwardCallbacks[tableGUID] is
-                    System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
+                    Action<TransmissionLine, UniformQueries.Query> registredCallback)
                 {
                     if (registredCallback != null)
                     {
                         // Invoke delegate if found and has dubscribers.
                         registredCallback.Invoke(lineProcessor, receviedQuery);
+
+                        // Drop reference.
+                        DuplexBackwardCallbacks.Remove(tableGUID);
+
+                        // Inform subscribers about answer receiving.
+                        eDuplexBackwardCallbacksReceived?.Invoke(tableGUID);
                     }
                     else
                     {
@@ -164,66 +175,86 @@ namespace UniformClient
         public static async void HandlerOutputTransmisssionAsync(object sharedObject)
         {
             // Drop as invalid in case of incorrect transmitted data.
-            if (!(sharedObject is PipesProvider.Client.TransmissionLine lineProcessor))
+            if (!(sharedObject is PipesProvider.Client.TransmissionLine line))
             {
                 Console.WriteLine("TRANSMISSION ERROR (UQPP0): INCORRECT TRANSFERED DATA TYPE. PERMITED ONLY \"LineProcessor\"");
                 return;
             }
-            
-            // If requested encryption.
-            if (lineProcessor.RoutingInstruction != null &&
-                lineProcessor.RoutingInstruction.encryption)
+
+            // Configurate line.
+            if(!await ConfigurateTransmissionLine(line))
             {
-                // Check if instruction key is valid.
-                // If key expired or invalid then will be requested new.
-                if (!lineProcessor.RoutingInstruction.IsValid)
-                {
-                    // Request new key.
-                    _ = GetValidSecretKeysViaPPAsync(lineProcessor.RoutingInstruction);
-
-                    // Log.
-                    Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}",
-                        lineProcessor.ServerName, lineProcessor.ServerPipeName);
-
-                    // Wait until validation time.
-                    // Operation will work in another threads, so we just need to take a time.
-                    while (!lineProcessor.RoutingInstruction.IsValid)
-                    {
-                        Thread.Sleep(50);
-                    }
-                }
-
-                // Encrypt query by public key of target server.
-                UniformQueries.Query encryptingQuery = lineProcessor.LastQuery.Data;
-                PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToEncrypt
-                    (ref encryptingQuery, lineProcessor.RoutingInstruction.ValidEncryptionOperator);
+                return;
             }
-
 
             // Open stream writer.
             try
             {
+                #region Answer waiting
+                // Wait for answer if reqired.
+                if (line.LastQuery.Data.WaitForAnswer)
+                {
+                    // Trying to compute backward domain.
+                    if (UniformQueries.QueryPart.TryGetBackwardDomain(line.LastQuery.Data, out string domain))
+                    {
+                        domain = line.ServerName + "\\" + domain;
+                        // Subscribe on global event.
+                        eDuplexBackwardCallbacksReceived += AnswerReceivedCallback;
+
+                        // Callback that will be called wehen server will receive answer on current request.
+                        void AnswerReceivedCallback(string guid)
+                        {
+                            if(guid.Equals(domain))
+                            {
+                                // Unsubscribe from events.
+                                eDuplexBackwardCallbacksReceived -= AnswerReceivedCallback;
+
+                                // Unclock queue.
+                                line.LastQuery.Data.WaitForAnswer = false;
+
+                                // Log to console.
+                                Console.WriteLine("{0}/{1}: Answer received. Queue unlocked.",
+                                    line.ServerName, line.ServerPipeName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("TRANSMISSION ERROR (UQPP3): Unable to build backward domain. " +
+                            "Operation waiting not possible. Query terminated.");
+                        return;
+                    }
+                }
+
+                #endregion
+
                 // Start writing data to stream.
-                await UniformDataOperator.Binary.BinaryHandler.StreamWriterAsync(
-                    lineProcessor.pipeClient, 
-                    UniformDataOperator.Binary.BinaryHandler.ToByteArray(lineProcessor.LastQuery.Data));
+                await UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(
+                    line.pipeClient, 
+                    line.LastQuery.Data);
 
                 // Log that data tansmited.
-                Console.WriteLine("TRANSMITED: {0}", lineProcessor.LastQuery);
+                Console.WriteLine("TRANSMITED: {0}", line.LastQuery);    
+                
+                // Waiting for answer fro server.
+                while(line.LastQuery.Data.WaitForAnswer)
+                {
+                    Thread.Sleep(5);
+                }
             }
             // Catch the Exception that is raised if the pipe is broken or disconnected.
             catch (Exception e)
             {
-                Console.WriteLine("DNS HANDLER ERROR ({1}): {0}", e.Message, lineProcessor.pipeClient.GetHashCode());
+                Console.WriteLine("DNS HANDLER ERROR ({1}): {0}", e.Message, line.pipeClient.GetHashCode());
 
                 // Retry transmission.
-                if (lineProcessor.LastQuery.Attempts < 10)
+                if (line.LastQuery.Attempts < 10)
                 {
                     // Add to queue.
-                    lineProcessor.EnqueueQuery(lineProcessor.LastQuery);
+                    line.EnqueueQuery(line.LastQuery);
 
                     // Add attempt.
-                    lineProcessor++;
+                    line++;
                 }
                 else
                 {
@@ -232,7 +263,133 @@ namespace UniformClient
             }
 
             // Unlock loop.
-            lineProcessor.Processing = false;
+            line.Processing = false;
+        }
+
+        /// <summary>
+        /// Validating and fixing configuration andd params of transmission line.
+        /// </summary>
+        /// <param name="line">Target line.</param>
+        /// <returns>Result of configurating. False - failed.</returns>
+        public static async Task<bool> ConfigurateTransmissionLine(TransmissionLine line)
+        {
+            if (line.RoutingInstruction != null) // Routing instruction applied.
+            {
+                // Is partial autorized instruction.
+                if (line.RoutingInstruction is PartialAuthorizedInstruction pai)
+                {
+                    #region Token validation
+                    // If token not exist, or emoty, or expired.
+                    if (line.LastQuery.Data.TryGetParamValue("token", out UniformQueries.QueryPart token))
+                    {
+                        // If token value is emoty.
+                        if (string.IsNullOrEmpty(token.PropertyValueString))
+                        {
+                            if (await TokenValidation(pai))
+                            {
+                                // Apply received token.
+                                line.LastQuery.Data.SetParam(new UniformQueries.QueryPart("token", pai.GuestToken));
+                            }
+                            else return false;
+                        }
+                    }
+                    else
+                    {
+                        // Validate token
+                        if (await TokenValidation(pai))
+                        {
+                            // Add tokent to query,
+                            line.LastQuery.Data.ListedContent?.Add(new UniformQueries.QueryPart("token", pai.GuestToken));
+                        }
+                        else return false;
+                    }
+
+                    #region Methods
+                    // Trying to porovide valid guest token.
+                    // Returns result of validation. False - token invalid.
+                    async Task<bool> TokenValidation(PartialAuthorizedInstruction instruction)
+                    {
+                        // If guest token is not found or expired.
+                        if (pai.GuestToken == null ||
+                            UniformQueries.Tokens.IsExpired(instruction.GuestToken, instruction.GuestTokenHandler.ExpiryTime))
+                        {
+                            // Wait for token.
+                            if (!await pai.TryToGetGuestTokenAsync(TerminationTokenSource.Token))
+                            {
+                                return false;
+                            }
+                        }
+
+                        return true;
+                    }
+                    #endregion
+                    #endregion
+
+                    #region Encriprion operators validation
+                    if(line.LastQuery.Data.IsEncrypted && // Is query require encryption? (Query can't be encrypted if that query must request key for encryption.)
+                       line.RoutingInstruction != null && // Is routing instruction is valid and allow encryption?
+                       line.RoutingInstruction.encryption)
+                    {
+                        // Check asymmetric operator.
+                        if(pai.AsymmetricEncryptionOperator == null)
+                        {
+                            Console.WriteLine("Encryption operator not configurated. Operation declined.");
+                            return false; 
+                        }
+
+                        #region Receiving public key from intruction's target server
+                        // Check if operator is valid.
+                        if (!pai.AsymmetricEncryptionOperator.IsValid)
+                        {
+                            try
+                            {
+                                // Start async key exchanging.
+                                var keysExchangingOperator = RequestRSAEncryptionKeyAsync(pai);
+
+                                try
+                                {
+                                    if (!keysExchangingOperator.IsCompleted)
+                                    {
+                                        keysExchangingOperator.Start();
+                                    }
+                                }
+                                catch { };
+
+                                // Drop current query as invalid cause encryption operator still in processing.
+                                line.Processing = false;
+                                return false;
+                            }
+                            catch (Exception ex)
+                            {
+                                // Unlock loop.
+                                line.Processing = false;
+                                Console.WriteLine("SECRET KEY ERROR (bcpph1): " + ex.Message);
+                                return false;
+                            }
+                        }
+                        #endregion
+
+                        #region Adding public key to backward encryption if not added yet
+                        if(!line.LastQuery.Data.QueryParamExist("pk"))
+                        {
+                            line.LastQuery.Data.SetParam(new UniformQueries.QueryPart(
+                                "pk",
+                                EnctyptionOperatorsHandler.AsymmetricKey.EncryptionKey));
+                        }
+                        #endregion
+
+                        // Encrypt query by public key of target server.
+                        return await EnctyptionOperatorsHandler.TryToEncryptAsync(
+                            line.LastQuery.Data, 
+                            line.LastQuery.Data.EncryptionMeta.contentEncytpionOperatorCode,
+                            line.RoutingInstruction.AsymmetricEncryptionOperator,
+                            TerminationTokenSource.Token);
+                    }
+                    #endregion
+                }
+            }
+
+            return true;
         }
     }
 }

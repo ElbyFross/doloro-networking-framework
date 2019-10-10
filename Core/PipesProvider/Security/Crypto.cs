@@ -317,6 +317,7 @@ namespace PipesProvider.Security
         #endregion
         */
 
+        /*
         #region AES Encryption
         /// <summary>
         /// Encrypting binary data by AES algoritm.
@@ -404,7 +405,8 @@ namespace PipesProvider.Security
             }
         }
         #endregion
-        
+        */
+
         #region Hash
         /// <summary>
         /// Return the hash of the string.

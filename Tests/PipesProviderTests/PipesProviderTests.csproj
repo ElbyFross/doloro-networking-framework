@@ -47,6 +47,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="UniformDataOperator, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Addons\uniform-data-operator\UniformDataOperator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypto.cs" />
@@ -56,9 +60,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Addons\AuthorityController\AuthorityController.csproj">
+      <Project>{a64e9d28-ba9c-43b8-b894-e73dd0e23970}</Project>
+      <Name>AuthorityController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DNFCore\DNFCore.csproj">
+      <Project>{d6ee0a40-2365-461b-a81e-5c1441c6e0bf}</Project>
+      <Name>DNFCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\PipesProvider\PipesProvider.csproj">
       <Project>{6a8abab9-a495-4286-8606-7360aff2a7b7}</Project>
       <Name>PipesProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\UniformQueries\UniformQueries.csproj">
+      <Project>{cc07ea8a-c12b-4e65-b734-a68e073f2cc6}</Project>
+      <Name>UniformQueries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACTests\ACTests.csproj">
+      <Project>{36536582-1cdd-4e25-973e-e6907a2f59cf}</Project>
+      <Name>ACTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
