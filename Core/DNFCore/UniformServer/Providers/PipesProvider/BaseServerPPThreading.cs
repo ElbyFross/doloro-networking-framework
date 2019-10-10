@@ -60,7 +60,7 @@ namespace UniformServer
 
             #region Server establishing
             // Start server loop.
-            PipesProvider.Server.TransmissionControllers.ServerToClientTransmissionController.ServerLoop(
+            ServerToClientTransmissionController.ServerLoop(
                 serverName,
                 ((BaseServer)server).pipeName,
                 ((BaseServer)server).securityLevel);
@@ -83,9 +83,9 @@ namespace UniformServer
 
             #region Server establishing
             // Start server loop.
-            PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController.ServerLoop(
+            ClientToServerTransmissionController.ServerLoop(
                 serverName,
-                PipesProvider.Handlers.Query.ProcessingAsync,
+                PipesProvider.Handlers.Queries.ProcessingAsync,
                 ((BaseServer)server).pipeName,
                 ((BaseServer)server).securityLevel);
             #endregion

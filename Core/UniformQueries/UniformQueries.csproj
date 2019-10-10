@@ -8,4 +8,10 @@
     <DocumentationFile>D:\Work\GitHub\doloro-networking-framework\Core\UniformQueries\UniformQueries.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="UniformDataOperator">
+      <HintPath>..\..\Addons\uniform-data-operator\UniformDataOperator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

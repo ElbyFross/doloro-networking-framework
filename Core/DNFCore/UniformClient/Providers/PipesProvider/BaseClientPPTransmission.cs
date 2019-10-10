@@ -36,7 +36,7 @@ namespace UniformClient
         /// <summary>
         /// Object that useing to lock line establishing until operation finish.
         /// </summary>
-        private static object lineLocker = new object();
+        private static readonly object lineLocker = new object();
 
         /// <summary>
         /// Automaticly create Transmission line or lokking for previos one.
@@ -48,7 +48,7 @@ namespace UniformClient
         public static TransmissionLine OpenTransmissionLineViaPP(
            string serverName,
            string pipeName,
-           System.Action<TransmissionLine> callback)
+           Action<TransmissionLine> callback)
         {
             SafeAccessTokenHandle token = System.Security.Principal.WindowsIdentity.GetAnonymous().AccessToken;
             string guid = serverName.GetHashCode() + "_" + pipeName.GetHashCode();
@@ -72,7 +72,7 @@ namespace UniformClient
             string serverName,
             string pipeName,
             ref SafeAccessTokenHandle token,
-            System.Action<TransmissionLine> callback)
+            Action<TransmissionLine> callback)
         {
             lock (lineLocker)
             {

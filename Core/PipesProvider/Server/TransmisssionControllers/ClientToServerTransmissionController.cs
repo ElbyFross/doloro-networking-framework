@@ -25,9 +25,9 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Delegate that will be called when server will recive query.
         /// ServerTransmissionMeta - meta data of transmission.
-        /// string - shared query.
+        /// Query - shared query.
         /// </summary>
-        public System.Action<BaseServerTransmissionController, string> queryHandlerCallback;
+        public Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback;
 
         /// <summary>
         /// Instiniate client to server transmission controller.
@@ -38,7 +38,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="pipeName">Name of the pipe.</param>
         public ClientToServerTransmissionController(
            IAsyncResult connectionMarker,
-           System.Action<BaseServerTransmissionController> connectionCallback,
+           Action<BaseServerTransmissionController> connectionCallback,
            NamedPipeServerStream pipe,
            string pipeName) : base(
                 connectionMarker,
@@ -57,7 +57,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
         /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
-            System.Action<BaseServerTransmissionController, string> queryHandlerCallback,
+            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
             string pipeName,
             out string guid,
             Security.SecurityLevel securityLevel)
@@ -83,7 +83,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
             string guid,
-            System.Action<BaseServerTransmissionController, string> queryHandlerCallback,
+            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
             string pipeName,
             Security.SecurityLevel securityLevel)
         {
@@ -92,7 +92,7 @@ namespace PipesProvider.Server.TransmissionControllers
                 guid,
                 queryHandlerCallback,
                 pipeName,
-                System.IO.Pipes.NamedPipeServerStream.MaxAllowedServerInstances,
+                NamedPipeServerStream.MaxAllowedServerInstances,
                 securityLevel);
         }
 
@@ -107,7 +107,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
             string guid,
-            System.Action<BaseServerTransmissionController, string> queryHandlerCallback,
+            System.Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
             string pipeName,
             int allowedServerInstances,
             Security.SecurityLevel securityLevel)
@@ -140,7 +140,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
         public static void ServerLoop(
             string guid,
-            System.Action<BaseServerTransmissionController, string> queryHandlerCallback,
+            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
             string pipeName,
             PipeDirection pipeDirection,
             int allowedServerInstances,

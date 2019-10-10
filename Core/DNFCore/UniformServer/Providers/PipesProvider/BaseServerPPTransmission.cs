@@ -29,6 +29,7 @@ namespace UniformServer
     /// </summary>
     public abstract partial class BaseServer
     {
+
         /// <summary>
         /// Open server line using PipesProvider that will send answer backward to cliend by dirrect line.
         /// Line will established relative to the data shared by client query.
@@ -39,24 +40,54 @@ namespace UniformServer
         /// Recommended to use this methos by default dor duplex connection between sever and clients.
         /// </summary>
         /// <param name="answer">Message that will sent by server to target client.</param>
-        /// <param name="entryQueryParts">Parts of query that was recived from client. 
+        /// <param name="entryQuery">Query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>
         /// <returns></returns>
-        public static bool SendAnswerViaPP(string answer, UniformQueries.QueryPart[] entryQueryParts)
+        public static bool SendAnswerViaPP(string answer, UniformQueries.Query entryQuery)
+        {
+            return SendAnswerViaPP(new UniformQueries.Query(answer), entryQuery);
+        }
+
+        /// <summary>
+        /// Open server line using PipesProvider that will send answer backward to cliend by dirrect line.
+        /// Line will established relative to the data shared by client query.
+        /// 
+        /// Using this method you frovide uniform revers connection and not need to create 
+        /// a transmission line by yourself.
+        /// 
+        /// Recommended to use this methos by default dor duplex connection between sever and clients.
+        /// </summary>
+        /// <param name="answer">Qury that will sent by server to target client.</param>
+        /// <param name="entryQuery">Query that was recived from client. 
+        /// Method will detect core part and establish backward connection.</param>
+        /// <returns></returns>
+        public static bool SendAnswerViaPP(UniformQueries.Query answer, UniformQueries.Query entryQuery)
         {
             // Instiniate primitive server to provide loop.
             BaseServer server = new Standard.SimpleServer();
 
             // Try to compute bacward domaint to contact with client.
-            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQueryParts, out string domain))
+            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQuery, out string domain))
             {
-                Console.WriteLine("ERROR (BSSA0): Unable to buid backward domain. QUERY: {0}",
-                    UniformQueries.QueryPart.QueryPartsArrayToString(entryQueryParts));
+                Console.WriteLine("ERROR (BSSA0): Unable to buid backward domain. QUERY: " + entryQuery.ToString());
                 return false;
             }
 
             // Set fields.
             server.pipeName = domain;
+
+            // Subscribe or waiting delegate on server loop event.
+            ServerAPI.ServerTransmissionMeta_InProcessing += InitationCallback;
+
+
+            // Starting server loop.
+            server.StartServerThread(
+                "SERVER ANSWER " + domain, server,
+                ThreadingServerLoop_PP_Output);
+
+            // Skip line
+            Console.WriteLine();
+            return true;
 
             // Create delegate that will set our answer message to processing
             // when transmission line would established.
@@ -70,28 +101,35 @@ namespace UniformServer
                         // Unsubscribe.
                         ServerAPI.ServerTransmissionMeta_InProcessing -= InitationCallback;
 
-                        #region Encryption
-                        // Encrypt query if requested by "pk" query's param.
-                        if (UniformQueries.API.TryGetParamValue(
-                            "pk",
-                            out UniformQueries.QueryPart publicKeyProp,
-                            entryQueryParts))
+                        bool encryptingComplete = false;
+
+                        // Encrypting data in async operation.
+                        var encryptionAgent = new System.Threading.Tasks.Task(async delegate ()
                         {
-                            // Try to get publick key from entry query.
-                            if (PipesProvider.Security.Crypto.TryDeserializeRSAKey(publicKeyProp.propertyValue,
-                                out System.Security.Cryptography.RSAParameters publicKey))
-                            {
-                                // Encrypt query.
-                                answer = PipesProvider.Security.Crypto.EncryptString(answer, publicKey);
-                            }
+                            // Try to encrypt answer if required.
+                            await PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.
+                            TryToEncryptByReceivedQueryAsync(entryQuery, answer, CancellationToken.None);
+
+                            encryptingComplete = true;
+                        });
+
+                        try
+                        {
+                            encryptionAgent.Start();
                         }
-                        #endregion
+                        catch { }
+
+                        // Wait for encryption 
+                        while(!encryptingComplete)
+                        {
+                            Thread.Sleep(5);
+                        }
 
                         // Set answer query as target for processing,
                         transmissionController.ProcessingQuery = answer;
 
                         // Log.
-                        Console.WriteLine("{0}: Processing query changed on:\n{1}\n", transmissionController.pipeName, answer);
+                        Console.WriteLine(@"{0}: Processing query changed on: " + @answer.ToString(), @transmissionController.pipeName);
                     }
                 }
                 else // Incorrect type.
@@ -103,18 +141,6 @@ namespace UniformServer
                     Console.WriteLine("{0}: ERROR Incorrect transmisssion controller. Required \"ServerAnswerTransmissionController\"", tc.pipeName);
                 }
             }
-            // Subscribe or waiting delegate on server loop event.
-            ServerAPI.ServerTransmissionMeta_InProcessing += InitationCallback;
-
-
-            // Starting server loop.
-            server.StartServerThread(
-                "SERVER ANSWER " + domain, server,
-                ThreadingServerLoop_PP_Output);
-
-            // Skip line
-            Console.WriteLine();
-            return true;
         }
     }
 }

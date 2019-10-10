@@ -49,8 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="UniformDataOperator, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UniformDataOperator">
       <HintPath>..\..\Addons\uniform-data-operator\UniformDataOperator.dll</HintPath>
     </Reference>
   </ItemGroup>

@@ -17,8 +17,9 @@ using System.Threading;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
+using UniformQueries;
 
-namespace PipesProviderTests
+namespace Tests
 {
     /// <summary>
     /// 
@@ -27,75 +28,107 @@ namespace PipesProviderTests
     public class Crypto
     {
         /// <summary>
-        /// Generated encrypted key for AES crypto provider.
+        /// Checking 2 steps sequrity of chanel.
         /// </summary>
-        public static byte[] AESEncryptionKey
+        [TestMethod]
+        public void SecretKeyExchanging()
         {
-            get
-            {
-                if (aesCSP == null)
-                {
-                    aesCSP = new AesCryptoServiceProvider()
-                    {
-                        Mode = CipherMode.CBC,
-                        Padding = PaddingMode.PKCS7
-                    };
-                    aesCSP.GenerateKey();
-                }
+            // Start server that would manage that data.
+            ACTests.Helpers.Networking.StartPublicServer(3);
 
-                return aesCSP.Key;
+            // Start broadcasting server that would share guest tokens.
+            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
+                "guests",
+                PipesProvider.Security.SecurityLevel.Anonymous,
+                AuthorityController.API.Tokens.AuthorizeNewGuestToken,
+                1);
+
+
+            // Build routing instruction.
+            PipesProvider.Networking.Routing.Instruction pai = new PipesProvider.Networking.Routing.PartialAuthorizedInstruction()
+            {
+                pipeName = ACTests.Helpers.Networking.DefaultQueriesPipeName,
+                routingIP = "localhost",
+                encryption = true,
+                title = "TestPipe",
+                guestChanel = "guests"
+            };
+
+            // Create the query that would simulate logon.
+            // TODO Add encyption.
+            Query query = new Query(
+                new Query.EncryptionInfo()
+                { contentEncytpionOperatorCode = "aes" },
+
+                new QueryPart("token", ((PipesProvider.Networking.Routing.PartialAuthorizedInstruction)pai).GuestToken),
+                new QueryPart("guid", Guid.NewGuid().ToString()),
+
+                new QueryPart("user"),
+                new QueryPart("logon"),
+
+                new QueryPart("login", "user"),
+                new QueryPart("password", "invalidPassword"),
+                new QueryPart("os", Environment.OSVersion.VersionString),
+                new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
+
+            // Marker that avoid finishing of the test until receiving result.
+            bool operationCompete = false;
+
+            // Start reciving clent line.
+            UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+                "localhost", ACTests.Helpers.Networking.DefaultQueriesPipeName,
+                query,
+                // Handler that would recive ther ver answer.
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                {
+                    // Is operation success?
+                    if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Log error.
+                        Assert.IsTrue(true);
+                        operationCompete = true;
+                    }
+                    else
+                    {
+                        // Log error.
+                        Assert.Fail("Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString);
+                        operationCompete = true;
+                    }
+                }).SetInstructionAsKey(ref pai);
+
+            //Thread.Sleep(1500);
+            //return;
+
+            // Wait until operation would complete.
+            while (!operationCompete)
+            {
+                Thread.Sleep(5);
             }
         }
 
         /// <summary>
-        /// Crypto provider using to generate encryption key during session.
+        /// Chcking AES encryption\decryption process.
         /// </summary>
-        private static AesCryptoServiceProvider aesCSP;
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            aesCSP.Clear();
-            aesCSP.Dispose();
-        }
-
-
         [TestMethod]
         public void AESEncryption()
         {
             var roundtrip = "This is the data I am encrypting.  There are many like it but this is my encryption.";
 
-            bool operationCompleted = false;
-            string decrypted = null;
+            // Create encryption operator.
+            var eOperator = new PipesProvider.Security.Encryption.Operators.AESEncryptionOperator();
 
             // Encrypt data.
-            PipesProvider.Security.Crypto.AESEncryptAsync(
-                Encoding.UTF8.GetBytes(roundtrip), 
-                AESEncryptionKey, 
-                delegate (byte[] encryptedData) // Delegate that would operate encrypted data.
-                {
-                    // Decrypt data.
-                    PipesProvider.Security.Crypto.AESDecryptAsync(
-                        encryptedData,
-                        AESEncryptionKey,
-                        delegate (byte[] decryptedData) // Delegate that would operate decrypted data.
-                        {
-                            // Encode binary data to string.
-                            decrypted = Encoding.UTF8.GetString(decryptedData).TrimEnd('\0');
+            byte[] encryptedData = eOperator.Encrypt(Encoding.UTF8.GetBytes(roundtrip));
 
-                            // Mark operation as complete.
-                            operationCompleted = true;
-                        },
-                        System.Threading.CancellationToken.None);
-                }, 
-                System.Threading.CancellationToken.None);
+            // Decrypt data.
+            byte[] decryptedData = eOperator.Decrypt(encryptedData);
 
-            // Whait util operation complete.
-            while (!operationCompleted)
-            {
-                Thread.Sleep(5);
-            }
-            Assert.IsTrue(roundtrip == decrypted);
+            // Encode binary data to string.
+            string decryptedMessage = Encoding.UTF8.GetString(decryptedData).TrimEnd('\0');
+
+            Assert.IsTrue(roundtrip == decryptedMessage);
         }
     }
 }

@@ -49,29 +49,30 @@ namespace AuthorityController.Queries
                             "\tQUERY FORMAT: " + 
                             string.Format(
                                 "LOGIN=userLogin{0}PASSWORD=userPassword{0}OS=operationSystem{0}MAC=macAddress{0}stamp=timeOfQuery\n",
-                            UniformQueries.API.SPLITTING_SYMBOL);
+                                "&");
             }
         }
 
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        /// <param name="serverTL">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public void Execute(object serverTL, Query query)
         {
             bool dataOperationFailed = false;
 
             #region Input data
             // Get params.
-            UniformQueries.API.TryGetParamValue("login", out QueryPart login, queryParts);
-            UniformQueries.API.TryGetParamValue("password", out QueryPart password, queryParts);
-            UniformQueries.API.TryGetParamValue("os", out QueryPart os, queryParts);
-            UniformQueries.API.TryGetParamValue("mac", out QueryPart mac, queryParts);
-            UniformQueries.API.TryGetParamValue("stamp", out QueryPart timeStamp, queryParts);
+            query.TryGetParamValue("login", out QueryPart login);
+            query.TryGetParamValue("password", out QueryPart password);
+            query.TryGetParamValue("os", out QueryPart os);
+            query.TryGetParamValue("mac", out QueryPart mac);
+            query.TryGetParamValue("stamp", out QueryPart timeStamp);
 
             // Create user instance of requested type.
             User user = (User)Activator.CreateInstance(User.GlobalType);
-            user.login = login.propertyValue;
+            user.login = login.PropertyValueString;
             #endregion
 
             Task asyncDataOperator = null;                       
@@ -150,10 +151,10 @@ namespace AuthorityController.Queries
             {
                 #region Local storage
                 // Find user.
-                if (!API.LocalUsers.TryToFindUser(login.propertyValue, out user))
+                if (!API.LocalUsers.TryToFindUser(login.PropertyValueString, out user))
                 {
                     // Inform that user not found.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", queryParts);
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User not found", query);
                     return;
                 }
                 #endregion
@@ -167,10 +168,10 @@ namespace AuthorityController.Queries
 
             #region Validate password.
             // Comapre password with stored.
-            if (!user.IsOpenPasswordCorrect(password.propertyValue))
+            if (!user.IsOpenPasswordCorrect(password.PropertyValueString))
             {
                 // Inform that password is incorrect.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
                 return;
             }
 
@@ -178,7 +179,7 @@ namespace AuthorityController.Queries
             if(BanInformation.IsBanned(user, "logon"))
             {
                 // Inform that password is incorrect.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User banned.", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: User banned.", query);
                 return;
             }
             #endregion
@@ -196,28 +197,31 @@ namespace AuthorityController.Queries
             Session.Current.AsignTokenToUser(
                 user, 
                 sessionToken,
-                mac.propertyValue, 
-                os.propertyValue, 
-                timeStamp.propertyValue);
+                mac.PropertyValueString, 
+                os.PropertyValueString, 
+                timeStamp.PropertyValueString);
 
             // Set rights.
             Session.Current.SetTokenRights(sessionToken, user.rights);
 
             // Return session data to user.
-            string query = string.Format("token={1}{0}expiryIn={2}{0}rights=",
-                UniformQueries.API.SPLITTING_SYMBOL,
-                sessionToken,
-                Config.Active.TokenValidTimeMinutes);
-
+            string rightsString = "";
             // Add rights' codes.
-            foreach(string rightsCode in user.rights)
+            foreach (string rightsCode in user.rights)
             {
                 // Add every code splited by '+'.
-                query += "+" + rightsCode;
+                rightsString += "+" + rightsCode;
             }
 
+            // Building query.
+            Query answerQuery = new Query(
+                new QueryPart("token", sessionToken),
+                new QueryPart("expiryIn", DateTime.UtcNow.AddMinutes(Config.Active.TokenValidTimeMinutes).ToBinary()),
+                new QueryPart("rights", rightsString)
+                );
+
             // Send token to client.
-            UniformServer.BaseServer.SendAnswerViaPP(query, queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP(answerQuery, query);
             #endregion
 
             #region SQL server callbacks
@@ -237,7 +241,7 @@ namespace AuthorityController.Queries
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
 
                 // Inform that user not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, query);
             }
             #endregion 
         }
@@ -245,37 +249,37 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
             // Check query.
-            if (!UniformQueries.API.QueryParamExist("USER", queryParts))
+            if (!query.QueryParamExist("USER"))
                 return false;
 
             // Check query.
-            if (!UniformQueries.API.QueryParamExist("LOGON", queryParts))
+            if (!query.QueryParamExist("LOGON"))
                 return false;
 
 
             // Login for logon.
-            if (!UniformQueries.API.QueryParamExist("login", queryParts))
+            if (!query.QueryParamExist("login"))
                 return false;
 
             // Password for logon.
-            if (!UniformQueries.API.QueryParamExist("password", queryParts))
+            if (!query.QueryParamExist("password"))
                 return false;
 
             // User operation system.
-            if (!UniformQueries.API.QueryParamExist("os", queryParts))
+            if (!query.QueryParamExist("os"))
                 return false;
 
             // Mac adress of logon device.
-            if (!UniformQueries.API.QueryParamExist("mac", queryParts))
+            if (!query.QueryParamExist("mac"))
                 return false;
 
             // Session open time
-            if (!UniformQueries.API.QueryParamExist("stamp", queryParts))
+            if (!query.QueryParamExist("stamp"))
                 return false;
 
             return true;
@@ -354,28 +358,26 @@ namespace AuthorityController.Queries
 
                 #region Build query
                 // Create the query that would simulate logon.
-                QueryPart[] query = new QueryPart[]
-                {
+                Query query = new Query(
                     new QueryPart("token", guestToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("user", null),
-                    new QueryPart("logon", null),
+                    new QueryPart("user"),
+                    new QueryPart("logon"),
 
                     new QueryPart("login", login),
                     new QueryPart("password", password),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                };
+                    new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                );
                 #endregion
 
                 // Request logon.
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                     serverIP, pipeName,
-                    QueryPart.QueryPartsArrayToString(query),
-                    ServerAnswerHandler
-                    );
+                    query,
+                    ServerAnswerHandler);
             }
 
         }

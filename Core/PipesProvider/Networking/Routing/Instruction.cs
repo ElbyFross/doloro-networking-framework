@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Linq;
+using PipesProvider.Security.Encryption.Operators;
 
 namespace PipesProvider.Networking.Routing
 {
@@ -34,46 +35,34 @@ namespace PipesProvider.Networking.Routing
     {
         #region Public properties
         /// <summary>
-        /// RSA public key that was recived from this server.
+        /// Configurated RSA encryption operator that would be used during transmission.
+        /// Using for sharing of small messages not longer then 117 bytes.
         /// </summary>
         [XmlIgnore]
-        public RSAParameters PublicKey { get; private set; }
-
-        /// <summary>
-        /// Time when public key will become expired.
-        /// </summary>
-        [XmlIgnore]
-        public DateTime PublicKeyExpireTime { get; private set; }
+        public IEncryptionOperator AsymmetricEncryptionOperator = new RSAEncryptionOperator();
 
         /// <summary>
         /// Check does loading was failed or key was expired.
         /// </summary>
         [XmlIgnore]
-        public bool IsValid
+        public virtual bool IsValid
         {
             get
             {
                 // If encryption enabled.
-                if (RSAEncryption)
+                if (encryption)
                 {
                     // Check for line key expiring.
-                    bool isExpired = DateTime.Compare(PublicKeyExpireTime, DateTime.Now) < 0;
+                    bool isExpired = DateTime.Compare(AsymmetricEncryptionOperator.ExpiryTime, DateTime.Now) < 0;
                     if (isExpired)
                     {
                         // Mark as invalid if expired.
                         return false;
                     }
                 }
-                return _isValid;
-            }
-            private set
-            {
-                _isValid = value;
+                return true;
             }
         }
-
-        [XmlIgnore]
-        private bool _isValid = true;
         #endregion
 
         #region Public fields
@@ -118,10 +107,10 @@ namespace PipesProvider.Networking.Routing
         public string[] queryPatterns = new string[] { "" };
 
         /// <summary>
-        /// Does this chanel has RSA encryption?
-        /// If true then client can ask for server's Public Key and encrypt message before send.
+        /// Does this chanel has encryption?
+        /// If true then client will ask for server's Public RSA Key for seve requesting of AES sycret key and encrypt message before send.
         /// </summary>
-        public bool RSAEncryption = true;
+        public bool encryption = true;
         #endregion
 
         #region Static properties
@@ -138,8 +127,7 @@ namespace PipesProvider.Networking.Routing
                     queryPatterns = new string[] { "$guid,$token" },
                     routingIP = "localhost",
                     pipeName = "THB_DS_QM_MAIN_INOUT",
-                    RSAEncryption = false,
-                    PublicKeyExpireTime = DateTime.Now
+                    encryption = false
                 };
             }
         }
@@ -149,26 +137,34 @@ namespace PipesProvider.Networking.Routing
         /// </summary>
         public static Instruction Empty
         {
-            get
-            {
-                return new Instruction()
-                {
-                    PublicKeyExpireTime = DateTime.Now
-                };
-            }
+            get { return new Instruction(); }
         }
         #endregion
 
         /// <summary>
+        /// Trying to detect encryption operator by operator's internal code.
+        /// </summary>
+        /// <param name="code">Code of the operator.</param>
+        /// <returns>Operator that was found.</returns>
+        /// <exception cref="NotSupportedException">If operator's code is invalid.</exception>
+        public IEncryptionOperator FindEncryptorByCode(string code)
+        {
+            code = code.ToLower();
+
+            switch (code)
+            {
+                case "rsa": return AsymmetricEncryptionOperator;
+                default: throw new NotSupportedException("\""+ code + "\" IEncryptionOperator not exist in that instruction.");
+            }
+        }
+
+        /// <summary>
         /// Check doest this query must be routed using this server instruction.
         /// </summary>
-        /// <param name="recivedQuery"></param>
+        /// <param name="query">Query received from client.</param>
         /// <returns></returns>
-        public bool IsRoutingTarget(string recivedQuery)
+        public bool IsRoutingTarget(UniformQueries.Query query)
         {
-            // Get query patrs.
-            UniformQueries.QueryPart[] splitedQuery = UniformQueries.API.DetectQueryParts(recivedQuery);
-
             // Declere variables out of loops for avoid additive allocating.
             bool valid = true;
             char instructionOperator;
@@ -193,7 +189,7 @@ namespace PipesProvider.Networking.Routing
 
                     // If instruction.
                     #region Instuction processing
-                    if (string.IsNullOrEmpty(pp.propertyValue))
+                    if (string.IsNullOrEmpty(pp.PropertyValueString))
                     {
                         instructionOperator = pp.propertyName[0];
 
@@ -202,7 +198,7 @@ namespace PipesProvider.Networking.Routing
                             // Not contain instruction.
                             case '!':
                                 // Check parameter existing.
-                                if (UniformQueries.API.QueryParamExist(pp.propertyName.Substring(1), splitedQuery))
+                                if (query.QueryParamExist(pp.propertyName.Substring(1)))
                                 {
                                     // Mark as invalid if found.
                                     valid = false;
@@ -213,7 +209,7 @@ namespace PipesProvider.Networking.Routing
                             case '$':
                             default:
                                 // Check parameter existing.
-                                if (!UniformQueries.API.QueryParamExist(pp.propertyName.Substring(1), splitedQuery))
+                                if (!query.QueryParamExist(pp.propertyName.Substring(1)))
                                 {
                                     // Mark as invalid if not found.
                                     valid = false;
@@ -232,16 +228,16 @@ namespace PipesProvider.Networking.Routing
                         string croppedParamName = pp.propertyName.Substring(0, pp.propertyName.Length - 1);
 
                         // Try to get requested value.
-                        if (UniformQueries.API.TryGetParamValue(croppedParamName, out UniformQueries.QueryPart propertyBufer, splitedQuery))
+                        if (query.TryGetParamValue(croppedParamName, out UniformQueries.QueryPart propertyBufer))
                         {
                             // Check param value.
                             if (notEqualRequested)
                             {
-                                valid = !propertyBufer.ParamValueEqual(pp.propertyValue);
+                                valid = !propertyBufer.ParamValueEqual(pp.PropertyValueString);
                             }
                             else
                             {
-                                valid = propertyBufer.ParamValueEqual(pp.propertyValue);
+                                valid = propertyBufer.ParamValueEqual(pp.PropertyValueString);
                             }
                         }
                         else
@@ -266,90 +262,6 @@ namespace PipesProvider.Networking.Routing
 
             // Return validation result.
             return valid;
-        }
-
-        /// <summary>
-        /// Try to update Public RSA key by query recived from server as reply to GET PUBLICKEY query.
-        /// </summary>
-        /// <param name="recivedQuery"></param>
-        /// <returns></returns>
-        public bool TryUpdatePublicKey(object recivedQuery)
-        {
-            // Validate.
-            if (!(recivedQuery is string answerAsString))
-            {
-                Console.WriteLine("ERROR (BCRT0): Incorrect answer format. Require string.");
-                return false;
-            }
-
-            #region Query processing
-            // Decompose query and set to table.
-            UniformQueries.QueryPart[] queryParts = UniformQueries.API.DetectQueryParts(answerAsString);
-            
-            // Get RSA public key
-            if (!UniformQueries.API.TryGetParamValue(
-            "pk", out UniformQueries.QueryPart publicKey, queryParts))
-            {
-                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"pk\" propety.");
-                return false;
-            }
-
-            // Get expire param
-            if (!UniformQueries.API.TryGetParamValue(
-            "expire", out UniformQueries.QueryPart expireDate, queryParts))
-            {
-
-                Console.WriteLine("ERROR (BCRT1): Incorrect answer format. Require \"expire\" propety.");
-                return false;
-            }
-
-            // Mark as valid until fail.
-            IsValid = true;
-
-            RSAParameters bufer;
-            DateTime expireTimeBufer;
-
-            // Deserialize key.
-            try
-            {
-                if (!PipesProvider.Security.Crypto.TryDeserializeRSAKey(publicKey.propertyValue, out bufer))
-                {
-                    Console.WriteLine("ERROR(BCRT2_1): Deserizlization failed");
-                    IsValid = false;
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR(BCRT2): {0}", ex.Message);
-                IsValid = false;
-                return false;
-            }
-
-            // Pars expire time.
-            try
-            {
-                expireTimeBufer = DateTime.FromBinary(long.Parse(expireDate.propertyValue));
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("ERROR(BCRT3): {0}", ex.Message);
-                IsValid = false;
-                return false;
-            }
-            #endregion
-
-            Console.WriteLine("{0}/{1} UPDATE EXPIRE TIME FROM {2} TO {3}", routingIP, pipeName, PublicKeyExpireTime, expireTimeBufer);
-
-            // Set pufers to block if operation completed.
-            PublicKey = bufer;
-            PublicKeyExpireTime = expireTimeBufer;
-
-            // Log about update
-            Console.WriteLine("{0}/{1}: RSA PUBLIC KEY UPDATED",
-                routingIP, pipeName);
-
-            return true;
         }
 
         /// <summary>
@@ -388,6 +300,7 @@ namespace PipesProvider.Networking.Routing
                 _DerivedTypes = value;
             }
         }
+
         /// <summary>
         /// Cashed array with found derived types.
         /// </summary>

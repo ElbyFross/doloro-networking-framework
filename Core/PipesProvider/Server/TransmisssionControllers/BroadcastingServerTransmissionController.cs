@@ -32,9 +32,9 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Delegate that allow to share message via brodcasting controller and handler.
         /// </summary>
-        /// <param name="transmissionController"></param>
-        /// <returns></returns>
-        public delegate string MessageHandeler(BroadcastingServerTransmissionController transmissionController);
+        /// <param name="transmissionController">Broadcasting controller that invoke delegate.</param>
+        /// <returns>Shared data in binary format.</returns>
+        public delegate byte[] MessageHandeler(BroadcastingServerTransmissionController transmissionController);
         #endregion
 
         #region Constructors
@@ -48,7 +48,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="pipeName">Name of the pipe.</param>
         public BroadcastingServerTransmissionController(
            IAsyncResult connectionMarker,
-           System.Action<BaseServerTransmissionController> connectionCallback,
+           Action<BaseServerTransmissionController> connectionCallback,
            NamedPipeServerStream pipe, 
            string pipeName) : base(
                 connectionMarker, 
@@ -90,7 +90,7 @@ namespace PipesProvider.Server.TransmissionControllers
             string guid,
             string pipeName,
             Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getMessageHanler)
+            MessageHandeler getMessageHanler)
         {
             // Start loop.
             ServerAPI.ServerLoop<BroadcastingServerTransmissionController>(
@@ -98,7 +98,7 @@ namespace PipesProvider.Server.TransmissionControllers
                 Handlers.DNS.ServerBroadcasting,
                 pipeName,
                 PipeDirection.InOut,
-                System.IO.Pipes.NamedPipeServerStream.MaxAllowedServerInstances,
+                NamedPipeServerStream.MaxAllowedServerInstances,
                 PipeTransmissionMode.Message,
                 PipeOptions.Asynchronous | PipeOptions.WriteThrough,
                 securityLevel,

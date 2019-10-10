@@ -26,18 +26,6 @@ namespace PipesProvider.Security
     /// </summary>
     public static class Crypto
     {
-        #region Configs
-        /// <summary>
-        /// Encoder that provide  concertation query from string to byte array.
-        /// </summary>
-        public static Encoding encoder = Encoding.Default;
-
-        /// <summary>
-        /// Padding messages.
-        /// </summary>
-        public static bool DoOAEPPadding = true;
-        #endregion
-
         #region Enums
         /// <summary>
         /// Enum  that describe type of SHA hash algorithm.
@@ -63,8 +51,20 @@ namespace PipesProvider.Security
         }
         #endregion
 
-
+        /*
         #region RSA Encryption
+        #region Configs
+        /// <summary>
+        /// Encoder that provide  concertation query from string to byte array.
+        /// </summary>
+        public static Encoding encoder = Encoding.Default;
+
+        /// <summary>
+        /// Padding messages.
+        /// </summary>
+        public static bool DoOAEPPadding = true;
+        #endregion
+
         /// <summary>
         /// Current crypto service provider. Using RSA algortihm with 2048 bit key.
         /// </summary>
@@ -193,7 +193,7 @@ namespace PipesProvider.Security
         /// </summary>
         /// <param name="message">Message that will be decrypted.</param>
         /// <returns></returns>
-        public static string DecryptString(string message)
+        public static string RSADecryptString(string message)
         {
             // Conver message to byte array.
             byte[] bytedMessage = encoder.GetBytes(message);
@@ -261,7 +261,7 @@ namespace PipesProvider.Security
         /// <param name="message">Message that will be encrypted.</param>
         /// <param name="serverPublicKey">Public encrypt key that was shered by target server.</param>
         /// <returns></returns>
-        public static string EncryptString(string message, RSAParameters serverPublicKey)
+        public static string RSAEncryptString(string message, RSAParameters serverPublicKey)
         {
             // Conver message to byte array.
             byte[] bytedMessage = encoder.GetBytes(message);
@@ -315,7 +315,9 @@ namespace PipesProvider.Security
             }
         }
         #endregion
+        */
 
+        /*
         #region AES Encryption
         /// <summary>
         /// Encrypting binary data by AES algoritm.
@@ -403,7 +405,8 @@ namespace PipesProvider.Security
             }
         }
         #endregion
-        
+        */
+
         #region Hash
         /// <summary>
         /// Return the hash of the string.

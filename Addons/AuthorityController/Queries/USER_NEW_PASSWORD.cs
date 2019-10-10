@@ -54,21 +54,22 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public virtual void Execute(QueryPart[] queryParts)
+        /// <param name="serverTL">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public virtual void Execute(object serverTL, Query query)
         {
             bool dataOperationFailed = false;
             string error = null;
 
             #region Get params.
-            UniformQueries.API.TryGetParamValue("user",         out QueryPart user, queryParts);
-            UniformQueries.API.TryGetParamValue("password",     out QueryPart password, queryParts);
-            UniformQueries.API.TryGetParamValue("oldPassword",  out QueryPart oldPassword, queryParts);
-            UniformQueries.API.TryGetParamValue("token",        out QueryPart token, queryParts);
+            query.TryGetParamValue("user", out QueryPart user);
+            query.TryGetParamValue("password", out QueryPart password);
+            query.TryGetParamValue("oldPassword", out QueryPart oldPassword);
+            query.TryGetParamValue("token", out QueryPart token);
             #endregion
 
             User userProfile = (User)Activator.CreateInstance(User.GlobalType);
-            userProfile.login = user.propertyValue;
+            userProfile.login = user.PropertyValueString;
 
             #region Detect target user
             Task asyncDataOperator = null;                       
@@ -92,10 +93,10 @@ namespace AuthorityController.Queries
             else
             {
                 #region Local storage
-                if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out userProfile, out error))
+                if (!API.LocalUsers.TryToFindUserUniform(user.PropertyValueString, out userProfile, out error))
                 {
                     // Inform about error.
-                    UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                    UniformServer.BaseServer.SendAnswerViaPP(error, query);
                     return;
                 }
                 #endregion
@@ -118,13 +119,13 @@ namespace AuthorityController.Queries
 
             #region Check base requester rights
             if (!API.Tokens.IsHasEnoughRigths(
-                token.propertyValue,
+                token.PropertyValueString,
                 out string[] requesterRights,
                 out error,
                 Config.Active.QUERY_UserNewPassword_RIGHTS))
             {
                 // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(error, query);
                 return;
             }
             #endregion
@@ -137,7 +138,7 @@ namespace AuthorityController.Queries
             foreach(string userToken in userProfile.tokens)
             {
                 // Comare tokens.
-                if (token.propertyValue == userToken)
+                if (token.PropertyValueString == userToken)
                 {
                     // Mark as self target.
                     isSelfUpdate = true;
@@ -154,7 +155,7 @@ namespace AuthorityController.Queries
                 if(!API.Collections.TyGetPropertyValue("rank", out string userRank, userProfile.rights))
                 {
                     // Inform that rights not enough.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: User rank not defined", queryParts);
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: User rank not defined", query);
                     return;
                 }
 
@@ -164,7 +165,7 @@ namespace AuthorityController.Queries
                     ">rank=" + userRank, ">rank=2"))
                 {
                     // Inform that rank not defined.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", queryParts);
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
                     return;
                 }
             }
@@ -172,27 +173,27 @@ namespace AuthorityController.Queries
 
             #region Validate password.
             // Comapre password with stored.
-            if (!userProfile.IsOpenPasswordCorrect(oldPassword.propertyValue))
+            if (!userProfile.IsOpenPasswordCorrect(oldPassword.PropertyValueString))
             {
                 // Inform that password is incorrect.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
                 return;
             }
             #endregion
 
             #region Validate new password
-            if(!API.Validation.PasswordFormat(password.propertyValue, out string errorMessage))
+            if(!API.Validation.PasswordFormat(password.PropertyValueString, out string errorMessage))
             {
                 // Inform about incorrect login size.
                 UniformServer.BaseServer.SendAnswerViaPP(
                     errorMessage,
-                    queryParts);
+                    query);
                 return;
             }
             #endregion
 
             // Update password.
-            userProfile.password = SaltContainer.GetHashedPassword(password.propertyValue, Config.Active.Salt);
+            userProfile.password = SaltContainer.GetHashedPassword(password.PropertyValueString, Config.Active.Salt);
 
             // Update stored profile.
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
@@ -229,7 +230,7 @@ namespace AuthorityController.Queries
                 // Inform about success
                 UniformServer.BaseServer.SendAnswerViaPP(
                     "success",
-                    queryParts);
+                    query);
             }
 
             #region SQL server callbacks
@@ -246,7 +247,7 @@ namespace AuthorityController.Queries
                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
 
                 // Inform that user not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, query);
                 dataOperationFailed = true;
             }
             #endregion 
@@ -255,25 +256,21 @@ namespace AuthorityController.Queries
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public virtual bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(Query query)
         {
             // USER prop.
-            if(!UniformQueries.API.QueryParamExist("user", queryParts))
-                return false;
+            if(!query.QueryParamExist("user")) return false;
 
             // NEW prop.
-            if (!UniformQueries.API.QueryParamExist("new", queryParts))
-                return false;
+            if (!query.QueryParamExist("new")) return false;
 
             // PASSWORD prop.
-            if (!UniformQueries.API.QueryParamExist("password", queryParts))
-                return false;
+            if (!query.QueryParamExist("password")) return false;
 
             // OLD PASSWORD prop.
-            if (!UniformQueries.API.QueryParamExist("oldPassword", queryParts))
-                return false;
+            if (!query.QueryParamExist("oldPassword")) return false;
 
             return true;
         }

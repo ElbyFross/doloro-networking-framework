@@ -64,6 +64,11 @@ namespace PipesProvider.Handlers
                     return;
                 }
             }
+            finally
+            {
+                // Unlock searching
+                meta.newConnectionSearchAllowed = true;
+            }
 
             try
             {

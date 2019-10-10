@@ -112,28 +112,27 @@ namespace ACTests.Tests
 
                     #region Create logon query
                     // Create the query that would simulate logon.
-                    QueryPart[] logonQuery = new QueryPart[]
-                    {
-                        // TODO FAKE TOKEN
+                    Query logonQuery = new Query
+                    (
                         new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                         new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                        new QueryPart("user", null),
-                        new QueryPart("logon", null),
+                        new QueryPart("user"),
+                        new QueryPart("logon"),
 
                         new QueryPart("login", "sadmin"),
                         new QueryPart("password", "password"),
                         new QueryPart("os", Environment.OSVersion.VersionString),
                         new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                        new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-                    };
+                        new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+                    );
                     #endregion
 
                     int callbacks = 0;
                     // Start reciving clent line.
                     BaseClient.EnqueueDuplexQueryViaPP("localhost", Helpers.Networking.DefaultQueriesPipeName,
-                        QueryPart.QueryPartsArrayToString(logonQuery),
-                        (PipesProvider.Client.TransmissionLine line, object answer) =>
+                        logonQuery,
+                        (PipesProvider.Client.TransmissionLine line, Query answer) =>
                         {
                             callbacks++;
                             // Validate logon data.
@@ -183,40 +182,31 @@ namespace ACTests.Tests
         /// <param name="serverAnswer">Message recived from server.</param>
         /// <param name="message">Error message if is invalid. Toke if is valid.</param>
         /// <returns></returns>
-        public static bool LogonValidator(object serverAnswer, out string message)
+        public static bool LogonValidator(Query serverAnswer, out string message)
         {
-            // Trying to convert answer to string
-            if (serverAnswer is string answerS)
+            // Is operation success?
+            if (serverAnswer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
             {
-                // Is operation success?
-                if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                {
-                    // Log error.
-                    message = "Recived error:\n" + answerS;
-                    return false;
-                }
-                else
-                {
-                    // Trying to get toekn from answer.
-                    if (UniformQueries.API.TryGetParamValue("token", out string value, answerS))
-                    {
-                        // Confirm logon.
-                        message = value;
-                        return true;
-                    }
-                    else
-                    {
-                        // Log error.
-                        message = "Answer not contain token:\nFull answer:" + answerS;
-                        return false;
-                    }
-                }
+                // Log error.
+                message = "Recived error:\n" + serverAnswer.First.PropertyValueString;
+                return false;
             }
             else
             {
-                // Assert error.
-                message = "Incorrect format of answer. Required format is string. Type:" + serverAnswer.GetType();
-                return false;
+                // Trying to get toekn from answer.
+                if (serverAnswer.TryGetParamValue("token", out QueryPart value) && 
+                    !string.IsNullOrEmpty(value))
+                {
+                    // Confirm logon.
+                    message = value.PropertyValueString;
+                    return true;
+                }
+                else
+                {
+                    // Log error.
+                    message = "Answer not contain token:\nFull answer:" + serverAnswer.First.PropertyValueString;
+                    return false;
+                }
             }
         }
     }

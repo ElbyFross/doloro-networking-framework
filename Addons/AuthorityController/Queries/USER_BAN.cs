@@ -38,48 +38,49 @@ namespace AuthorityController.Queries
                 default:
                     return "TOKEN BAN USER\n" +
                             "\tDESCRIPTION: Ban user by login or id.\n" +
-                            "\tQUERY FORMAT: TOKEN=requesterToken + " + UniformQueries.API.SPLITTING_SYMBOL +
-                            "BAN=BanInfoXML" + UniformQueries.API.SPLITTING_SYMBOL + "USER=userID\n";
+                            "\tQUERY FORMAT: TOKEN=requesterToken&" +
+                            "BAN=BanInfoXML&USER=userID\n";
             }
         }
 
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public virtual void Execute(QueryPart[] queryParts)
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public virtual void Execute(object sender, Query query)
         {
 
             #region Get params
             // Get requestor token.
-            UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);
+            query.TryGetParamValue("token", out QueryPart token);
 
             // Get target user id or login.
-            UniformQueries.API.TryGetParamValue("user", out QueryPart user, queryParts);
+            query.TryGetParamValue("user", out QueryPart user);
 
             // XML serialized BanInformation. If empty then will shared permanent ban.
-            UniformQueries.API.TryGetParamValue("ban", out QueryPart ban, queryParts);
+            query.TryGetParamValue("ban", out QueryPart ban);
             #endregion
 
             #region Check token rights.
             if (!API.Tokens.IsHasEnoughRigths(
-                token.propertyValue,
+                token.PropertyValueString,
                 out string[] requesterRights,
                 out string error,
                 Config.Active.QUERY_UserBan_RIGHTS))
             {
                 // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(error, query);
                 return;
             }
             #endregion
 
             #region Detect target user
             // Find user for ban.
-            if (!API.LocalUsers.TryToFindUserUniform(user.propertyValue, out User userProfile, out error))
+            if (!API.LocalUsers.TryToFindUserUniform(user.PropertyValueString, out User userProfile, out error))
             {
                 // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(error, query);
                 return;
             }
             #endregion
@@ -96,22 +97,22 @@ namespace AuthorityController.Queries
             if (!API.Collections.IsHasEnoughRigths(requesterRights, ">rank=" + userRank))
             {
                 // Inform that target user has the same or heigher rank then requester.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
                 return;
             }
             #endregion
 
             #region Apply ban
             BanInformation banInfo;
-            if (!string.IsNullOrEmpty(ban.propertyValue))
+            if (!string.IsNullOrEmpty(ban.PropertyValueString))
             {
                 // Get ban information.
                 if (!Data.Handler.TryXMLDeserizlize<BanInformation>
-                    (ban.propertyValue, out banInfo))
+                    (ban.PropertyValueString, out banInfo))
                 {
 
                     // If also not found.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", queryParts);
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", query);
                     return;
                 }
             }
@@ -129,23 +130,23 @@ namespace AuthorityController.Queries
             API.LocalUsers.SetProfile(userProfile);
             
             // Inform about success.
-            UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP("Success", query);
             #endregion
         }
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public virtual bool IsTarget(QueryPart[] queryParts)
+        public virtual bool IsTarget(Query query)
         { 
             // USER prop.
-            if (!UniformQueries.API.QueryParamExist("user", queryParts))
+            if (!query.QueryParamExist("user"))
                 return false;
 
             // BAN prop.
-            if (!UniformQueries.API.QueryParamExist("ban", queryParts))
+            if (!query.QueryParamExist("ban"))
                 return false;
 
             return true;

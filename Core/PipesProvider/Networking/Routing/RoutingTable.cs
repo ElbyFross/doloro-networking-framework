@@ -49,7 +49,7 @@ namespace PipesProvider.Networking.Routing
         /// <param name="query"></param>
         /// <param name="instruction"></param>
         /// <returns></returns>
-        public bool TryGetRoutingInstruction(string query, out Instruction instruction)
+        public bool TryGetRoutingInstruction(UniformQueries.Query query, out Instruction instruction)
         {
             // Allocate memory.
             bool ckeckResult;
