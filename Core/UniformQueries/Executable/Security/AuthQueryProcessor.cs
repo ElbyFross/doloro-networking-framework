@@ -14,6 +14,8 @@
 
 namespace UniformQueries.Executable.Security
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Provide fields situated but authentification queries.
     /// </summary>
@@ -80,39 +82,34 @@ namespace UniformQueries.Executable.Security
         /// Handler that would recive server answer.
         /// </summary>
         /// <param name="_">Dropped param that not required on that processor.</param>
-        /// <param name="answer"></param>
+        /// <param name="answer">Binary data received from server as answer.</param>
         protected override void ServerAnswerHandler(object _, object answer)
         {
             // Trying to convert answer to string
-            if (answer is string answerS)
+            if (answer is Query query)
             {
-                // Detect parts from query.
-                QueryPart[] parts = UniformQueries.API.DetectQueryParts(answerS);
-
                 // Get token.
-                if (UniformQueries.API.TryGetParamValue("token", out QueryPart tokenBufer, parts))
+                if (query.TryGetParamValue("token", out QueryPart tokenBufer))
                 {
                     // Apply token.
-                    Token = tokenBufer.propertyValue;
+                    Token = tokenBufer.PropertyValueString;
 
                     // Set marker.
                     IsAutorized = true;
 
                     // Get expiry time.
-                    if (UniformQueries.API.TryGetParamValue("expiryIn", out QueryPart expiryIn, parts))
+                    if (query.TryGetParamValue("expiryIn", out QueryPart expiryIn))
                     {
-                        // Apply expire time.
-                        if(long.TryParse(expiryIn.propertyValue, out long expiryTimeBufer))
-                        {
-                            ExpiryTime = System.DateTime.FromBinary(expiryTimeBufer);
-                        }
+                        // Decode expiry time from binary format.
+                        ExpiryTime = System.DateTime.FromBinary(
+                            UniformDataOperator.Binary.BinaryHandler.FromByteArray<long>(expiryIn.propertyValue));
                     }
 
                     // Get provided rights.
-                    if (UniformQueries.API.TryGetParamValue("rights", out QueryPart rights, parts))
+                    if (query.TryGetParamValue("rights", out QueryPart rights))
                     {
                         // Get rights.
-                        RecivedRights = rights.propertyValue.Split('+');
+                        RecivedRights = rights.PropertyValueString.Split('+');
                     }
 
                     // Inform subscribers.

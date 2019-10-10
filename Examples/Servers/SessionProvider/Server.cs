@@ -59,7 +59,7 @@ namespace SessionProvider
             #region Set default data \ load DLLs \ appling arguments
             // Set default thread count. Can be changed via args or command.
             threadsCount = Environment.ProcessorCount;
-            longTermServerThreads = new Server[threadsCount];
+            longTermServerThreads = new UniformServer.BaseServer[threadsCount];
 
             // React on uniform arguments.
             ArgsReactor(args);
@@ -75,6 +75,50 @@ namespace SessionProvider
             // Load users.
             AuthorityController.API.LocalUsers.DirectoryLoadingFinished += Users_DirectoryLoadingUnlocked;
             AuthorityController.API.LocalUsers.LoadProfilesAsync(Config.Active.UsersStorageDirectory);
+            #endregion
+
+            #region Loaded query handler processors.
+            // Draw line
+            ConsoleDraw.Primitives.DrawSpacedLine();
+            // Initialize Queue monitor.
+            try
+            {
+                _ = UniformQueries.API.QueryHandlers;
+            }
+            catch (Exception ex)
+            {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                Console.WriteLine("QUERY HANDLER PROCESSORS LOADINT TERMINATED:\n{0}", ex.Message);
+            }
+            ConsoleDraw.Primitives.DrawSpacedLine();
+            Console.WriteLine();
+            #endregion
+
+            #region Start queries monitor threads
+            for (int i = 0; i < threadsCount; i++)
+            {
+                // Instiniate server.
+                Server serverBufer = new Server();
+                longTermServerThreads[i] = serverBufer;
+
+                // Set fields.
+                serverBufer.pipeName = "dnfAUTH";
+
+                // Starting server loop.
+                serverBufer.StartServerThread(
+                    "Queries monitor #" + i, serverBufer,
+                    ThreadingServerLoop_PP_Input);
+
+                // Change thread culture.
+                serverBufer.thread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
+
+                // Skip line
+                Console.WriteLine();
+            }
+
+            // Draw line
+            ConsoleDraw.Primitives.DrawLine();
+            Console.WriteLine();
             #endregion
 
             #region Guest tokens broadcasting

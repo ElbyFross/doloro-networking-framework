@@ -28,7 +28,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Attention: Value can be changed if some of handlers will call disconecction or transmission error. 
         /// This situation will lead to establishing new connection that lead to changing of this value.
         /// </summary>
-        public string ProcessingQuery { get; set; }
+        public UniformQueries.Query ProcessingQuery { get; set; }
 
         /// <summary>
         /// Instiniate server to client transmission controller.

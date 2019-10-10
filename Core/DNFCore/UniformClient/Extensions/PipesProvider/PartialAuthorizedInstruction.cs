@@ -26,6 +26,7 @@ namespace PipesProvider.Networking.Routing
     /// <summary>
     /// Provide data and API required for connections that require partical authorization rights on server.
     /// </summary>
+    [Serializable]
     public class PartialAuthorizedInstruction : Instruction
     {
         #region Public fields
@@ -42,7 +43,26 @@ namespace PipesProvider.Networking.Routing
         [XmlIgnore]
         public string GuestToken
         {
-            get { return GuestTokenHandler.Token; }
+            get
+            {
+                if(!IsPartialAuthorized)
+                {
+                    TryToGetGuestToken(CancellationToken.None);
+                }
+                return GuestTokenHandler.Token;
+            }
+        }
+
+        /// <summary>
+        /// Check does instruction has a guest authorization.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsPartialAuthorized
+        {
+            get
+            {
+                return GuestTokenHandler.IsAutorized;
+            }
         }
         #endregion
 
@@ -50,22 +70,21 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// Tring to recive partial authorized token from target server.
         /// </summary>
-        /// <param name="callback">Delegate that will be called when guest token reciving operation would be finished.</param>
         /// <param name="cancellationToken">Using this token you can terminate task.</param>
-        public async void TryToGetGuestTokenAsync(
-            System.Action<PartialAuthorizedInstruction> callback, 
-            CancellationToken cancellationToken)
+        /// <returns>Result of operation.</returns>
+        public async Task<bool> TryToGetGuestTokenAsync(CancellationToken cancellationToken)
         {
+            bool result = false;
+
             // Start new logon task.
             await Task.Run(() =>
             {
                 // Request logon.
-                TryToGetGuestToken(cancellationToken);
-
-                // Call callback.
-                callback?.Invoke(this);
+                result = TryToGetGuestToken(cancellationToken);
             },
             cancellationToken);
+
+            return result;
         }
 
         /// <summary>
@@ -76,14 +95,14 @@ namespace PipesProvider.Networking.Routing
         public bool TryToGetGuestToken(CancellationToken cancellationToken)
         {
             bool asyncOperationStarted = false;
-
+            
             #region Guest token processing
             // Is the guest token is relevant.
-            bool guestTokenValid =
+            bool guestTokenInvalid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
                 UniformQueries.Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
 
-            if (!guestTokenValid)
+            if (guestTokenInvalid)
             {
                 // Lock thread.
                 asyncOperationStarted = true;
@@ -102,23 +121,25 @@ namespace PipesProvider.Networking.Routing
                 // Recive guest token to get access to server.
                 GuestTokenHandler.TryToReciveTokenAsync(
                     routingIP,
-                    pipeName,
+                    guestChanel,
                     cancellationToken);
             }
 
             // Wait for guest token.
             while (asyncOperationStarted)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
 
             // Drop if guest token not recived.
             if (string.IsNullOrEmpty(GuestTokenHandler.Token))
             {
+                Console.WriteLine(routingIP + "/" + pipeName + ": GUEST TOKEN NOT RECEIVED");
                 return false;
             }
             #endregion
 
+            Console.WriteLine(routingIP + "/" + pipeName + ": GUEST TOKEN RECEIVED: " + GuestTokenHandler.Token);
             return true;
         }
         #endregion

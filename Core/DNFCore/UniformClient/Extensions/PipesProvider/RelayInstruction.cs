@@ -31,8 +31,24 @@ namespace PipesProvider.Networking.Routing
     /// <summary>
     /// Instruction that allow retranslate broadcasting via servers chain.
     /// </summary>
-    public class RelayInstruction : Instruction
+    public class RelayInstruction : PartialAuthorizedInstruction
     {
+        /// <summary>
+        /// Define relay behavior.
+        /// </summary>
+        public enum RelayBehavior
+        {
+            /// <summary>
+            /// Target is allow duplex transmission.
+            /// </summary>
+            Duplex,
+
+            /// <summary>
+            /// Target is broadcasting server.
+            /// </summary>
+            Broadcasting
+        }
+
         /// <summary>
         /// Name of pipe started on server that would relay broadcasting from target server.
         /// Target server must be broadcasting one.
@@ -41,6 +57,11 @@ namespace PipesProvider.Networking.Routing
         /// client -> relay-server-ip.entryPipeName -> routingIp.pipeName
         /// </summary>
         public string entryPipeName = "broadcasting";
+
+        /// <summary>
+        /// Define behavior of relay server.
+        /// </summary>
+        public RelayBehavior behavior = RelayBehavior.Duplex;
 
         /// <summary>
         /// Trying to find suitable instruction for transmisting pipe.

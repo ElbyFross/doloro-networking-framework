@@ -59,32 +59,40 @@ namespace UniformClient
             }
             #endregion
 
+            /* TODO Deprecated unnessesary code with requesting keys and tokens.
             #region Request public keys
             foreach (Instruction instruction in routingTable.intructions)
             {
-                // If encryption requested.
-                if (instruction.RSAEncryption)
+                if (instruction is PartialAuthorizedInstruction pai)
                 {
-                    Console.WriteLine("INSTRUCTION ROUTING RSA", instruction.routingIP, instruction.pipeName);
+                    Task.Run(async delegate()
+                    {
+                        // Waiting for guest token.
+                        await pai.TryToGetGuestTokenAsync(TerminationTokenSource.Token);
 
-                    // Request public key reciving.
-                    GetValidPublicKeyViaPP(instruction);
+                        // If encryption requested.
+                        if (instruction.encryption)
+                        {
+                            // Request public key reciving.
+                            _ = GetValidSecretKeysViaPPAsync(instruction);
+                        }
+                    }
                 }
             }
-            #endregion
+            #endregion*/
 
             #region Validate
             // If routing table not found.
             if (routingTable.intructions.Count == 0)
             {
-                // Log error.
-                Console.WriteLine("ROUTING TABLE NOT FOUND: Create default table by directory \\resources\\routing\\ROUTING.xml");
+                //// Log error.
+                //Console.WriteLine("ROUTING TABLE NOT FOUND: Create default table by directory \\resources\\routing\\ROUTING.xml");
 
-                // Set default intruction.
-                routingTable.intructions.Add(Instruction.Default);
+                //// Set default intruction.
+                //routingTable.intructions.Add(Instruction.Default);
 
-                // Save sample routing table to application files.
-                RoutingTable.SaveRoutingTable(routingTable, AppDomain.CurrentDomain.BaseDirectory + "resources\\routing\\", "ROUTING");
+                //// Save sample routing table to application files.
+                //RoutingTable.SaveRoutingTable(routingTable, AppDomain.CurrentDomain.BaseDirectory + "resources\\routing\\", "ROUTING");
             }
             else
             {

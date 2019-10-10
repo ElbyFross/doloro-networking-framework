@@ -139,7 +139,7 @@ namespace AuthorityController.Data.Personal
         {
             get
             {
-                return blockedRights == null ? null : UniformDataOperator.Binary.BinaryHandler.ToByteArray<string[]>(blockedRights);
+                return blockedRights == null ? null : UniformDataOperator.Binary.BinaryHandler.ToByteArray(blockedRights);
             }
             set
             {
@@ -258,7 +258,7 @@ namespace AuthorityController.Data.Personal
             // Request data from server.
             await UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
                 typeof(BanInformation), 
-                Session.Current.TerminationToken, 
+                Session.Current.TerminationTokenSource.Token, 
                 banInformation,
                 new string[0],
                 new string[]

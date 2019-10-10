@@ -42,43 +42,44 @@ namespace AuthorityController.Queries
                 default:
                     return "SET TARGETTOKEN RIGHTS\n" +
                             "\tDESCRIPTION: Provide guest key for passing of base authority level\n" +
-                            "\tQUERY FORMAT: TOKEN=requesterToken + " + UniformQueries.API.SPLITTING_SYMBOL +
-                            "SET" + UniformQueries.API.SPLITTING_SYMBOL + "targetToken=..." +
-                            UniformQueries.API.SPLITTING_SYMBOL + "RIGHTS=rightCode1+rightCode2+...\n";
+                            "\tQUERY FORMAT: TOKEN=requesterToken & " +
+                            "SET & targetToken=..." +
+                            " & RIGHTS=rightCode1+rightCode2+...\n";
             }
         }
 
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
             #region Get fields from query
             // Get params.
-            UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);
-            UniformQueries.API.TryGetParamValue("targetToken", out QueryPart targetToken, queryParts);
-            UniformQueries.API.TryGetParamValue("rights", out QueryPart rights, queryParts);
+            query.TryGetParamValue("token", out QueryPart token);
+            query.TryGetParamValue("targetToken", out QueryPart targetToken);
+            query.TryGetParamValue("rights", out QueryPart rights);
             #endregion
 
             #region Check requester rights
             if (!API.Tokens.IsHasEnoughRigths(
-                token.propertyValue,
+                token.PropertyValueString,
                 out string[] requesterRights,
                 out string error,
                 Config.Active.QUERY_SetTokenRights_RIGHTS))
             {
                 // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(error, query);
                 return;
             }
             #endregion
 
             #region Get target token rights
-            if (!Session.Current.TryGetTokenRights(targetToken.propertyValue, out string[] targetTokenRights))
+            if (!Session.Current.TryGetTokenRights(targetToken.PropertyValueString, out string[] targetTokenRights))
             {
                 // If also not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: User not found", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: User not found", query);
                 return;
             }
             #endregion
@@ -95,36 +96,37 @@ namespace AuthorityController.Queries
             if (!API.Collections.IsHasEnoughRigths(requesterRights, ">rank=" + userRank))
             {
                 // Inform that target user has the same or heigher rank then requester.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
                 return;
             }
             #endregion
 
             // Apply new rights
-            string[] rightsArray = rights.propertyValue.Split('+');
-            Session.Current.SetTokenRights(targetToken.propertyValue, rightsArray);
+            string[] rightsArray = rights.PropertyValueString.Split('+');
+            Session.Current.SetTokenRights(targetToken.PropertyValueString, rightsArray);
             
             // Inform about success.
-            UniformServer.BaseServer.SendAnswerViaPP("Success", queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP("Success", query);
         }
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
-        { 
+        public bool IsTarget(Query query)
+        {
             // Request set property.
-            if (!UniformQueries.API.QueryParamExist("set", queryParts))
+            
+            if (!query.QueryParamExist("set"))
                 return false;
 
             // Token that will be a target in case if requester has enough rights to do this.
-            if (!UniformQueries.API.QueryParamExist("targetToken", queryParts))
+            if (!query.QueryParamExist("targetToken"))
                 return false;
 
             // List of rights' keys.
-            if (!UniformQueries.API.QueryParamExist("rights", queryParts))
+            if (!query.QueryParamExist("rights"))
                 return false;
 
             return true;

@@ -37,22 +37,23 @@ namespace AuthorityController.Queries
                 default:
                     return "USER LOGOFF\n" +
                             "\tDESCRIPTION: Logoff token from system.\n" +
-                            "\tQUERY FORMAT: TOKEN=tokenForLogoff + " + UniformQueries.API.SPLITTING_SYMBOL +
-                            "USER" + UniformQueries.API.SPLITTING_SYMBOL + "LOGOFF\n";
+                            "\tQUERY FORMAT: TOKEN=tokenForLogoff & " +
+                            "USER & LOGOFF\n";
             }
         }
 
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
             // Get params.
-            UniformQueries.API.TryGetParamValue("token", out QueryPart token, queryParts);
+            query.TryGetParamValue("token", out QueryPart token);
 
             // Request logoff.
-            LogoffToken(token.propertyValue);
+            LogoffToken(token.PropertyValueString);
         }
 
         /// <summary>
@@ -64,20 +65,20 @@ namespace AuthorityController.Queries
             // Set expired.
             return Session.Current.SetExpired(token);
         }
-        
+
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
             // Check query.
-            if (!UniformQueries.API.QueryParamExist("USER", queryParts))
+            if (!query.QueryParamExist("USER"))
                 return false;
 
             // Check query.
-            if (!UniformQueries.API.QueryParamExist("LOGOFF", queryParts))
+            if (!query.QueryParamExist("LOGOFF"))
                 return false;
 
             return true;

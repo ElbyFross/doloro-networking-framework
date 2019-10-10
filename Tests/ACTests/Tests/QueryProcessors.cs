@@ -64,6 +64,8 @@ namespace ACTests.Tests
                     operationResult = result;
                     recivedMessage = message as string;
 
+                    Console.WriteLine("LOGON FINISHED | TOKEN:" + recivedMessage);
+
                     // Continue thread.
                     operationCompleted = true;
                 };
@@ -76,12 +78,16 @@ namespace ACTests.Tests
                     "localhost",
                      Helpers.Networking.DefaultQueriesPipeName);
 
+
+                //Thread.Sleep(2000);
+                //return;
+
                 // Wait until logon would compleated.
                 while (!operationCompleted)
                 {
                     Thread.Sleep(5);
                 }
-
+                                
                 // Assert result based on received answer.
                 Assert.IsTrue(operationResult, recivedMessage);
             }
@@ -138,7 +144,7 @@ namespace ACTests.Tests
                 processor.TryToReciveTokenAsync(
                     "localhost",
                     Helpers.Networking.DefaultGuestPipeName,
-                    AuthorityController.Session.Current.TerminationToken);
+                    AuthorityController.Session.Current.TerminationTokenSource.Token);
 
                 // Wait until logon would compleated.
                 while (!operationCompleted)

@@ -40,7 +40,7 @@ namespace UniformClient
         /// <param name="client"></param>
         /// <param name="guid"></param>
         /// <param name="trnsLine"></param>
-        protected static async void StartPPClientThreadAsync(BaseClient client, string guid, TransmissionLine trnsLine)
+        protected static async Task StartPPClientThreadAsync(BaseClient client, string guid, TransmissionLine trnsLine)
         {
             await Task.Run(() => {
                 client.StartClientThread(
@@ -48,51 +48,6 @@ namespace UniformClient
                 trnsLine,
                 TransmissionLine.ThreadLoop);
             });
-        }
-        
-        /// <summary>
-        /// Provide valid public key for target server encryption.
-        /// Auto update key if was expired.
-        /// </summary>
-        /// <param name="instruction"></param>
-        /// <returns></returns>
-        public static RSAParameters GetValidPublicKeyViaPP(Instruction instruction)
-        {
-            // Try to cast instruction like a partial authorized (that has guest authorized token).
-            if (instruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
-            {
-                // Validate key.
-                if (!instruction.IsValid)
-                {
-                    // Create base part of query for reciving of public RSA key.
-                    string query = string.Format("token={1}{0}q=GET{0}sq=PUBLICKEY",
-                        UniformQueries.API.SPLITTING_SYMBOL, partialAuthorizedInstruction.GuestToken);
-
-                    // Request public key from server.
-                    EnqueueDuplexQueryViaPP(
-                        instruction.routingIP,
-                        instruction.pipeName,
-                        // Add guid base on instruction hash to this query.
-                        query + UniformQueries.API.SPLITTING_SYMBOL + "guid=" + instruction.GetHashCode(),
-                        // Create callback delegate that will set recived value to routing table.
-                        delegate (TransmissionLine answerLine, object answer)
-                        {
-                        // Log about success.
-                        //Console.WriteLine("{0}/{1}: PUBLIC KEY RECIVED",
-                        //    instruction.routingIP, instruction.pipeName);
-
-                        // Try to apply recived answer.
-                        instruction.TryUpdatePublicKey(answer);
-                        });
-                }
-
-                // Return current public key.
-                return instruction.PublicKey;
-            }
-            else
-            {
-                throw new InvalidCastException("Instruction must be inheirted from PartialAuthorizedInstruction");
-            }
         }
     }
 }

@@ -41,6 +41,12 @@ namespace UniformClient
         /// </summary>
         protected static Hashtable DuplexBackwardCallbacks = new Hashtable();
 
+        /// <summary>
+        /// Event that would be called when duplex callback will received.
+        /// Sharint transmisson GUID as parameter.
+        /// </summary>
+        public static Action<string> eDuplexBackwardCallbacksReceived;
+
         #region Output transmission
         /// <summary>
         /// Oppening transmition line that will able to send querie to described server's pipe.
@@ -68,43 +74,19 @@ namespace UniformClient
         /// <param name="answerHandler">Delegate that will be called as handler for answer processing. 
         /// TransmissionLine contain data about actual transmission.
         /// object contain recived query (usualy string or byte[]).</param>
-        /// <param name="decodedQuery">Query that sent to server and must recive answer. Must be not encoded.</param>
-        /// <returns></returns>
-        public static bool ReceiveDelayedAnswerViaPP(
-            TransmissionLine line,
-            string decodedQuery,
-            System.Action<TransmissionLine, object> answerHandler)
-        {
-            return ReceiveDelayedAnswerViaPP(
-                line,
-                UniformQueries.API.DetectQueryParts(decodedQuery),
-                answerHandler);
-        }
-
-        /// <summary>
-        /// Open a line that will be ready to recive server answer.
-        /// New line will created related to params of requesting line and sended query.
-        /// 
-        /// Attention: Not work with broadcasting server.
-        /// </summary>
-        /// <param name="line">Line that was used to transmition</param>
-        /// <param name="answerHandler">Delegate that will be called as handler for answer processing. 
-        /// TransmissionLine contain data about actual transmission.
-        /// object contain recived query (usualy string or byte[]).</param>
-        /// <param name="entryQueryParts">Parts of query that was recived from client. 
+        /// <param name="entryQuery">Query that was recived from client. 
         /// Method will detect core part and establish backward connection.</param>
         /// <returns></returns>
         public static bool ReceiveDelayedAnswerViaPP(
             TransmissionLine line,
-            UniformQueries.QueryPart[] entryQueryParts,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query entryQuery,
+            Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Create backward domain
             // Try to compute bacward domaint to contact with client.
-            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQueryParts, out string domain))
+            if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQuery, out string domain))
             {
-                Console.WriteLine("ERROR (BCRA0): Unable to buid backward domain. QUERY: {0}",
-                    UniformQueries.QueryPart.QueryPartsArrayToString(entryQueryParts));
+                Console.WriteLine("ERROR (BCRA0): Unable to buid backward domain. QUERY: " + entryQuery.ToString());
                 return false;
             }
             #endregion
@@ -113,7 +95,7 @@ namespace UniformClient
             string hashKey = line.ServerName + "\\" + domain;
             // Try to load registred callback to overriding.
             if (DuplexBackwardCallbacks[hashKey] is
-                System.Action<TransmissionLine, object> registredCallback)
+                System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
             {
                 DuplexBackwardCallbacks[hashKey] = answerHandler;
             }
@@ -130,8 +112,7 @@ namespace UniformClient
                 new Standard.SimpleClient(),
                 line.ServerName, domain,
                 ref line.accessToken,
-                HandlerInputTransmissionAsync
-                );
+                HandlerInputTransmissionAsync);
 
             // Set input direction.
             lineProcessor.Direction = TransmissionLine.TransmissionDirection.In;
@@ -155,13 +136,13 @@ namespace UniformClient
         public static TransmissionLine ReceiveAnonymousBroadcastMessage(
             string serverName, 
             string pipeName,
-            System.Action<TransmissionLine, object> answerHandler)
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Append answer handler to backward table.
             string hashKey = serverName + "\\" + pipeName;
             // Try to load registred callback to overriding.
             if (DuplexBackwardCallbacks[hashKey] is
-                System.Action<TransmissionLine, object> registredCallback)
+                System.Action<TransmissionLine, UniformQueries.Query> registredCallback)
             {
                 // Override current delegate.
                 DuplexBackwardCallbacks[hashKey] = answerHandler;
@@ -175,10 +156,10 @@ namespace UniformClient
 
             #region Opening transmition line
             // Create transmission line.
+            Console.WriteLine("RABM: Oppening line to " + serverName + "/" + pipeName);
             TransmissionLine line = OpenTransmissionLineViaPP(
                 serverName, pipeName,
-                HandlerInputTransmissionAsync
-                );
+                HandlerInputTransmissionAsync);
 
             // Set input direction.
             line.Direction = TransmissionLine.TransmissionDirection.In;
@@ -202,8 +183,8 @@ namespace UniformClient
         /// <param name="answerHandler">Callback that will recive answer.</param>
         public static void EnqueueDuplexQueryViaPP(
             TransmissionLine line,
-            string query,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query query,
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Add our query to line processor queue.
             line.EnqueueQuery(query);
@@ -224,8 +205,8 @@ namespace UniformClient
         public static TransmissionLine EnqueueDuplexQueryViaPP(
             string serverName,
             string serverPipeName,
-            string query,
-            System.Action<TransmissionLine, object> answerHandler)
+            UniformQueries.Query query,
+            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Open transmission line.
             TransmissionLine line = OpenOutTransmissionLineViaPP(serverName, serverPipeName);

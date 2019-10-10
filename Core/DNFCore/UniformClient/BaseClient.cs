@@ -42,8 +42,51 @@ namespace UniformClient
         /// <summary>
         /// If true then will stop main loop.
         /// </summary>
-        public static bool AppTerminated { get; set; }
-        
+        public static bool AppTerminated
+        {
+            get
+            {
+                return _AppTerminated;
+            }
+
+            set
+            {
+                if (value == true)
+                {
+                    TerminationTokenSource.Cancel();
+                }
+                _AppTerminated = value;
+            }
+        }
+
+        /// <summary>
+        /// Pufer that contains state of app.
+        /// </summary>
+        private static bool _AppTerminated;
+
+        /// <summary>
+        /// Object that can be used to mange global treads.
+        /// </summary>
+        public static CancellationTokenSource TerminationTokenSource
+        {
+            get
+            {
+                if(_TerminationToken == null)
+                {
+                    _TerminationToken = new CancellationTokenSource();
+                }
+                return _TerminationToken;
+            }
+            set
+            {
+                _TerminationToken = value;
+            }
+        }
+        /// <summary>
+        /// Buferr that contains token controller.
+        /// </summary>
+        private static CancellationTokenSource _TerminationToken;
+
         /// <summary>
         /// Reference to thread that host this server.
         /// </summary>

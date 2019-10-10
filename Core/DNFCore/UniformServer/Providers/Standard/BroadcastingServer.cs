@@ -83,7 +83,7 @@ namespace UniformServer.Standard
             {
                 #region Init
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-                Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+                Console.WriteLine("BROADCASTING THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
                 // Name of pipe server that will established.
                 // Access to this pipe by clients will be available by this name.
@@ -92,7 +92,7 @@ namespace UniformServer.Standard
 
                 #region Server establishing
                 // Start server loop.
-                PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController.ServerLoop(
+                BroadcastingServerTransmissionController.ServerLoop(
                     serverName,
                     broadcastingServer.pipeName,
                     broadcastingServer.securityLevel,

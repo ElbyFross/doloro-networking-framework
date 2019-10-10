@@ -12,11 +12,12 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+using PipesProvider.Client;
+using PipesProvider.Networking.Routing;
+using PipesProvider.Server.TransmissionControllers;
 using System;
 using System.Threading;
-using PipesProvider.Server.TransmissionControllers;
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
+using System.Threading.Tasks;
 
 namespace UniformServer.Standard
 {
@@ -33,16 +34,36 @@ namespace UniformServer.Standard
 
         }
 
+        /// <summary>
+        /// Auto detect behavior of instruction and start relative relay server.
+        /// </summary>
+        /// <param name="instruction">Instruction that contain relay params.</param>
+        /// <returns>Established server.</returns>
+        public static RelayServer EstablishAutoRelayServer(RelayInstruction instruction)
+        {
+            switch(instruction.behavior)
+            {
+                case RelayInstruction.RelayBehavior.Duplex:
+                    return EstablishDuplexRelayServer(instruction);
+
+                case RelayInstruction.RelayBehavior.Broadcasting:
+                    return EstablishBroadcastingRelayServer(instruction);
+
+                default:
+                    throw new InvalidCastException("Invalid behavior type. Relay server not started.");
+            }
+        }
+
         #region Broadcasting retranslator
         /// <summary>
         /// Establish server suitable provided instruction that would retranslate broadcasting from target server.
         /// </summary>
-        /// <param name="isntruction">Instruction that contain relay params.</param>
+        /// <param name="instruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
-        public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction isntruction)
+        public static RelayServer EstablishBroadcastingRelayServer(RelayInstruction instruction)
         {
             // Check instruction.
-            if (isntruction == null)
+            if (instruction == null)
             {
                 throw new NullReferenceException("Routing instruction can't be null");
             }
@@ -51,12 +72,12 @@ namespace UniformServer.Standard
             RelayServer serverBufer = new RelayServer
             {
                 // Set fields.
-                pipeName = isntruction.entryPipeName
+                pipeName = instruction.entryPipeName
             };
 
             // Starting server loop.
             serverBufer.StartServerThread(
-                isntruction.entryPipeName + " #" + Guid.NewGuid(),
+                instruction.entryPipeName + " #" + Guid.NewGuid(),
                 serverBufer,
                 ThreadingServerLoop_BroadcastingRelay);
 
@@ -70,7 +91,7 @@ namespace UniformServer.Standard
         {
             #region Init
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+            Console.WriteLine("BROADCASTING RELAY THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
@@ -91,7 +112,7 @@ namespace UniformServer.Standard
         /// Redirect recived query from current server to other.
         /// </summary>
         /// <param name="controller">Controller that manage curernt transmission.</param>
-        public static string QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
+        public static byte[] QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
         {
             // Trying to detect relay instruction.
             if (!RelayInstruction.TryToDetectTarget(
@@ -104,21 +125,24 @@ namespace UniformServer.Standard
                     + controller.pipeName +
                     "\" not found. Add instuction to \"BaseClient.routingTable.intructions\" collection.");
 
-                return "Error 404: Routing server not found. Con'tact administrator.";
+                return  UniformDataOperator.Binary.BinaryHandler.ToByteArray("Error 404: Routing server not found. Con'tact administrator.");
             }
 
             // Markers for managing thread.
             bool relayedMessageRecieved = false;
-            string relayedMessage = null;
+            byte[] relayedData = null;
+
+            // Log
+            Console.WriteLine("Requesting broadcasting: " + relayInstruction.routingIP + "/" + relayInstruction.pipeName);
 
             // Requiest message from relaying broadcasting server.
             UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
                 relayInstruction.routingIP,
                 relayInstruction.pipeName,
-                delegate (TransmissionLine lint, object message)
+                delegate (TransmissionLine lint, UniformQueries.Query query)
                 {
                     // Conver message to string.
-                    relayedMessage = message as string;
+                    relayedData = UniformDataOperator.Binary.BinaryHandler.ToByteArray(query);
 
                     // Unlock thread.
                     relayedMessageRecieved = true;
@@ -131,7 +155,7 @@ namespace UniformServer.Standard
             }
 
             // Return recived message.
-            return relayedMessage;
+            return relayedData;
         }
         #endregion
 
@@ -139,12 +163,12 @@ namespace UniformServer.Standard
         /// <summary>
         /// Establishing server that would recive client's server and forwarding it to target servers by using routing table.
         /// </summary>
-        /// <param name="isntruction">Instruction that contain relay params.</param>
+        /// <param name="instruction">Instruction that contain relay params.</param>
         /// <returns>Established server.</returns>
-        public static RelayServer EstablishDuplexRelayServer(RelayInstruction isntruction)
+        public static RelayServer EstablishDuplexRelayServer(RelayInstruction instruction)
         {
             // Check instruction.
-            if(isntruction == null)
+            if(instruction == null)
             {
                 throw new NullReferenceException("Routing instruction can't be null");
             }
@@ -153,12 +177,12 @@ namespace UniformServer.Standard
             RelayServer serverBufer = new RelayServer
             {
                 // Set fields.
-                pipeName = isntruction.entryPipeName
+                pipeName = instruction.entryPipeName
             };
 
             // Starting server loop.
             serverBufer.StartServerThread(
-                isntruction.entryPipeName + " #" + Guid.NewGuid(), 
+                instruction.entryPipeName + " #" + Guid.NewGuid(), 
                 serverBufer,
                 ThreadingServerLoop_DuplexRelay);
 
@@ -172,7 +196,7 @@ namespace UniformServer.Standard
         {
             #region Init
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
-            Console.WriteLine("THREAD STARTED: {0}", Thread.CurrentThread.Name);
+            Console.WriteLine("DUPLEX RELAY THREAD STARTED: {0}", Thread.CurrentThread.Name);
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
@@ -188,16 +212,40 @@ namespace UniformServer.Standard
                 ((RelayServer)server).securityLevel);
             #endregion
         }
-        
+
         /// <summary>
         /// Redirect recived query from current server to other.
         /// </summary>
-        /// <param name="_"></param>
-        /// <param name="query"></param>
-        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController _, string query)
+        /// <param name="tc">Server's transmission controller.</param>
+        /// <param name="query">Query received from client.</param>
+        public static void QueryHandler_DuplexRelay(BaseServerTransmissionController tc, UniformQueries.Query query)
         {
-            // Try to decrypt.
-            query = PipesProvider.Security.Crypto.DecryptString(query);
+            bool decryptionComplete = false;
+            bool decryptionResult = false;
+
+            Task decryptionOperation = new Task(async delegate ()
+            {
+                // Try to encrypt receved message.
+                decryptionResult = await PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecryptAsync(
+                    query,
+                    PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey);
+
+                decryptionComplete = true; 
+            });
+
+            // Whait for decription completing.
+            while(!decryptionComplete)
+            {
+                Thread.Sleep(5);
+            }
+
+            // Loging error to client.
+            if(!decryptionResult)
+            {
+                // Try to get answer in string format.
+                SendAnswerViaPP("DUPLEX RELEAY ERROR: Data corrupted. Decryption not possible. Relay terminated.", query);
+                return;
+            }
 
             // Detect routing target.
             bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
@@ -206,7 +254,7 @@ namespace UniformServer.Standard
             if (!relayTargetFound)
             {
                 // If reley target not found then server will mean that query requested to itself.
-                PipesProvider.Handlers.Query.ProcessingAsync(_, query);
+                PipesProvider.Handlers.Queries.ProcessingAsync(tc, query);
 
                 //// Log
                 //Console.WriteLine("RELAY TARGET NOT FOUND: {q}", query);
@@ -218,34 +266,6 @@ namespace UniformServer.Standard
                 return;
             }
 
-            // If requested encryption.
-            if (instruction.RSAEncryption)
-            {
-                // Check if instruction key is valid.
-                // If key expired or invalid then will be requested new.
-                if (!instruction.IsValid)
-                {
-                    // Request new key.
-                    UniformClient.BaseClient.GetValidPublicKeyViaPP(instruction);
-
-                    // Log.
-                    Console.WriteLine("WAITING FOR PUBLIC RSA KEY FROM {0}/{1}", instruction.routingIP, instruction.pipeName);
-
-                    // Wait until validation time.
-                    // Operation will work in another threads, so we just need to take a time.
-                    while (!instruction.IsValid)
-                    {
-                        Thread.Sleep(15);
-                    }
-
-                    // Log.
-                    Console.WriteLine("PUBLIC RSA KEY FROM {0}/{1} RECIVED", instruction.routingIP, instruction.pipeName);
-                }
-
-                // Encrypt query by public key of target server.
-                query = PipesProvider.Security.Crypto.EncryptString(query, instruction.PublicKey);
-            }
-
             // Open connection.
             TransmissionLine tl = UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
                 instruction.routingIP,
@@ -253,22 +273,11 @@ namespace UniformServer.Standard
                 query,
                 // Delegate that will called when relayed server send answer.
                 // Redirect this answer to client.
-                delegate (PipesProvider.Client.TransmissionLine answerTL, object answer)
+                delegate (TransmissionLine answerTL, UniformQueries.Query receivedData)
                 {
                     // Try to get answer in string format.
-                    string answerAsString = answer as string;
-                    if (!string.IsNullOrEmpty(answerAsString))
-                    {
-                        UniformServer.BaseServer.SendAnswerViaPP(answerAsString, UniformQueries.API.DetectQueryParts(query));
-                        return;
-                    }
-
-                    // Try to get answer as byte array.
-                    if (answer is byte[] answerAsByteArray)
-                    {
-                        // TODO Send answer as byte array.
-                        throw new NotImplementedException();
-                    }
+                    SendAnswerViaPP(receivedData, query);
+                    return;
                 });
         }
         #endregion

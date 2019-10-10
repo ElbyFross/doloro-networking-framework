@@ -1,4 +1,4 @@
-﻿//Copyright 2019 Volodymyr Podshyvalov
+﻿﻿//Copyright 2019 Volodymyr Podshyvalov
 //
 //Licensed under the Apache License, Version 2.0 (the "License");
 //you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ using System.Text;
 using System.IO;
 using UniformQueries;
 using UniformQueries.Executable;
+using PipesProvider.Server.TransmissionControllers;
 
 namespace BaseQueries
 {
@@ -38,52 +39,41 @@ namespace BaseQueries
                 case "en-US":
                 default:
                     return "GET PUBLICKEY\n" +
-                            "\tDESCRIPTION: Will return public RSA key of this server," + 
+                            "\tDESCRIPTION: Will return public RSA key of this server," +
                             "\n\tthat can be used to encrypt message before start transmission.\n" +
-                            "\tQUERY FORMAT: q=GET" + API.SPLITTING_SYMBOL + "sq=PUBLICKEY\n";
+                            "\tQUERY FORMAT: GET & PUBLICKEY\n";
             }
         }
 
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
-            // Create public key as answer.
-            string publicKey = "pk=" + PipesProvider.Security.Crypto.SerializePublicKey();
-
-            // Set time when this key will expired.
-            string expireTime = "expire=" + PipesProvider.Security.Crypto.RSAKeyExpireTime.ToBinary().ToString();
-
-            // Compine answer.
-            string answer = publicKey + API.SPLITTING_SYMBOL + expireTime;
+            // Building query with asymmetric key data.
+            Query answer = new Query(
+                new QueryPart("pk", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.SharableData),
+                new QueryPart("expire", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.ExpiryTime.ToBinary()));
 
             // Open answer chanel on server and send message.
-            UniformServer.BaseServer.SendAnswerViaPP(answer, queryParts);
+            UniformServer.BaseServer.SendAnswerViaPP(answer, query);
         }
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
-            // Get query header.
-            if (!API.TryGetParamValue("q", out QueryPart query, queryParts))
-                return false;
-
-            // Get subquery.
-            if (!API.TryGetParamValue("sq", out QueryPart subQuery, queryParts))
-                return false;
-
             // Check query.
-            if (!query.ParamValueEqual("GET"))
+            if (!query.QueryParamExist("GET"))
                 return false;
 
             // Check sub query.
-            if (!subQuery.ParamValueEqual("PUBLICKEY"))
+            if (!query.QueryParamExist("PUBLICKEY"))
                 return false;
 
             return true;

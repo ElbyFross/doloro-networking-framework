@@ -15,12 +15,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace UniformQueries
 {
     /// <summary>
     /// Formated query part descriptor.
     /// </summary>
+    [System.Serializable]
     public struct QueryPart
     {
         /// <summary>
@@ -31,11 +33,60 @@ namespace UniformQueries
         /// <summary>
         /// Property that will be shared via query.
         /// </summary>
-        public string propertyValue;
+        public byte[] propertyValue;
+
+        /// <summary>
+        /// Encoding of string parts.
+        /// </summary>
+        public Encoding encoding;
+
+        /// <summary>
+        /// Oparate the ptoperty value like string.
+        /// </summary>
+        public string PropertyValueString
+        {
+            get
+            {
+                try
+                {
+                    if(_PropertyValueString == null)
+                    {
+                        _PropertyValueString = encoding.GetString(propertyValue);
+
+                        if(_PropertyValueString.Contains("\0"))
+                        {
+                            _PropertyValueString = "binary";
+                        }
+                    }
+                    return _PropertyValueString;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (value != null)
+                {
+                    propertyValue = encoding.GetBytes(value);
+                }
+                else
+                {
+                    propertyValue = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Buffer that contain encoded value.
+        /// </summary>
+        private string _PropertyValueString;
 
         /// <summary>
         /// If this struct not initialized.
         /// </summary>
+        [XmlIgnore]
         public bool IsNone
         {
             get
@@ -43,7 +94,7 @@ namespace UniformQueries
                 if (string.IsNullOrEmpty(propertyName))
                     return true;
 
-                if (string.IsNullOrEmpty(propertyValue))
+                if (propertyValue == null || propertyValue.Length == 0)
                     return true;
 
                 return false;
@@ -65,17 +116,49 @@ namespace UniformQueries
         /// <param name="key">String key that allow to find this part in query.</param>
         public QueryPart(string key)
         {
+            _PropertyValueString = null;
+            encoding = Encoding.UTF8;
             this.propertyName = key;
             this.propertyValue = null;
         }
 
         /// <summary>
         /// Base constructor.
+        /// Value will be null
         /// </summary>
         /// <param name="key">String key that allow to find this part in query.</param>
-        /// <param name="property">String property that will be available to  find by key.</param>
+        /// <param name="obj">Object that woulb be converted to binary array.</param>
+        public QueryPart(string key, object obj)
+        {
+            _PropertyValueString = null;
+            encoding = Encoding.UTF8;
+            this.propertyName = key;
+            this.propertyValue = obj != null ? UniformDataOperator.Binary.BinaryHandler.ToByteArray(obj) : null;
+        }
+
+        /// <summary>
+        /// Base constructor.
+        /// </summary>
+        /// <param name="key">String key that allow to find this part in query.</param>
+        /// <param name="property">String property that will be available to find by key.</param>
         public QueryPart(string key, string property)
         {
+            _PropertyValueString = null;
+            encoding = Encoding.UTF8;
+            propertyName = key;
+            propertyValue = null;
+            PropertyValueString = property;
+        }
+
+        /// <summary>
+        /// Base constructor.
+        /// </summary>
+        /// <param name="key">String key that allow to find this part in query.</param>
+        /// <param name="property">Binary property that will be available to find by key.</param>
+        public QueryPart(string key, byte[] property)
+        {
+            _PropertyValueString = null;
+            encoding = Encoding.UTF8;
             this.propertyName = key;
             this.propertyValue = property;
         }
@@ -86,7 +169,14 @@ namespace UniformQueries
         /// <returns></returns>
         public override string ToString()
         {
-            return propertyName + (propertyValue != null ? "=" + propertyValue : "");
+            if (propertyValue != null)
+            {
+                return propertyName + (PropertyValueString != null ? "=" + PropertyValueString : ":binary");
+            }
+            else
+            {
+                return propertyName + ":none";
+            }
         }
 
         /// <summary>
@@ -119,37 +209,14 @@ namespace UniformQueries
             {
                 return new QueryPart(
                     buildedPart.Substring(0, valueIndex), // Param part
-                    buildedPart.Substring(valueIndex+1)); // Value part
+                    Encoding.UTF8.GetBytes(buildedPart.Substring(valueIndex+1))); // Value part
             }
             else
             {
                 // Create marker query part that can be used by external parsers like instruction.
                 // Examples: !prop, $prop, etc.
-                return new QueryPart(buildedPart, null);
+                return new QueryPart(buildedPart);
             }
-        }
-
-        /// <summary>
-        /// Convert array to query string.
-        /// </summary>
-        /// <param name="queryParts"></param>
-        /// <returns></returns>
-        public static string QueryPartsArrayToString(QueryPart[] queryParts)
-        {
-            string query = "";
-
-            // Processing of every part.
-            for (int i = 0; i < queryParts.Length; i++)
-            {
-                // Add query part.
-                query += queryParts[i];
-
-                // Add splitter.
-                if (i < queryParts.Length - 1)
-                    query += API.SPLITTING_SYMBOL;
-            }
-
-            return query;
         }
 
         /// <summary>
@@ -175,32 +242,50 @@ namespace UniformQueries
         /// Check does this query's parameter equals to target.
         /// </summary>
         /// <param name="param"></param>
-        /// <returns></returns>
+        /// <returns>Result of comparation.</returns>
         public bool ParamValueEqual(string param)
         {
-            return this.propertyValue.Equals(param, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(PropertyValueString, param);
+        }
+
+        /// <summary>
+        /// Check does this query's parameter equals to target.
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public bool ParamValueEqual(object param)
+        {
+            return this.propertyValue.Equals(param);
         }       
 
         /// <summary>
         /// Try to get domain to backward connection by entry query.
         /// </summary>
-        /// <param name="queryParts">Query that was reciverd from client.</param>
+        /// <param name="query">Query that was reciverd from client.</param>
         /// <param name="domain">Domain that will return in case if build is possible.</param>
         /// <returns></returns>
-        public static bool TryGetBackwardDomain(QueryPart[] queryParts, out string domain)
+        public static bool TryGetBackwardDomain(Query query, out string domain)
         {
             domain = null;
 
             // Get query GUID.
-            if (!API.TryGetParamValue("guid", out QueryPart guid, queryParts)) return false;
+            if (!query.TryGetParamValue("guid", out QueryPart guid)) return false;
 
             // Get client token.
-            if (!API.TryGetParamValue("token", out QueryPart token, queryParts)) return false;
+            if (!query.TryGetParamValue("token", out QueryPart token)) return false;
 
             // Build domain.
-            domain = guid.propertyValue.GetHashCode() + "_" + token.propertyValue.GetHashCode();
+            domain = guid.PropertyValueString.GetHashCode() + "_" + token.PropertyValueString.GetHashCode();
 
             return true;
+        }
+
+        /// <summary>
+        /// Clearing cashed data. Use if you change core settings and need to recomputing.
+        /// </summary>
+        public void ClearCach()
+        {
+            _PropertyValueString = null;
         }
     }
 }

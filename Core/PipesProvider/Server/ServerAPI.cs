@@ -42,8 +42,8 @@ namespace PipesProvider.Server
         /// Key (string) pipe_name;
         /// Value (ServerTransmissionMeta) meta data about transmition.
         /// </summary>
-        private static readonly Hashtable openedServers = new Hashtable();
-        
+        public static readonly Hashtable openedServers = new Hashtable();
+
         /// <summary>
         /// Return count of started threads.
         /// </summary>
@@ -104,32 +104,34 @@ namespace PipesProvider.Server
             #region Meta data
             // Meta data about curent transmition.
             TransmissionControllerType transmisssionController = null;
-            IAsyncResult connectionMarker = null;
 
-            // Registration or update controller of oppened transmission.
-            if (openedServers[guid] is TransmissionControllerType bufer)
+            lock (openedServers)
             {
-                // Load previous contorller.
-                transmisssionController = bufer;
-            }
-            else
-            {
-                // Create new controller.
-                transmisssionController = (TransmissionControllerType)Activator.CreateInstance(
-                    typeof(TransmissionControllerType), 
-                    new object[] 
-                    {
+                // Registration or update controller of oppened transmission.
+                if (openedServers[guid] is TransmissionControllerType bufer)
+                {
+                    // Load previous contorller.
+                    transmisssionController = bufer;
+                }
+                else
+                {
+                    // Create new controller.
+                    transmisssionController = (TransmissionControllerType)Activator.CreateInstance(
+                        typeof(TransmissionControllerType),
+                        new object[]
+                        {
                         null,
                         connectionCallback,
                         pipeServer,
                         pipeName
-                    });
+                        });
 
-                // Call additive init.
-                initHandler?.Invoke(transmisssionController);
+                    // Call additive init.
+                    initHandler?.Invoke(transmisssionController);
 
-                // Add to table.
-                openedServers.Add(guid, transmisssionController);
+                    // Add to table.
+                    openedServers.Add(guid, transmisssionController);
+                }
             }
 
             try
@@ -147,18 +149,20 @@ namespace PipesProvider.Server
             while (!transmisssionController.Expired)
             {
                 // Wait for a client to connect
-                if ((connectionMarker == null || connectionMarker.IsCompleted) &&
-                    !pipeServer.IsConnected)
+                if ((transmisssionController.connectionMarker == null || 
+                    transmisssionController.connectionMarker.IsCompleted) &&
+                    !pipeServer.IsConnected && 
+                    transmisssionController.newConnectionSearchAllowed)
                 {
                     try
                     {
                         // Start async waiting of connection.
-                        connectionMarker = pipeServer.BeginWaitForConnection(
-                            Handlers.Service.ConnectionEstablishedCallbackRetranslator, 
+                        transmisssionController.connectionMarker = pipeServer.BeginWaitForConnection(
+                            Handlers.Service.ConnectionEstablishedCallbackRetranslator,
                             transmisssionController);
 
                         // Update data.
-                        transmisssionController.connectionMarker = connectionMarker;
+                        transmisssionController.newConnectionSearchAllowed = false;
 
                         Console.Write("{0}: Waiting for client connection...\n", pipeName);
                     }
@@ -236,9 +240,12 @@ namespace PipesProvider.Server
         /// </summary>
         public static void SetExpiredAll()
         {
-            foreach(BaseServerTransmissionController meta in openedServers.Values)
+            lock (openedServers)
             {
-                meta.SetExpired();
+                foreach (BaseServerTransmissionController meta in openedServers.Values)
+                {
+                    meta.SetExpired();
+                }
             }
         }
 
@@ -301,24 +308,27 @@ namespace PipesProvider.Server
         /// </summary>
         public static void StopAllServers()
         {
-            // Log statistic.
-            Console.WriteLine("TRANSMISSIONS TO CLOSE: {0}", openedServers.Count);
-
-            // Stop every registred server.
-            foreach (BaseServerTransmissionController meta in openedServers.Values)
+            lock (openedServers)
             {
-                // Log about target to close.
-                //Console.WriteLine("STOPING SERVER: {0}", meta.name);
+                // Log statistic.
+                Console.WriteLine("TRANSMISSIONS TO CLOSE: {0}", openedServers.Count);
 
-                // Mark as stoped.
-                meta.SetStoped();
+                // Stop every registred server.
+                foreach (BaseServerTransmissionController meta in openedServers.Values)
+                {
+                    // Log about target to close.
+                    //Console.WriteLine("STOPING SERVER: {0}", meta.name);
 
-                // Stop server described by meta.
-                StopServer(meta);
+                    // Mark as stoped.
+                    meta.SetStoped();
+
+                    // Stop server described by meta.
+                    StopServer(meta);
+                }
+
+                // Clear hashtable with terminated servers.
+                openedServers.Clear();
             }
-
-            // Clear hashtable with terminated servers.
-            openedServers.Clear();
 
             // Console output formating.
             Console.WriteLine();

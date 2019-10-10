@@ -59,15 +59,15 @@ namespace AuthorityController
         public RoutingTable AuthorityFollowers { get; set; }
 
         /// <summary>
-        /// Token that provide possibility to terminate all stated tasks in this session.
+        /// Token source that provide possibility to terminate all stated tasks in this session.
         /// </summary>
-        public CancellationToken TerminationToken
+        public CancellationTokenSource TerminationTokenSource
         {
             get
             {
                 if(_terminationToken == null)
                 {
-                    _terminationToken = new CancellationToken();
+                    _terminationToken = new CancellationTokenSource();
                 }
 
                 return _terminationToken;
@@ -86,7 +86,7 @@ namespace AuthorityController
             Current = this;
 
             // Initialize Termination token.
-            _ = TerminationToken;
+            _ = TerminationTokenSource;
         }
         #endregion
 
@@ -94,7 +94,7 @@ namespace AuthorityController
         /// Object that contain current session.
         private static Session _current;
 
-        private CancellationToken _terminationToken;
+        private CancellationTokenSource _terminationToken;
 
         /// <summary>
         /// Table that contains rights provided to token.
@@ -255,9 +255,10 @@ namespace AuthorityController
             if (RemoveToken(token))
             {
                 // Compose query that will shared to related servers to update them local data.
-                string informQuery = string.Format("set{0}token={1}{0}expired",
-                    UniformQueries.API.SPLITTING_SYMBOL,
-                    token);
+                UniformQueries.Query informQuery = new UniformQueries.Query(
+                    new UniformQueries.QueryPart("set"),
+                    new UniformQueries.QueryPart("token", token),
+                    new UniformQueries.QueryPart("expired"));
 
                 // Send query to infrom related servers about event.
                 InformAuthorityFollowers(informQuery);
@@ -293,7 +294,7 @@ namespace AuthorityController
         /// AuthorityFollowers table.
         /// </summary>
         /// <param name="message">Message that would be shared.</param>
-        public void InformAuthorityFollowers(string message)
+        public void InformAuthorityFollowers(UniformQueries.Query message)
         {
             // Inform relative servers.
             if (AuthorityFollowers != null)
@@ -376,16 +377,15 @@ namespace AuthorityController
                 return;
             }
 
-            // Composing query that will shared to related servers for update them local data.
-            string baseQuery = string.Format("set{0}targetToken={1}{0}rights=",
-                UniformQueries.API.SPLITTING_SYMBOL,
-                targetToken);
-
-            // Adding rights' codes.
+            // Build rights to string format.
+            string rightsValue = "";
             foreach (string rightsCode in rights)
             {
-                // Add every code splited by '+'.
-                baseQuery += "+" + rightsCode;
+                if(string.IsNullOrEmpty(rightsValue))
+                {
+                    rightsValue += "+";
+                }
+                rightsValue += rightsCode;
             }
             
             // Send query to every following server.
@@ -400,7 +400,7 @@ namespace AuthorityController
                         // Send query using current token.
                         SendQuery(authInstr.AuthorizedToken);
                     },
-                    TerminationToken);
+                    TerminationTokenSource.Token);
                 }
                 else
                 {
@@ -411,13 +411,15 @@ namespace AuthorityController
 
                 void SendQuery(string token)
                 {
-                    // Build personalized query.
-                    string informQuery =
-                        baseQuery + UniformQueries.API.SPLITTING_SYMBOL +
-                        "token=" + token;
+                    // Build query.
+                    UniformQueries.Query query = new UniformQueries.Query(
+                        new UniformQueries.QueryPart("set"),
+                        new UniformQueries.QueryPart("targetToken", targetToken),
+                        new UniformQueries.QueryPart("rights", rightsValue),
+                        new UniformQueries.QueryPart("token", token));
 
                     // Sending query to inform related servers about event.
-                    InformAuthorityFollowers(informQuery);
+                    InformAuthorityFollowers(query);
                 }
             }
         }

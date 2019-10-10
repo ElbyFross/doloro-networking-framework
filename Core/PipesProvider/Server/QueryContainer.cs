@@ -30,7 +30,7 @@ namespace PipesProvider.Client
         /// <summary>
         /// Query that will be shared.
         /// </summary>
-        public string Query { get; set; }
+        public UniformQueries.Query Data { get; set; }
 
         /// <summary>
         /// Validate container.
@@ -39,8 +39,12 @@ namespace PipesProvider.Client
         {
             get
             {
-                if (string.IsNullOrEmpty(Query))
+                if (Data == null || 
+                    Data.Content == null || 
+                    Data.Content.Length == 0)
+                {
                     return true;
+                }
                 return false;
             }
         }
@@ -53,7 +57,7 @@ namespace PipesProvider.Client
         /// <summary>
         /// Delegate that will be called when anser transmition will be recived.
         /// </summary>
-        public System.Action<TransmissionLine, string> AnswerHandler;
+        public Action<TransmissionLine, byte[]> AnswerHandler;
         #endregion
 
 
@@ -66,10 +70,10 @@ namespace PipesProvider.Client
         /// <summary>
         /// Constructor that provide single way query.
         /// </summary>
-        /// <param name="query"></param>
-        public QueryContainer(string query)
+        /// <param name="query">Formated query</param>
+        public QueryContainer(UniformQueries.Query query)
         {
-            this.Query = query;
+            this.Data = query;
             this.AnswerHandler = null;
             this.Attempts = 0;
         }
@@ -77,11 +81,11 @@ namespace PipesProvider.Client
         /// <summary>
         /// Constructor of contaier that provide ability to create duplex query.
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="AnswerHandler"></param>
-        public QueryContainer(string query, System.Action<TransmissionLine, string> AnswerHandler)
+        /// <param name="query">Formated query.</param>
+        /// <param name="AnswerHandler">Delegate that would handle answer received from server.</param>
+        public QueryContainer(UniformQueries.Query query, Action<TransmissionLine, byte[]> AnswerHandler)
         {
-            this.Query = query;
+            this.Data = query;
             this.AnswerHandler = AnswerHandler;
             this.Attempts = 0;
         }
@@ -92,13 +96,13 @@ namespace PipesProvider.Client
         /// <summary>
         /// Return copy of source container.
         /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="source">Container that contains formated query and meta data about handler.</param>
+        /// <returns>Compied container.</returns>
         public static QueryContainer Copy(QueryContainer source)
         {
             return new QueryContainer(
-                string.Copy(source.Query),
-                source.AnswerHandler != null ? source.AnswerHandler.Clone() as System.Action<TransmissionLine, string> : null);
+                source.Data.Clone() as UniformQueries.Query,
+                source.AnswerHandler != null ? source.AnswerHandler.Clone() as System.Action<TransmissionLine, byte[]> : null);
 
         }
         
@@ -108,7 +112,7 @@ namespace PipesProvider.Client
         /// <returns>Returns Query property.</returns>
         public override string ToString()
         {
-            return Query;
+            return Data.ToString();
         }
         #endregion
 
@@ -131,7 +135,7 @@ namespace PipesProvider.Client
         /// <param name="container"></param>
         public static explicit operator string(QueryContainer container)
         {
-            return container.Query;
+            return container.Data.ToString();
         }
         #endregion
     }

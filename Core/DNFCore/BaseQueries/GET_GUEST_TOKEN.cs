@@ -61,34 +61,35 @@ namespace BaseQueries
         /// <summary>
         /// Methods that process query.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
-        public void Execute(QueryPart[] queryParts)
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public void Execute(object sender, Query query)
         {
             if (guestTokenHandler != null)
             {
                 // Send token to client.
-                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), query);
             }
             else
             {
-                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", queryParts);
+                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", query);
             }
         }
 
         /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
-        /// <param name="queryParts">Recived query parts.</param>
+        /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
-        public bool IsTarget(QueryPart[] queryParts)
+        public bool IsTarget(Query query)
         {
-            if (!UniformQueries.API.QueryParamExist("get", queryParts))
+            if (!query.QueryParamExist("get"))
                 return false;
 
-            if (!UniformQueries.API.QueryParamExist("guest", queryParts))
+            if (!query.QueryParamExist("guest"))
                 return false;
 
-            if (!UniformQueries.API.QueryParamExist("token", queryParts))
+            if (!query.QueryParamExist("token"))
                 return false;
 
             return true;
@@ -110,6 +111,22 @@ namespace BaseQueries
                   string pipeName,
                   CancellationToken cancellationToken)
             {
+                #region Validate
+                // Drop if process already started to avoid conflicts.
+                if (IsInProgress)
+                {
+                    Console.WriteLine("Authorization process already started.");
+                    return;
+                }
+                #endregion
+
+                #region Set markers
+                // Drop previous autorization.
+                IsAutorized = false;
+                IsInProgress = true;
+                IsTerminated = false;
+                #endregion
+
                 #region Wait connection possibilities.
                 if (!PipesProvider.NativeMethods.DoesNamedPipeExist(serverIP, pipeName))
                 {
@@ -136,7 +153,7 @@ namespace BaseQueries
                 #endregion
 
                 //Recive message.
-                UniformClient.Standard.SimpleClient.ReceiveAnonymousBroadcastMessage(
+                UniformClient.BaseClient.ReceiveAnonymousBroadcastMessage(
                    serverIP, pipeName,
                    ServerAnswerHandler);
             }

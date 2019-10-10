@@ -13,6 +13,8 @@
 //limitations under the License.
 
 using System;
+using PipesProvider.Security.Encryption;
+using System.Collections;
 using System.IO.Pipes;
 
 namespace PipesProvider.Server.TransmissionControllers
@@ -27,6 +29,11 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Object that provide access to async connection.
         /// </summary>
         public IAsyncResult connectionMarker;
+
+        /// <summary>
+        /// Marker that autorize new connection search.
+        /// </summary>
+        public bool newConnectionSearchAllowed = true;
 
         /// <summary>
         /// Delegate that will be called when connection will be established.
@@ -62,7 +69,6 @@ namespace PipesProvider.Server.TransmissionControllers
         /// instiniate default server trnasmission controller.
         /// </summary>
         public BaseServerTransmissionController() { }
-
 
         /// <summary>
         /// Instiniate base transmission controller.

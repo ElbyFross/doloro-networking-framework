@@ -41,17 +41,25 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UniformDataOperator">
+      <HintPath>..\..\Addons\uniform-data-operator\UniformDataOperator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\ClientAPI.cs" />
     <Compile Include="Handlers\DNS.cs" />
-    <Compile Include="Handlers\Query.cs" />
+    <Compile Include="Handlers\Queries.cs" />
     <Compile Include="Handlers\Service.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Networking\Info.cs" />
     <Compile Include="Networking\Routing\RoutingTable.cs" />
     <Compile Include="Networking\Routing\Instruction.cs" />
     <Compile Include="Security\Crypto.cs" />
+    <Compile Include="Security\Encryption\Operators\AESEncryptionOperator.cs" />
+    <Compile Include="Security\Encryption\EncryptionOperatorType.cs" />
+    <Compile Include="Security\Encryption\EnctyptionOperatorsHandler.cs" />
+    <Compile Include="Security\Encryption\Operators\IEncryptionOperator.cs" />
+    <Compile Include="Security\Encryption\Operators\RSAEncryptionOperator.cs" />
     <Compile Include="Security\General.cs" />
     <Compile Include="Security\LogonConfig.cs" />
     <Compile Include="Security\LSA.cs" />

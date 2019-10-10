@@ -108,7 +108,7 @@ namespace ACTests.Tests
 
             // Create query
             // Create the query that would contain user data.
-            QueryPart[] query = Helpers.Users.NewUserQuery("admin", "Password123!", "Mark", "Sanders");
+            Query query = Helpers.Users.NewUserQuery("admin", "Password123!", "Mark", "Sanders");
 
             // Marker that avoid finishing of the test until receiving result.
             bool operationCompete = false;
@@ -121,35 +121,23 @@ namespace ACTests.Tests
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(query),
+                query,
 
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Trying to convert answer to string
-                    if (answer is string answerS)
+                    // Is operation success?
+                    if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                     {
-                        // Is operation success?
-                        if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                        {
-                            // Log error.
-                            operationResult = true;
-                            operationCompete = true;
-                        }
-                        else
-                        {
-                            // Log error.
-                            operationResult = false;
-                            operationError = "Registration failed. Server answer:" + answerS;
-                            operationCompete = true;
-                        }
+                        // Log error.
+                        operationResult = true;
+                        operationCompete = true;
                     }
                     else
                     {
                         // Log error.
                         operationResult = false;
-                        operationError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                        operationError = "Registration failed. Server answer:" + answer.First.PropertyValueString;
                         operationCompete = true;
                     }
                 });
@@ -182,21 +170,20 @@ namespace ACTests.Tests
             error = null;
 
             // Create the query that would simulate logon.
-            QueryPart[] query = new QueryPart[]
-            {
-                // TODO INVALID TOKEN
+            Query query = new Query
+            (
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                new QueryPart("user", null),
-                new QueryPart("logon", null),
+                new QueryPart("user"),
+                new QueryPart("logon"),
 
                 new QueryPart("login", "notexisteduser"),
                 new QueryPart("password", "Password123!"),
                 new QueryPart("os", Environment.OSVersion.VersionString),
                 new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-            };
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
 
             // Marker that avoid finishing of the test until receiving result.
             bool operationCompete = false;
@@ -207,17 +194,13 @@ namespace ACTests.Tests
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(query),
+                query,
 
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Trying to convert answer to string
-                    if (answer is string answerS)
-                    {
                         // Is operation success?
-                        if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
                             Assert.IsTrue(true);
                             operationCompete = true;
@@ -225,16 +208,9 @@ namespace ACTests.Tests
                         else
                         {
                             // Log error.
-                            Assert.Fail("Unexisted user found on server.\nAnswer:" + answerS);
+                            Assert.Fail("Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString);
                             operationCompete = true;
                         }
-                    }
-                    else
-                    {
-                        // Assert error.
-                        Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
-                        operationCompete = true;
-                    }
                 });
 
             // Wait until operation would complete.
@@ -272,10 +248,10 @@ namespace ACTests.Tests
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
                 // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(Helpers.Users.NewUserQuery("validuser", "Password123!")),
+                Helpers.Users.NewUserQuery("validuser", "Password123!"),
 
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
                     operationCompete = true;
                 });
@@ -287,21 +263,20 @@ namespace ACTests.Tests
             }
 
             // Create the query that would simulate logon.
-            QueryPart[] query = new QueryPart[]
-            {
-                // TODO INVALID TOKEN
+            Query query = new Query
+            (
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                new QueryPart("user", null),
-                new QueryPart("logon", null),
+                new QueryPart("user"),
+                new QueryPart("logon"),
 
                 new QueryPart("login", "validuser"),
                 new QueryPart("password", "Password123!"),
                 new QueryPart("os", Environment.OSVersion.VersionString),
                 new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-            };
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
             #endregion
 
             #region Logon
@@ -313,33 +288,20 @@ namespace ACTests.Tests
 
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
-
-                // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(query),
-
+                query,
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Trying to convert answer to string
-                    if (answer is string answerS)
+                    // Is operation success?
+                    if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                     {
-                        // Is operation success?
-                        if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                        {
-                            Assert.IsTrue(true);
-                            operationCompete = true;
-                        }
-                        else
-                        {
-                            // Log error.
-                            Assert.Fail("User not found on server.\nAnswer:" + answerS);
-                            operationCompete = true;
-                        }
+                        Assert.IsTrue(true);
+                        operationCompete = true;
                     }
                     else
                     {
-                        // Assert error.
-                        Assert.Fail("Incorrect format of answer. Required format is string. Type:" + answer.GetType());
+                        // Log error.
+                        Assert.Fail("User not found on server.\nAnswer:" + answer.First.PropertyValueString);
                         operationCompete = true;
                     }
                 });
@@ -401,44 +363,30 @@ namespace ACTests.Tests
             bool operationCompete = false;
             bool operationResult = false;
 
-            // Create the query that would contain user data.
-            QueryPart[] query = Helpers.Users.NewUserQuery("banneduser", "Password123!");
-
             // Start reciving clent line.
             UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
-
-                // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(query),
+                
+                // Create the query that would contain user data.
+                Helpers.Users.NewUserQuery("banneduser", "Password123!"),
 
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Trying to convert answer to string
-                    if (answer is string answerS)
+                    // Is operation success?
+                    if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                     {
-                        // Is operation success?
-                        if (!answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                        {
-                            // Log error.
-                            operationResult = true;
-                            operationCompete = true;
-                        }
-                        else
-                        {
-                            // Log error.
-                            operationResult = false;
-                            internalError = "Registration failed. Server answer:" + answerS;
-                            operationCompete = true;
-                        }
+                        // Log error.
+                        operationResult = true;
+                        operationCompete = true;
                     }
                     else
                     {
                         // Log error.
                         operationResult = false;
-                        internalError = "Incorrect format of answer.Required format is string.Type:" + answer.GetType();
+                        internalError = "Registration failed. Server answer:" + answer.First.PropertyValueString;
                         operationCompete = true;
                     }
                 });
@@ -495,21 +443,20 @@ namespace ACTests.Tests
             error = null;
 
             // Create the query that would simulate logon.
-            QueryPart[] query = new QueryPart[]
-            {
-                // TODO INVALID TOKEN
+            Query query = new Query
+            (
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                new QueryPart("user", null),
-                new QueryPart("logon", null),
+                new QueryPart("user"),
+                new QueryPart("logon"),
 
                 new QueryPart("login", "banneduser"),
                 new QueryPart("password", "Password123!"),
                 new QueryPart("os", Environment.OSVersion.VersionString),
                 new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-            };
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
 
             // Marker that avoid finishing of the test until receiving result.
             bool operationCompete = false;
@@ -521,18 +468,12 @@ namespace ACTests.Tests
 
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
-
-                // Convert query parts array to string view in correct format provided by UniformQueries API.
-                QueryPart.QueryPartsArrayToString(query),
-
+                query,
                 // Handler that would recive ther ver answer.
-                (PipesProvider.Client.TransmissionLine line, object answer) =>
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                    // Trying to convert answer to string
-                    if (answer is string answerS)
-                    {
                         // Is operation success?
-                        if (answerS.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
                             Assert.IsTrue(true);
                             operationCompete = true;
@@ -541,18 +482,10 @@ namespace ACTests.Tests
                         else
                         {
                             // Log error.
-                            internalError = "Unexisted user found on server.\nAnswer:" + answerS;
+                            internalError = "Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString;
                             operationResult = false;
                             operationCompete = true;
                         }
-                    }
-                    else
-                    {
-                        // Assert error.
-                        internalError = "Incorrect format of answer. Required format is string. Type:" + answer.GetType();
-                        operationResult = false;
-                        operationCompete = true;
-                    }
                 });
 
             // Wait until operation would complete.

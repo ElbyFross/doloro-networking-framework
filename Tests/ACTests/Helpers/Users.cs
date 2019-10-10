@@ -213,11 +213,9 @@ namespace ACTests.Helpers
         /// <param name="fn">User's name</param>
         /// <param name="ln">User's last name</param>
         /// <returns></returns>
-        public static QueryPart[] NewUserQuery(string login, string password = "1234567!Qwerty", string fn = "FirstName", string ln = "SecondName")
+        public static Query NewUserQuery(string login, string password = "1234567!Qwerty", string fn = "FirstName", string ln = "SecondName")
         {
-            return new QueryPart[]
-            {
-                // TODO invalid token.
+            return new Query(
                 new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -231,8 +229,8 @@ namespace ACTests.Helpers
 
                 new QueryPart("os", Environment.OSVersion.VersionString),
                 new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
-                new QueryPart("stamp", DateTime.Now.ToBinary().ToString()),
-            };
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
         }
     }
 }
