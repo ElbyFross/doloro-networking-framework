@@ -232,9 +232,10 @@ namespace UniformServer.Standard
 
                 decryptionComplete = true; 
             });
+            decryptionOperation.Start();
 
             // Whait for decription completing.
-            while(!decryptionComplete)
+            while (!decryptionComplete)
             {
                 Thread.Sleep(5);
             }

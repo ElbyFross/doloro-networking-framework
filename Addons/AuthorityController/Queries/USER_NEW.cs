@@ -60,7 +60,7 @@ namespace AuthorityController.Queries
             // Marker that would be mean that some of internal tasks was failed and operation require termination.
             bool failed = false;
 
-            #region Get qyery params
+            #region Get query params
             query.TryGetParamValue("login", out QueryPart login);
             query.TryGetParamValue("password", out QueryPart password);
             query.TryGetParamValue("fn", out QueryPart firstName);
@@ -115,7 +115,7 @@ namespace AuthorityController.Queries
             }
 
             // Can take enough long time so just let other query to process.
-            System.Threading.Thread.Sleep(5);
+            Thread.Sleep(5);
             #endregion
 
             #region Validate names

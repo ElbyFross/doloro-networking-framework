@@ -60,7 +60,7 @@ namespace UniformQueries
             DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
 
             // Compare with allowed token time.
-            if (when < expiryTime)
+            if (when > expiryTime)
             {
                 // Confirm expiration.
                 return true;

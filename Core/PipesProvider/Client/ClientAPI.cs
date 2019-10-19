@@ -215,8 +215,15 @@ namespace PipesProvider.Client
         {
             lock (openedClients)
             {
-                // Closing every line.
+                // Buferize list to prefent pointers errors.
+                var bufer = new List<TransmissionLine>();
                 foreach (TransmissionLine line in openedClients.Values)
+                {
+                    bufer.Add(line);
+                }
+
+                // Closing line droping the loop
+                foreach (TransmissionLine line in bufer)
                 {
                     line.Close();
                 }

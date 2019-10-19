@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UniformQueries</name>
+    </assembly>
+    <members>
+        <member name="T:UniformQueries.API">
+            <summary>
+            Class that provide methods for handling of queries.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.API.SPLITTING_SYMBOL">
+            <summary>
+            Symbol that divide query to parameters array.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.API.QueryHandlers">
+            <summary>
+            List that contain references to all query's handlers instances.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.API.#cctor">
+            <summary>
+            Load query handlers during first call.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.API.TryGetParamValue(System.String,System.String@,System.String)">
+            <summary>
+            Try to find requested param's value in query.
+            </summary>
+            <param name="param"></param>
+            <param name="value"></param>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.API.GetParamValues(System.String,UniformQueries.QueryPart[])">
+            <summary>
+            Try to find requested all param's value among query parts by requested param name.
+            </summary>
+            <param name="param">Target param's name.</param>
+            <param name="queryParts">Array with query parts.</param>
+            <returns>Suitable query parts with target param.</returns>
+        </member>
+        <member name="M:UniformQueries.API.DetectQueryParts(System.String)">
+            <summary>
+            Convert query's string to array of query parts.
+            User SPLITTING_SYMBOL as spliter for detect query parts.
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.API.DetectQueryParts(System.String,System.Char)">
+            <summary>
+            Convert query's string to array of query parts.
+            </summary>
+            <param name="query"></param>
+            <param name="spliter">Char that will be used as query part spliter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.API.TryFindQueryHandler(UniformQueries.Query,UniformQueries.Executable.IQueryHandler@)">
+            <summary>
+            Looking for query handler.
+            </summary>
+            <param name="query">Recived query.</param>
+            <param name="handler">Hadler that's situated to this query.</param>
+            <returns></returns>
+        </member>
+        <member name="T:UniformQueries.Executable.IQueryHandler">
+            <summary>
+            All classes that implements this interface 
+            will automaticly detected by QueriesAPI via first use and connected to queries processing.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Executable.IQueryHandler.Execute(System.Object,UniformQueries.Query)">
+            <summary>
+            Methods that process query.
+            </summary>
+            <param name="sender">Operator that call that operation</param>
+            <param name="query">Recived query.</param>
+        </member>
+        <member name="M:UniformQueries.Executable.IQueryHandler.IsTarget(UniformQueries.Query)">
+            <summary>
+            Check by the entry params does it target Query Handler.
+            </summary>
+            <param name="query">Recived query.</param>
+            <returns>Result of comparation.</returns>
+        </member>
+        <member name="M:UniformQueries.Executable.IQueryHandler.Description(System.String)">
+            <summary>
+            Return the description relative to the lenguage code or default if not found.
+            </summary>
+            <param name="cultureKey">Key of target culture.</param>
+            <returns>Description for relative culture.</returns>
+        </member>
+        <member name="T:UniformQueries.Executable.QueryProcessor">
+            <summary>
+            Object that provide base methods\fields\properties that allow to standartize and controll query processing.
+            </summary>
+        </member>
+        <member name="E:UniformQueries.Executable.QueryProcessor.ProcessingFinished">
+            <summary>
+            Event that would be called when reciving operation would be finished.
+            
+            Executable.QueryProcessor - reference to this processor.
+            bool - result od operation
+            object - object shared by processor.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.QueryProcessor.IsTerminated">
+            <summary>
+            Does last auth's task was terminated.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.QueryProcessor.IsInProgress">
+            <summary>
+            Is authrentification in proggress.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Executable.QueryProcessor.TerminateAuthorizationTask">
+            <summary>
+            Terminating current started process.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Executable.QueryProcessor.Finalize(System.Boolean,System.Object)">
+            <summary>
+            Generate ProcessingFinished event with provided params.
+            </summary>
+            <param name="result">Resdult of processing.</param>
+            <param name="args">Shared object.</param>
+        </member>
+        <member name="M:UniformQueries.Executable.QueryProcessor.ServerAnswerHandler(System.Object,System.Object)">
+            <summary>
+            Handler that would recive server answer.
+            </summary>
+            <param name="controller"></param>
+            <param name="answer"></param>
+        </member>
+        <member name="T:UniformQueries.Executable.Security.AuthQueryProcessor">
+            <summary>
+            Provide fields situated but authentification queries.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.IsAutorized">
+            <summary>
+            Check does this instruction authorized.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.Token">
+            <summary>
+            Token that would be used during quries to confirm the rights.
+            Logon on target server before using this instruction and save recived token to this property.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.ExpiryTime">
+            <summary>
+            Time when token would expited.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.RecivedRights">
+            <summary>
+            Rights provided to token during logon.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Executable.Security.AuthQueryProcessor.ServerAnswerHandler(System.Object,System.Object)">
+            <summary>
+            Handler that would recive server answer.
+            </summary>
+            <param name="_">Dropped param that not required on that processor.</param>
+            <param name="answer">Binary data received from server as answer.</param>
+        </member>
+        <member name="T:UniformQueries.Query">
+            <summary>
+            Formated query that can be shared in binary view cross network.
+            </summary>
+        </member>
+        <member name="T:UniformQueries.Query.EncryptionInfo">
+            <summary>
+            Data that describe required or applied encryption.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.Query.EncryptionInfo.contentEncytpionOperatorCode">
+            <summary>
+            Code of encryption operator that applied to the query's content.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.Query.EncryptionInfo.encryptedSymmetricKey">
+            <summary>
+            Symmetric key that used for content encryption.
+            Encrupted by public key received from server.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Query.EncryptionInfo.Clone">
+            <summary>
+            Return cloned object of settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UniformQueries.Query.EncryptionMeta">
+            <summary>
+            Encryption setting of that query.
+            if null then messages would not encrypted.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Query.IsEncrypted">
+            <summary>
+            Is that query has configurated encryption meta?
+            If it is then system would mean that the content was or require to be encrypted and would to operate that.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Query.Content">
+            <summary>
+            Binary array with content. Could be encrypted.
+            In normal state is List of QueryPart.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.Query.content">
+            <summary>
+            Binary data shared via that query. Can be encrypted.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Query.WaitForAnswer">
+            <summary>
+            If true than output handler will wait for receiving answer input handler and
+            only after that will start next query in queue.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Query.First">
+            <summary>
+            Returns first query part or QueryPart.None if not available.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Query.ListedContent">
+            <summary>
+            Returning content in listed format of possible. Null if not.
+            Serialize listed content to binary format.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.Query.listedContent">
+            <summary>
+            Bufer that contains deserialized binary content.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Query.#ctor">
+            <summary>
+            Default consructor.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Query.#ctor(System.String)">
+            <summary>
+            Creating query with message as content.
+            </summary>
+            <param name="message">Message that would be available via `value` param.</param>
+        </member>
+        <member name="M:UniformQueries.Query.#ctor(UniformQueries.Query.EncryptionInfo,UniformQueries.QueryPart[])">
+            <summary>
+            Creating query from parts.
+            </summary>
+            <param name="parts">Query parts that would be used as Listed content.</param>
+        </member>
+        <member name="M:UniformQueries.Query.#ctor(UniformQueries.QueryPart[])">
+            <summary>
+            Creating query from parts.
+            </summary>
+            <param name="parts">Query parts that would be used as Listed content.</param>
+        </member>
+        <member name="M:UniformQueries.Query.QueryParamExist(System.String)">
+            <summary>
+            Check existing of param in query parts.
+            </summary>
+            <param name="param">Parameter that would be looked in query.</param>
+            <returns>Is parameter exist.</returns>
+        </member>
+        <member name="M:UniformQueries.Query.TryGetParamValue(System.String,UniformQueries.QueryPart@)">
+            <summary>
+            Try to find requested param's value among query parts.
+            </summary>
+            <param name="param">Parameter to search in listed content.</param>
+            <param name="value">Query's part that found.</param>
+            <returns>Result of search.</returns>
+        </member>
+        <member name="M:UniformQueries.Query.SetParam(UniformQueries.QueryPart)">
+            <summary>
+            Setting part to listed content. 
+            Update existing if found.
+            </summary>
+            <param name="queryPart">Target query part.</param>
+        </member>
+        <member name="M:UniformQueries.Query.Clone">
+            <summary>
+            Returns copy of that object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.Query.ToString">
+            <summary>
+            Return query in string format.
+            </summary>
+            <returns>String formtated query.</returns>
+        </member>
+        <member name="M:UniformQueries.Query.op_Implicit(UniformQueries.Query)~System.String">
+            <summary>
+            Converting query to string.
+            </summary>
+            <param name="query"></param>
+        </member>
+        <member name="T:UniformQueries.QueryPart">
+            <summary>
+            Formated query part descriptor.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.QueryPart.propertyName">
+            <summary>
+            Key for access
+            </summary>
+        </member>
+        <member name="F:UniformQueries.QueryPart.propertyValue">
+            <summary>
+            Property that will be shared via query.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.QueryPart.encoding">
+            <summary>
+            Encoding of string parts.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.QueryPart.PropertyValueString">
+            <summary>
+            Oparate the ptoperty value like string.
+            </summary>
+        </member>
+        <member name="F:UniformQueries.QueryPart._PropertyValueString">
+            <summary>
+            Buffer that contain encoded value.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.QueryPart.IsNone">
+            <summary>
+            If this struct not initialized.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.QueryPart.None">
+            <summary>
+            Default querie part that not contains valid data.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.QueryPart.#ctor(System.String)">
+            <summary>
+            Base constructor.
+            Value will be null
+            </summary>
+            <param name="key">String key that allow to find this part in query.</param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.#ctor(System.String,System.Object)">
+            <summary>
+            Base constructor.
+            Value will be null
+            </summary>
+            <param name="key">String key that allow to find this part in query.</param>
+            <param name="obj">Object that woulb be converted to binary array.</param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.#ctor(System.String,System.String)">
+            <summary>
+            Base constructor.
+            </summary>
+            <param name="key">String key that allow to find this part in query.</param>
+            <param name="property">String property that will be available to find by key.</param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.#ctor(System.String,System.Byte[])">
+            <summary>
+            Base constructor.
+            </summary>
+            <param name="key">String key that allow to find this part in query.</param>
+            <param name="property">Binary property that will be available to find by key.</param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.ToString">
+            <summary>
+            Return part in query format.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.QueryPart.op_Implicit(UniformQueries.QueryPart)~System.String">
+            <summary>
+            Convert QueryPart to string.
+            </summary>
+            <param name="qp"></param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.op_Explicit(System.String)~UniformQueries.QueryPart">
+            <summary>
+            Convert string to Qury Part.
+            </summary>
+            <param name="buildedPart"></param>
+        </member>
+        <member name="M:UniformQueries.QueryPart.ParamNameEqual(System.String)">
+            <summary>
+            Check does this query's key equals to target.
+            </summary>
+            <param name="key">Key for comparing.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.QueryPart.ParamValueEqual(System.String)">
+            <summary>
+            Check does this query's parameter equals to target.
+            </summary>
+            <param name="param"></param>
+            <returns>Result of comparation.</returns>
+        </member>
+        <member name="M:UniformQueries.QueryPart.ParamValueEqual(System.Object)">
+            <summary>
+            Check does this query's parameter equals to target.
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.QueryPart.TryGetBackwardDomain(UniformQueries.Query,System.String@)">
+            <summary>
+            Try to get domain to backward connection by entry query.
+            </summary>
+            <param name="query">Query that was reciverd from client.</param>
+            <param name="domain">Domain that will return in case if build is possible.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniformQueries.QueryPart.ClearCach">
+            <summary>
+            Clearing cashed data. Use if you change core settings and need to recomputing.
+            </summary>
+        </member>
+        <member name="T:UniformQueries.Tokens">
+            <summary>
+            Class that provide API for works with tokens.
+            </summary>
+        </member>
+        <member name="P:UniformQueries.Tokens.UnusedToken">
+            <summary>
+            Return free token.
+            </summary>
+        </member>
+        <member name="M:UniformQueries.Tokens.IsExpired(System.String,System.DateTime)">
+            <summary>
+            Check if token expired based on encoded token data.
+            Use it on Queries Server to avoid additive time spending on data servers and unnecessary connections.
+            
+            If token have hacked allocate date this just will lead to passing of this check.
+            Server wouldn't has has token so sequrity will not be passed.
+            Also server will control expire time by him self.
+            </summary>
+            <param name="token">Token in string format.</param>
+            <param name="expiryTime">Time when token would expired.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

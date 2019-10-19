@@ -136,7 +136,7 @@ namespace UniformClient
         public static TransmissionLine ReceiveAnonymousBroadcastMessage(
             string serverName, 
             string pipeName,
-            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
+            Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             #region Append answer handler to backward table.
             string hashKey = serverName + "\\" + pipeName;
