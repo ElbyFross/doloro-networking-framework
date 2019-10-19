@@ -69,10 +69,7 @@ namespace SessionProvider
             // Check direcroties
             LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
             #endregion
-
-            // Connectio to SQL server.
-            InitSqlOperator();
-
+            
             #region Initialize authority controller
             // Subscribe to events.
             //AuthorityController.Session.InformateRelatedServers += InformateRelatedServers;
@@ -137,6 +134,7 @@ namespace SessionProvider
 
             // Show help.
             UniformServer.Commands.BaseCommands("help");
+            CustomComands("help");
 
             #region Main loop
             // Main loop that will provide server services until application close.
@@ -152,7 +150,10 @@ namespace SessionProvider
                     string command = Console.ReadLine();
 
                     // Processing of entered command.
-                    UniformServer.Commands.BaseCommands(command);
+                    if (!CustomComands(command))
+                    {
+                        UniformServer.Commands.BaseCommands(command);
+                    }
                 }
                 Thread.Sleep(threadSleepTime);
             }
@@ -190,7 +191,7 @@ namespace SessionProvider
         /// Processing arguments suitable to that server.
         /// </summary>
         /// <param name="args"></param>
-        public static void CustomArgsReactor(string[] args)
+        public static void CustomArgsReactor(params string[] args)
         {
             foreach(string arg in args)
             {
@@ -206,6 +207,7 @@ namespace SessionProvider
                         continue;
                     }
 
+                    bool success = true;
                     // Inint SqlOperatorHandler
                     switch (operatorCode)
                     {
@@ -213,9 +215,17 @@ namespace SessionProvider
                             UniformDataOperator.Sql.SqlOperatorHandler.Active =
                                 UniformDataOperator.Sql.MySql.MySqlDataOperator.Active;
                             break;
+
                         default:
+                            success = false;
                             Console.WriteLine("Invalid argument. Undifined SQL data operator '" + operatorCode + "'.");
                             break;
+                    }
+
+                    if (success)
+                    {
+                        // Configuratie connection to SQL server.
+                        InitSqlOperator();
                     }
                     continue;
                 }
@@ -259,6 +269,33 @@ namespace SessionProvider
                 // Clearing console to prevent storing of secrete data.
                 Console.Clear();
             }
+        }
+
+        /// <summary>
+        /// Perform command suitable for that server.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns>Is command executed.</returns>
+        public static bool CustomComands(string command)
+        {
+            if(command.Equals("help"))
+            {
+                Console.WriteLine("ADDITIVE COMMANDS:\n" +
+                    "sql=[OperatorCode] - Connect to specified SQL data server. " +
+                    "Implemeted codes: 'mysql'");
+
+                return true;
+            }
+
+            // If that is configurator of SQL operator.
+            if(command.StartsWith("sql="))
+            {
+                // Send to args processing.
+                CustomArgsReactor(command);
+                return true;
+            }
+
+            return false;
         }
     }
 }
