@@ -63,10 +63,15 @@ namespace SessionProvider
 
             // React on uniform arguments.
             ArgsReactor(args);
+            // react on args specified to that server.
+            CustomArgsReactor(args);
 
             // Check direcroties
             LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
             #endregion
+
+            // Connectio to SQL server.
+            InitSqlOperator();
 
             #region Initialize authority controller
             // Subscribe to events.
@@ -178,6 +183,81 @@ namespace SessionProvider
                 UsersLoaded = true;
 
                 // TODO Check super admin existing.
+            }
+        }
+
+        /// <summary>
+        /// Processing arguments suitable to that server.
+        /// </summary>
+        /// <param name="args"></param>
+        public static void CustomArgsReactor(string[] args)
+        {
+            foreach(string arg in args)
+            {
+                // If Unifor sql operator is specified.
+                if(arg.StartsWith("sql="))
+                {
+                    // Receiving code.
+                    string operatorCode = null;
+                    try { operatorCode = arg.Substring(4); }
+                    catch
+                    {
+                        Console.WriteLine("Invalid argument. Allowed format sql:[DataOpratorCode].\nImplemented udo codes:\n\tmysql.");
+                        continue;
+                    }
+
+                    // Inint SqlOperatorHandler
+                    switch (operatorCode)
+                    {
+                        case "mysql":
+                            UniformDataOperator.Sql.SqlOperatorHandler.Active =
+                                UniformDataOperator.Sql.MySql.MySqlDataOperator.Active;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid argument. Undifined SQL data operator '" + operatorCode + "'.");
+                            break;
+                    }
+                    continue;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Requiesting all required dat afor SQL operator work.
+        /// </summary>
+        public static void InitSqlOperator()
+        {
+            // Drop if not required.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active == null)
+                return;
+
+            // Init like MySql operator.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active is UniformDataOperator.Sql.MySql.MySqlDataOperator)
+            {
+                string error = null;
+                do
+                {
+                    // Log error.
+                    if(!string.IsNullOrEmpty(error))
+                    {
+                        Console.WriteLine("\nConnection failed. Details:" + error);
+                        ConsoleDraw.Primitives.DrawSpacedLine();
+                    }
+
+                    Console.Write("Enter MySql user's login: ");
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.UserId = Console.ReadLine();
+
+                    Console.Write("Enter MySql user's password: ");
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.Password = Console.ReadLine();
+
+                    // Call initialization with that data.
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.Initialize();
+                }
+                while (!UniformDataOperator.Sql.SqlOperatorHandler.Active.OpenConnection(out error)); // Try to establish connection.
+                UniformDataOperator.Sql.SqlOperatorHandler.Active.CloseConnection(); // Close oppened connection.
+
+                // Clearing console to prevent storing of secrete data.
+                Console.Clear();
             }
         }
     }
