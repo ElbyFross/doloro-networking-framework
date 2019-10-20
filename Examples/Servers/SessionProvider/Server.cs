@@ -60,16 +60,16 @@ namespace SessionProvider
             // Set default thread count. Can be changed via args or command.
             threadsCount = Environment.ProcessorCount;
             longTermServerThreads = new UniformServer.BaseServer[threadsCount];
+            
+            // Check direcroties
+            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
 
             // React on uniform arguments.
             ArgsReactor(args);
             // react on args specified to that server.
             CustomArgsReactor(args);
-
-            // Check direcroties
-            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
             #endregion
-            
+
             #region Initialize authority controller
             // Subscribe to events.
             //AuthorityController.Session.InformateRelatedServers += InformateRelatedServers;
@@ -133,7 +133,6 @@ namespace SessionProvider
             #endregion
 
             // Show help.
-            UniformServer.Commands.BaseCommands("help");
             CustomComands("help");
 
             #region Main loop
@@ -268,7 +267,15 @@ namespace SessionProvider
 
                 // Clearing console to prevent storing of secrete data.
                 Console.Clear();
+
+                // Share info.
+                Console.WriteLine("SQL Server connected. Console had been cleared to prevent storing of the secret data.");
+                CustomComands("help");
+                Console.WriteLine();
             }
+
+            // Validating all shemas and tables.
+            UniformDataOperator.Sql.SqlOperatorHandler.RescanDatabaseStructure();
         }
 
         /// <summary>
@@ -280,9 +287,13 @@ namespace SessionProvider
         {
             if(command.Equals("help"))
             {
+                UniformServer.Commands.BaseCommands("help");
+
                 Console.WriteLine("ADDITIVE COMMANDS:\n" +
                     "sql=[OperatorCode] - Connect to specified SQL data server. " +
                     "Implemeted codes: 'mysql'");
+
+                ConsoleDraw.Primitives.DrawLine();
 
                 return true;
             }

@@ -996,14 +996,14 @@
             Event that can be called by operator to share errors during sql commands from async methods.
             </summary>
         </member>
-        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.InvokeSQLErrorOccured(System.Object,System.String)">
-            <summary>
-            Invoke global error event informing about error occuring.
-            </summary>
-        </member>
         <member name="P:UniformDataOperator.Sql.SqlOperatorHandler.Active">
             <summary>
             Contains las operator that asing itself to handler as active one.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.InvokeSQLErrorOccured(System.Object,System.String)">
+            <summary>
+            Invoke global error event informing about error occuring.
             </summary>
         </member>
         <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.CollectionToString(System.Collections.Generic.IEnumerable{System.Object})">
@@ -1047,6 +1047,12 @@
             <param name="obj">Target object that would contain output data.</param>
             <param name="error">Error occured during operation. Null if operation is success.</param>
             <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.RescanDatabaseStructure">
+            <summary>
+            Scaning assemblies and looking for classes and structures with defined Table attribute.
+            Trying to create shemas and tables via Active SqlOperator.
+            </summary>
         </member>
         <member name="T:UniformDataOperator.Sql.Attributes.Default">
             <summary>
