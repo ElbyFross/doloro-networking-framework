@@ -77,11 +77,12 @@ namespace AuthorityController.Data.Application
         /// </summary>
         public string[] UserDefaultRights = new string[]
         {
-            "base",
-            "commenting",
-            "publishing",
-            "personManaging",
-            "passwordManaging",
+            "rank=1", // User rank
+            "base", // Has acess to base functional.
+            "commenting", // Able to add commentaries.
+            "publishing", // Able to add posts.
+            "personManaging", // Can change the personal info.
+            "passwordManaging", // Can manage the self password.
         };
         #endregion
 

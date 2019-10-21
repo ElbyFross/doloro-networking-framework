@@ -1147,7 +1147,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
@@ -1216,7 +1216,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
@@ -1287,7 +1287,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),

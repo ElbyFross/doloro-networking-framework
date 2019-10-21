@@ -58,12 +58,13 @@
     <Compile Include="Data\Personal\User.cs" />
     <Compile Include="Extensions\PipesProvider\AuthorizedInstruction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Handler.cs" />
     <Compile Include="Queries\SET_TOKEN_RIGHTS.cs" />
     <Compile Include="Queries\USER_BAN.cs" />
     <Compile Include="Queries\USER_LOGOFF.cs" />
     <Compile Include="Queries\USER_LOGON.cs" />
     <Compile Include="Queries\USER_NEW.cs" />
-    <Compile Include="Queries\USER_NEW_PASSWORD.cs" />
+    <Compile Include="Queries\USER_UPDATE_PASSWORD.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="API\Tokens.cs" />
   </ItemGroup>

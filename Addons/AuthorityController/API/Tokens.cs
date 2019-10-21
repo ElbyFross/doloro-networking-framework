@@ -13,6 +13,7 @@
 //limitations under the License.
 
 using System;
+using System.Threading.Tasks;
 using System.Linq;
 using AuthorityController.Data.Application;
 
@@ -30,23 +31,23 @@ namespace AuthorityController.API
         /// </summary>
         /// <param name="token">Unitque token of the user.</param>
         /// <param name="error">Error that describe a reasone of fail. Could be send backward to client.</param>
-        /// <param name="requesterRights">Rights detected to that token.</param>
+        /// <param name="tokenInfo">Rights detected to that token.</param>
         /// <param name="requiredRights">Array that contain the rights that need to by existed.</param>
         /// <returns></returns>
         public static bool IsHasEnoughRigths(
             string token,
-            out string[] requesterRights, 
+            out Data.Temporal.TokenInfo tokenInfo, 
             out string error, 
             params string[] requiredRights)
         {
             // Initialize outputs
-            requesterRights = null;
+            tokenInfo = null;
             error = null;
 
             try
             {
                 // Check if the base rights exist.
-                if (!API.Tokens.IsHasEnoughRigths(token, out requesterRights,
+                if (!IsHasEnoughRigths(token, out tokenInfo,
                     requiredRights))
                 {
                     // Inform that token not registred.
@@ -76,17 +77,20 @@ namespace AuthorityController.API
         /// <param name="requiredRights"></param>
         /// <param name="requesterRights">Rights detected to that token.</param>
         /// <returns></returns>
-        public static bool IsHasEnoughRigths(string token, out string[] requesterRights, params string[] requiredRights)
+        public static bool IsHasEnoughRigths(
+            string token, 
+            out Data.Temporal.TokenInfo tokenInfo, 
+            params string[] requiredRights)
         {
             // Try to get token rights.
-            if (!Session.Current.TryGetTokenRights(token, out requesterRights))
+            if (!Session.Current.TryGetTokenInfo(token, out tokenInfo))
             {
                 // Create unathorized exception.
                 throw new UnauthorizedAccessException("Token not registred in the table.");
             }
 
             // Compare arrays.
-            return API.Collections.IsHasEnoughRigths(requesterRights, requiredRights);
+            return Collections.IsHasEnoughRigths(tokenInfo.rights, requiredRights);
         }
 
         /// <summary>

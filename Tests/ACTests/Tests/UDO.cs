@@ -408,29 +408,88 @@ namespace ACTests.Tests
         /// <returns>Result of operation.</returns>
         public bool BanUser(out string error)
         {
-            User user = (User)Activator.CreateInstance(User.GlobalType);
-            user.login = "banneduser";
+            // Create users for test.
+            Helpers.Users.SetBaseUsersPool();
 
-            // Get user id.
-            if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObject(
-                User.GlobalType, user, out error,
-                new string[] { "userid " },
-                "login"))
+            // Create admin user.
+            if(!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
+                Helpers.Users.user_Admin, out error))
             {
                 return false;
             }
 
-            // Create new permanent ban.
-            BanInformation ban = BanInformation.Permanent;
-            ban.userId = user.id;
-            ban.bannedByUserId = user.id;
-            ban.blockedRights = new string[] { "logon" }; // Set logon ban.
+            // Building query.
+            BanInformation banInformation = BanInformation.Permanent;
+            banInformation.blockedRights = new string[] { "logon" };
+            if (!AuthorityController.Data.Handler.TryXMLSerialize<BanInformation>(banInformation, out string banInfoXML))
+            {
+                error = "BanInfo seriazlizzation failed.";
+                return false;
+            }
+            Query query = new Query(
+                new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
+                new QueryPart("guid", "bunUserTest"),
+                new QueryPart("user", "banneduser"),
+                new QueryPart("ban", banInfoXML));
 
-            // Set ban to database.
-            return UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(
-                typeof(BanInformation),
-                ban,
-                out error);
+            // Marker that avoid finishing of the test until receiving result.
+            bool operationCompete = false;
+            bool operationResult = false;
+            string internalError = null;
+
+            // Start reciving clent line.
+            UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                // Request connection to localhost server via main pipe.
+                "localhost", Helpers.Networking.DefaultQueriesPipeName,
+                query,
+                // Handler that would recive ther ver answer.
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                {
+                    if(answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                    {
+                        internalError = query.First.PropertyValueString;
+                        operationResult = false;
+                    }
+                    else
+                    {
+                        operationResult = true;
+                    }
+                    operationCompete = true;
+                });
+
+            // Wait until operation would complete.
+            while (!operationCompete)
+            {
+                Thread.Sleep(5);
+            }
+
+            error = internalError;
+            return operationResult;
+
+            //User user = (User)Activator.CreateInstance(User.GlobalType);
+            //user.login = "banneduser";
+
+            //// Get user id.
+            //if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObject(
+            //    User.GlobalType, user, out error,
+            //    new string[] { "userid " },
+            //    "login"))
+            //{
+            //    return false;
+            //}
+
+            //// Create new permanent ban.
+            //BanInformation ban = BanInformation.Permanent;
+            //ban.userId = user.id;
+            //ban.bannedByUserId = user.id;
+            //ban.blockedRights = new string[] { "logon" }; // Set logon ban.
+
+            //// Set ban to database.
+            //return UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(
+            //    typeof(BanInformation),
+            //    ban,
+            //    out error);
         }
 
         /// <summary>
@@ -472,20 +531,20 @@ namespace ACTests.Tests
                 // Handler that would recive ther ver answer.
                 (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
-                        // Is operation success?
-                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
-                        {
-                            Assert.IsTrue(true);
-                            operationCompete = true;
-                            operationResult = true;
-                        }
-                        else
-                        {
-                            // Log error.
-                            internalError = "Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString;
-                            operationResult = false;
-                            operationCompete = true;
-                        }
+                    // Is operation success?
+                    if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Assert.IsTrue(true);
+                        operationCompete = true;
+                        operationResult = true;
+                    }
+                    else
+                    {
+                        // Log error.
+                        internalError = "Unexisted user found on server.\nAnswer:" + answer.First.PropertyValueString;
+                        operationResult = false;
+                        operationCompete = true;
+                    }
                 });
 
             // Wait until operation would complete.
@@ -511,8 +570,69 @@ namespace ACTests.Tests
                 return;
             }
 
-            // Drop operator.
-            UniformDataOperator.Sql.SqlOperatorHandler.Active = null;
+            // Create users for test.
+            Helpers.Users.SetBaseUsersPool();
+
+            // Create admin user.
+            if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
+                Helpers.Users.user_Admin, out error))
+            {
+                Assert.Fail(error);
+                return;
+            }
+
+            // Create the query that would simulate logon.
+            Query query = new Query(
+                new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
+                new QueryPart("guid", Guid.NewGuid().ToString()),
+
+                new QueryPart("user", Helpers.Users.user_Admin.login),
+                new QueryPart("update"),
+
+                new QueryPart("password", "newPassword!2"),
+                new QueryPart("oldpassword", "password"),
+                new QueryPart("os", Environment.OSVersion.VersionString),
+                new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
+                new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
+            );
+
+            // Marker that avoid finishing of the test until receiving result.
+            bool operationCompete = false;
+            bool operationResult = false;
+            string operationError = null;
+
+            // Start reciving clent line.
+            UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                // Request connection to localhost server via main pipe.
+                "localhost", Helpers.Networking.DefaultQueriesPipeName,
+                query,
+                // Handler that would recive ther ver answer.
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                {
+                    // Is operation success?
+                    if (!answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Log success.
+                        operationResult = true;
+                        operationCompete = true;
+                    }
+                    else
+                    {
+                        // Log fail & error.
+                        operationResult = false;
+                        operationError = "Recived error: " + answer.First.PropertyValueString;
+                        operationCompete = true;
+                    }
+                });
+
+            // Wait until operation would complete.
+            while (!operationCompete)
+            {
+                Thread.Sleep(5);
+            }
+
+            Assert.IsTrue(operationResult, operationError);
         }
     }
 }

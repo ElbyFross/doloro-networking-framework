@@ -26,7 +26,7 @@ namespace AuthorityController.Queries
     /// Set new password for user.
     /// Require admin or certen user rights.
     /// </summary>
-    public class USER_NEW_PASSWORD : IQueryHandler
+    public class USER_UPDATE_PASSWORD : IQueryHandler
     {
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
@@ -39,12 +39,12 @@ namespace AuthorityController.Queries
             {
                 case "en-US":
                 default:
-                    return "USER NEW PASSWORD\n" +
+                    return "USER UPDATE PASSWORD\n" +
                             "\tDESCRIPTION: Request new password for user." +
                             "\n\tToken confirm rights to change it.\n" +
                             "\n\tOld password required to avoid access from public places.\n" +
                             "\tQUERY FORMAT: user=..." + UniformQueries.API.SPLITTING_SYMBOL + 
-                            "new" + UniformQueries.API.SPLITTING_SYMBOL +
+                            "update" + UniformQueries.API.SPLITTING_SYMBOL +
                             "password=..." + UniformQueries.API.SPLITTING_SYMBOL + 
                             "oldPassword=..." + UniformQueries.API.SPLITTING_SYMBOL +
                             "token=..." + "\n";
@@ -57,6 +57,118 @@ namespace AuthorityController.Queries
         /// <param name="serverTL">Operator that call that operation</param>
         /// <param name="query">Recived query.</param>
         public virtual void Execute(object serverTL, Query query)
+        {
+            // Init defaults.
+            Task asyncDataOperator = null;
+            bool dataOperationFailed = false;
+
+            #region Get params.
+            query.TryGetParamValue("password", out QueryPart password);
+            query.TryGetParamValue("oldPassword", out QueryPart oldPassword);
+            #endregion
+
+            // Validate user rights to prevent not restricted acess passing.
+            if(!Handler.ValidateUserRights(
+                query,
+                Config.Active.QUERY_UserNewPassword_RIGHTS, 
+                out string error,
+                out User userProfile))
+            {
+                // Drop if invalid. 
+                return;
+            }
+            
+            #region Validate password.
+            // Comapre password with stored.
+            if (!userProfile.IsOpenPasswordCorrect(oldPassword.PropertyValueString))
+            {
+                // Inform that password is incorrect.
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
+                return;
+            }
+            #endregion
+
+            #region Validate new password
+            if (!API.Validation.PasswordFormat(password.PropertyValueString, out string errorMessage))
+            {
+                // Inform about incorrect login size.
+                UniformServer.BaseServer.SendAnswerViaPP(
+                    errorMessage,
+                    query);
+                return;
+            }
+            #endregion
+
+            // Update password.
+            userProfile.password = SaltContainer.GetHashedPassword(password.PropertyValueString, Config.Active.Salt);
+
+            // Update stored profile.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
+            {
+                // Subscribe on errors.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
+
+                // Update on SQL server.
+                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
+                    User.GlobalType,
+                    Session.Current.TerminationTokenSource.Token,
+                    userProfile);
+            }
+            else
+            {
+                // Ipdate in local storage.
+                API.LocalUsers.SetProfile(userProfile);
+            }
+
+            // If async operation started.
+            if (asyncDataOperator != null)
+            {
+                // Wait until finishing.
+                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
+                {
+                    Thread.Sleep(5);
+                }
+
+                // Unsubscribe from errors listening.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+                asyncDataOperator = null;
+            }
+
+            // Log sucess if not failed.
+            if (!dataOperationFailed)
+            {
+                // Inform about success
+                UniformServer.BaseServer.SendAnswerViaPP(
+                    "success",
+                    query);
+            }
+
+            #region SQL server callbacks
+            // Looking for user on SQL server if connected.
+            void ErrorListener(object sender, string message)
+            {
+                // Drop if not target user.
+                if (!userProfile.Equals(sender))
+                {
+                    return;
+                }
+
+                // Unsubscribe.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
+
+                // Inform that user not found.
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, query);
+                dataOperationFailed = true;
+            }
+            #endregion 
+        }
+
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="serverTL">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public virtual void Execute2(object serverTL, Query query)
         {
             bool dataOperationFailed = false;
             string error = null;
@@ -120,7 +232,7 @@ namespace AuthorityController.Queries
             #region Check base requester rights
             if (!API.Tokens.IsHasEnoughRigths(
                 token.PropertyValueString,
-                out string[] requesterRights,
+                out Data.Temporal.TokenInfo tokenInfo,
                 out error,
                 Config.Active.QUERY_UserNewPassword_RIGHTS))
             {
@@ -152,7 +264,7 @@ namespace AuthorityController.Queries
             if (!isSelfUpdate)
             {
                 // Get target User's rank.
-                if(!API.Collections.TyGetPropertyValue("rank", out string userRank, userProfile.rights))
+                if(!API.Collections.TryGetPropertyValue("rank", out string userRank, userProfile.rights))
                 {
                     // Inform that rights not enough.
                     UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: User rank not defined", query);
@@ -160,7 +272,7 @@ namespace AuthorityController.Queries
                 }
 
                 // Check token rights.
-                if (!API.Collections.IsHasEnoughRigths(requesterRights,
+                if (!API.Collections.IsHasEnoughRigths(tokenInfo.rights,
                     // Request hiegher rank then user and at least moderator level.
                     ">rank=" + userRank, ">rank=2"))
                 {
@@ -198,6 +310,9 @@ namespace AuthorityController.Queries
             // Update stored profile.
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
             {
+                // Subscribe on errors.
+                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
+
                 // Update on SQL server.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
                     User.GlobalType, 
@@ -264,7 +379,7 @@ namespace AuthorityController.Queries
             if(!query.QueryParamExist("user")) return false;
 
             // NEW prop.
-            if (!query.QueryParamExist("new")) return false;
+            if (!query.QueryParamExist("update")) return false;
 
             // PASSWORD prop.
             if (!query.QueryParamExist("password")) return false;

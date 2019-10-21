@@ -65,7 +65,7 @@ namespace AuthorityController.Queries
             #region Check requester rights
             if (!API.Tokens.IsHasEnoughRigths(
                 token.PropertyValueString,
-                out string[] requesterRights,
+                out Data.Temporal.TokenInfo tokenInfo,
                 out string error,
                 Config.Active.QUERY_SetTokenRights_RIGHTS))
             {
@@ -86,14 +86,14 @@ namespace AuthorityController.Queries
 
             #region Compare ranks
             // Get target User's rank.
-            if (!API.Collections.TyGetPropertyValue("rank", out string userRank, targetTokenRights))
+            if (!API.Collections.TryGetPropertyValue("rank", out string userRank, targetTokenRights))
             {
                 // Mean that user has a guest rank.
                 userRank = "0";
             }
 
             // Check is the target user has the less rank then requester.
-            if (!API.Collections.IsHasEnoughRigths(requesterRights, ">rank=" + userRank))
+            if (!API.Collections.IsHasEnoughRigths(tokenInfo.rights, ">rank=" + userRank))
             {
                 // Inform that target user has the same or heigher rank then requester.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
