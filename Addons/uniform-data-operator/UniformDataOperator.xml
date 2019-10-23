@@ -24,6 +24,13 @@
             <param name="data">Binary data.</param>
             <returns>Deserialized object.</returns>
         </member>
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.FromByteArray(System.Byte[])">
+            <summary>
+            Convert bytes array to object.
+            </summary>
+            <param name="data">Binary data.</param>
+            <returns>Deserialized object.</returns>
+        </member>
         <member name="T:UniformDataOperator.Binary.BoyerMoore">
             <summary>
             Implement algorithm of Boyer-Moore for searching of binary parts.
