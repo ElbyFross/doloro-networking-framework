@@ -31,6 +31,12 @@ namespace AuthorityController.Data.Personal
     public class BanInformation
     {
         /// <summary>
+        /// Type of ban information. Apply your custom ban info type to this field to instinate required one.
+        /// </summary>
+        [NonSerialized]
+        public static Type GlobalType = typeof(BanInformation);
+
+        /// <summary>
         /// Ban's duration mode.
         /// </summary>
         public enum Duration
@@ -242,7 +248,7 @@ namespace AuthorityController.Data.Personal
         /// <param name="callback">Delegate that would be called after finishing of operation. 
         /// Return ban information. Null if not exist or failed.</param>
         /// <returns></returns>
-        public static async Task RecieveServerDataAsync(User user, System.Action<BanInformation> callback)
+        public static async Task RecieveServerDataAsync(User user, Action<BanInformation> callback)
         {
             bool failed = false;
 

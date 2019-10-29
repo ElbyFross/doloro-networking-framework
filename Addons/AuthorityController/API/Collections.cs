@@ -129,7 +129,7 @@ namespace AuthorityController.API
         /// NULL if empty.</param>
         /// <param name="properties">Array that contain properties' collection.</param>
         /// <returns>Result of the seeking.</returns>
-        public static bool TyGetPropertyValue(string name, out string value, params string[] properties)
+        public static bool TryGetPropertyValue(string name, out string value, params string[] properties)
         {
             value = null;
             string[] parts = new string[2];

@@ -118,13 +118,13 @@ namespace UniformQueries.Executable.Security
                 else
                 {
                     // Inform about fail.
-                    Finalize(false, "ERROR: Token no provided.");
+                    Finalize(false, query.First);
                 }
             }
             else
             {
                 // Inform about fail.
-                Finalize(false, "ERROR: Inccorect answer format.");
+                Finalize(false, "ERROR: Incorrect answer format.");
             }
 
             // Disable in progress marker.

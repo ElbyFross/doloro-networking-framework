@@ -29,8 +29,22 @@ namespace AuthorityController.Queries
     /// Storing profile in local dile system by default via UsersLocal API.
     /// Storing profile to SQL server in case if `UniformDataOperator.Sql.SqlOperatorHandler.Active` not null.
     /// </summary>
-    public class USER_NEW : IQueryHandler
+    public class USER_NEW : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
     {
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public USER_NEW()
+        {
+            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+        }
+
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+     
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -60,7 +74,7 @@ namespace AuthorityController.Queries
             // Marker that would be mean that some of internal tasks was failed and operation require termination.
             bool failed = false;
 
-            #region Get qyery params
+            #region Get query params
             query.TryGetParamValue("login", out QueryPart login);
             query.TryGetParamValue("password", out QueryPart password);
             query.TryGetParamValue("fn", out QueryPart firstName);
@@ -115,7 +129,7 @@ namespace AuthorityController.Queries
             }
 
             // Can take enough long time so just let other query to process.
-            System.Threading.Thread.Sleep(5);
+            Thread.Sleep(5);
             #endregion
 
             #region Validate names
@@ -143,7 +157,7 @@ namespace AuthorityController.Queries
 
             #region Create user profile data.
             // Create base data.
-            User userProfile = (User)Activator.CreateInstance(User.GlobalType);
+            User userProfile = (User)Activator.CreateInstance(OperatingType);
             userProfile.login = login.PropertyValueString;
             userProfile.password = SaltContainer.GetHashedPassword(password.PropertyValueString, Config.Active.Salt);
             userProfile.firstName = firstName.PropertyValueString;
@@ -168,7 +182,7 @@ namespace AuthorityController.Queries
 
                         #region Check existing
                         // Virtual user profile that would be used to build the query for exist xhecking.
-                        User dbStoredProfile = (User)Activator.CreateInstance(User.GlobalType);
+                        User dbStoredProfile = (User)Activator.CreateInstance(OperatingType);
 
                         // Set login to using in WHERE  sql block.
                         dbStoredProfile.login = login.PropertyValueString;
@@ -201,7 +215,7 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToObjectAsync(User.GlobalType, Session.Current.TerminationTokenSource.Token, dbStoredProfile,
+                                            SetToObjectAsync(OperatingType, Session.Current.TerminationTokenSource.Token, dbStoredProfile,
                                             new string[0],
                                             new string[]
                                             {
@@ -241,7 +255,7 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToTableAsync(User.GlobalType, Session.Current.TerminationTokenSource.Token, userProfile);
+                                            SetToTableAsync(OperatingType, Session.Current.TerminationTokenSource.Token, userProfile);
 
                                 // If operation nit failed.
                                 if (!failed)

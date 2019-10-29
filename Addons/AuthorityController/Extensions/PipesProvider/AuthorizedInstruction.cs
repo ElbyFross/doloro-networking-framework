@@ -67,22 +67,22 @@ namespace PipesProvider.Networking.Routing
 
         #region API
         /// <summary>
-        /// Tring to recive token authorized in authority controller of target server.
+        /// Trying to recive token authorized in authority controller of target server.
         /// </summary>
-        /// <param name="callback">Delegate that will be called when logon operation would be finished.</param>
+        /// <param name="callback">Delegate that will be called when logon operation would be finished. Return bool result of operation.</param>
         /// <param name="cancellationToken">Using this token you can terminate task.</param>
         public async void TryToLogonAsync(
-            System.Action<AuthorizedInstruction> callback, 
+            Action<AuthorizedInstruction, bool> callback, 
             CancellationToken cancellationToken)
         {
             // Start new logon task.
             await Task.Run(() =>
             {
                 // Request logon.
-                TryToLogon();
+                bool restult = TryToLogon();
 
                 // Call callback.
-                callback?.Invoke(this);
+                callback?.Invoke(this, restult);
             },
             cancellationToken);
         }
@@ -103,13 +103,19 @@ namespace PipesProvider.Networking.Routing
         /// <returns></returns>
         public bool TryToLogon(CancellationToken cancellationToken)
         {
+            // Drop if already started.
+            if (GuestTokenHandler.IsInProgress)
+            {
+                return false;
+            }
+
             bool asyncOperationStarted = false;
 
             #region Guest token processing
             // Is the guest token is relevant.
             bool guestTokenInvalid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
-                UniformQueries.Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
+                Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
 
             if (guestTokenInvalid)
             {

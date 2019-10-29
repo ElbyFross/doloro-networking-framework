@@ -21,6 +21,14 @@ namespace AuthorityController.Data.Application
 {
     /// <summary>
     /// Object that contain data for setup of authority controller.
+    /// 
+    /// rank=x where x is
+    /// 0 - guest
+    /// 1 - user 
+    /// 2 - privileged user
+    /// 4 - moderator
+    /// 8 - admin
+    /// 16 - superadmin
     /// </summary>
     [System.Serializable]
     public class Config
@@ -77,11 +85,12 @@ namespace AuthorityController.Data.Application
         /// </summary>
         public string[] UserDefaultRights = new string[]
         {
-            "base",
-            "commenting",
-            "publishing",
-            "personManaging",
-            "passwordManaging",
+            "rank=1", // User rank
+            "base", // Has acess to base functional.
+            "commenting", // Able to add commentaries.
+            "publishing", // Able to add posts.
+            "personManaging", // Can change the personal info.
+            "passwordManaging", // Can manage the self password.
         };
         #endregion
 

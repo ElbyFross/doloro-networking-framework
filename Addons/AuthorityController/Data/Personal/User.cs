@@ -28,13 +28,8 @@ namespace AuthorityController.Data.Personal
     /// </summary>
     [System.Serializable]
     [Table("DNFAuthControl", "user", "InnoDB")]
-    public partial class User
+    public partial class User 
     {
-        /// <summary>
-        /// Type of user. Apply your castom user to this field to instinate required one.
-        /// </summary>
-        public static Type GlobalType = typeof(User);
-
         #region Serialized fields
         /// <summary>
         /// Unique id of this user to allow services access.
@@ -63,14 +58,14 @@ namespace AuthorityController.Data.Personal
         /// </summary>
         [Column("firstname", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
-        public string firstName;
+        public string firstName = "";
 
         /// <summary>
         /// Last name that will be displayed in profile.
         /// </summary>
         [Column("lastname", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
-        public string lastName;
+        public string lastName = "";
         
         /// <summary>
         /// Array of rigts' codes provided to this user.

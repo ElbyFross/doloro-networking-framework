@@ -36,13 +36,13 @@ namespace ACTests.Tests
         /// </summary>
         /// <param name="banInfoXML"></param>
         /// <param name="expiryTime"></param>
-        public static void GetBanInfo(out string banInfoXML, out DateTime expiryTime)
+        public static BanInformation GetBanInfo(out DateTime expiryTime)
         {
             // Time when ban will expire.
             expiryTime = DateTime.Now.AddMilliseconds(500);
 
             // Create ban information.
-            BanInformation banInfo = new BanInformation()
+            return new BanInformation()
             {
                 active = true,
                 blockedRights = new string[] { "logon" },
@@ -50,13 +50,6 @@ namespace ACTests.Tests
                 duration = BanInformation.Duration.Temporary,
                 expiryTime = expiryTime
             };
-
-            // Convert to string.
-            if (!Handler.TryXMLSerialize<BanInformation>(banInfo, out banInfoXML))
-            {
-                Assert.Fail("BanInformation can't be serialized");
-                return;
-            }
         }
         #endregion
 
@@ -274,15 +267,12 @@ namespace ACTests.Tests
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
 
-                //Get ban info
-                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
-
                 // Create the query that would contain user data.
                 Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_User.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("ban", GetBanInfo(out DateTime expiryTime)),
                     new QueryPart("user", Helpers.Users.user_Guest.id.ToString())
                 );
 
@@ -341,16 +331,13 @@ namespace ACTests.Tests
 
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
-
-                //Get ban info
-                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
-
+                
                 // Create the query that would contain user data.
                 Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("ban", GetBanInfo(out DateTime expiryTime)),
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString())
                 );
 
@@ -411,17 +398,14 @@ namespace ACTests.Tests
 
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
-
-                //Get ban info
-                GetBanInfo(out string banInfoXML, out DateTime expiryTime);
-
+                
                 #region Ban apply
                 // Create the query that would contain user data.
                 Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                    new QueryPart("ban", banInfoXML),
+                    new QueryPart("ban", GetBanInfo(out DateTime expiryTime)),
                     new QueryPart("user", Helpers.Users.user_User.id.ToString())
                 );
 
@@ -1147,7 +1131,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
@@ -1216,7 +1200,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_Admin.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),
@@ -1287,7 +1271,7 @@ namespace ACTests.Tests
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
                     new QueryPart("user", Helpers.Users.user_User.id.ToString()),
-                    new QueryPart("new"),
+                    new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
                     new QueryPart("oldpassword", "password"),

@@ -23,8 +23,22 @@ namespace AuthorityController.Queries
     /// <summary>
     /// Set temporaly or permanent ban for user.
     /// </summary>
-    public class USER_BAN : IQueryHandler
+    public class USER_BAN : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
     {
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public USER_BAN()
+        {
+            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+        }
+
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -50,6 +64,90 @@ namespace AuthorityController.Queries
         /// <param name="query">Recived query.</param>
         public virtual void Execute(object sender, Query query)
         {
+            #region Get params
+            // XML serialized BanInformation. If empty then will shared permanent ban.
+            query.TryGetParamValue("ban", out QueryPart ban);
+            #endregion
+
+            // Validate user rights to prevent not restricted acess passing.
+            if (!Handler.ValidateUserRights(
+                OperatingType,
+                query,
+                Config.Active.QUERY_UserBan_RIGHTS,
+                out _,
+                out User userProfile))
+            {
+                // Drop if invalid. 
+                return;
+            }
+
+            #region Apply ban
+            BanInformation banInfo;
+            if (!string.IsNullOrEmpty(ban.PropertyValueString))
+            {
+                // Get ban information.
+                if (UniformDataOperator.Binary.BinaryHandler.FromByteArray(ban.propertyValue) 
+                    is BanInformation banInfoBufer)
+                {
+                    banInfo = banInfoBufer;
+                }
+                else
+                {
+                    // If also not found.
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", query);
+                    return;
+                }
+            }
+            else
+            {
+                // Set auto configurated permanent ban if detail not described.
+                banInfo = BanInformation.Permanent;
+            }
+            
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active == null)
+            {
+                // Add ban to user.
+                userProfile.bans.Add(banInfo);
+
+                // Update stored profile.
+                // in other case ban will losed after session finishing.
+                API.LocalUsers.SetProfile(userProfile);
+            }
+            else
+            {
+                // XML serialized BanInformation. If empty then will shared permanent ban.
+                query.TryGetParamValue("token", out QueryPart token);
+
+                banInfo.userId = userProfile.id;
+                // Try to find the requester id.
+                if(Session.Current.TryGetTokenInfo(token.PropertyValueString, out Data.Temporal.TokenInfo tokenInfo))
+                {
+                    banInfo.bannedByUserId = tokenInfo.userId;
+                }
+
+                string error;
+                if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(
+                    typeof(BanInformation),
+                    banInfo,
+                    out error))
+                {
+                    UniformServer.BaseServer.SendAnswerViaPP(error, query);
+                    return;
+                }
+            }
+
+            // Inform about success.
+            UniformServer.BaseServer.SendAnswerViaPP("Success", query);
+            #endregion
+        }
+
+        /// <summary>
+        /// Methods that process query.
+        /// </summary>
+        /// <param name="sender">Operator that call that operation</param>
+        /// <param name="query">Recived query.</param>
+        public virtual void Execute2(object sender, Query query)
+        {
 
             #region Get params
             // Get requestor token.
@@ -65,7 +163,7 @@ namespace AuthorityController.Queries
             #region Check token rights.
             if (!API.Tokens.IsHasEnoughRigths(
                 token.PropertyValueString,
-                out string[] requesterRights,
+                out Data.Temporal.TokenInfo tokenInfo,
                 out string error,
                 Config.Active.QUERY_UserBan_RIGHTS))
             {
@@ -87,14 +185,14 @@ namespace AuthorityController.Queries
 
             #region Compare ranks
             // Get target User's rank.
-            if (!API.Collections.TyGetPropertyValue("rank", out string userRank, userProfile.rights))
+            if (!API.Collections.TryGetPropertyValue("rank", out string userRank, userProfile.rights))
             {
                 // Mean that user has a guest rank.
                 userRank = "0";
             }
 
             // Check is the target user has the less rank then requester.
-            if (!API.Collections.IsHasEnoughRigths(requesterRights, ">rank=" + userRank))
+            if (!API.Collections.IsHasEnoughRigths(tokenInfo.rights, ">rank=" + userRank))
             {
                 // Inform that target user has the same or heigher rank then requester.
                 UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
@@ -106,9 +204,12 @@ namespace AuthorityController.Queries
             BanInformation banInfo;
             if (!string.IsNullOrEmpty(ban.PropertyValueString))
             {
-                // Get ban information.
-                if (!Data.Handler.TryXMLDeserizlize<BanInformation>
-                    (ban.PropertyValueString, out banInfo))
+                if (UniformDataOperator.Binary.BinaryHandler.FromByteArray(ban.propertyValue)
+                       is BanInformation banInfoBufer)
+                {
+                    banInfo = banInfoBufer;
+                }
+                else
                 {
 
                     // If also not found.

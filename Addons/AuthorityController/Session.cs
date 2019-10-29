@@ -395,10 +395,17 @@ namespace AuthorityController
                 if (string.IsNullOrEmpty(authInstr.AuthorizedToken) ||
                     UniformQueries.Tokens.IsExpired(authInstr.AuthorizedToken, authInstr.LogonHandler.ExpiryTime))
                 {
-                    authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _)
+                    authInstr.TryToLogonAsync(delegate (AuthorizedInstruction _, bool restul)
                     {
-                        // Send query using current token.
-                        SendQuery(authInstr.AuthorizedToken);
+                        if (restul)
+                        {
+                            // Send query using current token.
+                            SendQuery(authInstr.AuthorizedToken);
+                        }
+                        else
+                        {
+                            Console.WriteLine("SESSION SHARING: Logon failed.");
+                        }
                     },
                     TerminationTokenSource.Token);
                 }

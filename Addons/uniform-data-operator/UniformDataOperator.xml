@@ -24,6 +24,13 @@
             <param name="data">Binary data.</param>
             <returns>Deserialized object.</returns>
         </member>
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.FromByteArray(System.Byte[])">
+            <summary>
+            Convert bytes array to object.
+            </summary>
+            <param name="data">Binary data.</param>
+            <returns>Deserialized object.</returns>
+        </member>
         <member name="T:UniformDataOperator.Binary.BoyerMoore">
             <summary>
             Implement algorithm of Boyer-Moore for searching of binary parts.
@@ -210,6 +217,95 @@
             </summary>
             <param name="mode">Server mode that decide reaction.</param>
             <param name="stream">Target to server stream.</param>
+        </member>
+        <member name="T:UniformDataOperator.Modifiers.IBaseTypeChangable">
+            <summary>
+            Inmplementing of that interface allow to redefine type that will be used in internal class\structure operations. 
+            </summary>
+        </member>
+        <member name="P:UniformDataOperator.Modifiers.IBaseTypeChangable.OperatingType">
+            <summary>
+            Type that will be used in operations.
+            </summary>
+        </member>
+        <member name="T:UniformDataOperator.Modifiers.TypeReplacer">
+            <summary>
+            Defining of that attribute automaticly add type to
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.replacingType">
+            <summary>
+            Type that will be added to exlusion table and replaced by using type.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.usingType">
+            <summary>
+            Type that will be used by everyone who ask exlusion table about.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.overridingPriority">
+            <summary>
+            Allow to use some modifiers. Excluding table will contains only one with hiest priority.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.#ctor">
+            <summary>
+            Basse constructor.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.#ctor(System.Type,System.Type,System.Int32)">
+            <summary>
+            Constructor that all to initialise attribute's data via reflected constructor.
+            </summary>
+            <param name="replacingType">Type that will be added to exlusion table and replaced by using type.</param>
+            <param name="usingType">Type that will be used by everyone who ask exlusion table about.</param>
+            <param name="overridingPriority">Allow to use some modifiers. Excluding table will contains only one with hiest priority.</param>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.ExludingTable">
+            <summary>
+            Table that will contains redefinig instruction for types.
+            </summary>
+        </member>
+        <member name="T:UniformDataOperator.Modifiers.TypeReplacer.ReplacingMeta">
+            <summary>
+            Meta data building during type replacment registration.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.ReplacingMeta.usingType">
+            <summary>
+            Type that must be used instead of requested.
+            </summary>
+        </member>
+        <member name="F:UniformDataOperator.Modifiers.TypeReplacer.ReplacingMeta.replacedWithPriority">
+            <summary>
+            Priority that was used during type replacement. 
+            Allow to override that meta in case in next instruction will has highest priority then that one.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.GetValidType(System.Type)">
+            <summary>
+            Returns type that must be eused instead of base type.
+            </summary>
+            <param name="baseType">Type that will be checked into excluding table.</param>
+            <returns>Forwarder type defined into exluding table, or self in case in type not replaced.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.OperateType(System.Type)">
+            <summary>
+            Operating type to define if it must be registred in internal systems.
+            </summary>
+            <param name="type">Type that could contain defined `TypeReplacing` attribute.</param>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.IsReplaced(System.Type)">
+            <summary>
+            Checking does that type was replaced.
+            </summary>
+            <param name="type">Type that will chached into exluding table.</param>
+            <returns>Result of check. True if type was replaced.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Modifiers.TypeReplacer.RescanAssemblies">
+            <summary>
+            Scaning assemblies in current app domaint to find out all types with defined replacing attribute.
+            </summary>
         </member>
         <member name="T:UniformDataOperator.Sql.ISqlOperator">
             <summary>
@@ -996,14 +1092,14 @@
             Event that can be called by operator to share errors during sql commands from async methods.
             </summary>
         </member>
-        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.InvokeSQLErrorOccured(System.Object,System.String)">
-            <summary>
-            Invoke global error event informing about error occuring.
-            </summary>
-        </member>
         <member name="P:UniformDataOperator.Sql.SqlOperatorHandler.Active">
             <summary>
             Contains las operator that asing itself to handler as active one.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.InvokeSQLErrorOccured(System.Object,System.String)">
+            <summary>
+            Invoke global error event informing about error occuring.
             </summary>
         </member>
         <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.CollectionToString(System.Collections.Generic.IEnumerable{System.Object})">
@@ -1047,6 +1143,12 @@
             <param name="obj">Target object that would contain output data.</param>
             <param name="error">Error occured during operation. Null if operation is success.</param>
             <returns>Result of operation.</returns>
+        </member>
+        <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.RescanDatabaseStructure">
+            <summary>
+            Scaning assemblies and looking for classes and structures with defined Table attribute.
+            Trying to create shemas and tables via Active SqlOperator.
+            </summary>
         </member>
         <member name="T:UniformDataOperator.Sql.Attributes.Default">
             <summary>
@@ -1097,6 +1199,20 @@
             Name of column that would be used during mentoing of this member in queries if possible.
             Will be skiped if null.
             </summary>
+        </member>
+        <member name="M:UniformDataOperator.Sql.Attributes.Modifiers.DBPathOverride.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="M:UniformDataOperator.Sql.Attributes.Modifiers.DBPathOverride.#ctor(System.String,System.String,System.String,System.Type)">
+            <summary>
+            Constructors that allow to initialize fields via reflected methods.
+            </summary>
+            <param name="schema"></param>
+            <param name="table"></param>
+            <param name="column"></param>
+            <param name="targetAttribute"></param>
         </member>
         <member name="M:UniformDataOperator.Sql.Attributes.Modifiers.DBPathOverride.TryToGetValidOverride``1(System.Reflection.MemberInfo,UniformDataOperator.Sql.Attributes.Modifiers.DBPathOverride@)">
             <summary>
@@ -1614,6 +1730,16 @@
             <param name="targetType">Prefered type of output object.</param>
             <param name="data">Soutce object.</param>
             <returns>Converted object. The same if converting not possible</returns>
+        </member>
+        <member name="M:UniformDataOperator.AttributesHandler.AddAttribute(System.String,System.Type,System.Type,System.Type[],System.Object[])">
+            <summary>
+            Add to assembly the new type based on targetType but with existed new attribute.
+            </summary>
+            <param name="assembly">Assembly that will contains new the type.</param>
+            <param name="targetType">Type that will inherited during creating of new type.</param>
+            <param name="attrType">Type of attribute that will added to the type.</param>
+            <param name="attrConstructorSignature">Signature of attribute constructor.</param>
+            <param name="attrConstructorValues">Values that will be shared in atttribute constructor.</param>
         </member>
     </members>
 </doc>

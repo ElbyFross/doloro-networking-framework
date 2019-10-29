@@ -162,6 +162,11 @@ namespace UniformServer
                 Console.WriteLine(_path.Substring(_path.LastIndexOf("\\") + 1));
             }
             Console.WriteLine();
+
+            // Looking for type replacment orders.
+            Console.WriteLine("TYPES REPLACMENTS:");
+            UniformDataOperator.Modifiers.TypeReplacer.RescanAssemblies();
+            Console.WriteLine();
         }
 
         /// <summary>

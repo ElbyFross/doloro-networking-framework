@@ -190,10 +190,27 @@ namespace UniformQueries
                 new QueryPart("value", message)
             };
         }
-        
+
         /// <summary>
         /// Creating query from parts.
         /// </summary>
+        /// <param name="encrypted">Is that query myst be encrypted? 
+        /// Auto configurate QncryptionInfo.</param>
+        /// <param name="parts">Query parts that would be used as Listed content.</param>
+        public Query(bool encrypted, params QueryPart[] parts)
+        {
+            // Init encryption to allow auto definition.
+            EncryptionMeta = new EncryptionInfo();
+
+            // Creating listed content.
+            ListedContent = new List<QueryPart>(parts);
+        }
+
+        /// <summary>
+        /// Creating query from parts.
+        /// </summary>
+        /// <param name="meta">Encryption descriptor. Set at leas empty EncriptionInfor to 
+        /// requiest auto definition of settings.</param>
         /// <param name="parts">Query parts that would be used as Listed content.</param>
         public Query(EncryptionInfo meta, params QueryPart[] parts)
         {

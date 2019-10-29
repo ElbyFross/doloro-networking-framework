@@ -57,15 +57,18 @@ namespace PipesProvider.Client
             {
                 // In case if line in out transmission mode.
                 // If queries not placed then wait.
-                while 
-                    (
-                    line.Direction == TransmissionLine.TransmissionDirection.Out &&
-                    (!line.HasQueries || !line.TryDequeQuery(out _))
-                    )
+                while( line.Direction == TransmissionLine.TransmissionDirection.Out &&
+                     (!line.HasQueries || !line.TryDequeQuery(out _)) )
                 {
+                    // Drop if closed.
+                    if (line.Closed) return;
+                    
                     Thread.Sleep(50);
                     continue;
                 }
+
+                // Skip connection in line interrupted before connecting.
+                if (line.Interrupted) continue;
 
                 // Open pipe.
                 using (NamedPipeClientStream pipeClient =
@@ -86,9 +89,15 @@ namespace PipesProvider.Client
                     while(!NativeMethods.DoesNamedPipeExist(
                         line.ServerName, line.ServerPipeName))
                     {
+                        // Drop if not relevant.
+                        if (line.Closed) return;
+
                         // Suspend thread if server not exist.
                         Thread.Sleep(50);
                     }
+
+                    // Skip connection in line interrupted before connecting.
+                    if (line.Interrupted) continue;
 
                     // Connect to server. Would suspend moving forward until connect establishing.
                     ConnectToServer(pipeClient);
@@ -215,8 +224,15 @@ namespace PipesProvider.Client
         {
             lock (openedClients)
             {
-                // Closing every line.
+                // Buferize list to prefent pointers errors.
+                var bufer = new List<TransmissionLine>();
                 foreach (TransmissionLine line in openedClients.Values)
+                {
+                    bufer.Add(line);
+                }
+
+                // Closing line droping the loop
+                foreach (TransmissionLine line in bufer)
                 {
                     line.Close();
                 }

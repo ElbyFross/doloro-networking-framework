@@ -60,12 +60,14 @@ namespace SessionProvider
             // Set default thread count. Can be changed via args or command.
             threadsCount = Environment.ProcessorCount;
             longTermServerThreads = new UniformServer.BaseServer[threadsCount];
+            
+            // Check direcroties
+            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
 
             // React on uniform arguments.
             ArgsReactor(args);
-
-            // Check direcroties
-            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+            // react on args specified to that server.
+            CustomArgsReactor(args);
             #endregion
 
             #region Initialize authority controller
@@ -131,7 +133,7 @@ namespace SessionProvider
             #endregion
 
             // Show help.
-            UniformServer.Commands.BaseCommands("help");
+            CustomComands("help");
 
             #region Main loop
             // Main loop that will provide server services until application close.
@@ -147,7 +149,10 @@ namespace SessionProvider
                     string command = Console.ReadLine();
 
                     // Processing of entered command.
-                    UniformServer.Commands.BaseCommands(command);
+                    if (!CustomComands(command))
+                    {
+                        UniformServer.Commands.BaseCommands(command);
+                    }
                 }
                 Thread.Sleep(threadSleepTime);
             }
@@ -179,6 +184,129 @@ namespace SessionProvider
 
                 // TODO Check super admin existing.
             }
+        }
+
+        /// <summary>
+        /// Processing arguments suitable to that server.
+        /// </summary>
+        /// <param name="args"></param>
+        public static void CustomArgsReactor(params string[] args)
+        {
+            foreach(string arg in args)
+            {
+                // If Unifor sql operator is specified.
+                if(arg.StartsWith("sql="))
+                {
+                    // Receiving code.
+                    string operatorCode = null;
+                    try { operatorCode = arg.Substring(4); }
+                    catch
+                    {
+                        Console.WriteLine("Invalid argument. Allowed format sql:[DataOpratorCode].\nImplemented udo codes:\n\tmysql.");
+                        continue;
+                    }
+
+                    bool success = true;
+                    // Inint SqlOperatorHandler
+                    switch (operatorCode)
+                    {
+                        case "mysql":
+                            UniformDataOperator.Sql.SqlOperatorHandler.Active =
+                                UniformDataOperator.Sql.MySql.MySqlDataOperator.Active;
+                            break;
+
+                        default:
+                            success = false;
+                            Console.WriteLine("Invalid argument. Undifined SQL data operator '" + operatorCode + "'.");
+                            break;
+                    }
+
+                    if (success)
+                    {
+                        // Configuratie connection to SQL server.
+                        InitSqlOperator();
+                    }
+                    continue;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Requiesting all required dat afor SQL operator work.
+        /// </summary>
+        public static void InitSqlOperator()
+        {
+            // Drop if not required.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active == null)
+                return;
+
+            // Init like MySql operator.
+            if (UniformDataOperator.Sql.SqlOperatorHandler.Active is UniformDataOperator.Sql.MySql.MySqlDataOperator)
+            {
+                string error = null;
+                do
+                {
+                    // Log error.
+                    if(!string.IsNullOrEmpty(error))
+                    {
+                        Console.WriteLine("\nConnection failed. Details:" + error);
+                        ConsoleDraw.Primitives.DrawSpacedLine();
+                    }
+
+                    Console.Write("Enter MySql user's login: ");
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.UserId = Console.ReadLine();
+
+                    Console.Write("Enter MySql user's password: ");
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.Password = Console.ReadLine();
+
+                    // Call initialization with that data.
+                    UniformDataOperator.Sql.MySql.MySqlDataOperator.Active.Initialize();
+                }
+                while (!UniformDataOperator.Sql.SqlOperatorHandler.Active.OpenConnection(out error)); // Try to establish connection.
+                UniformDataOperator.Sql.SqlOperatorHandler.Active.CloseConnection(); // Close oppened connection.
+
+                // Clearing console to prevent storing of secrete data.
+                Console.Clear();
+
+                // Share info.
+                Console.WriteLine("SQL Server connected. Console had been cleared to prevent storing of the secret data.");
+                CustomComands("help");
+                Console.WriteLine();
+            }
+
+            // Validating all shemas and tables.
+            UniformDataOperator.Sql.SqlOperatorHandler.RescanDatabaseStructure();
+        }
+
+        /// <summary>
+        /// Perform command suitable for that server.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns>Is command executed.</returns>
+        public static bool CustomComands(string command)
+        {
+            if(command.Equals("help"))
+            {
+                UniformServer.Commands.BaseCommands("help");
+
+                Console.WriteLine("ADDITIVE COMMANDS:\n" +
+                    "sql=[OperatorCode] - Connect to specified SQL data server. " +
+                    "Implemeted codes: 'mysql'");
+
+                ConsoleDraw.Primitives.DrawLine();
+
+                return true;
+            }
+
+            // If that is configurator of SQL operator.
+            if(command.StartsWith("sql="))
+            {
+                // Send to args processing.
+                CustomArgsReactor(command);
+                return true;
+            }
+
+            return false;
         }
     }
 }
