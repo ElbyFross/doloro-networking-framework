@@ -74,8 +74,8 @@ namespace AuthorityController.API
         /// If token is not registred on this server then will throw UnauthorizedAccessException.
         /// </summary>
         /// <param name="token"></param>
-        /// <param name="requiredRights"></param>
-        /// <param name="requesterRights">Rights detected to that token.</param>
+        /// <param name="requiredRights">Rights required from token to passing through.</param>
+        /// <param name="tokenInfo">Information about token. Including rights provided to token.</param>
         /// <returns></returns>
         public static bool IsHasEnoughRigths(
             string token, 

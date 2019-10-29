@@ -28,13 +28,8 @@ namespace AuthorityController.Data.Personal
     /// </summary>
     [System.Serializable]
     [Table("DNFAuthControl", "user", "InnoDB")]
-    public partial class User
+    public partial class User 
     {
-        /// <summary>
-        /// Type of user. Apply your castom user to this field to instinate required one.
-        /// </summary>
-        public static Type GlobalType = typeof(User);
-
         #region Serialized fields
         /// <summary>
         /// Unique id of this user to allow services access.

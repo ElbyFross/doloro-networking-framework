@@ -207,9 +207,16 @@ namespace PipesProvider.Networking.Routing
 
                             // Property exist instruction.
                             case '$':
-                            default:
                                 // Check parameter existing.
                                 if (!query.QueryParamExist(pp.propertyName.Substring(1)))
+                                {
+                                    // Mark as invalid if not found.
+                                    valid = false;
+                                }
+                                break;
+                            default:
+                                // Check parameter existing.
+                                if (!query.QueryParamExist(pp.propertyName))
                                 {
                                     // Mark as invalid if not found.
                                     valid = false;

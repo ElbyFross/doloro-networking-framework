@@ -287,7 +287,6 @@ namespace PipesProvider.Security.Encryption.Operators
         /// Encrypt string message and make it ready to trasmition to the server.
         /// </summary>
         /// <param name="message">Message that will be encrypted.</param>
-        /// <param name="serverPublicKey">Public encrypt key that was shered by target server.</param>
         /// <returns></returns>
         public string Encrypt(string message)
         {
@@ -310,8 +309,6 @@ namespace PipesProvider.Security.Encryption.Operators
         /// Encrypt byte array by public server RSA key.
         /// </summary>
         /// <param name="DataToEncrypt">Data that will be encrypted.</param>
-        /// <param name="serverPublicKey">Public encrypt key of target server.</param>
-        /// <param name="DoOAEPPadding"></param>
         /// <returns></returns>
         public byte[] Encrypt(byte[] DataToEncrypt)
         {

@@ -40,6 +40,7 @@ namespace AuthorityController.Queries
         /// Query received by server. 
         /// Must contain the token and user property.
         /// </param>
+        /// <param name="userType">Type of user that will be used as table descriptor during sql queries.</param>
         /// <param name="requiredRights">Rights required to operation.</param>
         /// <param name="error">Eroor message in case if received.</param>
         /// <param name="targetUser">Profile of target user in case if detected.</param>
@@ -48,6 +49,7 @@ namespace AuthorityController.Queries
         /// In case of fail server auto send answer with error to the client by using the entryQuery.
         /// </returns>
         public static bool ValidateUserRights(
+            Type userType,
             Query entryQuery,
             string[] requiredRights,
             out string error,
@@ -64,7 +66,7 @@ namespace AuthorityController.Queries
             #endregion
 
             // Init profile to search.
-            User userProfile = (User)Activator.CreateInstance(User.GlobalType);
+            User userProfile = (User)Activator.CreateInstance(userType);
             userProfile.login = user.PropertyValueString;
 
             #region Detect target user
@@ -78,7 +80,7 @@ namespace AuthorityController.Queries
 
                 // Request data.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
-                    User.GlobalType,
+                    userType,
                     Session.Current.TerminationTokenSource.Token,
                     userProfile,
                     new string[0],

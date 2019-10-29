@@ -30,8 +30,22 @@ namespace AuthorityController.Queries
     /// 
     /// USER&amp;LOGON&amp;login=...&amp;password=...&amp;mac=...&amp;os=....&amp;
     /// </summary>
-    public class USER_LOGON : IQueryHandler
+    public class USER_LOGON : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
     {
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public USER_LOGON()
+        {
+            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+        }
+
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
         #region Query
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
@@ -71,7 +85,7 @@ namespace AuthorityController.Queries
             query.TryGetParamValue("stamp", out QueryPart timeStamp);
 
             // Create user instance of requested type.
-            User user = (User)Activator.CreateInstance(User.GlobalType);
+            User user = (User)Activator.CreateInstance(OperatingType);
             user.login = login.PropertyValueString;
             #endregion
 
@@ -87,7 +101,7 @@ namespace AuthorityController.Queries
 
                 // Request data.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
-                    User.GlobalType, 
+                    OperatingType, 
                     Session.Current.TerminationTokenSource.Token,
                     user, 
                     new string[0],

@@ -251,10 +251,20 @@
             </summary>
             <param name="message">Message that would be available via `value` param.</param>
         </member>
+        <member name="M:UniformQueries.Query.#ctor(System.Boolean,UniformQueries.QueryPart[])">
+            <summary>
+            Creating query from parts.
+            </summary>
+            <param name="encrypted">Is that query myst be encrypted? 
+            Auto configurate QncryptionInfo.</param>
+            <param name="parts">Query parts that would be used as Listed content.</param>
+        </member>
         <member name="M:UniformQueries.Query.#ctor(UniformQueries.Query.EncryptionInfo,UniformQueries.QueryPart[])">
             <summary>
             Creating query from parts.
             </summary>
+            <param name="meta">Encryption descriptor. Set at leas empty EncriptionInfor to 
+            requiest auto definition of settings.</param>
             <param name="parts">Query parts that would be used as Listed content.</param>
         </member>
         <member name="M:UniformQueries.Query.#ctor(UniformQueries.QueryPart[])">

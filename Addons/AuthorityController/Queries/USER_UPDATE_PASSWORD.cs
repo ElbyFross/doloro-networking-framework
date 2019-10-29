@@ -26,8 +26,22 @@ namespace AuthorityController.Queries
     /// Set new password for user.
     /// Require admin or certen user rights.
     /// </summary>
-    public class USER_UPDATE_PASSWORD : IQueryHandler
+    public class USER_UPDATE_PASSWORD : IQueryHandler , UniformDataOperator.Modifiers.IBaseTypeChangable
     {
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public USER_UPDATE_PASSWORD()
+        {
+            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+        }
+
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -69,6 +83,7 @@ namespace AuthorityController.Queries
 
             // Validate user rights to prevent not restricted acess passing.
             if(!Handler.ValidateUserRights(
+                OperatingType,
                 query,
                 Config.Active.QUERY_UserNewPassword_RIGHTS, 
                 out string error,
@@ -110,7 +125,7 @@ namespace AuthorityController.Queries
 
                 // Update on SQL server.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
-                    User.GlobalType,
+                    OperatingType,
                     Session.Current.TerminationTokenSource.Token,
                     userProfile);
             }
@@ -180,7 +195,7 @@ namespace AuthorityController.Queries
             query.TryGetParamValue("token", out QueryPart token);
             #endregion
 
-            User userProfile = (User)Activator.CreateInstance(User.GlobalType);
+            User userProfile = (User)Activator.CreateInstance(OperatingType);
             userProfile.login = user.PropertyValueString;
 
             #region Detect target user
@@ -194,7 +209,7 @@ namespace AuthorityController.Queries
 
                 // Request data.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
-                    User.GlobalType,
+                    OperatingType,
                     Session.Current.TerminationTokenSource.Token,
                     userProfile,
                     new string[0],
@@ -315,7 +330,7 @@ namespace AuthorityController.Queries
 
                 // Update on SQL server.
                 asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
-                    User.GlobalType, 
+                    OperatingType, 
                     Session.Current.TerminationTokenSource.Token, 
                     userProfile);
             }

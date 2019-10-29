@@ -413,7 +413,7 @@ namespace ACTests.Tests
 
             // Create admin user.
             if(!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
-                Helpers.Users.user_Admin, out error))
+                Helpers.Users.user_Moderator, out error))
             {
                 return false;
             }
@@ -421,16 +421,11 @@ namespace ACTests.Tests
             // Building query.
             BanInformation banInformation = BanInformation.Permanent;
             banInformation.blockedRights = new string[] { "logon" };
-            if (!AuthorityController.Data.Handler.TryXMLSerialize<BanInformation>(banInformation, out string banInfoXML))
-            {
-                error = "BanInfo seriazlizzation failed.";
-                return false;
-            }
             Query query = new Query(
-                new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
+                new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
                 new QueryPart("guid", "bunUserTest"),
                 new QueryPart("user", "banneduser"),
-                new QueryPart("ban", banInfoXML));
+                new QueryPart("ban", banInformation));
 
             // Marker that avoid finishing of the test until receiving result.
             bool operationCompete = false;
@@ -570,12 +565,29 @@ namespace ACTests.Tests
                 return;
             }
 
-            // Create users for test.
-            Helpers.Users.SetBaseUsersPool();
+
+            var user_Admin = new User()
+            {
+                login = "adminForBan",
+                password = AuthorityController.Data.Application.SaltContainer.GetHashedPassword(
+                    "password", AuthorityController.Data.Application.Config.Active.Salt),
+                tokens = new System.Collections.Generic.List<string>
+                (new string[] { Tokens.UnusedToken }),
+                rights = new string[]{
+                    "rank=8",
+                    "banhammer",
+                    "passwordManaging" }
+            };
+
+            user_Admin.id = AuthorityController.API.LocalUsers.GenerateID(user_Admin);
+
+            // Admin
+            AuthorityController.Session.Current.AsignTokenToUser(user_Admin, user_Admin.tokens[0]);
+            AuthorityController.Session.Current.SetTokenRights(user_Admin.tokens[0], user_Admin.rights);
 
             // Create admin user.
             if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
-                Helpers.Users.user_Admin, out error))
+                user_Admin, out error))
             {
                 Assert.Fail(error);
                 return;
@@ -583,10 +595,10 @@ namespace ACTests.Tests
 
             // Create the query that would simulate logon.
             Query query = new Query(
-                new QueryPart("token", Helpers.Users.user_Admin.tokens[0]),
+                new QueryPart("token", user_Admin.tokens[0]),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
-                new QueryPart("user", Helpers.Users.user_Admin.login),
+                new QueryPart("user", user_Admin.login),
                 new QueryPart("update"),
 
                 new QueryPart("password", "newPassword!2"),

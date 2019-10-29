@@ -23,8 +23,22 @@ namespace AuthorityController.Queries
     /// <summary>
     /// Set temporaly or permanent ban for user.
     /// </summary>
-    public class USER_BAN : IQueryHandler
+    public class USER_BAN : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
     {
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public USER_BAN()
+        {
+            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+        }
+
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -56,10 +70,11 @@ namespace AuthorityController.Queries
             #endregion
 
             // Validate user rights to prevent not restricted acess passing.
-            if(!Handler.ValidateUserRights(
+            if (!Handler.ValidateUserRights(
+                OperatingType,
                 query,
-                Config.Active.QUERY_UserBan_RIGHTS, 
-                out string error,
+                Config.Active.QUERY_UserBan_RIGHTS,
+                out _,
                 out User userProfile))
             {
                 // Drop if invalid. 
@@ -71,8 +86,12 @@ namespace AuthorityController.Queries
             if (!string.IsNullOrEmpty(ban.PropertyValueString))
             {
                 // Get ban information.
-                if (!Data.Handler.TryXMLDeserizlize<BanInformation>
-                    (ban.PropertyValueString, out banInfo))
+                if (UniformDataOperator.Binary.BinaryHandler.FromByteArray(ban.propertyValue) 
+                    is BanInformation banInfoBufer)
+                {
+                    banInfo = banInfoBufer;
+                }
+                else
                 {
                     // If also not found.
                     UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Ban information corrupted.", query);
@@ -106,6 +125,7 @@ namespace AuthorityController.Queries
                     banInfo.bannedByUserId = tokenInfo.userId;
                 }
 
+                string error;
                 if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(
                     typeof(BanInformation),
                     banInfo,
@@ -184,9 +204,12 @@ namespace AuthorityController.Queries
             BanInformation banInfo;
             if (!string.IsNullOrEmpty(ban.PropertyValueString))
             {
-                // Get ban information.
-                if (!Data.Handler.TryXMLDeserizlize<BanInformation>
-                    (ban.PropertyValueString, out banInfo))
+                if (UniformDataOperator.Binary.BinaryHandler.FromByteArray(ban.propertyValue)
+                       is BanInformation banInfoBufer)
+                {
+                    banInfo = banInfoBufer;
+                }
+                else
                 {
 
                     // If also not found.

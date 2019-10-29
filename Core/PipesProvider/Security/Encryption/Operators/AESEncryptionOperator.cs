@@ -84,7 +84,10 @@ namespace PipesProvider.Security.Encryption.Operators
             {
                 if(_SecretKey == null)
                 {
-                    _SecretKey = Aes.Create().Key;
+                    using (var aes = Aes.Create())
+                    {
+                        _SecretKey = aes.Key;
+                    }
                 }
                 return _SecretKey;
             }

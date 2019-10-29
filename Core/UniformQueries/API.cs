@@ -66,8 +66,16 @@ namespace UniformQueries
                         try
                         {
                             // Check if this type is subclass of query.
-                            if (type.GetInterface(typeof(IQueryHandler).FullName) != null)
+                            if (type.GetInterface(typeof(IQueryHandler).FullName) != null &&
+                                !type.IsAbstract && 
+                                !type.IsInterface)
                             {
+                                // Skip if type was replaced by other.
+                                if(UniformDataOperator.Modifiers.TypeReplacer.IsReplaced(type))
+                                {
+                                    continue;
+                                }
+
                                 // Instiniating querie processor.
                                 IQueryHandler instance = (IQueryHandler)Activator.CreateInstance(type);
                                 queryHandlers.Add(instance);

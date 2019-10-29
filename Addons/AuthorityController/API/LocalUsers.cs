@@ -426,7 +426,7 @@ namespace AuthorityController.API
             if (uint.TryParse(uniformValue, out uint userId))
             {
                 // Try to find user by id.
-                if (API.LocalUsers.TryToFindUser(userId, out userProfile))
+                if (TryToFindUser(userId, out userProfile))
                 {
                     userFound = true;
                 }
@@ -436,7 +436,7 @@ namespace AuthorityController.API
             if (!userFound)
             {
                 // Try to find user by login.
-                if (!API.LocalUsers.TryToFindUser(uniformValue, out userProfile))
+                if (!TryToFindUser(uniformValue, out userProfile))
                 {
                     // If also not found.
                     error = "ERROR 404: User not found";
