@@ -37,7 +37,7 @@ namespace AuthorityController.Data.Application
         /// <summary>
         /// Directory that will contain serialized instance of this class.
         /// </summary>
-        public static string DIRECTORY = "\\resources\\ac\\";
+        public static string DIRECTORY = "resources\\ac\\";
 
         /// <summary>
         /// Name of the file that will be loaded as config.
@@ -49,7 +49,7 @@ namespace AuthorityController.Data.Application
         /// <summary>
         /// Directory to folder that will contain users data.
         /// </summary>
-        public string UsersStorageDirectory = "\\resorces\\users\\";
+        public string UsersStorageDirectory = "resorces\\users\\";
 
         #region User logins
         /// <summary>
@@ -60,7 +60,7 @@ namespace AuthorityController.Data.Application
         /// <summary>
         /// How many character will be allowed in password.
         /// </summary>
-        public int LoginMaxSize = 16;
+        public int LoginMaxSize = 45;
         #endregion
 
         #region User names

@@ -58,7 +58,24 @@ namespace UniformQueries.Executable
         }
 
         /// <summary>
-        /// Generate ProcessingFinished event with provided params.
+        /// The last query with auth information.
+        /// </summary>
+        /// <remarks>
+        /// In case of set will simulate answer from server and will use params for shared <see cref="Query"/>. 
+        /// </remarks>
+        public virtual Query ServerAnswer
+        {
+            get { return _ServerAnswer; }
+            set { ServerAnswerHandler(null, value); }
+        }
+
+        /// <summary>
+        /// Bufer that contains last applied server answer.
+        /// </summary>
+        protected Query _ServerAnswer;
+
+        /// <summary>
+        /// Generate <see cref="ProcessingFinished"/> event with provided params.
         /// </summary>
         /// <param name="result">Resdult of processing.</param>
         /// <param name="args">Shared object.</param>
@@ -69,10 +86,10 @@ namespace UniformQueries.Executable
         }
 
         /// <summary>
-        /// Handler that would recive server answer.
+        /// Handler that would recived server answer.
         /// </summary>
         /// <param name="controller"></param>
-        /// <param name="answer"></param>
+        /// <param name="answer">Answer received from the server.</param>
         protected abstract void ServerAnswerHandler(object controller, object answer);
     }
 }

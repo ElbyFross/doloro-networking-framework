@@ -9,6 +9,14 @@
             Provide API to working with binary files.
             </summary>
         </member>
+        <member name="M:UniformDataOperator.Binary.BinaryHandler.CurrentDomain_AssemblyResolve(System.Object,System.ResolveEventArgs)">
+            <summary>
+            Occurs when assebly access is failed.
+            </summary>
+            <param name="sender">Object that initiate that event.</param>
+            <param name="args">Data about target requested assebly.</param>
+            <returns></returns>
+        </member>
         <member name="M:UniformDataOperator.Binary.BinaryHandler.ToByteArray(System.Object)">
             <summary>
             Convert object to bytes array.
@@ -1146,8 +1154,8 @@
         </member>
         <member name="M:UniformDataOperator.Sql.SqlOperatorHandler.RescanDatabaseStructure">
             <summary>
-            Scaning assemblies and looking for classes and structures with defined Table attribute.
-            Trying to create shemas and tables via Active SqlOperator.
+            Scaning assemblies and looking for classes and structures with defined <see cref="T:UniformDataOperator.Sql.Attributes.Table"/> attribute.
+            Trying to create shemas and tables via <see cref="P:UniformDataOperator.Sql.SqlOperatorHandler.Active"/>.
             </summary>
         </member>
         <member name="T:UniformDataOperator.Sql.Attributes.Default">

@@ -19,7 +19,7 @@ namespace UniformQueries.Executable.Security
     /// <summary>
     /// Provide fields situated but authentification queries.
     /// </summary>
-    public abstract class AuthQueryProcessor : Executable.QueryProcessor
+    public abstract class AuthQueryProcessor : QueryProcessor
     {
         #region Properties
         /// <summary>
@@ -88,6 +88,9 @@ namespace UniformQueries.Executable.Security
             // Trying to convert answer to string
             if (answer is Query query)
             {
+                // Buferizing received query.
+                _ServerAnswer = query;
+
                 // Get token.
                 if (query.TryGetParamValue("token", out QueryPart tokenBufer))
                 {

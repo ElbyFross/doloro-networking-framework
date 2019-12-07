@@ -39,12 +39,18 @@ namespace AuthorityController.Queries
         public USER_LOGON()
         {
             OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+            BanInfoOperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(BanInformation));
         }
 
         /// <summary>
-        ///  Type that will be used in operations.
+        /// A type that will be used in operations.
         /// </summary>
         public Type OperatingType { get; set; }
+
+        /// <summary>
+        /// A type that will used for defining ban ifo descriptors. 
+        /// </summary>
+        public Type BanInfoOperatingType { get; set; }
 
         #region Query
         /// <summary>
@@ -133,7 +139,7 @@ namespace AuthorityController.Queries
 
                 // Request data.
                 Task banListnerAsyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectsAsync(
-                    typeof(BanInformation),
+                    BanInfoOperatingType,
                     Session.Current.TerminationTokenSource.Token,
                     new BanInformation() { userId = user.id },
                     delegate(IList collection)

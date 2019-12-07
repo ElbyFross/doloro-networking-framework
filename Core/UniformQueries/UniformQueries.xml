@@ -121,19 +121,32 @@
             Terminating current started process.
             </summary>
         </member>
+        <member name="P:UniformQueries.Executable.QueryProcessor.ServerAnswer">
+            <summary>
+            The last query with auth information.
+            </summary>
+            <remarks>
+            In case of set will simulate answer from server and will use params for shared <see cref="T:UniformQueries.Query"/>. 
+            </remarks>
+        </member>
+        <member name="F:UniformQueries.Executable.QueryProcessor._ServerAnswer">
+            <summary>
+            Bufer that contains last applied server answer.
+            </summary>
+        </member>
         <member name="M:UniformQueries.Executable.QueryProcessor.Finalize(System.Boolean,System.Object)">
             <summary>
-            Generate ProcessingFinished event with provided params.
+            Generate <see cref="E:UniformQueries.Executable.QueryProcessor.ProcessingFinished"/> event with provided params.
             </summary>
             <param name="result">Resdult of processing.</param>
             <param name="args">Shared object.</param>
         </member>
         <member name="M:UniformQueries.Executable.QueryProcessor.ServerAnswerHandler(System.Object,System.Object)">
             <summary>
-            Handler that would recive server answer.
+            Handler that would recived server answer.
             </summary>
             <param name="controller"></param>
-            <param name="answer"></param>
+            <param name="answer">Answer received from the server.</param>
         </member>
         <member name="T:UniformQueries.Executable.Security.AuthQueryProcessor">
             <summary>
