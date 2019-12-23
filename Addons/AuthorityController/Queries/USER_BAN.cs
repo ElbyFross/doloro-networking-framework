@@ -17,13 +17,14 @@ using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
 using AuthorityController.Data.Application;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace AuthorityController.Queries
 {
     /// <summary>
     /// Set temporaly or permanent ban for user.
     /// </summary>
-    public class USER_BAN : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
+    public class USER_BAN : IQueryHandler, IBaseTypeChangable
     {
         /// <summary>
         /// Base constructor.
@@ -31,7 +32,7 @@ namespace AuthorityController.Queries
         /// </summary>
         public USER_BAN()
         {
-            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+            OperatingType = TypeReplacer.GetValidType(typeof(User));
         }
 
         /// <summary>
@@ -125,11 +126,10 @@ namespace AuthorityController.Queries
                     banInfo.bannedByUserId = tokenInfo.userId;
                 }
 
-                string error;
                 if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(
                     typeof(BanInformation),
                     banInfo,
-                    out error))
+                    out string error))
                 {
                     UniformServer.BaseServer.SendAnswerViaPP(error, query);
                     return;

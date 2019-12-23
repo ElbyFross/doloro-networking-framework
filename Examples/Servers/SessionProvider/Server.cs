@@ -60,9 +60,15 @@ namespace SessionProvider
             // Set default thread count. Can be changed via args or command.
             threadsCount = Environment.ProcessorCount;
             longTermServerThreads = new UniformServer.BaseServer[threadsCount];
-            
+
+
             // Check direcroties
-            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+            UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
+                AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+
+            // Looking for replaced types that could be used by handlers.
+            UniformDataOperator.AssembliesManagement.Modifiers.TypeReplacer.RescanAssemblies();
+
 
             // React on uniform arguments.
             ArgsReactor(args);

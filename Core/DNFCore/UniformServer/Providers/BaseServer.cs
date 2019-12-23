@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using PipesProvider.Server;
 using PipesProvider.Server.TransmissionControllers;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace UniformServer
 {
@@ -133,42 +134,6 @@ namespace UniformServer
 
 
         #region Application configuration
-        /// <summary>
-        /// Loading assemblies from requested path.
-        /// </summary>
-        /// <param name="path"></param>
-        protected static void LoadAssemblies(string path)
-        {
-            // Validate directory.
-            bool dirExist = Directory.Exists(path);
-            if (!dirExist)
-            {
-                Console.WriteLine("Libs directory not found. Creating new one...\n{0}", path);
-                Directory.CreateDirectory(path);
-                Console.WriteLine("");
-            }
-
-            // Search files in directory.
-            string[] dllFiles = Directory.GetFiles(path, "*.dll");
-
-            // Loading assemblies.
-            if (dllFiles.Length > 0)
-            {
-                Console.WriteLine("ASSEMBLIES DETECTED:");
-            }
-            foreach (string _path in dllFiles)
-            {
-                Assembly.LoadFrom(_path);
-                Console.WriteLine(_path.Substring(_path.LastIndexOf("\\") + 1));
-            }
-            Console.WriteLine();
-
-            // Looking for type replacment orders.
-            Console.WriteLine("TYPES REPLACMENTS:");
-            UniformDataOperator.Modifiers.TypeReplacer.RescanAssemblies();
-            Console.WriteLine();
-        }
-
         /// <summary>
         /// Method that will configurate application and server relative to the uniform arguments.
         /// </summary>

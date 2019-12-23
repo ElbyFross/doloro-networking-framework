@@ -21,6 +21,7 @@ using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
 using AuthorityController.Data.Application;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace AuthorityController.Queries
 {
@@ -30,7 +31,7 @@ namespace AuthorityController.Queries
     /// 
     /// USER&amp;LOGON&amp;login=...&amp;password=...&amp;mac=...&amp;os=....&amp;
     /// </summary>
-    public class USER_LOGON : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
+    public class USER_LOGON : IQueryHandler, IBaseTypeChangable
     {
         /// <summary>
         /// Base constructor.
@@ -38,8 +39,8 @@ namespace AuthorityController.Queries
         /// </summary>
         public USER_LOGON()
         {
-            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
-            BanInfoOperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(BanInformation));
+            OperatingType = TypeReplacer.GetValidType(typeof(User));
+            BanInfoOperatingType = TypeReplacer.GetValidType(typeof(BanInformation));
         }
 
         /// <summary>

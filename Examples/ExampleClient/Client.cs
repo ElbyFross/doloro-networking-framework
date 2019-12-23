@@ -95,7 +95,11 @@ namespace ExampleClient
             ArgsReactor(args);
 
             // Check direcroties
-            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+            UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
+                AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+
+            // Looking for replaced types that could be used by handlers.
+            UniformDataOperator.AssembliesManagement.Modifiers.TypeReplacer.RescanAssemblies();
 
             // Loading roting tables to detect servers.
             LoadRoutingTables(AppDomain.CurrentDomain.BaseDirectory + "plugins\\");
@@ -281,7 +285,8 @@ namespace ExampleClient
             //
             // ATTENTION: Message will not be encrypted before post. 
             // User SetRoutingInstruction (whrer instruction has RSAEncryption fields as true) instead TryLogon.
-            bool logonResult = General.TryLogon(routingInstruction.logonConfig, out SafeAccessTokenHandle safeTokenHandle);
+            bool logonResult = General.TryLogon(routingInstruction.logonConfig,
+                                                token: out SafeAccessTokenHandle safeTokenHandle);
             if (!logonResult)
             {
                 Console.WriteLine("Logon failed. Connection not possible.\nPress any key...");

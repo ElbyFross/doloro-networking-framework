@@ -19,6 +19,7 @@ using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
 using AuthorityController.Data.Application;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace AuthorityController.Queries
 {
@@ -26,7 +27,7 @@ namespace AuthorityController.Queries
     /// Set new password for user.
     /// Require admin or certen user rights.
     /// </summary>
-    public class USER_UPDATE_PASSWORD : IQueryHandler , UniformDataOperator.Modifiers.IBaseTypeChangable
+    public class USER_UPDATE_PASSWORD : IQueryHandler , IBaseTypeChangable
     {
         /// <summary>
         /// Base constructor.
@@ -34,7 +35,7 @@ namespace AuthorityController.Queries
         /// </summary>
         public USER_UPDATE_PASSWORD()
         {
-            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+            OperatingType = TypeReplacer.GetValidType(typeof(User));
         }
 
         /// <summary>

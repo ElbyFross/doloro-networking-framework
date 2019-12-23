@@ -69,7 +69,13 @@ namespace QueriesServer
             ArgsReactor(args);
 
             // Check direcroties
-            LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+
+            // Check direcroties
+            UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
+                AppDomain.CurrentDomain.BaseDirectory + "libs\\");
+
+            // Looking for replaced types that could be used by handlers.
+            UniformDataOperator.AssembliesManagement.Modifiers.TypeReplacer.RescanAssemblies();
             #endregion
 
 

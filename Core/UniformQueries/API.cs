@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
 using UniformQueries.Executable;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace UniformQueries
 {
@@ -71,7 +72,7 @@ namespace UniformQueries
                                 !type.IsInterface)
                             {
                                 // Skip if type was replaced by other.
-                                if(UniformDataOperator.Modifiers.TypeReplacer.IsReplaced(type))
+                                if(TypeReplacer.IsReplaced(type))
                                 {
                                     continue;
                                 }

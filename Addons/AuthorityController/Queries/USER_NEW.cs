@@ -20,6 +20,7 @@ using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Personal;
 using AuthorityController.Data.Application;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace AuthorityController.Queries
 {
@@ -29,7 +30,7 @@ namespace AuthorityController.Queries
     /// Storing profile in local dile system by default via UsersLocal API.
     /// Storing profile to SQL server in case if `UniformDataOperator.Sql.SqlOperatorHandler.Active` not null.
     /// </summary>
-    public class USER_NEW : IQueryHandler, UniformDataOperator.Modifiers.IBaseTypeChangable
+    public class USER_NEW : IQueryHandler, IBaseTypeChangable
     {
         /// <summary>
         /// Base constructor.
@@ -37,7 +38,7 @@ namespace AuthorityController.Queries
         /// </summary>
         public USER_NEW()
         {
-            OperatingType = UniformDataOperator.Modifiers.TypeReplacer.GetValidType(typeof(User));
+            OperatingType = TypeReplacer.GetValidType(typeof(User));
         }
 
         /// <summary>

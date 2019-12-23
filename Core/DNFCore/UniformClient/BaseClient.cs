@@ -95,50 +95,6 @@ namespace UniformClient
 
         #region Core | Application | Assembly
         /// <summary>
-        /// Loading assemblies from requested path.
-        /// </summary>
-        /// <param name="path"></param>
-        protected static void LoadAssemblies(string path)
-        {
-            // Validate directory.
-            bool dirExist = Directory.Exists(path);
-            if (!dirExist)
-            {
-                Console.WriteLine("Libs directory not found. Creating new one...\n{0}", path);
-                Directory.CreateDirectory(path);
-                Console.WriteLine("");
-            }
-
-            // Search files in directory.
-            string[] dllFiles = Directory.GetFiles(path, "*.dll", SearchOption.AllDirectories);
-
-            // Loading assemblies.
-            if (dllFiles.Length > 0)
-            {
-                Console.WriteLine("ASSEMBLIES DETECTED:");
-            }
-            foreach (string _path in dllFiles)
-            {
-                try
-                {
-                    Assembly.LoadFrom(_path);
-                    Console.WriteLine(_path.Substring(_path.LastIndexOf("\\") + 1));
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine("DLL \"{0}\" LOADING FAILED: {1}", 
-                        _path.Substring(_path.LastIndexOf("\\") + 1), 
-                        ex.Message);
-                }
-            }
-
-            if (dllFiles.Length > 0)
-            {
-                Console.WriteLine();
-            }
-        }
-
-        /// <summary>
         /// Method that will configurate application and server relative to the uniform arguments.
         /// </summary>
         /// <param name="args"></param>
