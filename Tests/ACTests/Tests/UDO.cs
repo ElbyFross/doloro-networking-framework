@@ -69,7 +69,7 @@ namespace ACTests.Tests
                 return false;
             }
 
-            if (!UniformDataOperator.Sql.Attributes.Table.TrySetTables(true, out error,
+            if (!UniformDataOperator.Sql.Markup.TableAttribute.TrySetTables(true, out error,
                 typeof(User),
                 typeof(BanInformation)))
             {

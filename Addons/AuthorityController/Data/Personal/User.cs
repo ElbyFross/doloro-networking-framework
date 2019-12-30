@@ -17,8 +17,8 @@ using System.Xml.Serialization;
 using System.Data;
 using System.Collections.Generic;
 using AuthorityController.Data.Application;
-using UniformDataOperator.Sql.Attributes;
-using UniformDataOperator.Sql.MySql.Attributes;
+using UniformDataOperator.Sql.Markup;
+using UniformDataOperator.Sql.MySql.Markup;
 using MySql.Data.MySqlClient;
 
 namespace AuthorityController.Data.Personal

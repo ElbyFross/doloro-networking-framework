@@ -25,7 +25,7 @@ namespace PipesProvider.Networking.Routing
     /// Object that contain routing instgructions.
     /// Provide API to work with file system.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class RoutingTable
     {
         #region Fields & properties

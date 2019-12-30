@@ -17,8 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UniformDataOperator.Sql.Attributes;
-using UniformDataOperator.Sql.MySql.Attributes;
+using UniformDataOperator.Sql.Markup;
+using UniformDataOperator.Sql.MySql.Markup;
 using System.Xml.Serialization;
 
 namespace AuthorityController.Data.Personal
