@@ -285,7 +285,7 @@ namespace ExampleClient
             //
             // ATTENTION: Message will not be encrypted before post. 
             // User SetRoutingInstruction (whrer instruction has RSAEncryption fields as true) instead TryLogon.
-            bool logonResult = General.TryLogon(routingInstruction.logonConfig,
+            bool logonResult = General.TryToLogonAtRemoteDevice(routingInstruction.logonConfig,
                                                 token: out SafeAccessTokenHandle safeTokenHandle);
             if (!logonResult)
             {
@@ -321,8 +321,9 @@ namespace ExampleClient
                 new QueryPart("get"),
                 new QueryPart("publickey"));
 
-            // Open duplex chanel. First line processor will send query to server and after that will listen to its andwer.
-            // When answer will recived it will redirected to callback.
+            // Opens duplex chanel. At first the line will send the query to a server
+            // and after that will listen to its answer.
+            // When answer will receive it will redirected to the callback.
             EnqueueDuplexQueryViaPP(SERVER_NAME, SERVER_PIPE_NAME, 
                 GetPKQuery, ServerAnswerHandler_RSAPublicKey).
                 TryLogonAs(routingInstruction.logonConfig); // Share logon cofig to allow connectio for not public servers.

@@ -16,9 +16,11 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using PipesProvider.Networking.Routing;
 using PipesProvider.Security.Encryption.Operators;
+using UniformQueries;
 
 namespace PipesProvider.Security.Encryption
 {
@@ -39,7 +41,7 @@ namespace PipesProvider.Security.Encryption
         /// <param name="asymmetricEO">Operator that would be used to decrypting of symmetric key shared with.</param>
         /// <returns>Result of operation.</returns>
         public static async Task<bool> TryToDecryptAsync(
-            UniformQueries.Query query,
+            Query query,
             IEncryptionOperator asymmetricEO)
         {
             return await TryToDecryptAsync(query, asymmetricEO, System.Threading.CancellationToken.None);
@@ -53,9 +55,9 @@ namespace PipesProvider.Security.Encryption
         /// <param name="cancellationToken">Token that woul be used for termination of async operations.</param>
         /// <returns>Result of operation.</returns>
         public static async Task<bool> TryToDecryptAsync(
-            UniformQueries.Query query, 
+            Query query, 
             IEncryptionOperator asymmetricEO,
-            System.Threading.CancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             #region Validation
             // Drop if encryptor not described.
@@ -106,10 +108,10 @@ namespace PipesProvider.Security.Encryption
         /// <param name="cancellationToken">Token for termination of async operations.</param>
         /// <returns>Result of operation. False mean that operation failed.</returns>
         public static async Task<bool> TryToEncryptAsync(
-           UniformQueries.Query query,
+           Query query,
            string symmetricEncryptionOperatorCode,
            IEncryptionOperator asymmetricEecryptionOperator,
-           System.Threading.CancellationToken cancellationToken)
+           CancellationToken cancellationToken)
         {
             // Validate
             if (string.IsNullOrEmpty(symmetricEncryptionOperatorCode)) return false;
@@ -157,10 +159,10 @@ namespace PipesProvider.Security.Encryption
         /// <param name="cancellationToken">Token for operation termination.</param>
         /// <returns>Result of encrypting. False meaning failed.</returns>
         public static async Task<bool> TryToEncryptAsync(
-            UniformQueries.Query query,
+            Query query,
             IEncryptionOperator symmetricEncryptionOperator,
             IEncryptionOperator asymmetricEecryptionOperator,
-            System.Threading.CancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             // Validate.
             if (query == null) return false;
@@ -196,7 +198,7 @@ namespace PipesProvider.Security.Encryption
         /// Operate with public key received from server.
         /// </param>
         public static void TryToEncrypt(
-            UniformQueries.Query query, 
+            Query query, 
             IEncryptionOperator symmetricEncryptionOperator, 
             IEncryptionOperator asymmetricEecryptionOperator)
         {
@@ -227,9 +229,9 @@ namespace PipesProvider.Security.Encryption
         /// <param name="toEncrypt">Query that would be ecrypted with enctry data.</param>
         /// <param name="cancellationToken">Token for operation termination.</param>
         public static async Task<bool> TryToEncryptByReceivedQueryAsync(
-            UniformQueries.Query receivedQuery,
-            UniformQueries.Query toEncrypt,
-            System.Threading.CancellationToken cancellationToken)
+            Query receivedQuery,
+            Query toEncrypt,
+            CancellationToken cancellationToken)
         {
             if (receivedQuery.EncryptionMeta != null &&
                !string.IsNullOrEmpty(receivedQuery.EncryptionMeta.contentEncytpionOperatorCode))

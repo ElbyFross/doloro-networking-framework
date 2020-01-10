@@ -175,8 +175,8 @@ namespace UniformClient
 
         #region Duplex (two-ways) quries API
         /// <summary>
-        /// Add query to queue. 
-        /// Open backward line that will call answer handler.
+        /// Adds a query to the queue. 
+        /// Opens a backward line that will calls an answer handler.
         /// </summary>
         /// <param name="line">Line proccessor that control queries posting to target server.</param>
         /// <param name="query">Query that will sent to server.</param>
@@ -184,7 +184,7 @@ namespace UniformClient
         public static void EnqueueDuplexQueryViaPP(
             TransmissionLine line,
             UniformQueries.Query query,
-            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
+            Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Add our query to line processor queue.
             line.EnqueueQuery(query);
@@ -194,8 +194,8 @@ namespace UniformClient
         }
 
         /// <summary>
-        /// Add query to queue. 
-        /// Open backward line that will call answer handler.
+        /// Adds a query to the queue. 
+        /// Opens a backward line that will calls an answer handler.
         /// </summary>
         /// <param name="serverName">Name of the server. "." if local.</param>
         /// <param name="serverPipeName">Name of pipe provided by server.</param>
@@ -206,7 +206,7 @@ namespace UniformClient
             string serverName,
             string serverPipeName,
             UniformQueries.Query query,
-            System.Action<TransmissionLine, UniformQueries.Query> answerHandler)
+            Action<TransmissionLine, UniformQueries.Query> answerHandler)
         {
             // Open transmission line.
             TransmissionLine line = OpenOutTransmissionLineViaPP(serverName, serverPipeName);

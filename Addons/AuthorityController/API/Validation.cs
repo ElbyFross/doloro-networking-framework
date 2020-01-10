@@ -15,11 +15,10 @@
 using System.Text.RegularExpressions;
 using AuthorityController.Data.Application;
 
-
 namespace AuthorityController.API
 {
     /// <summary>
-    /// Provides API for data validation.
+    /// Provides an API for data validation.
     /// </summary>
     public static class Validation
     {
@@ -90,14 +89,18 @@ namespace AuthorityController.API
         }
 
         /// <summary>
-        /// Validate name part format.
+        /// Validate a name's part format.
         /// </summary>
-        /// <param name="namePart">First\second\middle part of the name that need to be validated</param>
-        /// <param name="error">Error string that will be situable in case of validation fail.</param>
-        /// <returns>Result of validation.</returns>
+        /// <param name="namePart">
+        /// A first\second\middle part of the name that sould be validated
+        /// </param>
+        /// <param name="error">
+        /// An error string that will be situable in case of validation fail.
+        /// </param>
+        /// <returns>A result of validation.</returns>
         public static bool NameFormat(ref string namePart, out string error)
         {
-            // Remove spaces.
+            // Removing spaces.
             namePart = namePart.Trim();
 
             // Validate name part (first\second\middle).

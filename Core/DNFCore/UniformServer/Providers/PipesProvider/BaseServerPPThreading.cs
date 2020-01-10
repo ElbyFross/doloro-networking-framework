@@ -27,7 +27,7 @@ namespace UniformServer
     /// <summary>
     /// Part of class that provide methods can be started as thread for server init;
     /// </summary>
-    public abstract partial class BaseServer
+    public partial class BaseServer
     {
         #region Events
         /// <summary>

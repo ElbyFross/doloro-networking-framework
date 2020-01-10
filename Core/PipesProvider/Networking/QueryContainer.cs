@@ -18,8 +18,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PipesProvider.Networking;
+using PipesProvider.Client;
 
-namespace PipesProvider.Client
+namespace PipesProvider.Networking
 {
     /// <summary>
     /// Privide invormation about query.
@@ -57,9 +58,9 @@ namespace PipesProvider.Client
         /// <summary>
         /// Delegate that will be called when anser transmition will be recived.
         /// </summary>
+        [NonSerialized]
         public Action<TransmissionLine, byte[]> AnswerHandler;
         #endregion
-
 
         #region Constructors
         /// <summary>
@@ -91,7 +92,6 @@ namespace PipesProvider.Client
         }
         #endregion
 
-
         #region API
         /// <summary>
         /// Return copy of source container.
@@ -115,7 +115,6 @@ namespace PipesProvider.Client
             return Data.ToString();
         }
         #endregion
-
 
         #region Operators
         /// <summary>

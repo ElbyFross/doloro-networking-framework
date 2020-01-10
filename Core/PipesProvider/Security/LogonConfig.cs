@@ -21,23 +21,23 @@ using System.Threading.Tasks;
 namespace PipesProvider.Security
 {
     /// <summary>
-    /// Contaier that contain logon data for remote machine.
+    /// A metadata container that stores a data demands for logon process at a remote device.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public struct LogonConfig
     {
         /// <summary>
-        /// Name of user for remote logon.
+        /// A name of the user for remote logon.
         /// </summary>
         public string userName;
 
         /// <summary>
-        /// Password to remote user.
+        /// A password of the remote user.
         /// </summary>
         public string password;
 
         /// <summary>
-        /// Domain name of target machine.
+        /// A domain name of target machine.
         /// "Workgroup" as example.
         /// </summary>
         public string domain;

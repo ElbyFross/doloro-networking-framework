@@ -49,7 +49,7 @@ namespace PipesProvider.Handlers
             try
             {
                 // Trying to close connection if not closed.
-                meta.pipeServer.EndWaitForConnection(meta.connectionMarker);
+                meta.PipeServer.EndWaitForConnection(meta.connectionMarker);
             }
             catch (Exception ex)
             {
@@ -67,36 +67,36 @@ namespace PipesProvider.Handlers
             finally
             {
                 // Unlock searching
-                meta.newConnectionSearchAllowed = true;
+                meta.NewConnectionSearchAllowed = true;
             }
 
             try
             {
                 // Wait until connection.
-                while(!meta.pipeServer.IsConnected)
+                while(!meta.PipeServer.IsConnected)
                 {
                     Thread.Sleep(5);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("CONNECTION ERROR (CECR EWFC 2): {0} {1}", meta.pipeName, ex.Message);
+                Console.WriteLine("CONNECTION ERROR (CECR EWFC 2): {0} {1}", meta.PipeName, ex.Message);
             }
 
             //Console.WriteLine("\nAsync compleated:{0} {1}\nPipe connected:{2}\n", result.IsCompleted, result.CompletedSynchronously, meta.pipe.IsConnected);
 
             // Log about success.
-            if (meta.pipeServer.IsConnected)
+            if (meta.PipeServer.IsConnected)
             {
                 // Log connection.
-                Console.WriteLine("\n{0}: Client connected. Handler: {1}", meta.pipeName, meta.connectionCallback != null ? meta.connectionCallback.Method.Name : "None");
+                Console.WriteLine("\n{0}: Client connected. Handler: {1}", meta.PipeName, meta.connectionCallback != null ? meta.connectionCallback.Method.Name : "None");
 
                 // Call connection handler.
                 meta.connectionCallback?.Invoke(meta);
             }
             else
             {
-                Console.WriteLine("\n{0}: Connection waiting was terminated", meta.pipeName);
+                Console.WriteLine("\n{0}: Connection waiting was terminated", meta.PipeName);
             }
         }
     }

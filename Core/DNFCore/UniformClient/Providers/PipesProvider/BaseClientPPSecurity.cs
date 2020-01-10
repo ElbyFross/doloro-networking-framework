@@ -31,6 +31,7 @@ namespace UniformClient
         /// <param name="encryptionProviderKey">Code of target encryption operator.</param>
         /// <param name="pai">Routing instruction to target server.</param>
         /// <returns></returns>
+        [Obsolete]
         public static async Task<bool> RequestSecretKeyViaPPAsync(string encryptionProviderKey, PartialAuthorizedInstruction pai)
         {
             // Validate guest token.
@@ -48,7 +49,7 @@ namespace UniformClient
 
             switch (encryptionProviderKey)
             {
-                case "rsa": return await RequestRSAEncryptionKeyAsync(pai);
+                case "rsa": return await RequestPublicEncryptionKeyAsync(pai);
                 //case "aes": return await RequestAESEncryptionKeyAsync(pai);
                 default: throw new NotSupportedException("\"" + encryptionProviderKey + "\" IEncryptionOperator not exist in that instruction.");
             }
@@ -56,10 +57,11 @@ namespace UniformClient
         }
 
         /// <summary>
-        /// Requsting RSA encryption key from server.
+        /// Requsting a public encryption key from a server definded into the instruction.
         /// </summary>
-        /// <param name="pai">Instruction that would be used for routing to target server.</param>
-        private static async Task<bool> RequestRSAEncryptionKeyAsync(PartialAuthorizedInstruction pai)
+        /// <param name="pai">An instruction that would be used for routing to target server.</param>
+        /// <returns>A started async task that returns result of keys exchanging process.</returns>
+        private static async Task<bool> RequestPublicEncryptionKeyAsync(PartialAuthorizedInstruction pai)
         {
             // Create base part of query for reciving of public RSA key.
             UniformQueries.Query query = new UniformQueries.Query(

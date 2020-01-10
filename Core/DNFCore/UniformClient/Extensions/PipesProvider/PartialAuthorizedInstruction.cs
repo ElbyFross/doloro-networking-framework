@@ -24,7 +24,7 @@ using UniformQueries.Executable;
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
-    /// Provide data and API required for connections that require partical authorization rights on server.
+    /// Provides a data and an API required for connections that demand partical authorization rights on a server.
     /// </summary>
     [Serializable]
     public class PartialAuthorizedInstruction : Instruction

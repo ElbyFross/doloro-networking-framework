@@ -25,10 +25,10 @@ using UniformDataOperator.AssembliesManagement.Modifiers;
 namespace AuthorityController.Queries
 {
     /// <summary>
-    /// Create new user.
+    /// Creates new user.
     /// 
-    /// Storing profile in local dile system by default via UsersLocal API.
-    /// Storing profile to SQL server in case if `UniformDataOperator.Sql.SqlOperatorHandler.Active` not null.
+    /// Stores the profile in a local file system via the <see cref="API.LocalUsers"/>.
+    /// Stores the profile on an SQL server in case if <see cref="UniformDataOperator.Sql.SqlOperatorHandler.Active"/> isn't null.
     /// </summary>
     public class USER_NEW : IQueryHandler, IBaseTypeChangable
     {

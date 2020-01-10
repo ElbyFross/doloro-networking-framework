@@ -14,8 +14,6 @@
 
 namespace UniformQueries.Executable.Security
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Provide fields situated but authentification queries.
     /// </summary>
@@ -23,7 +21,7 @@ namespace UniformQueries.Executable.Security
     {
         #region Properties
         /// <summary>
-        /// Check does this instruction authorized.
+        /// Check does this instruction is authorized.
         /// </summary>
         public bool IsAutorized
         {
@@ -43,8 +41,8 @@ namespace UniformQueries.Executable.Security
         }
 
         /// <summary>
-        /// Token that would be used during quries to confirm the rights.
-        /// Logon on target server before using this instruction and save recived token to this property.
+        /// A loken that would be used during quries to confirm the rights.
+        /// Logon on a target server before using an instruction and save and recived token to this property.
         /// </summary>
         public string Token
         {
@@ -63,12 +61,12 @@ namespace UniformQueries.Executable.Security
         }
 
         /// <summary>
-        /// Time when token would expited.
+        /// A time when token would expited.
         /// </summary>
         public System.DateTime ExpiryTime { get; protected set; }
 
         /// <summary>
-        /// Rights provided to token during logon.
+        /// A rights provided to token during logon.
         /// </summary>
         public string[] RecivedRights { get; protected set; }
         #endregion
@@ -79,10 +77,10 @@ namespace UniformQueries.Executable.Security
         #endregion
 
         /// <summary>
-        /// Handler that would recive server answer.
+        /// A handler that would recive server answer.
         /// </summary>
-        /// <param name="_">Dropped param that not required on that processor.</param>
-        /// <param name="answer">Binary data received from server as answer.</param>
+        /// <param name="_">A dropped param that not required on that processor.</param>
+        /// <param name="answer">A binary data received from server as answer.</param>
         protected override void ServerAnswerHandler(object _, object answer)
         {
             // Trying to convert answer to string

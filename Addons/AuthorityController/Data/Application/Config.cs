@@ -30,7 +30,7 @@ namespace AuthorityController.Data.Application
     /// 8 - admin
     /// 16 - superadmin
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class Config
     {
         #region Constants

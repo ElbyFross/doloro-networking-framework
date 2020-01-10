@@ -35,10 +35,11 @@ namespace UniformClient
     public abstract partial class BaseClient
     {
         /// <summary>
-        /// Handler that will recive message from the server.
+        /// A handler that will recives a message from a server.
         /// </summary>
         /// <param name="sharedObject">
-        /// Normaly is a TransmissionLine that contain information about actual transmission.</param>
+        /// Normaly is a <see cref="TransmissionLine"/> that contains information about current transmission.
+        /// </param>
         public static async void HandlerInputTransmissionAsync(object sharedObject)
         {
             // Drop as invalid in case of incorrect transmitted data.
@@ -169,9 +170,11 @@ namespace UniformClient
         }
 
         /// <summary>
-        /// Handler that send last dequeued query to server when connection will be established.
+        /// A handler that sends a last dequeued query to a server when connection is established.
         /// </summary>
-        /// <param name="sharedObject">Normaly is a TransmissionLine that contain information about actual transmission.</param>
+        /// <param name="sharedObject">
+        /// Normaly is a <see cref="TransmissionLine"/> that contain information about actual transmission.
+        /// </param>
         public static async void HandlerOutputTransmisssionAsync(object sharedObject)
         {
             // Drop as invalid in case of incorrect transmitted data.
@@ -267,10 +270,10 @@ namespace UniformClient
         }
 
         /// <summary>
-        /// Validating and fixing configuration andd params of transmission line.
+        /// Validates and fixed a configuration and params of the transmission line.
         /// </summary>
-        /// <param name="line">Target line.</param>
-        /// <returns>Result of configurating. False - failed.</returns>
+        /// <param name="line">A transmission line for configuration.</param>
+        /// <returns>A result of configurating. False if failed.</returns>
         public static async Task<bool> ConfigurateTransmissionLine(TransmissionLine line)
         {
             if (line.RoutingInstruction != null) // Routing instruction applied.
@@ -344,7 +347,7 @@ namespace UniformClient
                             try
                             {
                                 // Start async key exchanging.
-                                var keysExchangingOperator = RequestRSAEncryptionKeyAsync(pai);
+                                var keysExchangingOperator = RequestPublicEncryptionKeyAsync(pai);
 
                                 try
                                 {

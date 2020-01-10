@@ -65,9 +65,8 @@
     <Compile Include="UniformServer\Providers\BaseServer.cs" />
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPThreading.cs" />
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPTransmission.cs" />
-    <Compile Include="UniformServer\Providers\Standard\BroadcastingServer.cs" />
+    <Compile Include="UniformServer\Providers\Standard\BroadcastServer.cs" />
     <Compile Include="UniformServer\Providers\Standard\RelayServer.cs" />
-    <Compile Include="UniformServer\Providers\Standard\SimpleServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Addons\ConsoleDraw\ConsoleDraw.csproj">

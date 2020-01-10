@@ -22,20 +22,22 @@ using PipesProvider.Security.Encryption.Operators;
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
-     /// Struct that contain instruction about target adress by relative query params.
-     /// Allow using of several servers via one public.
-     /// 
-     /// Example:
-     ///                          -- Authification server
-     /// Client -- Query server -- Data server 1
-     ///                          -- Data server 2
-     /// </summary>
-    [System.Serializable]
+    /// A struct that contains an instruction about target adress by relative query params.
+    /// </summary>
+    /// <remarks>
+    /// Allows to use of several servers via one public.
+    /// 
+    /// Example:
+    ///                          -- Authification server
+    /// Client -- Query server -- Data server 1
+    ///                          -- Data server 2
+    /// </remarks>
+    [Serializable]
     public class Instruction
     {
         #region Public properties
         /// <summary>
-        /// Configurated RSA encryption operator that would be used during transmission.
+        /// Configurated assymetric encryption operator that would be used during transmission.
         /// Using for sharing of small messages not longer then 117 bytes.
         /// </summary>
         [XmlIgnore]

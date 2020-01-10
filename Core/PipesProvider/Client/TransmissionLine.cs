@@ -20,14 +20,15 @@ using System.Security.Principal;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
+using PipesProvider.Networking;
 using PipesProvider.Networking.Routing;
 
 namespace PipesProvider.Client
-{ 
+{
     /// <summary>
-    /// Class that provide information about line between client and server.
-    /// Provide API to easy control.
-    /// Provide automatic services.
+    /// A class that provides an information about the line between client and server.
+    /// Provides an API for simplifying transmission management.
+    /// Provides services for automatic handling of the client tasks.
     /// </summary>
     public class TransmissionLine
     {
@@ -38,11 +39,11 @@ namespace PipesProvider.Client
         public enum TransmissionDirection
         {
             /// <summary>
-            /// Transmission would recive message from sender.
+            /// A transmission will receives messages from sender.
             /// </summary>
             In,
             /// <summary>
-            /// Trasmission would emmite messages.
+            /// A transmission will emmites messages.
             /// </summary>
             Out
         }
@@ -103,8 +104,8 @@ namespace PipesProvider.Client
         public bool Processing { get; set; }
 
         /// <summary>
-        /// Is current query processing is interrupted.
-        /// Will disconnect current connection with error.
+        /// Is current query processing is interrupted?
+        /// Will disconnect a current connection with an error.
         /// </summary>
         public bool Interrupted
         {
@@ -196,14 +197,14 @@ namespace PipesProvider.Client
 
         #region Public fields
         /// <summary>
-        /// Reference to the current oppened pipe.
+        /// A reference to the current oppened pipe.
         /// </summary>
         public NamedPipeClientStream pipeClient;
 
         /// <summary>
-        /// This delegate will be callback when connection wfor qury will be established.
+        /// This delegate will be called when a connection for query will be established.
         /// </summary>
-        public System.Action<TransmissionLine> queryProcessor;
+        public Action<TransmissionLine> queryHandler;
         #endregion
 
         #region Protected fields
@@ -228,12 +229,12 @@ namespace PipesProvider.Client
         /// <param name="serverPipeName">Name of the pipe that will be used for transmitiong.</param>
         /// <param name="queryProcessor">Delegate that will be called when connection will be established.</param>
         /// <param name="token">Reference to token that provide authority to work with remote server.</param>
-        public TransmissionLine(string serverName, string serverPipeName, System.Action<TransmissionLine> queryProcessor, ref SafeAccessTokenHandle token)
+        public TransmissionLine(string serverName, string serverPipeName, Action<TransmissionLine> queryProcessor, ref SafeAccessTokenHandle token)
         {
             // Set fields.
             ServerName = serverName;
             ServerPipeName = serverPipeName;
-            this.queryProcessor = queryProcessor;
+            this.queryHandler = queryProcessor;
             this.accessToken = token;
 
             // Registrate at hashtable.
@@ -245,13 +246,13 @@ namespace PipesProvider.Client
         /// </summary>
         /// <param name="instruction">Routing insturuction that contain all data about target srver.</param>
         /// <param name="queryProcessor">Delegate that will be called when connection will be established.</param>
-        public TransmissionLine(ref Instruction instruction, System.Action<TransmissionLine> queryProcessor)
+        public TransmissionLine(ref Instruction instruction, Action<TransmissionLine> queryProcessor)
         {
             // Set fields.
             RoutingInstruction = instruction;
             ServerName = instruction.routingIP;
             ServerPipeName = instruction.pipeName;
-            this.queryProcessor = queryProcessor;
+            this.queryHandler = queryProcessor;
 
             // Logon as requested.
             TryLogonAs(instruction.logonConfig);
@@ -355,7 +356,7 @@ namespace PipesProvider.Client
         { get {  return queries.Count > 0; } }
 
         /// <summary>
-        /// Insurting query to start of queue.
+        /// Inserts the query to start of queue.
         /// </summary>
         /// <param name="query">Query that will places on first place in queue.</param>
         /// <param name="withInterruption">If true then will interupt cuerent query in processing and 
@@ -440,7 +441,7 @@ namespace PipesProvider.Client
             //Console.WriteLine("{0}/{1}: LOGON STARTED", ServerName, ServerPipeName);
 
             // Try to logon using provided config.
-            bool logonResult = Security.General.TryLogon(logonMeta, out SafeAccessTokenHandle safeTokenHandle);
+            bool logonResult = Security.General.TryToLogonAtRemoteDevice(logonMeta, out SafeAccessTokenHandle safeTokenHandle);
             if (!logonResult)
             {
                 // Log about error.

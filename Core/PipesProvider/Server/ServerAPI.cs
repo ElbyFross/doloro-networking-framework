@@ -25,29 +25,29 @@ using PipesProvider.Server.TransmissionControllers;
 namespace PipesProvider.Server
 {
     /// <summary>
-    /// Class that provide common methods for easy work with pipes' tasks.
+    /// A static API class that provides common methods for simplifying handle of server pipes' tasks.
     /// </summary>
     public static class ServerAPI
     {
         #region Events
         /// <summary>
-        /// Event that will be called when server transmission will be registred or updated.
+        /// An event that will occures when a server transmission will be registred or updated.
         /// </summary>
-        public static event System.Action<BaseServerTransmissionController> ServerTransmissionMeta_InProcessing;
+        public static event Action<BaseServerTransmissionController> TransmissionToProcessing;
         #endregion
 
         #region Fields
         /// <summary>
-        /// Hashtable thast contain references to oppened pipes.
+        /// A hashtable that contains references to opened pipes.
         /// Key (string) pipe_name;
         /// Value (ServerTransmissionMeta) meta data about transmition.
         /// </summary>
-        public static readonly Hashtable openedServers = new Hashtable();
+        private static readonly Hashtable openedServers = new Hashtable();
 
         /// <summary>
-        /// Return count of started threads.
+        /// Returns a count of started threads.
         /// </summary>
-        public static int SeversThreadsCount
+        public static int ThreadsCount
         {
             get { return openedServers.Count; }
         }
@@ -55,43 +55,51 @@ namespace PipesProvider.Server
 
         #region Core configurable loop
         /// <summary>
-        /// Provide base server loop that control pipe.
-        /// Have ability to full controll all handlers.
-        /// 
-        /// Warrning: Use only if undersend how it work. Overwise use simplived ClientToServerLoop or ServerToClientLoop
+        /// Provides a base server loop that controls a pipe.
+        /// Has ability to full control  all level of networking handlers.
         /// </summary>
-        /// <param name="guid">GUID that would be used to registration of that pipe.</param>
-        /// <param name="connectionCallback">Delegate that will be called when connection will be established.</param>
-        /// <param name="pipeName">Name of pipe that will be used to acces by client.</param>
-        /// <param name="pipeDirection">Dirrection of the possible transmission.</param>
-        /// <param name="allowedServerInstances">How many server pipes can be started with the same name.</param>
-        /// <param name="transmissionMode">Type of transmission.</param>
+        /// <remarks>
+        /// Use only if undersend how it work. Overwise use simplified 
+        /// <see cref="ClientToServerTransmissionController.ServerLoop"/> or
+        /// <see cref="ServerToClientTransmissionController.ServerLoop"/>, etc.
+        /// </remarks>
+        /// <param name="guid">An unique GUID that will be used to registration of a pipe.</param>
+        /// <param name="connectionCallback">
+        /// A delegate that will be called when connection 
+        /// between the server an client will be established.
+        /// </param>
+        /// <param name="pipeName">A name of the pipe that will be used to access by clients.</param>
+        /// <param name="pipeDirection">Dirrection of a data transmission.</param>
+        /// <param name="allowedServerInstances">Count of server pipes those can be started with the same name.</param>
+        /// <param name="transmissionMode">Specifies the transmission mode of the pipe.</param>
         /// <param name="pipeOptions">Configuration of the pipe.</param>
-        /// <param name="securityLevel">Security options that would be applied to this pipe.</param>
-        /// <param name="initHandler">Handler that will be called in case if transmisssion still not registred.
-        /// Provide possibility to castom initialization for every type of controller.</param>
+        /// <param name="securityLevel">A security lable that will be applied to the pipe.</param>
+        /// <param name="initHandler">
+        /// A handler that will be called in case if transmission still not registred.
+        /// Provides possibility to fulfill custom initialization specified for a certain transmission controller.
+        /// </param>
         public static void ServerLoop<TransmissionControllerType>(
             string guid,
-            System.Action<BaseServerTransmissionController> connectionCallback,
+            Action<BaseServerTransmissionController> connectionCallback,
             string pipeName,
             PipeDirection pipeDirection,
             int allowedServerInstances,
             PipeTransmissionMode transmissionMode,
             PipeOptions pipeOptions,
             Security.SecurityLevel securityLevel,
-            System.Action<BaseServerTransmissionController>initHandler = null)
+            Action<BaseServerTransmissionController> initHandler = null)
             where TransmissionControllerType : BaseServerTransmissionController
         {
-            // Create PipeSecurity relative to requesteed level.
+            // Creating a PipeSecurity relative to requesteed level.
             PipeSecurity pipeSecurity = Security.General.GetRulesForLevels(securityLevel);
 
-            // Try to open pipe server.
+            // Trying to open a pipe server.
             NamedPipeServerStream pipeServer = null;
             try
             {
-                pipeServer =
-                    new NamedPipeServerStream(pipeName, pipeDirection, allowedServerInstances,
-                        transmissionMode, pipeOptions, 0, 0, pipeSecurity);
+                pipeServer = new NamedPipeServerStream(
+                    pipeName, pipeDirection, allowedServerInstances,
+                    transmissionMode, pipeOptions, 0, 0, pipeSecurity);
             }
             catch (Exception ex)
             {
@@ -137,7 +145,7 @@ namespace PipesProvider.Server
             try
             {
                 // Inform subscribers about new pass with this transmission to give possibility correct data.
-                ServerTransmissionMeta_InProcessing?.Invoke(transmisssionController);
+                TransmissionToProcessing?.Invoke(transmisssionController);
             }
             catch (Exception ex)
             {
@@ -152,7 +160,7 @@ namespace PipesProvider.Server
                 if ((transmisssionController.connectionMarker == null || 
                     transmisssionController.connectionMarker.IsCompleted) &&
                     !pipeServer.IsConnected && 
-                    transmisssionController.newConnectionSearchAllowed)
+                    transmisssionController.NewConnectionSearchAllowed)
                 {
                     try
                     {
@@ -162,7 +170,7 @@ namespace PipesProvider.Server
                             transmisssionController);
 
                         // Update data.
-                        transmisssionController.newConnectionSearchAllowed = false;
+                        transmisssionController.NewConnectionSearchAllowed = false;
 
                         Console.Write("{0}: Waiting for client connection...\n", pipeName);
                     }
@@ -178,7 +186,7 @@ namespace PipesProvider.Server
                         transmissionMode, pipeOptions, 0, 0, pipeSecurity);
 
                         // Update meta data.
-                        transmisssionController.pipeServer = pipeServer;
+                        transmisssionController.PipeServer = pipeServer;
                     }
                     //Console.WriteLine("TRANSMITION META HASH: {0}", meta.GetHashCode());
                 }
@@ -199,17 +207,18 @@ namespace PipesProvider.Server
 
             // Finish stream.
             pipeServer.Close();
+            pipeServer.Dispose();
 
-            Console.WriteLine("{0}: PIPE SERVER CLOSED", transmisssionController.pipeName);
+            Console.WriteLine("{0}: PIPE SERVER CLOSED", transmisssionController.PipeName);
         }
         #endregion
 
         #region Controls
         /// <summary>
-        /// Marking pipe as expired. 
-        /// On the next loop tick connections will be disconnect and pipe will close.
+        /// Marks a pipe as expired. 
+        /// At the next loop tick connections will be disconnected and pipe will be closed.
         /// </summary>
-        /// <param name="pipeName"></param>
+        /// <param name="pipeName">A pipe's name.</param>
         public static void SetExpired(string pipeName)
         {
             // Check meta data existing.
@@ -227,16 +236,16 @@ namespace PipesProvider.Server
         /// Marking pipe as expired. 
         /// On the next loop tick connections will be disconnect and pipe will close.
         /// </summary>
-        /// <param name="meta">Object that contains information about transmission.</param>
-        public static void SetExpired(BaseServerTransmissionController meta)
+        /// <param name="controller">A transmission controller that will expired.</param>
+        public static void SetExpired(BaseServerTransmissionController controller)
         {
             // Mark it as expired.
-            meta.SetExpired();
+            controller.SetExpired();
         }
 
         /// <summary>
-        /// Markin all pipes as expired. 
-        /// Connection will be terminated.
+        /// Marks all active pipes as expired. 
+        /// The connections will be terminated.
         /// </summary>
         public static void SetExpiredAll()
         {
@@ -250,9 +259,9 @@ namespace PipesProvider.Server
         }
 
         /// <summary>
-        /// Stop server by pipe name.
+        /// Stops a server by a pipe's name.
         /// </summary>
-        /// <param name="pipeName"></param>
+        /// <param name="pipeName">A pipe's name.</param>
         public static void StopServer(string pipeName)
         {
             // Check meta data existing.
@@ -265,30 +274,30 @@ namespace PipesProvider.Server
                 StopServer(meta);
 
                 // Discharge existing in hashtable.
-                openedServers.Remove(meta.pipeName);
+                openedServers.Remove(meta.PipeName);
             }
         }
 
         /// <summary>
-        /// Stop server by relative meta data.
+        /// Stops a server by relative controller.
         /// </summary>
-        /// <param name="meta"></param>
-        public static void StopServer(BaseServerTransmissionController meta)
+        /// <param name="controller">A trasmission controller for stop.</param>
+        public static void StopServer(BaseServerTransmissionController controller)
         {
             // If transmission has been opening.
-            if (meta != null)
+            if (controller != null)
             {
                 // Disconnect and close pipe.
                 try
                 {
                     // Disconnects clients.
-                    if (meta.pipeServer.IsConnected)
+                    if (controller.PipeServer.IsConnected)
                     {
-                        meta.pipeServer.Disconnect();
+                        controller.PipeServer.Disconnect();
                     }
 
                     // Closing pipe.
-                    meta.pipeServer.Close();
+                    controller.PipeServer.Close();
                 }
                 catch (Exception ex)
                 {
@@ -296,7 +305,7 @@ namespace PipesProvider.Server
                     Console.WriteLine("SERVER STOP FAILED: {0}", ex.Message);
                 }
 
-                Console.WriteLine("PIPE CLOSED: {0}", meta.pipeName);
+                Console.WriteLine("PIPE CLOSED: {0}", controller.PipeName);
                 return;
             }
 
@@ -304,7 +313,7 @@ namespace PipesProvider.Server
         }
 
         /// <summary>
-        /// Stoping all regirated servers.
+        /// Stops all regirated servers.
         /// </summary>
         public static void StopAllServers()
         {
@@ -339,15 +348,15 @@ namespace PipesProvider.Server
         #endregion
 
         /// <summary>
-        /// Try to find opened servert to client transmisssion meta data in common table.
+        /// Tries to find opened server transmission metadata in the <see cref="openedServers"/ table>.
         /// </summary>
-        /// <param name="guid"></param>
-        /// <param name="meta"></param>
-        /// <returns></returns>
-        public static bool TryGetServerTransmissionController(string guid, out BaseServerTransmissionController meta)
+        /// <param name="guid"An unique GUID of the line.></param>
+        /// <param name="controller">A found transmission controller.</param>
+        /// <returns>A result of the operation.</returns>
+        public static bool TryGetServerTransmissionController(string guid, out BaseServerTransmissionController controller)
         {
-            meta = openedServers[guid] as BaseServerTransmissionController;
-            return meta != null;
+            controller = openedServers[guid] as BaseServerTransmissionController;
+            return controller != null;
         }
     }
 }

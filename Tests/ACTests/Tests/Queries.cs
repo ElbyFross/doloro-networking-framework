@@ -68,7 +68,7 @@ namespace ACTests.Tests
         public void GetGuestToken()
         {
             // Start broadcasting server that would share guest tokens.
-            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastServer.StartBroadcastingViaPP(
                 Helpers.Networking.DefaultGuestPipeName,
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -522,7 +522,7 @@ namespace ACTests.Tests
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
 
-                // Start reciving clent line.
+                // Starting a client line.
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                     // Request connection to localhost server via main pipe.
@@ -530,13 +530,13 @@ namespace ACTests.Tests
 
                     query,
 
-                    // Handler that would recive ther ver answer.
+                    // A handler that will receive an answer from the server.
                     (PipesProvider.Client.TransmissionLine line, Query answer) =>
                     {
                         // Is operation success?
                         if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Log error.
+                            // Log about an error.
                             Assert.Fail("Recived error:\n" + answer.First.PropertyValueString);
                             operationCompete = true;
                         }
@@ -552,7 +552,7 @@ namespace ACTests.Tests
                             }
                             else
                             {
-                                // Log error.
+                                // Log about an error.
                                 Assert.Fail("Answer not contain token:\nFull answer:" + answer.First.PropertyValueString);
                                 operationCompete = true;
                             }

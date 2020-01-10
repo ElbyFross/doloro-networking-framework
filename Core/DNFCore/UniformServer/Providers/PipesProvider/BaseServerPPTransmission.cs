@@ -27,7 +27,7 @@ namespace UniformServer
     /// <summary>
     /// Part of class that provide methods for establishing transmisssion via PipesProvider.
     /// </summary>
-    public abstract partial class BaseServer
+    public partial class BaseServer
     {
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace UniformServer
         public static bool SendAnswerViaPP(UniformQueries.Query answer, UniformQueries.Query entryQuery)
         {
             // Instiniate primitive server to provide loop.
-            BaseServer server = new Standard.SimpleServer();
+            BaseServer server = new BaseServer();
 
             // Try to compute bacward domaint to contact with client.
             if (!UniformQueries.QueryPart.TryGetBackwardDomain(entryQuery, out string domain))
@@ -77,7 +77,7 @@ namespace UniformServer
             server.pipeName = domain;
 
             // Subscribe or waiting delegate on server loop event.
-            ServerAPI.ServerTransmissionMeta_InProcessing += InitationCallback;
+            ServerAPI.TransmissionToProcessing += InitationCallback;
 
 
             // Starting server loop.
@@ -96,10 +96,10 @@ namespace UniformServer
                 if (tc is ServerToClientTransmissionController transmissionController)
                 {
                     // Target callback.
-                    if (transmissionController.pipeName == server.pipeName)
+                    if (transmissionController.PipeName == server.pipeName)
                     {
                         // Unsubscribe.
-                        ServerAPI.ServerTransmissionMeta_InProcessing -= InitationCallback;
+                        ServerAPI.TransmissionToProcessing -= InitationCallback;
 
                         bool encryptingComplete = false;
 
@@ -129,7 +129,7 @@ namespace UniformServer
                         transmissionController.ProcessingQuery = answer;
 
                         // Log.
-                        Console.WriteLine(@"{0}: Processing query changed on: " + @answer.ToString(), @transmissionController.pipeName);
+                        Console.WriteLine(@"{0}: Processing query changed on: " + @answer.ToString(), @transmissionController.PipeName);
                     }
                 }
                 else // Incorrect type.
@@ -138,7 +138,7 @@ namespace UniformServer
                     tc.SetStoped();
 
                     // Log.
-                    Console.WriteLine("{0}: ERROR Incorrect transmisssion controller. Required \"ServerAnswerTransmissionController\"", tc.pipeName);
+                    Console.WriteLine("{0}: ERROR Incorrect transmisssion controller. Required \"ServerAnswerTransmissionController\"", tc.PipeName);
                 }
             }
         }

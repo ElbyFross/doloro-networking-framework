@@ -67,8 +67,8 @@
     <Compile Include="Security\SecurityLevel.cs" />
     <Compile Include="Client\TransmissionLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server\TransmisssionControllers\BroadcastingServerTransmissionController.cs" />
-    <Compile Include="Server\QueryContainer.cs" />
+    <Compile Include="Server\TransmisssionControllers\BroadcastTransmissionController.cs" />
+    <Compile Include="Networking\QueryContainer.cs" />
     <Compile Include="Server\ServerAPI.cs" />
     <Compile Include="Server\TransmisssionControllers\ClientToServerTransmissionController.cs" />
     <Compile Include="Server\TransmisssionControllers\ServerToClientTransmissionController.cs" />

@@ -20,7 +20,8 @@ using System.IO.Pipes;
 namespace PipesProvider.Server.TransmissionControllers
 {
     /// <summary>
-    /// Container that contains meta data about server instance.
+    /// A controller that contains metadata about server instance 
+    /// and provides an API to manage it.
     /// </summary>
     public class BaseServerTransmissionController
     {
@@ -33,32 +34,32 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Marker that autorize new connection search.
         /// </summary>
-        public bool newConnectionSearchAllowed = true;
+        public bool NewConnectionSearchAllowed { get; set; } = true;
 
         /// <summary>
-        /// Delegate that will be called when connection will be established.
+        /// A delegate that will be called when connection will be established.
         /// ServerTransmissionMeta - meta data of transmission.
         /// </summary>
-        public System.Action<BaseServerTransmissionController> connectionCallback;
+        public Action<BaseServerTransmissionController> connectionCallback;
         
         /// <summary>
-        /// Reference to created pipe.
+        /// A reference to created server pipe.
         /// </summary>
-        public NamedPipeServerStream pipeServer;
+        public NamedPipeServerStream PipeServer { get; set; }
 
         /// <summary>
-        /// Name of this connection.
+        /// Name of the server pipe.
         /// </summary>
-        public string pipeName;
+        public string PipeName { get; protected set; }
 
         /// <summary>
-        /// Marker that show does current transmission is relevant.
-        /// When it'll become true this pipe connection will be desconected.
+        /// Marker that shows is the transmission is relevant.
+        /// When it'll become true the pipe connection will be desconected.
         /// </summary>
         public bool Expired { get; protected set; }
 
         /// <summary>
-        /// Marker that show does this transmition stoped.
+        /// Marker that shows is this transmition stoped.
         /// </summary>
         public bool Stoped { get; protected set; }
         #endregion
@@ -71,27 +72,28 @@ namespace PipesProvider.Server.TransmissionControllers
         public BaseServerTransmissionController() { }
 
         /// <summary>
-        /// Instiniate base transmission controller.
+        /// Instiniates a base transmission controller.
         /// </summary>
-        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
-        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
-        /// <param name="pipe">Named pipe stream established on the server.</param>
-        /// <param name="pipeName">Name of the pipe.</param>
+        /// <param name="connectionMarker">An async marker that can be used to control of operation.</param>
+        /// <param name="connectionCallback">A delegate that will invoked when connection became established.</param>
+        /// <param name="pipe">A named pipe stream established on the server.</param>
+        /// <param name="pipeName">A pipe's name.</param>
         public BaseServerTransmissionController(
-            IAsyncResult connectionMarker, 
-            System.Action<BaseServerTransmissionController> connectionCallback,
-            NamedPipeServerStream pipe, string pipeName)
+            IAsyncResult connectionMarker,
+            Action<BaseServerTransmissionController> connectionCallback,
+            NamedPipeServerStream pipe, 
+            string pipeName)
         {
             this.connectionMarker = connectionMarker;
             this.connectionCallback = connectionCallback;
-            this.pipeServer = pipe;
-            this.pipeName = pipeName;
+            this.PipeServer = pipe;
+            this.PipeName = pipeName;
             Expired = false;
             Stoped = false;
         }
 
         /// <summary>
-        /// Return instance that not contain initialized fields.
+        /// Returns an instance that not contains initialized fields.
         /// </summary>
         public static BaseServerTransmissionController None
         {
@@ -101,17 +103,17 @@ namespace PipesProvider.Server.TransmissionControllers
 
         #region API
         /// <summary>
-        /// Maeking transmission as expired. Line will be remaked.
+        /// Marks the transmission like expired. The line will be remaked.
         /// </summary>
         public void SetExpired()
         {
             Expired = true;
 
-            Console.WriteLine("{0}: PIPE SERVER MANUALY EXPIRED", pipeName);
+            Console.WriteLine("{0}: PIPE SERVER MANUALY EXPIRED", PipeName);
         }
 
         /// <summary>
-        /// Marking transmission as expired and stoped for full exclusion 
+        /// Marks the transmission as expired and stoped for full exclusion 
         /// from automatic server operations.
         /// </summary>
         public void SetStoped()
@@ -119,7 +121,7 @@ namespace PipesProvider.Server.TransmissionControllers
             Stoped = true;
             Expired = true;
 
-            Console.WriteLine("{0}: PIPE SERVER MANUALY STOPED", pipeName);
+            Console.WriteLine("{0}: PIPE SERVER MANUALY STOPED", PipeName);
         }
         #endregion
     }

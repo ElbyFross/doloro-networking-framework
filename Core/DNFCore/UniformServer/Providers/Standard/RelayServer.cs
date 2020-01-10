@@ -18,6 +18,7 @@ using PipesProvider.Server.TransmissionControllers;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using PipesProvider.Security.Encryption;
 
 namespace UniformServer.Standard
 {
@@ -100,7 +101,7 @@ namespace UniformServer.Standard
 
             #region Server establishing
             // Start server loop.
-            BroadcastingServerTransmissionController.ServerLoop(
+            BroadcastTransmissionController.ServerLoop(
                 serverName,
                 ((RelayServer)server).pipeName,
                 ((RelayServer)server).securityLevel,
@@ -112,17 +113,17 @@ namespace UniformServer.Standard
         /// Redirect recived query from current server to other.
         /// </summary>
         /// <param name="controller">Controller that manage curernt transmission.</param>
-        public static byte[] QueryHandler_BroadcastingRelay(BroadcastingServerTransmissionController controller)
+        public static byte[] QueryHandler_BroadcastingRelay(BroadcastTransmissionController controller)
         {
             // Trying to detect relay instruction.
             if (!RelayInstruction.TryToDetectTarget(
                UniformClient.BaseClient.routingTable.intructions,
-               controller.pipeName,
+               controller.PipeName,
                out RelayInstruction relayInstruction))
             {
                 Console.WriteLine(
                     "Relay instruction for \""
-                    + controller.pipeName +
+                    + controller.PipeName +
                     "\" not found. Add instuction to \"BaseClient.routingTable.intructions\" collection.");
 
                 return  UniformDataOperator.Binary.BinaryHandler.ToByteArray("Error 404: Routing server not found. Con'tact administrator.");
@@ -205,7 +206,7 @@ namespace UniformServer.Standard
 
             #region Server establishing
             // Start server loop.
-            PipesProvider.Server.TransmissionControllers.ClientToServerTransmissionController.ServerLoop(
+            ClientToServerTransmissionController.ServerLoop(
                 serverName,
                 QueryHandler_DuplexRelay,
                 ((RelayServer)server).pipeName,
@@ -226,9 +227,9 @@ namespace UniformServer.Standard
             Task decryptionOperation = new Task(async delegate ()
             {
                 // Try to encrypt receved message.
-                decryptionResult = await PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.TryToDecryptAsync(
-                    query,
-                    PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey);
+                decryptionResult = await EnctyptionOperatorsHandler.TryToDecryptAsync(
+                        query,
+                        EnctyptionOperatorsHandler.AsymmetricKey);
 
                 decryptionComplete = true; 
             });
@@ -244,12 +245,15 @@ namespace UniformServer.Standard
             if(!decryptionResult)
             {
                 // Try to get answer in string format.
-                SendAnswerViaPP("DUPLEX RELEAY ERROR: Data corrupted. Decryption not possible. Relay terminated.", query);
+                SendAnswerViaPP("DUPLEX RELEAY ERROR: Data corrupted." +
+                    " Decryption not possible. Relay terminated.", query);
                 return;
             }
 
             // Detect routing target.
-            bool relayTargetFound = UniformClient.BaseClient.routingTable.TryGetRoutingInstruction(query, out Instruction instruction);
+            bool relayTargetFound = 
+                UniformClient.BaseClient.routingTable.
+                TryGetRoutingInstruction(query, out Instruction instruction);
 
             // If instruction not found.
             if (!relayTargetFound)

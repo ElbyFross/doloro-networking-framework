@@ -27,7 +27,7 @@ namespace UniformServer
     /// <summary>
     /// Class that provide base server features and envirounment static API.
     /// </summary>
-    public abstract partial class BaseServer
+    public partial class BaseServer
     {
         #region Static fields and properties
         /// <summary>

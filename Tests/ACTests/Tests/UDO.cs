@@ -582,7 +582,7 @@ namespace ACTests.Tests
             user_Admin.id = AuthorityController.API.LocalUsers.GenerateID(user_Admin);
 
             // Admin
-            AuthorityController.Session.Current.AsignTokenToUser(user_Admin, user_Admin.tokens[0]);
+            AuthorityController.Session.Current.AssignTokenToUser(user_Admin, user_Admin.tokens[0]);
             AuthorityController.Session.Current.SetTokenRights(user_Admin.tokens[0], user_Admin.rights);
 
             // Create admin user.

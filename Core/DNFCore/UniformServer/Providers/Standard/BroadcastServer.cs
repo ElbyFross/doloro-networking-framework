@@ -19,22 +19,19 @@ using PipesProvider.Server.TransmissionControllers;
 namespace UniformServer.Standard
 {
     /// <summary>
-    /// Server that allow instiniate BaseServer.
-    /// Not contain any additive methods.
-    /// 
-    /// Case of using - simple operations like registing of server for answer.
+    /// Server that allow instiniate BroadcastServer.
     /// </summary>
-    public class BroadcastingServer : BaseServer
+    public class BroadcastServer : BaseServer
     {
         /// <summary>
         /// Handler that would generate brodcasting message during every new connection.
         /// </summary>
-        public BroadcastingServerTransmissionController.MessageHandeler GetMessage;
+        public BroadcastTransmissionController.MessageHandeler GetMessage;
 
         /// <summary>
         /// Insiniate broadcasting server.
         /// </summary>
-        public BroadcastingServer() : base()
+        public BroadcastServer() : base()
         {
 
         }
@@ -51,14 +48,14 @@ namespace UniformServer.Standard
         public static void StartBroadcastingViaPP(
             string pipeName,
             PipesProvider.Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getBroadcastingMessageHandler,
+            BroadcastTransmissionController.MessageHandeler getBroadcastingMessageHandler,
             int chanels)
         {
             // Open every requested chanel.
             for (int i = 0; i < chanels; i++)
             {
                 // Instiniate primitive server to provide loop.
-                Standard.BroadcastingServer server = new Standard.BroadcastingServer
+                Standard.BroadcastServer server = new Standard.BroadcastServer
                 {
                     pipeName = pipeName,
                     securityLevel = securityLevel,
@@ -79,7 +76,7 @@ namespace UniformServer.Standard
         /// </summary>
         protected static void ThreadingServerLoop_PP_Broadcast(object server)
         {
-            if (server is Standard.BroadcastingServer broadcastingServer)
+            if (server is Standard.BroadcastServer broadcastingServer)
             {
                 #region Init
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
@@ -92,7 +89,7 @@ namespace UniformServer.Standard
 
                 #region Server establishing
                 // Start server loop.
-                BroadcastingServerTransmissionController.ServerLoop(
+                BroadcastTransmissionController.ServerLoop(
                     serverName,
                     broadcastingServer.pipeName,
                     broadcastingServer.securityLevel,
