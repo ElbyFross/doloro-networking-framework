@@ -76,7 +76,8 @@ namespace AuthorityController.Queries
                 query,
                 Config.Active.QUERY_UserBan_RIGHTS,
                 out _,
-                out User userProfile))
+                out User userProfile,
+                out Data.Temporal.TokenInfo tokenInfo))
             {
                 // Drop if invalid. 
                 return;
@@ -105,6 +106,9 @@ namespace AuthorityController.Queries
                 banInfo = BanInformation.Permanent;
             }
             
+            // Force user id.
+            banInfo.userId = userProfile.id;
+
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active == null)
             {
                 // Add ban to user.
@@ -119,10 +123,9 @@ namespace AuthorityController.Queries
                 // XML serialized BanInformation. If empty then will shared permanent ban.
                 query.TryGetParamValue("token", out QueryPart token);
 
-                banInfo.userId = userProfile.id;
-                // Try to find the requester id.
-                if(Session.Current.TryGetTokenInfo(token.PropertyValueString, out Data.Temporal.TokenInfo tokenInfo))
-                {
+                // Set token user id.
+                if (tokenInfo != null)
+                { 
                     banInfo.bannedByUserId = tokenInfo.userId;
                 }
 

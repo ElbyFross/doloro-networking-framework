@@ -1203,7 +1203,6 @@ namespace ACTests.Tests
                     new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
-                    new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
@@ -1274,7 +1273,6 @@ namespace ACTests.Tests
                     new QueryPart("update"),
 
                     new QueryPart("password", "newPassword!2"),
-                    new QueryPart("oldpassword", "password"),
                     new QueryPart("os", Environment.OSVersion.VersionString),
                     new QueryPart("mac", PipesProvider.Networking.Info.MacAdsress),
                     new QueryPart("stamp", DateTime.Now.ToBinary().ToString())

@@ -24,9 +24,9 @@ using MySql.Data.MySqlClient;
 namespace AuthorityController.Data.Personal
 {
     /// <summary>
-    /// Object that contain relevant data about user.
+    /// An object that contains a relevant data about a user.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     [Table("DNFAuthControl", "user", "InnoDB")]
     public partial class User 
     {
@@ -46,42 +46,42 @@ namespace AuthorityController.Data.Personal
         public string login;
 
         /// <summary>
-        /// ON CLIENT: Open password. Situable only if user provides profile as new.
-        /// ON SERVER: Hashed and salted password that confirm user rights to use this account.
+        /// ON CLIENT: An open password. Situable only if user provides a profile as new.
+        /// ON SERVER: A hashed and salted password that confirms user rights to use this account.
         /// </summary>
         [Column("password", DbType.Binary), IsNotNull]
         [MySqlDBTypeOverride(MySqlDbType.Blob, "BLOB(512)")]
         public byte[] password;
 
         /// <summary>
-        /// Name of the user that will displayed in profile.
+        /// A name of the user that will displayed in the profile.
         /// </summary>
         [Column("firstname", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string firstName = "";
 
         /// <summary>
-        /// Last name that will be displayed in profile.
+        /// A last name that will be displayed in the profile.
         /// </summary>
         [Column("lastname", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(45)")]
         public string lastName = "";
         
         /// <summary>
-        /// Array of rigts' codes provided to this user.
+        /// An array of rigts' codes provided to this user.
         /// </summary>
         public string[] rights = new string[0];
         
         /// <summary>
-        /// List of bans that would received by user.
+        /// A list of bans that would received by a user.
         /// </summary>
         public List<BanInformation> bans = new List<BanInformation>();
         #endregion
 
         #region Session-time fields
         /// <summary>
-        /// Rights array as formated string.
-        /// Compatible with UDO.
+        /// A rights array as formated string.
+        /// Compatible with the UniformDataOperator framework.
         /// </summary>
         [Column("rights", DbType.String)]
         [MySqlDBTypeOverride(MySqlDbType.VarChar, "VARCHAR(1000)")]
@@ -108,7 +108,7 @@ namespace AuthorityController.Data.Personal
         }
 
         /// <summary>
-        /// List that cont tokens provided to this user.
+        /// A list that contains tokens provided to this user.
         /// </summary>
         [XmlIgnore]
         public List<string> tokens = new List<string>();
@@ -117,24 +117,30 @@ namespace AuthorityController.Data.Personal
 
         #region API
         /// <summary>
-        /// Compare recived open password with stored to user.
+        /// Compares a recived open password with a stored to an user.
         /// </summary>
-        /// <param name="recivedPassword"></param>
-        /// <returns></returns>
+        /// <param name="recivedPassword">
+        /// A password received by a server in open format.
+        /// Will hashed in compared with a stored one.
+        /// </param>
+        /// <returns>A result of comparison.</returns>
         public bool IsOpenPasswordCorrect(string recivedPassword)
         {
-            // Get hashed password from recived.
+            // Gets a hashed password from recived one.
             byte[] recivedHashedPassword = SaltContainer.GetHashedPassword(recivedPassword, Config.Active.Salt);
 
-            // Compare.
+            // Compares.
             return IsHashedPasswordCorrect(recivedHashedPassword);
         }
 
         /// <summary>
-        /// Check does the recived password is the same as stored to user.
+        /// Checks does the recived password is the same as a stored to an user.
         /// </summary>
-        /// <param name="recivedHashedPassword"></param>
-        /// <returns></returns>
+        /// <param name="recivedHashedPassword">
+        /// A password received by a server in open format.
+        /// Will hashed in compared with a stored one.
+        /// </param>
+        /// <returns>A result of comparison.</returns>
         public bool IsHashedPasswordCorrect(byte[] recivedHashedPassword)
         {
             // Compare length to avoid long time comparing.

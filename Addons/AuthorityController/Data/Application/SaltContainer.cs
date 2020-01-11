@@ -18,19 +18,19 @@ using System.Security.Cryptography;
 namespace AuthorityController.Data.Application
 {
     /// <summary>
-    /// Provides salt container that increase entropy during generation of secret keys.
+    /// Provides salt container that dat
     /// </summary>
     [System.Serializable]
     public class SaltContainer
     {
         /// <summary>
-        /// Bytes array that can be added to information before hashing to increase entropy.
+        /// A bytes array that can be added to information before hashing to increase entropy.
         /// </summary>
         public byte[] key;
 
         /// <summary>
-        /// Stamp that provide confirmation that salt is valid.
-        /// During loading salt will applied to test string and this stamp need to be the same as result.
+        /// A stamp that provides confirmation that salt is valid.
+        /// During loading a salt will applied to a test string and this stamp must to be the same as result.
         /// </summary>
         public byte[] validationStamp;
 

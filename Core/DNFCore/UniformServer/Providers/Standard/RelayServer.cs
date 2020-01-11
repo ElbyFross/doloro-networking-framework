@@ -115,7 +115,7 @@ namespace UniformServer.Standard
         /// <param name="controller">Controller that manage curernt transmission.</param>
         public static byte[] QueryHandler_BroadcastingRelay(BroadcastTransmissionController controller)
         {
-            // Trying to detect relay instruction.
+            // Tries to detect a relay instruction.
             if (!RelayInstruction.TryToDetectTarget(
                UniformClient.BaseClient.routingTable.intructions,
                controller.PipeName,

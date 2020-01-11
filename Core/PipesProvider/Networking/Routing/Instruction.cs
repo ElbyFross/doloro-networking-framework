@@ -69,33 +69,34 @@ namespace PipesProvider.Networking.Routing
 
         #region Public fields
         /// <summary>
-        /// Title of this instruction that can be showed in applications.
+        /// A title of the instruction that can be shown in applications' UI.
         /// </summary>
         public string title = "New instruction";
 
         /// <summary>
-        /// Commentary added to this instruction.
+        /// A commentary added to this instruction.
         /// </summary>
         public string commentary = "";
 
         /// <summary>
-        /// Address that will be ised for routing
+        ///  A network address of the server. Set an IP or a network name of the server. 
         /// </summary>
         public string routingIP = "localhost";
 
         /// <summary>
-        /// neme of the named pipe for server access.
+        /// A name of the named pipe for access to the server .
         /// </summary>
         public string pipeName = "";
 
         /// <summary>
-        /// Logon config recuired to server connection.
+        /// A logon config that allows to impersonate a user at the remote device.
         /// </summary>
         public Security.LogonConfig logonConfig = Security.LogonConfig.Anonymous;
 
         /// <summary>
-        /// Array that contain querie's body that need to be routed by this instruction.
-        /// 
+        /// An array that contain querie's body that need to be routed by this instruction.
+        /// </summary>
+        /// <remarks>
         /// Format:
         /// property=value&amp;property=value&amp;... etc.
         /// Encount all properties that need to be a part of query by splitting with UniformQueries.API.SPLITTING_SYMBOL ('&amp;' by default).
@@ -105,19 +106,20 @@ namespace PipesProvider.Networking.Routing
         /// targetQueries[0] = "q=GET&amp;sq="PUBLICKEY";   // All queries that contain GET query and PUBLICKEY sub-query will routed.
         /// targetQueries[1] = "q=GET&amp;!pk";             // All queries that request data from server but has no RSA public keys for backward encription will wouted.
         /// targetQueries[1] = "$customProp";               // All queries that have "customProp" property in query will be routed.
-        /// </summary>
+        /// </remarks>
         public string[] queryPatterns = new string[] { "" };
 
         /// <summary>
         /// Does this chanel has encryption?
-        /// If true then client will ask for server's Public RSA Key for seve requesting of AES sycret key and encrypt message before send.
+        /// If true then client will ask for server's Public Key 
+        /// for safe exchange of a symmetric keys and message encryption before sending.
         /// </summary>
         public bool encryption = true;
         #endregion
 
         #region Static properties
         /// <summary>
-        /// Return default instruction.
+        /// Returns a default instruction.
         /// </summary>
         public static Instruction Default
         {
@@ -135,7 +137,7 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Return empty instruction.
+        /// Returns an empty instruction.
         /// </summary>
         public static Instruction Empty
         {
@@ -144,10 +146,10 @@ namespace PipesProvider.Networking.Routing
         #endregion
 
         /// <summary>
-        /// Trying to detect encryption operator by operator's internal code.
+        /// Tries to detectan  encryption operator by an operator's internal code.
         /// </summary>
-        /// <param name="code">Code of the operator.</param>
-        /// <returns>Operator that was found.</returns>
+        /// <param name="code">A code of the operator.</param>
+        /// <returns>An operator that was found.</returns>
         /// <exception cref="NotSupportedException">If operator's code is invalid.</exception>
         public IEncryptionOperator FindEncryptorByCode(string code)
         {
@@ -274,8 +276,8 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Return array of Instruction's types derived from Instruction.
-        /// If you need to rescan solution then set value to null and call again.
+        /// Returns an array of Instruction's types derived from the Instruction.
+        /// If you need to rescan a solution then set the value to null and call again.
         /// </summary>
         public static Type[] DerivedTypes
         {
@@ -311,7 +313,7 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Cashed array with found derived types.
+        /// A cashed array with found derived types.
         /// </summary>
         private static Type[] _DerivedTypes;
     }

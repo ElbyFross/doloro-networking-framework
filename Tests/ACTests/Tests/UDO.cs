@@ -499,7 +499,7 @@ namespace ACTests.Tests
             // Create the query that would simulate logon.
             Query query = new Query
             (
-                new QueryPart("token", UniformQueries.Tokens.UnusedToken),
+                new QueryPart("token", Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
                 new QueryPart("user"),
@@ -593,7 +593,7 @@ namespace ACTests.Tests
                 return;
             }
 
-            // Create the query that would simulate logon.
+            // Creating an update query.
             Query query = new Query(
                 new QueryPart("token", user_Admin.tokens[0]),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
@@ -608,18 +608,18 @@ namespace ACTests.Tests
                 new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
             );
 
-            // Marker that avoid finishing of the test until receiving result.
+            // A markers that avoid finishing of the test until receiving result.
             bool operationCompete = false;
             bool operationResult = false;
             string operationError = null;
 
-            // Start reciving clent line.
+            // Starts reciving clent line.
             UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
                 query,
-                // Handler that would recive ther ver answer.
+                // A handler that will recive an answer from the server.
                 (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
                     // Is operation success?

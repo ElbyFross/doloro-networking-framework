@@ -22,8 +22,8 @@ using System.Xml;
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
-    /// Object that contain routing instgructions.
-    /// Provide API to work with file system.
+    /// A descriptor of a network map that contains routes 
+    /// to some servers with defined rules when each routes should be used.
     /// </summary>
     [Serializable]
     public class RoutingTable
@@ -37,7 +37,7 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// Path from was loaded tis table.
         /// </summary>
-        [XmlIgnoreAttribute]
+        [XmlIgnore]
         public string SourcePath { get; set; }
         #endregion
 
@@ -46,9 +46,15 @@ namespace PipesProvider.Networking.Routing
         /// <summary>
         /// Trying to find target routing instruction.
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="instruction"></param>
-        /// <returns></returns>
+        /// <param name="query">
+        /// A query that will used as source for comparing with 
+        /// a routing rules defined with <see cref="Instruction.queryPatterns"/> field.
+        /// </param>
+        /// <param name="instruction">
+        /// A found instruction. 
+        /// Returns the <see cref="Instruction.Empty"/> isntance in case if not found.
+        /// </param>
+        /// <returns>A result of the search.</returns>
         public bool TryGetRoutingInstruction(UniformQueries.Query query, out Instruction instruction)
         {
             // Allocate memory.
@@ -75,12 +81,12 @@ namespace PipesProvider.Networking.Routing
 
         #region Serialization
         /// <summary>
-        /// Trying to load all routing tables from durectory.
-        /// You could have several XML serialized routing tables. This way allow to share it via plugins.
+        /// Tries to load all routing tables from a directory.
+        /// You could have several XML serialized routing tables. This way allows to share it via plugins.
         /// </summary>
-        /// <param name="directory">Root folder.</param>
-        /// <param name="searchOption">Defind does search will applied to child foldeers.</param>
-        /// <returns></returns>
+        /// <param name="directory">A root folder.</param>
+        /// <param name="searchOption">Definds does tne search will applied to child folders.</param>
+        /// <returns>A found table. Null if not found.</returns>
         public static RoutingTable LoadRoutingTables(string directory, SearchOption searchOption)
         {
             // Create new empty table.
@@ -129,10 +135,10 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Save routing table by default directory 
+        /// Saves a routing table by the default directory 
         /// %app/resources/routing/ROUTING.xml
         /// </summary>
-        /// <param name="table">Source with instructions.</param>
+        /// <param name="table">A source with instructions.</param>
         public static void SaveRoutingTable(RoutingTable table)
         {
             SaveRoutingTable(table, "resources/routing", "ROUTING");
@@ -140,22 +146,22 @@ namespace PipesProvider.Networking.Routing
 
 
         /// <summary>
-        /// Save routing table by default directory 
+        /// Saves a routing table by the default directory
         /// %app/resources/routing
         /// </summary>
-        /// <param name="table">Source with instructions.</param>
-        /// <param name="name">Name of the file.</param>
+        /// <param name="table">A source with instructions.</param>
+        /// <param name="name">A name of the file.</param>
         public static void SaveRoutingTable(RoutingTable table, string name)
         {
             SaveRoutingTable(table, "resources/routing", name);
         }
 
         /// <summary>
-        /// Save routing table by directory.
+        /// Saves a routing table by directory.
         /// </summary>
-        /// <param name="table">Source with instructions.</param>
-        /// <param name="directory">Target directory.</param>
-        /// <param name="name">Name of the file.</param>
+        /// <param name="table">A source with instructions.</param>
+        /// <param name="directory">A target directory.</param>
+        /// <param name="name">A name of the file.</param>
         public static void SaveRoutingTable(RoutingTable table, string directory, string name)
         {
             #region Validate directory

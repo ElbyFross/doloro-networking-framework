@@ -20,8 +20,9 @@ using System.Xml;
 namespace AuthorityController.Data.Application
 {
     /// <summary>
-    /// Object that contain data for setup of authority controller.
-    /// 
+    /// An object that contains data for setup of authority controller.
+    /// </summary>
+    /// <remarks>
     /// rank=x where x is
     /// 0 - guest
     /// 1 - user 
@@ -29,7 +30,7 @@ namespace AuthorityController.Data.Application
     /// 4 - moderator
     /// 8 - admin
     /// 16 - superadmin
-    /// </summary>
+    /// </remarks>
     [Serializable]
     public class Config
     {
@@ -207,7 +208,7 @@ namespace AuthorityController.Data.Application
                 }
                 return active;
             }
-            set { active = null; }
+            set { active = value; }
         }
         [XmlIgnore]
         private static Config active;
