@@ -185,7 +185,7 @@ namespace UniformClient
             }
 
             // Configurate line.
-            if(!await ConfigurateTransmissionLine(line))
+            if(!await ConfigurateTransmissionLineAsync(line))
             {
                 return;
             }
@@ -274,7 +274,7 @@ namespace UniformClient
         /// </summary>
         /// <param name="line">A transmission line for configuration.</param>
         /// <returns>A result of configurating. False if failed.</returns>
-        public static async Task<bool> ConfigurateTransmissionLine(TransmissionLine line)
+        public static async Task<bool> ConfigurateTransmissionLineAsync(TransmissionLine line)
         {
             if (line.RoutingInstruction != null) // Routing instruction applied.
             {

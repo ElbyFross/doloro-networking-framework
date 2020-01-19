@@ -67,9 +67,7 @@ namespace QueriesServer
 
             // React on uniform arguments.
             ArgsReactor(args);
-
-            // Check direcroties
-
+            
             // Check direcroties
             UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
                 AppDomain.CurrentDomain.BaseDirectory + "libs\\");

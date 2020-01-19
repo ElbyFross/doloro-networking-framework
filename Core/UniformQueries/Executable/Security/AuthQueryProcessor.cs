@@ -15,7 +15,7 @@
 namespace UniformQueries.Executable.Security
 {
     /// <summary>
-    /// Provide fields situated but authentification queries.
+    /// Provides API situated for handling authentication queries.
     /// </summary>
     public abstract class AuthQueryProcessor : QueryProcessor
     {

@@ -20,6 +20,8 @@ using System.Threading.Tasks;
 using UniformQueries;
 using UniformQueries.Executable;
 using AuthorityController.Data.Application;
+using AuthorityController.Data.Personal;
+using UniformDataOperator.AssembliesManagement.Modifiers;
 
 namespace AuthorityController.Queries
 {
@@ -27,8 +29,22 @@ namespace AuthorityController.Queries
     /// Change rights list to provided token.
     /// Require admin rights.
     /// </summary>
-    public class SET_TOKEN_RIGHTS : IQueryHandler
-    {
+    public class SET_TOKEN_RIGHTS : IQueryHandler, IBaseTypeChangable
+    {        
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
+        /// <summary>
+        /// Base constructor.
+        /// Defining operating type.
+        /// </summary>
+        public SET_TOKEN_RIGHTS()
+        {
+            OperatingType = TypeReplacer.GetValidType(typeof(User));
+        }
+
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -76,17 +92,17 @@ namespace AuthorityController.Queries
             #endregion
 
             #region Get target token rights
-            if (!Session.Current.TryGetTokenRights(targetToken.PropertyValueString, out string[] targetTokenRights))
+            if (!Session.Current.TryGetTokenInfo(targetToken.PropertyValueString, out Data.Temporal.TokenInfo targetTokenInfo))
             {
                 // If also not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: User not found", query);
+                UniformServer.BaseServer.SendAnswerViaPP("ERROR 404: Target token not registred", query);
                 return;
             }
             #endregion
 
             #region Compare ranks
             // Get target User's rank.
-            if (!API.Collections.TryGetPropertyValue("rank", out string userRank, targetTokenRights))
+            if (!API.Collections.TryGetPropertyValue("rank", out string userRank, targetTokenInfo.rights))
             {
                 // Mean that user has a guest rank.
                 userRank = "0";
@@ -104,9 +120,79 @@ namespace AuthorityController.Queries
             // Apply new rights
             string[] rightsArray = rights.PropertyValueString.Split('+');
             Session.Current.SetTokenRights(targetToken.PropertyValueString, rightsArray);
-            
-            // Inform about success.
-            UniformServer.BaseServer.SendAnswerViaPP("Success", query);
+
+            //if (targetTokenInfo.userId > 0)
+            //{
+            //    if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
+            //    {
+
+            //        #region SQL server
+            //        // Start new task for providing possibility to terminate all operation by
+            //        // session's cancelation token. 
+            //        // In other case after termination on any internal task other will started.
+            //        Task.Run(async delegate ()
+            //        {
+            //            // Instiniating new profile.
+            //            var targetUserProfile = new User
+            //            {
+            //                // Define an id.
+            //                id = targetTokenInfo.userId,
+
+            //                // Set new rights.
+            //                rights = rightsArray,
+
+            //                // Dropping data.
+            //                firstName = null,
+            //                lastName = null,
+            //                bans = null
+            //            };
+
+            //            // A handler that will be called in case of SQL error.
+            //            void SQLErrorhandler(object errorSender, string _)
+            //            {
+            //                // Drop if not target user.
+            //                if (!targetUserProfile.Equals(errorSender))
+            //                {
+            //                    return;
+            //                }
+
+            //                // Unsubscribe.
+            //                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorhandler;
+            //            }
+
+            //            // Subscribing on the SQL errors.
+            //            UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += SQLErrorhandler;
+
+            //            try
+            //            {
+            //                // Sending data to the 
+            //                await UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
+            //                    OperatingType,
+            //                    Session.Current.TerminationTokenSource.Token,
+            //                    targetUserProfile);
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                UniformServer.BaseServer.SendAnswerViaPP("SQL ERROR: " + ex.Message, query);
+            //                return;
+            //            }
+            //            finally
+            //            {
+            //                // Unsubscribe the errors listener.
+            //                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= SQLErrorhandler;
+            //            }
+
+            //            // Inform about success.
+            //            UniformServer.BaseServer.SendAnswerViaPP("success", query);
+            //        },
+            //        Session.Current.TerminationTokenSource.Token);
+            //        #endregion
+            //    }
+            //    else UniformServer.BaseServer.SendAnswerViaPP("success", query);
+            //}
+            //else UniformServer.BaseServer.SendAnswerViaPP("success", query);
+
+            UniformServer.BaseServer.SendAnswerViaPP("success", query);
         }
 
         /// <summary>

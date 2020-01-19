@@ -31,14 +31,11 @@ namespace UniformServer.Standard
         /// <summary>
         /// Insiniate broadcasting server.
         /// </summary>
-        public BroadcastServer() : base()
-        {
-
-        }
+        public BroadcastServer() : base() { }
 
 
         /// <summary>
-        /// Open server with broadcasting chanels using PipesProvider.
+        /// Opens a server with broadcasting chanels using the `PipesProvider`.
         /// </summary>
         /// <param name="pipeName">Name of the pipe.</param>
         /// <param name="securityLevel">Sequirity level that would be applied to connection.</param>
@@ -55,7 +52,7 @@ namespace UniformServer.Standard
             for (int i = 0; i < chanels; i++)
             {
                 // Instiniate primitive server to provide loop.
-                Standard.BroadcastServer server = new Standard.BroadcastServer
+                BroadcastServer server = new BroadcastServer
                 {
                     pipeName = pipeName,
                     securityLevel = securityLevel,
@@ -76,7 +73,7 @@ namespace UniformServer.Standard
         /// </summary>
         protected static void ThreadingServerLoop_PP_Broadcast(object server)
         {
-            if (server is Standard.BroadcastServer broadcastingServer)
+            if (server is BroadcastServer broadcastingServer)
             {
                 #region Init
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
@@ -100,7 +97,7 @@ namespace UniformServer.Standard
             {
                 // Throw error.
                 throw new InvalidCastException(
-                    "Require Standard.BroadcastingServer server as shared object.");
+                    "Requires a `Standard.BroadcastingServer` server as the shared object.");
             }
         }
     }

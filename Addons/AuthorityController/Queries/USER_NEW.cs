@@ -33,6 +33,11 @@ namespace AuthorityController.Queries
     public class USER_NEW : IQueryHandler, IBaseTypeChangable
     {
         /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
+        /// <summary>
         /// Base constructor.
         /// Defining operating type.
         /// </summary>
@@ -40,11 +45,6 @@ namespace AuthorityController.Queries
         {
             OperatingType = TypeReplacer.GetValidType(typeof(User));
         }
-
-        /// <summary>
-        ///  Type that will be used in operations.
-        /// </summary>
-        public Type OperatingType { get; set; }
      
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
@@ -216,14 +216,17 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToObjectAsync(OperatingType, Session.Current.TerminationTokenSource.Token, dbStoredProfile,
-                                            new string[0],
-                                            new string[]
-                                            {
-                                                "login"
-                                            });
+                                            SetToObjectAsync(
+                                                OperatingType, 
+                                                Session.Current.TerminationTokenSource.Token, 
+                                                dbStoredProfile,
+                                                new string[0],
+                                                new string[]
+                                                {
+                                                    "login"
+                                                });
 
-                                // Unsubscribe from errors listening.
+                                // Unsubscribe the errors listener.
                                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
                             },
                             Session.Current.TerminationTokenSource.Token);

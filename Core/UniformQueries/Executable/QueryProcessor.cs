@@ -18,29 +18,29 @@ using System.Threading;
 namespace UniformQueries.Executable
 {
     /// <summary>
-    /// Object that provide base methods\fields\properties that allow to standartize and controll query processing.
+    /// An abstract class that provides a base methods\fields\properties those allow to standardize and control queries processing.
     /// </summary>
     public abstract class QueryProcessor
     {
         #region Events
         /// <summary>
-        /// Event that would be called when reciving operation would be finished.
+        /// Event that will occurs when implemented operation is finished.
         /// 
-        /// Executable.QueryProcessor - reference to this processor.
-        /// bool - result od operation
-        /// object - object shared by processor.
+        /// QueryProcessor - reference to this processor.
+        /// bool - a result of operation
+        /// object - an object shared by processor.
         /// </summary>
         public event Action<QueryProcessor, bool, object> ProcessingFinished;
         #endregion
 
         #region Properties
         /// <summary>
-        /// Does last auth's task was terminated.
+        /// Does a last operation is terminated.
         /// </summary>
         public bool IsTerminated { get; protected set; }
 
         /// <summary>
-        /// Is authrentification in proggress.
+        /// Is an opertion is in proggress.
         /// </summary>
         public bool IsInProgress { get; protected set; }
         #endregion
@@ -48,7 +48,7 @@ namespace UniformQueries.Executable
         /// <summary>
         /// Terminating current started process.
         /// </summary>
-        public virtual void TerminateAuthorizationTask()
+        public virtual void Terminate()
         {
             // Activate termination flag.
             IsTerminated = true;
@@ -58,7 +58,7 @@ namespace UniformQueries.Executable
         }
 
         /// <summary>
-        /// The last query with auth information.
+        /// A query received from a server for handling.
         /// </summary>
         /// <remarks>
         /// In case of set will simulate answer from server and will use params for shared <see cref="Query"/>. 
@@ -75,7 +75,7 @@ namespace UniformQueries.Executable
         protected Query _ServerAnswer;
 
         /// <summary>
-        /// Generate <see cref="ProcessingFinished"/> event with provided params.
+        /// Generates the <see cref="ProcessingFinished"/> event with provided params.
         /// </summary>
         /// <param name="result">Resdult of processing.</param>
         /// <param name="args">Shared object.</param>
@@ -86,7 +86,7 @@ namespace UniformQueries.Executable
         }
 
         /// <summary>
-        /// Handler that would recived server answer.
+        /// A handler for server's answer.
         /// </summary>
         /// <param name="controller"></param>
         /// <param name="answer">Answer received from the server.</param>

@@ -26,74 +26,74 @@ namespace BaseQueries
     /// <summary>
     /// Registrate token with guest rights in the system and return to client.
     /// </summary>
-    public class GET_GUEST_TOKEN : IQueryHandler
+    public class GET_GUEST_TOKEN //: IQueryHandler
     {
-        /// <summary>
-        /// Handler that would be userd to generating and authorizing of guest tokens.
-        /// Return generated token in string format.
-        /// </summary>
-        public static GuestTokenHandler guestTokenHandler;
+        ///// <summary>
+        ///// Handler that would be userd to generating and authorizing of guest tokens.
+        ///// Return generated token in string format.
+        ///// </summary>
+        //public static GuestTokenHandler guestTokenHandler;
 
-        /// <summary>
-        /// Delegate that allows to return guest token in string format.
-        /// </summary>
-        /// <returns></returns>
-        public delegate string GuestTokenHandler();
+        ///// <summary>
+        ///// Delegate that allows to return guest token in string format.
+        ///// </summary>
+        ///// <returns></returns>
+        //public delegate string GuestTokenHandler();
 
-        /// <summary>
-        /// Return the description relative to the lenguage code or default if not found.
-        /// </summary>
-        /// <param name="cultureKey">Key of target culture.</param>
-        /// <returns>Description for relative culture.</returns>
-        public string Description(string cultureKey)
-        {
-            switch (cultureKey)
-            {
-                case "en-US":
-                default:
-                    return "GET GUEST TOKEN\n" +
-                            "\tDESCRIPTION: Provide guest key for passing of base authority level\n" +
-                            "\tQUERY FORMAT: GET" + UniformQueries.API.SPLITTING_SYMBOL + "GUEST" +
-                            UniformQueries.API.SPLITTING_SYMBOL + "TOKEN\n";
-            }
-        }
+        ///// <summary>
+        ///// Return the description relative to the lenguage code or default if not found.
+        ///// </summary>
+        ///// <param name="cultureKey">Key of target culture.</param>
+        ///// <returns>Description for relative culture.</returns>
+        //public string Description(string cultureKey)
+        //{
+        //    switch (cultureKey)
+        //    {
+        //        case "en-US":
+        //        default:
+        //            return "GET GUEST TOKEN\n" +
+        //                    "\tDESCRIPTION: Provide guest key for passing of base authority level\n" +
+        //                    "\tQUERY FORMAT: GET" + UniformQueries.API.SPLITTING_SYMBOL + "GUEST" +
+        //                    UniformQueries.API.SPLITTING_SYMBOL + "TOKEN\n";
+        //    }
+        //}
 
-        /// <summary>
-        /// Methods that process query.
-        /// </summary>
-        /// <param name="sender">Operator that call that operation</param>
-        /// <param name="query">Recived query.</param>
-        public void Execute(object sender, Query query)
-        {
-            if (guestTokenHandler != null)
-            {
-                // Send token to client.
-                UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), query);
-            }
-            else
-            {
-                UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", query);
-            }
-        }
+        ///// <summary>
+        ///// Methods that process query.
+        ///// </summary>
+        ///// <param name="sender">Operator that call that operation</param>
+        ///// <param name="query">Recived query.</param>
+        //public void Execute(object sender, Query query)
+        //{
+        //    if (guestTokenHandler != null)
+        //    {
+        //        // Send token to client.
+        //        UniformServer.BaseServer.SendAnswerViaPP(guestTokenHandler.Invoke(), query);
+        //    }
+        //    else
+        //    {
+        //        UniformServer.BaseServer.SendAnswerViaPP("Error: Server unable to generate guest token.", query);
+        //    }
+        //}
 
-        /// <summary>
-        /// Check by the entry params does it target Query Handler.
-        /// </summary>
-        /// <param name="query">Recived query.</param>
-        /// <returns>Result of comparation.</returns>
-        public bool IsTarget(Query query)
-        {
-            if (!query.QueryParamExist("get"))
-                return false;
+        ///// <summary>
+        ///// Check by the entry params does it target Query Handler.
+        ///// </summary>
+        ///// <param name="query">Recived query.</param>
+        ///// <returns>Result of comparation.</returns>
+        //public bool IsTarget(Query query)
+        //{
+        //    if (!query.QueryParamExist("get"))
+        //        return false;
 
-            if (!query.QueryParamExist("guest"))
-                return false;
+        //    if (!query.QueryParamExist("guest"))
+        //        return false;
 
-            if (!query.QueryParamExist("token"))
-                return false;
+        //    if (!query.QueryParamExist("token"))
+        //        return false;
 
-            return true;
-        }
+        //    return true;
+        //}
 
         /// <summary>
         /// Handler that provide standartized way to recive guest token.

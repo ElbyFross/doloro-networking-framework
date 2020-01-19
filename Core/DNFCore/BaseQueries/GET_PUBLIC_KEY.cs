@@ -23,9 +23,9 @@ using PipesProvider.Server.TransmissionControllers;
 namespace BaseQueries
 {
     /// <summary>
-    /// Query that request from server public encription key (RSA algorithm).
+    /// Query that requests from a server a public encription key (asymmetric).
     /// </summary>
-    class GET_PUBLIC_KEY : IQueryHandler
+    public class GET_PUBLIC_KEY : IQueryHandler
     {
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.

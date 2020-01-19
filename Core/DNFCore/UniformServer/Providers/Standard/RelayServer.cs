@@ -23,7 +23,7 @@ using PipesProvider.Security.Encryption;
 namespace UniformServer.Standard
 {
     /// <summary>
-    /// Server that provide API for relaying of transmission.
+    /// Server that provides an API for relaying of transmissions through the server to a destination point.
     /// </summary>
     public class RelayServer : BaseServer
     {
