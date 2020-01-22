@@ -62,7 +62,7 @@ namespace UniformServer
 
                 // Close application.
                 case "stop":
-                    BaseServer.appTerminated = true;
+                    UniformServer.ServerAppConfigurator.TerminateApp();
                     break;
 
                 case "qhelp":
@@ -89,27 +89,27 @@ namespace UniformServer
                     Console.WriteLine();
                     break;
 
-                case "threads":
-                    int requestedThreads;
+                //case "threads":
+                //    int requestedThreads;
 
-                    // If include argument.
-                    if (commandParts.Length > 1)
-                    {
-                        if (Int32.TryParse(commandParts[1], out requestedThreads))
-                        {
-                            BaseServer.ThreadsCount = requestedThreads;
-                        }
-                        else
-                        {
-                            Console.WriteLine("INCORRECT COMMAND: Require int argument.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("ACTUAL COUNT OF THREADS: {0}/{1}",
-                            BaseServer.ThreadsCount, Environment.ProcessorCount);
-                    }
-                    break;
+                //    // If include argument.
+                //    if (commandParts.Length > 1)
+                //    {
+                //        if (Int32.TryParse(commandParts[1], out requestedThreads))
+                //        {
+                //            BaseServer.ThreadsCount = requestedThreads;
+                //        }
+                //        else
+                //        {
+                //            Console.WriteLine("INCORRECT COMMAND: Require int argument.");
+                //        }
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("ACTUAL COUNT OF THREADS: {0}/{1}",
+                //            BaseServer.ThreadsCount, Environment.ProcessorCount);
+                //    }
+                //    break;
 
                 case "clear":
                     Console.Clear();

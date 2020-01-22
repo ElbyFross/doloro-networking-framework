@@ -96,7 +96,7 @@ namespace UniformServer.Standard
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
-            string serverName = ((RelayServer)server).thread.Name;
+            string serverName = ((RelayServer)server).ServerThread.Name;
             #endregion
 
             #region Server establishing
@@ -201,7 +201,7 @@ namespace UniformServer.Standard
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
-            string serverName = ((RelayServer)server).thread.Name;
+            string serverName = ((RelayServer)server).ServerThread.Name;
             #endregion
 
             #region Server establishing
@@ -229,7 +229,7 @@ namespace UniformServer.Standard
                 // Try to encrypt receved message.
                 decryptionResult = await EnctyptionOperatorsHandler.TryToDecryptAsync(
                         query,
-                        EnctyptionOperatorsHandler.AsymmetricKey);
+                        EnctyptionOperatorsHandler.AsymmetricEO);
 
                 decryptionComplete = true; 
             });
@@ -276,8 +276,8 @@ namespace UniformServer.Standard
                 instruction.routingIP,
                 instruction.pipeName,
                 query,
-                // Delegate that will called when relayed server send answer.
-                // Redirect this answer to client.
+                // Delegate that will invoked when relayed server send answer.
+                // Redirects the answer to a client.
                 delegate (TransmissionLine answerTL, UniformQueries.Query receivedData)
                 {
                     // Try to get answer in string format.

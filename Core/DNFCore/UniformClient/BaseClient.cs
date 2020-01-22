@@ -13,18 +13,7 @@
 //limitations under the License.
 
 using System;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
-using System.IO;
-using System.Security.Cryptography;
-
-using Microsoft.Win32.SafeHandles;
-
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
 
 namespace UniformClient
 {
@@ -33,91 +22,12 @@ namespace UniformClient
     /// </summary>
     public abstract partial class BaseClient
     {
-        #region Fields and properties
-        /// <summary>
-        /// How many milisseconds will sleep thread after tick.
-        /// </summary>
-        protected static int threadSleepTime = 150;
-
-        /// <summary>
-        /// If true then will stop main loop.
-        /// </summary>
-        public static bool AppTerminated
-        {
-            get
-            {
-                return _AppTerminated;
-            }
-
-            set
-            {
-                if (value == true)
-                {
-                    TerminationTokenSource.Cancel();
-                }
-                _AppTerminated = value;
-            }
-        }
-
-        /// <summary>
-        /// Pufer that contains state of app.
-        /// </summary>
-        private static bool _AppTerminated;
-
-        /// <summary>
-        /// Object that can be used to mange global treads.
-        /// </summary>
-        public static CancellationTokenSource TerminationTokenSource
-        {
-            get
-            {
-                if(_TerminationToken == null)
-                {
-                    _TerminationToken = new CancellationTokenSource();
-                }
-                return _TerminationToken;
-            }
-            set
-            {
-                _TerminationToken = value;
-            }
-        }
-        /// <summary>
-        /// Buferr that contains token controller.
-        /// </summary>
-        private static CancellationTokenSource _TerminationToken;
-
         /// <summary>
         /// Reference to thread that host this server.
         /// </summary>
-        public Thread thread;
-        #endregion
+        public Thread ClientThread { get; protected set; }
 
         #region Core | Application | Assembly
-        /// <summary>
-        /// Method that will configurate application and server relative to the uniform arguments.
-        /// </summary>
-        /// <param name="args"></param>
-        protected static void ArgsReactor(string[] args)
-        {
-            // Get a pointer to this console.
-            IntPtr hwnd = NativeMethods.GetConsoleWindow();
-
-            // Change window state.
-            NativeMethods.ShowWindow(hwnd, SW_SHOW);
-
-            // Check every argument.
-            foreach (string s in args)
-            {
-                // Hide application from tray.
-                if (s == "hide")
-                {
-                    NativeMethods.ShowWindow(hwnd, SW_HIDE);
-                    continue;
-                }
-            }
-        }
-
         /// <summary>
         /// Method that starting client thread.
         /// </summary>
@@ -131,26 +41,26 @@ namespace UniformClient
             ParameterizedThreadStart clientLoop)
         {
             // Abort started thread if exits.
-            if(thread != null && thread.IsAlive)
+            if(ClientThread != null && ClientThread.IsAlive)
             {
-                Console.WriteLine("THREAD MANUAL ABORTED (BC_SCT_0): {0}", thread.Name);
-                thread.Abort();
+                Console.WriteLine("THREAD MANUAL ABORTED (BC_SCT_0): {0}", ClientThread.Name);
+                ClientThread.Abort();
             }
 
             // Initialize queries monitor thread.
-            thread = new Thread(clientLoop)
+            ClientThread = new Thread(clientLoop)
             {
                 Name = threadName,
                 Priority = ThreadPriority.BelowNormal
             };
 
             // Start thread
-            thread.Start(sharebleParam);
+            ClientThread.Start(sharebleParam);
 
             // Let it proceed first run.
-            Thread.Sleep(threadSleepTime);
+            Thread.Sleep(ClientAppConfigurator.PreferedThreadsSleepTime);
 
-            return thread;
+            return ClientThread;
         }
         #endregion        
     }

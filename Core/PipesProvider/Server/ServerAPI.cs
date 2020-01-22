@@ -29,21 +29,11 @@ namespace PipesProvider.Server
     /// </summary>
     public static class ServerAPI
     {
-        #region Events
         /// <summary>
         /// An event that will occures when a server transmission will be registred or updated.
         /// </summary>
         public static event Action<BaseServerTransmissionController> TransmissionToProcessing;
-        #endregion
-
-        #region Fields
-        /// <summary>
-        /// A hashtable that contains references to opened pipes.
-        /// Key (string) pipe_name;
-        /// Value (ServerTransmissionMeta) meta data about transmition.
-        /// </summary>
-        private static readonly Hashtable openedServers = new Hashtable();
-
+        
         /// <summary>
         /// Returns a count of started threads.
         /// </summary>
@@ -51,7 +41,13 @@ namespace PipesProvider.Server
         {
             get { return openedServers.Count; }
         }
-        #endregion
+
+        /// <summary>
+        /// A hashtable that contains references to opened pipes.
+        /// Key (string) pipe_name;
+        /// Value (ServerTransmissionMeta) meta data about transmition.
+        /// </summary>
+        private static readonly Hashtable openedServers = new Hashtable();
 
         #region Core configurable loop
         /// <summary>
@@ -103,6 +99,7 @@ namespace PipesProvider.Server
             }
             catch (Exception ex)
             {
+                pipeServer.Dispose();
                 Console.WriteLine("{1}: SERVER LOOP NOT STARTED:\n{0}\n", ex.Message, pipeName);
                 return;
             }
@@ -128,10 +125,10 @@ namespace PipesProvider.Server
                         typeof(TransmissionControllerType),
                         new object[]
                         {
-                        null,
-                        connectionCallback,
-                        pipeServer,
-                        pipeName
+                            null,
+                            connectionCallback,
+                            pipeServer,
+                            pipeName
                         });
 
                     // Call additive init.

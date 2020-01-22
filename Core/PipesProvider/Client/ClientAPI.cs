@@ -181,7 +181,7 @@ namespace PipesProvider.Client
         /// <returns>A result of the operation.</returns>
         public static bool TryToRegisterTransmissionLine(TransmissionLine line)
         {
-            lock(openedClients)
+            lock (openedClients)
             {
                 // Build pipe domain.
                 string lineDomain = line.ServerName + "." + line.ServerPipeName;

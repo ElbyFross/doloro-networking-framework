@@ -100,7 +100,7 @@ namespace PipesProvider.Networking.Routing
             // Is the guest token is relevant.
             bool guestTokenInvalid =
                 string.IsNullOrEmpty(GuestTokenHandler.Token) ||
-                UniformQueries.Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
+                Tokens.IsExpired(GuestTokenHandler.Token, GuestTokenHandler.ExpiryTime);
 
             if (guestTokenInvalid)
             {

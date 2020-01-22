@@ -55,11 +55,7 @@ namespace Tests
             };
 
             // Create the query that would simulate logon.
-            // TODO Add encyption.
             Query query = new Query(
-                new Query.EncryptionInfo()
-                { contentEncytpionOperatorCode = "aes" },
-
                 new QueryPart("token", ((PipesProvider.Networking.Routing.PartialAuthorizedInstruction)pai).GuestToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 

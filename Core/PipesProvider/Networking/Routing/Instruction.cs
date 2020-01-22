@@ -41,7 +41,20 @@ namespace PipesProvider.Networking.Routing
         /// Using for sharing of small messages not longer then 117 bytes.
         /// </summary>
         [XmlIgnore]
-        public IEncryptionOperator AsymmetricEncryptionOperator = new RSAEncryptionOperator();
+        public IEncryptionOperator AsymmetricEncryptionOperator
+        {
+            get
+            {
+                if (_AsymmetricEncryptionOperator == null)
+                {
+                    _AsymmetricEncryptionOperator = 
+                        PipesProvider.Security.Encryption.
+                        EnctyptionOperatorsHandler.InstantiateAsymmetricOperator(asEncCode);
+                }
+
+                return _AsymmetricEncryptionOperator;
+            }
+        }
 
         /// <summary>
         /// Check does loading was failed or key was expired.
@@ -115,6 +128,16 @@ namespace PipesProvider.Networking.Routing
         /// for safe exchange of a symmetric keys and message encryption before sending.
         /// </summary>
         public bool encryption = true;
+
+        /// <summary>
+        /// A code of a asymmertyc encryption operator that will be used during ecryption.
+        /// </summary>
+        public string asEncCode = "rsa";
+
+        /// <summary>
+        /// A code of a symmertyc encryption operator that will be used during ecryption.
+        /// </summary>
+        public string sEncCode = "aes";
         #endregion
 
         #region Static properties
@@ -144,23 +167,53 @@ namespace PipesProvider.Networking.Routing
             get { return new Instruction(); }
         }
         #endregion
-
+        
         /// <summary>
-        /// Tries to detectan  encryption operator by an operator's internal code.
+        /// Returns an array of Instruction's types derived from the Instruction.
+        /// If you need to rescan a solution then set the value to null and call again.
         /// </summary>
-        /// <param name="code">A code of the operator.</param>
-        /// <returns>An operator that was found.</returns>
-        /// <exception cref="NotSupportedException">If operator's code is invalid.</exception>
-        public IEncryptionOperator FindEncryptorByCode(string code)
+        public static Type[] DerivedTypes
         {
-            code = code.ToLower();
-
-            switch (code)
+            get
             {
-                case "rsa": return AsymmetricEncryptionOperator;
-                default: throw new NotSupportedException("\""+ code + "\" IEncryptionOperator not exist in that instruction.");
+                // Search for types if not found yet.
+                if (_DerivedTypes == null)
+                {
+                    // Getting extra types suitable for custom routing instructions.
+                    System.Reflection.Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                    IEnumerable<Type> deliveredTypes = new List<Type>();
+                    foreach (System.Reflection.Assembly a in assemblies)
+                    {
+                        try
+                        {
+                            var subclasses = a.GetTypes().Where(type => type.IsSubclassOf(typeof(Instruction)));
+                            deliveredTypes = deliveredTypes.Concat<Type>(subclasses);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("ASSEMBLY ERROR: RoutingTable serialization : " + ex.Message);
+                        }
+                    }
+                    _DerivedTypes = deliveredTypes.ToArray();
+                }
+
+                return _DerivedTypes;
+            }
+            set
+            {
+                _DerivedTypes = value;
             }
         }
+
+        /// <summary>
+        /// A cashed array with found derived types.
+        /// </summary>
+        private static Type[] _DerivedTypes;
+
+        /// <summary>
+        /// Bufer that contains instiniated coupy of the asyymetryc encryption operator.
+        /// </summary>
+        private IEncryptionOperator _AsymmetricEncryptionOperator;
 
         /// <summary>
         /// Check doest this query must be routed using this server instruction.
@@ -186,7 +239,7 @@ namespace PipesProvider.Networking.Routing
                 foreach (UniformQueries.QueryPart pp in patternParts)
                 {
                     // Skip damaged or empty.
-                    if(string.IsNullOrEmpty(pp.propertyName))
+                    if (string.IsNullOrEmpty(pp.propertyName))
                     {
                         continue;
                     }
@@ -274,47 +327,5 @@ namespace PipesProvider.Networking.Routing
             // Return validation result.
             return valid;
         }
-
-        /// <summary>
-        /// Returns an array of Instruction's types derived from the Instruction.
-        /// If you need to rescan a solution then set the value to null and call again.
-        /// </summary>
-        public static Type[] DerivedTypes
-        {
-            get
-            {
-                // Search for types if not found yet.
-                if (_DerivedTypes == null)
-                {
-                    // Getting extra types suitable for custom routing instructions.
-                    System.Reflection.Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-                    IEnumerable<Type> deliveredTypes = new List<Type>();
-                    foreach (System.Reflection.Assembly a in assemblies)
-                    {
-                        try
-                        {
-                            var subclasses = a.GetTypes().Where(type => type.IsSubclassOf(typeof(Instruction)));
-                            deliveredTypes = deliveredTypes.Concat<Type>(subclasses);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("ASSEMBLY ERROR: RoutingTable serialization : " + ex.Message);
-                        }
-                    }
-                    _DerivedTypes = deliveredTypes.ToArray();
-                }
-
-                return _DerivedTypes;
-            }
-            set
-            {
-                _DerivedTypes = value;
-            }
-        }
-
-        /// <summary>
-        /// A cashed array with found derived types.
-        /// </summary>
-        private static Type[] _DerivedTypes;
     }
 }

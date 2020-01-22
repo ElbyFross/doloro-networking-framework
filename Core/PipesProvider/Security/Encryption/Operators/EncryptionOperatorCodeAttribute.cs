@@ -13,34 +13,31 @@
 //limitations under the License.
 
 using System;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.Reflection;
-using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Security.Cryptography;
 
-using Microsoft.Win32.SafeHandles;
-
-using PipesProvider.Networking.Routing;
-using PipesProvider.Client;
-
-namespace UniformClient
+namespace PipesProvider.Security.Encryption.Operators
 {
     /// <summary>
-    /// Part off class that provide controll under the process.
+    /// Declares an unique code for an operator source type.
     /// </summary>
-    public abstract partial class BaseClient
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple =false, Inherited =false)]
+    public class EncryptionOperatorCodeAttribute : Attribute
     {
         /// <summary>
-        /// Argument that will hide console window.
+        /// An unquie code of the encryption operator.
         /// </summary>
-        protected const int SW_HIDE = 0;
+        public string Code { get; private set; }
 
         /// <summary>
-        /// Agrument that will show console window.
+        /// Defines a code of an operator.
         /// </summary>
-        protected const int SW_SHOW = 5;
+        /// <param name="code"></param>
+        public EncryptionOperatorCodeAttribute(string code)
+        {
+            Code = code;
+        }
     }
 }

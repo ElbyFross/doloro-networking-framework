@@ -49,7 +49,7 @@
     <Compile Include="BaseQueries\GET_PUBLIC_KEY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniformClient\BaseClient.cs" />
-    <Compile Include="UniformClient\BaseClientProcess.cs" />
+    <Compile Include="UniformClient\ClientAppConfigurator.cs" />
     <Compile Include="UniformClient\Extensions\PipesProvider\PartialAuthorizedInstruction.cs" />
     <Compile Include="UniformClient\Extensions\PipesProvider\RelayInstruction.cs" />
     <Compile Include="UniformClient\NativeMethods.cs" />
@@ -60,9 +60,11 @@
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPSecurity.cs" />
     <Compile Include="UniformClient\Providers\PipesProvider\BaseClientPPTransmission.cs" />
     <Compile Include="UniformClient\Providers\Standard\SimpleClient.cs" />
+    <Compile Include="UniformServer\ServerAppConfigurator.cs" />
     <Compile Include="UniformServer\Application\Commands.cs" />
     <Compile Include="UniformServer\NativeMethods.cs" />
     <Compile Include="UniformServer\Providers\BaseServer.cs" />
+    <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPSecurity.cs" />
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPThreading.cs" />
     <Compile Include="UniformServer\Providers\PipesProvider\BaseServerPPTransmission.cs" />
     <Compile Include="UniformServer\Providers\Standard\BroadcastServer.cs" />

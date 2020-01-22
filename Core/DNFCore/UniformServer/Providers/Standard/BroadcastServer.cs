@@ -38,10 +38,18 @@ namespace UniformServer.Standard
         /// Opens a server with broadcasting chanels using the `PipesProvider`.
         /// </summary>
         /// <param name="pipeName">Name of the pipe.</param>
-        /// <param name="securityLevel">Sequirity level that would be applied to connection.</param>
-        /// <param name="getBroadcastingMessageHandler">delegate that will be called to get message for new client.</param>
-        /// <param name="chanels">How many many connections would awaiable to this server.
-        /// Attention: every chanel is a tread.</param>
+        /// <param name="securityLevel">
+        /// Secuirity level that would be applied to connection.
+        /// </param>
+        /// <param name="getBroadcastingMessageHandler">
+        /// A delegate that will be called to get message for new client.
+        /// </param>
+        /// <param name="chanels">
+        /// How many many connections would awaiable to this server.
+        /// </param>
+        /// <remarks>
+        /// Attention: every chanel is a tread.
+        /// </remarks>
         public static void StartBroadcastingViaPP(
             string pipeName,
             PipesProvider.Security.SecurityLevel securityLevel,
@@ -81,7 +89,7 @@ namespace UniformServer.Standard
 
                 // Name of pipe server that will established.
                 // Access to this pipe by clients will be available by this name.
-                string serverName = broadcastingServer.thread.Name;
+                string serverName = broadcastingServer.ServerThread.Name;
                 #endregion
 
                 #region Server establishing

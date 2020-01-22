@@ -123,8 +123,8 @@ namespace UniformClient
                 // Decrypt if required.
                 await EnctyptionOperatorsHandler.TryToDecryptAsync(
                     receviedQuery, 
-                    EnctyptionOperatorsHandler.AsymmetricKey,
-                    TerminationTokenSource.Token);
+                    EnctyptionOperatorsHandler.AsymmetricEO,
+                    ClientAppConfigurator.TerminationTokenSource.Token);
 
                 #region Processing message
                 // Try to call answer handler.
@@ -317,7 +317,7 @@ namespace UniformClient
                             UniformQueries.Tokens.IsExpired(instruction.GuestToken, instruction.GuestTokenHandler.ExpiryTime))
                         {
                             // Wait for token.
-                            if (!await pai.TryToGetGuestTokenAsync(TerminationTokenSource.Token))
+                            if (!await pai.TryToGetGuestTokenAsync(ClientAppConfigurator.TerminationTokenSource.Token))
                             {
                                 return false;
                             }
@@ -372,21 +372,21 @@ namespace UniformClient
                         }
                         #endregion
 
-                        #region Adding public key to backward encryption if not added yet
+                        #region Adding public key for backward encryption if not added yet
                         if(!line.LastQuery.Data.QueryParamExist("pk"))
                         {
                             line.LastQuery.Data.SetParam(new UniformQueries.QueryPart(
                                 "pk",
-                                EnctyptionOperatorsHandler.AsymmetricKey.EncryptionKey));
+                                EnctyptionOperatorsHandler.AsymmetricEO.EncryptionKey));
                         }
                         #endregion
 
                         // Encrypt query by public key of target server.
                         return await EnctyptionOperatorsHandler.TryToEncryptAsync(
-                            line.LastQuery.Data, 
-                            line.LastQuery.Data.EncryptionMeta.contentEncytpionOperatorCode,
+                            line.LastQuery.Data,
+                            line.RoutingInstruction.sEncCode,
                             line.RoutingInstruction.AsymmetricEncryptionOperator,
-                            TerminationTokenSource.Token);
+                            ClientAppConfigurator.TerminationTokenSource.Token);
                     }
                     #endregion
                 }

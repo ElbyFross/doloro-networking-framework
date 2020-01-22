@@ -121,7 +121,7 @@ namespace AuthorityController.Queries
             else
             {
                 // XML serialized BanInformation. If empty then will shared permanent ban.
-                query.TryGetParamValue("token", out QueryPart token);
+                //query.TryGetParamValue("token", out QueryPart token);
 
                 // Set token user id.
                 if (tokenInfo != null)

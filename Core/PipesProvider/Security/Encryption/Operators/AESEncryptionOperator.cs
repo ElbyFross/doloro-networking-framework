@@ -27,19 +27,10 @@ namespace PipesProvider.Security.Encryption.Operators
     /// <summary>
     /// Ecryuption operator that provides API to ecryption by AES algorithm.
     /// </summary>
+    [EncryptionOperatorCode("aes")]
+    [EncryptionOperatorType(EncryptionOperatorType.Symmetric)]
     public class AESEncryptionOperator : IEncryptionOperator
     {
-        /// <summary>
-        /// Encryption type of that operator.
-        /// Define the method of managing that operator.
-        /// </summary>
-        public EncryptionOperatorType Type { get { return EncryptionOperatorType.Symmetric; } }
-
-        /// <summary>
-        /// Code of that encyptor that allow to detect what encryptor is suitable for data decryption.
-        /// </summary>
-        public string DecryptionMarker { get; } = "aes";
-
         /// <summary>
         /// Encoder that provides concertation query from string to byte array.
         /// </summary>

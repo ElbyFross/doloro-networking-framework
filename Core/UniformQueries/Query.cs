@@ -34,9 +34,9 @@ namespace UniformQueries
         public class EncryptionInfo : ICloneable
         {
             /// <summary>
-            /// Code of encryption operator that applied to the query's content.
+            /// Code of a symmetric encryption operator that applied to the query's content.
             /// </summary>
-            public string contentEncytpionOperatorCode;
+            public string contentEncrytpionOperatorCode;
 
             /// <summary>
             /// Symmetric key that used for content encryption.
@@ -52,7 +52,7 @@ namespace UniformQueries
             {
                 var settigns = new EncryptionInfo()
                 {
-                    contentEncytpionOperatorCode = string.Copy(this.contentEncytpionOperatorCode)
+                    contentEncrytpionOperatorCode = string.Copy(this.contentEncrytpionOperatorCode)
                 };
 
                 if (encryptedSymmetricKey != null)
@@ -68,7 +68,7 @@ namespace UniformQueries
         /// Encryption setting of that query.
         /// if null then messages would not encrypted.
         /// </summary>
-        public EncryptionInfo EncryptionMeta { get; set; }
+        public EncryptionInfo EncryptionMeta { get; set; } = new EncryptionInfo();
 
         /// <summary>
         /// Is that query has configurated encryption meta?
@@ -80,7 +80,7 @@ namespace UniformQueries
             get
             {
                 if (EncryptionMeta == null) return false;
-                if (string.IsNullOrEmpty(EncryptionMeta.contentEncytpionOperatorCode)) return false;
+                //if (string.IsNullOrEmpty(EncryptionMeta.contentEncrytpionOperatorCode)) return false;
 
                 return true;
             }
@@ -199,8 +199,11 @@ namespace UniformQueries
         /// <param name="parts">Query parts that would be used as Listed content.</param>
         public Query(bool encrypted, params QueryPart[] parts)
         {
-            // Init encryption to allow auto definition.
-            EncryptionMeta = new EncryptionInfo();
+            if (!encrypted)
+            {
+                // Drop current meta.
+                EncryptionMeta = null;
+            }
 
             // Creating listed content.
             ListedContent = new List<QueryPart>(parts);

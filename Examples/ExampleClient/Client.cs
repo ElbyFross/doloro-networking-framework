@@ -92,7 +92,7 @@ namespace ExampleClient
 
             #region Init
             // React on uniform arguments.
-            ArgsReactor(args);
+            UniformClient.ClientAppConfigurator.ArgsReactor(args);
 
             // Check direcroties
             UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
@@ -285,8 +285,9 @@ namespace ExampleClient
             //
             // ATTENTION: Message will not be encrypted before post. 
             // User SetRoutingInstruction (whrer instruction has RSAEncryption fields as true) instead TryLogon.
-            bool logonResult = General.TryToLogonAtRemoteDevice(routingInstruction.logonConfig,
-                                                token: out SafeAccessTokenHandle safeTokenHandle);
+            bool logonResult = General.TryToLogonAtRemoteDevice(
+                routingInstruction.logonConfig,
+                out SafeAccessTokenHandle safeTokenHandle);
             if (!logonResult)
             {
                 Console.WriteLine("Logon failed. Connection not possible.\nPress any key...");

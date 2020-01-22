@@ -55,9 +55,12 @@
     <Compile Include="Networking\Routing\RoutingTable.cs" />
     <Compile Include="Networking\Routing\Instruction.cs" />
     <Compile Include="Security\Crypto.cs" />
+    <Compile Include="Security\Encryption\Operators\AESEncryptionOperator - Copy.cs" />
     <Compile Include="Security\Encryption\Operators\AESEncryptionOperator.cs" />
     <Compile Include="Security\Encryption\EncryptionOperatorType.cs" />
     <Compile Include="Security\Encryption\EnctyptionOperatorsHandler.cs" />
+    <Compile Include="Security\Encryption\Operators\EncryptionOperatorCodeAttribute.cs" />
+    <Compile Include="Security\Encryption\Operators\EncryptionOperatorTypeAttribute.cs" />
     <Compile Include="Security\Encryption\Operators\IEncryptionOperator.cs" />
     <Compile Include="Security\Encryption\Operators\RSAEncryptionOperator.cs" />
     <Compile Include="Security\General.cs" />

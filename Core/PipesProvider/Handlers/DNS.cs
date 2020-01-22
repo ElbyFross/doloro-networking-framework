@@ -23,11 +23,12 @@ using PipesProvider.Server;
 using UQAPI = UniformQueries.API;
 using PipesProvider.Server.TransmissionControllers;
 using PipesProvider.Security.Encryption;
+using UniformDataOperator.Binary.IO;
 
 namespace PipesProvider.Handlers
 {
     /// <summary>
-    /// Handlers that provide transmission between serve and clients.
+    /// Handlers that provide transmission between a server and clients.
     /// </summary>
     public static class DNS
     {
@@ -49,7 +50,7 @@ namespace PipesProvider.Handlers
                 // Avoid an error caused to disconection of client.
                 try
                 {
-                    binaryQuery = await UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync(controller.PipeServer);
+                    binaryQuery = await StreamHandler.StreamReaderAsync(controller.PipeServer);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -113,9 +114,9 @@ namespace PipesProvider.Handlers
                     return;
                 }
 
-                // TODO Try to decrypt. In case of fail decryptor return entry message.
+                // Try to decrypt. In case of fail decryptor returns an entry message.
                 await EnctyptionOperatorsHandler.TryToDecryptAsync(
-                    query, EnctyptionOperatorsHandler.AsymmetricKey);
+                    query, EnctyptionOperatorsHandler.AsymmetricEO);
 
                 // Log query.
                 Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", query);
@@ -215,13 +216,13 @@ namespace PipesProvider.Handlers
                 try
                 {
                     // Get message
-                    byte[] message = broadcastController?.GetMessage(broadcastController);
+                    byte[] message = broadcastController.GetMessage(broadcastController);
 
                     // Write message to stream.
                     Console.WriteLine("{0}: Start transmission to client.", controller.PipeName);
 
                     // Send data to stream.
-                    await UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(controller.PipeServer, message);
+                    await StreamHandler.StreamWriterAsync(controller.PipeServer, message);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)

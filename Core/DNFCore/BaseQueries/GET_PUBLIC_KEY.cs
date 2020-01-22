@@ -19,6 +19,7 @@ using System.IO;
 using UniformQueries;
 using UniformQueries.Executable;
 using PipesProvider.Server.TransmissionControllers;
+using PipesProvider.Security.Encryption;
 
 namespace BaseQueries
 {
@@ -27,6 +28,24 @@ namespace BaseQueries
     /// </summary>
     public class GET_PUBLIC_KEY : IQueryHandler
     {
+        /// <summary>
+        /// Generates a query with a public key info.
+        /// </summary>
+        private static Query PKQuery
+        {
+            get
+            {
+                var query = new Query(
+                    new QueryPart("pk", EnctyptionOperatorsHandler.AsymmetricEO.SharableData),
+                    new QueryPart("expire", EnctyptionOperatorsHandler.AsymmetricEO.ExpiryTime.ToBinary()),
+                    new QueryPart("operator", 
+                        EnctyptionOperatorsHandler.GetOperatorCode
+                        (EnctyptionOperatorsHandler.AsymmetricEO)));
+
+                return query;
+            }
+        }
+
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
         /// </summary>
@@ -52,28 +71,37 @@ namespace BaseQueries
         /// <param name="query">Recived query.</param>
         public void Execute(object sender, Query query)
         {
-            // Building query with asymmetric key data.
-            Query answer = new Query(
-                new QueryPart("pk", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.SharableData),
-                new QueryPart("expire", PipesProvider.Security.Encryption.EnctyptionOperatorsHandler.AsymmetricKey.ExpiryTime.ToBinary()));
-
             // Open answer chanel on server and send message.
-            UniformServer.BaseServer.SendAnswerViaPP(answer, query);
+            UniformServer.BaseServer.SendAnswerViaPP(PKQuery, query);
         }
 
         /// <summary>
-        /// Check by the entry params does it target Query Handler.
+        /// Building a message suitable for the bradcasting.
+        /// </summary>
+        /// <param name="_">Not using.</param>
+        /// <returns>A Query with public key info</returns>
+        public static byte[] ToBroadcastMessage(BroadcastTransmissionController _)
+        {
+            // Converting the query to the binary format.
+            var binaryData = UniformDataOperator.Binary.BinaryHandler.ToByteArray(PKQuery);
+
+            // Retunina converted data.
+            return binaryData;
+        }
+
+        /// <summary>
+        /// Checks by the entry params does it target Query Handler.
         /// </summary>
         /// <param name="query">Recived query.</param>
         /// <returns>Result of comparation.</returns>
         public bool IsTarget(Query query)
         {
             // Check query.
-            if (!query.QueryParamExist("GET"))
+            if (!query.QueryParamExist("get"))
                 return false;
 
             // Check sub query.
-            if (!query.QueryParamExist("PUBLICKEY"))
+            if (!query.QueryParamExist("publickey"))
                 return false;
 
             return true;

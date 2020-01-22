@@ -441,7 +441,10 @@ namespace PipesProvider.Client
             //Console.WriteLine("{0}/{1}: LOGON STARTED", ServerName, ServerPipeName);
 
             // Try to logon using provided config.
-            bool logonResult = Security.General.TryToLogonAtRemoteDevice(logonMeta, out SafeAccessTokenHandle safeTokenHandle);
+            bool logonResult = Security.General.TryToLogonAtRemoteDevice(
+                logonMeta, 
+                out SafeAccessTokenHandle safeTokenHandle);
+
             if (!logonResult)
             {
                 // Log about error.

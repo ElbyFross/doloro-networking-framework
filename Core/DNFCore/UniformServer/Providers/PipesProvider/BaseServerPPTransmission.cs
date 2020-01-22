@@ -29,7 +29,6 @@ namespace UniformServer
     /// </summary>
     public partial class BaseServer
     {
-
         /// <summary>
         /// Open server line using PipesProvider that will send answer backward to cliend by dirrect line.
         /// Line will established relative to the data shared by client query.

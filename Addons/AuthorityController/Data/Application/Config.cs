@@ -181,8 +181,18 @@ namespace AuthorityController.Data.Application
         #endregion
         #endregion
 
+        [XmlIgnore]
+        public static bool IsLoading
+        {
+            get => _IsLoading;
+            private set
+            {
+                _IsLoading = value;
+            }
+        }
 
-
+        [XmlIgnore]
+        private static bool _IsLoading = false;
 
         #region Single tone
         /// <summary>
@@ -194,16 +204,32 @@ namespace AuthorityController.Data.Application
         {
             get
             {
-                if (active == null)
+                if (!IsLoading)
                 {
-                    // Try to load config from directory.
-                    if (!Handler.TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
+                    if (active == null)
                     {
-                        // Create new one if failed.
-                        active = new Config();
+                        IsLoading = true;
 
-                        // Save to resources.
-                        Handler.SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
+                        // Try to load config from directory.
+                        if (!Handler.TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
+                        {
+
+                            // Create new one if failed.
+                            active = new Config();
+
+                            // Save to resources.
+                            Handler.SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
+
+                        }
+
+                        IsLoading = false;
+                    }
+                }
+                else
+                {
+                    while (IsLoading)
+                    {
+                        System.Threading.Thread.Sleep(15);
                     }
                 }
                 return active;
@@ -265,6 +291,11 @@ namespace AuthorityController.Data.Application
         {
             // Set as active.
             active = this;
+        }
+
+        static Config()
+        {
+
         }
         #endregion
     }

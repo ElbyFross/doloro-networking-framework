@@ -19,6 +19,7 @@ using UniformQueries;
 using UniformServer;
 using AuthorityController.Data;
 using AuthorityController.Data.Personal;
+using PipesProvider.Networking.Routing;
 
 namespace ACTests.Tests
 {
@@ -331,7 +332,7 @@ namespace ACTests.Tests
 
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
-                
+
                 // Create the query that would contain user data.
                 Query query = new Query(
                     new QueryPart("token", Helpers.Users.user_Moderator.tokens[0]),
@@ -398,7 +399,7 @@ namespace ACTests.Tests
 
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
-                
+
                 #region Ban apply
                 // Create the query that would contain user data.
                 Query query = new Query(
@@ -505,8 +506,16 @@ namespace ACTests.Tests
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer();
 
+                // Start broadcasting server that would share guest tokens.
+                UniformServer.Standard.BroadcastServer.StartBroadcastingViaPP(
+                    Helpers.Networking.DefaultGuestPipeName,
+                    PipesProvider.Security.SecurityLevel.Anonymous,
+                    AuthorityController.API.Tokens.AuthorizeNewGuestToken,
+                    1);
+
                 // Create the query that would simulate logon.
                 Query query = new Query(
+                    new Query.EncryptionInfo(),
                     new QueryPart("token", UniformQueries.Tokens.UnusedToken),
                     new QueryPart("guid", Guid.NewGuid().ToString()),
 
@@ -522,42 +531,49 @@ namespace ACTests.Tests
                 // Marker that avoid finishing of the test until receiving result.
                 bool operationCompete = false;
 
+                Instruction ri = new PartialAuthorizedInstruction()
+                {
+                    guestChanel = Helpers.Networking.DefaultGuestPipeName,
+                    pipeName = Helpers.Networking.DefaultQueriesPipeName,
+                    sEncCode="aes2"
+                };
+
                 // Starting a client line.
                 UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
-                    // Request connection to localhost server via main pipe.
-                    "localhost", Helpers.Networking.DefaultQueriesPipeName,
+                // Request connection to localhost server via main pipe.
+                "localhost", Helpers.Networking.DefaultQueriesPipeName,
 
-                    query,
+                query,
 
-                    // A handler that will receive an answer from the server.
-                    (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                // A handler that will receive an answer from the server.
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                {
+                    // Is operation success?
+                    if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
                     {
-                        // Is operation success?
-                        if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                        // Log about an error.
+                        Assert.Fail("Recived error:\n" + answer.First.PropertyValueString);
+                        operationCompete = true;
+                    }
+                    else
+                    {
+                        // Trying to get token from answer.
+                        if (answer.TryGetParamValue("token", out QueryPart token) &&
+                    !string.IsNullOrEmpty(token.PropertyValueString))
                         {
-                            // Log about an error.
-                            Assert.Fail("Recived error:\n" + answer.First.PropertyValueString);
+                            // Confirm logon.
+                            Assert.IsTrue(true);
                             operationCompete = true;
                         }
                         else
                         {
-                            // Trying to get token from answer.
-                            if (answer.TryGetParamValue("token", out QueryPart token) && 
-                            !string.IsNullOrEmpty(token.PropertyValueString))
-                            {
-                                // Confirm logon.
-                                Assert.IsTrue(true);
-                                operationCompete = true;
-                            }
-                            else
-                            {
-                                // Log about an error.
-                                Assert.Fail("Answer not contain token:\nFull answer:" + answer.First.PropertyValueString);
-                                operationCompete = true;
-                            }
+                            // Log about an error.
+                            Assert.Fail("Answer not contain token:\nFull answer:" + answer.First.PropertyValueString);
+                            operationCompete = true;
                         }
-                    });
+                    }
+                }).SetInstructionAsKey(ref ri);
 
                 // Wait until operation would complete.
                 while (!operationCompete)
