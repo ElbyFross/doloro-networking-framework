@@ -122,32 +122,8 @@ namespace ExampleClient
             // Try to make human clear naming of server. In case of local network we will get the machine name.
             // This is optional and not required for stable work, just little helper for admins.
             PipesProvider.Networking.Info.TryGetHostName(SERVER_NAME, ref SERVER_NAME);
-
-
-            #region Recive guest token from server
-            // Trying to get instruction in partial authorized format.
-            if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
-            {
-                // Trying to recive guest token from server.
-                _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(
-                    AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
-                                                        //to provide possibility to stop all async operation before application exit.
-            }
-            else
-            {
-                Console.WriteLine("ERROR: Invalid cast. For this example routing instruction by 0 index must by delivered from PartialAuthorizedInstruction. Application terminated.");
-                Thread.Sleep(2000);
-                return;
-            }
-
-            // Wait until authorization.
-            Console.WriteLine("Wating for guest token from server's autority system...");
-            while (!partialAuthorizedInstruction.GuestTokenHandler.IsAutorized)
-            {
-                Thread.Sleep(50);
-            }
-            Console.WriteLine("Authorized. Token: " + partialAuthorizedInstruction.GuestToken);
-            #endregion
+            Console.WriteLine("Work with a server by the route: " + SERVER_NAME + "." + SERVER_PIPE_NAME);
+                  
 
             // Check server exist. When connection will be established will be called shared delegate.
             // Port 445 required for named pipes work.
@@ -158,6 +134,34 @@ namespace ExampleClient
                 {
                     // Log about success ping operation.
                     Console.WriteLine("PING COMPLITED | HOST AVAILABLE | {0}:{1}\n", uri, port);
+                    
+                    #region Recive guest token from server
+                    // Trying to get instruction in partial authorized format.
+                    if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
+                    {
+                        // Trying to recive guest token from server.
+                        _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(
+                            AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
+                                                                                               //to provide possibility to stop all async operation before application exit.
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            "ERROR: Invalid cast. For this example routing " +
+                            "instruction by 0 index must by delivered from" +
+                            " PartialAuthorizedInstruction. Application terminated.");
+                        Thread.Sleep(2000);
+                        return;
+                    }
+
+                    // Wait until authorization.
+                    Console.WriteLine("Waiting for a guest token from server's authority system...");
+                    while (!partialAuthorizedInstruction.GuestTokenHandler.IsAutorized)
+                    {
+                        Thread.Sleep(50);
+                    }
+                    Console.WriteLine("Authorized. Token: " + partialAuthorizedInstruction.GuestToken);
+                    #endregion
 
                     // Send few example queries to server.
                     TransmissionsBlock();

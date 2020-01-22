@@ -28,7 +28,7 @@ namespace AuthorityController.API
         /// <summary>
         /// Compares two arrays that contain rights code.
         /// A prefix '!' before a required right will works like "not contain this right."
-        /// Prefixes '<' and '>' in format 'SYMBOL_RIGHTCODE=VALUE' 
+        /// Prefixes with symbols @LESS and @GREATHER in format 'SYMBOL_RIGHTCODE=VALUE' 
         /// will cause comparing right value relative to provided.
         /// </summary>
         /// <param name="providedRights">Rights that provided to a user.</param>

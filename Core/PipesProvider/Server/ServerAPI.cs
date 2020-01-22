@@ -54,11 +54,6 @@ namespace PipesProvider.Server
         /// Provides a base server loop that controls a pipe.
         /// Has ability to full control  all level of networking handlers.
         /// </summary>
-        /// <remarks>
-        /// Use only if undersend how it work. Overwise use simplified 
-        /// <see cref="ClientToServerTransmissionController.ServerLoop"/> or
-        /// <see cref="ServerToClientTransmissionController.ServerLoop"/>, etc.
-        /// </remarks>
         /// <param name="guid">An unique GUID that will be used to registration of a pipe.</param>
         /// <param name="connectionCallback">
         /// A delegate that will be called when connection 
@@ -345,9 +340,9 @@ namespace PipesProvider.Server
         #endregion
 
         /// <summary>
-        /// Tries to find opened server transmission metadata in the <see cref="openedServers"/ table>.
+        /// Tries to find opened server transmission metadata in the <see cref="openedServers"/> table.
         /// </summary>
-        /// <param name="guid"An unique GUID of the line.></param>
+        /// <param name="guid">An unique GUID of the line.</param>
         /// <param name="controller">A found transmission controller.</param>
         /// <returns>A result of the operation.</returns>
         public static bool TryGetServerTransmissionController(string guid, out BaseServerTransmissionController controller)

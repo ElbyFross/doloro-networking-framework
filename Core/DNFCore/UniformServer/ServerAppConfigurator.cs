@@ -166,7 +166,7 @@ namespace UniformServer
         public static bool IsProccessisUnique()
         {
             // Get GUID of this assebly.
-            string guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
+            string guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetEntryAssembly()).ToString();
 
             // Create Mutex for this app instance.
             mutexObj = new Mutex(true, guid, out bool newApp);

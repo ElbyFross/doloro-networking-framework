@@ -181,16 +181,19 @@ namespace AuthorityController.Data.Application
         #endregion
         #endregion
 
+        /// <summary>
+        /// Is config file now in loading.
+        /// </summary>
         [XmlIgnore]
         public static bool IsLoading
         {
             get => _IsLoading;
-            private set
-            {
-                _IsLoading = value;
-            }
+            private set => _IsLoading = value;
         }
 
+        /// <summary>
+        /// Bufer that contais a loading status.
+        /// </summary>
         [XmlIgnore]
         private static bool _IsLoading = false;
 

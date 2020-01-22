@@ -31,6 +31,9 @@ namespace SessionProvider
     /// </summary>
     public class Server : BaseServer
     {
+        /// <summary>
+        /// Is the users loaded.
+        /// </summary>
         public static bool UsersLoaded
         {
             get;
