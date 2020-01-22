@@ -127,7 +127,7 @@ namespace ExampleClient
 
             // Check server exist. When connection will be established will be called shared delegate.
             // Port 445 required for named pipes work.
-            Console.WriteLine("Ping gost server via the 445 port...");
+            Console.WriteLine("Ping the рost server via the 445 port...");
             PipesProvider.Networking.Info.PingHost(
                 SERVER_NAME, 445,
                 delegate (string uri, int port)
