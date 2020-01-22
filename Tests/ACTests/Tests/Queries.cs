@@ -534,8 +534,7 @@ namespace ACTests.Tests
                 Instruction ri = new PartialAuthorizedInstruction()
                 {
                     guestChanel = Helpers.Networking.DefaultGuestPipeName,
-                    pipeName = Helpers.Networking.DefaultQueriesPipeName,
-                    sEncCode="aes2"
+                    pipeName = Helpers.Networking.DefaultQueriesPipeName
                 };
 
                 // Starting a client line.
