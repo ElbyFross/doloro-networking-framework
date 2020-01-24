@@ -37,7 +37,7 @@ namespace Tests
             ACTests.Helpers.Networking.StartPublicServer(3);
 
             // Start broadcasting server that would share guest tokens.
-            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastServer.StartBroadcastingViaPP(
                 "guests",
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -55,11 +55,7 @@ namespace Tests
             };
 
             // Create the query that would simulate logon.
-            // TODO Add encyption.
             Query query = new Query(
-                new Query.EncryptionInfo()
-                { contentEncytpionOperatorCode = "aes" },
-
                 new QueryPart("token", ((PipesProvider.Networking.Routing.PartialAuthorizedInstruction)pai).GuestToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 

@@ -22,7 +22,7 @@ using UniformDataOperator.AssembliesManagement.Modifiers;
 namespace UniformQueries
 {
     /// <summary>
-    /// Class that provide methods for handling of queries.
+    /// A static class that provides and API for handling queries.
     /// </summary>
     public static class API
     {

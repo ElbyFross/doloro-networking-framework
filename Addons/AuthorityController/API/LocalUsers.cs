@@ -30,7 +30,8 @@ using AuthorityController.Data.Application;
 namespace AuthorityController.API
 {
     /// <summary>
-    /// API that provide operation with authority data stored on local machine out of UniformDataOperator storage.
+    /// An API that provides operation with authority data stored on
+    /// a local machine out of `UniformDataOperator` storage.
     /// </summary>
     public static class LocalUsers
     {
@@ -40,17 +41,17 @@ namespace AuthorityController.API
         /// Int - count of loaded files.
         /// Int - count of corupted files.
         /// </summary>
-        public static event System.Action<string, int, int> DirectoryLoadingFinished;
+        public static event Action<string, int, int> DirectoryLoadingFinished;
 
         /// <summary>
         /// Event that will be called when profile will be setted to storage.
         /// </summary>
-        public static event System.Action<User> UserProfileStored;
+        public static event Action<User> UserProfileStored;
 
         /// <summary>
         /// Event that will be called when profile will be fail adding to storage.
         /// </summary>
-        public static event System.Action<User, string> UserProfileNotStored;
+        public static event Action<User, string> UserProfileNotStored;
         #endregion
 
         #region Public properties

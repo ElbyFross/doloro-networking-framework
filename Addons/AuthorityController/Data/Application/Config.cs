@@ -20,8 +20,9 @@ using System.Xml;
 namespace AuthorityController.Data.Application
 {
     /// <summary>
-    /// Object that contain data for setup of authority controller.
-    /// 
+    /// An object that contains data for setup of authority controller.
+    /// </summary>
+    /// <remarks>
     /// rank=x where x is
     /// 0 - guest
     /// 1 - user 
@@ -29,8 +30,8 @@ namespace AuthorityController.Data.Application
     /// 4 - moderator
     /// 8 - admin
     /// 16 - superadmin
-    /// </summary>
-    [System.Serializable]
+    /// </remarks>
+    [Serializable]
     public class Config
     {
         #region Constants
@@ -180,8 +181,21 @@ namespace AuthorityController.Data.Application
         #endregion
         #endregion
 
+        /// <summary>
+        /// Is config file now in loading.
+        /// </summary>
+        [XmlIgnore]
+        public static bool IsLoading
+        {
+            get => _IsLoading;
+            private set => _IsLoading = value;
+        }
 
-
+        /// <summary>
+        /// Bufer that contais a loading status.
+        /// </summary>
+        [XmlIgnore]
+        private static bool _IsLoading = false;
 
         #region Single tone
         /// <summary>
@@ -193,21 +207,37 @@ namespace AuthorityController.Data.Application
         {
             get
             {
-                if (active == null)
+                if (!IsLoading)
                 {
-                    // Try to load config from directory.
-                    if (!Handler.TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
+                    if (active == null)
                     {
-                        // Create new one if failed.
-                        active = new Config();
+                        IsLoading = true;
 
-                        // Save to resources.
-                        Handler.SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
+                        // Try to load config from directory.
+                        if (!Handler.TryToLoad<Config>(DIRECTORY + CONFIG_FILE_NAME, out active))
+                        {
+
+                            // Create new one if failed.
+                            active = new Config();
+
+                            // Save to resources.
+                            Handler.SaveAs<Config>(active, DIRECTORY, CONFIG_FILE_NAME);
+
+                        }
+
+                        IsLoading = false;
+                    }
+                }
+                else
+                {
+                    while (IsLoading)
+                    {
+                        System.Threading.Thread.Sleep(15);
                     }
                 }
                 return active;
             }
-            set { active = null; }
+            set { active = value; }
         }
         [XmlIgnore]
         private static Config active;
@@ -264,6 +294,11 @@ namespace AuthorityController.Data.Application
         {
             // Set as active.
             active = this;
+        }
+
+        static Config()
+        {
+
         }
         #endregion
     }

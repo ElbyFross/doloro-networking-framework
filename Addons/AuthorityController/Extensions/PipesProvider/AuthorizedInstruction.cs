@@ -25,9 +25,9 @@ using AuthorityController.Data.Application;
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
-    /// Provide data and API required for connections that require authorization as Authority Controller user.
+    /// Provides a data and an API required for connection that requires authorization as an Authority Controller user.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class AuthorizedInstruction : PartialAuthorizedInstruction
     {
         #region Public fields

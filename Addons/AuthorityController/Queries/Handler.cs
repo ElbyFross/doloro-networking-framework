@@ -30,20 +30,37 @@ namespace AuthorityController.Queries
     public static class Handler
     {
         /// <summary>
-        /// Check does the token has enought rights to perform query.
+        /// Checks does the token has enought rights to perform a query.
+        /// 
+        /// Demands `user` and `token` params at the query.
         /// 
         /// Attention:
         /// Requerster must has higher rank.
         /// Requester must be at least moderator to affect other users. (rank=2+).
+        /// 
+        /// -OR-
+        /// 
+        /// Requester must be the same user as defined at the `user` param.
         /// </summary>
         /// <param name="entryQuery">
         /// Query received by server. 
         /// Must contain the token and user property.
         /// </param>
-        /// <param name="userType">Type of user that will be used as table descriptor during sql queries.</param>
-        /// <param name="requiredRights">Rights required to operation.</param>
-        /// <param name="error">Eroor message in case if received.</param>
-        /// <param name="targetUser">Profile of target user in case if detected.</param>
+        /// <param name="userType">
+        /// Type of user that will be used as table descriptor during sql queries.
+        /// </param>
+        /// <param name="requiredRights">
+        /// Rights required to operation.
+        /// </param>
+        /// <param name="error">
+        /// Error message in case if received.
+        /// </param>
+        /// <param name="targetUser">
+        /// Profile of target user in case if detected by the `user` params's value.
+        /// </param>
+        /// <param name="tokenInfo"
+        /// >A found token info relative the `token` param's value.
+        /// </param>
         /// <returns>
         /// Is token authorized to operation. 
         /// In case of fail server auto send answer with error to the client by using the entryQuery.
@@ -53,11 +70,13 @@ namespace AuthorityController.Queries
             Query entryQuery,
             string[] requiredRights,
             out string error,
-            out User targetUser)
+            out User targetUser, 
+            out Data.Temporal.TokenInfo tokenInfo)
         {
             // Set defaults.
             bool dataOperationFailed = false;
             targetUser = null;
+            tokenInfo = null;
             error = null;
 
             #region Get params.
@@ -65,11 +84,10 @@ namespace AuthorityController.Queries
             entryQuery.TryGetParamValue("token", out QueryPart token);
             #endregion
 
-            // Init profile to search.
+            #region Looking for a profile of the user from the `user` praram.
             User userProfile = (User)Activator.CreateInstance(userType);
             userProfile.login = user.PropertyValueString;
 
-            #region Detect target user
             Task asyncDataOperator = null;
             // Get data from SQL server if connected.
             if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
@@ -125,7 +143,7 @@ namespace AuthorityController.Queries
             #region Check base requester rights
             if (!API.Tokens.IsHasEnoughRigths(
                 token.PropertyValueString,
-                out Data.Temporal.TokenInfo tokenInfo,
+                out tokenInfo,
                 out error,
                 requiredRights))
             {

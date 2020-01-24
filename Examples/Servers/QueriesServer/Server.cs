@@ -25,6 +25,7 @@ using PipesProvider.Server;
 using PipesProvider.Client;
 using PipesProvider.Networking.Routing;
 using PipesProvider.Server.TransmissionControllers;
+using UniformServer;
 
 namespace QueriesServer
 {
@@ -33,7 +34,7 @@ namespace QueriesServer
     /// Reciving clients' queries and redirect in to target infrastructure servers by the comutation table.
     /// Reciving answer from servers and redirect it to target clients.
     /// </summary>
-    class Server : UniformServer.BaseServer
+    public class Server : BaseServer
     {
         /// <summary>
         /// Main public pipe that will listen queries.
@@ -43,17 +44,11 @@ namespace QueriesServer
         static void Main(string[] args)
         {
             #region Detect processes conflicts
-            // Get GUID of this assebly.
-            string guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
-
-            // Create Mutex for this app instance.
-            mutexObj = new Mutex(true, guid, out bool newApp);
-
             // Check does this instance a new single app, or same app already runned.
-            if (!newApp)
+            if (!ServerAppConfigurator.IsProccessisUnique())
             {
                 // Log error.
-                Console.WriteLine("\"THB Data Server\" already started. Application not allow multiple instances at single moment.\nGUID: " + guid);
+                Console.WriteLine("\"THB Data Server\" already started. Application not allow multiple instances at single moment.");
                 // Wait a time until exit.
                 Thread.Sleep(2000);
                 return;
@@ -62,14 +57,12 @@ namespace QueriesServer
                         
             #region Set default data \ load DLLs \ appling arguments
             // Set default thread count. Can be changed via args or command.
-            threadsCount = Environment.ProcessorCount;
-            longTermServerThreads = new UniformServer.BaseServer[threadsCount];
+            //threadsCount = Environment.ProcessorCount;
+            //longTermServerThreads = new UniformServer.BaseServer[threadsCount];
 
             // React on uniform arguments.
-            ArgsReactor(args);
-
-            // Check direcroties
-
+            ServerAppConfigurator.ArgsReactor(args);
+            
             // Check direcroties
             UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
                 AppDomain.CurrentDomain.BaseDirectory + "libs\\");
@@ -111,7 +104,7 @@ namespace QueriesServer
             #endregion
 
             #region Start queries monitor threads
-            for (int i = 0; i < threadsCount; i++)
+            for (int i = 0; i < Environment.ProcessorCount; i++)
             {
                 // Configuring the routing instruction.
                 RelayInstruction relayInstruction = new RelayInstruction()
@@ -122,11 +115,9 @@ namespace QueriesServer
                 // Instiniating server.
                 var serverBufer = UniformServer.Standard.RelayServer.EstablishDuplexRelayServer(relayInstruction);
 
-                // Buferizing the server.
-                longTermServerThreads[i] = serverBufer;
 
                 // Changing thread culture.
-                serverBufer.thread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                serverBufer.ServerThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
                 // Skip line
                 Console.WriteLine();
@@ -151,7 +142,7 @@ namespace QueriesServer
 
             #region Main loop
             // Main loop that will provide server services until application close.
-            while (!appTerminated)
+            while (!UniformServer.ServerAppConfigurator.AppTerminated)
             {
                 // Check input
                 if (Console.KeyAvailable)
@@ -165,7 +156,7 @@ namespace QueriesServer
                     // Processing of entered command.
                     UniformServer.Commands.BaseCommands(command);
                 }
-                Thread.Sleep(threadSleepTime);
+                Thread.Sleep(UniformServer.ServerAppConfigurator.PreferedThreadsSleepTime);
             }
             #endregion
 
@@ -174,14 +165,6 @@ namespace QueriesServer
 
             // Stop started servers.
             ServerAPI.StopAllServers();
-
-            // Aborting threads.
-            foreach (Server st in longTermServerThreads)
-            {
-                st.thread.Abort();
-                Console.WriteLine("THREAD ABORTED: {0}", st.thread.Name);
-            }
-            Console.WriteLine();
 
             // Whait until close.
             Console.WriteLine("Press any key to exit...");

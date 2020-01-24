@@ -19,46 +19,48 @@ using PipesProvider.Server.TransmissionControllers;
 namespace UniformServer.Standard
 {
     /// <summary>
-    /// Server that allow instiniate BaseServer.
-    /// Not contain any additive methods.
-    /// 
-    /// Case of using - simple operations like registing of server for answer.
+    /// Server that allow instiniate BroadcastServer.
     /// </summary>
-    public class BroadcastingServer : BaseServer
+    public class BroadcastServer : BaseServer
     {
         /// <summary>
         /// Handler that would generate brodcasting message during every new connection.
         /// </summary>
-        public BroadcastingServerTransmissionController.MessageHandeler GetMessage;
+        public BroadcastTransmissionController.MessageHandeler GetMessage;
 
         /// <summary>
         /// Insiniate broadcasting server.
         /// </summary>
-        public BroadcastingServer() : base()
-        {
-
-        }
+        public BroadcastServer() : base() { }
 
 
         /// <summary>
-        /// Open server with broadcasting chanels using PipesProvider.
+        /// Opens a server with broadcasting chanels using the `PipesProvider`.
         /// </summary>
         /// <param name="pipeName">Name of the pipe.</param>
-        /// <param name="securityLevel">Sequirity level that would be applied to connection.</param>
-        /// <param name="getBroadcastingMessageHandler">delegate that will be called to get message for new client.</param>
-        /// <param name="chanels">How many many connections would awaiable to this server.
-        /// Attention: every chanel is a tread.</param>
+        /// <param name="securityLevel">
+        /// Secuirity level that would be applied to connection.
+        /// </param>
+        /// <param name="getBroadcastingMessageHandler">
+        /// A delegate that will be called to get message for new client.
+        /// </param>
+        /// <param name="chanels">
+        /// How many many connections would awaiable to this server.
+        /// </param>
+        /// <remarks>
+        /// Attention: every chanel is a tread.
+        /// </remarks>
         public static void StartBroadcastingViaPP(
             string pipeName,
             PipesProvider.Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getBroadcastingMessageHandler,
+            BroadcastTransmissionController.MessageHandeler getBroadcastingMessageHandler,
             int chanels)
         {
             // Open every requested chanel.
             for (int i = 0; i < chanels; i++)
             {
                 // Instiniate primitive server to provide loop.
-                Standard.BroadcastingServer server = new Standard.BroadcastingServer
+                BroadcastServer server = new BroadcastServer
                 {
                     pipeName = pipeName,
                     securityLevel = securityLevel,
@@ -79,7 +81,7 @@ namespace UniformServer.Standard
         /// </summary>
         protected static void ThreadingServerLoop_PP_Broadcast(object server)
         {
-            if (server is Standard.BroadcastingServer broadcastingServer)
+            if (server is BroadcastServer broadcastingServer)
             {
                 #region Init
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
@@ -87,12 +89,12 @@ namespace UniformServer.Standard
 
                 // Name of pipe server that will established.
                 // Access to this pipe by clients will be available by this name.
-                string serverName = broadcastingServer.thread.Name;
+                string serverName = broadcastingServer.ServerThread.Name;
                 #endregion
 
                 #region Server establishing
                 // Start server loop.
-                BroadcastingServerTransmissionController.ServerLoop(
+                BroadcastTransmissionController.ServerLoop(
                     serverName,
                     broadcastingServer.pipeName,
                     broadcastingServer.securityLevel,
@@ -103,7 +105,7 @@ namespace UniformServer.Standard
             {
                 // Throw error.
                 throw new InvalidCastException(
-                    "Require Standard.BroadcastingServer server as shared object.");
+                    "Requires a `Standard.BroadcastingServer` server as the shared object.");
             }
         }
     }

@@ -26,14 +26,14 @@ using PipesProvider.Networking.Routing;
 namespace AuthorityController
 {
     /// <summary>
-    /// Object that control data relative to current authority session.
+    /// An instance of that class controls a data relative to a current authority session.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class Session
     {
         #region Public properties and fields
         /// <summary>
-        /// Current active session.
+        /// A current active session.
         /// </summary>
         public static Session Current
         {
@@ -50,10 +50,10 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Routing table that contain instructions to access reletive servers
+        /// Routing table that contains instructions to access reletive servers
         /// that need to be informed about token events.
         /// 
-        /// Before sharing query still will check is the query stituable for that routing instruction.
+        /// Before sharing a query still will check is the query suituable for that routing instruction.
         /// If you no need any filtring then just leave query patterns empty.
         /// </summary>
         public RoutingTable AuthorityFollowers { get; set; }
@@ -77,8 +77,8 @@ namespace AuthorityController
 
         #region Constructors
         /// <summary>
-        /// Instiniate session object.
-        /// Set it to Current property.
+        /// Instiniates a session object.
+        /// Sets it to the <see cref="Current"/> property.
         /// </summary>
         public Session()
         {
@@ -91,13 +91,18 @@ namespace AuthorityController
         #endregion
 
         #region Private fields
-        /// Object that contain current session.
+        /// <summary>
+        /// Object that contains the current session.
+        /// </summary>
         private static Session _current;
 
+        /// <summary>
+        /// A bufer that contains a temination token.
+        /// </summary>
         private CancellationTokenSource _terminationToken;
 
         /// <summary>
-        /// Table that contains rights provided to token.
+        /// A table that contains rights provided to tokens.
         ///
         /// Key - string token
         /// Value - TokenInfo
@@ -107,16 +112,16 @@ namespace AuthorityController
 
         #region Public methods
         /// <summary>
-        /// Create token registration binded for user profile.
-        /// Not profided fields would filled like anonymous.
-        /// Time stamp will contain the time of method call.
+        /// Creates token registration binded to a user profile.
+        /// Not provided fields will filled like anonymous.
+        /// A time stamp will contains the time of method call.
         /// </summary>
-        /// <param name="user"></param>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public bool AsignTokenToUser(User user, string token)
+        /// <param name="user"> A user profile that contains core data.</param>
+        /// <param name="token">A token bonded with the user.</param>
+        /// <returns>A result of operation.</returns>
+        public bool AssignTokenToUser(User user, string token)
         {
-            return AsignTokenToUser(
+            return AssignTokenToUser(
                 user,
                 token,
                 "anonymous",
@@ -125,15 +130,15 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Create token registration binded for user profile.
+        /// Creates token registration binded to a user profile.
         /// </summary>
-        /// <param name="user">User profile that contain core data.</param>
-        /// <param name="token">Token provided to that user.</param>
-        /// <param name="mac">Mac adress of user machine.</param>
-        /// <param name="os">OS of user.</param>
-        /// <param name="stamp">Time stamp that show when the session was started.</param>
-        /// <returns></returns>
-        public bool AsignTokenToUser(User user, string token, string mac, string os, string stamp)
+        /// <param name="user"> A user profile that contains core data.</param>
+        /// <param name="token">A token bonded with the user.</param>
+        /// <param name="mac">A MAC-adress of user machine.</param>
+        /// <param name="os">An OS installed on the user machine</param>
+        /// <param name="stamp">A time stamp that marks when the session was started.</param>
+        /// <returns>A result of operation.</returns>
+        public bool AssignTokenToUser(User user, string token, string mac, string os, string stamp)
         {
             // Update rights if already exist.
             if (tokensInfo[token] is TokenInfo)
@@ -165,15 +170,15 @@ namespace AuthorityController
             // Inform about success.
             return true;
         }
-        
+
         /// <summary>
-        /// Set rights' codes array as relative to token.
+        /// Sets rights' codes array as relative to some token.
         ///
-        /// Make and share SET TOKEN RIGHTS query to every related server.
-        /// Share only anonymous format of information. Personal data would be droped.
+        /// Makes and execute the <see cref="Queries.SET_TOKEN_RIGHTS"/> query to an every related server.
+        /// Shares an information in anonymous format. Any personal data will droped.
         /// </summary>
-        /// <param name="targetToken">Token that need to change rights.</param>
-        /// <param name="rights">List of new rights allowed to target toekn.</param>
+        /// <param name="targetToken">A token that for rights update.</param>
+        /// <param name="rights">An array of new rights provided to the token.</param>
         public void SetTokenRights(string targetToken, params string[] rights)
         {
             // Update rights if already exist.
@@ -227,11 +232,11 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Trying to load rights registred for token.
+        /// Tries to load rights provided to a token.
         /// </summary>
-        /// <param name="token">Session token.</param>
-        /// <param name="rights">Array of rights' codes relative to token.</param>
-        /// <returns></returns>
+        /// <param name="token">A session token.</param>
+        /// <param name="rights">An array of rights' codes related to the token.</param>
+        /// <returns>Result of the search operation.</returns>
         public bool TryGetTokenRights(string token, out string[] rights)
         {
             // Try to get regustred rights.
@@ -247,9 +252,9 @@ namespace AuthorityController
         }
 
         /// <summary>
-        ///Removing of token from table and inform relative servers about that.
+        /// Removs a token from the registred and informs relative servers about that.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">A token that will expired.</param>
         public bool SetExpired(string token)
         {
             if (RemoveToken(token))
@@ -272,11 +277,11 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Try to find registred token info.
+        /// Tries to find a token info among registered ones.
         /// </summary>
-        /// <param name="token"></param>
-        /// <param name="info"></param>
-        /// <returns></returns>
+        /// <param name="token">A token for search.</param>
+        /// <param name="info">A toke info in case if found.</param>
+        /// <returns>A result of search operation.</returns>
         public bool TryGetTokenInfo(string token, out TokenInfo info)
         {
             if(tokensInfo[token] is TokenInfo bufer)
@@ -290,10 +295,10 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Sanding the message to all authority following servers descibed in 
-        /// AuthorityFollowers table.
+        /// Sends a message to all authority following servers described 
+        /// in the <see cref="AuthorityFollowers"/> table.
         /// </summary>
-        /// <param name="message">Message that would be shared.</param>
+        /// <param name="message">A message that will be shared.</param>
         public void InformAuthorityFollowers(UniformQueries.Query message)
         {
             // Inform relative servers.
@@ -324,10 +329,10 @@ namespace AuthorityController
 
         #region Private methods
         /// <summary>
-        /// Removing token from table.
+        /// Removes a token from the <see cref="tokensInfo"/> table.
         /// </summary>
-        /// <param name="token"></param>
-        /// <returns>Is removed successful?</returns>
+        /// <param name="token">A token for remove.</param>
+        /// <returns>A result of operation.</returns>
         private bool RemoveToken(string token)
         {
             try
@@ -363,10 +368,10 @@ namespace AuthorityController
         }
 
         /// <summary>
-        /// Sending new rights of token to related servers.
+        /// Sends new rights of the token to related servers.
         /// </summary>
-        /// <param name="targetToken"></param>
-        /// <param name="rights"></param>
+        /// <param name="targetToken">A token to handle.</param>
+        /// <param name="rights">Token's rights.</param>
         private void ShareTokenRights_MessageProcessor(string targetToken, string[] rights)
         {
             // Drop invalid or unnecessary  routing.

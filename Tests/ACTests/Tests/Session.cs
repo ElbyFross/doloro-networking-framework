@@ -58,7 +58,7 @@ namespace ACTests.Tests
                 }
 
                 // Get user by registred id.
-                if(!AuthorityController.API.LocalUsers.TryToFindUser(
+                if(!AC_API.LocalUsers.TryToFindUser(
                     info.userId, 
                     out User user))
                 {
@@ -88,12 +88,12 @@ namespace ACTests.Tests
                 // Start server that would manage that data.
                 Helpers.Networking.StartPublicServer(logonsCount);
 
-                int startedServers = PipesProvider.Server.ServerAPI.SeversThreadsCount;
+                int startedServers = PipesProvider.Server.ServerAPI.ThreadsCount;
                 if (startedServers < logonsCount)
                 {
                     Assert.Fail(
                         "Started servers' threads less than requested. " +
-                        PipesProvider.Server.ServerAPI.SeversThreadsCount +
+                        PipesProvider.Server.ServerAPI.ThreadsCount +
                         "/" + logonsCount);
                     return;
                 }

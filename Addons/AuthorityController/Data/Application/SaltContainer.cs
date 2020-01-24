@@ -18,19 +18,19 @@ using System.Security.Cryptography;
 namespace AuthorityController.Data.Application
 {
     /// <summary>
-    /// Provides salt container that increase entropy during generation of secret keys.
+    /// Provides salt container that dat
     /// </summary>
     [System.Serializable]
     public class SaltContainer
     {
         /// <summary>
-        /// Bytes array that can be added to information before hashing to increase entropy.
+        /// A bytes array that can be added to information before hashing to increase entropy.
         /// </summary>
         public byte[] key;
 
         /// <summary>
-        /// Stamp that provide confirmation that salt is valid.
-        /// During loading salt will applied to test string and this stamp need to be the same as result.
+        /// A stamp that provides confirmation that salt is valid.
+        /// During loading a salt will applied to a test string and this stamp must to be the same as result.
         /// </summary>
         public byte[] validationStamp;
 
@@ -42,7 +42,7 @@ namespace AuthorityController.Data.Application
         /// <summary>
         /// Create salt container with requested salt size.
         /// </summary>
-        /// <param name="keySize"></param>
+        /// <param name="keySize">A size of the key.</param>
         public SaltContainer(int keySize)
         {
             GenerateNewKey(keySize);
@@ -51,7 +51,7 @@ namespace AuthorityController.Data.Application
         /// <summary>
         /// Generate new key for container with requiered size.
         /// </summary>
-        /// <param name="keySize"></param>
+        /// <param name="keySize">A size of the key.</param>
         public void GenerateNewKey(int keySize)
         {
             // Generate key.
@@ -79,7 +79,7 @@ namespace AuthorityController.Data.Application
         /// Call base operation and compare results.
         /// Relevant result must be equal to stamp.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A result of validation.</returns>
         public bool Validate()
         {
             // Get hashed string by using this stamp.
@@ -110,33 +110,34 @@ namespace AuthorityController.Data.Application
         /// </summary>
         /// <param name="input">Password recived from user.</param>
         /// <param name="salt">Salt that would be used to increase entropy.</param>
-        /// <returns></returns>
+        /// <returns>A hash of the password.</returns>
         public static byte[] GetHashedPassword(string input, SaltContainer salt)
         {
             // Get recived password to byte array.
             byte[] plainText = Encoding.UTF8.GetBytes(input);
 
             // Create hash profider.
-            HashAlgorithm algorithm = new SHA256Managed();
-
-            // Allocate result array.
-            byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.key.Length];
-
-            // Copy input to result array.
-            for (int i = 0; i < plainText.Length; i++)
+            using (HashAlgorithm algorithm = new SHA256Managed())
             {
-                plainTextWithSaltBytes[i] = plainText[i];
-            }
+                // Allocate result array.
+                byte[] plainTextWithSaltBytes =
+                  new byte[plainText.Length + salt.key.Length];
 
-            // Add salt to array.
-            for (int i = 0; i < salt.key.Length; i++)
-            {
-                plainTextWithSaltBytes[plainText.Length + i] = salt.key[i];
-            }
+                // Copy input to result array.
+                for (int i = 0; i < plainText.Length; i++)
+                {
+                    plainTextWithSaltBytes[i] = plainText[i];
+                }
 
-            // Get hash of salted array.
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
+                // Add salt to array.
+                for (int i = 0; i < salt.key.Length; i++)
+                {
+                    plainTextWithSaltBytes[plainText.Length + i] = salt.key[i];
+                }
+
+                // Get hash of salted array.
+                return algorithm.ComputeHash(plainTextWithSaltBytes);
+            }
         }
     }
 }

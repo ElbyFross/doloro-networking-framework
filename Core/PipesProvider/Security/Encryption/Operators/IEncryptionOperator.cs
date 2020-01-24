@@ -28,17 +28,6 @@ namespace PipesProvider.Security.Encryption.Operators
     public interface IEncryptionOperator
     {
         /// <summary>
-        /// Encryption type of that operator.
-        /// Define the method of managing that operator.
-        /// </summary>
-        EncryptionOperatorType Type { get; }
-
-        /// <summary>
-        /// Code of that encyptor that allow to detect what encryptor is suitable for data decryption.
-        /// </summary>
-        string DecryptionMarker { get; }
-
-        /// <summary>
         /// Encoder that provides concertation query from string to byte array.
         /// </summary>
         Encoding Encoder { get; set; }

@@ -14,28 +14,38 @@
 
 using System;
 using System.IO.Pipes;
+using UniformQueries;
+using PipesProvider.Security;
 
 namespace PipesProvider.Server.TransmissionControllers
 {
     /// <summary>
-    /// Controller that provide message's transmisssion from client to server.
+    /// A controller that provides data transmission from a client to a server.
     /// </summary>
     public class ClientToServerTransmissionController : BaseServerTransmissionController
     {
         /// <summary>
-        /// Delegate that will be called when server will recive query.
-        /// ServerTransmissionMeta - meta data of transmission.
-        /// Query - shared query.
+        /// A delegate that will invoked when a server recived a query.
+        /// ServerTransmissionMeta - a metadata of the transmission.
+        /// Query - a received query.
         /// </summary>
-        public Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback;
+        public Action<BaseServerTransmissionController, Query> queryHandlerCallback;
 
         /// <summary>
-        /// Instiniate client to server transmission controller.
+        /// Instiniates a client to server transmission controller.
         /// </summary>
-        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
-        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
-        /// <param name="pipe">Named pipe stream established on the server.</param>
-        /// <param name="pipeName">Name of the pipe.</param>
+        /// <param name="connectionMarker">
+        /// An async marker that can be used to control of the operation.
+        /// </param>
+        /// <param name="connectionCallback">
+        /// A delegate that will invoked when connection will established.
+        /// </param>
+        /// <param name="pipe">
+        /// A named pipe stream established on the server.
+        /// </param>
+        /// <param name="pipeName">
+        /// A name of the pipe.
+        /// </param>
         public ClientToServerTransmissionController(
            IAsyncResult connectionMarker,
            Action<BaseServerTransmissionController> connectionCallback,
@@ -52,15 +62,23 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <summary>
         /// Automaticly create server's pipe that will recive queries from clients.
         /// </summary>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
-        /// <param name="guid">Generated GUID of this loop.</param>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="queryHandlerCallback">
+        /// A callback that will invoked when server will recive a query from a client.
+        /// </param>
+        /// <param name="guid">
+        /// Generated GUID of this loop.
+        /// </param>
+        /// <param name="pipeName">
+        /// Name of pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="securityLevel">
+        /// Sercruity that would be applied to pipe's server.
+        /// </param>
         public static void ServerLoop(
-            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
+            Action<BaseServerTransmissionController, Query> queryHandlerCallback,
             string pipeName,
             out string guid,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
             // Generate GUID.
             guid = (System.Threading.Thread.CurrentThread.Name + "\\" + pipeName).GetHashCode().ToString();
@@ -77,15 +95,23 @@ namespace PipesProvider.Server.TransmissionControllers
         /// Automaticly create server's pipe.
         /// Allows to customise GUID.
         /// </summary>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
-        /// <param name="guid">GUID of this loop.</param>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="queryHandlerCallback">
+        /// A callback that will invoked when server will recive a query from a client.
+        /// </param>
+        /// <param name="guid">
+        /// An unique GUID of this loop.
+        /// </param>
+        /// <param name="pipeName">
+        /// A name of a pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="securityLevel"
+        /// >A security level that will be applied to the server pipe.
+        /// </param>
         public static void ServerLoop(
             string guid,
-            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
+            Action<BaseServerTransmissionController, Query> queryHandlerCallback,
             string pipeName,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
             // Start loop
             ServerLoop(
@@ -97,20 +123,30 @@ namespace PipesProvider.Server.TransmissionControllers
         }
 
         /// <summary>
-        /// Automaticly create server's pipe.
+        /// Automaticly creates a server pipe.
         /// Allows to customise GUID.
         /// </summary>
-        /// <param name="guid">GUID of this loop.</param>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="allowedServerInstances">How many server instances can beestablished for that pipe.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="guid">
+        /// An unique GUID of the loop.
+        /// </param>
+        /// <param name="queryHandlerCallback">
+        /// A callback that will invoked when server will recive a query from a client.
+        /// </param>
+        /// <param name="pipeName">
+        /// A name of a pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="allowedServerInstances">
+        /// How many server instances can be established for that pipe.
+        /// </param>
+        /// <param name="securityLevel">
+        /// A security level that will be applied to the server pipe.
+        /// </param>
         public static void ServerLoop(
             string guid,
-            System.Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
+            Action<BaseServerTransmissionController, Query> queryHandlerCallback,
             string pipeName,
             int allowedServerInstances,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
             ServerLoop(
                 guid,
@@ -122,31 +158,42 @@ namespace PipesProvider.Server.TransmissionControllers
                 PipeOptions.Asynchronous | PipeOptions.WriteThrough,
                 securityLevel);
         }
+
         /// <summary>
         /// Automaticly create server's pipe.
         /// Allows to customise GUID.
         /// </summary>
-
-        /// <summary>
-        /// Base server loop that allow full controll of settings.
-        /// </summary>
         /// <param name="guid">GUID of this loop.</param>
-        /// <param name="queryHandlerCallback">Callback that will be called when server will recive query from clinet.</param>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="pipeDirection">Direction of transmission allowed via this pipe.</param>
-        /// <param name="allowedServerInstances">How many server instances can beestablished for that pipe.</param>
-        /// <param name="transmissionMode">Define transmission mode that would applied to pipe.</param>
-        /// <param name="pipeOptions">Define pipe's option.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="queryHandlerCallback">
+        /// A callback that will invoked when server will recive a query from a client.
+        /// </param>
+        /// <param name="pipeName">
+        /// A name of a pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="pipeDirection">
+        /// Direction of transmission allowed via the pipe.
+        /// </param>
+        /// <param name="allowedServerInstances">
+        /// How many server instances can be established for that pipe.
+        /// </param>
+        /// <param name="transmissionMode">
+        /// Defines a transmission mode that will applied to the pipe.
+        /// </param>
+        /// <param name="pipeOptions">
+        /// Defines pipe's options.
+        /// </param>
+        /// <param name="securityLevel">
+        /// A security level that will be applied to the server pipe.
+        /// </param>
         public static void ServerLoop(
             string guid,
-            Action<BaseServerTransmissionController, UniformQueries.Query> queryHandlerCallback,
+            Action<BaseServerTransmissionController, Query> queryHandlerCallback,
             string pipeName,
             PipeDirection pipeDirection,
             int allowedServerInstances,
             PipeTransmissionMode transmissionMode,
             PipeOptions pipeOptions,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
             ServerAPI.ServerLoop<ClientToServerTransmissionController>(
                 guid,

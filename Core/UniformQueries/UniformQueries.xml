@@ -6,7 +6,7 @@
     <members>
         <member name="T:UniformQueries.API">
             <summary>
-            Class that provide methods for handling of queries.
+            A static class that provides and API for handling queries.
             </summary>
         </member>
         <member name="F:UniformQueries.API.SPLITTING_SYMBOL">
@@ -94,36 +94,36 @@
         </member>
         <member name="T:UniformQueries.Executable.QueryProcessor">
             <summary>
-            Object that provide base methods\fields\properties that allow to standartize and controll query processing.
+            An abstract class that provides a base methods\fields\properties those allow to standardize and control queries processing.
             </summary>
         </member>
         <member name="E:UniformQueries.Executable.QueryProcessor.ProcessingFinished">
             <summary>
-            Event that would be called when reciving operation would be finished.
+            Event that will occurs when implemented operation is finished.
             
-            Executable.QueryProcessor - reference to this processor.
-            bool - result od operation
-            object - object shared by processor.
+            QueryProcessor - reference to this processor.
+            bool - a result of operation
+            object - an object shared by processor.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.QueryProcessor.IsTerminated">
             <summary>
-            Does last auth's task was terminated.
+            Does a last operation is terminated.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.QueryProcessor.IsInProgress">
             <summary>
-            Is authrentification in proggress.
+            Is an opertion is in proggress.
             </summary>
         </member>
-        <member name="M:UniformQueries.Executable.QueryProcessor.TerminateAuthorizationTask">
+        <member name="M:UniformQueries.Executable.QueryProcessor.Terminate">
             <summary>
             Terminating current started process.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.QueryProcessor.ServerAnswer">
             <summary>
-            The last query with auth information.
+            A query received from a server for handling.
             </summary>
             <remarks>
             In case of set will simulate answer from server and will use params for shared <see cref="T:UniformQueries.Query"/>. 
@@ -136,50 +136,50 @@
         </member>
         <member name="M:UniformQueries.Executable.QueryProcessor.Finalize(System.Boolean,System.Object)">
             <summary>
-            Generate <see cref="E:UniformQueries.Executable.QueryProcessor.ProcessingFinished"/> event with provided params.
+            Generates the <see cref="E:UniformQueries.Executable.QueryProcessor.ProcessingFinished"/> event with provided params.
             </summary>
             <param name="result">Resdult of processing.</param>
             <param name="args">Shared object.</param>
         </member>
         <member name="M:UniformQueries.Executable.QueryProcessor.ServerAnswerHandler(System.Object,System.Object)">
             <summary>
-            Handler that would recived server answer.
+            A handler for server's answer.
             </summary>
             <param name="controller"></param>
             <param name="answer">Answer received from the server.</param>
         </member>
         <member name="T:UniformQueries.Executable.Security.AuthQueryProcessor">
             <summary>
-            Provide fields situated but authentification queries.
+            Provides API situated for handling authentication queries.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.IsAutorized">
             <summary>
-            Check does this instruction authorized.
+            Check does this instruction is authorized.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.Token">
             <summary>
-            Token that would be used during quries to confirm the rights.
-            Logon on target server before using this instruction and save recived token to this property.
+            A loken that would be used during quries to confirm the rights.
+            Logon on a target server before using an instruction and save and recived token to this property.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.ExpiryTime">
             <summary>
-            Time when token would expited.
+            A time when token would expited.
             </summary>
         </member>
         <member name="P:UniformQueries.Executable.Security.AuthQueryProcessor.RecivedRights">
             <summary>
-            Rights provided to token during logon.
+            A rights provided to token during logon.
             </summary>
         </member>
         <member name="M:UniformQueries.Executable.Security.AuthQueryProcessor.ServerAnswerHandler(System.Object,System.Object)">
             <summary>
-            Handler that would recive server answer.
+            A handler that would recive server answer.
             </summary>
-            <param name="_">Dropped param that not required on that processor.</param>
-            <param name="answer">Binary data received from server as answer.</param>
+            <param name="_">A dropped param that not required on that processor.</param>
+            <param name="answer">A binary data received from server as answer.</param>
         </member>
         <member name="T:UniformQueries.Query">
             <summary>
@@ -191,9 +191,9 @@
             Data that describe required or applied encryption.
             </summary>
         </member>
-        <member name="F:UniformQueries.Query.EncryptionInfo.contentEncytpionOperatorCode">
+        <member name="F:UniformQueries.Query.EncryptionInfo.contentEncrytpionOperatorCode">
             <summary>
-            Code of encryption operator that applied to the query's content.
+            Code of a symmetric encryption operator that applied to the query's content.
             </summary>
         </member>
         <member name="F:UniformQueries.Query.EncryptionInfo.encryptedSymmetricKey">

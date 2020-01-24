@@ -215,7 +215,7 @@ namespace AuthorityController.Queries
                 user.tokens.Add(sessionToken);
             }
             // Registrate token for user.
-            Session.Current.AsignTokenToUser(
+            Session.Current.AssignTokenToUser(
                 user, 
                 sessionToken,
                 mac.PropertyValueString, 

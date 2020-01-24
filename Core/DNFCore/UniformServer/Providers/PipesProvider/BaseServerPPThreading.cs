@@ -25,25 +25,10 @@ using PipesProvider.Server.TransmissionControllers;
 namespace UniformServer
 {
     /// <summary>
-    /// Part of class that provide methods can be started as thread for server init;
+    /// Part of class that provides methods those can be started as server thread.
     /// </summary>
-    public abstract partial class BaseServer
+    public partial class BaseServer
     {
-        #region Events
-        /// <summary>
-        /// Event will be called when system will request a thread termination.
-        /// Argument - index of thread.
-        /// </summary>
-        public static event System.Action<int> ThreadTerminateRequest;
-
-        /// <summary>
-        /// Event that will be called when seystem will require a thread start.
-        /// Argument - index of thread.
-        /// </summary>
-        public static event System.Action<int> ThreadStartRequest;
-        #endregion
-
-
         /// <summary>
         ///  Main loop that control monitor thread.
         /// </summary>
@@ -55,7 +40,7 @@ namespace UniformServer
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
-            string serverName = ((BaseServer)server).thread.Name;
+            string serverName = ((BaseServer)server).ServerThread.Name;
             #endregion
 
             #region Server establishing
@@ -78,7 +63,7 @@ namespace UniformServer
 
             // Name of pipe server that will established.
             // Access to this pipe by clients will be available by this name.
-            string serverName = ((BaseServer)server).thread.Name;
+            string serverName = ((BaseServer)server).ServerThread.Name;
             #endregion
 
             #region Server establishing

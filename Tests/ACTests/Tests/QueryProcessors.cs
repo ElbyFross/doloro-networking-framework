@@ -100,7 +100,7 @@ namespace ACTests.Tests
         public void GuestToken()
         {
             // Start broadcasting server that would share guest tokens.
-            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastServer.StartBroadcastingViaPP(
                 Helpers.Networking.DefaultGuestPipeName,
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -126,7 +126,7 @@ namespace ACTests.Tests
                 // Create new processor that provide get token receiving operation.
                 BaseQueries.GET_GUEST_TOKEN.GuestTokenProcessor processor = new BaseQueries.GET_GUEST_TOKEN.GuestTokenProcessor();
 
-                // Sign up on callback that would be called when logon operation would be passed.
+                // Sign up on a callback that occurs when auth operation is finished.
                 processor.ProcessingFinished += delegate (
                     UniformQueries.Executable.QueryProcessor _,
                     bool result,

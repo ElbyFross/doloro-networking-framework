@@ -16,27 +16,39 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using AuthorityController.Data.Application;
+using AuthorityController.Data.Temporal;
+using PipesProvider.Server.TransmissionControllers;
 
 namespace AuthorityController.API
 {
     /// <summary>
-    /// Provides API for work with security tokens.
+    /// Provides an API for work with security tokens.
     /// </summary>
-    public class Tokens
-    {   
-        #region Rights API
+    public static class Tokens
+    {
         /// <summary>
-        /// Check does this token has all requested rights.
-        /// If token is not registred on this server then will throw UnauthorizedAccessException.
+        /// Checks does a token has all requested rights.
         /// </summary>
-        /// <param name="token">Unitque token of the user.</param>
-        /// <param name="error">Error that describe a reasone of fail. Could be send backward to client.</param>
-        /// <param name="tokenInfo">Rights detected to that token.</param>
-        /// <param name="requiredRights">Array that contain the rights that need to by existed.</param>
-        /// <returns></returns>
+        /// <param name="token">
+        /// An unique token privided to some user.
+        /// </param>
+        /// <param name="error">
+        /// An error that describe a reasone of fail. Could be send backward to client.
+        /// </param>
+        /// <param name="tokenInfo">
+        /// A found information about the token. 
+        /// Includs rights provided to the token.
+        /// </param>
+        /// <param name="requiredRights">
+        /// Rights required from the token to passing through.
+        /// </param>
+        /// <exception cref="UnauthorizedAccessException">
+        /// Occurs in case if the token not registred at the server.
+        /// </exception>
+        /// <returns>A result of check.</returns>
         public static bool IsHasEnoughRigths(
             string token,
-            out Data.Temporal.TokenInfo tokenInfo, 
+            out TokenInfo tokenInfo, 
             out string error, 
             params string[] requiredRights)
         {
@@ -70,16 +82,25 @@ namespace AuthorityController.API
         }
 
         /// <summary>
-        /// Check does this token has all requested rights.
-        /// If token is not registred on this server then will throw UnauthorizedAccessException.
+        /// Checks does a token has all requested rights.
         /// </summary>
-        /// <param name="token"></param>
-        /// <param name="requiredRights">Rights required from token to passing through.</param>
-        /// <param name="tokenInfo">Information about token. Including rights provided to token.</param>
-        /// <returns></returns>
+        /// <param name="token">
+        /// A token for check.
+        /// </param>
+        /// <param name="requiredRights">
+        /// Rights required from the token to passing through.
+        /// </param>
+        /// <param name="tokenInfo">
+        /// A found information about the token. 
+        /// Includs rights provided to the token.
+        /// </param>
+        /// <exception cref="UnauthorizedAccessException">
+        /// Occurs in case if the token not registred at the server.
+        /// </exception>
+        /// <returns>A result of check.</returns>
         public static bool IsHasEnoughRigths(
             string token, 
-            out Data.Temporal.TokenInfo tokenInfo, 
+            out TokenInfo tokenInfo, 
             params string[] requiredRights)
         {
             // Try to get token rights.
@@ -94,20 +115,25 @@ namespace AuthorityController.API
         }
 
         /// <summary>
-        /// Authorizing new token with guest's rights, and return information in query format.
+        /// Authorizes a new token with guests rights 
+        /// and returns an information in a query format.
+        /// 
+        /// Mades `AuthorizeNewGuestToken` comatible to the <see cref="BroadcastTransmissionController"/> handler.
         /// </summary>
         /// <param name="_">Droped param not relative to this broadcasting.</param>
-        /// <returns>Token that can be used by client in queries.</returns>
-        public static byte[] AuthorizeNewGuestToken(
-            PipesProvider.Server.TransmissionControllers.BroadcastingServerTransmissionController _)
+        /// <returns>A token that can be used by client in queries.</returns>
+        public static byte[] AuthorizeNewGuestToken(BroadcastTransmissionController _)
         {
             return AuthorizeNewGuestToken();
         }
 
         /// <summary>
-        /// Authorizing new token with guest's rights, and return information in query format.
+        /// Authorizes a new token with guests rights 
+        /// and returns an information in a query format.
         /// </summary>
-        /// <returns>Query in binary format that contain token's data.</returns>
+        /// <returns>
+        /// A query in a binary format that contains a token's data.
+        /// </returns>
         public static byte[] AuthorizeNewGuestToken()
         {
             // Get free token.
@@ -125,6 +151,5 @@ namespace AuthorityController.API
 
             return UniformDataOperator.Binary.BinaryHandler.ToByteArray(query);
         }
-        #endregion
     }
 }

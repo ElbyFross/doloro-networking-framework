@@ -19,6 +19,7 @@ using System.Threading;
 using PipesProvider.Server;
 using PipesProvider.Networking.Routing;
 using AuthorityController.Data.Application;
+using UniformServer;
 
 namespace SessionProvider
 {
@@ -28,8 +29,11 @@ namespace SessionProvider
     /// - User data managment.
     /// - Control rights.
     /// </summary>
-    class Server : UniformServer.BaseServer
+    public class Server : BaseServer
     {
+        /// <summary>
+        /// Is the users loaded.
+        /// </summary>
         public static bool UsersLoaded
         {
             get;
@@ -39,17 +43,11 @@ namespace SessionProvider
         static void Main(string[] args)
         {
             #region Detect processes conflicts
-            // Get GUID of this assebly.
-            string guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
-
-            // Create Mutex for this app instance.
-            mutexObj = new Mutex(true, guid, out bool newApp);
-
             // Check does this instance a new single app, or same app already runned.
-            if (!newApp)
+            if (!ServerAppConfigurator.IsProccessisUnique())
             {
                 // Log error.
-                Console.WriteLine("\"THB Data Server\" already started. Application not allow multiple instances at single moment.\nGUID: " + guid);
+                Console.WriteLine("\"THB Data Server\" already started. Application not allow multiple instances at single moment.");
                 // Wait a time until exit.
                 Thread.Sleep(2000);
                 return;
@@ -57,11 +55,6 @@ namespace SessionProvider
             #endregion
 
             #region Set default data \ load DLLs \ appling arguments
-            // Set default thread count. Can be changed via args or command.
-            threadsCount = Environment.ProcessorCount;
-            longTermServerThreads = new UniformServer.BaseServer[threadsCount];
-
-
             // Check direcroties
             UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
                 AppDomain.CurrentDomain.BaseDirectory + "libs\\");
@@ -71,7 +64,7 @@ namespace SessionProvider
 
 
             // React on uniform arguments.
-            ArgsReactor(args);
+            ServerAppConfigurator.ArgsReactor(args);
             // react on args specified to that server.
             CustomArgsReactor(args);
             #endregion
@@ -103,14 +96,14 @@ namespace SessionProvider
             #endregion
 
             #region Start queries monitor threads
-            for (int i = 0; i < threadsCount; i++)
+            for (int i = 0; i < Environment.ProcessorCount; i++)
             {
                 // Instiniate server.
-                Server serverBufer = new Server();
-                longTermServerThreads[i] = serverBufer;
-
-                // Set fields.
-                serverBufer.pipeName = "dnfAUTH";
+                Server serverBufer = new Server
+                {
+                    // Set fields.
+                    pipeName = "dnfAUTH"
+                };
 
                 // Starting server loop.
                 serverBufer.StartServerThread(
@@ -118,7 +111,7 @@ namespace SessionProvider
                     ThreadingServerLoop_PP_Input);
 
                 // Change thread culture.
-                serverBufer.thread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
+                serverBufer.ServerThread.CurrentUICulture = new System.Globalization.CultureInfo("en-us");
 
                 // Skip line
                 Console.WriteLine();
@@ -131,7 +124,7 @@ namespace SessionProvider
 
             #region Guest tokens broadcasting
             // Start broadcasting server that would share guest tokens.
-            UniformServer.Standard.BroadcastingServer.StartBroadcastingViaPP(
+            UniformServer.Standard.BroadcastServer.StartBroadcastingViaPP(
                 "guests",
                 PipesProvider.Security.SecurityLevel.Anonymous,
                 AuthorityController.API.Tokens.AuthorizeNewGuestToken,
@@ -143,7 +136,7 @@ namespace SessionProvider
 
             #region Main loop
             // Main loop that will provide server services until application close.
-            while (!appTerminated)
+            while (!UniformServer.ServerAppConfigurator.AppTerminated)
             {
                 // Check input
                 if (Console.KeyAvailable)
@@ -160,7 +153,7 @@ namespace SessionProvider
                         UniformServer.Commands.BaseCommands(command);
                     }
                 }
-                Thread.Sleep(threadSleepTime);
+                Thread.Sleep(UniformServer.ServerAppConfigurator.PreferedThreadsSleepTime);
             }
             #endregion
 

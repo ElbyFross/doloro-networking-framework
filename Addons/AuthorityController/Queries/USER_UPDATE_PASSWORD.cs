@@ -88,19 +88,32 @@ namespace AuthorityController.Queries
                 query,
                 Config.Active.QUERY_UserNewPassword_RIGHTS, 
                 out string error,
-                out User userProfile))
+                out User userProfile,
+                out Data.Temporal.TokenInfo tokenInfo))
             {
                 // Drop if invalid. 
                 return;
             }
-            
-            #region Validate password.
-            // Comapre password with stored.
-            if (!userProfile.IsOpenPasswordCorrect(oldPassword.PropertyValueString))
+
+            #region Validate old password.
+            if (tokenInfo.userId == 0 || tokenInfo.userId == userProfile.id)
             {
-                // Inform that password is incorrect.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
-                return;
+                try
+                {
+                    // Comapre password with stored.
+                    if (!userProfile.IsOpenPasswordCorrect(oldPassword.PropertyValueString))
+                    {
+                        // Inform that password is incorrect.
+                        UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
+                        return;
+                    }
+                }
+                catch
+                {
+                    // Inform that password is incorrect.
+                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Confirm old password", query);
+                    return;
+                }
             }
             #endregion
 
@@ -180,211 +193,6 @@ namespace AuthorityController.Queries
         }
 
         /// <summary>
-        /// Methods that process query.
-        /// </summary>
-        /// <param name="serverTL">Operator that call that operation</param>
-        /// <param name="query">Recived query.</param>
-        public virtual void Execute2(object serverTL, Query query)
-        {
-            bool dataOperationFailed = false;
-            string error = null;
-
-            #region Get params.
-            query.TryGetParamValue("user", out QueryPart user);
-            query.TryGetParamValue("password", out QueryPart password);
-            query.TryGetParamValue("oldPassword", out QueryPart oldPassword);
-            query.TryGetParamValue("token", out QueryPart token);
-            #endregion
-
-            User userProfile = (User)Activator.CreateInstance(OperatingType);
-            userProfile.login = user.PropertyValueString;
-
-            #region Detect target user
-            Task asyncDataOperator = null;                       
-            // Get data from SQL server if connected.
-            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
-            {
-                #region SQL server                
-                // Subscribe on errors.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
-
-                // Request data.
-                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToObjectAsync(
-                    OperatingType,
-                    Session.Current.TerminationTokenSource.Token,
-                    userProfile,
-                    new string[0],
-                    new string[] { "login" });
-                #endregion
-            }
-            // Looking for user in local storage.
-            else
-            {
-                #region Local storage
-                if (!API.LocalUsers.TryToFindUserUniform(user.PropertyValueString, out userProfile, out error))
-                {
-                    // Inform about error.
-                    UniformServer.BaseServer.SendAnswerViaPP(error, query);
-                    return;
-                }
-                #endregion
-            }
-            #endregion
-
-            // If async operation started.
-            if (asyncDataOperator != null)
-            {
-                // Wait until finishing.
-                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
-                {
-                    Thread.Sleep(5);
-                }
-
-                // Unsubscribe from errors listening.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
-                asyncDataOperator = null;
-            }
-
-            #region Check base requester rights
-            if (!API.Tokens.IsHasEnoughRigths(
-                token.PropertyValueString,
-                out Data.Temporal.TokenInfo tokenInfo,
-                out error,
-                Config.Active.QUERY_UserNewPassword_RIGHTS))
-            {
-                // Inform about error.
-                UniformServer.BaseServer.SendAnswerViaPP(error, query);
-                return;
-            }
-            #endregion
-
-            #region Check rank permition
-            // Is that the self update?
-            bool isSelfUpdate = false;
-
-            // Check every token provided to target user.
-            foreach(string userToken in userProfile.tokens)
-            {
-                // Comare tokens.
-                if (token.PropertyValueString == userToken)
-                {
-                    // Mark as self target.
-                    isSelfUpdate = true;
-
-                    // Interupt loop.
-                    break;
-                }
-            }
-
-            // If not the self update request, then check rights to moderate.
-            if (!isSelfUpdate)
-            {
-                // Get target User's rank.
-                if(!API.Collections.TryGetPropertyValue("rank", out string userRank, userProfile.rights))
-                {
-                    // Inform that rights not enough.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: User rank not defined", query);
-                    return;
-                }
-
-                // Check token rights.
-                if (!API.Collections.IsHasEnoughRigths(tokenInfo.rights,
-                    // Request hiegher rank then user and at least moderator level.
-                    ">rank=" + userRank, ">rank=2"))
-                {
-                    // Inform that rank not defined.
-                    UniformServer.BaseServer.SendAnswerViaPP("ERROR 401: Unauthorized", query);
-                    return;
-                }
-            }
-            #endregion
-
-            #region Validate password.
-            // Comapre password with stored.
-            if (!userProfile.IsOpenPasswordCorrect(oldPassword.PropertyValueString))
-            {
-                // Inform that password is incorrect.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR 412: Incorrect password", query);
-                return;
-            }
-            #endregion
-
-            #region Validate new password
-            if(!API.Validation.PasswordFormat(password.PropertyValueString, out string errorMessage))
-            {
-                // Inform about incorrect login size.
-                UniformServer.BaseServer.SendAnswerViaPP(
-                    errorMessage,
-                    query);
-                return;
-            }
-            #endregion
-
-            // Update password.
-            userProfile.password = SaltContainer.GetHashedPassword(password.PropertyValueString, Config.Active.Salt);
-
-            // Update stored profile.
-            if (UniformDataOperator.Sql.SqlOperatorHandler.Active != null)
-            {
-                // Subscribe on errors.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured += ErrorListener;
-
-                // Update on SQL server.
-                asyncDataOperator = UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTableAsync(
-                    OperatingType, 
-                    Session.Current.TerminationTokenSource.Token, 
-                    userProfile);
-            }
-            else
-            {
-                // Ipdate in local storage.
-                API.LocalUsers.SetProfile(userProfile);
-            }
-
-            // If async operation started.
-            if (asyncDataOperator != null)
-            {
-                // Wait until finishing.
-                while (!asyncDataOperator.IsCompleted && !asyncDataOperator.IsCanceled)
-                {
-                    Thread.Sleep(5);
-                }
-
-                // Unsubscribe from errors listening.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
-                asyncDataOperator = null;
-            }
-            
-            // Log sucess if not failed.
-            if(!dataOperationFailed)
-            { 
-                // Inform about success
-                UniformServer.BaseServer.SendAnswerViaPP(
-                    "success",
-                    query);
-            }
-
-            #region SQL server callbacks
-            // Looking for user on SQL server if connected.
-            void ErrorListener(object sender, string message)
-            {
-                // Drop if not target user.
-                if (!userProfile.Equals(sender))
-                {
-                    return;
-                }
-
-                // Unsubscribe.
-                UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= ErrorListener;
-
-                // Inform that user not found.
-                UniformServer.BaseServer.SendAnswerViaPP("ERROR SQL SERVER: " + message, query);
-                dataOperationFailed = true;
-            }
-            #endregion 
-        }
-
-        /// <summary>
         /// Check by the entry params does it target Query Handler.
         /// </summary>
         /// <param name="query">Recived query.</param>
@@ -401,7 +209,7 @@ namespace AuthorityController.Queries
             if (!query.QueryParamExist("password")) return false;
 
             // OLD PASSWORD prop.
-            if (!query.QueryParamExist("oldPassword")) return false;
+            //if (!query.QueryParamExist("oldPassword")) return false;
 
             return true;
         }

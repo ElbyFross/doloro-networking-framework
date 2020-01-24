@@ -26,12 +26,14 @@ namespace AuthorityController.API
     public static class Collections
     {
         /// <summary>
-        /// Compare two arrays that contain rights code.
-        /// Prefix '!' before rquired right will work like "not contain this right."
+        /// Compares two arrays that contain rights code.
+        /// A prefix '!' before a required right will works like "not contain this right."
+        /// Prefixes with symbols @LESS and @GREATHER in format 'SYMBOL_RIGHTCODE=VALUE' 
+        /// will cause comparing right value relative to provided.
         /// </summary>
-        /// <param name="providedRights">Rights that provided to user.</param>
+        /// <param name="providedRights">Rights that provided to a user.</param>
         /// <param name="requiredRights">Rights that required to get permisssion.</param>
-        /// <returns></returns>
+        /// <returns>Is provided rights is enough to pass through.</returns>
         public static bool IsHasEnoughRigths(string[] providedRights, params string[] requiredRights)
         {
             // Check every requeted and provided rights.

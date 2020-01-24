@@ -23,11 +23,12 @@ using PipesProvider.Server;
 using UQAPI = UniformQueries.API;
 using PipesProvider.Server.TransmissionControllers;
 using PipesProvider.Security.Encryption;
+using UniformDataOperator.Binary.IO;
 
 namespace PipesProvider.Handlers
 {
     /// <summary>
-    /// Handlers that provide transmission between serve and clients.
+    /// Handlers that provide transmission between a server and clients.
     /// </summary>
     public static class DNS
     {
@@ -40,7 +41,7 @@ namespace PipesProvider.Handlers
             DateTime sessionTime = DateTime.Now.AddSeconds(5000);
 
             // Read until trasmition exits not finished.
-            while (controller.pipeServer.IsConnected)
+            while (controller.PipeServer.IsConnected)
             {
                 // Open stream reader.
                 byte[] binaryQuery;
@@ -49,7 +50,7 @@ namespace PipesProvider.Handlers
                 // Avoid an error caused to disconection of client.
                 try
                 {
-                    binaryQuery = await UniformDataOperator.Binary.IO.StreamHandler.StreamReaderAsync(controller.pipeServer);
+                    binaryQuery = await StreamHandler.StreamReaderAsync(controller.PipeServer);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -64,7 +65,7 @@ namespace PipesProvider.Handlers
                     // Avoid disconnectin error.
                     try
                     {
-                        controller.pipeServer.Disconnect();
+                        controller.PipeServer.Disconnect();
                     }
                     catch
                     {
@@ -77,11 +78,11 @@ namespace PipesProvider.Handlers
 
                 #region Finalizing connection
                 // Disconnect user if query recived.
-                if (controller.pipeServer.IsConnected)
+                if (controller.PipeServer.IsConnected)
                 {
                     try
                     {
-                        controller.pipeServer.Disconnect();
+                        controller.PipeServer.Disconnect();
                     }
                     catch
                     {
@@ -90,7 +91,7 @@ namespace PipesProvider.Handlers
                 }
 
                 // Remove temporal data.
-                controller.pipeServer.Dispose();
+                controller.PipeServer.Dispose();
                 #endregion
 
                 #region Query processing
@@ -113,9 +114,9 @@ namespace PipesProvider.Handlers
                     return;
                 }
 
-                // TODO Try to decrypt. In case of fail decryptor return entry message.
+                // Try to decrypt. In case of fail decryptor returns an entry message.
                 await EnctyptionOperatorsHandler.TryToDecryptAsync(
-                    query, EnctyptionOperatorsHandler.AsymmetricKey);
+                    query, EnctyptionOperatorsHandler.AsymmetricEO);
 
                 // Log query.
                 Console.WriteLine(@"RECIVED QUERY (DNS0): {0}", query);
@@ -137,7 +138,7 @@ namespace PipesProvider.Handlers
 
             // Log about transmission finish.
             Console.WriteLine("{0} : TRANSMISSION FINISHED AT {1}",
-                controller.pipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
+                controller.PipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
         }
 
         /// <summary>
@@ -152,15 +153,15 @@ namespace PipesProvider.Handlers
                 try
                 {
                     // Log.
-                    Console.WriteLine(controller.pipeName + " : SENDING : " + @outController.ProcessingQuery);
+                    Console.WriteLine(controller.PipeName + " : SENDING : " + @outController.ProcessingQuery);
 
                     // Send query to stream.
                     await UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(
-                        outController.pipeServer,
+                        outController.PipeServer,
                         outController.ProcessingQuery);
 
                     // Log.
-                    Console.WriteLine(controller.pipeName + " : SENT : " + @outController.ProcessingQuery);
+                    Console.WriteLine(controller.PipeName + " : SENT : " + @outController.ProcessingQuery);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -176,11 +177,11 @@ namespace PipesProvider.Handlers
             }
 
             // Disconnect user if query recived.
-            if (controller.pipeServer.IsConnected)
+            if (controller.PipeServer.IsConnected)
             {
                 try
                 {
-                    controller.pipeServer.Disconnect();
+                    controller.PipeServer.Disconnect();
                 }
                 catch
                 {
@@ -189,14 +190,14 @@ namespace PipesProvider.Handlers
             }
 
             // Remove temporal data.
-            controller.pipeServer.Dispose();
+            controller.PipeServer.Dispose();
 
             // Stop this transmission line.
             controller.SetStoped();
 
             // Log about transmission finish.
             Console.WriteLine("{0} : TRANSMISSION FINISHED AT {1}",
-                controller.pipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
+                controller.PipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
         }
 
         /// <summary>
@@ -205,23 +206,23 @@ namespace PipesProvider.Handlers
         /// 
         /// Provide broadcasting to client by useing GetMessage delegate of BroadcastingServerTC controller.
         /// </summary>
-        public static async void ServerBroadcasting(BaseServerTransmissionController controller)
+        public static async void BroadcastAsync(BaseServerTransmissionController controller)
         {
             // Try to get correct controller.
-            if (controller is BroadcastingServerTransmissionController broadcastController)
+            if (controller is BroadcastTransmissionController broadcastController)
             {
                 // Read until trasmition exits not finished.
                 // Avoid an error caused to disconection of client.
                 try
                 {
                     // Get message
-                    byte[] message = broadcastController?.GetMessage(broadcastController);
+                    byte[] message = broadcastController.GetMessage(broadcastController);
 
                     // Write message to stream.
-                    Console.WriteLine("{0}: Start transmission to client.", controller.pipeName);
+                    Console.WriteLine("{0}: Start transmission to client.", controller.PipeName);
 
                     // Send data to stream.
-                    await UniformDataOperator.Binary.IO.StreamHandler.StreamWriterAsync(controller.pipeServer, message);
+                    await StreamHandler.StreamWriterAsync(controller.PipeServer, message);
                 }
                 // Catch the Exception that is raised if the pipe is broken or disconnected.
                 catch (Exception e)
@@ -237,11 +238,11 @@ namespace PipesProvider.Handlers
             }
 
             // Disconnect user if query recived.
-            if (controller.pipeServer.IsConnected)
+            if (controller.PipeServer.IsConnected)
             {
                 try
                 {
-                    controller.pipeServer.Disconnect();
+                    controller.PipeServer.Disconnect();
                 }
                 catch
                 {
@@ -251,7 +252,7 @@ namespace PipesProvider.Handlers
 
             // Log about transmission finish.
             Console.WriteLine("{0} : TRANSMISSION FINISHED AT {1}",
-                controller.pipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
+                controller.PipeName, DateTime.Now.ToString("HH:mm:ss.fff"));
         }
     }
 }

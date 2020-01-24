@@ -92,7 +92,7 @@ namespace ExampleClient
 
             #region Init
             // React on uniform arguments.
-            ArgsReactor(args);
+            UniformClient.ClientAppConfigurator.ArgsReactor(args);
 
             // Check direcroties
             UniformDataOperator.AssembliesManagement.AssembliesHandler.LoadAssemblies(
@@ -122,42 +122,46 @@ namespace ExampleClient
             // Try to make human clear naming of server. In case of local network we will get the machine name.
             // This is optional and not required for stable work, just little helper for admins.
             PipesProvider.Networking.Info.TryGetHostName(SERVER_NAME, ref SERVER_NAME);
-
-
-            #region Recive guest token from server
-            // Trying to get instruction in partial authorized format.
-            if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
-            {
-                // Trying to recive guest token from server.
-                _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(
-                    AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
-                                                        //to provide possibility to stop all async operation before application exit.
-            }
-            else
-            {
-                Console.WriteLine("ERROR: Invalid cast. For this example routing instruction by 0 index must by delivered from PartialAuthorizedInstruction. Application terminated.");
-                Thread.Sleep(2000);
-                return;
-            }
-
-            // Wait until authorization.
-            Console.WriteLine("Wating for guest token from server's autority system...");
-            while (!partialAuthorizedInstruction.GuestTokenHandler.IsAutorized)
-            {
-                Thread.Sleep(50);
-            }
-            Console.WriteLine("Authorized. Token: " + partialAuthorizedInstruction.GuestToken);
-            #endregion
+            Console.WriteLine("Work with a server by the route: " + SERVER_NAME + "." + SERVER_PIPE_NAME);
+                  
 
             // Check server exist. When connection will be established will be called shared delegate.
             // Port 445 required for named pipes work.
-            Console.WriteLine("Ping gost server via the 445 port...");
+            Console.WriteLine("Ping the host server via the 445 port...");
             PipesProvider.Networking.Info.PingHost(
                 SERVER_NAME, 445,
                 delegate (string uri, int port)
                 {
                     // Log about success ping operation.
                     Console.WriteLine("PING COMPLITED | HOST AVAILABLE | {0}:{1}\n", uri, port);
+                    
+                    #region Recive guest token from server
+                    // Trying to get instruction in partial authorized format.
+                    if (routingInstruction is PartialAuthorizedInstruction partialAuthorizedInstruction)
+                    {
+                        // Trying to recive guest token from server.
+                        _ = partialAuthorizedInstruction.TryToGetGuestTokenAsync(
+                            AuthorityController.Session.Current.TerminationTokenSource.Token); // Using Sesstion termination token as uniform 
+                                                                                               //to provide possibility to stop all async operation before application exit.
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            "ERROR: Invalid cast. For this example routing " +
+                            "instruction by 0 index must by delivered from" +
+                            " PartialAuthorizedInstruction. Application terminated.");
+                        Thread.Sleep(2000);
+                        return;
+                    }
+
+                    // Wait until authorization.
+                    Console.WriteLine("Waiting for a guest token from server's authority system...");
+                    while (!partialAuthorizedInstruction.GuestTokenHandler.IsAutorized)
+                    {
+                        Thread.Sleep(50);
+                    }
+                    Console.WriteLine("Authorized. Token: " + partialAuthorizedInstruction.GuestToken);
+                    #endregion
 
                     // Send few example queries to server.
                     TransmissionsBlock();
@@ -285,8 +289,9 @@ namespace ExampleClient
             //
             // ATTENTION: Message will not be encrypted before post. 
             // User SetRoutingInstruction (whrer instruction has RSAEncryption fields as true) instead TryLogon.
-            bool logonResult = General.TryLogon(routingInstruction.logonConfig,
-                                                token: out SafeAccessTokenHandle safeTokenHandle);
+            bool logonResult = General.TryToLogonAtRemoteDevice(
+                routingInstruction.logonConfig,
+                out SafeAccessTokenHandle safeTokenHandle);
             if (!logonResult)
             {
                 Console.WriteLine("Logon failed. Connection not possible.\nPress any key...");
@@ -321,8 +326,9 @@ namespace ExampleClient
                 new QueryPart("get"),
                 new QueryPart("publickey"));
 
-            // Open duplex chanel. First line processor will send query to server and after that will listen to its andwer.
-            // When answer will recived it will redirected to callback.
+            // Opens duplex chanel. At first the line will send the query to a server
+            // and after that will listen to its answer.
+            // When answer will receive it will redirected to the callback.
             EnqueueDuplexQueryViaPP(SERVER_NAME, SERVER_PIPE_NAME, 
                 GetPKQuery, ServerAnswerHandler_RSAPublicKey).
                 TryLogonAs(routingInstruction.logonConfig); // Share logon cofig to allow connectio for not public servers.

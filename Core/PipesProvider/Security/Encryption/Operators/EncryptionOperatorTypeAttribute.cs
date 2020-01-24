@@ -14,24 +14,30 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace UniformServer.Standard
+namespace PipesProvider.Security.Encryption.Operators
 {
     /// <summary>
-    /// Server that allow instiniate BaseServer.
-    /// Not contain any additive methods.
-    /// 
-    /// Case of using - simple operations like registing of server for answer.
+    /// An attribute that defines what a type of the algortihm used at an encryption oeprator.
     /// </summary>
-    public class SimpleServer : BaseServer
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    public class EncryptionOperatorTypeAttribute : Attribute
     {
         /// <summary>
-        /// Insnitiate patch server that can be used if you not require any additive methods and properties.
+        /// A type of an operator.
         /// </summary>
-        public SimpleServer() : base()
-        {
+        public EncryptionOperatorType OperatorType { get; private set; }
 
+        /// <summary>
+        /// Declaring an attribute with a defined type of the encryption oeprator.
+        /// </summary>
+        /// <param name="type"></param>
+        public EncryptionOperatorTypeAttribute(EncryptionOperatorType type)
+        {
+            OperatorType = type;
         }
     }
 }

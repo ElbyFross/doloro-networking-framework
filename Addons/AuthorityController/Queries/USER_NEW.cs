@@ -25,13 +25,18 @@ using UniformDataOperator.AssembliesManagement.Modifiers;
 namespace AuthorityController.Queries
 {
     /// <summary>
-    /// Create new user.
+    /// Creates new user.
     /// 
-    /// Storing profile in local dile system by default via UsersLocal API.
-    /// Storing profile to SQL server in case if `UniformDataOperator.Sql.SqlOperatorHandler.Active` not null.
+    /// Stores the profile in a local file system via the <see cref="API.LocalUsers"/>.
+    /// Stores the profile on an SQL server in case if <see cref="UniformDataOperator.Sql.SqlOperatorHandler.Active"/> isn't null.
     /// </summary>
     public class USER_NEW : IQueryHandler, IBaseTypeChangable
     {
+        /// <summary>
+        ///  Type that will be used in operations.
+        /// </summary>
+        public Type OperatingType { get; set; }
+
         /// <summary>
         /// Base constructor.
         /// Defining operating type.
@@ -40,11 +45,6 @@ namespace AuthorityController.Queries
         {
             OperatingType = TypeReplacer.GetValidType(typeof(User));
         }
-
-        /// <summary>
-        ///  Type that will be used in operations.
-        /// </summary>
-        public Type OperatingType { get; set; }
      
         /// <summary>
         /// Return the description relative to the lenguage code or default if not found.
@@ -216,14 +216,17 @@ namespace AuthorityController.Queries
 
                                 // Set data ro data base.
                                 await UniformDataOperator.Sql.SqlOperatorHandler.Active.
-                                            SetToObjectAsync(OperatingType, Session.Current.TerminationTokenSource.Token, dbStoredProfile,
-                                            new string[0],
-                                            new string[]
-                                            {
-                                                "login"
-                                            });
+                                            SetToObjectAsync(
+                                                OperatingType, 
+                                                Session.Current.TerminationTokenSource.Token, 
+                                                dbStoredProfile,
+                                                new string[0],
+                                                new string[]
+                                                {
+                                                    "login"
+                                                });
 
-                                // Unsubscribe from errors listening.
+                                // Unsubscribe the errors listener.
                                 UniformDataOperator.Sql.SqlOperatorHandler.SqlErrorOccured -= DataNotFound;
                             },
                             Session.Current.TerminationTokenSource.Token);

@@ -14,32 +14,42 @@
 
 using System;
 using System.IO.Pipes;
+using UniformQueries;
+using PipesProvider.Security;
 
 namespace PipesProvider.Server.TransmissionControllers
 {
     /// <summary>
-    /// Controller that provide message's transmisssion from server to client.
+    /// A controller that provides data transmission from a server to a client.
     /// </summary>
     public class ServerToClientTransmissionController : BaseServerTransmissionController
     {
         /// <summary>
-        /// Query that actualy in processing. 
+        /// A query in processing. 
         /// 
-        /// Attention: Value can be changed if some of handlers will call disconecction or transmission error. 
-        /// This situation will lead to establishing new connection that lead to changing of this value.
+        /// Attention: A value can be changed if some of handlers will call disconnection or transmission error.
+        /// This situation will lead to establishing a new connection that leads to changing of this value.
         /// </summary>
-        public UniformQueries.Query ProcessingQuery { get; set; }
+        public Query ProcessingQuery { get; set; }
 
         /// <summary>
-        /// Instiniate server to client transmission controller.
+        /// Instiniates a server to client transmission controller.
         /// </summary>
-        /// <param name="connectionMarker">Async marker that can be userd to controll of operation.</param>
-        /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
-        /// <param name="pipe">Named pipe stream established on the server.</param>
-        /// <param name="pipeName">Name of the pipe.</param>
+        /// <param name="connectionMarker">
+        /// An async marker that can be used to operation control.
+        /// </param>
+        /// <param name="connectionCallback">
+        /// A delegate that will be invoked when connection will established.
+        /// </param>
+        /// <param name="pipe">
+        /// A named pipe stream established on the server.
+        /// </param>
+        /// <param name="pipeName">
+        /// A name of the pipe.
+        /// </param>
         public ServerToClientTransmissionController(
            IAsyncResult connectionMarker,
-           System.Action<BaseServerTransmissionController> connectionCallback,
+           Action<BaseServerTransmissionController> connectionCallback,
            NamedPipeServerStream pipe,
            string pipeName) : base(
                 connectionMarker,
@@ -51,35 +61,48 @@ namespace PipesProvider.Server.TransmissionControllers
 
         #region Server-Client loops
         /// <summary>
-        /// Automaticly create server's pipe that will send message to client.
+        /// Automatically creates a server pipe that will send a message to a client.
         /// </summary>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="guid">Generated GUID of this loop.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="pipeName">
+        /// A name of pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="guid">
+        /// Generated unique GUID of this loop.
+        /// </param>
+        /// <param name="securityLevel">
+        /// A security level that will be applied to the server's pipe.
+        /// </param>
         public static void ServerLoop(
             string pipeName,
             out string guid,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
-            // Generate GUID.
-            guid = (System.Threading.Thread.CurrentThread.Name + "\\" + pipeName).GetHashCode().ToString();
+            // Generates a GUID.
+            guid = (System.Threading.Thread.CurrentThread.Name + "\\" + pipeName).
+                GetHashCode().ToString();
 
-            // Start loop.
+            // Starts a loop.
             ServerLoop(guid, pipeName, securityLevel);
         }
 
         /// <summary>
-        /// Automaticly create server's pipe that will send message to client.
+        /// Automatically creates a server pipe that will send a message to a client.
         /// </summary>
-        /// <param name="pipeName">Name of pipe that will created. Client will access this server using that name.</param>
-        /// <param name="guid">GUID of this loop.</param>
-        /// <param name="securityLevel">Sercruity that would be applied to pipe's server.</param>
+        /// <param name="pipeName">
+        /// A name of pipe that will created. Client will access this server using that name.
+        /// </param>
+        /// <param name="guid">
+        /// A GUID of this loop.
+        /// </param>
+        /// <param name="securityLevel">
+        /// A security level that will be applied to the server's pipe.
+        /// </param>
         public static void ServerLoop(
             string guid,
             string pipeName,
-            Security.SecurityLevel securityLevel)
+            SecurityLevel securityLevel)
         {
-            // Start loop.
+            // Starts a loop.
             ServerAPI.ServerLoop<ServerToClientTransmissionController>(
                 guid,
                 Handlers.DNS.ServerToClientAsync,

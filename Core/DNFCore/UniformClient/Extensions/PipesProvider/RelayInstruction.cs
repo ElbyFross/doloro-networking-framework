@@ -29,17 +29,17 @@ using PipesProvider.Server.TransmissionControllers;
 namespace PipesProvider.Networking.Routing
 {
     /// <summary>
-    /// Instruction that allow retranslate broadcasting via servers chain.
+    /// An instruction that describes tunnel routing via servers chain.
     /// </summary>
     public class RelayInstruction : PartialAuthorizedInstruction
     {
         /// <summary>
-        /// Define relay behavior.
+        /// Defines relay behavior.
         /// </summary>
         public enum RelayBehavior
         {
             /// <summary>
-            /// Target is allow duplex transmission.
+            /// Target is allows duplex transmission.
             /// </summary>
             Duplex,
 
@@ -50,8 +50,8 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Name of pipe started on server that would relay broadcasting from target server.
-        /// Target server must be broadcasting one.
+        /// A name of a pipe started on the server that relays broadcasting from target server.
+        /// A target server must be broadcasting one.
         /// 
         /// Shame:
         /// client -> relay-server-ip.entryPipeName -> routingIp.pipeName
@@ -59,17 +59,17 @@ namespace PipesProvider.Networking.Routing
         public string entryPipeName = "broadcasting";
 
         /// <summary>
-        /// Define behavior of relay server.
+        /// Defines a behavior of relay due to the server type.
         /// </summary>
         public RelayBehavior behavior = RelayBehavior.Duplex;
 
         /// <summary>
-        /// Trying to find suitable instruction for transmisting pipe.
+        /// Tries to find a suitable instruction for transmisting pipe.
         /// </summary>
-        /// <param name="collection">Collection of routing instructions that could contains target RelayInstruction.</param>
-        /// <param name="entryPipeName">Name of relay pipe that recive broadcasting relay request.</param>
+        /// <param name="collection">A colllection of routing instructions that could contains target RelayInstruction.</param>
+        /// <param name="entryPipeName">A name of relay pipe that recive broadcasting relay request.</param>
         /// <param name="relayInstruction">A found instruction. Null if not found.</param>
-        /// <returns>Resut of search.</returns>
+        /// <returns>Resut of the search.</returns>
         public static bool TryToDetectTarget(IEnumerable<Instruction> collection, string entryPipeName, out RelayInstruction relayInstruction)
         {
             relayInstruction = DetectTarget(collection, entryPipeName);
@@ -77,12 +77,12 @@ namespace PipesProvider.Networking.Routing
         }
 
         /// <summary>
-        /// Looking for suitable instruction for transmisting pipe.
+        /// Looks for suitable instruction for transmisting pipe.
         /// In case if not found returning null.
         /// </summary>
         /// <param name="collection">Collection of routing instructions that could contains target RelayInstruction.</param>
         /// <param name="entryPipeName">Name of relay pipe that recive broadcasting relay request.</param>
-        /// <returns>>A found instruction. Null if not found.</returns>
+        /// <returns>A found instruction. Null if not found.</returns>
         public static RelayInstruction DetectTarget(IEnumerable<Instruction> collection, string entryPipeName)
         {
             // Check every instruction in collection.

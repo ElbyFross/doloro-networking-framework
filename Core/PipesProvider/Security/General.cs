@@ -30,7 +30,7 @@ using System.Management;
 namespace PipesProvider.Security
 {
     /// <summary>
-    /// Class that contain methods for working with sequrity systems.
+    /// A static class that contains an API for work with the Pipes Provider security features.
     /// </summary>
     public static class General
     {
@@ -60,7 +60,7 @@ namespace PipesProvider.Security
 
                 // Add owner rights to control the pipe.
                 rules.AddAccessRule(
-                    new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                    new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid | WellKnownSidType.NullSid, null),
                     PipeAccessRights.ReadWrite, AccessControlType.Allow));
             }
 
@@ -224,13 +224,13 @@ namespace PipesProvider.Security
         }
 
         /// <summary>
-        /// Trying to get access token for remote user.
+        /// Tries to get access token for remote user.
         /// In case if requested anonymous connection then return anonymous token without permission check.
         /// </summary>
-        /// <param name="config">Fields required for remote logon with impersonation.</param>
-        /// <param name="token">Token authorized in system with required rights.</param>
-        /// <returns></returns>
-        public static bool TryLogon(LogonConfig config, out SafeAccessTokenHandle token)
+        /// <param name="config">Metadata required for remote logon with impersonation.</param>
+        /// <param name="token">A token authorized in system with required rights.</param>
+        /// <returns>A result if logon operatin.</returns>
+        public static bool TryToLogonAtRemoteDevice(LogonConfig config, out SafeAccessTokenHandle token)
         {
             #region Anonymous token
             // Return anonimus token.

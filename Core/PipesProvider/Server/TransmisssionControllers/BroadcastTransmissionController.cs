@@ -18,10 +18,11 @@ using System.IO.Pipes;
 namespace PipesProvider.Server.TransmissionControllers
 {
     /// <summary>
-    /// Transmission controller that situable for broadcasting.
-    /// Every connection will call Message handler that can share scripted or constant data.
+    /// A transmission controller that suitable for broadcast.
+    /// An every connection will calls <see cref="GetMessage"/> handler 
+    /// that can share scripted or constant data.
     /// </summary>
-    public class BroadcastingServerTransmissionController : BaseServerTransmissionController
+    public class BroadcastTransmissionController : BaseServerTransmissionController
     {
         #region Properties
         /// <summary>
@@ -34,7 +35,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// </summary>
         /// <param name="transmissionController">Broadcasting controller that invoke delegate.</param>
         /// <returns>Shared data in binary format.</returns>
-        public delegate byte[] MessageHandeler(BroadcastingServerTransmissionController transmissionController);
+        public delegate byte[] MessageHandeler(BroadcastTransmissionController transmissionController);
         #endregion
 
         #region Constructors
@@ -46,7 +47,7 @@ namespace PipesProvider.Server.TransmissionControllers
         /// <param name="connectionCallback">Delegate that would be called when connection will established.</param>
         /// <param name="pipe">Named pipe stream established on the server.</param>
         /// <param name="pipeName">Name of the pipe.</param>
-        public BroadcastingServerTransmissionController(
+        public BroadcastTransmissionController(
            IAsyncResult connectionMarker,
            Action<BaseServerTransmissionController> connectionCallback,
            NamedPipeServerStream pipe, 
@@ -69,7 +70,7 @@ namespace PipesProvider.Server.TransmissionControllers
            out string guid,
            string pipeName,
            Security.SecurityLevel securityLevel,
-            BroadcastingServerTransmissionController.MessageHandeler getMessageHanler)
+           MessageHandeler getMessageHanler)
         {
             // Generate GUID.
             guid = (System.Threading.Thread.CurrentThread.Name + "\\" + pipeName).GetHashCode().ToString();
@@ -93,9 +94,9 @@ namespace PipesProvider.Server.TransmissionControllers
             MessageHandeler getMessageHanler)
         {
             // Start loop.
-            ServerAPI.ServerLoop<BroadcastingServerTransmissionController>(
+            ServerAPI.ServerLoop<BroadcastTransmissionController>(
                 guid,
-                Handlers.DNS.ServerBroadcasting,
+                Handlers.DNS.BroadcastAsync,
                 pipeName,
                 PipeDirection.InOut,
                 NamedPipeServerStream.MaxAllowedServerInstances,
@@ -105,7 +106,7 @@ namespace PipesProvider.Server.TransmissionControllers
                 // Initialise broadcasting delegate.
                 (BaseServerTransmissionController tc) =>
                     {
-                        if (tc is BroadcastingServerTransmissionController bstc)
+                        if (tc is BroadcastTransmissionController bstc)
                         {
                             bstc.GetMessage = getMessageHanler;
                         }

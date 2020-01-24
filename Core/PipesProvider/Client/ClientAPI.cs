@@ -28,29 +28,36 @@ using PipesProvider.Networking;
 namespace PipesProvider.Client
 {
     /// <summary>
-    /// Class that provide common methods for easy work with pipes' tasks.
+    /// A static API class that provides common methods for simplifying handle of client pipes' tasks.
     /// </summary>
     public static class ClientAPI
     {
         /// <summary>
-        /// Hashtable thast contain references to oppened pipes.
+        /// A hashtable that contains references to opened pipes.
         /// Key (string) server_name.pipe_name;
         /// Value (LineProcessor) meta data about transmition.
         /// </summary>
-        public static readonly Hashtable openedClients = new Hashtable();
+        private static readonly Hashtable openedClients = new Hashtable();
         
+        /// <summary>
+        /// Returns a count of started threads.
+        /// </summary>
+        public static int ThreadsCount
+        {
+            get { return openedClients.Count; }
+        }
+
         #region Loops
         /// <summary>
-        /// Provide stable client loop controlled by data of LineProcessor.
+        /// Provides a stable client loop controlled by data of the TransmissionLine.
         /// </summary>
-        /// <param name="line"></param>
-        /// <param name="pipeDirection"></param>
-        /// <param name="pipeOptions"></param>
+        /// <param name="line">A line that will be handled by the loop.</param>
+        /// <param name="pipeDirection">Direction of the pipe. Defines the loop's behavior model.</param>
+        /// <param name="pipeOptions">Options that will be applied to a pipe client established for the line.</param>
         public static void ClientLoop(
             TransmissionLine line,
             PipeDirection pipeDirection,
-            PipeOptions pipeOptions
-            )
+            PipeOptions pipeOptions)
         {
             // Loop will work until this proceesor line not closed.
             while (!line.Closed)
@@ -108,7 +115,7 @@ namespace PipesProvider.Client
                     try
                     {
                         // Execute target query.
-                        line.queryProcessor?.Invoke(line);
+                        line.queryHandler?.Invoke(line);
 
                         // Wait until processing finish.
                         Console.WriteLine("{0}/{1}: WAIT UNITL QUERY PROCESSOR FINISH HANDLER.", line.ServerName, line.ServerPipeName);
@@ -149,56 +156,56 @@ namespace PipesProvider.Client
 
         #region Transmisssion line
         /// <summary>
-        /// Try to find out registred transmission line by GUID.
+        /// Try to find out registred transmission line by GUID at the <see cref="openedClients"/>.
         /// If client not strted then return false.
         /// </summary>
-        /// <param name="guid"></param>
-        /// <param name="lineProcessor"></param>
-        /// <returns></returns>
+        /// <param name="guid">An unique GUID related to some registered transmission line.</param>
+        /// <param name="line">A line with requested GUID.</param>
+        /// <returns>A result of the operation.</returns>
         public static bool TryGetTransmissionLineByGUID(
             string guid, 
-            out TransmissionLine lineProcessor)
+            out TransmissionLine line)
         {
-            lineProcessor = openedClients[guid] as TransmissionLine;
-            return lineProcessor != null;
+            line = openedClients[guid] as TransmissionLine;
+            return line != null;
         }
 
         /// <summary>
-        /// Trying to register transmission line in common table by key:
-        /// ServerName.PipeLine
+        /// Tries to register a transmission line in the <see cref="openedClients"/> by a key:
+        /// ServerName.PipeName
         /// 
-        /// If exist return false.
-        /// Retrun sycces if added to table.
+        /// If the line is already exist then returns false.
+        /// Retruns success if added to the table.
         /// </summary>
-        /// <param name="lineProcessor"></param>
-        /// <returns></returns>
-        public static bool TryToRegisterTransmissionLine(TransmissionLine lineProcessor)
+        /// <param name="line">A line for handling.</param>
+        /// <returns>A result of the operation.</returns>
+        public static bool TryToRegisterTransmissionLine(TransmissionLine line)
         {
-            lock(openedClients)
+            lock (openedClients)
             {
                 // Build pipe domain.
-                string lineDomain = lineProcessor.ServerName + "." + lineProcessor.ServerPipeName;
+                string lineDomain = line.ServerName + "." + line.ServerPipeName;
 
                 // Reject if already registred.
                 if (openedClients[lineDomain] is TransmissionLine)
                 {
                     Console.WriteLine("LINE PROCESSOR \"{0}\" ALREADY EXIST.", lineDomain);
-                    lineProcessor.Close();
+                    line.Close();
                     return false;
                 }
 
                 // Add line to table.
-                openedClients.Add(lineDomain, lineProcessor);
+                openedClients.Add(lineDomain, line);
                 return true;
             }
         }
 
         /// <summary>
-        /// Remove line from table if this line closed.
-        /// In other keys this operation not available due to security amd stability purposes.
+        /// Removes a line from the <see cref="openedClients"/> if this line closed.
+        /// In other case this operation not available due to security and stability purposes.
         /// </summary>
-        /// <param name="guid"></param>
-        /// <returns></returns>
+        /// <param name="guid">A GUID of the line.</param>
+        /// <returns>A result of the operation.</returns>
         public static bool TryToUnregisterTransmissionLine(string guid)
         {
             lock (openedClients)
@@ -218,7 +225,7 @@ namespace PipesProvider.Client
         }
 
         /// <summary>
-        /// Closing all lines registred in table.
+        /// Closes all the lines registered in the table.
         /// </summary>
         public static void CloseAllTransmissionLines()
         {
@@ -245,9 +252,9 @@ namespace PipesProvider.Client
 
         #region Connection
         /// <summary>
-        /// Start saftely async waiting connection operation.
+        /// Starts a safety async  operation of connection waiting.
         /// </summary>
-        /// <param name="pipeClient"></param>
+        /// <param name="pipeClient">A target pipe client instance that will wait for a server.</param>
         public async static void ConnectToServerAsync(NamedPipeClientStream pipeClient)
         {
             await Task.Run(() =>
@@ -257,12 +264,12 @@ namespace PipesProvider.Client
         }
 
         /// <summary>
-        /// Connecting to server's pipe.
-        /// If connection failed them stop thread.
+        /// Connects to a server's pipe.
+        /// If connection is failed then stop the thread.
         /// 
-        /// Suspend caller thread.
+        /// Suspends a caller's thread.
         /// </summary>
-        /// <param name="pipeClient"></param>
+        /// <param name="pipeClient">A pipe client that will be handled.</param>
         public static void ConnectToServer(NamedPipeClientStream pipeClient)
         {
             while (!pipeClient.IsConnected)

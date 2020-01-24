@@ -17,6 +17,7 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UniformQueries;
 using AuthorityController.Data.Personal;
+using AuthorityController.Data.Application;
 
 namespace ACTests.Tests
 {
@@ -499,7 +500,7 @@ namespace ACTests.Tests
             // Create the query that would simulate logon.
             Query query = new Query
             (
-                new QueryPart("token", UniformQueries.Tokens.UnusedToken),
+                new QueryPart("token", Tokens.UnusedToken),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
 
                 new QueryPart("user"),
@@ -582,7 +583,7 @@ namespace ACTests.Tests
             user_Admin.id = AuthorityController.API.LocalUsers.GenerateID(user_Admin);
 
             // Admin
-            AuthorityController.Session.Current.AsignTokenToUser(user_Admin, user_Admin.tokens[0]);
+            AuthorityController.Session.Current.AssignTokenToUser(user_Admin, user_Admin.tokens[0]);
             AuthorityController.Session.Current.SetTokenRights(user_Admin.tokens[0], user_Admin.rights);
 
             // Create admin user.
@@ -593,7 +594,7 @@ namespace ACTests.Tests
                 return;
             }
 
-            // Create the query that would simulate logon.
+            // Creating an update query.
             Query query = new Query(
                 new QueryPart("token", user_Admin.tokens[0]),
                 new QueryPart("guid", Guid.NewGuid().ToString()),
@@ -608,18 +609,18 @@ namespace ACTests.Tests
                 new QueryPart("stamp", DateTime.Now.ToBinary().ToString())
             );
 
-            // Marker that avoid finishing of the test until receiving result.
+            // A markers that avoid finishing of the test until receiving result.
             bool operationCompete = false;
             bool operationResult = false;
             string operationError = null;
 
-            // Start reciving clent line.
+            // Starts reciving clent line.
             UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
 
                 // Request connection to localhost server via main pipe.
                 "localhost", Helpers.Networking.DefaultQueriesPipeName,
                 query,
-                // Handler that would recive ther ver answer.
+                // A handler that will recive an answer from the server.
                 (PipesProvider.Client.TransmissionLine line, Query answer) =>
                 {
                     // Is operation success?
@@ -645,6 +646,118 @@ namespace ACTests.Tests
             }
 
             Assert.IsTrue(operationResult, operationError);
+        }
+
+        /// <summary>
+        /// Validates the <see cref="AuthorityController.Queries.SET_TOKEN_RIGHTS"/> query.
+        /// </summary>
+        [TestMethod]
+        public void SetTokenRights()
+        {
+            if(!SetDefaults(out string error))
+            {
+                Assert.Fail(error);
+                return;
+            }
+
+            #region Users genration
+            User moderatedUser = new User
+            {
+                id = 213455,
+                login = "mu",
+                password = SaltContainer.GetHashedPassword("pass", Config.Active.Salt),
+                firstName = "mu",
+                rights = new string[] { "rank=2", "1", "2" }
+            };
+            moderatedUser.tokens.Add(Tokens.UnusedToken);
+            
+            User adminUser = new User
+            {
+                id = 213456,
+                login = "admFRT",
+                password = SaltContainer.GetHashedPassword("pass", Config.Active.Salt),
+                firstName = "admFRT",
+                rights = new string[] { "rank=8", "banhammer" }
+            };
+            adminUser.tokens.Add(Tokens.UnusedToken);
+            #endregion
+
+            #region Sending the data to server.
+            // Create a user for moderation.
+            if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
+                moderatedUser, out error))
+            {
+                Assert.Fail(error);
+                return;
+            }
+
+            // Create admin user.
+            if (!UniformDataOperator.Sql.SqlOperatorHandler.Active.SetToTable(typeof(User),
+                adminUser, out error))
+            {
+                Assert.Fail(error);
+                return;
+            }
+            #endregion
+
+            #region Providing tokens
+            AuthorityController.Session.Current.AssignTokenToUser
+                (moderatedUser, moderatedUser.tokens[0]);
+
+            AuthorityController.Session.Current.AssignTokenToUser
+                (adminUser, adminUser.tokens[0]);
+            #endregion
+
+            #region SetToken rights
+            AuthorityController.Session.Current.SetTokenRights
+                (moderatedUser.tokens[0], moderatedUser.rights);
+
+            AuthorityController.Session.Current.SetTokenRights
+                (adminUser.tokens[0], adminUser.rights);
+            #endregion
+
+            // Building the query.
+            var query = new Query(
+                new QueryPart("set"),
+                new QueryPart("targetToken", moderatedUser.tokens[0]),
+                new QueryPart("rights", "rank=4+a+b+c" ),
+                new QueryPart("set"),
+                new QueryPart("token", adminUser.tokens[0]),
+                new QueryPart("guid", "tokenRightsUpdateTest"));
+
+            // Marker that avoid finishing of the test until receiving result.
+            bool operationCompete = false;
+            bool operationResult = false;
+            string internalError = null;
+
+            // Start reciving clent line.
+            UniformClient.BaseClient.EnqueueDuplexQueryViaPP(
+
+                // Request connection to localhost server via main pipe.
+                "localhost", Helpers.Networking.DefaultQueriesPipeName,
+                query,
+                // Handler that would recive ther ver answer.
+                (PipesProvider.Client.TransmissionLine line, Query answer) =>
+                {
+                    if (answer.First.PropertyValueString.StartsWith("error", StringComparison.OrdinalIgnoreCase))
+                    {
+                        internalError = query.First.PropertyValueString;
+                        operationResult = false;
+                    }
+                    else
+                    {
+                        operationResult = true;
+                    }
+                    operationCompete = true;
+                });
+
+            // Wait until operation would complete.
+            while (!operationCompete)
+            {
+                Thread.Sleep(5);
+            }
+
+            Assert.IsTrue(operationResult, internalError);
         }
     }
 }

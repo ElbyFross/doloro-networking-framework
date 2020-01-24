@@ -27,179 +27,55 @@ namespace UniformServer
     /// <summary>
     /// Class that provide base server features and envirounment static API.
     /// </summary>
-    public abstract partial class BaseServer
-    {
-        #region Static fields and properties
+    public partial class BaseServer
+    {        
         /// <summary>
-        /// If true then will stop main loop.
+        /// A current started server thread. Null if not started.
         /// </summary>
-        public static bool appTerminated;
-
-        /// <summary>
-        /// Count of threads that will started on server.
-        /// Changing during fly permited and safely.
-        /// </summary>
-        public static int ThreadsCount
+        public Thread ServerThread
         {
-            get { return threadsCount; }
-            set
-            {
-                // Compute value not high then max count of threads and not less then one.
-                int threadsCountBufer = Math.Min(value, Environment.ProcessorCount);
-                threadsCountBufer = Math.Max(1, threadsCountBufer);
-
-                // Avoid if not require changes.
-                if (threadsCount == threadsCountBufer)
-                {
-                    Console.WriteLine("THREAD COUNT CHANGING: Operation avoided. The same count actualy requested.");
-                    return;
-                }
-
-                // Request tread thermination for every thread will higher index then allowed.
-                for (int i = threadsCount - 1; i > threadsCountBufer - 1; i--)
-                {
-                    // Inform subscribers.
-                    if (ThreadTerminateRequest != null)
-                    {
-                        Console.WriteLine("THREAD #{0} TERMINATION REQUEST", i);
-                        ThreadTerminateRequest(i);
-                    }
-                }
-
-                // Request tread thermination for every thread will higher index then allowed.
-                for (int i = threadsCount - 1; i < threadsCountBufer - 1; i++)
-                {
-                    // Inform subscribers.
-                    if (ThreadStartRequest != null)
-                    {
-                        Console.WriteLine("THREAD #{0} START REQUEST", i);
-                        ThreadStartRequest(i);
-                    }
-                }
-
-                // Apply computed count.
-                threadsCount = threadsCountBufer;
-                Console.WriteLine("ACTUAL COUNT OF THREADS: {0}/{1}", threadsCount, Environment.ProcessorCount);
-            }
+            get { return thread; }
+            protected set { thread = value; }
         }
-
-
-        /// <summary>
-        /// How many milisseconds will sleep thread after tick.
-        /// </summary>
-        protected static int threadSleepTime = 15;
-
-        /// <summary>
-        /// Count of threads.
-        /// </summary>
-        protected static int threadsCount = 1;
-
-        /// <summary>
-        /// Threads that contai servers.
-        /// </summary>
-        protected static BaseServer[] longTermServerThreads;
-
-        /// <summary>
-        /// Argument that will hide console window.
-        /// </summary>
-        protected const int SW_HIDE = 0;
-
-        /// <summary>
-        /// Agrument that will show console window.
-        /// </summary>
-        protected const int SW_SHOW = 5;
-
-        /// <summary>
-        /// Object that allow to detect processes conflict.
-        /// </summary>
-        protected static Mutex mutexObj = new Mutex();
-        #endregion
-
-        #region Fields
-        /// <summary>
-        /// Reference to thread that host this server.
-        /// </summary>
-        public Thread thread;
 
         /// <summary>
         /// Name that will be applied to the pipe.
         /// </summary>
         public string pipeName;
-
+        
         /// <summary>
-        /// Squrity level that will applied to pipe.
+        /// Reference to thread that host this server.
         /// </summary>
-        public PipesProvider.Security.SecurityLevel securityLevel = PipesProvider.Security.SecurityLevel.Anonymous;
-        #endregion
-
-
-        #region Application configuration
-        /// <summary>
-        /// Method that will configurate application and server relative to the uniform arguments.
-        /// </summary>
-        /// <param name="args"></param>
-        protected static void ArgsReactor(string[] args)
-        {
-            // Get a pointer to this console.
-            IntPtr hwnd = NativeMethods.GetConsoleWindow();
-
-            // Change window state.
-            NativeMethods.ShowWindow(hwnd, SW_SHOW);
-
-            // Check every argument.
-            foreach (string s in args)
-            {
-                // Hide application from tray.
-                if (s == "hide")
-                {
-                    NativeMethods.ShowWindow(hwnd, SW_HIDE);
-                    continue;
-                }
-
-                // Change count of available treads.
-                if(s.StartsWith("threads"))
-                {
-                    try
-                    {
-                        // Parse requested count of threads.
-                        int requestedTreadsCounts = Int32.Parse(s.Substring(7));
-                        // Apply request.
-                        ThreadsCount = requestedTreadsCounts;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("ARGUMENT ERROR: {0} cannot pe converted to int.", s.Substring(7));
-                    }
-                    continue;
-                }
-            }
-        }
-        #endregion
+        private Thread thread;
 
         #region Multithreading
         /// <summary>
         /// Method that starting server thread.
         /// </summary>
         /// <param name="threadName">Name that would be applied to thread.</param>
-        /// <param name="sharebleParam">Param that would be shared to server thread.</param>
+        /// <param name="server">A server instance that will be stared to processing</param>
         /// <param name="serverLoop">Loop delegate with sharable param.</param>
         /// <returns>Established thread.</returns>
-        protected Thread StartServerThread(string threadName, object sharebleParam, ParameterizedThreadStart serverLoop)
+        protected Thread StartServerThread(
+            string threadName, 
+            BaseServer server, 
+            ParameterizedThreadStart serverLoop)
         {
             // Initialize queries monitor thread.
-            thread = new Thread(serverLoop)
+            ServerThread = new Thread(serverLoop)
             {
                 Name = threadName,
                 Priority = ThreadPriority.BelowNormal
             };
 
             // Start thread
-            thread.Start(sharebleParam);
+            ServerThread.Start(server);
 
             // Let it proceed first run.
-            Thread.Sleep(threadSleepTime);
+            Thread.Sleep(ServerAppConfigurator.PreferedThreadsSleepTime);
 
-            return thread;
+            // Started thread.
+            return ServerThread;
         }
         #endregion
     }
