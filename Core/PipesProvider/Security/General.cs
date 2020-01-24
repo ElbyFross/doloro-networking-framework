@@ -60,7 +60,7 @@ namespace PipesProvider.Security
 
                 // Add owner rights to control the pipe.
                 rules.AddAccessRule(
-                    new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                    new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid | WellKnownSidType.NullSid, null),
                     PipeAccessRights.ReadWrite, AccessControlType.Allow));
             }
 

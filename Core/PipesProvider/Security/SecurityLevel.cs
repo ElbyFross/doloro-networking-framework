@@ -32,7 +32,7 @@ namespace PipesProvider.Security
         /// </summary>
         Anonymous = 2,
         /// <summary>
-        /// Require authentication via one of the profile on server.
+        /// Requires authentication via one of the profile on server.
         /// </summary>
         RemoteLogon = 4,
         /// <summary>
