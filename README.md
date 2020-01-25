@@ -1,27 +1,41 @@
 # Doloro Networking Framework
 It's the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.
 
+## Documetation
+| Format | Description | Link |
+| :---: | --- | :---: |
+| Wiki | Contains a description of logic processes into the framework. | [Link](https://github.com/ElbyFross/doloro-networking-framework/wiki) |
+| API | An online documentation with API overview. | [Link](https://elbyfross.github.io/dnf-docs/) |
+| Local | A repository with generated documentation as could be used offline. | [Link](https://github.com/ElbyFross/dnf-docs) |
+
+## Support
+The **DNF** is an open source project and it's require your support. 
+
+The less but still very important that you could to do is considering of setting a **Star** and starting following the project. Your activity and interest can be used as proof of product relevance during negotiation with big sponsors. Thank you in advance!
+
+If you want to make a bigger contribution you may find other options and goals description by the following [link](https://github.com/ElbyFross/doloro-networking-framework/wiki/Support-of-the-initiative).
+
 # Scalability
 ### Routing tables
-Control routing between servers using easy to use `Routing tables` that include built-in filtering powered by easy to understand regular expressions.
+Control routing between servers using easy to use [Routing tables](https://github.com/ElbyFross/doloro-networking-framework/wiki/RoutingTable) those include built-in filtering features provided with easy to understand regular expressions.
 
 ### Isolated high end logic 
-Create your own high-end server logic to control complex custom network without demand to deep knowledge of networking backend.
+Create your own high-end server logic to control complex custom network without demands to deep knowledge of networking backend.
 
 ### Modifiable pipeline of networking logic
-Framwork provides a list of ready to use handlers that fully controll transmisssion, but you always able to create your own networking logic on every step to covering your own purposes. 
+Framework provides a list of ready to use handlers that fully control transmission, but you always able to create your own networking logic on every step to covering your own purposes.
 
 `(Server\Clent loops => Connection handler => Transmisssion handlers => Data handlers)`
 
 # Security
-### RSA encryption of transmission
-Framework provide full API and automatic controllers for providing secure transmission of any your message. That simplify using and modification of system.
+### Encryption operators
+The framework has a realy flexible encryption archtecture that allow you to implement your own encryption algorithms. 
 
 ### Named Pipes
 Transmission powered by named pipes that significant improve security on NT systems.
 
 ### Authority Controller
-Addon that provides possibility to create users, control them's rights. Implements tokens based rights control.
+An addon that provides possibility to create users, control them's rights. Implements tokens based rights control system.
 
 Contains built-in queries:
 - Logon
@@ -33,13 +47,10 @@ Contains built-in queries:
 - User ban
 
 # Simplicity
-### Auto RSA encryption
-[Dirctory](./Core/PipesProvider/Security/)
+### Auto encryption
+[Article](https://github.com/ElbyFross/doloro-networking-framework/wiki/Encryption) **|** [Source](./Core/PipesProvider/Security/)
 
-Client able automaticly recive a public RSA's key from server and encode message beffore transmisssion. 
-Append your client's RSA's public key in `pk` propery in query and server would auto encrypt answer.
-
-Just don't forget to set `RSAEncryption` field to `true` in client's `RoutingTable`'s `Instruction`.
+A client and server are able to automaticly exchange with public asymmetric keys to each other. During using standard handler all what you need it's just configurate and encryption params at your [RoutingTable](https://github.com/ElbyFross/doloro-networking-framework/wiki/RoutingTable) and the line transmission will auto encrypted.
 
 ### Auto control of transmission
 Built-in networking handlers control logic loop of transmission without your involving.
@@ -48,25 +59,28 @@ Built-in networking handlers control logic loop of transmission without your inv
 3. Enque query to transmission line.
 4. Recive answer to your data handler in case of duplex query.
 
+**See also:** [Example]() | [Wiki:Query](https://github.com/ElbyFross/doloro-networking-framework/wiki/Query) | [Wiki:TransmissionLine](https://github.com/ElbyFross/doloro-networking-framework/wiki/Transmission-controllers)
+
 ### Ready to use servers
-[Dirctory](./Examples/Servers/)
-- Session provider - provide tokens, control users profiles, provide complex hierarchy.
-- Queries server - relay server that would receive queries and redirect to target servers by using `Routing tables`.
+[Source](./Examples/Servers/)
+
+- [Session provider](https://github.com/ElbyFross/doloro-networking-framework/wiki/SessionProvider) - provide tokens, control users profiles, provide complex hierarchy.
+- [Queries server](https://github.com/ElbyFross/doloro-networking-framework/wiki/QueriesServer) - relay server that would receive queries and redirect to target servers by using `Routing tables`.
   
-### LSA configurator
-[Dirctory](./Core/PipesProvider/Security/)
+### LSA configurator (Experemental)
+[Article](https://github.com/ElbyFross/doloro-networking-framework/wiki/General-security#lsa-modification) **|** [Source](./Core/PipesProvider/Security/)
 
 Allows to configure your OS in one click relative to required rights.
 
 ### Server's built-in transmission algorithms
-[Dirctory](./Core/PipesProvider/Server/TransmisssionControllers/)
+[Article](https://github.com/ElbyFross/doloro-networking-framework/wiki/Transmission-controllers) **|** [Source](./Core/PipesProvider/Server/TransmisssionControllers/)
 
 - Client to Server
 - Server to Client
-- Broadcasting
+- Broadcast
 
 ### Client's built-in transmission algorithms 
-[Dirctory](./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs)
+[Article](https://github.com/ElbyFross/doloro-networking-framework/wiki/TransmissionLine) **|** [Source](./Core/UniformClient/Providers/PipesProvider/BaseClientPPHandlers.cs)
 
 - Duplex query
 - Input query
