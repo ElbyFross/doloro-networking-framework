@@ -1,5 +1,5 @@
 # Doloro Networking Framework
-It's the framework that provide fast and easy way for creation of client and server applications powered by .Net Framework.
+It's the framework that provides a fast and easy way for creation of client and server applications powered by .Net Framework.
 
 ## Documetation
 | Format | Description | Link |
