@@ -6,7 +6,7 @@ It's the framework that provides a fast and easy way for creation of client and 
 | :---: | --- | :---: |
 | Wiki | Contains a description of logic processes into the framework. | [Link](https://github.com/ElbyFross/doloro-networking-framework/wiki) |
 | API | An online documentation with API overview. | [Link](https://elbyfross.github.io/dnf-docs/) |
-| Local | A repository with generated documentation as could be used offline. | [Link](https://github.com/ElbyFross/dnf-docs) |
+| Local | A repository with generated documentation that could be used offline. | [Link](https://github.com/ElbyFross/dnf-docs) |
 
 ## Support
 The **DNF** is an open source project and it's require your support. 
